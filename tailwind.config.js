@@ -9,6 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    extend: {
+      textColor: {
+        Bluedark: "#15264C",
+      },
+    },
     screens: {
       "2xl": {max: "1535px"},
       // => @media (max-width: 1535px) { ... }
