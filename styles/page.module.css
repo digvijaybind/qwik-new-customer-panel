@@ -15,6 +15,10 @@
   background-color: white;
 }
 
+.contactInfoBg{
+  background-image: linear-gradient( 173deg, #33383E 25%, #fff 25.5%);
+}
+
 @media screen and (max-width:639px) {
   .Top_container{
     width: 95%;
