@@ -1,0 +1,5 @@
+.Shadow {
+  border-radius: 12px;
+  background: var(--Neutrals, #fff);
+  box-shadow: 0px 4px 16px 0px rgba(17, 34, 17, 0.05);
+}

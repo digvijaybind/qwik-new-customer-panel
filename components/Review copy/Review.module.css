@@ -1,0 +1,20 @@
+.Container {
+  box-shadow: 20px 20px rgba(64, 209, 240, 0.4);
+  border-radius: 20px;
+}
+.Container2 {
+  border-radius: 20px;
+  background: var(--Neutrals, #fff);
+  box-shadow: 2px 4px 16px 0px rgba(17, 34, 17, 0.1);
+}
+.Back {
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+}
+@media screen and (max-width: 639px) {
+  .Container {
+    box-shadow: none;
+    margin-bottom: 20px;
+  }
+}

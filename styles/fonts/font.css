@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "MadaRegular";
+  src: url("./Mada/Mada-Regular-400.ttf") format("tff");
+  /* Add additional font formats as needed */
+  font-weight: normal;
+  font-style: normal;
+}
