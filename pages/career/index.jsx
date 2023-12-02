@@ -1,7 +1,7 @@
 const Career = () => {
   return (
     <div className="font-Montserrat">
-      <img src="/images/career-banner.png" className="w-full" alt="banner" />
+      <img src="/images/career-banner.jpg" className="w-full" alt="banner" />
       <div className="flex justify-center">
         <div className="sm:w-full sm:px-10 w-[60%]">
           <h1 className="text-2xl font-bold font-Montserrat my-8">Career</h1>
