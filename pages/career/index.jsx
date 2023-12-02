@@ -3,7 +3,7 @@ const Career = () => {
     <div className="font-Montserrat">
       <img src="/images/career-banner.png" className="w-full" alt="banner" />
       <div className="flex justify-center">
-        <div className="w-[60%]">
+        <div className="sm:w-full sm:px-10 w-[60%]">
           <h1 className="text-2xl font-bold font-Montserrat my-8">Career</h1>
           <form
             className="w-full sm:mb-10 mb-20"
