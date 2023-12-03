@@ -16,7 +16,7 @@ import {useEffect} from "react";
 import {useData} from "../context/DataContext";
 import {useRouter} from "next/router";
 const montesserat = Montserrat({subsets: ["latin"]});
-
+import Helicaptor from "../public/images/helicaptor.svg";
 export default function Home() {
   const router = useRouter();
 
@@ -193,12 +193,29 @@ export default function Home() {
       text: "The Gulfstream IV (or G-IV or GIV) and derivatives are a family of twinjet aircraft, mainly for private or business use. They were designed and built by Gulfstream Aerospace.",
     },
   ];
+  const plane = [
+    {
+      title: "1200",
+      content1: "Life",
+      content2: "Saves",
+    },
+    {
+      title: "50",
+      content1: "Awards",
+      content2: "Gained",
+    },
+    {
+      title: "20",
+      content1: "Years",
+      content2: "Experiences",
+    },
+  ];
   return (
     <main>
       <div>
         <Nav></Nav>
         <Shadow
-          classname={`${styles.Top_container} px-[10px] py-[15px] mt-[-100px]`}
+          classname={`${styles.Top_container} px-[10px] py-[15px] mt-[-100px] relative bottom-[170px]  lg:relative sm:static `}
         >
           <div className="flex items-center">
             <svg
@@ -334,7 +351,7 @@ export default function Home() {
             </div>
           </div>
         </Shadow>
-        <div className="flex sm:flex-col justify-between items-center sm:items-start px-[10%] py-[20px]">
+        {/* <div className="flex sm:flex-col justify-between items-center sm:items-start px-[10%] py-[20px]">
           <div>
             <p className="font-semibold text-[32px] py-[7px]">Top Fleets</p>
             <p>Promoted as the ultimate long-distance air ambulance</p>
@@ -354,8 +371,9 @@ export default function Home() {
             <p>Commercial</p>
             <p>Chartered</p>
           </Shadow>
-        </div>
-        <div className="flex justify-center py-[20px]">
+        </div> */}
+
+        {/* <div className="flex justify-center py-[20px]">
           <div className="flex w-[80%] sm:w-[90%] sm:flex-col justify-between items-stretch flex-wrap">
             {planetypes.map(({no, head, text}) => (
               <Planetype
@@ -365,6 +383,43 @@ export default function Home() {
                 desc={text}
               ></Planetype>
             ))}
+          </div>
+        </div> */}
+        <div class="w-full flex justify-center">
+          <div class="grid grid-cols-3 gap-4 px-[8%]">
+            <div class="">
+              <Image src={Helicaptor} width={512} height={545} />
+            </div>
+            <div class="col-span-2">
+              <div class="flex flex-col">
+                <div class="text-black text-[48px] ">Get to know US More</div>
+                <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
+                  An air ambulance company with give multiple choices of air
+                  ambulance cost which is closest to you, Qwiklif focuses on
+                  giving customer cost effective and safest patient transfer.
+                  Qwiklif is an air ambulance company which has wide network of
+                  aircraft fleet and professional intensivist to airlift the
+                  patient from anywhere in the world safely to the destination.
+                </div>
+                <div class="grid grid-cols-3 gap-0">
+                  {plane.map((item) => {
+                    return (
+                      <div class="flex flex-col">
+                        <div class="text-black font-bold text-[36px]">
+                          {item.title}
+                        </div>
+                        <div class="text-black font-normal text-[24px]">
+                          {item.content1}
+                        </div>
+                        <div class="text-black font-normal text-[24px]">
+                          {item.content2}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex  justify-center">
@@ -398,9 +453,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-row ">
-
-        </div>
+        <div className="flex flex-row "></div>
       </div>
     </main>
   );

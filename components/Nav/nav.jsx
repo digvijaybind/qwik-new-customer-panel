@@ -1,9 +1,17 @@
 import styles from "./nav.module.css";
+import ImageCarousel from "../Imagecarousel/ImageCarousel";
+import Image1 from "../../public/images/banner1.jpg";
+import Image2 from "../../public/images/Airambulance.jpg";
+import Image3 from "../../public/images/Banner4Image.jpg";
+import Image4 from "../../public/images/Banner3image.jpg";
+import Image5 from "../../public/images/banner5.jpg";
+import Image6 from "../../public/images/banner6.jpg";
+const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 const Nav = () => {
   return (
-    <div className={styles.Nav_container}>
-      <div className={`${styles.Nav_first} sm:hidden`}>
+    <div class="mb-70 mt-30">
+      {/* <div className={`${styles.Nav_first} sm:hidden`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -29,13 +37,12 @@ const Nav = () => {
         <p>180012345</p>
       </div>
       <img src="/images/logo.png" alt="logo" />
-      {/* <div className="hidden sm:block">
-        <p>me</p>
-      </div> */}
+    
       <div className={`flex items-center sm:hidden` }>
         <p className={styles.Nav_btnChild1}>Login</p>
         <button className={styles.Nav_btnChild2}>Sign up</button>
-      </div>
+      </div> */}
+      <ImageCarousel images={images} />
     </div>
   );
 };
