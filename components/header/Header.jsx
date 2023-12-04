@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styles from "./Header.module.css";
 import Logo from "../../public/images/logo.svg";
 import Image from "next/image";
+import Link from "next/link";
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -14,13 +15,15 @@ const Header = () => {
         <nav class="bg-white border-gray-200 px-4 lg:px-20 py-2.5 sm:px-4 py-4 md:px-2 py-2">
           <div class="flex justify-between align-baseline pr-50 pl-50 mb-25 mt-15 sm:pr-0 pl-0 md:pr-25 pl-25">
             <div className={styles.headerMangnement}>
-              <Image
-                src={Logo}
-                class="mr-3 h-6 sm:h-9"
-                width={110}
-                height={63}
-                alt="Flowbite Logo"
-              />
+              <Link href="/">
+                <Image
+                  src={Logo}
+                  class="mr-3 h-6 sm:h-9"
+                  width={110}
+                  height={63}
+                  alt="Flowbite Logo"
+                />
+              </Link>
 
               {/* <div class="flex items-center lg:order-2">
               <a
@@ -76,10 +79,17 @@ const Header = () => {
               id="mobile-menu-2"
             >
               <ul class="flex  flex-row mt-4 text-[24px] text-Bluedark cursor-pointer font-medium  lg:flex-row lg:space-x-8 lg:mt-0">
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Home</li>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Company
-                </li>
+                <Link href="/">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                    Home
+                  </li>
+                </Link>
+                <Link href="/about">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                    Company
+                  </li>
+                </Link>
+
                 <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
                   Marketplace
                 </li>
@@ -87,9 +97,11 @@ const Header = () => {
                   Features
                 </li>
                 <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Team</li>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Contact
-                </li>
+                <Link href="/contact-us">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                    Contact
+                  </li>
+                </Link>
               </ul>
             </div>
             <button

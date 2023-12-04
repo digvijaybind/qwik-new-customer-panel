@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./footer.module.css";
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className={styles.container}>
@@ -13,7 +14,9 @@ const Footer = () => {
                 ABOUT QWIKLIF
               </h2>
               <ul class="text-white font-medium cursor-pointer">
-                <li class={`${styles.TextHead}mb-1`}>Company Profile</li>
+                <Link href="/about">
+                  <li class={`${styles.TextHead}mb-1`}>Company Profile</li>
+                </Link>
                 <li class={`${styles.TextHead}mb-1`}>Mission & Vision</li>
                 <li class={`${styles.TextHead}mb-1`}>Milestone</li>
                 <li class={`${styles.TextHead}mb-1`}>Policies</li>
@@ -78,7 +81,9 @@ const Footer = () => {
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
                 <li class={`${styles.Text}mb-1`}>Get in Touch</li>
                 <li class={`${styles.Text}mb-1`}> Get A Quote</li>
-                <li class={`${styles.Text}mb-1`}> Career</li>
+                <Link href="/career">
+                  <li class={`${styles.Text}mb-1`}> Career</li>
+                </Link>
               </ul>
             </div>
           </div>
