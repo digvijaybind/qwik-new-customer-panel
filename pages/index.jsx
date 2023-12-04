@@ -38,8 +38,9 @@ import Popular from "@/components/popular-fleet/Popular";
 import serviceTrain from "../public/images/Servicetraining.svg";
 export default function Home() {
   const router = useRouter();
-
   const [formData, setformData] = useState({});
+  const [fromSearch, setfromSearch] = useState("");
+  const [tosearch, setTosearch] = useState("");
   const [otherData, setOtherData] = useState({
     From: "",
     To: "",
@@ -47,32 +48,79 @@ export default function Home() {
     Date: "",
     Aircraft: "Learjet 45",
   });
-  const {setApiData} = useData();
+
   const [selectedOption, setSelectedOption] = useState("");
-  const [Cities, setCities] = useState({});
+
   const [cityMatch, setCitymatch] = useState([]);
+  const [fieldType, setFieldtype] = useState("");
+  const {loading, startLoading, stopLoading, setApiData} = useData();
+  console.log("fieldType", fieldType);
   useEffect(() => {
-    try {
-      fetch("http://localhost:8000/all-airports")
-        .then((response) => response.json())
-        .then((data) => setCities(data))
-        .catch((err) => console.log(err));
-    } catch (err) {
-      console.log("error", err);
-    }
+    // Simulate an asynchronous task (e.g., fetching user data)
+    const asyncTask = async () => {
+      // Replace this with your actual async logic
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Once the task is done, set loading to false
+      stopLoading();
+    };
+
+    asyncTask();
   }, []);
-  console.log("cities", Cities);
-  const searchCity = (text) => {
-    let matches = Cities.filter((city) => {
-      const regex = new RegExp(`${text}`);
-      return (
-        city.icao.match(regex) ||
-        city.city_name.match(regex) ||
-        city.country_name.match(regex)
+
+  useEffect(() => {
+    document.addEventListener("mouseup", function (e) {
+      console.log("event FIred");
+      let container1 = document.querySelector("#fromAutoComplete");
+      console.log("container1", container1);
+      let container2 = document.querySelector("#toAutoComplete");
+      console.log("container2", container2);
+      console.log(
+        "container1 && !container1?.contains(e.target)",
+        container1 && !container1?.contains(e.target)
       );
+      console.log(
+        "container1?.contains(e.target)",
+        container1?.contains(e.target)
+      );
+      console.log(
+        "container2 && !container2?.contains(e.target)",
+        container2 && !container2?.contains(e.target)
+      );
+      console.log(
+        "container2?.contains(e.target)",
+        container2?.contains(e.target)
+      );
+      console.log(e.target);
+      if (container1 && !container1?.contains(e.target)) {
+        setFieldtype((state) => (state === "From" ? "" : state));
+      }
+      if (container2 && !container2?.contains(e.target)) {
+        setFieldtype((state) => (state === "To" ? "" : state));
+      }
     });
-    setCitymatch(matches);
+  }, []);
+
+  const searchCity = (text) => {
+    console.log("text", text);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}all-airports?q=${text}`)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("result55", result);
+        setCitymatch(result);
+      })
+      .catch((error) => console.log("error", error));
   };
+  console.log("cityMatch", cityMatch);
+  useEffect(() => {
+    let interval = setTimeout(() => {
+      if (fromSearch || tosearch) {
+        searchCity(fieldType === "From" ? fromSearch : tosearch);
+      }
+    }, 500);
+    return () => clearInterval(interval);
+  }, [fromSearch, tosearch]);
+  console.log("cityMatch", cityMatch);
   // useEffect(() => {
   //   handleSubmit();
   // }, [setApiData]);
@@ -119,40 +167,7 @@ export default function Home() {
     // });
   };
   const handleSubmit = async () => {
-    // router.push({
-    //   pathname: "/listing",
-    //   query: "hello",
-    // });
-
     try {
-      // Make a POST request using Axios
-      // const headers = {
-      //   "Content-Type": "application/json",
-      //   Authorization: "Bearer YOUR_ACCESS_TOKEN", // Include authorization token if needed
-      // };
-      // const response = await axios.post(
-      //   `192.168.1.39:8000/customer/customerSearch`,
-
-      //   {
-      //     selectedOption,
-      //     otherData,
-      //     headers,
-      //   }
-      // );
-
-      // Handle success (optional)
-      // console.log("API Response:", response.data);
-      console.log(otherData);
-
-      // const response = await axios.post(
-      //   "http://localhost:8000/customer/customerSearch",
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   },
-      //   otherData
-      // );
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
@@ -164,16 +179,18 @@ export default function Home() {
         body: raw,
         redirect: "follow",
       };
-
-      fetch("http://localhost:8000/customer/customerSearch", requestOptions)
+      startLoading();
+      fetch(
+        process.env.NEXT_PUBLIC_API_URL + "customer/customerSearch",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((result) => {
           setApiData(result);
-          console.log("result.data", result);
+
           router.push("/listing");
         })
         .catch((error) => console.log("error", error));
-      console.log("API Response:", response.data);
     } catch (error) {
       // Handle error
       console.error("Error submitting form:", error.message);
@@ -308,54 +325,125 @@ export default function Home() {
             </svg>
             <p className="p-[10px]">Flights</p>
           </div>
+
           <div className="flex sm:justify-center flex-wrap px-[5%] sm:px-[2%] pt-[40px]">
-            <TextInput
-              className={"w-[200px] sm:w-[100%] mb-[15px] mr-[20px]"}
-              label={"From"}
-              // register={register("From")}
-              value={otherData.From}
-              name="from"
-              onChange={(e) => {
-                handleOtherInputChange("From", e);
-                searchCity(e.target.value);
-              }}
-            ></TextInput>
-            {cityMatch &&
-              cityMatch.map((item, index) => {
-                <div>
-                  <div style={{width: "50%"}} title={`city:{item.name}`}>
-                    city:{item.city_name}
-                  </div>
-                </div>;
-              })}
-            <TextInput
-              className={"w-[100px] sm:w-[100%] mb-[15px]  mr-[20px]"}
-              label={"To"}
-              name="to"
-              value={otherData.To}
-              onChange={(e) => handleOtherInputChange("To", e)}
-              // register={register("To")}
-            ></TextInput>
-            {cityMatch &&
-              cityMatch.map((item, index) => {
-                <div>
-                  <div style={{width: "50%"}} title={`city:{item.name}`}>
-                    city:{item.city_name}
-                  </div>
-                </div>;
-              })}
+            <div
+              style={{position: "relative"}}
+              className=" mb-[15px]  w-[200px] sm:w-[100%]  mr-[20px]"
+            >
+              <TextInput
+                className={"w-[200px] sm:w-[100%]  mr-[20px]"}
+                label={"From"}
+                // register={register("From")}
+                value={otherData.From}
+                name="from"
+                onChange={(e) => {
+                  handleOtherInputChange("From", e);
+                  setFieldtype("From");
+
+                  // searchCity(e.target.value);
+                  setfromSearch(e.currentTarget.value);
+                }}
+              ></TextInput>
+              <div
+                className="absolute overflow-auto z-[100] max-h-[300px]"
+                id="fromAutoComplete"
+              >
+                {fieldType === "From" &&
+                  cityMatch?.length > 0 &&
+                  cityMatch?.map((item, index) => {
+                    return (
+                      <div
+                        className="bg-[#d1d1d1] px-3 py-2"
+                        onClick={() => {
+                          setOtherData((pre) => ({
+                            ...pre,
+                            From: item.icao,
+                          }));
+                          setCitymatch([]);
+                        }}
+                      >
+                        <p className="text-[0.95rem] font-semibold text-blue-900">
+                          {item?.icao}
+                          {item?.iata ? `(${item?.iata})` : null}
+                          {item?.icao || item?.iata ? "," : null} {item?.name}
+                        </p>
+                        <p className="text-[0.7rem]">
+                          {item?.city_name}
+                          {item?.city_name ? "," : null} {item?.country_name}
+                        </p>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+            <div
+              style={{position: "relative"}}
+              className=" mb-[15px]  w-[200px] sm:w-[100%]  mr-[20px]"
+            >
+              <TextInput
+                className={"w-[200px] sm:w-[100%]  mr-[20px]"}
+                label={"To"}
+                name="to"
+                value={otherData.To}
+                onChange={(e) => {
+                  handleOtherInputChange("To", e);
+                  setFieldtype("To");
+                  setTosearch(e.currentTarget.value);
+                }}
+                // register={register("To")}
+              ></TextInput>
+              <div
+                className="absolute overflow-auto z-[100] max-h-[300px]"
+                id="toAutoComplete"
+              >
+                {fieldType === "To" &&
+                  cityMatch?.length > 0 &&
+                  cityMatch?.map((item, index) => {
+                    return (
+                      <div
+                        className="bg-[#d1d1d1] px-3 py-2"
+                        onClick={() => {
+                          setOtherData((pre) => ({
+                            ...pre,
+                            To: item.icao,
+                          }));
+                          setCitymatch([]);
+                        }}
+                      >
+                        <p className="text-[0.95rem] font-semibold text-blue-900">
+                          {item?.icao}
+                          {item?.iata ? `(${item?.iata})` : null}
+                          {item?.icao || item?.iata ? "," : null} {item?.name}
+                        </p>
+                        <p className="text-[0.7rem]">
+                          {item?.city_name}
+                          {item?.city_name ? "," : null} {item?.country_name}
+                        </p>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
             {/* <TextInput
               className={"w-[100px] sm:w-[100%]  mr-[20px] mb-[15px]"}
               label={"Depart"}
 
             ></TextInput> */}
-            <div className="relative  mb-[15px]  w-[200px] sm:w-[100%]  mr-[20px]">
-              <label htmlFor="" className="absolute bg-white top-[-10px]">
+
+            <div
+              // className=" mb-[10px]  w-[200px] sm:w-[100%]  mr-[20px]"
+              className="relative w-[200px] sm:w-[100%]  mr-[20px] mb-15px"
+            >
+              <label
+                htmlFor=""
+                className="absolute top-[-10px] left-[8px] bg-white "
+              >
                 Aircraft
               </label>
               <select
                 // {...register("Aircraft")}
-                className={`${styles.SelectInput}  h-[40px]  outline-0 mb-[15px]  w-[200px] sm:w-[100%]  mr-[20px]`}
+                className={`${styles.SelectInput}  h-[40px]  outline-0 mb-[15px]  w-[200px] sm:w-[100%]  mr-[20px] bg-white `}
                 name="Aircraft"
                 id=""
                 value={otherData.Aircraft}
@@ -468,7 +556,9 @@ export default function Home() {
             </div>
             <div class=" col-span-2 flex items-center pl-28 sm:pl-[0]">
               <div class="flex flex-col">
-                <div class="text-black text-[48px] font-bold">Get to know Us More</div>
+                <div class="text-black text-[48px] font-bold">
+                  Get to know Us More
+                </div>
                 <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
                   An air ambulance company with give multiple choices of air
                   ambulance cost which is closest to you, Qwiklif focuses on
@@ -531,7 +621,7 @@ export default function Home() {
           </div>
         </div> */}
         {/* <div className="flex flex-row "></div> */}
-        <div class="">
+        <div id="services">
           <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
             SERVICES
           </div>
