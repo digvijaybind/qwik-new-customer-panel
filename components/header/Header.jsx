@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Logo from "../../public/images/logo.svg";
 import Image from "next/image";
@@ -11,18 +11,12 @@ const Header = () => {
   };
   return (
     <div>
-      <header>
-        <nav class="bg-white border-gray-200 px-4 lg:px-20 py-2.5 sm:px-4 py-4 md:px-2 py-2">
+      <header className="font-Montserrat">
+        <nav class="bg-white border-gray-200 px-24 sm:px-4 py-4">
           <div class="flex justify-between align-baseline pr-50 pl-50 mb-25 mt-15 sm:pr-0 pl-0 md:pr-25 pl-25">
             <div className={styles.headerMangnement}>
               <Link href="/">
-                <Image
-                  src={Logo}
-                  class="mr-3 h-6 sm:h-9"
-                  width={110}
-                  height={63}
-                  alt="Flowbite Logo"
-                />
+                <img src={"/images/logo.png"} class="mr-3 h-10" alt="Qwiklif Logo" />
               </Link>
 
               {/* <div class="flex items-center lg:order-2">
@@ -78,78 +72,38 @@ const Header = () => {
               class="sm:hidden md:hidden"
               id="mobile-menu-2"
             >
-              <ul class="flex  flex-row mt-4 text-[24px] text-Bluedark cursor-pointer font-medium  lg:flex-row lg:space-x-8 lg:mt-0">
-                <Link href="/">
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Home
-                  </li>
-                </Link>
+              <ul class="flex  flex-row my-4 text-lg uppercase text-Bluedark cursor-pointer font-medium  lg:flex-row lg:space-x-8 lg:mt-0">
                 <Link href="/about">
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Company
-                  </li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">About QWIKLIF</li>
+                </Link>
+                <Link href="/">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Services</li>
                 </Link>
 
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Marketplace
-                </li>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Features
-                </li>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Team</li>
+                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Fleet</li>
+                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Medical</li>
+                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Media</li>
                 <Link href="/contact-us">
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Contact
-                  </li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Contact</li>
                 </Link>
               </ul>
             </div>
-            <button
-              class="hidden sm:block focus:outline-none cursor-pointer"
-              onClick={toggleSidebar}
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
+            <button class="hidden sm:block focus:outline-none cursor-pointer" onClick={toggleSidebar}>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
               </svg>
             </button>
             {/* Sidebar */}
-            <aside
-              className={`bg-white text-white h-screen w-64 fixed left-0 top-0 overflow-y-auto transition-transform transform ${
-                isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-              } md:translate-x-0 md:relative md:static`}
-            >
+            <aside className={`bg-white text-white h-screen w-64 fixed left-0 top-0 overflow-y-auto transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:static`}>
               {/* Sidebar Content */}
               <div className="p-4">
                 <ul class="flex  flex-col align-baseline mt-4 text-[24px] text-Bluedark cursor-pointer font-medium">
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Home
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Company
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Marketplace
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Features
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Team
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Contact
-                  </li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Home</li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Company</li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Marketplace</li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Features</li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Team</li>
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Contact</li>
                 </ul>
                 {/* Add your sidebar links or content here */}
               </div>
