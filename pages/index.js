@@ -26,6 +26,8 @@ import RightButton from "../public/images/RightButton.svg";
 import Bombadier from "../public/images/bombadier.svg";
 import Bombadier1 from "../public/images/bombadier.svg";
 import beechcraft from "../public/images/beechcraft.svg";
+
+import Global from "../public/images/global.svg";
 export default function Home() {
   const router = useRouter();
 
@@ -418,11 +420,11 @@ export default function Home() {
           </div>
         </div> */}
         <div class="w-full flex justify-center mb-[100px]">
-          <div class="grid grid-cols-3 gap-8 px-[8%]">
+          <div class="grid grid-cols-3 gap-8 px-[8%] sm:grid-cols-1 sm:px-[4%] sm:gap-3 ">
             <div class="">
               <Image src={Helicaptor} width={512} height={545} />
             </div>
-            <div class=" col-span-2 flex items-center">
+            <div class=" col-span-2 flex items-center pl-[150px] sm:pl-[0]">
               <div class="flex flex-col">
                 <div class="text-black text-[48px] ">Get to know US More</div>
                 <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
@@ -564,7 +566,7 @@ export default function Home() {
                 />
               </div>
             </div> */}
-            <div class="grid grid-rows-3 grid-flow-col gap-4 mb-[70px]">
+            {/* <div class="grid grid-rows-3 grid-flow-col gap-4 mb-[70px]">
               <div class="row-span-2 bg-cover ...">
                 {" "}
                 <Image src={Bombadier} width={681} height={796} />
@@ -577,7 +579,7 @@ export default function Home() {
                 {" "}
                 <Image src={Bombadier1} width={627} height={100} />
               </div>
-            </div>
+            </div> */}
             {/* flex box approach */}
             {/* <div class="flex flex-row justify-between">
               <div class="">
@@ -603,11 +605,53 @@ export default function Home() {
                 />
               </div>
             </div> */}
-            <div class="flex flex-col justify-center">
-              <div class="flex justify-center text-[#616161] font-extralight text-[48px]">
-                QWIKLIF Global Coverage
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <img
+                  src="/images/bombadier.svg"
+                  style={{height: "300px", width: "100%"}}
+                />
               </div>
-              <div class=""></div>
+              <div class="flex flex-col justify-between ">
+                <img
+                  src="/images/bombadier.svg"
+                  style={{height: "100px", width: "100%"}}
+                />
+                <img
+                  src="/images/bombadier.svg"
+                  style={{height: "100px", width: "100%"}}
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center mt-[100px] mb-[150px]">
+            <div class="flex justify-center text-[#616161] font-extralight text-[48px] sm:text-[24px] mb-[40px]">
+              QWIKLIF Global Coverage
+            </div>
+            <div class="w-full">
+              <Image src={Global} width="100%" height="" />
+            </div>
+          </div>
+          <div class="mt-[40px] mb-[100px]">
+            <div class="flex justify-center text-[#616161] font-bold text-[40px]">
+              Blogs
+            </div>
+            <div class="grid grid-cols-4 px-[8%]">
+              <div class="flex flex-col items-baseline">
+                <div class="w-full h-[250px]">
+                  <Image src={Helicaptor} height={250} />
+                </div>
+                <div class="mt-[10px] mb-[10px] text-[#15264C] font-normal">
+                  Qwiklif Expands..
+                </div>
+                <div class="mb-[10px] mt-[15px] text-[#848484] font-normal text-[15px]">
+                  19 Nov 2023
+                </div>
+                <div class="mb-[30px] text-[#848484] font-normal text-[15px] pr-[15px] mr-[20px]">
+                  At Qwiklif we're committed to elevating healthcare through
+                  swift, top-notch air ambulance services. That's why ...
+                </div>
+              </div>
             </div>
           </div>
         </div>

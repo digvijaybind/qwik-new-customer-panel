@@ -27,7 +27,7 @@ const ImageCarousel = ({images}) => {
               width={1300} // Set the desired width
               height={200}
               objectFit="cover"
-              
+              style={{borderRadius: "60px"}}
             />
           </div>
         </div>
