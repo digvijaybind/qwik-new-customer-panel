@@ -16,7 +16,7 @@ const Header = () => {
           <div class="flex justify-between align-baseline pr-50 pl-50 mb-25 mt-15 sm:pr-0 pl-0 md:pr-25 pl-25">
             <div className={styles.headerMangnement}>
               <Link href="/">
-                <img src={"/images/logo.png"} class="mr-3 h-10" alt="Qwiklif Logo" />
+                <img src={"/images/logo.png"} class="mr-3 sm:h-8 h-10" alt="Qwiklif Logo" />
               </Link>
 
               {/* <div class="flex items-center lg:order-2">
