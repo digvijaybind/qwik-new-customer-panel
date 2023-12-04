@@ -23,6 +23,11 @@
   background: #40D1F0;
   font-weight: 600;
 }
+.popularFleetBg{
+  background-image: url("/images/cloud-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
 @media screen and (max-width:639px) {
   .Top_container{
