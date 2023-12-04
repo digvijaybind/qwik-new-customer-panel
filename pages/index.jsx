@@ -535,7 +535,7 @@ export default function Home() {
           <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
             SERVICES
           </div>
-          <div class="grid gap-4 grid-cols-4 mb-[30px] mt-[20px] sm:grid-cols-1">
+          <div class="grid gap-4 grid-cols-3 px-28 mb-[30px] mt-[20px] sm:grid-cols-1">
             {/* {services.length > 0 &&
               services.map((item, index) => {
                 return (
