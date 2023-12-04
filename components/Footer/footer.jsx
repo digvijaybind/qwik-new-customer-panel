@@ -38,9 +38,15 @@ const Footer = () => {
                 FLEET
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li class={`${styles.Text}mb-1`}>Challenger 605</li>
-                <li class={`${styles.Text}mb-1`}>Learjet 45 XR</li>
-                <li class={`${styles.Text}mb-1`}>Beecraft B200</li>
+                <Link href="/fleet/Challenger-605">
+                  <li class={`${styles.Text}mb-1`}>Challenger 605</li>
+                </Link>
+                <Link href="/fleet/Learjet">
+                  <li class={`${styles.Text}mb-1`}>Learjet 45 XR</li>
+                </Link>
+                <Link href="/fleet/Beechcraft-B200">
+                  <li class={`${styles.Text}mb-1`}>Beecraft B200</li>
+                </Link>
               </ul>
             </div>
             <div>
