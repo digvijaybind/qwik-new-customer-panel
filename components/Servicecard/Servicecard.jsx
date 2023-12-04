@@ -3,11 +3,15 @@ import styles from "./Servicecard.module.css";
 import Image from "next/image";
 const Servicecard = ({title, descriaption, bgColor, imageUrl}) => {
   return (
-    <div className={`flex flex-col justify-start ${bgColor}`}>
-      <div class="text-white font-normal text-[24px]"> {title}</div>
-      <div class="text-white font-thin text-[15px]">{descriaption}</div>
-      <div>
-        <Image src={imageUrl} width={337} height={314} />
+    <div
+      class={`px-[20px] py-[30px] flex flex-col justify-start ${styles[bgColor]}`}
+    >
+      <div class="text-[#fff] font-normal text-[24px] mb-[30px]">{title}</div>
+      <div class="flex flex-wrap text-[#fff] text-[15px] font-normal mb-[30px]">
+        {descriaption}
+      </div>
+      <div class="w-full">
+        <Image src={imageUrl} height={314} class="w-full" />
       </div>
     </div>
   );

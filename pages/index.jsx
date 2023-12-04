@@ -35,7 +35,7 @@ import newEarn from "../public/images/newsEarn.svg";
 import newHelipcator from "../public/images/newshelicaptor.svg";
 import newOnline from "../public/images/newsOnline.svg";
 import Popular from "@/components/popular-fleet/Popular";
-
+import serviceTrain from "../public/images/Servicetraining.svg";
 export default function Home() {
   const router = useRouter();
 
@@ -535,7 +535,7 @@ export default function Home() {
           <div class="flex justify-center text-[#616161] font-extrabold text-[48px] mb-[80px]">
             SERVICES
           </div>
-          <div class="grid  grid-cols-4 ">
+          <div class="grid  grid-cols-4 mb-[30px] mt-[20px] sm:grid-cols-1">
             {/* {services.length > 0 &&
               services.map((item, index) => {
                 return (
@@ -549,7 +549,31 @@ export default function Home() {
                   </div>
                 );
               })} */}
-            <div class=""></div>
+            {services.map((item, index) => {
+              return (
+                <div key={index}>
+                  <Servicecard
+                    title={item.title}
+                    descriaption={item.descriaption}
+                    imageUrl={item.image}
+                    bgColor="blue"
+                  />
+                </div>
+              );
+            })}
+            <div class="px-[20px] py-[30px] flex flex-col justify-start bg-[#3CB3CC]">
+              <div class="text-[#fff] font-normal text-[24px] mb-[30px]">
+                TRAINING
+              </div>
+              <div class="flex flex-wrap text-[#fff] text-[15px] font-normal mb-[30px]">
+                On Site practical training with top notch equipment and
+                technology paired with outstanding skillset and expertise makes
+                Redstar Aviation’s training program like no other.
+              </div>
+              <div class="w-full">
+                <Image src={serviceTrain} height={314} class="w-full" />
+              </div>
+            </div>
           </div>
           <div class="flex flex-col px-[8%]">
             {/* <div class="flex justify-between items-center">
@@ -680,10 +704,10 @@ export default function Home() {
             </div>
           </div>
           <div class="mt-[40px] mb-[100px]">
-            <div class="flex justify-center text-[#616161] font-bold text-[40px]">
+            <div class="flex justify-center text-[#616161] font-bold text-[40px] mb-[30px]">
               Blogs
             </div>
-            <div class="grid grid-cols-4 gap-10 px-[8%]">
+            <div class="grid grid-cols-4 gap-10 px-[8%] sm:grid-cols-1">
               {Blogs.length > 0 &&
                 Blogs.map((item, index) => {
                   return (
