@@ -17,6 +17,15 @@ import {useData} from "../context/DataContext";
 import {useRouter} from "next/router";
 const montesserat = Montserrat({subsets: ["latin"]});
 import Helicaptor from "../public/images/helicaptor.svg";
+import Servicecard from "@/components/Servicecard/Servicecard";
+import Training from "../public/images/training.svg";
+import MRO from "../public/images/mro.svg";
+import Aviation from "../public/images/aviation.svg";
+import LeftButton from "../public/images/LeftButton.svg";
+import RightButton from "../public/images/RightButton.svg";
+import Bombadier from "../public/images/bombadier.svg";
+import Bombadier1 from "../public/images/bombadier.svg";
+import beechcraft from "../public/images/beechcraft.svg";
 export default function Home() {
   const router = useRouter();
 
@@ -210,6 +219,29 @@ export default function Home() {
       content2: "Experiences",
     },
   ];
+  const services = [
+    {
+      title: "TRAINING",
+      descriaption:
+        "On Site practical training with top notch equipment and technology paired with outstanding skillset and expertise makes Redstar Aviation’s training program like no other.",
+      color: "#3CB3CC",
+      image: Training,
+    },
+    {
+      title: "AVIATION",
+      descriaption:
+        "The number one choice for Business Travel, Redstar Aviation is a one-stop solution for all matters in the Air. With a global reach and the most qualified staff, Redstar Aviation goes above and beyond for every mission.",
+      color: "#D93838",
+      image: Aviation,
+    },
+    {
+      title: "MRO SERVICES",
+      descriaption:
+        "A renowned provider and global market leader, Redstar Aviation offers its top-notch MRO services, assuring quality in maintenance, design and production as well as the parts supply.",
+      color: "#3CB3CC",
+      image: MRO,
+    },
+  ];
   return (
     <main>
       <div>
@@ -385,12 +417,12 @@ export default function Home() {
             ))}
           </div>
         </div> */}
-        <div class="w-full flex justify-center">
-          <div class="grid grid-cols-3 gap-4 px-[8%]">
+        <div class="w-full flex justify-center mb-[100px]">
+          <div class="grid grid-cols-3 gap-8 px-[8%]">
             <div class="">
               <Image src={Helicaptor} width={512} height={545} />
             </div>
-            <div class="col-span-2">
+            <div class=" col-span-2 flex items-center">
               <div class="flex flex-col">
                 <div class="text-black text-[48px] ">Get to know US More</div>
                 <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
@@ -422,10 +454,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex  justify-center">
+        {/* <div className="flex  justify-center">
           <img className="w-[80%]" src="/images/bigplane.png" alt="" />
-        </div>
-        <div className="flex sm:flex-col justify-between items-center sm:items-start px-[10%] pb-[20px]">
+        </div> */}
+        {/* <div className="flex sm:flex-col justify-between items-center sm:items-start px-[10%] pb-[20px]">
           <div>
             <p className="font-semibold text-[32px] py-[7px]">Reviews</p>
             <p>What people says about Qwiklif facilities</p>
@@ -440,8 +472,9 @@ export default function Home() {
           <Review></Review>
           <Review></Review>
           <Review></Review>
-        </div>
-        <div className="flex justify-end px-[10%] mb-[30px]">
+        </div> */}
+
+        {/* <div className="flex justify-end px-[10%] mb-[30px]">
           <div className="flex items-center px-[20px] py-[5px] rounded-[30px] bg-[#40D1F0]">
             <img
               className="w-[64px] pl-[10px]"
@@ -452,8 +485,132 @@ export default function Home() {
               How can we help you?
             </p>
           </div>
+        </div> */}
+        {/* <div className="flex flex-row "></div> */}
+        <div class="">
+          <div class="flex justify-center text-[#616161] font-extrabold text-[48px] mb-[80px]">
+            SERVICES
+          </div>
+          <div class="grid  lg:grid-cols-4 sm:grid-cols-1">
+            {services.map((item, index) => {
+              <div key={index}>
+                <Servicecard
+                  title={item.title}
+                  descriaption={item.descriaption}
+                  bgColor={item.color}
+                  imageUrl={item.image}
+                />
+              </div>;
+            })}
+          </div>
+          <div class="flex flex-col px-[8%]">
+            <div class="flex justify-between items-center">
+              <span class="text-black font-bold text-[48px]">
+                Popular Fleets <br />
+                Right Now
+              </span>
+              <div class="grid grid-cols-2 gap-4 cursor-pointer">
+                <Image src={LeftButton} width={79} height={72} />
+                <Image src={RightButton} width={79} heifght={72} />
+              </div>
+            </div>
+            {/* <div class="grid grid-cols-2 gap-4">
+              <Image
+                objectFit="cover"
+                src={Bombadier}
+                width={681}
+                height={796}
+              />
+              <div class="grid grid-rows-2 gap-4">
+                <Image
+                  objectFit="cover"
+                  src={Bombadier1}
+                  width={627}
+                  height={376}
+                />
+                <Image
+                  objectFit="cover"
+                  src={beechcraft}
+                  width={627}
+                  height={376}
+                />
+              </div>
+            </div> */}
+            {/* <div class="grid grid-rows-3 grid-flow-col gap-4">
+              <div class="row-span-3 ...">
+                {" "}
+                <Image
+                  objectFit="cover"
+                  src={Bombadier}
+                  width={681}
+                  height={796}
+                />
+              </div>
+              <div class="col-span-2 ...">
+                {" "}
+                <Image
+                  objectFit="cover"
+                  src={Bombadier1}
+                  width={627}
+                  height={376}
+                />
+              </div>
+              <div class="row-span-2 col-span-2 ...">
+                <Image
+                  objectFit="cover"
+                  src={beechcraft}
+                  width={627}
+                  height={376}
+                />
+              </div>
+            </div> */}
+            <div class="grid grid-rows-3 grid-flow-col gap-4 mb-[70px]">
+              <div class="row-span-2 bg-cover ...">
+                {" "}
+                <Image src={Bombadier} width={681} height={796} />
+              </div>
+              <div class="col-span-1...">
+                {" "}
+                <Image src={Bombadier1} width={627} height={100} />
+              </div>
+              <div class="col-span-1...">
+                {" "}
+                <Image src={Bombadier1} width={627} height={100} />
+              </div>
+            </div>
+            {/* flex box approach */}
+            {/* <div class="flex flex-row justify-between">
+              <div class="">
+                <Image
+                  objectFit="cover"
+                  src={Bombadier}
+                  width={681}
+                  height={796}
+                />
+              </div>
+              <div class="flex flex-col justify-between">
+                <Image
+                  objectFit="cover"
+                  src={Bombadier1}
+                  width={627}
+                  height={376}
+                />
+                <Image
+                  objectFit="cover"
+                  src={beechcraft}
+                  width={627}
+                  height={376}
+                />
+              </div>
+            </div> */}
+            <div class="flex flex-col justify-center">
+              <div class="flex justify-center text-[#616161] font-extralight text-[48px]">
+                QWIKLIF Global Coverage
+              </div>
+              <div class=""></div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-row "></div>
       </div>
     </main>
   );
