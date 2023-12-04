@@ -2,17 +2,17 @@ import {Shadow} from "../Utils/utils";
 import {Checkbox} from "@mui/material";
 const Planedesc = ({price, name, time, speed}) => {
   return (
-    <div className="w-[48%] sm:w-[100%] mb-[15px] ">
+    <div className="w-[48%] sm:w-[100%] mb-8">
       <Shadow classname={"flex sm:flex-col   items-start p-[15px]"}>
         <img
           className="mr-[10px] sm:w-full sm:mb-[20px]"
           src="/images/desc1.png"
           alt=""
         />
-        <div className="w-full">
+        <div className="w-full pr-4">
           <div className="flex justify-between items-center">
             <p className="font-bold">{`${name}`}</p>
-            <p className="text-[#FF8682] font-bold">₹{price}</p>
+            <p className="text-[#FF8682] font-bold text">₹{price}</p>
           </div>
           <div className="flex text-[14px] py-[10px] justify-between items-start">
             <div className="flex items-start">
@@ -26,15 +26,15 @@ const Planedesc = ({price, name, time, speed}) => {
             </div>
             <p className="font-[600]">non-stop</p>
             <div>
-              <p className="font-[600]">{time}</p>
-              <p>EWR - BNA</p>
+              <p className="font-[600] text-end">{time}</p>
+              <p className="text-[#A0A7A0] font-semibold">EWR - BNA</p>
             </div>
           </div>
           <div className="flex text-[12px] font-[600] justify-between">
             <p>{`Cruising Speed : ${speed} Km/Hr`}</p>
             <p>Cruising Altitude : 40,000</p>
           </div>
-          <div className="flex text-[12px] py-[10px]">
+          <div className="flex text-[12px] py-[10px] font-medium border-b mb-4 pb-4">
             <p className="mr-[10px]">Included Perks:</p>
             <ul>
               <li>Doctor onboard✅</li>
