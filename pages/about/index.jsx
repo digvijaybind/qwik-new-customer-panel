@@ -54,7 +54,7 @@ const About = () => {
                 care and service when it matters most. We understand that
                 medical emergencies can be overwhelming, and when every second
                 counts, you need a reliable partner to transport your loved ones
-                swiftly and safely. That's where we come in.
+                swiftly and safely. That&apos;s where we come in.
               </p>
             </>
           )}
@@ -77,15 +77,15 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">Milestones</h2>
               <p className="text-sm">
                 The Qwiklif Difference What sets Qwiklif apart from the rest?
-                It's our unwavering commitment to excellence, our extensive
+                It&apos;s our unwavering commitment to excellence, our extensive
                 global network, and our dedication to affordability. 1. Largest
                 Global Network: We take pride in being the largest air ambulance
                 provider with a vast network of aircraft spanning across the
-                globe. Whether you're in a bustling metropolis or a remote
+                globe. Whether you&apos;re in a bustling metropolis or a remote
                 corner of the world, we can reach you and get you to where you
                 need to be. 2. Swift Response: Time is of the essence in
                 critical medical situations. Our team is on standby 24/7, ready
-                to respond to your call at a moment's notice. We understand the
+                to respond to your call at a moment&apos;s notice. We understand the
                 urgency of your situation, and we act accordingly. 3. Top-Notch
                 Medical Expertise: Our medical teams consist of highly skilled
                 professionals with vast experience in critical care. We provide
@@ -120,14 +120,14 @@ const About = () => {
                 Global Reach: Our extensive global network enables us to assist
                 patients from any corner of the world. We believe that distance
                 should never be an obstacle to receiving the best medical care.
-                - Affordability: We're dedicated to making air ambulance
+                - Affordability: We&apos;re dedicated to making air ambulance
                 services accessible to all by offering competitive pricing
                 without compromising on quality. Your Trusted Air Ambulance
                 Partner Qwiklif is more than just an air ambulance company. We
                 are your trusted partner during the most challenging times. We
                 are committed to redefining air ambulance services by providing
                 unmatched quality, affordability, and global reach. When you
-                choose Qwiklif, you're choosing excellence in medical
+                choose Qwiklif, you&apos;re choosing excellence in medical
                 transportation. Contact us today to learn more about our
                 services and how we can assist you during a medical emergency.
                 Qwiklif is here to provide the care and support you need when it

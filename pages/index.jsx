@@ -354,6 +354,7 @@ export default function Home() {
                   cityMatch?.map((item, index) => {
                     return (
                       <div
+                      key={index+"city-match-item"}
                         className="bg-[#d1d1d1] px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
@@ -402,6 +403,7 @@ export default function Home() {
                   cityMatch?.map((item, index) => {
                     return (
                       <div
+                      key={index+"city-match-item"}
                         className="bg-[#d1d1d1] px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
@@ -568,9 +570,9 @@ export default function Home() {
                   patient from anywhere in the world safely to the destination.
                 </div>
                 <div class="grid grid-cols-3 gap-0">
-                  {plane.map((item) => {
+                  {plane.map((item, index) => {
                     return (
-                      <div class="flex flex-col">
+                      <div class="flex flex-col" key={index+"plane-item"}>
                         <div class="text-black font-bold text-[36px]">
                           {item.title}
                         </div>
