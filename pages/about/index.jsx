@@ -50,11 +50,31 @@ const About = () => {
                 Company Profile
               </h2>
               <p className="text-sm">
-                At Qwiklif, we are dedicated to providing the highest level of
-                care and service when it matters most. We understand that
-                medical emergencies can be overwhelming, and when every second
-                counts, you need a reliable partner to transport your loved ones
-                swiftly and safely. That&apos;s where we come in.
+                About Qwiklif: An air ambulance company with give multiple
+                choices of air ambulance cost which is closest to you, Qwiklif
+                focuses on giving customer cost effective and safest patient
+                transfer. Qwiklif is an air ambulance company which has wide
+                network of aircraft fleet and professional intensivist to
+                airlift the patient from anywhere in the world safely to the
+                destination. Our Services 1. Dedicated air ambulance service:
+                Fully equipped dedicated charter aircraft with stretcher
+                configuration an best for patient transfer, We have largest
+                network of air ambulance across the world to give you the best
+                air ambulance cost - aircraft with ql image 2. Commercial
+                Airline stretcher transfer Transferring patient in commercial
+                airline is another best and cost effective option Commercial
+                airline patient transfer works only if the patient is less on 4L
+                of oxygen support - whatsapp 3. International Patient transfer
+                Qwiklif offers International patient transfer service by
+                dedicated air ambulance as well as commercial stretcher, Qwiklif
+                takes care of all the documentation process for smooth transfer
+                of patient. - 4. ECMO Initiation and Air Transfer: Qwiklif
+                Expert ECMO team, Initiate ECMO,stabilises patient and then
+                transfer the patient on ECMO using air ambulance across the
+                world 5. Neonatal and pediatric Air Transfer Qwiklif neonatal
+                team excels in transferring critical babies from one place to
+                another using dedicated air ambulance with advance medical
+                equipments on board
               </p>
             </>
           )}
@@ -85,20 +105,20 @@ const About = () => {
                 corner of the world, we can reach you and get you to where you
                 need to be. 2. Swift Response: Time is of the essence in
                 critical medical situations. Our team is on standby 24/7, ready
-                to respond to your call at a moment&apos;s notice. We understand the
-                urgency of your situation, and we act accordingly. 3. Top-Notch
-                Medical Expertise: Our medical teams consist of highly skilled
-                professionals with vast experience in critical care. We provide
-                comprehensive in-flight medical care to ensure the safety and
-                well-being of our patients. 4. Cutting-Edge Aircraft: Qwiklif
-                only utilizes state-of-the-art aircraft equipped with the latest
-                medical technology. We spare no expense in making sure that our
-                patients receive the best care possible during their journey. 5.
-                Affordability:We understand the financial strain that medical
-                emergencies can cause. Qwiklif is committed to offering the most
-                competitive pricing in the industry. We believe that every
-                individual should have access to premium air ambulance services
-                without the burden of excessive costs.
+                to respond to your call at a moment&apos;s notice. We understand
+                the urgency of your situation, and we act accordingly. 3.
+                Top-Notch Medical Expertise: Our medical teams consist of highly
+                skilled professionals with vast experience in critical care. We
+                provide comprehensive in-flight medical care to ensure the
+                safety and well-being of our patients. 4. Cutting-Edge Aircraft:
+                Qwiklif only utilizes state-of-the-art aircraft equipped with
+                the latest medical technology. We spare no expense in making
+                sure that our patients receive the best care possible during
+                their journey. 5. Affordability:We understand the financial
+                strain that medical emergencies can cause. Qwiklif is committed
+                to offering the most competitive pricing in the industry. We
+                believe that every individual should have access to premium air
+                ambulance services without the burden of excessive costs.
               </p>
             </>
           )}
