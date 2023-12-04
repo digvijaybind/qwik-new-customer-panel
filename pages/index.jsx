@@ -561,7 +561,7 @@ export default function Home() {
                 </div>
               );
             })}
-            <div class="px-[20px] py-[30px] flex flex-col justify-start bg-[#3CB3CC]">
+            {/* <div class="px-[20px] py-[30px] flex flex-col justify-start bg-[#3CB3CC]">
               <div class="text-[#fff] font-normal text-[24px] mb-[30px]">
                 TRAINING
               </div>
@@ -573,7 +573,7 @@ export default function Home() {
               <div class="w-full">
                 <Image src={serviceTrain} height={314} class="w-full" />
               </div>
-            </div>
+            </div> */}
           </div>
           <div class="flex flex-col px-[8%]">
             {/* <div class="flex justify-between items-center">
@@ -676,24 +676,6 @@ export default function Home() {
                 />
               </div>
             </div> */}
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <img
-                  src="/images/bombadier.svg"
-                  style={{height: "300px", width: "100%"}}
-                />
-              </div>
-              <div class="flex flex-col justify-between ">
-                <img
-                  src="/images/bombadier.svg"
-                  style={{height: "100px", width: "100%"}}
-                />
-                <img
-                  src="/images/bombadier.svg"
-                  style={{height: "100px", width: "100%"}}
-                />
-              </div>
-            </div>
           </div>
           <div class="flex flex-col justify-center mt-[100px] mb-[150px]">
             <div class="flex justify-center text-[#616161] font-extralight text-[48px] sm:text-[24px] mb-[40px]">
