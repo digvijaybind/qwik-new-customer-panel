@@ -291,7 +291,7 @@ export default function Home() {
       <div class="font-Montserrat">
         <Nav></Nav>
         <Shadow
-          classname={`${styles.Top_container} px-[10px] py-[15px] mt-[-100px] relative bottom-[170px]  lg:relative sm:static `}
+          classname={`${styles.Top_container} px-[10px] py-[15px] mt-[-100px] relative bottom-[170px]  lg:relative sm:static drop-shadow-xl`}
         >
           <div className="flex items-center">
             <svg
@@ -466,9 +466,9 @@ export default function Home() {
             <div class="">
               <Image src={Helicaptor} width={512} height={545} />
             </div>
-            <div class=" col-span-2 flex items-center pl-[150px] sm:pl-[0]">
+            <div class=" col-span-2 flex items-center pl-28 sm:pl-[0]">
               <div class="flex flex-col">
-                <div class="text-black text-[48px] ">Get to know US More</div>
+                <div class="text-black text-[48px] font-bold">Get to know Us More</div>
                 <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
                   An air ambulance company with give multiple choices of air
                   ambulance cost which is closest to you, Qwiklif focuses on
@@ -532,10 +532,10 @@ export default function Home() {
         </div> */}
         {/* <div className="flex flex-row "></div> */}
         <div class="">
-          <div class="flex justify-center text-[#616161] font-extrabold text-[48px] mb-[80px]">
+          <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
             SERVICES
           </div>
-          <div class="grid  grid-cols-4 mb-[30px] mt-[20px] sm:grid-cols-1">
+          <div class="grid gap-4 grid-cols-4 mb-[30px] mt-[20px] sm:grid-cols-1">
             {/* {services.length > 0 &&
               services.map((item, index) => {
                 return (
@@ -556,7 +556,7 @@ export default function Home() {
                     title={item.title}
                     descriaption={item.descriaption}
                     imageUrl={item.image}
-                    bgColor="blue"
+                    index={index}
                   />
                 </div>
               );
@@ -678,7 +678,7 @@ export default function Home() {
             </div> */}
           </div>
           <div class="flex flex-col justify-center mt-[100px] mb-[150px]">
-            <div class="flex justify-center text-[#616161] font-extralight text-[48px] sm:text-[24px] mb-[40px]">
+            <div class="flex justify-center text-[#8a8a8a] font-extralight text-[48px] sm:text-[24px] mb-[40px] font-medium">
               QWIKLIF Global Coverage
             </div>
             <div class="w-full">
