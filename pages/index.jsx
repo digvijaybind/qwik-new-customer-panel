@@ -10,8 +10,7 @@ import {TextInput, DateInput} from "../components/Form/input";
 import {useState} from "react";
 import {Shadow} from "../components/Utils/utils";
 
-import {useForm} from "react-hook-form";
-import axios from "axios";
+
 import {useEffect} from "react";
 import {useData} from "../context/DataContext";
 import {useRouter} from "next/router";
@@ -21,11 +20,7 @@ import Servicecard from "@/components/Servicecard/Servicecard";
 import Training from "../public/images/training.svg";
 import MRO from "../public/images/mro.svg";
 import Aviation from "../public/images/aviation.svg";
-import LeftButton from "../public/images/LeftButton.svg";
-import RightButton from "../public/images/RightButton.svg";
-import Bombadier from "../public/images/bombadier.svg";
-import Bombadier1 from "../public/images/bombadier.svg";
-import beechcraft from "../public/images/beechcraft.svg";
+
 
 import Global from "../public/images/global.jpg";
 import JoinMailingList from "@/components/JoinMailingList/JoinMailingList";
