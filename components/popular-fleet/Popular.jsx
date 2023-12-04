@@ -4,7 +4,7 @@ const Popular = () => {
   return (
     <div>
       <div className="flex justify-between">
-        <h2 className="text-3xl font-bold sm:mb-5">
+        <h2 className="text-3xl font-bold mb-5">
           Popular Fleets <br />
           Right Now
         </h2>
