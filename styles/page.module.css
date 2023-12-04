@@ -19,6 +19,11 @@
   background-image: linear-gradient( 173deg, #33383E 25%, #fff 25.5%);
 }
 
+.aboutPageMenuActive{
+  background: #40D1F0;
+  font-weight: 600;
+}
+
 @media screen and (max-width:639px) {
   .Top_container{
     width: 95%;
