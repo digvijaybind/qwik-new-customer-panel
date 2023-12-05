@@ -271,7 +271,7 @@ export default function Home() {
     {
       title: "Neonatal and pediatric Air Transfer",
       descriaption:
-        "Qwiklif neonatal team excels in transferring critical babies from one place to another using dedicated air ambulance with advance medical equipments on board. patients require specialized medical care ",
+        "Qwiklif neonatal team excels in transferring critical babies from one place to another using dedicated air ambulance with advance medical equipments on board.  specialized medical care ",
       color: "#3CB3CC",
       image: Helicaptor,
     },
