@@ -51,20 +51,30 @@ const Footer = () => {
             </div>
             <div>
               <h2 class="mb-3 text-sm font-semibold text-white uppercase dark:text-white cursor-pointer">
-                Legal
+                Location's
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li class="mb-1">Privacy Policy</li>
-                <li>Terms &amp; Conditions</li>
+                <li class="mb-1">Air ambulance in delhi</li>
+                <li class="mb-1">Air ambulance in dubai</li>
+                <li class="mb-1">Air ambulance in USA</li>
+                <li class="mb-1">Air ambulance in UK</li>
+                <li class="mb-1">Air ambulance in London</li>
+                <li class="mb-1">Air ambulance in Kenya</li>
+                <li class="mb-1">Air ambulance in Nairobi</li>
               </ul>
             </div>
             <div>
               <h2 class="mb-3 text-sm font-semibold text-white uppercase dark:text-white">
-                MEDICAL
+                Location's
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li class={`${styles.Text}mb-1`}>Medical Team</li>
-                <li class={`${styles.Text}mb-1`}>Medical Equipment</li>
+                <li class="mb-1">Air ambulance in Australia</li>
+                <li class="mb-1">Air ambulance in Toronto</li>
+                <li class="mb-1">Air ambulance in California</li>
+                <li class="mb-1">Air ambulance in Africa</li>
+                <li class="mb-1">Air ambulance in Bangkok</li>
+                <li class="mb-1">Air ambulance in Singapore</li>
+                <li class="mb-1">Air ambulance in Mumbai</li>
               </ul>
             </div>
             <div>
