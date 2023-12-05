@@ -10,7 +10,6 @@ import {TextInput, DateInput} from "../components/Form/input";
 import {useState} from "react";
 import {Shadow} from "../components/Utils/utils";
 
-
 import {useEffect} from "react";
 import {useData} from "../context/DataContext";
 import {useRouter} from "next/router";
@@ -20,7 +19,6 @@ import Servicecard from "@/components/Servicecard/Servicecard";
 import Training from "../public/images/training.svg";
 import MRO from "../public/images/mro.svg";
 import Aviation from "../public/images/aviation.svg";
-
 
 import Global from "../public/images/global.jpg";
 import JoinMailingList from "@/components/JoinMailingList/JoinMailingList";
@@ -245,21 +243,21 @@ export default function Home() {
     {
       title: "TRAINING",
       descriaption:
-        "On Site practical training with top notch equipment and technology paired with outstanding skillset and expertise makes Redstar Aviation’s training program like no other.",
+        "On Site practical training with top notch equipment and technology paired with outstanding skillset and expertise makes Qwiklif ’s training program like no other.",
       color: "#3CB3CC",
       image: Training,
     },
     {
       title: "AVIATION",
       descriaption:
-        "The number one choice for Business Travel, Redstar Aviation is a one-stop solution for all matters in the Air. With a global reach and the most qualified staff, Redstar Aviation goes above and beyond for every mission.",
+        "The number one choice for Business Travel, Qwiklif  is a one-stop solution for all matters in the Air. With a global reach and the most qualified staff, Qwiklif  goes above and beyond for every mission.",
       color: "#D93838",
       image: Aviation,
     },
     {
       title: "MRO SERVICES",
       descriaption:
-        "A renowned provider and global market leader, Redstar Aviation offers its top-notch MRO services, assuring quality in maintenance, design and production as well as the parts supply.",
+        "A renowned provider and global market leader, Qwiklif  offers its top-notch MRO services, assuring quality in maintenance, design and production as well as the parts supply.",
       color: "#3CB3CC",
       image: MRO,
     },
@@ -349,7 +347,7 @@ export default function Home() {
                   cityMatch?.map((item, index) => {
                     return (
                       <div
-                      key={index+"city-match-item"}
+                        key={index + "city-match-item"}
                         className="bg-[#d1d1d1] px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
@@ -398,7 +396,7 @@ export default function Home() {
                   cityMatch?.map((item, index) => {
                     return (
                       <div
-                      key={index+"city-match-item"}
+                        key={index + "city-match-item"}
                         className="bg-[#d1d1d1] px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
@@ -567,7 +565,7 @@ export default function Home() {
                 <div class="grid grid-cols-3 gap-0">
                   {plane.map((item, index) => {
                     return (
-                      <div class="flex flex-col" key={index+"plane-item"}>
+                      <div class="flex flex-col" key={index + "plane-item"}>
                         <div class="text-black font-bold text-[36px]">
                           {item.title}
                         </div>
@@ -655,7 +653,7 @@ export default function Home() {
               <div class="flex flex-wrap text-[#fff] text-[15px] font-normal mb-[30px]">
                 On Site practical training with top notch equipment and
                 technology paired with outstanding skillset and expertise makes
-                Redstar Aviation’s training program like no other.
+                Qwiklif ’s training program like no other.
               </div>
               <div class="w-full">
                 <Image src={serviceTrain} height={314} class="w-full" />

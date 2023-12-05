@@ -45,7 +45,7 @@ const About = () => {
         </div>
         <div className="w-3/4 sm:pl-0 pl-12">
           {activeTab === 1 && (
-            <>
+            <div id="company_profile">
               <h2 className="font-bold text-xl uppercase mb-4">
                 Company Profile
               </h2>
@@ -77,10 +77,10 @@ const About = () => {
                 transferring critical babies from one place to another using
                 dedicated air ambulance with advance medical equipments on board
               </p>
-            </>
+            </div>
           )}
           {activeTab === 2 && (
-            <>
+            <div id="mission">
               <h2 className="font-bold text-xl uppercase mb-4">
                 Mission and Vision
               </h2>
@@ -91,10 +91,10 @@ const About = () => {
                 a passion for saving lives and ensuring that all patients
                 receive the highest standard of care during their journey.
               </p>
-            </>
+            </div>
           )}
           {activeTab === 3 && (
-            <>
+            <div id="mmilestone">
               <h2 className="font-bold text-xl uppercase mb-4">Milestones</h2>
               <p className="text-sm">
                 The Qwiklif Difference What sets Qwiklif apart from the rest?
@@ -125,10 +125,10 @@ const About = () => {
                 We believe that every individual should have access to premium
                 air ambulance services without the burden of excessive costs.
               </p>
-            </>
+            </div>
           )}
           {activeTab === 4 && (
-            <>
+            <div id="policies">
               <h2 className="font-bold text-xl uppercase mb-4">Policies</h2>
               <p className="text-sm">
                 Qwiklif is founded on a set of core values that guide our every
@@ -162,7 +162,7 @@ const About = () => {
                 when it matters most. Your safety and well-being are our top
                 priorities.
               </p>
-            </>
+            </div>
           )}
         </div>
       </div>
