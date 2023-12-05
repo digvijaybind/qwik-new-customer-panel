@@ -241,23 +241,37 @@ export default function Home() {
   ];
   const services = [
     {
-      title: "TRAINING",
+      title: "Dedicated air ambulance service",
       descriaption:
-        "On Site practical training with top notch equipment and technology paired with outstanding skillset and expertise makes Qwiklif ’s training program like no other.",
+        "Fully equipped dedicated charter aircraft with stretcher configuration an best for patient transfer, We have largest network of air ambulance across the world to give you the best air ambulance cost - aircraft with ql image",
       color: "#3CB3CC",
       image: Training,
     },
     {
-      title: "AVIATION",
+      title: "Commercial Airline stretcher transfer",
       descriaption:
-        "The number one choice for Business Travel, Qwiklif  is a one-stop solution for all matters in the Air. With a global reach and the most qualified staff, Qwiklif  goes above and beyond for every mission.",
+        "Transferring patient in commercial airline is another best and cost effective optionCommercial airline patient transfer works only if the patient is less on 4L of oxygen support  - whatsapp",
       color: "#D93838",
       image: Aviation,
     },
     {
-      title: "MRO SERVICES",
+      title: " International Patient transfer",
       descriaption:
-        "A renowned provider and global market leader, Qwiklif  offers its top-notch MRO services, assuring quality in maintenance, design and production as well as the parts supply.",
+        "Qwiklif offers International patient transfer service by dedicated air ambulance as well as   commercial stretcher, Qwiklif takes care of all the documentation process for smooth transfer of patient. quick deployment, ensuring a rapid response to medical emergencies.",
+      color: "#3CB3CC",
+      image: MRO,
+    },
+    {
+      title: " ECMO Initiation and Air Transfer",
+      descriaption:
+        "Qwiklif Expert ECMO team, Initiate ECMO,stabilises patient and then transfer the patient on ECMO using air ambulance across  world.life-saving intervention for patients whose heart or lungs are severely compromised,Patients with acute",
+      color: "#3CB3CC",
+      image: MRO,
+    },
+    {
+      title: "Neonatal and pediatric Air Transfer",
+      descriaption:
+        "Qwiklif neonatal team excels in transferring critical babies from one place to another using dedicated air ambulance with advance medical equipments on board. patients require specialized medical care ",
       color: "#3CB3CC",
       image: MRO,
     },
@@ -620,7 +634,7 @@ export default function Home() {
           <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
             SERVICES
           </div>
-          <div class="grid gap-4 grid-cols-3 px-28 mb-[30px] mt-[20px] sm:grid-cols-1">
+          <div class="grid gap-4 grid-cols-5 px-28 mb-[30px] mt-[20px] sm:grid-cols-1">
             {/* {services.length > 0 &&
               services.map((item, index) => {
                 return (
