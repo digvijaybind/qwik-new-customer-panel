@@ -266,14 +266,14 @@ export default function Home() {
       descriaption:
         "Qwiklif Expert ECMO team, Initiate ECMO,stabilises patient and then transfer the patient on ECMO using air ambulance across  world.life-saving intervention for patients whose heart or lungs are severely compromised,Patients with acute",
       color: "#3CB3CC",
-      image: MRO,
+      image: serviceTrain,
     },
     {
       title: "Neonatal and pediatric Air Transfer",
       descriaption:
         "Qwiklif neonatal team excels in transferring critical babies from one place to another using dedicated air ambulance with advance medical equipments on board. patients require specialized medical care ",
       color: "#3CB3CC",
-      image: MRO,
+      image: Helicaptor,
     },
   ];
   const Blogs = [
