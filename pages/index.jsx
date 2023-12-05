@@ -766,8 +766,13 @@ export default function Home() {
             <div class="flex justify-center text-[#8a8a8a] font-extralight text-[48px] sm:text-[24px] mb-[40px] font-medium">
               QWIKLIF Global Coverage
             </div>
-            <div class="w-full">
-              <Image src={Global} width="100%" height="" />
+            <div class="w-full xl:w-full 2xl:w-full">
+              <Image
+                src={Global}
+                width="100%"
+                height=""
+                class="w-full xl:w-full 2xl:w-full"
+              />
             </div>
           </div>
           <div class="mt-[40px] mb-[100px]">

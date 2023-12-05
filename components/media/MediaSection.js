@@ -15,7 +15,7 @@ const MediaSection = () => {
     },
     // Add more media items as needed
   ];
-
+chr
   return (
     <div className="container mx-auto mt-10">
       <h2 className="text-3xl font-bold mb-6">Media Section</h2>
