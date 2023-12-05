@@ -1,0 +1,14 @@
+/* styles/ImageComponent.module.css */
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.1); /* You can adjust the scale factor for your desired effect */
+}

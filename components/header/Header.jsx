@@ -95,7 +95,11 @@ const Header = () => {
                 <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
                   Medical
                 </li>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">Media</li>
+                <Link href="/media">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                    Media
+                  </li>
+                </Link>
                 <Link href="/contact-us">
                   <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
                     Contact
