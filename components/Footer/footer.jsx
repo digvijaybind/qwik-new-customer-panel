@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
             <div>
               <h2 class="mb-3 text-sm font-semibold text-white uppercase dark:text-white cursor-pointer">
-                Location's
+                Locations
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
                 <li class="mb-1">Air ambulance in delhi</li>
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
             <div>
               <h2 class="mb-3 text-sm font-semibold text-white uppercase dark:text-white">
-                Location's
+                Locations
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
                 <li class="mb-1">Air ambulance in Australia</li>
