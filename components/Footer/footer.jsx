@@ -54,13 +54,13 @@ const Footer = () => {
                 Locations
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li class="mb-1">Air ambulance in delhi</li>
-                <li class="mb-1">Air ambulance in dubai</li>
-                <li class="mb-1">Air ambulance in USA</li>
-                <li class="mb-1">Air ambulance in UK</li>
-                <li class="mb-1">Air ambulance in London</li>
-                <li class="mb-1">Air ambulance in Kenya</li>
-                <li class="mb-1">Air ambulance in Nairobi</li>
+                <li class="mb-1">Air Ambulance in UAE</li>
+                <li class="mb-1">Air Ambulance in Saudi Arabia</li>
+                <li class="mb-1">Air Ambulance in Qatar A</li>
+                <li class="mb-1">Air Ambulance in Oman</li>
+                <li class="mb-1">Air Ambulance in Kuwait</li>
+                <li class="mb-1">Air Ambulance in Israel</li>
+                <li class="mb-1">Air Ambulance in India</li>
               </ul>
             </div>
             <div>
@@ -68,13 +68,13 @@ const Footer = () => {
                 Locations
               </h2>
               <ul class="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li class="mb-1">Air ambulance in Australia</li>
-                <li class="mb-1">Air ambulance in Toronto</li>
-                <li class="mb-1">Air ambulance in California</li>
-                <li class="mb-1">Air ambulance in Africa</li>
-                <li class="mb-1">Air ambulance in Bangkok</li>
-                <li class="mb-1">Air ambulance in Singapore</li>
-                <li class="mb-1">Air ambulance in Mumbai</li>
+                <li class="mb-1">Air Ambulance in California</li>
+                <li class="mb-1">Air Ambulance in Washington</li>
+                <li class="mb-1">Air Ambulance in Canada</li>
+                <li class="mb-1">Air Ambulance in Swedan</li>
+                <li class="mb-1">Air Ambulance in France</li>
+                <li class="mb-1">Air Ambulance in Singapore</li>
+                <li class="mb-1">Air Ambulance in New Zealand</li>
               </ul>
             </div>
             <div>
