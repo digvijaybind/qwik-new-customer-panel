@@ -362,7 +362,7 @@ export default function Home() {
                     return (
                       <div
                         key={index + "city-match-item"}
-                        className="bg-[#d1d1d1] px-3 py-2"
+                        className="bg-[#E6F7FF] hover:#B3E0FF px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
                             ...pre,
