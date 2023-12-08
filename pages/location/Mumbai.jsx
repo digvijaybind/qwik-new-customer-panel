@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const Mumbai = () => {
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center animate-bgColorChange">
       <Head>
         <title>Air Ambulance Services in Delhi | Your Company Name</title>
         <meta
@@ -32,12 +32,12 @@ const Mumbai = () => {
         <meta name="twitter:image" content="/path/to/your/meta-image.jpg" />
       </Head>
 
-      <div className="max-w-2xl bg-white p-8 rounded-md shadow-md">
-        <h1 className="text-3xl font-bold mb-6">
+      <div className="flex justify-center flex-col text-white animate-fadeIn">
+        <h1 className="text-4xl font-semibold mb-6">
           Air Ambulance Services in Delhi
         </h1>
 
-        <p className="mb-4">
+        <p className="text-lg mb-4">
           When emergencies strike, quick and efficient medical transportation is
           crucial. Discover reliable air ambulance services in Delhi providing
           expert care and rapid response for critical patient transfers.
