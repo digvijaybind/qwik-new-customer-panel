@@ -789,7 +789,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div class="mt-[40px] mb-[100px]">
+          {/* <div class="mt-[40px] mb-[100px]">
             <div class="flex justify-center text-[#616161] font-bold text-[40px] mb-[30px]">
               Blogs
             </div>
@@ -812,7 +812,7 @@ export default function Home() {
             <div class="px-[8%]">
               <JoinMailingList />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
