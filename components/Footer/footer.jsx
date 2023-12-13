@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <footer className={styles.container}>
+    <footer class={`font-Montserrat ${styles.container}`}>
       <div class="mx-auto w-full max-w-screen-xl pb-12 px-10 py-10 lg:py-8 ">
         <div class="md:flex md:justify-around">
           <div class="grid grid-cols-7 gap-3 sm:gap-3 sm:grid-cols-1">
