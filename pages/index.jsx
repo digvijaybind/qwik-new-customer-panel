@@ -322,7 +322,7 @@ export default function Home() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 500,
+    autoplaySpeed: 1000,
     beforeChange: (current, next) => setCurrentIndex(next),
   };
 
