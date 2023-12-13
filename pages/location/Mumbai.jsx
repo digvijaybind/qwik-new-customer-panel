@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const Mumbai = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center animate-bgColorChange">
+    <div className="font-Montserrat bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center animate-bgColorChange">
       <Head>
         <title>Air Ambulance Services in Delhi | Your Company Name</title>
         <meta

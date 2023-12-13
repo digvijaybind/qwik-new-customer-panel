@@ -322,8 +322,22 @@ export default function Home() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     beforeChange: (current, next) => setCurrentIndex(next),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   useEffect(() => {
@@ -591,7 +605,7 @@ export default function Home() {
                 <div class="text-black text-[48px] font-bold">
                   Get to know Us More
                 </div>
-                <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] ">
+                <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] sm:pr-[0px]">
                   An air ambulance company with give multiple choices of air
                   ambulance cost which is closest to you, Qwiklif focuses on
                   giving customer cost effective and safest patient transfer.
