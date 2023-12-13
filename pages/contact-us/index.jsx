@@ -79,12 +79,12 @@ const ContactUs = () => {
             <div className="flex-1">
               <p className="text-xl font-semibold">Our Location</p>
               <p className="text-xl font-semibold mb-3">Headquarters</p>
-              <p className="text-md font-semibold text-[#848383]">
+              <p className="text-md font-semibold text-[#848383] cursor-pointer">
                 First floor, Warehouse no. 3, Aujan Interiors, Al Qusais
                 Industrial area 3, Al Qusais, Dubai, U.A.E. P.O. Box: 98261
               </p>
               <p className="text-xl font-semibold mt-5 mb-3">Hanger Premise</p>
-              <p className="text-md font-semibold text-[#848383]">
+              <p className="text-md font-semibold text-[#848383] cursor-pointer">
                 First floor, Warehouse no. 3, Aujan Interiors, Al Qusais
                 Industrial area 3, Al Qusais, Dubai, U.A.E. P.O. Box: 98261
               </p>
@@ -97,7 +97,9 @@ const ContactUs = () => {
               </span>
             </div>
             <div className="flex-1 text-black">
-              <p className="text-xl font-semibold">Tel: +971552087745</p>
+              <p className="text-xl font-semibold cursor-pointer">
+                <a href="tel:+971552087745">+971552087745</a>
+              </p>
             </div>
           </div>
           <div className="flex bg-[#33383E] sm:px-5 px-10 py-10">
@@ -108,11 +110,11 @@ const ContactUs = () => {
             </div>
             <div className="flex-1">
               <p className="text-xl font-semibold">Email us Now</p>
-              <p className="text-md font-semibold text-[#848383]">
-                sales@qwiklif.com
+              <p className="text-md font-semibold text-[#848383] cursor-pointer">
+                <a href="mailto:sales@qwiklif.com">sales@qwiklif.com</a>
               </p>
-              <p className="text-md font-semibold text-[#848383]">
-                qwiklif@qwiklif.com
+              <p className="text-md font-semibold text-[#848383] cursor-pointer">
+                <a href="mailto: qwiklif@qwiklif.com">qwiklif@qwiklif.com</a>
               </p>
             </div>
           </div>
