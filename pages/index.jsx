@@ -29,6 +29,10 @@ import newHelipcator from "../public/images/newshelicaptor.svg";
 import newOnline from "../public/images/newsOnline.svg";
 import Popular from "@/components/popular-fleet/Popular";
 import serviceTrain from "../public/images/Servicetraining.svg";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default function Home() {
   const router = useRouter();
   const [formData, setformData] = useState({});
@@ -43,10 +47,11 @@ export default function Home() {
   });
 
   const [selectedOption, setSelectedOption] = useState("");
-
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [cityMatch, setCitymatch] = useState([]);
   const [fieldType, setFieldtype] = useState("");
   const {loading, startLoading, stopLoading, setApiData} = useData();
+
   console.log("fieldType", fieldType);
   useEffect(() => {
     // Simulate an asynchronous task (e.g., fetching user data)
@@ -310,6 +315,24 @@ export default function Home() {
       buttontitle: "Read More",
     },
   ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    beforeChange: (current, next) => setCurrentIndex(next),
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
+    }, 3000); // Adjust the interval as needed
+
+    return () => clearInterval(interval);
+  }, [services]);
   return (
     <main>
       <div class="font-Montserrat">
@@ -411,7 +434,7 @@ export default function Home() {
                     return (
                       <div
                         key={index + "city-match-item"}
-                        className="bg-[#d1d1d1] px-3 py-2"
+                        className="bg-[#E6F7FF] hover:#B3E0FF px-3 py-2"
                         onClick={() => {
                           setOtherData((pre) => ({
                             ...pre,
@@ -634,7 +657,7 @@ export default function Home() {
           <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
             SERVICES
           </div>
-          <div class="grid gap-4 grid-cols-5 px-28 mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5">
+          <div class="">
             {/* {services.length > 0 &&
               services.map((item, index) => {
                 return (
@@ -648,18 +671,7 @@ export default function Home() {
                   </div>
                 );
               })} */}
-            {services.map((item, index) => {
-              return (
-                <div key={index}>
-                  <Servicecard
-                    title={item.title}
-                    descriaption={item.descriaption}
-                    imageUrl={item.image}
-                    index={index}
-                  />
-                </div>
-              );
-            })}
+
             {/* <div class="px-[20px] py-[30px] flex flex-col justify-start bg-[#3CB3CC]">
               <div class="text-[#fff] font-normal text-[24px] mb-[30px]">
                 TRAINING
@@ -673,6 +685,24 @@ export default function Home() {
                 <Image src={serviceTrain} height={314} class="w-full" />
               </div>
             </div> */}
+
+            <Slider {...settings}>
+              {services.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    class="grid gap-4 grid-cols-3 px-20 mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                  >
+                    <Servicecard
+                      title={item.title}
+                      descriaption={item.descriaption}
+                      imageUrl={item.image}
+                      index={index}
+                    />
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
           <div class="flex flex-col px-[8%]">
             {/* <div class="flex justify-between items-center">
@@ -777,7 +807,7 @@ export default function Home() {
             </div> */}
           </div>
           <div class="flex flex-col justify-center mt-[100px] mb-[150px]">
-            <div class="flex justify-center text-[#8a8a8a] font-extralight text-[48px] sm:text-[24px] mb-[40px] font-medium">
+            <div class="flex justify-center text-[#8a8a8a] font-extralight text-[48px] sm:text-[24px] mb-[40px] font-[xx-large]">
               QWIKLIF Global Coverage
             </div>
             <div class="w-full xl:w-full 2xl:w-full">
