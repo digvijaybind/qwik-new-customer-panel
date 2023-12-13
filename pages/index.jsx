@@ -603,13 +603,13 @@ export default function Home() {
                   {plane.map((item, index) => {
                     return (
                       <div class="flex flex-col" key={index + "plane-item"}>
-                        <div class="text-black font-bold text-[36px]">
+                        <div class="text-black font-extrabold text-[36px]">
                           {item.title}
                         </div>
-                        <div class="text-black font-normal text-[24px]">
+                        <div class="text-black font-normal text-[18px]">
                           {item.content1}
                         </div>
-                        <div class="text-black font-normal text-[24px]">
+                        <div class="text-black font-normal text-[18px]">
                           {item.content2}
                         </div>
                       </div>
