@@ -24,10 +24,10 @@ const ImageCarousel = ({images}) => {
             <Image
               src={imageUrl}
               alt={`Slide ${index + 1}`}
-              width={1300} // Set the desired width
+              width={1900} // Set the desired width
               height={200}
               objectFit="cover"
-              style={{borderRadius: "60px"}}
+              // style={{borderRadius: "60px"}}
             />
           </div>
         </div>
