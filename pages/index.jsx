@@ -248,7 +248,7 @@ export default function Home() {
     {
       title: "Dedicated air ambulance service",
       descriaption:
-        "Fully equipped dedicated charter aircraft with stretcher configuration an best for patient transfer, We have largest network of air ambulance across the world to give you the best air ambulance cost - aircraft with ql image",
+        "Fully equipped dedicated charter aircraft with stretcher configuration an best for patient transfer, We have largest network of air ambulance across the world to give you the best air ambulance cost .",
       color: "#3CB3CC",
       image: Training,
     },

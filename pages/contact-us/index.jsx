@@ -9,7 +9,7 @@ const ContactUs = () => {
         className="w-full"
         alt="banner"
       />
-      <div className="flex sm:flex-col flex-row sm:px-10 px-36 sm:mt-2 mt-16">
+      <div className="flex sm:flex-col flex-row sm:px-1 px-36 sm:mt-2 mt-16">
         <div className="flex flex-col sm:w-full w-3/5 sm:px-2 px-24">
           <h1 className="text-2xl font-bold font-Montserrat my-8">
             Get in Touch

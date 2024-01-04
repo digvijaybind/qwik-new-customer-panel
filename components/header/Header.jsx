@@ -136,24 +136,36 @@ const Header = () => {
               {/* Sidebar Content */}
               <div className="p-4">
                 <ul class="flex  flex-col align-baseline mt-4 text-[24px] text-Bluedark cursor-pointer font-medium">
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Home
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Company
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Marketplace
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Features
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Team
-                  </li>
-                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    Contact
-                  </li>
+                  <Link href="/">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Home
+                    </li>
+                  </Link>
+                  <Link href="/about">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Company
+                    </li>
+                  </Link>
+                  <Link href="">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Marketplace
+                    </li>
+                  </Link>
+                  <Link href="">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Features
+                    </li>
+                  </Link>
+                  <Link href="">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Team
+                    </li>
+                  </Link>
+                  <Link href="/contact-us">
+                    <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                      Contact
+                    </li>
+                  </Link>
                 </ul>
                 {/* Add your sidebar links or content here */}
               </div>
