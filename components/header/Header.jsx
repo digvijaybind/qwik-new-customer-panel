@@ -128,6 +128,7 @@ const Header = () => {
             </button>
             {/* Sidebar */}
             <aside
+              style={{zIndex: 100000}}
               className={`bg-white text-white h-screen w-64 fixed left-0 top-0 overflow-y-auto transition-transform transform ${
                 isSidebarOpen ? "translate-x-0" : "-translate-x-full"
               } md:translate-x-0 md:relative md:static`}

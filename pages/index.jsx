@@ -595,25 +595,34 @@ export default function Home() {
             ))}
           </div>
         </div> */}
-        <div class="w-full flex justify-center mb-[100px]">
-          <div class="grid grid-cols-3 gap-8 px-[8%] sm:grid-cols-1 sm:px-[4%] sm:gap-3 ">
+        <div class="w-full flex justify-center mb-[100px] sm:mb-[10px]">
+          <div class="grid grid-cols-3 gap-8 px-[8%] sm:grid-cols-1 sm:px-[4%] sm:gap-3 sm:mb-[50px]">
             <div class="">
-              <Image src={Helicaptor} width={512} height={545} />
+              <Image
+                src={Helicaptor}
+                width={512}
+                // height={545}
+                style={{height: "100%"}}
+              />
             </div>
             <div class=" col-span-2 flex items-center pl-28 sm:pl-[0]">
               <div class="flex flex-col">
-                <div class="text-black text-[48px] font-bold">
-                  Get to know Us More
+                <div class="text-black text-[48px] font-bold sm:text-center">
+                  Care Above, Speed Beyond
                 </div>
                 <div class="text-gray text-[18px] mb-[30px] mt-[30px] pr-[100px] sm:pr-[0px]">
-                  An air ambulance company with give multiple choices of air
-                  ambulance cost which is closest to you, Qwiklif focuses on
-                  giving customer cost effective and safest patient transfer.
-                  Qwiklif is an air ambulance company which has wide network of
-                  aircraft fleet and professional intensivist to airlift the
-                  patient from anywhere in the world safely to the destination.
+                  QwikLif Air Ambulance Dubai is your trusted partner for urgent
+                  International Air Ambulance Transportation in Dubai. With a
+                  dedicated team of skilled professionals and state-of-the-art
+                  aircraft, we specialize in swift and safe medical transfers.
+                  Our mission is simple: to provide best air ambulance services,
+                  delivering critical care and support when every moment counts.
+                  We prioritize patient well-being, ensuring comfort and the
+                  highest standards of medical care throughout the journey. At
+                  QwikLif Air Ambulance, we stand committed to being your
+                  reliable lifeline in times of medical emergencies.
                 </div>
-                <div class="grid grid-cols-3 gap-0">
+                {/* <div class="grid grid-cols-3 gap-0">
                   {plane.map((item, index) => {
                     return (
                       <div class="flex flex-col" key={index + "plane-item"}>
@@ -629,7 +638,7 @@ export default function Home() {
                       </div>
                     );
                   })}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -668,7 +677,7 @@ export default function Home() {
         </div> */}
         {/* <div className="flex flex-row "></div> */}
         <div id="services">
-          <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px]">
+          <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px] sm:mb-[10px]">
             SERVICES
           </div>
           <div class="">
