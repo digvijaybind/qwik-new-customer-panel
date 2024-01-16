@@ -25,7 +25,7 @@ const Listing = () => {
     return result;
   };
   return (
-    <div className="font-Montserrat">
+    <div className="font-poppins">
       <Shadow
         classname={`mt-[20px] w-[90%] p-[20px] flex flex-wrap ml-[50%] transform translate-x-[-50%] items-center`}
       >

@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <div>
-      <header className="font-Montserrat">
+      <header className="font-poppins">
         <nav class="bg-white border-gray-200 px-24 sm:px-4 py-4">
           <div class="flex justify-between align-baseline pr-50 pl-50 mb-25 mt-15 sm:pr-0 pl-0 md:pr-25 pl-25">
             <div className={styles.headerMangnement}>

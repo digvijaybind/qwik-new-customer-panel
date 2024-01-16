@@ -4,7 +4,7 @@ const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <div className="font-Montserrat">
+    <div className="font-poppins">
       <img src="/images/about-banner.jpg" className="w-full" />
       <div className="flex px-32 py-16">
         <div className="w-1/4">

@@ -2,7 +2,7 @@ import JoinMailingList from "@/components/JoinMailingList/JoinMailingList";
 
 const Learjet = () => {
   return (
-    <div className="font-Montserrat">
+    <div className="font-poppins">
       <img src="/images/learjet.jpg" alt="Challenger 605" className="w-full" />
       <h1 className="text-2xl font-bold uppercase text-center mt-12 mb-8">
         Learjet

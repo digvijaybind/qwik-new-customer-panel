@@ -2,7 +2,7 @@ import JoinMailingList from "@/components/JoinMailingList/JoinMailingList";
 
 const BeechcraftB200 = () => {
   return (
-    <div className="font-Montserrat">
+    <div className="font-poppins">
       <img
         src="/images/beechcraft-b200.jpg"
         alt="Challenger 605"

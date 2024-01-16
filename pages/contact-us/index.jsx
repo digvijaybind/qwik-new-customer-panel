@@ -6,7 +6,7 @@ const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="font-Montserrat">
+    <div className="font-poppins">
       <img
         Q36
         src="/images/contact-us-banne/r.jpg"
