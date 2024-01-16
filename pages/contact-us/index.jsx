@@ -1,11 +1,15 @@
 import JoinMailingList from "@/components/JoinMailingList/JoinMailingList";
 import styles from "../../styles/page.module.css";
+import {useState} from "react";
 
 const ContactUs = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="font-Montserrat">
       <img
-        src="/images/contact-us-banner.jpg"
+        Q36
+        src="/images/contact-us-banne/r.jpg"
         className="w-full"
         alt="banner"
       />

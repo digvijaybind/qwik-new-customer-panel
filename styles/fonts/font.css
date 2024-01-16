@@ -1,6 +1,20 @@
 @font-face {
-  font-family: "MadaRegular";
-  src: url("./Mada/Mada-Regular-400.ttf") format("tff");
+  font-family: "PoppinsRegular";
+  src: url("./poppins/Poppins-Regular.ttf") format("tff");
+  /* Add additional font formats as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PoppinsBold";
+  src: url("./poppins/Poppins-Bold.ttf") format("tff");
+  /* Add additional font formats as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PoppinsSemiBold";
+  src: url("./poppins/Poppins-SemiBold.ttf") format("tff");
   /* Add additional font formats as needed */
   font-weight: normal;
   font-style: normal;

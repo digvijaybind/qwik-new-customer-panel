@@ -93,7 +93,7 @@ const Header = () => {
                   </li>
                 </Link>
                 <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Medical
+                  Our Location's
                 </li>
                 <Link href="/media">
                   <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
