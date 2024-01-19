@@ -1,11 +1,11 @@
 import styles from "./nav.module.css";
 import ImageCarousel from "../Imagecarousel/ImageCarousel";
-import Image1 from "../../public/images/banner1.jpg";
-import Image2 from "../../public/images/Airambulance.jpg";
-import Image3 from "../../public/images/Banner4Image.jpg";
-import Image4 from "../../public/images/Banner3image.jpg";
-import Image5 from "../../public/images/banner5.jpg";
-import Image6 from "../../public/images/banner6.jpg";
+import Image1 from "../../public/images/qwiklif1.jpg";
+import Image2 from "../../public/images/qwiklif2.jpg";
+import Image3 from "../../public/images/qwiklif3.jpg";
+import Image4 from "../../public/images/qwiklif4.jpg";
+import Image5 from "../../public/images/qwiklif5.jpg";
+import Image6 from "../../public/images/qwiklif6.jpg";
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 const Nav = () => {

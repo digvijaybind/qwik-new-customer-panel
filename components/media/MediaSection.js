@@ -12,6 +12,17 @@ import machine from "../../public/images/media/machine.jpg";
 import airpatience from "../../public/images/media/airpatience.jpg";
 import strectre from "../../public/images/media/strectre.jpg";
 import human from "../../public/images/media/human.jpg";
+import qwiklif1 from "../../public/images/qwiklif1.jpg";
+import qwiklif2 from "../../public/images/qwiklif2.jpg";
+import qwiklif3 from "../../public/images/qwiklif3.jpg";
+import qwiklif4 from "../../public/images/qwiklif4.jpg";
+import qwiklif5 from "../../public/images/qwiklif5.jpg";
+import qwiklif6 from "../../public/images/qwiklif6.jpg";
+import qwiklif7 from "../../public/images/qwiklif7.jpg";
+import qwiklif8 from "../../public/images/qwiklif8.jpg";
+import qwiklif9 from "../../public/images/qwiklif9.jpg";
+import qwiklif10 from "../../public/images/qwiklif10.jpg";
+import qwiklifimage3 from "../../public/images/qwiklifimage3.jpg";
 
 import styles from "./MediaSection.module.css";
 import Image from "next/image";
@@ -87,7 +98,62 @@ const MediaSection = () => {
       description: "Description for human",
       thumbnail: human,
     },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif1,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif2,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif3,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif4,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif5,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif6,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif7,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif8,
+    },
 
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif9,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklif10,
+    },
+    {
+      title: "Air ambulance",
+      description: "Description for Air ambulance",
+      thumbnail: qwiklifimage3,
+    },
     // Add more media items as needed
   ];
 

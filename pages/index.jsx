@@ -31,8 +31,7 @@ import Popular from "@/components/popular-fleet/Popular";
 import serviceTrain from "../public/images/Servicetraining.svg";
 import Slider from "react-slick";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 export default function Home() {
   const router = useRouter();
   const [formData, setformData] = useState({});

@@ -11,7 +11,7 @@ const Footer = () => {
               <h2
                 class={`${styles.headline} mb-3 text-sm font-semibold text-white uppercase dark:text-white`}
               >
-                ABOUT QWIKLIF
+                ABOUT Us
               </h2>
               <ul class="text-white font-medium cursor-pointer">
                 <Link href="/about">
@@ -20,6 +20,9 @@ const Footer = () => {
                 <li class={`${styles.TextHead}mb-1`}>Mission & Vision</li>
                 <li class={`${styles.TextHead}mb-1`}>Milestone</li>
                 <li class={`${styles.TextHead}mb-1`}>Policies</li>
+                <Link href="/blogs">
+                  <li class={`${styles.TextHead}mb-1`}>Our Blogs</li>
+                </Link>
               </ul>
             </div>
             <div>

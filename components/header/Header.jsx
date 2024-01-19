@@ -79,7 +79,7 @@ const Header = () => {
               <ul class="flex  flex-row my-4 text-lg uppercase text-Bluedark cursor-pointer font-medium  lg:flex-row lg:space-x-8 lg:mt-0">
                 <Link href="/about">
                   <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                    About QWIKLIF
+                    About US
                   </li>
                 </Link>
                 <a href="#services">
@@ -92,9 +92,11 @@ const Header = () => {
                     Fleet
                   </li>
                 </Link>
-                <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
-                  Our Location's
-                </li>
+                <Link href="/location">
+                  <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
+                    Our Location
+                  </li>
+                </Link>
                 <Link href="/media">
                   <li class="block py-2 pr-4 pl-3  hover:text-gray-300">
                     Media

@@ -19,3 +19,10 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "LatoRegular";
+  src: url("./lato/Lato-Regular.ttf") format("tff");
+  /* Add additional font formats as needed */
+  font-weight: normal;
+  font-style: normal;
+}

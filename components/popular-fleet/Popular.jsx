@@ -14,7 +14,7 @@ const Popular = () => {
               <path d="M17.04 19L9.3852 12L17.04 5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
-          <button className="bg-[#40D1F0] px-3 py-3 h-fit rounded-md">
+          <button className="bg-[#7ab7c5] px-3 py-3 h-fit rounded-md">
             <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.80469 5L17.4595 12L9.80469 19" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
