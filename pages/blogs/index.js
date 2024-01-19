@@ -1,21 +1,31 @@
 import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
 import Nav from "@/components/Nav/nav";
-import {BlogsCard} from "@/components/blog/BlogsCard";
+import { BlogsCard } from "@/components/blog/BlogsCard";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
-const Blogs = ({data}) => {
+import axios from "axios";
+import Link from "next/link";
+const Blogs = ({ data }) => {
+  const [allPosts, setAllPosts] = useState([]);
+
+  useEffect(() => {
+    axios({
+      url: "https://dev.a2zqr.com/wp-json/wp/v2/posts?_embed",
+      method: "GET",
+    })
+      .then(({ data }) => {
+        console.log(data);
+        setAllPosts(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
-      {/* <Nav></Nav> */}
-      {/* <BlogsCard /> */}
-      <Image
-        src={LandingImage}
-        // sizes="100vw"
-        style={{width: "100%", height: "430px"}}
-        // height={150}
-        alt="Picture of the author"
-      />
+      <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
       <div className="px-5 font-lato">
         <div className="justify-center">
           <div className="text-[64px] text-center font-lppato  text-{#000000} mb-5 mt-5 ">
@@ -26,18 +36,25 @@ const Blogs = ({data}) => {
           <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2">
-          {/* <BlogsCard /> */}
-          {/* {data.length > 0 &&
-            data.map((item) => {
+        <div className="grid grid-cols-3 gap-8 mb-3">
+          {allPosts?.length > 0 &&
+            allPosts?.map((item, index) => {
               return (
-                <div>
-                  <BlogsCard title={item.title} date={item.date} />
+                <div key={"blog-post-" + index} className="rounded-md drop-shadow-md bg-white p-5">
+                  <img
+                    src={
+                      item?._embedded["wp:featuredmedia"]?.length > 0
+                        ? item?._embedded["wp:featuredmedia"][0]?.source_url
+                        : ""
+                    }
+                  />
+                  <Link href={`blogs/${item?.slug}`} className="font-semibold text-lg">
+                    {item?.title?.rendered}
+                  </Link>
+                  <div dangerouslySetInnerHTML={{ __html: item?.excerpt?.rendered || "" }}></div>
                 </div>
               );
-            })} */}
-          <h1> this is blogs </h1>
-          {/* <BlogsCard /> */}
+            })}
         </div>
       </div>
     </div>
@@ -52,5 +69,5 @@ export async function getServerSideProps() {
   const data = await res.json();
 
   // Pass data to the page via props
-  return {props: {data}};
+  return { props: { data } };
 }
