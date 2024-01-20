@@ -1,20 +1,24 @@
 import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
 import Nav from "@/components/Nav/nav";
-import {BlogsCard} from "@/components/blog/BlogsCard";
+import { BlogsCard } from "@/components/blog/BlogsCard";
 import Image from "next/image";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
 import axios from "axios";
 import Link from "next/link";
-const Blogs = ({data}) => {
+const Blogs = ({ data }) => {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
     axios({
-      url: "https://dev.a2zqr.com/wp-json/wp/v2/posts?_embed",
+      url: "https://dev.a2zqr.com/wp-json/wp/v2/posts",
       method: "GET",
+      params: {
+        _embed: "true",
+        per_page: 100,
+      },
     })
-      .then(({data}) => {
+      .then(({ data }) => {
         console.log(data);
         setAllPosts(data);
       })
@@ -26,11 +30,7 @@ const Blogs = ({data}) => {
   return (
     <div className="px-50">
       {/* console.log("allPosts",allPosts) */}
-      <Image
-        src={LandingImage}
-        alt="Picture of the author"
-        className="h-[430px] w-full"
-      />
+      <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
       <div className="px-5 font-lato">
         <div className="justify-center">
           <div className="text-[64px] text-center font-lato  text-{#000000} mb-5 mt-5 ">
@@ -45,10 +45,7 @@ const Blogs = ({data}) => {
           {allPosts?.length > 0 &&
             allPosts?.map((item, index) => {
               return (
-                <div
-                  key={"blog-post-" + index}
-                  className="rounded-md drop-shadow-md bg-white p-5"
-                >
+                <div key={"blog-post-" + index} className="rounded-md drop-shadow-md bg-white p-5">
                   <img
                     src={
                       item?._embedded["wp:featuredmedia"]?.length > 0
@@ -56,10 +53,7 @@ const Blogs = ({data}) => {
                         : ""
                     }
                   />
-                  <Link
-                    href={`blogs/${item?.slug}`}
-                    className="font-semibold text-lg"
-                  >
+                  <Link href={`blogs/${item?.slug}`} className="font-semibold text-lg">
                     {item?.title?.rendered}
                   </Link>
                   <div
