@@ -9,7 +9,7 @@ const PostDetails = () => {
   useEffect(() => {
     if (router.query?.slug) {
       axios({
-        url: "https://dev.a2zqr.com/wp-json/wp/v2/posts?per_page=100",
+        url: "https://dev.a2zqr.com/wp-json/wp/v2/posts",
         method: "GET",
         params: {
           _embed: "true",
