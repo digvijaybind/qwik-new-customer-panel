@@ -4,6 +4,7 @@ import {BlogsCard} from "@/components/blog/BlogsCard";
 import Image from "next/image";
 import React from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
+import Blog from "@/components/blog/Blog";
 const Blogs = ({data}) => {
   return (
     <div>
@@ -26,7 +27,7 @@ const Blogs = ({data}) => {
           <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
         </div>
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex justify-center">
           {/* <BlogsCard /> */}
           {/* {data.length > 0 &&
             data.map((item) => {
@@ -36,7 +37,8 @@ const Blogs = ({data}) => {
                 </div>
               );
             })} */}
-          <h1> this is blogs </h1>
+          {/* <h1> this is blogs </h1> */}
+          <Blog />
           {/* <BlogsCard /> */}
         </div>
       </div>

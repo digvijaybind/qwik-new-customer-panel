@@ -16,7 +16,7 @@ export const BlogsCard = ({title, date}) => {
           {/* </a> */}
           <div class="p-5">
             {/* <a href="#"> */}
-            <h5 class="text-gray-900 font-bold  mb-2 cursor-pointer">
+            <h5 class="text-gray-900 font-bold  mb-2 cursor-pointer font-lato text-[24px]">
               {title}
             </h5>
             {/* </a> */}
