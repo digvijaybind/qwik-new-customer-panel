@@ -63,11 +63,11 @@ const Blogs = ({ data }) => {
 
 export default Blogs;
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://dev.a2zqr.com//wp-json/wp/v2/posts`);
-  const data = await res.json();
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`https://dev.a2zqr.com//wp-json/wp/v2/posts`);
+//   const data = await res.json();
 
-  // Pass data to the page via props
-  return { props: { data } };
-}
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }
