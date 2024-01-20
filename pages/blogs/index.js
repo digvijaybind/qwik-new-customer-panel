@@ -24,7 +24,7 @@ const Blogs = ({data}) => {
   }, []);
 
   return (
-    <div className="px-50">
+    <div className="p-[50px]">
       {/* console.log("allPosts",allPosts) */}
       <Image
         src={LandingImage}
