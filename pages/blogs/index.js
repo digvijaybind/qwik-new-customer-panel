@@ -1,12 +1,12 @@
 import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
 import Nav from "@/components/Nav/nav";
-import { BlogsCard } from "@/components/blog/BlogsCard";
+import {BlogsCard} from "@/components/blog/BlogsCard";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
 import axios from "axios";
 import Link from "next/link";
-const Blogs = ({ data }) => {
+const Blogs = ({data}) => {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Blogs = ({ data }) => {
         per_page: 100,
       },
     })
-      .then(({ data }) => {
+      .then(({data}) => {
         console.log(data);
         setAllPosts(data);
       })
@@ -28,12 +28,16 @@ const Blogs = ({ data }) => {
   }, []);
 
   return (
-    <div className="p-[50px]">
+    <div className="">
       {/* console.log("allPosts",allPosts) */}
-      <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
+      <Image
+        src={LandingImage}
+        alt="Picture of the author"
+        className="h-[430px] w-full"
+      />
       <div className="px-5 font-lato">
         <div className="justify-center">
-          <div className="text-[64px] text-center font-lato  text-{#000000} mb-5 mt-5 ">
+          <div className="text-[64px] text-center font-lato  text-{#000000} mb-5 mt-5  sm:text-[34px] sm:mb-3 sm:mt-3">
             NEWS AND BLOGS
           </div>
         </div>
@@ -41,26 +45,37 @@ const Blogs = ({ data }) => {
           <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
         </div>
 
-        <div className="grid grid-cols-3 gap-8 mb-3">
+        <div className="grid grid-cols-3 gap-8 mb-3 sm:grid-cols-1">
           {allPosts?.length > 0 &&
             allPosts?.map((item, index) => {
               return (
-                <div key={"blog-post-" + index} className="rounded-md drop-shadow-md bg-white p-5">
+                <div
+                  key={"blog-post-" + index}
+                  className="rounded-md drop-shadow-lg  bg-white p-5"
+                  style={{width: "415px"}}
+                >
                   <img
                     src={
                       item?._embedded["wp:featuredmedia"]?.length > 0
                         ? item?._embedded["wp:featuredmedia"][0]?.source_url
                         : ""
                     }
+                    className="w-full"
+                    style={{height: "240px"}}
                   />
-                  <Link href={`blogs/${item?.slug}`} className="font-semibold text-lg">
-                    {item?.title?.rendered}
-                  </Link>
-                  <div
+                  <div className="mt-5">
+                    <Link
+                      href={`blogs/${item?.slug}`}
+                      className="font-semibold text-lg"
+                    >
+                      {item?.title?.rendered}
+                    </Link>
+                  </div>
+                  {/* <div
                     dangerouslySetInnerHTML={{
                       __html: item?.excerpt?.rendered || "",
                     }}
-                  ></div>
+                  ></div> */}
                 </div>
               );
             })}
