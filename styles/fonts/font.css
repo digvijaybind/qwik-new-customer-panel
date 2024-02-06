@@ -16,7 +16,7 @@
   font-family: "PoppinsSemiBold";
   src: url("./poppins/Poppins-SemiBold.ttf") format("tff");
   /* Add additional font formats as needed */
-  font-weight: normal;
+  font-weight: 550;
   font-style: normal;
 }
 @font-face {

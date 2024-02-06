@@ -1,3 +1,4 @@
+import Newfooter from "@/components/Footer/Newfooter";
 import Footer from "@/components/Footer/footer";
 import Header from "@/components/header/Header";
 import {DataProvider} from "@/context/DataContext";
@@ -10,6 +11,7 @@ export default function App({Component, pageProps}) {
         <Header />
         <Component {...pageProps} />
         <Footer />
+        {/* <Newfooter /> */}
       </DataProvider>
     </>
   );

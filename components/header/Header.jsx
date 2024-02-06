@@ -1,7 +1,8 @@
-import React, {useState} from "react";
-import styles from "./Header.module.css";
+import React, {useEffect, useState} from "react";
 import Logo from "../../public/images/logo.svg";
 import Image from "next/image";
+import styles from "./Header.module.css";
+import Telephone from "../../public/images/telephone.svg";
 import Link from "next/link";
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -9,9 +10,39 @@ const Header = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const [header, setHeader] = useState(styles.header);
+
+  const listenScrollEvent = () => {
+    if (window.scrollY < 73) {
+      setHeader(styles.header);
+    } else if (window.scrollY > 70) {
+      setHeader(styles.header2);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+
+    return () => window.removeEventListener("scroll", listenScrollEvent);
+  }, []);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+  };
+  const tabs = [
+    "Home",
+    "About",
+    "Services",
+    "Fleet",
+    "Media",
+    "Blog",
+    "Our Location",
+    "Contact",
+  ];
   return (
     <div>
-      <header className="font-poppins">
+      {/* <header className="font-poppins">
         <nav class="bg-white border-gray-200 px-24 sm:px-4 py-4">
           <div class="flex justify-between align-baseline pr-50 pl-50 mb-25 mt-15 sm:pr-0 pl-0 md:pr-25 pl-25">
             <div className={styles.headerMangnement}>
@@ -22,57 +53,8 @@ const Header = () => {
                   alt="Qwiklif Logo"
                 />
               </Link>
-
-              {/* <div class="flex items-center lg:order-2">
-              <a
-                href="#"
-                class="text-gray-800  hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none "
-              >
-                Log in
-              </a>
-              <a
-                href="#"
-                class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none "
-              >
-                Get started
-              </a>
-              <button
-                data-collapse-toggle="mobile-menu-2"
-                type="button"
-                class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 "
-                aria-controls="mobile-menu-2"
-                aria-expanded="false"
-              >
-                <span class="sr-only">Open main menu</span>
-                <svg
-                  class="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <svg
-                  class="hidden w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div> */}
             </div>
             <div
-              // class="flex flex-col justify-around  w-full"
               class="sm:hidden md:hidden"
               id="mobile-menu-2"
             >
@@ -128,14 +110,13 @@ const Header = () => {
                 ></path>
               </svg>
             </button>
-            {/* Sidebar */}
             <aside
               style={{zIndex: 100000}}
               className={`bg-white text-white h-screen w-64 fixed left-0 top-0 overflow-y-auto transition-transform transform ${
                 isSidebarOpen ? "translate-x-0" : "-translate-x-full"
               } md:translate-x-0 md:relative md:static`}
             >
-              {/* Sidebar Content */}
+             
               <div className="p-4">
                 <ul class="flex  flex-col align-baseline mt-4 text-[24px] text-Bluedark cursor-pointer font-medium">
                   <Link href="/">
@@ -169,11 +150,55 @@ const Header = () => {
                     </li>
                   </Link>
                 </ul>
-                {/* Add your sidebar links or content here */}
               </div>
             </aside>
           </div>
         </nav>
+      </header> */}
+      <header className={`${header} ${styles.shadow} px-[70px]`}>
+        <div className={styles.logo}>
+          <Image src={Logo} height={100} width={150} />
+        </div>
+        <div className={`flex flex-row items-center`}>
+          <ul className={`flex flex-row`}>
+            {/* <li
+            className={`cursor-pointer p-4 border-b-2 ${
+              index === activeTab ? "border-blue-500" : "border-transparent"
+            }`}
+            onClick={() => handleTabClick(index)}
+          >
+            home
+          </li> */}
+            {/* <li className={styles.linkItem}>about</li>
+          <li className={styles.linkItem}>join</li> */}
+
+            {tabs.map((tab, index) => (
+              <li
+                key={index}
+                className={`cursor-pointer py-10 px-5  border-b-2 text-[16px]  font-semibold ${
+                  index === activeTab
+                    ? "border-[#11b6e3]  text-[#11b6e3]"
+                    : "border-transparent text-[#fff]"
+                }`}
+                onClick={() => handleTabClick(index)}
+              >
+                {tab}
+              </li>
+            ))}
+          </ul>
+          <div className={``}></div>
+          <div className={styles.telephone}>
+            <div className={styles.Innertelephone}>
+              <Image src={Telephone} width={18} height={26} />
+              <span
+                className={`${styles.telephoneText} text-[#fff] border-r-7`}
+              >
+                {" "}
+                +971 502 825 433
+              </span>
+            </div>
+          </div>
+        </div>
       </header>
     </div>
   );
