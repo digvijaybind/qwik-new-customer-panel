@@ -383,13 +383,7 @@ export default function Home() {
               <TextInput
                 className="w-[190px] sm:w-[100%] mr-[20px]"
                 label="From"
-                value={otherData.From}
                 name="from"
-                onChange={(e) => {
-                  handleOtherInputChange("From", e);
-                  setFieldtype("From");
-                  setFromSearch(e.currentTarget.value);
-                }}
               />
               <div
                 className="absolute overflow-auto z-[100] max-h-[300px]"
@@ -425,12 +419,6 @@ export default function Home() {
                   className="w-[190px] sm:w-[100%] mr-[20px]"
                   label="To"
                   name="to"
-                  value={otherData.To}
-                  onChange={(e) => {
-                    handleOtherInputChange("To", e);
-                    setFieldtype("To");
-                    setToSearch(e.currentTarget.value);
-                  }}
                 />
                 <div
                   className="absolute overflow-auto z-[100] max-h-[300px]"
@@ -475,7 +463,11 @@ export default function Home() {
                     console.log("Selected country code:", e.target.value)
                   }
                 >
-                  {/* Your country code options */}
+                  <option value="">Select a country code</option>
+                  <option value="+1">US (+1)</option>
+                  <option value="+1">CA (+1)</option>
+                  <option value="+44">UK (+44)</option>
+                  <option value="+971">UAE (+971)</option>
                 </select>
               </div>
 
@@ -486,11 +478,6 @@ export default function Home() {
                   label="Mobile Number"
                   name="mobileNumber"
                   placeholder="123-456-7890"
-                  value={otherData.mobileNumber}
-                  onChange={(e) => {
-                    handleOtherInputChange("mobileNumber", e);
-                    setFieldtype("mobileNumber");
-                  }}
                 />
               </div>
 
@@ -504,7 +491,7 @@ export default function Home() {
               />
 
               {/* Search Button */}
-              <div className="h-[56px] w-[56px] bg-[#40D1F0] flex justify-center align-middle rounded-md">
+              <div className="h-[56px] w-[56px] bg-[#40D1F0] flex justify-center align-middle rounded-md cursor-pointer">
                 <Image src={Search} height={24} width={24} />
               </div>
             </div>
