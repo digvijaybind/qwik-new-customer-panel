@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "./CommercialCard.module.css";
 import CommercialImage from "../../public/images/commercial.svg";
 import Image from "next/image";
 
-const CommercialCard = () => {
+const DedicatedCard = () => {
   return (
     <div
-      className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]`}
+      className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer  transition-all duration-700 hover:scale-105`}
     >
       <div class="">
         <Image
@@ -20,6 +19,7 @@ const CommercialCard = () => {
           width={400}
         />
       </div>
+
       <div class="col-span-2">
         <div class="grid grid-cols-3 gap-2 mb-5">
           <div class="">
@@ -50,9 +50,18 @@ const CommercialCard = () => {
             <div class="font-semibold text-[14px]">-Oxygen(4L/Min) ✅</div>
           </div>
           <div class="">
-            <span class="font-semibold text-[17px]">INR ₹ 8,73,070/-</span>
-            <br />
-            <span class="font-medium text-[16px]">Estimated Price</span>
+            <div>
+              <span class="font-semibold text-[17px]">€ 120000</span>
+              <br />
+              <span class="font-medium text-[16px] italic">
+                Estimated Price
+              </span>
+            </div>
+            <div>
+              <span class="font-semibold text-[13px]">Ticket Availability</span>
+              <br />
+              <span class="font-semibold text-[14px]">Specific date</span>
+            </div>
           </div>
         </div>
         <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
@@ -63,4 +72,4 @@ const CommercialCard = () => {
   );
 };
 
-export default CommercialCard;
+export default DedicatedCard;

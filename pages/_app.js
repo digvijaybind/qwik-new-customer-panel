@@ -12,7 +12,7 @@ export default function App({Component, pageProps}) {
       <DataProvider>
         <Navbar1 />
         <Component {...pageProps} />
-        <Footer />
+        <Newfooter />
         {/* <Newfooter /> */}
       </DataProvider>
     </>
