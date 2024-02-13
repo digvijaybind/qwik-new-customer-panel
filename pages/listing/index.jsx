@@ -73,13 +73,13 @@ const Listing = ({isMobile}) => {
   const [error, setError] = useState(null);
   const [depatureDate, setdepatureDate] = useState();
   const [depatureTime, setdepatureTime] = useState();
-  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [departureLocations, setDepartureLocations] = useState([]);
   const [arrivalLocations, setArrivalLocations] = useState([]);
   const [flightDurations, setFlightDurations] = useState([]);
   const [departureFormatted, setDepartureFormatted] = useState([]);
   const [arrivalFormatted, setArrivalFormatted] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(null);
+  const [totalPrice, setTotalPrice] = useState([]);
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,7 +98,7 @@ const Listing = ({isMobile}) => {
       );
       console.log("Response:", response.data);
       // setFormData(response.data);
-      setFinaldata(response.data);
+      setFinaldata(response.data.ResponseData);
 
       // const parsedDepartureDate = moment(
       //   response.data.ResponseData.departureDate
@@ -107,8 +107,9 @@ const Listing = ({isMobile}) => {
 
       // console.log("formattedDepartureDate", formattedDepartureDate);
       // setdepatureDate(formattedDepartureDate);
-      console.log("final data", response.data.ResponseData);
-      setFinaldata(response.data.ResponseData);
+      console.log("final data line 113", response.data.ResponseData);
+      // setFinaldata(response.data.ResponseData);
+
       setError(null);
       // const jsonData = await response.json();
       // console.log("response", jsonData);
@@ -121,10 +122,12 @@ const Listing = ({isMobile}) => {
     // Assuming finalData is available
     if (finalData?.AirCraftDatawithNotechStop?.length > 0) {
       finalData.AirCraftDatawithNotechStop.forEach((data) => {
+        console.log("data line 125", data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
             const departureIataCode = segmentData.departure.iataCode;
             const arrivalIataCode = segmentData.arrival.iataCode;
+            setDepartureLocations(departureIataCode);
 
             const departureTime = moment(segmentData.departure.at).tz("UTC");
             const departureTime1 = moment(departureTime);
@@ -142,24 +145,89 @@ const Listing = ({isMobile}) => {
 
             const duration = moment.duration(arrivalTime.diff(departureTime));
             setFlightDurations((prev) => [...prev, duration.asHours()]);
-            setDepartureLocations((prev) => [...prev, departureIataCode]);
-            setArrivalLocations((prev) => [...prev, arrivalIataCode]);
+            // setDepartureLocations((prev) => [...prev, departureIataCode]);
+            // setArrivalLocations((prev) => [...prev, arrivalIataCode]);
           });
         });
+        setTotalPrice(data.price.totalPrice);
       });
 
       // Assuming totalPrice is available from somewhere in your data
       const totalPrice = finalData.price?.totalPrice.toFixed(3);
-      setTotalPrice(totalPrice);
+
+      console.log("line 154 totalPrice", totalPrice);
+    } else if (
+      (!finalData?.AirCraftDatawithNotechStop ||
+        finalData?.AirCraftDatawithNotechStop?.length === 0) &&
+      finalData?.AirCraftDatawithtechStop?.length > 0
+    ) {
+      finalData?.AirCraftDatawithtechStop?.map((data, index) => {
+        console.log("data line 167", data);
+        data.aircraft.itineraries.forEach((innerData) => {
+          innerData.segments.forEach((segmentData) => {
+            const departureIataCode = segmentData.departure.iataCode;
+            const arrivalIataCode = segmentData.arrival.iataCode;
+            setDepartureLocations(departureIataCode);
+            setArrivalLocations(arrivalIataCode);
+
+            const departureTime = moment(segmentData.departure.at).tz("UTC");
+            const departureTime1 = moment(departureTime);
+            // setDepartureFormatted((prev) => [
+            //   ...prev,
+            //   departureTime1.format("HH:mm"),
+            // ]);
+
+            const arrivalTime = moment(segmentData.arrival.at).tz("UTC");
+            const arrivalTime1 = moment(arrivalTime);
+            // setArrivalFormatted((prev) => [
+            //   ...prev,
+            //   arrivalTime1.format("HH:mm"),
+            // ]);
+
+            const duration = moment.duration(arrivalTime.diff(departureTime));
+            setFlightDurations((prev) => [...prev, duration.asHours()]);
+            setDepartureLocations((prev) => [...prev, departureIataCode]);
+            setArrivalLocations((prev) => [...prev, arrivalIataCode]);
+          });
+          const calculateTotalDuration = (segments) => {
+            let totalDuration = 0;
+            segments?.forEach((segment) => {
+              const departureTime = moment(segment.departure.at).tz(
+                "Asia/Dubai"
+              );
+              const arrivalTime = moment(segment.arrival.at).tz("Asia/Dubai");
+
+              const duration = moment.duration(arrivalTime.diff(departureTime));
+              totalDuration += duration.asMinutes(); // Convert duration to minutes and accumulate
+            });
+            return totalDuration;
+          };
+          const totalDurationInMinutes = calculateTotalDuration(
+            innerData.segments
+          );
+          console.log("totalDurationInMinutes", totalDurationInMinutes);
+
+          // Output the total flying time for this itinerary
+        });
+        setTotalPrice(data.price.totalPrice);
+      });
     }
   }, [finalData]); // This useEffect will run whenever finalData changes
-  console.log("totalPrice", totalPrice);
+  console.log("totalPrice line 216", totalPrice);
+  console.log("arrivalLocations line 194", arrivalLocations);
+  console.log("departureLocations line 195", departureLocations);
   // console.log("depatureDate", depatureDate);
   // console.log("Form submitted with data", formData);
   const formatDate = (date) => {
     return date.toISOString().substr(0, 10); // Format the date as "YYYY-MM-DD"
   };
 
+  const currencySymbols = {
+    EUR: "€",
+    AED: "AED",
+    USD: "$",
+    INR: "₹",
+  };
   console.log(" totalPrice line 164 ", totalPrice);
   const handleChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -183,29 +251,30 @@ const Listing = ({isMobile}) => {
 
   console.log(" totalPrice line 185 ", totalPrice);
   const handleEUR = () => {
-    return totalPrice;
+    alert("this is euro price");
+    setTotalPrice(totalPrice.toFixed(4));
   };
   const handleAED = () => {
-    const PriceAED = totalPrice / 3.95;
+    const PriceAED = totalPrice * 3.95;
     setTotalPrice(PriceAED);
-    console.log("PriceAED", PriceAED);
+    console.log("PriceAED", PriceAED.toFixed(3));
 
     // Add your code for AED here
   };
 
   const handleUSD = () => {
     alert("USD function called");
-    const PriceUsd = totalPrice / 1.077;
+    const PriceUsd = totalPrice * 1.077;
     setTotalPrice(PriceUsd);
-    console.log("PriceUsd", PriceUsd);
+    console.log("PriceUsd", PriceUsd.toFixed(3));
     // Add your code for USD here
   };
 
   const handleINR = () => {
-    console.log("totalPrice INR", totalPrice);
-    const PriceINR = totalPrice / 89.42;
+    alert("totalPrice INR", totalPrice);
+    const PriceINR = totalPrice * 89.42;
     setTotalPrice(PriceINR);
-    console.log("PriceINR ", PriceINR);
+    console.log("PriceINR ", PriceINR.toFixed(3));
     // alert("INR function called");
     // Add your code for INR here
   };
@@ -220,7 +289,7 @@ const Listing = ({isMobile}) => {
     const countryCodeValue = event.target.value;
     handleInpUTChange("countryCode", countryCodeValue);
   }; // Call handleInpUTChange to update countryCode };
-  console.log("final data", finalData);
+  console.log("final data  line 228", finalData);
   return (
     <div className="font-poppins">
       <Image src={Landing} height={420} width={1874} />
@@ -692,9 +761,7 @@ const Listing = ({isMobile}) => {
                             {/* {Depatureformatted[0]} */}
                           </span>
                           <br />
-                          <span class="font-medium">
-                            {departureLocations[0]}
-                          </span>
+                          <span class="font-medium">{departureLocations}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="">{flightDurations[0]}h</div>
@@ -703,7 +770,7 @@ const Listing = ({isMobile}) => {
                         </div>
                         <div class="text-end">
                           <span class="text-[#000000] text-[20px] font-semibold ">
-                            {arrivalLocations[0]}
+                            {arrivalLocations[1]}
                           </span>
                           <br />
                           <span class="font-medium">{arrivalLocations[0]}</span>
@@ -742,7 +809,7 @@ const Listing = ({isMobile}) => {
                                   <option value="INR">INR</option>
                                 </select>
                               </div>
-                              {totalPrice}
+                              {totalPrice.toFixed(3)}
                             </span>
                             <br />
                             <span class="font-medium text-[16px] italic">
@@ -773,41 +840,6 @@ const Listing = ({isMobile}) => {
             finalData?.AirCraftDatawithNotechStop?.length === 0) &&
             finalData?.AirCraftDatawithtechStop?.length > 0 &&
             finalData?.AirCraftDatawithtechStop?.map((data, index) => {
-              const departureLocations = [];
-              const arrivalLocations = [];
-              const Depatureformatted = [];
-              const Arrivalformatted = [];
-              console.log("data line 433", data);
-              data.aircraft.itineraries.forEach((innerData) => {
-                const calculateTotalDuration = (segments) => {
-                  let totalDuration = 0;
-                  segments?.forEach((segment) => {
-                    const departureTime = moment(segment.departure.at).tz(
-                      "Asia/Dubai"
-                    );
-                    const arrivalTime = moment(segment.arrival.at).tz(
-                      "Asia/Dubai"
-                    );
-
-                    const duration = moment.duration(
-                      arrivalTime.diff(departureTime)
-                    );
-                    totalDuration += duration.asMinutes(); // Convert duration to minutes and accumulate
-                  });
-                  return totalDuration;
-                };
-                const totalDurationInMinutes = calculateTotalDuration(
-                  innerData.segments
-                );
-                console.log("totalDurationInMinutes", totalDurationInMinutes);
-
-                // Output the total flying time for this itinerary
-              });
-
-              console.log("departureLocations", departureLocations);
-              console.log(" arrivalLocations", arrivalLocations);
-              console.log("Depatureformatted", Depatureformatted);
-              console.log("  Arrivalformatted", Arrivalformatted);
               return (
                 <div key={index}>
                   <div
@@ -830,12 +862,10 @@ const Listing = ({isMobile}) => {
                         <div class="">
                           <span class="text-[rgb(0,0,0)] text-[20px] font-semibold text-center">
                             {" "}
-                            {Depatureformatted[0]}
+                            {/* {Depatureformatted[0]} */}
                           </span>
                           <br />
-                          <span class="font-medium">
-                            {departureLocations[0]}
-                          </span>
+                          <span class="font-medium">{departureLocations}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="">2 h</div>
@@ -850,7 +880,7 @@ const Listing = ({isMobile}) => {
                         </div>
                         <div class="text-end">
                           <span class="text-[#000000] text-[20px] font-semibold ">
-                            {Arrivalformatted[1]}
+                            {/* {Arrivalformatted[1]} */}
                           </span>
                           <br />
                           <span class="font-medium">{arrivalLocations[1]}</span>
@@ -875,13 +905,16 @@ const Listing = ({isMobile}) => {
                         <div class="">
                           <div>
                             <span class="font-semibold text-[17px]">
-                              € {data.price.totalPrice.toFixed(3)}
+                              {/* € {data.price.totalPrice.toFixed(3)} */}
+                              {currencySymbols[selectedCurrency]}
+                              {totalPrice.toFixed(3)}
                               <br />
                               <select
                                 id="currencySelector"
                                 value={selectedCurrency}
                                 onChange={handleChange}
                               >
+                                <option value="EUR">EUR</option>
                                 <option value="AED">AED</option>
                                 <option value="USD">USD</option>
                                 <option value="INR">INR</option>
