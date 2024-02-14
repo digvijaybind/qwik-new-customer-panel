@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Logo from "../../public/images/logo.svg";
 import Image from "next/image";
 import styles from "./Header.module.css";
-import Telephone from "../../public/images/telephone.svg";
+import Telephone from "../../public/images/Telephone1.svg";
 import Link from "next/link";
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -75,7 +75,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>  
+      </header>
     </div>
   );
 };

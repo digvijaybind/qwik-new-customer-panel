@@ -16,6 +16,7 @@ import axios from "axios";
 import CommercialImage from "../../public/images/commercial.svg";
 import moment from "moment-timezone";
 import DedicatedCard from "@/components/dedicatedCard/DedicatedCard";
+import swal from "sweetalert";
 
 const Listing = ({isMobile}) => {
   const {apiData} = useData();
@@ -79,7 +80,9 @@ const Listing = ({isMobile}) => {
   const [departureFormatted, setDepartureFormatted] = useState([]);
   const [arrivalFormatted, setArrivalFormatted] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
-  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
+  const [selectedCurrency, setSelectedCurrency] = useState();
+
+  const [uniquePrice, setuniquePrice] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -128,28 +131,82 @@ const Listing = ({isMobile}) => {
             const departureIataCode = segmentData.departure.iataCode;
             const arrivalIataCode = segmentData.arrival.iataCode;
             setDepartureLocations(departureIataCode);
+            setArrivalLocations(arrivalIataCode);
 
-            const departureTime = moment(segmentData.departure.at).tz("UTC");
+            // const departureTime = moment(segmentData.departure.at).tz(
+            //   "Asia/Dubai"
+            // );
+            // const arrivalTime = moment(segmentData.arrival.at).tz("Asia/Dubai");
+
+            // const departureTime = moment.tz(
+            //   segmentData.departure.at,
+            //   "Asia/Dubai"
+            // );
+            // const arrivalTime = moment.tz(segmentData.arrival.at, "Asia/Dubai");
+            // Assume segmentData.departure.at and segmentData.arrival.at are ISO 8601 formatted strings
+            const departureTime = moment.tz(
+              segmentData.departure.at,
+              "Asia/Dubai"
+            );
+            const arrivalTime = moment.tz(segmentData.arrival.at, "Asia/Dubai");
+
+            const departureFormatted1 = departureTime.format("HH:mm");
+            const arrivalFormatted1 = arrivalTime.format("HH:mm");
+            setDepartureFormatted(departureFormatted1);
+            setArrivalFormatted(arrivalFormatted1);
+
+            // console.log("departureTime: ", departureTime.toString());
+            // console.log("arrivalTime: ", arrivalTime.toString());
+
+            console.log("arrivalFormatted", arrivalFormatted);
+
+            console.log("departureFormatted", departureFormatted);
+
+            // Check if the times are in the same timezone
+            const sameTimezone =
+              departureTime.utcOffset() === arrivalTime.utcOffset();
+
+            console.log("Are the times in the same timezone? ", sameTimezone);
+
+            // Calculate the flight duration
+            const durationMs = arrivalTime.diff(departureTime);
+            const duration = moment.duration(durationMs);
+            const hours = Math.floor(duration.asHours());
+            const minutes = duration.minutes();
+
+            console.log("Time duration in hour", hours);
+            console.log(
+              `Flight duration: ${hours} hours and ${minutes} minutes`
+            );
+
+            console.log("departureTime line 182", departureFormatted);
+            console.log("arrivalTime line 183", arrivalFormatted);
+
+            // const sameTimezone = departureTime.isSame(arrivalTime, "minute");
+
+            console.log("sameTimezone line 189", sameTimezone);
+            // const departureTime = moment(segmentData.departure.at).tz("UTC");
             const departureTime1 = moment(departureTime);
             setDepartureFormatted((prev) => [
               ...prev,
               departureTime1.format("HH:mm"),
             ]);
 
-            const arrivalTime = moment(segmentData.arrival.at).tz("UTC");
+            // const arrivalTime = moment(segmentData.arrival.at).tz("UTC");
             const arrivalTime1 = moment(arrivalTime);
             setArrivalFormatted((prev) => [
               ...prev,
               arrivalTime1.format("HH:mm"),
             ]);
 
-            const duration = moment.duration(arrivalTime.diff(departureTime));
+            // const duration = moment.duration(arrivalTime.diff(departureTime));
             setFlightDurations((prev) => [...prev, duration.asHours()]);
             // setDepartureLocations((prev) => [...prev, departureIataCode]);
             // setArrivalLocations((prev) => [...prev, arrivalIataCode]);
           });
         });
         setTotalPrice(data.price.totalPrice);
+        setuniquePrice(data.price.totalPrice);
       });
 
       // Assuming totalPrice is available from somewhere in your data
@@ -170,21 +227,61 @@ const Listing = ({isMobile}) => {
             setDepartureLocations(departureIataCode);
             setArrivalLocations(arrivalIataCode);
 
-            const departureTime = moment(segmentData.departure.at).tz("UTC");
-            const departureTime1 = moment(departureTime);
+            const departureTime = moment(segmentData.departure.at).tz(
+              "Asia/Dubai"
+            );
+            const arrivalTime = moment(segmentData.arrival.at).tz("Asia/Dubai");
+
+            // const departureTime = moment.tz(
+            //   segmentData.departure.at,
+            //   "Asia/Dubai"
+            // );
+            // const arrivalTime = moment.tz(segmentData.arrival.at, "Asia/Dubai");
+            console.log("departureTime line 182", departureTime);
+            console.log("arrivalTime line 183", arrivalTime);
+
+            const sameTimezone = departureTime.isSame(arrivalTime, "minute");
+
+            console.log("sameTimezone line 189", sameTimezone);
+
+            // Calculate the difference in milliseconds
+            const durationMs = arrivalTime.diff(departureTime);
+
+            console.log("flying duration time line 194", durationMs);
+
+            // Convert milliseconds to hours and minutes
+            const duration = moment.duration(durationMs);
+            const hours = Math.floor(duration.asHours());
+
+            console.log("flying duration time in hour", hours);
+            const minutes = duration.minutes();
+
+            console.log(
+              `Flight duration: ${hours} hours and ${minutes} minutes`
+            );
+
+            // const departureTime = moment(segmentData.departure.at).tz(
+            //   "Asia/Dubai"
+            // );
+            // const departureTime1 = moment(departureTime);
             // setDepartureFormatted((prev) => [
             //   ...prev,
             //   departureTime1.format("HH:mm"),
             // ]);
 
-            const arrivalTime = moment(segmentData.arrival.at).tz("UTC");
+            // const arrivalTime = moment(segmentData.arrival.at).tz("Asia/Dubai");
+
+            // const sameTimezone = departureTime.isSame(arrivalTime, "minute");
+            console.log("sameTimezone line 189", sameTimezone);
             const arrivalTime1 = moment(arrivalTime);
+            console.log("departureTime line 191", departureTime);
+            console.log("arrivalTime line 192", arrivalTime);
             // setArrivalFormatted((prev) => [
             //   ...prev,
             //   arrivalTime1.format("HH:mm"),
             // ]);
 
-            const duration = moment.duration(arrivalTime.diff(departureTime));
+            // const duration = moment.duration(arrivalTime.diff(departureTime));
             setFlightDurations((prev) => [...prev, duration.asHours()]);
             setDepartureLocations((prev) => [...prev, departureIataCode]);
             setArrivalLocations((prev) => [...prev, arrivalIataCode]);
@@ -210,6 +307,7 @@ const Listing = ({isMobile}) => {
           // Output the total flying time for this itinerary
         });
         setTotalPrice(data.price.totalPrice);
+        setuniquePrice(data.price.totalPrice);
       });
     }
   }, [finalData]); // This useEffect will run whenever finalData changes
@@ -245,35 +343,103 @@ const Listing = ({isMobile}) => {
         handleINR();
         break;
       default:
-        console.error("Invalid currency selected.");
+        // console.error("Invalid currency selected.");
+        return error;
     }
   };
 
   console.log(" totalPrice line 185 ", totalPrice);
-  const handleEUR = () => {
-    alert("this is euro price");
-    setTotalPrice(totalPrice.toFixed(4));
+  const handleEUR = async () => {
+    // swal({
+    //   title: "Are you sure ?",
+    //   text: "Wanna Price In EURO",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // }).then((willDelete) => {
+    //   if (willDelete) {
+    //     swal("Now Your Ticket Price is EURO currency", {
+    //       icon: "success",
+    //     });
+    //   } else {
+    //     swal("Your imaginary file is safe!");
+    //   }
+    // });
+    const EuroPrice = uniquePrice.toFixed(3) * 1;
+    alert("this is euro price" );
+    await setTotalPrice(EuroPrice);
+    
+  
+
+    console.log("First iteration Euro", EuroPrice);
   };
-  const handleAED = () => {
-    const PriceAED = totalPrice * 3.95;
-    setTotalPrice(PriceAED);
+  const handleAED = async () => {
+    const PriceAED = uniquePrice * 3.95;
+    // swal({
+    //   title: "Are you sure ?",
+    //   text: "Wanna Price In AED",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // }).then((willDelete) => {
+    //   if (willDelete) {
+    //     swal("Now Your Ticket Price is AED currency", {
+    //       icon: "success",
+    //     });
+    //   } else {
+    //     swal("Your imaginary file is safe!");
+    //   }
+    // });
+    alert("this is aed price");
+    await setTotalPrice(PriceAED);
+    console.log("First iteration AED", PriceAED);
     console.log("PriceAED", PriceAED.toFixed(3));
-
-    // Add your code for AED here
   };
 
-  const handleUSD = () => {
-    alert("USD function called");
-    const PriceUsd = totalPrice * 1.077;
-    setTotalPrice(PriceUsd);
+  const handleUSD = async () => {
+    // swal({
+    //   title: "Are you sure ?",
+    //   text: "Wanna Price In USD",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // }).then((willDelete) => {
+    //   if (willDelete) {
+    //     swal("Now Your Ticket Price is USD currency", {
+    //       icon: "success",
+    //     });
+    //   } else {
+    //     swal("Your imaginary file is safe!");
+    //   }
+    // });
+    alert("this is USD price");
+    const PriceUsd = uniquePrice * 1.077;
+    await setTotalPrice(PriceUsd);
+    alert("Price", PriceUsd);
     console.log("PriceUsd", PriceUsd.toFixed(3));
     // Add your code for USD here
   };
 
-  const handleINR = () => {
-    alert("totalPrice INR", totalPrice);
-    const PriceINR = totalPrice * 89.42;
-    setTotalPrice(PriceINR);
+  const handleINR = async () => {
+    // swal({
+    //   title: "Are you sure ?",
+    //   text: "Wanna Price In INR",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // }).then((willDelete) => {
+    //   if (willDelete) {
+    //     swal("Now Your Ticket Price is INR currency", {
+    //       icon: "success",
+    //     });
+    //   } else {
+    //     swal("Your imaginary file is safe!");
+    //   }
+    // });
+    alert("this is INR price");
+    const PriceINR = uniquePrice * 89.42;
+    alert("Price", PriceINR);
+    await setTotalPrice(PriceINR);
     console.log("PriceINR ", PriceINR.toFixed(3));
     // alert("INR function called");
     // Add your code for INR here
@@ -758,10 +924,12 @@ const Listing = ({isMobile}) => {
                         <div class="">
                           <span class="text-[#000000] text-[20px] font-semibold text-center">
                             {" "}
-                            {/* {Depatureformatted[0]} */}
+                            {departureFormatted[0]}
                           </span>
                           <br />
-                          <span class="font-medium">{departureLocations}</span>
+                          <span class="text-[#000000] text-[20px] font-semibold">
+                            {departureLocations}
+                          </span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="">{flightDurations[0]}h</div>
@@ -769,11 +937,17 @@ const Listing = ({isMobile}) => {
                           <div class="text-[red] text-[14px]">Non-stop</div>
                         </div>
                         <div class="text-end">
-                          <span class="text-[#000000] text-[20px] font-semibold ">
-                            {arrivalLocations[1]}
+                          <span class="text-[#000000] text-[20px] font-semibold text-center">
+                            {" "}
+                            {/* {Depatureformatted[0]} */}
+                            {arrivalFormatted[0]}
                           </span>
                           <br />
-                          <span class="font-medium">{arrivalLocations[0]}</span>
+                          <span class="text-[#000000] text-[20px] font-semibold ">
+                            {arrivalLocations}
+                          </span>
+                          <br />
+                          {/* <span class="font-medium">{arrivalLocations[0]}</span> */}
                         </div>
                       </div>
                       <div class="flex justify-between align-middle mb-3">
@@ -809,7 +983,8 @@ const Listing = ({isMobile}) => {
                                   <option value="INR">INR</option>
                                 </select>
                               </div>
-                              {totalPrice.toFixed(3)}
+                              {currencySymbols[selectedCurrency]}
+                              {totalPrice}
                             </span>
                             <br />
                             <span class="font-medium text-[16px] italic">
@@ -874,7 +1049,7 @@ const Listing = ({isMobile}) => {
                               Stop+1
                             </div>
                             <div class="text-[red] text-[14px] ">
-                              ({departureLocations[1]})
+                              ({departureLocations[0]})
                             </div>
                           </div>
                         </div>
@@ -907,7 +1082,7 @@ const Listing = ({isMobile}) => {
                             <span class="font-semibold text-[17px]">
                               {/* € {data.price.totalPrice.toFixed(3)} */}
                               {currencySymbols[selectedCurrency]}
-                              {totalPrice.toFixed(3)}
+                              {totalPrice}
                               <br />
                               <select
                                 id="currencySelector"
