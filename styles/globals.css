@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 /* styles.css or index.css */
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-@import "@fontsource/lato";
-@import "../styles//fonts/font.css";
-@import url("https://fonts.googleapis.coPm/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+@import '@fontsource/lato';
+@import '../styles//fonts/font.css';
+@import url('https://fonts.googleapis.coPm/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: "PoppinsRegular", "Lato";
+  --font-mono: 'PoppinsRegular', 'Lato';
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -95,7 +96,7 @@ body {
 body {
   color: black;
   background: white;
-  font-family: "PoppinsRegular", sans-serif;
+  font-family: 'PoppinsRegular', sans-serif;
 }
 
 a {
