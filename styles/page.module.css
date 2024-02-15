@@ -15,22 +15,50 @@
   background-color: white;
 }
 
-.contactInfoBg{
-  background-image: linear-gradient( 173deg, #33383E 25%, #fff 25.5%);
+.contactInfoBg {
+  background-image: linear-gradient(173deg, #33383e 25%, #fff 25.5%);
 }
 
-.aboutPageMenuActive{
-  background: #40D1F0;
+.aboutPageMenuActive {
+  background: #40d1f0;
   font-weight: 600;
 }
-.popularFleetBg{
-  background-image: url("/images/cloud-bg.jpg");
+.popularFleetBg {
+  background-image: url('/images/cloud-bg.jpg');
   background-size: cover;
   background-position: center;
 }
 
-@media screen and (max-width:639px) {
-  .Top_container{
+@media screen and (max-width: 639px) {
+  .Top_container {
     width: 95%;
   }
+}
+
+.boxShadow {
+  box-shadow: 0px 0px 10px 0px #00000080;
+}
+.lowerShadow {
+  box-shadow: 0px 10px 55px 5px #89adff33;
+}
+.lower_plane {
+  background-image: url('/images/lower_plane.png');
+}
+.lower_plane,
+.gray_plane {
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+}
+.gray_plane {
+  background-image: url('/images/gray_plane.jpeg');
+}
+
+.form input ::placeholder {
+  color: #656565;
+}
+
+.boxShadow {
+  box-shadow: 0px 1px 10px 0px #396cf0bf;
 }
