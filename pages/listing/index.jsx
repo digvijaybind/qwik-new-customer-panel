@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import styles from "./page.module.css";
-import {Shadow} from "@/components/Utils/utils";
-import {DateInput, TextInput} from "@/components/Form/input";
-import Planedesc from "../../components/Planedesc/planedesc";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
-import {useData} from "../../context/DataContext";
-import {Switch} from "@mui/material";
-import Search from "../../public/images/search.svg";
-import CommercialCard from "@/components/commercialCard/CommercialCard";
-import Image from "next/image";
-import Landing from "../../public/images/Searchlanding.svg";
-import axios from "axios";
-import CommercialImage from "../../public/images/commercial.svg";
-import moment from "moment-timezone";
-import DedicatedCard from "@/components/dedicatedCard/DedicatedCard";
-import swal from "sweetalert";
+import styles from './page.module.css';
+import { Shadow } from '@/components/Utils/utils';
+import { DateInput, TextInput } from '@/components/Form/input';
+import Planedesc from '../../components/Planedesc/planedesc';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useData } from '../../context/DataContext';
+import { Switch } from '@mui/material';
+import Search from '../../public/images/search.svg';
+import CommercialCard from '@/components/commercialCard/CommercialCard';
+import Image from 'next/image';
+import Landing from '../../public/images/Searchlanding.svg';
+import axios from 'axios';
+import CommercialImage from '../../public/images/commercial.svg';
+import moment from 'moment-timezone';
+import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
+import swal from 'sweetalert';
 
-const Listing = ({isMobile}) => {
-  const {apiData} = useData();
+const Listing = ({ isMobile }) => {
+  const { apiData } = useData();
   const [airdata, setAirData] = useState({});
 
   useEffect(() => {
@@ -33,11 +33,11 @@ const Listing = ({isMobile}) => {
       setIsMobile1(window.innerWidth <= 1000); // Change threshold as needed
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize(); // Call once to set initial state
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -57,14 +57,14 @@ const Listing = ({isMobile}) => {
   //   setOtherData(newdata);
   //   console.log(newdata);
   // }
-  const url = "http://localhost:8000/customer/Amadeusairline";
+  const url = 'http://localhost:8000/customer/Amadeusairline';
   const [formData, setFormData] = useState({
-    originLocationCode: "",
-    destinationLocationCode: "",
-    departureDate: "",
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
     pax: 0,
-    countryCode: "",
-    mobile: "",
+    countryCode: '',
+    mobile: '',
     max: 5,
   });
   const [finalData, setFinaldata] = useState([]);
@@ -80,28 +80,29 @@ const Listing = ({isMobile}) => {
   const [departureFormatted, setDepartureFormatted] = useState([]);
   const [arrivalFormatted, setArrivalFormatted] = useState([]);
   const [totalPrice, setTotalPrice] = useState([]);
-  const [selectedCurrency, setSelectedCurrency] = useState();
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
 
   const [uniquePrice, setuniquePrice] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // alert(formData);
-    console.log("Form submitted with data", formData);
+
+    console.log('Form submitted with data', formData);
     try {
-      console.log("formdata in line 89", formData);
+      console.log('formdata in line 89', formData);
       const headers = {
-        "Content-Type": "application/json", // Adjust content type as needed
+        'Content-Type': 'application/json', // Adjust content type as needed
         // Add any other headers here
       };
       const response = await axios.post(
         `http://localhost:8000/customer/Amadeusairline`,
         formData,
-        {headers}
+        { headers }
       );
-      console.log("Response:", response.data);
+      console.log('Response:', response.data);
       // setFormData(response.data);
-      setFinaldata(response.data.ResponseData);
+      setFinaldata(response.data);
+      setSelectedCurrency('EUR');
 
       // const parsedDepartureDate = moment(
       //   response.data.ResponseData.departureDate
@@ -110,28 +111,32 @@ const Listing = ({isMobile}) => {
 
       // console.log("formattedDepartureDate", formattedDepartureDate);
       // setdepatureDate(formattedDepartureDate);
-      console.log("final data line 113", response.data.ResponseData);
+      console.log('final data line 113', response.data);
       // setFinaldata(response.data.ResponseData);
 
       setError(null);
       // const jsonData = await response.json();
       // console.log("response", jsonData);
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
   };
+
+  console.log('finalData', finalData);
   useEffect(() => {
     // Your API call and data processing logic here
     // Assuming finalData is available
     if (finalData?.AirCraftDatawithNotechStop?.length > 0) {
       finalData.AirCraftDatawithNotechStop.forEach((data) => {
-        console.log("data line 125", data);
+        console.log('data line 125', data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
             const departureIataCode = segmentData.departure.iataCode;
             const arrivalIataCode = segmentData.arrival.iataCode;
             setDepartureLocations(departureIataCode);
             setArrivalLocations(arrivalIataCode);
+            console.log('departureIataCode', departureIataCode);
+            console.log('arrivalIataCode', arrivalIataCode);
 
             // const departureTime = moment(segmentData.departure.at).tz(
             //   "Asia/Dubai"
@@ -146,27 +151,27 @@ const Listing = ({isMobile}) => {
             // Assume segmentData.departure.at and segmentData.arrival.at are ISO 8601 formatted strings
             const departureTime = moment.tz(
               segmentData.departure.at,
-              "Asia/Dubai"
+              'Asia/Dubai'
             );
-            const arrivalTime = moment.tz(segmentData.arrival.at, "Asia/Dubai");
+            const arrivalTime = moment.tz(segmentData.arrival.at, 'Asia/Dubai');
 
-            const departureFormatted1 = departureTime.format("HH:mm");
-            const arrivalFormatted1 = arrivalTime.format("HH:mm");
+            const departureFormatted1 = departureTime.format('HH:mm');
+            const arrivalFormatted1 = arrivalTime.format('HH:mm');
             setDepartureFormatted(departureFormatted1);
             setArrivalFormatted(arrivalFormatted1);
 
             // console.log("departureTime: ", departureTime.toString());
             // console.log("arrivalTime: ", arrivalTime.toString());
 
-            console.log("arrivalFormatted", arrivalFormatted);
+            console.log('arrivalFormatted', arrivalFormatted);
 
-            console.log("departureFormatted", departureFormatted);
+            console.log('departureFormatted', departureFormatted);
 
             // Check if the times are in the same timezone
             const sameTimezone =
               departureTime.utcOffset() === arrivalTime.utcOffset();
 
-            console.log("Are the times in the same timezone? ", sameTimezone);
+            console.log('Are the times in the same timezone? ', sameTimezone);
 
             // Calculate the flight duration
             const durationMs = arrivalTime.diff(departureTime);
@@ -174,29 +179,29 @@ const Listing = ({isMobile}) => {
             const hours = Math.floor(duration.asHours());
             const minutes = duration.minutes();
 
-            console.log("Time duration in hour", hours);
+            console.log('Time duration in hour', hours);
             console.log(
               `Flight duration: ${hours} hours and ${minutes} minutes`
             );
 
-            console.log("departureTime line 182", departureFormatted);
-            console.log("arrivalTime line 183", arrivalFormatted);
+            console.log('departureTime line 182', departureFormatted);
+            console.log('arrivalTime line 183', arrivalFormatted);
 
             // const sameTimezone = departureTime.isSame(arrivalTime, "minute");
 
-            console.log("sameTimezone line 189", sameTimezone);
+            console.log('sameTimezone line 189', sameTimezone);
             // const departureTime = moment(segmentData.departure.at).tz("UTC");
             const departureTime1 = moment(departureTime);
             setDepartureFormatted((prev) => [
               ...prev,
-              departureTime1.format("HH:mm"),
+              departureTime1.format('HH:mm'),
             ]);
 
             // const arrivalTime = moment(segmentData.arrival.at).tz("UTC");
             const arrivalTime1 = moment(arrivalTime);
             setArrivalFormatted((prev) => [
               ...prev,
-              arrivalTime1.format("HH:mm"),
+              arrivalTime1.format('HH:mm'),
             ]);
 
             // const duration = moment.duration(arrivalTime.diff(departureTime));
@@ -212,14 +217,14 @@ const Listing = ({isMobile}) => {
       // Assuming totalPrice is available from somewhere in your data
       const totalPrice = finalData.price?.totalPrice.toFixed(3);
 
-      console.log("line 154 totalPrice", totalPrice);
+      console.log('line 154 totalPrice', totalPrice);
     } else if (
       (!finalData?.AirCraftDatawithNotechStop ||
         finalData?.AirCraftDatawithNotechStop?.length === 0) &&
       finalData?.AirCraftDatawithtechStop?.length > 0
     ) {
       finalData?.AirCraftDatawithtechStop?.map((data, index) => {
-        console.log("data line 167", data);
+        console.log('data line 167', data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
             const departureIataCode = segmentData.departure.iataCode;
@@ -228,32 +233,32 @@ const Listing = ({isMobile}) => {
             setArrivalLocations(arrivalIataCode);
 
             const departureTime = moment(segmentData.departure.at).tz(
-              "Asia/Dubai"
+              'Asia/Dubai'
             );
-            const arrivalTime = moment(segmentData.arrival.at).tz("Asia/Dubai");
+            const arrivalTime = moment(segmentData.arrival.at).tz('Asia/Dubai');
 
             // const departureTime = moment.tz(
             //   segmentData.departure.at,
             //   "Asia/Dubai"
             // );
             // const arrivalTime = moment.tz(segmentData.arrival.at, "Asia/Dubai");
-            console.log("departureTime line 182", departureTime);
-            console.log("arrivalTime line 183", arrivalTime);
+            console.log('departureTime line 182', departureTime);
+            console.log('arrivalTime line 183', arrivalTime);
 
-            const sameTimezone = departureTime.isSame(arrivalTime, "minute");
+            const sameTimezone = departureTime.isSame(arrivalTime, 'minute');
 
-            console.log("sameTimezone line 189", sameTimezone);
+            console.log('sameTimezone line 189', sameTimezone);
 
             // Calculate the difference in milliseconds
             const durationMs = arrivalTime.diff(departureTime);
 
-            console.log("flying duration time line 194", durationMs);
+            console.log('flying duration time line 194', durationMs);
 
             // Convert milliseconds to hours and minutes
             const duration = moment.duration(durationMs);
             const hours = Math.floor(duration.asHours());
 
-            console.log("flying duration time in hour", hours);
+            console.log('flying duration time in hour', hours);
             const minutes = duration.minutes();
 
             console.log(
@@ -272,10 +277,10 @@ const Listing = ({isMobile}) => {
             // const arrivalTime = moment(segmentData.arrival.at).tz("Asia/Dubai");
 
             // const sameTimezone = departureTime.isSame(arrivalTime, "minute");
-            console.log("sameTimezone line 189", sameTimezone);
+            console.log('sameTimezone line 189', sameTimezone);
             const arrivalTime1 = moment(arrivalTime);
-            console.log("departureTime line 191", departureTime);
-            console.log("arrivalTime line 192", arrivalTime);
+            console.log('departureTime line 191', departureTime);
+            console.log('arrivalTime line 192', arrivalTime);
             // setArrivalFormatted((prev) => [
             //   ...prev,
             //   arrivalTime1.format("HH:mm"),
@@ -290,9 +295,9 @@ const Listing = ({isMobile}) => {
             let totalDuration = 0;
             segments?.forEach((segment) => {
               const departureTime = moment(segment.departure.at).tz(
-                "Asia/Dubai"
+                'Asia/Dubai'
               );
-              const arrivalTime = moment(segment.arrival.at).tz("Asia/Dubai");
+              const arrivalTime = moment(segment.arrival.at).tz('Asia/Dubai');
 
               const duration = moment.duration(arrivalTime.diff(departureTime));
               totalDuration += duration.asMinutes(); // Convert duration to minutes and accumulate
@@ -302,44 +307,42 @@ const Listing = ({isMobile}) => {
           const totalDurationInMinutes = calculateTotalDuration(
             innerData.segments
           );
-          console.log("totalDurationInMinutes", totalDurationInMinutes);
-
-          // Output the total flying time for this itinerary
+          console.log('totalDurationInMinutes', totalDurationInMinutes);
         });
         setTotalPrice(data.price.totalPrice);
         setuniquePrice(data.price.totalPrice);
       });
     }
-  }, [finalData]); // This useEffect will run whenever finalData changes
-  console.log("totalPrice line 216", totalPrice);
-  console.log("arrivalLocations line 194", arrivalLocations);
-  console.log("departureLocations line 195", departureLocations);
-  // console.log("depatureDate", depatureDate);
-  // console.log("Form submitted with data", formData);
+  }, [finalData]); 
+  console.log('totalPrice line 216', totalPrice);
+  console.log('arrivalLocations line 194', arrivalLocations);
+  console.log('departureLocations line 195', departureLocations);
+
   const formatDate = (date) => {
-    return date.toISOString().substr(0, 10); // Format the date as "YYYY-MM-DD"
+    return date.toISOString().substr(0, 10); 
   };
 
   const currencySymbols = {
-    EUR: "€",
-    AED: "AED",
-    USD: "$",
-    INR: "₹",
+    EUR: '€',
+    AED: 'AED',
+    USD: '$',
+    INR: '₹',
   };
-  console.log(" totalPrice line 164 ", totalPrice);
+  console.log(' totalPrice line 164 ', totalPrice);
   const handleChange = (event) => {
     setSelectedCurrency(event.target.value);
     // You can call a function here based on the selected currency
     switch (event.target.value) {
-      case "EUR":
+      case 'EUR':
         handleEUR();
-      case "AED":
+        break;
+      case 'AED':
         handleAED();
         break;
-      case "USD":
+      case 'USD':
         handleUSD();
         break;
-      case "INR":
+      case 'INR':
         handleINR();
         break;
       default:
@@ -348,103 +351,38 @@ const Listing = ({isMobile}) => {
     }
   };
 
-  console.log(" totalPrice line 185 ", totalPrice);
+  console.log(' totalPrice line 185 ', totalPrice);
   const handleEUR = async () => {
-    // swal({
-    //   title: "Are you sure ?",
-    //   text: "Wanna Price In EURO",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // }).then((willDelete) => {
-    //   if (willDelete) {
-    //     swal("Now Your Ticket Price is EURO currency", {
-    //       icon: "success",
-    //     });
-    //   } else {
-    //     swal("Your imaginary file is safe!");
-    //   }
-    // });
-    const EuroPrice = uniquePrice.toFixed(3) * 1;
-    alert("this is euro price" );
-    await setTotalPrice(EuroPrice);
-    
   
-
-    console.log("First iteration Euro", EuroPrice);
+    const EuroPrice = uniquePrice.toFixed(2);
+    alert('this is euro price');
+    await setTotalPrice(EuroPrice);
+    console.log('First iteration Euro', EuroPrice);
   };
   const handleAED = async () => {
     const PriceAED = uniquePrice * 3.95;
-    // swal({
-    //   title: "Are you sure ?",
-    //   text: "Wanna Price In AED",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // }).then((willDelete) => {
-    //   if (willDelete) {
-    //     swal("Now Your Ticket Price is AED currency", {
-    //       icon: "success",
-    //     });
-    //   } else {
-    //     swal("Your imaginary file is safe!");
-    //   }
-    // });
-    alert("this is aed price");
+    alert('this is aed price');
     await setTotalPrice(PriceAED);
-    console.log("First iteration AED", PriceAED);
-    console.log("PriceAED", PriceAED.toFixed(3));
+    console.log('First iteration AED', PriceAED);
+    console.log('PriceAED', PriceAED.toFixed(2));
   };
 
   const handleUSD = async () => {
-    // swal({
-    //   title: "Are you sure ?",
-    //   text: "Wanna Price In USD",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // }).then((willDelete) => {
-    //   if (willDelete) {
-    //     swal("Now Your Ticket Price is USD currency", {
-    //       icon: "success",
-    //     });
-    //   } else {
-    //     swal("Your imaginary file is safe!");
-    //   }
-    // });
-    alert("this is USD price");
+    alert('this is USD price');
     const PriceUsd = uniquePrice * 1.077;
     await setTotalPrice(PriceUsd);
-    alert("Price", PriceUsd);
-    console.log("PriceUsd", PriceUsd.toFixed(3));
-    // Add your code for USD here
+    alert('Price', PriceUsd);
+    console.log('PriceUsd', PriceUsd.toFixed(2));
   };
 
   const handleINR = async () => {
-    // swal({
-    //   title: "Are you sure ?",
-    //   text: "Wanna Price In INR",
-    //   icon: "warning",
-    //   buttons: true,
-    //   dangerMode: true,
-    // }).then((willDelete) => {
-    //   if (willDelete) {
-    //     swal("Now Your Ticket Price is INR currency", {
-    //       icon: "success",
-    //     });
-    //   } else {
-    //     swal("Your imaginary file is safe!");
-    //   }
-    // });
-    alert("this is INR price");
+    alert('this is INR price');
     const PriceINR = uniquePrice * 89.42;
-    alert("Price", PriceINR);
+    alert('Price', PriceINR);
     await setTotalPrice(PriceINR);
-    console.log("PriceINR ", PriceINR.toFixed(3));
-    // alert("INR function called");
-    // Add your code for INR here
+    console.log('PriceINR ', PriceINR.toFixed(2));
   };
-  console.log(" totalPrice line 213", totalPrice);
+
   const handleInpUTChange = (field, value) => {
     setFormData({
       ...formData,
@@ -453,9 +391,9 @@ const Listing = ({isMobile}) => {
   };
   const handleCountryCodeChange = (event) => {
     const countryCodeValue = event.target.value;
-    handleInpUTChange("countryCode", countryCodeValue);
-  }; // Call handleInpUTChange to update countryCode };
-  console.log("final data  line 228", finalData);
+    handleInpUTChange('countryCode', countryCodeValue);
+  }; 
+  console.log('final data  line 228', finalData);
   return (
     <div className="font-poppins">
       <Image src={Landing} height={420} width={1874} />
@@ -473,7 +411,7 @@ const Listing = ({isMobile}) => {
               name="originLocationCode"
               value={formData.originLocationCode}
               onChange={(e) =>
-                handleInpUTChange("originLocationCode", e.target.value)
+                handleInpUTChange('originLocationCode', e.target.value)
               }
             />
             {/* <div
@@ -503,7 +441,7 @@ const Listing = ({isMobile}) => {
 
             {/* To Input */}
             <div
-              style={{position: "relative"}}
+              style={{ position: 'relative' }}
               className="mb-[15px] w-[200px] sm:w-[100%] mr-[20px] md:mb-3 sm:md-3"
             >
               <TextInput
@@ -512,7 +450,7 @@ const Listing = ({isMobile}) => {
                 name="destinationLocationCode"
                 value={formData.destinationLocationCode}
                 onChange={(e) =>
-                  handleInpUTChange("destinationLocationCode", e.target.value)
+                  handleInpUTChange('destinationLocationCode', e.target.value)
                 }
               />
             </div>
@@ -524,7 +462,7 @@ const Listing = ({isMobile}) => {
               name="departureDate"
               value={formData.departureDate}
               onChange={(e) =>
-                handleInpUTChange("departureDate", e.target.value)
+                handleInpUTChange('departureDate', e.target.value)
               }
             />
             {/* Country Code Selection */}
@@ -544,9 +482,9 @@ const Listing = ({isMobile}) => {
               <select
                 value={formData.countryCode}
                 onChange={handleCountryCodeChange}
-                className="w-32 px-4 py-2 border rounded-lg bg-gray-100 focus:outline-none focus:border-blue-500"
+                className="w-32 px-4 py-2 border rounded-lg  focus:outline-none focus:border-blue-500"
               >
-                <option>Sele country code</option>{" "}
+                <option>Sele country code</option>{' '}
                 <option value="+93">Afghanistan (AF)</option>
                 <option value="+358">Åland Islands (AX)</option>
                 <option value="+355">Albania (AL)</option>
@@ -812,7 +750,7 @@ const Listing = ({isMobile}) => {
                 <option value="+967">Yemen (YE)</option>
                 <option value="+260">Zambia (ZM)</option>
                 <option value="+263">Zimbabwe (ZW)</option>
-                {/* Add more options as needed */}{" "}
+                {/* Add more options as needed */}{' '}
               </select>
             </div>
 
@@ -824,7 +762,7 @@ const Listing = ({isMobile}) => {
                 name="mobile"
                 placeholder="123-456-7890"
                 value={formData.mobile}
-                onChange={(e) => handleInpUTChange("mobile", e.target.value)}
+                onChange={(e) => handleInpUTChange('mobile', e.target.value)}
               />
             </div>
 
@@ -834,7 +772,7 @@ const Listing = ({isMobile}) => {
               label="Pax"
               name="pax"
               value={formData.pax}
-              onChange={(e) => handleInpUTChange("pax", e.target.value)}
+              onChange={(e) => handleInpUTChange('pax', e.target.value)}
             />
 
             {/* Search Button */}
@@ -873,7 +811,7 @@ const Listing = ({isMobile}) => {
       <div className="px-[5%] flex justify-between items-stretch flex-wrap">
         {apiData?.nearestOperatorWithPrice?.map((el, i) => (
           <Planedesc
-            key={"reesult-item-" + i}
+            key={'reesult-item-' + i}
             name={el.operator.Aircraft_type}
             price={Math.ceil(el.price * 10) / 10}
             time={convertTime(el.totalTime)}
@@ -887,7 +825,7 @@ const Listing = ({isMobile}) => {
         <div class="grid grid-rows-5 grid-cols-1 gap-4 px-[35px]">
           {finalData?.AirCraftDatawithNotechStop?.length > 0 &&
             finalData?.AirCraftDatawithNotechStop?.map((data, index) => {
-              console.log("data line 300 ", data);
+              console.log('data line 300 ', data);
 
               // data.aircraft.itineraries.forEach((Innerdata) => {
               //   Innerdata.segments.forEach((segmentData) => {
@@ -923,7 +861,7 @@ const Listing = ({isMobile}) => {
                       <div class="grid grid-cols-3 gap-4 mb-5">
                         <div class="">
                           <span class="text-[#000000] text-[20px] font-semibold text-center">
-                            {" "}
+                            {' '}
                             {departureFormatted[0]}
                           </span>
                           <br />
@@ -938,7 +876,7 @@ const Listing = ({isMobile}) => {
                         </div>
                         <div class="text-end">
                           <span class="text-[#000000] text-[20px] font-semibold text-center">
-                            {" "}
+                            {' '}
                             {/* {Depatureformatted[0]} */}
                             {arrivalFormatted[0]}
                           </span>
@@ -1036,7 +974,7 @@ const Listing = ({isMobile}) => {
                       <div class="grid grid-cols-3 gap-2 mb-5">
                         <div class="">
                           <span class="text-[rgb(0,0,0)] text-[20px] font-semibold text-center">
-                            {" "}
+                            {' '}
                             {/* {Depatureformatted[0]} */}
                           </span>
                           <br />

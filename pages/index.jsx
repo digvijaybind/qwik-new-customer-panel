@@ -5,7 +5,7 @@ import { Inter, Montserrat } from '@next/font/google';
 import styles from '../styles/page.module.css';
 import Nav from '../components/Nav/nav';
 import Planetype from '../components/PlaneType/planetype';
-import Review from '../components/Review/review';
+import Review from '@/components/review/Review';
 import { TextInput, DateInput } from '../components/Form/input';
 import { useState } from 'react';
 import { Shadow } from '../components/Utils/utils';
@@ -44,6 +44,13 @@ import Image5 from '../public/images/qwiklif5.jpg';
 import Image6 from '../public/images/qwiklif6.jpg';
 import Search from '../public/images/search.svg';
 import AboutAircraft from '../public/images/Homepage/about.png';
+import { Button } from '@mui/material';
+import Aeroplane from '../public/images/sliderIcon/aeroplane.svg';
+import Cost from '../public/images/sliderIcon/Cost.svg';
+import Global1 from '../public/images/sliderIcon/global.svg';
+import Dedicated from '../public/images/roadmap/dedicated.svg';
+import Commericial from '../public/images/roadmap/commericial.svg';
+import SelectionComponent from '@/components/selection/SelectionComponent';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
@@ -64,6 +71,7 @@ export default function Home() {
   const [cityMatch, setCitymatch] = useState([]);
   const [fieldType, setFieldtype] = useState('');
   const { loading, startLoading, stopLoading, setApiData } = useData();
+  const [activeTab, setActiveTab] = useState(1);
 
   console.log('fieldType', fieldType);
   useEffect(() => {
@@ -488,32 +496,7 @@ and typenews…`,
                   handleInpUTChange('originLocationCode', e.target.value)
                 }
               />
-              {/* <div
-                className="absolute overflow-auto z-[100] max-h-[300px]"
-                id="fromAutoComplete"
-              >
-                {fieldType === "From" &&
-                  cityMatch?.length > 0 &&
-                  cityMatch?.map((item, index) => (
-                    <div
-                      key={index + "city-match-item"}
-                      className="bg-[#E6F7FF] hover:#B3E0FF px-3 py-2"
-                      onClick={() => handleCityItemClick("From", item)}
-                    >
-                      <p className="text-[0.95rem] font-semibold text-blue-900">
-                        {item?.icao}
-                        {item?.iata ? `(${item?.iata})` : null}
-                        {item?.icao || item?.iata ? "," : null} {item?.name}
-                      </p>
-                      <p className="text-[0.7rem]">
-                        {item?.city_name}
-                        {item?.city_name ? "," : null} {item?.country_name}
-                      </p>
-                    </div>
-                  ))}
-              </div> */}
 
-              {/* To Input */}
               <div
                 style={{ position: 'relative' }}
                 className="mb-[15px] w-[200px] sm:w-[100%] mr-[20px] md:mb-3 sm:md-3"
@@ -539,20 +522,9 @@ and typenews…`,
               {/* Country Code Selection */}
 
               <div>
-                {/* <select className="border border-solid border-gray-300 rounded-md bg-white p-3 w-[160px]">
-                <option value="+1" className="font-semibold text-[8px]">
-                  
-                </option>
-                <option value="+91" className="font-semibold text-[8px]">
-                  IN
-                </option>
-                <option value="+971" className="font-semibold text-[8px]">
-                  UAE
-                </option>
-              </select> */}
                 <select
                   value={formData.countryCode}
-                  className="w-32 px-4 py-2 bg-gray-100 border rounded-lg focus:outline-none focus:border-blue-500"
+                  className="w-32 px-4 py-2  border rounded-lg focus:outline-none focus:border-blue-500"
                 >
                   <option>Sele country code</option>{' '}
                   <option value="+93">Afghanistan (AF)</option>
@@ -865,7 +837,7 @@ and typenews…`,
             </div>
             <div class=""></div>
           </div> */}
-          <div class="grid grid-cols-2 gap-2">
+          <div class="grid grid-cols-2 gap-2 sm:grid-cols-1">
             <Image src={AboutAircraft} height={460} width={620} />
 
             <div class="grid grid-rows-3 gap-3">
@@ -994,9 +966,6 @@ and typenews…`,
         </div>
 
         <div id="services" className="mt-[100px]">
-          {/* <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px] sm:mb-[10px]">
-            SERVICES
-          </div> */}
           <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
             Our Air Ambulance Services
           </h2>
@@ -1004,40 +973,13 @@ and typenews…`,
             <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
           </div>
           <div class="">
-            {/* {services.length > 0 &&
-              services.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Servicecard
-                      title={item.title}
-                      description={item.description}
-                      bgColor={item.color}
-                      imageUrl={item.image}
-                    />
-                  </div>
-                );
-              })} */}
-
-            {/* <div class="px-[20px] py-[30px] flex flex-col justify-start bg-[#3CB3CC]">
-              <div class="text-[#fff] font-normal text-[24px] mb-[30px]">
-                TRAINING
-              </div>
-              <div class="flex flex-wrap text-[#fff] text-[15px] font-normal mb-[30px]">
-                On Site practical training with top notch equipment and
-                technology paired with outstanding skillset and expertise makes
-                Qwiklif ’s training program like no other.
-              </div>
-              <div class="w-full">
-                <Image src={serviceTrain} height={314} class="w-full" />
-              </div>
-            </div> */}
             <div className="w-[90%] mx-[5%] sm:w-full sm:mx-0">
               <Slider {...settings}>
                 {services.map((item, index) => {
                   return (
                     <div
                       key={index}
-                      class="grid gap-4 grid-cols-3 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                      class="grid grid-cols-3  gap-5 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
                     >
                       <Servicecard
                         title={item.title}
@@ -1084,12 +1026,12 @@ and typenews…`,
           <div
             className={`w-[90%] mx-[5%] h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] ${styles.boxShadow} mt-[60px]`}
           >
-            <div className="h-[60px] flex flex-row w-full">
+            <div className="h-[60px] flex flex-row w-full md:flex-col sm:flex-col">
               {bookTypes.map((item, index) => {
                 return (
                   <button
                     key={index}
-                    className={`w-[50%] flex justify-center items-center h-full ${
+                    className={`w-[50%] flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${
                       SelectedIndex === index
                         ? 'bg-[#14A4D4]'
                         : 'bg-[#F0F0F09C]'
@@ -1099,25 +1041,45 @@ and typenews…`,
                       setSelectedIndex(index);
                     }}
                   >
-                    <div className="flex flex-row items-center justify-start gap-[10px]">
+                    <div className="flex flex-row items-center justify-start gap-[10px] sm:flex-col">
                       {SelectedIndex === index ? (
-                        <Image
-                          className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
-                          src="/images/small_plane.png"
-                          width={40}
-                          height={40}
-                          alt="rapid Time"
-                          layout="contain"
-                        />
+                        <div>
+                          <Image
+                            className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
+                            src="/images/small_plane.png"
+                            width={40}
+                            height={40}
+                            alt="rapid Time"
+                            layout="contain"
+                            class="block sm:hidden"
+                          />
+                          {/* 
+                          <Image
+                            src={Dedicated}
+                            width={100}
+                            height={100}
+                            class="hidden sm:block"
+                          /> */}
+                        </div>
                       ) : (
-                        <Image
-                          className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
-                          src="/images/black_small_plane.png"
-                          width={40}
-                          height={40}
-                          alt="rapid Time"
-                          layout="contain"
-                        />
+                        <div>
+                          <Image
+                            className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
+                            src="/images/commericial.png"
+                            width={40}
+                            height={40}
+                            alt="rapid Time"
+                            layout="contain"
+                            class="block sm:hidden"
+                          />
+
+                          {/* <Image
+                            src={Commericial}
+                            width={100}
+                            height={100}
+                            class="hidden sm:block"
+                          /> */}
+                        </div>
                       )}
                       <p
                         className={`font-normal text-[16px] leading-[26px] ${
@@ -1133,7 +1095,8 @@ and typenews…`,
                 );
               })}
             </div>
-            {SelectedIndex === 0 && (
+
+            {SelectedIndex === 0 ? (
               <Image
                 className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
                 src="/images/ablance.png"
@@ -1142,62 +1105,234 @@ and typenews…`,
                 alt="rapid Time"
                 layout="responsive"
               />
+            ) : (
+              <Image
+                className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
+                src="/images/commericial.png"
+                width={40}
+                height={40}
+                alt="Another Image"
+                layout="responsive"
+              />
             )}
           </div>
 
-          <div className="sm:w-[90%] sm:mx-[5%] w-[85%] mx-[7.5%] sm:flex-col lg:flex-col flex flex-row sm:items-center lg:items-center justify-between sm:justify-start lg:justify-start h-[480px] sm:h-auto lg:h-auto mt-[80px]">
-            <div className="w-full flex flex-row  sm:flex-col items-start justify-between sm:justify-start sm:gap-[30px] lg:gap-[30px]">
-              <div className="sm:w-full flex flex-col items-start h-full justify-between sm:h-auto sm:justify-start sm:gap-[50px]">
-                <div className="flex flex-col items-start sm:w-full sm:items-center ">
-                  <h2 className="text-[#000] font-bold text-[32px] leading-[34px] text-center">
-                    Why choose Qwiklif?
-                  </h2>
-                  <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
+          <div className="px-[50px] sm:px-[25px]">
+            <div className="flex justify-around sm:w-full  sm:flex-col mt-10 mb-10 py-10">
+              <div className="">
+                <h2 className="text-[#000] font-bold text-[32px] leading-[34px] text-center">
+                  Why choose Qwiklif?
+                </h2>
+                <div className="sm:flex justify-center">
+                  <hr className="bg-[#11B6E3] h-[6px] w-[60px] mt-[20px] rounded-sm" />
                 </div>
-                <Image
-                  className="w-full lg:max-w-[80%] lg:mx-[10%] max-h-[320px]"
-                  src="/images/why.png"
-                  width={40}
-                  height={40}
-                  alt="rapid Time"
-                  layout="responsive"
-                />
               </div>
 
-              <div className="sm:w-full flex flex-col items-start h-full justify-between sm:h-auto sm:justify-start sm:gap-[50px]">
-                <div className="border-l-[2px] border-l-solid border-l-[#396CF0] flex justify-start items-start w-full">
-                  <p className="text-[#646464] font-normal text-[18px] leading-[32px] ml-[5px] sm:ml-0 lg:ml-0">
-                    Fly Fast and Safe with Qwiklif Air Ambulance We have access
-                    to global hospitals including finest
-                    <br />
-                    medic and eminent surgeons across the globe.
-                  </p>
-                </div>
-                <div className="flex flex-col items-start sm:items-center sm:w-full gap-[30px] sm:gap-[50px]">
-                  <Image
-                    className="max-w-[300px] sm:w-full max-h-[200px]"
-                    src="/images/many_plane.png"
-                    width={40}
-                    height={40}
-                    alt="rapid Time"
-                    layout="responsive"
-                  />
-                  <div className="flex flex-col items-start gap-[30px]">
-                    <div className="flex flex-col items-start sm:w-full sm:items-center ">
-                      <h2 className="text-[#111111] font-bold text-[24px] leading-[26px] text-center">
-                        Biggest Fleet Network
-                      </h2>
-                      <hr className="bg-[#11B6E3] h-[4px] w-[100px] mt-[5px]" />
-                    </div>
-                    <p className="text-[#646464] font-normal text-[16px] leading-[24px] ">
-                      With the largest fleet, QwikLif can respond to emergencies
-                      quickly. Multiple aircraft options are available to meet
-                      <br />
-                      various medical requirements, providing an ideal option
-                      for all situations.
-                    </p>
+              <div className="border-l-[2px] border-l-solid border-l-[#396CF0] sm:mt-5  sm:border-l-[3px]">
+                <p className="text-[#646464] text-[18px] ml-5   leading-[32px] ml-[10px] lg:ml-0 font-medium sm:ml-3">
+                  Fly Fast and Safe with Qwiklif Air Ambulance We have access to
+                  global hospitals including finest
+                  <br />
+                  medic and eminent surgeons across the globe.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-10  gap-5 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
+              <div className="col-span-3  flex flex-col mb-5">
+                <div
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                    activeTab === 1 ? styles.aboutPageMenuActive : ''
+                  }`}
+                  onClick={() => setActiveTab(1)}
+                >
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
+                    <Image src={Aeroplane} width={20} height={15} />
+                  </div>
+                  <div className="font-semibold text-[20px] hover:text-[#fff] sm:flex justify-end">
+                    Biggest Fleet Network
                   </div>
                 </div>
+
+                <div
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                    activeTab === 2 ? styles.aboutPageMenuActive : ''
+                  }`}
+                  onClick={() => setActiveTab(2)}
+                >
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
+                    <Image src={Aeroplane} width={20} height={15} />
+                  </div>
+                  <div className="font-semibold text-[20px] hover:text-[#fff]">
+                    24X7 Doctors On Board
+                  </div>
+                </div>
+
+                <div
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                    activeTab === 3 ? styles.aboutPageMenuActive : ''
+                  }`}
+                  onClick={() => setActiveTab(3)}
+                >
+                  {' '}
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
+                    <Image src={Global1} width={20} height={15} />
+                  </div>
+                  <div className="font-semibold text-[20px] hover:text-[#fff]">
+                    Global Coverage
+                  </div>
+                </div>
+
+                <div
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                    activeTab === 4 ? styles.aboutPageMenuActive : ''
+                  }`}
+                  onClick={() => setActiveTab(4)}
+                >
+                  {' '}
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
+                    <Image src={Cost} width={20} height={15} />
+                  </div>
+                  <div className="font-semibold text-[20px] hover:text-[#fff]">
+                    Cost-Effective Solution
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-7">
+                {activeTab === 1 && (
+                  // <div id="company_profile">
+                  //   <h2 className="font-bold text-xl uppercase mb-4">
+                  //     Company Profile
+                  //   </h2>
+                  //   <p className="text-sm">
+                  //     About Qwiklif: An air ambulance company with give multiple
+                  //     choices of air ambulance cost which is closest to you,
+                  //     <br /> Qwiklif focuses on giving customer cost effective
+                  //     and safest patient transfer. Qwiklif is an air ambulance
+                  //     company which has wide network of aircraft fleet and
+                  //     professional intensivist to airlift the patient from
+                  //     anywhere in the world safely to the destination. Our
+                  //     Services <br />
+                  //     1. Dedicated air ambulance service: Fully equipped
+                  //     dedicated charter aircraft with stretcher configuration an
+                  //     best for patient transfer, We have largest network of air
+                  //     ambulance across the world to give you the best air
+                  //     ambulance cost - aircraft with ql image <br />
+                  //     2. Commercial Airline stretcher transfer Transferring
+                  //     patient in commercial airline is another best and cost
+                  //     effective option Commercial airline patient transfer works
+                  //     only if the patient is less on 4L of oxygen support -
+                  //     whatsapp <br />
+                  //     3. International Patient transfer Qwiklif offers
+                  //     International patient transfer service by dedicated air
+                  //     ambulance as well as commercial stretcher, Qwiklif takes
+                  //     care of all the documentation process for smooth transfer
+                  //     of patient. <br /> 4. ECMO Initiation and Air Transfer:
+                  //     Qwiklif Expert ECMO team, Initiate ECMO,stabilises patient
+                  //     and then transfer the patient on ECMO using air ambulance
+                  //     across the world <br /> 5. Neonatal and pediatric Air
+                  //     Transfer Qwiklif neonatal team excels in transferring
+                  //     critical babies from one place to another using dedicated
+                  //     air ambulance with advance medical equipments on board
+                  //   </p>
+                  // </div>
+                  <SelectionComponent />
+                )}
+                {activeTab === 2 && (
+                  <div id="mission">
+                    <h2 className="font-bold text-xl uppercase mb-4">
+                      Mission and Vision
+                    </h2>
+                    <p className="text-sm">
+                      Our mission at Qwiklif is simple: to connect people in
+                      need of critical medical transportation with the
+                      best-equipped, fastest, and most cost-effective air
+                      ambulance services. We are driven by a passion for saving
+                      lives and ensuring that all patients receive the highest
+                      standard of care during their journey.
+                    </p>
+                  </div>
+                )}
+                {activeTab === 3 && (
+                  <div id="mmilestone">
+                    <h2 className="font-bold text-xl uppercase mb-4">
+                      Milestones
+                    </h2>
+                    <p className="text-sm">
+                      The Qwiklif Difference What sets Qwiklif apart from the
+                      rest? It&apos;s <br />
+                      our unwavering commitment to excellence, our extensive
+                      global network, and our dedication to affordability.{' '}
+                      <br />
+                      1. Largest Global Network: We take pride in being the
+                      largest air ambulance provider with a vast network of
+                      aircraft spanning across the globe. Whether you&apos;re in
+                      a bustling metropolis or a remote corner of the world, we
+                      can reach you and get you to where you need to be. <br />
+                      2. Swift Response: Time is of the essence in critical
+                      medical situations. Our team is on standby 24/7, ready to
+                      respond to your call at a moment&apos;s notice.
+                      <br /> We understand the urgency of your situation, and we
+                      act accordingly.
+                      <br /> 3. Top-Notch Medical Expertise: Our medical teams
+                      consist of highly skilled professionals with vast
+                      experience in critical care. We provide comprehensive
+                      in-flight medical care to ensure the safety and well-being
+                      of our patients.
+                      <br /> 4. Cutting-Edge Aircraft: Qwiklif only utilizes
+                      state-of-the-art aircraft equipped with the latest medical
+                      technology. We spare no expense in making sure that our
+                      patients receive the best care possible during their
+                      journey. <br /> 5. Affordability:We understand the
+                      financial strain that medical emergencies can cause.
+                      Qwiklif is committed to offering the most competitive
+                      pricing in the industry. <br />
+                      We believe that every individual should have access to
+                      premium air ambulance services without the burden of
+                      excessive costs.
+                    </p>
+                  </div>
+                )}
+                {activeTab === 4 && (
+                  <div id="policies">
+                    <h2 className="font-bold text-xl uppercase mb-4">
+                      Policies
+                    </h2>
+                    <p className="text-sm">
+                      Qwiklif is founded on a set of core values that guide our
+                      every action: - Compassion: We understand the stress and
+                      anxiety that come with a medical emergency.
+                      <br /> Our team approaches every case with empathy,
+                      compassion, and a deep commitment to relieving the burden
+                      on the patient and their family. - Integrity: We maintain
+                      the highest level of integrity in all our operations.{' '}
+                      <br /> You can trust us to provide transparent, honest,
+                      and ethical service, from the first call to the safe
+                      arrival at the destination. - Innovation: We are
+                      constantly evolving and embracing new technologies and
+                      medical advancements to improve patient care and
+                      transportation. Innovation is at the heart of what we do.
+                      - Global Reach: Our extensive global network enables us to
+                      assist patients from any corner of the world. We believe
+                      that distance should never be an obstacle to receiving the
+                      best medical care. - Affordability: We&apos;re <br />
+                      dedicated to making air ambulance services accessible to
+                      all by offering competitive pricing without compromising
+                      on quality. Your Trusted Air Ambulance Partner Qwiklif is
+                      more than just an air ambulance company.
+                      <br /> We are your trusted partner during the most
+                      challenging times. We are committed to redefining air
+                      ambulance services by providing unmatched quality,
+                      affordability, and global reach. When you choose Qwiklif,
+                      you&apos;re <br /> choosing excellence in medical
+                      transportation. Contact us today to learn more about our
+                      services and how we can assist you during a medical
+                      emergency.
+                      <br /> Qwiklif is here to provide the care and support you
+                      need when it matters most. Your safety and well-being are
+                      our top priorities.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -1227,7 +1362,7 @@ and typenews…`,
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/fourfifty_plus.png"
-                width={40}
+                width={50}
                 height={40}
                 alt="rapid Time"
                 layout="responsive"
@@ -1235,7 +1370,7 @@ and typenews…`,
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/twenty_five_plus.png"
-                width={40}
+                width={50}
                 height={40}
                 alt="rapid Time"
                 layout="responsive"
@@ -1243,7 +1378,7 @@ and typenews…`,
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/fiveteen_plus.png"
-                width={40}
+                width={50}
                 height={40}
                 alt="rapid Time"
                 layout="responsive"
@@ -1251,7 +1386,7 @@ and typenews…`,
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/seventhousand_plus.png"
-                width={40}
+                width={50}
                 height={40}
                 alt="rapid Time"
                 layout="responsive"
@@ -1291,7 +1426,7 @@ and typenews…`,
               </div>
             </div>
           </div>
-
+          {/* 
           <div id="services" className="mt-[90px]">
             <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
               Here's what our satisfied clients are saying
@@ -1317,6 +1452,10 @@ and typenews…`,
                 </h1>
               </div>
             </div>
+          </div> */}
+
+          <div className="bg-[#000]">
+            <Review />
           </div>
 
           <div className="w-[90%] mx-[5%] flex flex-col items-start mt-[90px]">
@@ -1369,8 +1508,8 @@ and typenews…`,
                             <Image
                               className="w-[30px] h-[30px]"
                               src="/images/plus_icon.png"
-                              width={40}
-                              height={40}
+                              width={60}
+                              height={20}
                               alt="rapid Time"
                               layout="contain"
                             />
@@ -1408,18 +1547,21 @@ and typenews…`,
             </div>
           </div>
           <div
-            className={`${styles.gray_plane} h-[900px] sm:h-[1300px] w-full mt-[90px] flex sm:flex-col items-center flex-row justify-start`}
+            className={`${styles.gray_plane} h-[900px] sm:h-[1300px] w-full mt-[90px] flex sm:flex-col items-center  grid grid-cols-2 gap-3 sm:grid-cols-1 `}
           >
-            <Image
-              className="max-w-[950px] max-h-[950px] ml-[5%] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] "
+            {/* <Image
+              className="max-w-[850px] max-h-[950px] ml-[5%] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] "
               src="/images/right_lower.png"
               width={40}
               height={40}
               alt="rapid Time"
               layout="responsive"
-            />
+            /> */}
+            <div className="">
+              <div> This is sample </div>
+            </div>
 
-            <div className="w-[800px] mr-[5%] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] bg-white h-[750px] flex flex-col items-start ">
+            <div className="w-[480px] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] bg-white h-[620px] flex flex-col items-start shadow-2xl rounded-lg">
               <div className="w-[90%] mx-[5%] my-[5%]">
                 <div className="flex flex-col items-start sm:w-full sm:items-center ">
                   <h2 className="text-[#000] font-bold text-[32px] leading-[34px] text-center">
@@ -1437,26 +1579,26 @@ and typenews…`,
                       type="text"
                       value=""
                       placeholder="From *"
-                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0"
+                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
                     />
                     <input
                       type="text"
                       value=""
                       placeholder="To *"
-                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0"
+                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
                     />
                     <div className="flex flex-row justify-between w-full ">
                       <input
                         type="text"
                         value=""
                         placeholder="Phone *"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%]"
+                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%] rounded-md"
                       />
                       <input
                         type="text"
                         value=""
                         placeholder="E-mail*"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%]"
+                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[50%] rounded-md"
                       />
                     </div>
 
@@ -1465,18 +1607,18 @@ and typenews…`,
                         type="date"
                         value=""
                         placeholder="Phone *"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%]"
+                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[50%] rounded-md"
                       />
                       <input
                         type="text"
                         value=""
                         placeholder="Time*"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%]"
+                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%] rounded-md"
                       />
                     </div>
 
                     <button
-                      className={`${styles.boxShado} w-full h-[90px] bg-[#11B6E3] rounded-[4px] mt-[30px] font-semibold text-[15px] leading-[22.5px] text-white`}
+                      className={`${styles.boxShado} w-full h-[50px] bg-[#11B6E3] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#3c70fa] shadow-lg shadow-[#11B6E3]`}
                     >
                       Get Quote
                     </button>

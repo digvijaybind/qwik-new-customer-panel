@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './Servicecard.module.css';
 import Image from 'next/image';
+import ForwardSlash from '../../public/images/ForwardSlash.svg';
 const Servicecard = ({ title, description, imageUrl, index }) => {
   return (
-    <div class={`px-[20px]  flex flex-col items-center ${styles.boxShadow}`}>
+    <div
+      class={`transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[15px] px-[15px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer`}
+    >
       <div class="w-full relative ">
         <Image
           className="w-full h-full"
@@ -12,6 +15,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           height={314}
           alt="rapid Time"
           layout="responsive"
+          class="hover:scale-60 transition duration-500 cursor-pointer"
         />
         <Image
           className="max-w-[80px] max-h-[80px] absolute bottom-[-40px] left-[50px] border-r-[100%]"
@@ -30,8 +34,11 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           {description}
         </p>
         <button className="mb-[30px]">
-          <strong className="text-[#396CF0] text-[15px] font-medium leading-[26px]">
-            READ MORE {`>`}
+          <strong className="text-[#396CF0] text-[15px]  leading-[26px] flex flex-row  items-center font-semibold">
+            READ MORE{' '}
+            <span>
+              <Image src={ForwardSlash} height={7} width={7} class="ml-3" />
+            </span>
           </strong>
         </button>
       </div>
