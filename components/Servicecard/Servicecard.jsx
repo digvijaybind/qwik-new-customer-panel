@@ -5,7 +5,7 @@ import ForwardSlash from '../../public/images/ForwardSlash.svg';
 const Servicecard = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      class={`transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[15px] px-[15px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer`}
+      class={`transition ease-in-out delay-90  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[10px] px-[10px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer`}
     >
       <div class="w-full relative ">
         <Image

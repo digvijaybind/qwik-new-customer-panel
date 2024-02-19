@@ -45,12 +45,15 @@ import Image6 from '../public/images/qwiklif6.jpg';
 import Search from '../public/images/search.svg';
 import AboutAircraft from '../public/images/Homepage/about.png';
 import { Button } from '@mui/material';
-import Aeroplane from '../public/images/sliderIcon/aeroplane.svg';
+import Aeroplane1 from '../public/images/sliderIcon/aeroplane.svg';
 import Cost from '../public/images/sliderIcon/Cost.svg';
 import Global1 from '../public/images/sliderIcon/global.svg';
 import Dedicated from '../public/images/roadmap/dedicated.svg';
 import Commericial from '../public/images/roadmap/commericial.svg';
 import SelectionComponent from '@/components/selection/SelectionComponent';
+import Banner from '../public/images/gray_plane.jpeg';
+import CountUp from 'react-countup';
+import Aeroplane from '../public/images/aeroplane.png';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
@@ -979,7 +982,7 @@ and typenews…`,
                   return (
                     <div
                       key={index}
-                      class="grid grid-cols-3  gap-5 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                      class="grid grid-cols-3  gap-10 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
                     >
                       <Servicecard
                         title={item.title}
@@ -1153,7 +1156,7 @@ and typenews…`,
                   </div>
                 </div>
 
-                <div
+                <button
                   className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
                     activeTab === 2 ? styles.aboutPageMenuActive : ''
                   }`}
@@ -1165,7 +1168,7 @@ and typenews…`,
                   <div className="font-semibold text-[20px] hover:text-[#fff]">
                     24X7 Doctors On Board
                   </div>
-                </div>
+                </button>
 
                 <div
                   className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
@@ -1235,103 +1238,32 @@ and typenews…`,
                   //     air ambulance with advance medical equipments on board
                   //   </p>
                   // </div>
-                  <SelectionComponent />
+                  <SelectionComponent
+                    img={Banner}
+                    title="Biggest Fleet Network"
+                    descripation="With the largest fleet, QwikLif can respond to emergencies quickly. Multiple aircraft options are available to meet various medical requirements, providing an ideal option for all situations."
+                  />
                 )}
                 {activeTab === 2 && (
-                  <div id="mission">
-                    <h2 className="font-bold text-xl uppercase mb-4">
-                      Mission and Vision
-                    </h2>
-                    <p className="text-sm">
-                      Our mission at Qwiklif is simple: to connect people in
-                      need of critical medical transportation with the
-                      best-equipped, fastest, and most cost-effective air
-                      ambulance services. We are driven by a passion for saving
-                      lives and ensuring that all patients receive the highest
-                      standard of care during their journey.
-                    </p>
-                  </div>
+                  <SelectionComponent
+                    img={Banner}
+                    title="24x7 Doctors on Board"
+                    descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
+                  />
                 )}
                 {activeTab === 3 && (
-                  <div id="mmilestone">
-                    <h2 className="font-bold text-xl uppercase mb-4">
-                      Milestones
-                    </h2>
-                    <p className="text-sm">
-                      The Qwiklif Difference What sets Qwiklif apart from the
-                      rest? It&apos;s <br />
-                      our unwavering commitment to excellence, our extensive
-                      global network, and our dedication to affordability.{' '}
-                      <br />
-                      1. Largest Global Network: We take pride in being the
-                      largest air ambulance provider with a vast network of
-                      aircraft spanning across the globe. Whether you&apos;re in
-                      a bustling metropolis or a remote corner of the world, we
-                      can reach you and get you to where you need to be. <br />
-                      2. Swift Response: Time is of the essence in critical
-                      medical situations. Our team is on standby 24/7, ready to
-                      respond to your call at a moment&apos;s notice.
-                      <br /> We understand the urgency of your situation, and we
-                      act accordingly.
-                      <br /> 3. Top-Notch Medical Expertise: Our medical teams
-                      consist of highly skilled professionals with vast
-                      experience in critical care. We provide comprehensive
-                      in-flight medical care to ensure the safety and well-being
-                      of our patients.
-                      <br /> 4. Cutting-Edge Aircraft: Qwiklif only utilizes
-                      state-of-the-art aircraft equipped with the latest medical
-                      technology. We spare no expense in making sure that our
-                      patients receive the best care possible during their
-                      journey. <br /> 5. Affordability:We understand the
-                      financial strain that medical emergencies can cause.
-                      Qwiklif is committed to offering the most competitive
-                      pricing in the industry. <br />
-                      We believe that every individual should have access to
-                      premium air ambulance services without the burden of
-                      excessive costs.
-                    </p>
-                  </div>
+                  <SelectionComponent
+                    img={Banner}
+                    title="Global Coverage"
+                    descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.Whether you're in a bustling city or a remote area, our reach extends to every corner, making quality healthcare accessible wherever you are."
+                  />
                 )}
                 {activeTab === 4 && (
-                  <div id="policies">
-                    <h2 className="font-bold text-xl uppercase mb-4">
-                      Policies
-                    </h2>
-                    <p className="text-sm">
-                      Qwiklif is founded on a set of core values that guide our
-                      every action: - Compassion: We understand the stress and
-                      anxiety that come with a medical emergency.
-                      <br /> Our team approaches every case with empathy,
-                      compassion, and a deep commitment to relieving the burden
-                      on the patient and their family. - Integrity: We maintain
-                      the highest level of integrity in all our operations.{' '}
-                      <br /> You can trust us to provide transparent, honest,
-                      and ethical service, from the first call to the safe
-                      arrival at the destination. - Innovation: We are
-                      constantly evolving and embracing new technologies and
-                      medical advancements to improve patient care and
-                      transportation. Innovation is at the heart of what we do.
-                      - Global Reach: Our extensive global network enables us to
-                      assist patients from any corner of the world. We believe
-                      that distance should never be an obstacle to receiving the
-                      best medical care. - Affordability: We&apos;re <br />
-                      dedicated to making air ambulance services accessible to
-                      all by offering competitive pricing without compromising
-                      on quality. Your Trusted Air Ambulance Partner Qwiklif is
-                      more than just an air ambulance company.
-                      <br /> We are your trusted partner during the most
-                      challenging times. We are committed to redefining air
-                      ambulance services by providing unmatched quality,
-                      affordability, and global reach. When you choose Qwiklif,
-                      you&apos;re <br /> choosing excellence in medical
-                      transportation. Contact us today to learn more about our
-                      services and how we can assist you during a medical
-                      emergency.
-                      <br /> Qwiklif is here to provide the care and support you
-                      need when it matters most. Your safety and well-being are
-                      our top priorities.
-                    </p>
-                  </div>
+                  <SelectionComponent
+                    img={Banner}
+                    title="Cost-Effective Solutions"
+                    descripation="We are committed to providing cost-effective air ambulance solutions without compromising on the standard of care. We suggest different modes of transfers like commercial stretchers and other customised transfer plans for making your medical flight cost effective."
+                  />
                 )}
               </div>
             </div>
@@ -1359,14 +1291,23 @@ and typenews…`,
             <div
               className={`${styles.lowerShadow} w-[90%] mx-[5%] h-[360px] sm:h-[1090px] absolute bg-white bottom-[-200px] sm:bottom-[-960px] flex justify-between flex-row sm:flex-wrap sm:justify-center`}
             >
-              <Image
+              {/* <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/fourfifty_plus.png"
                 width={50}
                 height={40}
                 alt="rapid Time"
                 layout="responsive"
-              />
+              /> */}
+              <div>
+                <Image src={Aeroplane1} height={100} width={100} />
+                <div className="font-bold text-[50px]">
+                  <CountUp start={1} end={450} duration={5} />+
+                </div>
+                <div className="font-semibold text-black font-medium">
+                  Air Transfer
+                </div>
+              </div>
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/twenty_five_plus.png"
@@ -1375,6 +1316,14 @@ and typenews…`,
                 alt="rapid Time"
                 layout="responsive"
               />
+              <div>
+                <div className="font-bold text-[50px]">
+                  <CountUp start={1} end={25} duration={8} />+
+                </div>
+                <div className="font-semibold text-black font-medium">
+                  No of Fleet
+                </div>
+              </div>
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/fiveteen_plus.png"
@@ -1383,6 +1332,14 @@ and typenews…`,
                 alt="rapid Time"
                 layout="responsive"
               />
+              <div>
+                <div className="font-bold text-[50px]">
+                  <CountUp start={1} end={15} duration={10} />+
+                </div>
+                <div className="font-semibold text-black font-medium">
+                  Doctors
+                </div>
+              </div>
               <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
                 src="/images/seventhousand_plus.png"
@@ -1391,6 +1348,12 @@ and typenews…`,
                 alt="rapid Time"
                 layout="responsive"
               />
+              <div className="font-bold text-[50px]">
+                <CountUp start={1} end={7000} duration={5} /> +
+              </div>
+              <div className="font-semibold text-black font-medium">
+                Global Affiliation
+              </div>
             </div>
           </div>
 
