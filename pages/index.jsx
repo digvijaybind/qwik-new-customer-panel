@@ -1,20 +1,15 @@
 'use client';
-
 import Image from 'next/image';
 import { Inter, Montserrat } from '@next/font/google';
 import styles from '../styles/page.module.css';
-import Nav from '../components/Nav/nav';
-import Planetype from '../components/PlaneType/planetype';
 import Review from '@/components/review/Review';
 import { TextInput, DateInput } from '../components/Form/input';
 import { useState } from 'react';
 import { Shadow } from '../components/Utils/utils';
-
 import { useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import { useRouter } from 'next/router';
 const montesserat = Montserrat({ subsets: ['latin'] });
-import Helicaptor from '../public/images/helicaptor.svg';
 import Servicecard from '@/components/Servicecard/Servicecard';
 import NewsUpdates from '@/components/NewsUpdates/NewsUpdate';
 import Training from '../public/images/neona.png';
@@ -23,37 +18,35 @@ import Aviation from '../public/images/ecmo.png';
 import MR from '../public/images/medical_report.png';
 import DM from '../public/images/doctor_medicine.png';
 import TK from '../public/images/treat_kids.png';
-
-import Global from '../public/images/global.jpg';
-import JoinMailingList from '@/components/JoinMailingList/JoinMailingList';
-import Newcard from '@/components/Newcards/newCard';
 import NewAwards from '../public/images/newsAwards.svg';
 import newEarn from '../public/images/newsEarn.svg';
 import newHelipcator from '../public/images/newshelicaptor.svg';
 import newOnline from '../public/images/newsOnline.svg';
-import Popular from '@/components/popular-fleet/Popular';
-import serviceTrain from '../public/images/Servicetraining.svg';
 import Slider from 'react-slick';
 import Navnew from '@/components/Nav/Navnew';
-import ImageCarousel from '@/components/Imagecarousel/ImageCarousel';
 import Image1 from '../public/images/qwiklif1.jpg';
 import Image2 from '../public/images/qwiklif2.jpg';
 import Image3 from '../public/images/qwiklif3.jpg';
 import Image4 from '../public/images/qwiklif4.jpg';
 import Image5 from '../public/images/qwiklif5.jpg';
 import Image6 from '../public/images/qwiklif6.jpg';
+import MiniAeroplane from '../public/images/counter/aeroplane.png';
+import Miniaircraft from '../public/images/counter/aeroplane2.png';
+import Doctor from '../public/images/counter/doctor.png';
+import Miniglobal from '../public/images/counter/global.png';
 import Search from '../public/images/search.svg';
 import AboutAircraft from '../public/images/Homepage/about.png';
-import { Button } from '@mui/material';
 import Aeroplane1 from '../public/images/sliderIcon/aeroplane.svg';
 import Cost from '../public/images/sliderIcon/Cost.svg';
 import Global1 from '../public/images/sliderIcon/global.svg';
-import Dedicated from '../public/images/roadmap/dedicated.svg';
-import Commericial from '../public/images/roadmap/commericial.svg';
 import SelectionComponent from '@/components/selection/SelectionComponent';
 import Banner from '../public/images/gray_plane.jpeg';
 import CountUp from 'react-countup';
 import Aeroplane from '../public/images/aeroplane.png';
+import CustomDatePicker from '@/components/date/CustomDatePicker';
+import Trusted from '@/components/trusted/Trusted';
+import aeroIcon from '../public/images/aeroplaneicon.svg';
+import Honeycomb from '../public/images/honeycomb.png';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
@@ -68,7 +61,7 @@ export default function Home() {
     Date: '',
     Aircraft: 'Learjet 45',
   });
-
+  const [selectedDate, setSelectedDate] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cityMatch, setCitymatch] = useState([]);
@@ -432,6 +425,16 @@ and typenews…`,
     }
   };
 
+  const handleDateChange = (event) => {
+    const selected = new Date(event.target.value);
+    const today = new Date();
+
+    if (selected < today) {
+      setSelectedDate('');
+    } else {
+      setSelectedDate(event.target.value);
+    }
+  };
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
 
@@ -527,7 +530,7 @@ and typenews…`,
               <div>
                 <select
                   value={formData.countryCode}
-                  className="w-32 px-4 py-2  border rounded-lg focus:outline-none focus:border-blue-500"
+                  className="w-36 h-[40px] px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600 "
                 >
                   <option>Sele country code</option>{' '}
                   <option value="+93">Afghanistan (AF)</option>
@@ -1149,7 +1152,7 @@ and typenews…`,
                   onClick={() => setActiveTab(1)}
                 >
                   <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
-                    <Image src={Aeroplane} width={20} height={15} />
+                    <Image src={aeroIcon} height={50} width={50} />
                   </div>
                   <div className="font-semibold text-[20px] hover:text-[#fff] sm:flex justify-end">
                     Biggest Fleet Network
@@ -1202,42 +1205,6 @@ and typenews…`,
               </div>
               <div className="col-span-7">
                 {activeTab === 1 && (
-                  // <div id="company_profile">
-                  //   <h2 className="font-bold text-xl uppercase mb-4">
-                  //     Company Profile
-                  //   </h2>
-                  //   <p className="text-sm">
-                  //     About Qwiklif: An air ambulance company with give multiple
-                  //     choices of air ambulance cost which is closest to you,
-                  //     <br /> Qwiklif focuses on giving customer cost effective
-                  //     and safest patient transfer. Qwiklif is an air ambulance
-                  //     company which has wide network of aircraft fleet and
-                  //     professional intensivist to airlift the patient from
-                  //     anywhere in the world safely to the destination. Our
-                  //     Services <br />
-                  //     1. Dedicated air ambulance service: Fully equipped
-                  //     dedicated charter aircraft with stretcher configuration an
-                  //     best for patient transfer, We have largest network of air
-                  //     ambulance across the world to give you the best air
-                  //     ambulance cost - aircraft with ql image <br />
-                  //     2. Commercial Airline stretcher transfer Transferring
-                  //     patient in commercial airline is another best and cost
-                  //     effective option Commercial airline patient transfer works
-                  //     only if the patient is less on 4L of oxygen support -
-                  //     whatsapp <br />
-                  //     3. International Patient transfer Qwiklif offers
-                  //     International patient transfer service by dedicated air
-                  //     ambulance as well as commercial stretcher, Qwiklif takes
-                  //     care of all the documentation process for smooth transfer
-                  //     of patient. <br /> 4. ECMO Initiation and Air Transfer:
-                  //     Qwiklif Expert ECMO team, Initiate ECMO,stabilises patient
-                  //     and then transfer the patient on ECMO using air ambulance
-                  //     across the world <br /> 5. Neonatal and pediatric Air
-                  //     Transfer Qwiklif neonatal team excels in transferring
-                  //     critical babies from one place to another using dedicated
-                  //     air ambulance with advance medical equipments on board
-                  //   </p>
-                  // </div>
                   <SelectionComponent
                     img={Banner}
                     title="Biggest Fleet Network"
@@ -1289,7 +1256,7 @@ and typenews…`,
               </button>
             </div>
             <div
-              className={`${styles.lowerShadow} w-[90%] mx-[5%] h-[360px] sm:h-[1090px] absolute bg-white bottom-[-200px] sm:bottom-[-960px] flex justify-between flex-row sm:flex-wrap sm:justify-center`}
+              className={`${styles.lowerShadow} w-[90%] mx-[5%] h-[360px] sm:h-[1090px] absolute bg-white bottom-[-200px] items-center sm:bottom-[-960px] flex justify-evenly flex-row sm:flex-wrap sm:justify-center  sm:flex-col sm:items-center`}
             >
               {/* <Image
                 className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
@@ -1299,24 +1266,16 @@ and typenews…`,
                 alt="rapid Time"
                 layout="responsive"
               /> */}
-              <div>
-                <Image src={Aeroplane1} height={100} width={100} />
+              <div class="flex flex-col items-center">
+                <Image src={MiniAeroplane} height={100} width={100} />
                 <div className="font-bold text-[50px]">
                   <CountUp start={1} end={450} duration={5} />+
                 </div>
-                <div className="font-semibold text-black font-medium">
-                  Air Transfer
-                </div>
+                <div className="font-semibold text-black">Air Transfer</div>
               </div>
-              <Image
-                className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
-                src="/images/twenty_five_plus.png"
-                width={50}
-                height={40}
-                alt="rapid Time"
-                layout="responsive"
-              />
-              <div>
+
+              <div class="flex flex-col items-center">
+                <Image src={Miniaircraft} width={100} height={100} />
                 <div className="font-bold text-[50px]">
                   <CountUp start={1} end={25} duration={8} />+
                 </div>
@@ -1324,35 +1283,22 @@ and typenews…`,
                   No of Fleet
                 </div>
               </div>
-              <Image
-                className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
-                src="/images/fiveteen_plus.png"
-                width={50}
-                height={40}
-                alt="rapid Time"
-                layout="responsive"
-              />
-              <div>
+
+              <div class="flex flex-col items-center">
+                <Image src={Doctor} width={100} height={100} />
                 <div className="font-bold text-[50px]">
                   <CountUp start={1} end={15} duration={10} />+
                 </div>
-                <div className="font-semibold text-black font-medium">
-                  Doctors
+                <div className="font-semibold text-black">Doctors</div>
+              </div>
+              <div class="flex flex-col items-center">
+                <Image src={Miniglobal} width={100} height={100} />
+                <div className="font-bold text-[50px]">
+                  <CountUp start={1} end={7000} duration={5} /> +
                 </div>
-              </div>
-              <Image
-                className="max-w-[350px] max-h-[250px] mt-[60px] sm:mt-0"
-                src="/images/seventhousand_plus.png"
-                width={50}
-                height={40}
-                alt="rapid Time"
-                layout="responsive"
-              />
-              <div className="font-bold text-[50px]">
-                <CountUp start={1} end={7000} duration={5} /> +
-              </div>
-              <div className="font-semibold text-black font-medium">
-                Global Affiliation
+                <div className="font-semibold text-black">
+                  Global Affiliation
+                </div>
               </div>
             </div>
           </div>
@@ -1417,7 +1363,11 @@ and typenews…`,
             </div>
           </div> */}
 
-          <div className="bg-[#000]">
+          <div
+            style={{
+              background: `#007BFF url("/images/honeycomb.png")`,
+            }}
+          >
             <Review />
           </div>
 
@@ -1471,8 +1421,8 @@ and typenews…`,
                             <Image
                               className="w-[30px] h-[30px]"
                               src="/images/plus_icon.png"
-                              width={60}
-                              height={20}
+                              width={35}
+                              height={15}
                               alt="rapid Time"
                               layout="contain"
                             />
@@ -1510,18 +1460,18 @@ and typenews…`,
             </div>
           </div>
           <div
-            className={`${styles.gray_plane} h-[900px] sm:h-[1300px] w-full mt-[90px] flex sm:flex-col items-center  grid grid-cols-2 gap-3 sm:grid-cols-1 `}
+            className={`${styles.gray_plane} h-[900px] px-[100px] sm:h-[1300px] w-full mt-[90px] flex sm:flex-col items-center  grid grid-cols-2 gap-3 sm:grid-cols-1 `}
           >
-            {/* <Image
-              className="max-w-[850px] max-h-[950px] ml-[5%] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] "
-              src="/images/right_lower.png"
-              width={40}
-              height={40}
-              alt="rapid Time"
-              layout="responsive"
-            /> */}
-            <div className="">
-              <div> This is sample </div>
+            <div className="flex items-start flex-col">
+              <div class="text-[#a9b5bf] text-[16px] font-semibold">
+                QwikLif Air Ambulance
+              </div>
+              <div class="font-semibold text-[32px] text-[#fff] ">
+                Your Trusted Global Air Ambulance <br /> Provider
+              </div>
+              <div className="">
+                <Trusted />
+              </div>
             </div>
 
             <div className="w-[480px] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] bg-white h-[620px] flex flex-col items-start shadow-2xl rounded-lg">
@@ -1542,41 +1492,45 @@ and typenews…`,
                       type="text"
                       value=""
                       placeholder="From *"
-                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
+                      // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
+                      class=" h-[50px]  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
+
                     <input
                       type="text"
                       value=""
                       placeholder="To *"
-                      className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
+                      className=" rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                     <div className="flex flex-row justify-between w-full ">
                       <input
                         type="text"
                         value=""
                         placeholder="Phone *"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%] rounded-md"
+                        className="h-[50px] w-[40%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                       />
                       <input
                         type="text"
                         value=""
                         placeholder="E-mail*"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[50%] rounded-md"
+                        className=" h-[50px] w-[50%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                       />
                     </div>
 
                     <div className="flex flex-row justify-between w-full ">
-                      <input
+                      {/* <input
                         type="date"
-                        value=""
+                        value={selectedDate}
+                        onChange={handleDateChange}
                         placeholder="Phone *"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[50%] rounded-md"
-                      />
+                        className=" h-[50px] w-[50%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      /> */}
+                      <CustomDatePicker className=" h-[50px] w-[25%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50" />
                       <input
                         type="text"
                         value=""
                         placeholder="Time*"
-                        className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 w-[40%] rounded-md"
+                        className=" h-[50px]  w-[40%]  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                       />
                     </div>
 

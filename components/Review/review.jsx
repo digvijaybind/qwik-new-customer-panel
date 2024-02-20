@@ -66,10 +66,10 @@ const Review = () => {
   return (
     <Slider {...settings} className="flex justify-center items-center">
       {reviews.map((review) => (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center text-center">
           <div
             key={review.id}
-            className="review-item text-[#fff] w-[400px] h-[200px] "
+            className="review-item text-[#fff]  h-[200px] px-[100px] py-[20px] "
           >
             <p>{review.text}</p>
             <p className="author">- {review.author}</p>
