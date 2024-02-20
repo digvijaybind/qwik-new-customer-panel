@@ -113,13 +113,20 @@ const Listing = ({ isMobile }) => {
   console.log('finalData', finalData);
   useEffect(() => {
     let Finalresults = [];
+    let departureIataCode = null;
+    let arrivalIataCode = null;
+    let departureFormatted = null;
+    let arrivalFormatted = null;
+    let departureTime = null;
+    let arrivalTime = null;
+    let duration = null;
     if (finalData?.AirCraftDatawithNotechStop?.length > 0) {
       finalData.AirCraftDatawithNotechStop.forEach((data) => {
         console.log('data line 125', data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
-            var departureIataCode = segmentData.departure.iataCode;
-            var arrivalIataCode = segmentData.arrival.iataCode;
+            departureIataCode = segmentData.departure.iataCode;
+            arrivalIataCode = segmentData.arrival.iataCode;
 
             setDepartureLocations(departureIataCode);
             setArrivalLocations(arrivalIataCode);
@@ -131,8 +138,8 @@ const Listing = ({ isMobile }) => {
             );
             var arrivalTime = moment.tz(segmentData.arrival.at, 'Asia/Dubai');
 
-            var departureFormatted1 = departureTime.format('HH:mm');
-            var arrivalFormatted1 = arrivalTime.format('HH:mm');
+            departureFormatted = departureTime.format('HH:mm');
+            arrivalFormatted = arrivalTime.format('HH:mm');
             setDepartureFormatted(departureFormatted1);
             setArrivalFormatted(arrivalFormatted1);
             console.log('arrivalFormatted', arrivalFormatted);
@@ -143,7 +150,7 @@ const Listing = ({ isMobile }) => {
 
             console.log('Are the times in the same timezone? ', sameTimezone);
             var durationMs = arrivalTime.diff(departureTime);
-            var duration = moment.duration(durationMs);
+            duration = moment.duration(durationMs);
             var hours = Math.floor(duration.asHours());
             var minutes = duration.minutes();
 
@@ -155,15 +162,15 @@ const Listing = ({ isMobile }) => {
             console.log('departureTime line 182', departureFormatted);
             console.log('arrivalTime line 183', arrivalFormatted);
             console.log('sameTimezone line 189', sameTimezone);
-            const departureTime1 = moment(departureTime);
+            departureTime = moment(departureTime);
             setDepartureFormatted((prev) => [
               ...prev,
-              departureTime1.format('HH:mm'),
+              departureTime.format('HH:mm'),
             ]);
-            const arrivalTime1 = moment(arrivalTime);
+            arrivalTime = moment(arrivalTime);
             setArrivalFormatted((prev) => [
               ...prev,
-              arrivalTime1.format('HH:mm'),
+              arrivalTime.format('HH:mm'),
             ]);
             setFlightDurations((prev) => [...prev, duration.asHours()]);
           });
@@ -174,8 +181,11 @@ const Listing = ({ isMobile }) => {
         Finalresults.push({
           departureIataCode: departureIataCode,
           arrivalIataCode: arrivalIataCode,
-          departureFormatted1: departureFormatted1,
-          arrivalFormatted1: arrivalFormatted1,
+          departureFormatted: departureFormatted,
+          arrivalFormatted: arrivalFormatted,
+          departureTime: departureTime,
+          arrivalTime: arrivalTime,
+          duration: duration,
           totalprice: data.price.totalPrice,
         });
       });
@@ -839,7 +849,7 @@ const Listing = ({ isMobile }) => {
           {(!finalData?.AirCraftDatawithNotechStop ||
             finalData?.AirCraftDatawithNotechStop?.length === 0) &&
             finalData?.AirCraftDatawithtechStop?.length > 0 &&
-            finalData?.AirCraftDatawithtechStop?.map((data, index) => {
+            aircraftData?.map((data, index) => {
               return (
                 <div key={index}>
                   <div
@@ -861,7 +871,7 @@ const Listing = ({ isMobile }) => {
                             {' '}
                           </span>
                           <br />
-                          <span class="font-medium">{departureLocations}</span>
+                          <span class="font-medium">{data?.departureLocations}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="">2 h</div>
@@ -870,7 +880,7 @@ const Listing = ({ isMobile }) => {
                               Stop+1
                             </div>
                             <div class="text-[red] text-[14px] ">
-                              ({departureLocations[0]})
+                              ({departureIataCode})
                             </div>
                           </div>
                         </div>
@@ -879,7 +889,7 @@ const Listing = ({ isMobile }) => {
                             {/* {Arrivalformatted[1]} */}
                           </span>
                           <br />
-                          <span class="font-medium">{arrivalLocations[1]}</span>
+                          <span class="font-medium">{data?.arrivalIataCode}</span>
                         </div>
                       </div>
                       <div class="flex justify-between align-middle mb-3">
@@ -916,7 +926,7 @@ const Listing = ({ isMobile }) => {
                               <span class="ml-4 ">
                                 <div>
                                   {currencySymbols[selectedCurrency]}
-                                  <span class="ml-[5px]"> {totalPrice}</span>
+                                  <span class="ml-[5px]"> {data?.totalPrice}</span>
                                 </div>
                               </span>
                               <br />
@@ -932,7 +942,7 @@ const Listing = ({ isMobile }) => {
                             </span>
                             <br />
                             <span class="font-semibold text-[14px]">
-                              {depatureDate}
+                              {data?.departureFormatted}
                             </span>
                           </div>
                         </div>
