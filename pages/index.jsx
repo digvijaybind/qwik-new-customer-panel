@@ -41,15 +41,23 @@ import Cost from '../public/images/sliderIcon/Cost.svg';
 import Global1 from '../public/images/sliderIcon/global.svg';
 import SelectionComponent from '@/components/selection/SelectionComponent';
 import Banner from '../public/images/gray_plane.jpeg';
+import Biggest_fleet from '../public/images/fleet_tabs/Biggest_fleet.png';
+import CostEffect from '../public/images/fleet_tabs/cost_effective.png';
+import DoctorOnboard from '../public/images/fleet_tabs/doctor_onboard.png';
+import GlobalCoverage from '../public/images/fleet_tabs/global_coverage.png';
 import CountUp from 'react-countup';
 import Aeroplane from '../public/images/aeroplane.png';
+import DoctorIcon from '../public/images/counter/doctorIcon.svg';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
+import GlobalIcon from '../public/images/counter/globalIcon.svg';
 import Trusted from '@/components/trusted/Trusted';
 import aeroIcon from '../public/images/aeroplaneicon.svg';
+import CostEffective from '../public/images/counter/COstEffective.svg';
 import Honeycomb from '../public/images/honeycomb.png';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
+  // Once the task is done, set loading to false
   const router = useRouter();
   const [formData, setformData] = useState({});
   const [fromSearch, setfromSearch] = useState('');
@@ -75,8 +83,6 @@ export default function Home() {
     const asyncTask = async () => {
       // Replace this with your actual async logic
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Once the task is done, set loading to false
       stopLoading();
     };
 
@@ -886,8 +892,8 @@ and typenews…`,
               <Image
                 className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
                 src="/images/rapid_time.png"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 alt="rapid Time"
                 layout="contain"
               />
@@ -907,8 +913,8 @@ and typenews…`,
               <Image
                 className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
                 src="/images/saftey_first.png"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 alt="Safety First"
                 layout="contain"
               />
@@ -931,8 +937,8 @@ and typenews…`,
               <Image
                 className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
                 src="/images/state_art.png"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 alt="State Art"
               />
               <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
@@ -951,8 +957,8 @@ and typenews…`,
               <Image
                 className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
                 src="/images/patient.png"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 alt="rapid Time"
               />
               <div lass="w-full flex  flex-col items-start">
@@ -999,36 +1005,17 @@ and typenews…`,
               </Slider>
             </div>
           </div>
-          {/*      
-          <div class="flex flex-col justify-center mt-[100px] mb-[150px]">
-            <div class="flex justify-center text-[#8a8a8a] font-extralight text-[48px] sm:text-[24px] mb-[40px] font-[xx-large]">
-              QWIKLIF Global Coverage
-            </div>
-            <div class="w-full xl:w-full 2xl:w-full">
-              <Image
-                src={Global}
-                width="100%"
-                height=""
-                class="w-full xl:w-full 2xl:w-full"
-              />
-            </div>
-          </div> */}
         </div>
 
         <div id="services" className="mt-[100px] w-full ">
-          {/* <div class="flex justify-center text-[#616161] font-bold text-[48px] mb-[80px] sm:mb-[10px]">
-            SERVICES
-          </div> */}
           <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
             How to Book Air Ambulance
           </h2>
-
           <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
             Here’s simple step to Book Air Ambulance
             <br /> Call now to our professional doctors to discuss patient
             medical condition
           </p>
-
           <div
             className={`w-[90%] mx-[5%] h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] ${styles.boxShadow} mt-[60px]`}
           >
@@ -1052,39 +1039,25 @@ and typenews…`,
                         <div>
                           <Image
                             className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
-                            src="/images/small_plane.png"
+                            src="/images/small_plane.svg"
                             width={40}
                             height={40}
                             alt="rapid Time"
                             layout="contain"
                             class="block sm:hidden"
                           />
-                          {/* 
-                          <Image
-                            src={Dedicated}
-                            width={100}
-                            height={100}
-                            class="hidden sm:block"
-                          /> */}
                         </div>
                       ) : (
                         <div>
                           <Image
                             className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
-                            src="/images/commericial.png"
+                            src="/images/small_plane.svg"
                             width={40}
                             height={40}
                             alt="rapid Time"
                             layout="contain"
                             class="block sm:hidden"
                           />
-
-                          {/* <Image
-                            src={Commericial}
-                            width={100}
-                            height={100}
-                            class="hidden sm:block"
-                          /> */}
                         </div>
                       )}
                       <p
@@ -1145,89 +1118,89 @@ and typenews…`,
             </div>
             <div className="grid grid-cols-10  gap-5 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
               <div className="col-span-3  flex flex-col mb-5">
-                <div
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                <button
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between  ${
                     activeTab === 1 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(1)}
                 >
-                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
-                    <Image src={aeroIcon} height={50} width={50} />
+                  <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
+                    <Image src={aeroIcon} height={40} width={35} />
                   </div>
                   <div className="font-semibold text-[20px] hover:text-[#fff] sm:flex justify-end">
                     Biggest Fleet Network
                   </div>
-                </div>
+                </button>
 
                 <button
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
                     activeTab === 2 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(2)}
                 >
-                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
-                    <Image src={Aeroplane} width={20} height={15} />
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
+                    <Image src={DoctorIcon} width={30} height={25} />
                   </div>
                   <div className="font-semibold text-[20px] hover:text-[#fff]">
                     24X7 Doctors On Board
                   </div>
                 </button>
 
-                <div
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                <button
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
                     activeTab === 3 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(3)}
                 >
                   {' '}
-                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
-                    <Image src={Global1} width={20} height={15} />
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
+                    <Image src={GlobalIcon} width={35} height={25} />
                   </div>
                   <div className="font-semibold text-[20px] hover:text-[#fff]">
                     Global Coverage
                   </div>
-                </div>
+                </button>
 
-                <div
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-center sm:px-[10px] ${
+                <button
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
                     activeTab === 4 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(4)}
                 >
                   {' '}
-                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center">
-                    <Image src={Cost} width={20} height={15} />
+                  <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
+                    <Image src={CostEffective} width={35} height={25} />
                   </div>
                   <div className="font-semibold text-[20px] hover:text-[#fff]">
                     Cost-Effective Solution
                   </div>
-                </div>
+                </button>
               </div>
               <div className="col-span-7">
                 {activeTab === 1 && (
                   <SelectionComponent
-                    img={Banner}
+                    img={Biggest_fleet}
                     title="Biggest Fleet Network"
                     descripation="With the largest fleet, QwikLif can respond to emergencies quickly. Multiple aircraft options are available to meet various medical requirements, providing an ideal option for all situations."
                   />
                 )}
                 {activeTab === 2 && (
                   <SelectionComponent
-                    img={Banner}
+                    img={CostEffect}
                     title="24x7 Doctors on Board"
                     descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
                   />
                 )}
                 {activeTab === 3 && (
                   <SelectionComponent
-                    img={Banner}
+                    img={DoctorOnboard}
                     title="Global Coverage"
                     descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.Whether you're in a bustling city or a remote area, our reach extends to every corner, making quality healthcare accessible wherever you are."
                   />
                 )}
                 {activeTab === 4 && (
                   <SelectionComponent
-                    img={Banner}
+                    img={GlobalCoverage}
                     title="Cost-Effective Solutions"
                     descripation="We are committed to providing cost-effective air ambulance solutions without compromising on the standard of care. We suggest different modes of transfers like commercial stretchers and other customised transfer plans for making your medical flight cost effective."
                   />
@@ -1242,7 +1215,7 @@ and typenews…`,
               <h1 className="font-semibold text-[37px] leading-[48px] text-center text-white mt-[30px]">
                 Fastest and best medical care
               </h1>
-              <p className="font-normal text-[21px] leading-[26px]  text-center text-white mt-[30px]">
+              <p className="font-medium text-[21px]   text-center text-white mt-[30px]">
                 Time is precious, especially during emergencies. Our air
                 ambulances are not just vehicles; they are a beacon of hope on
                 the
@@ -1251,7 +1224,7 @@ and typenews…`,
                 lightning-quick response that bridges the gap between distress
                 and relief.
               </p>
-              <button className="w-[300px] h-[60px] bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] leading-[26px] font-bold text-white">
+              <button className="w-[300px] h-[60px] bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)">
                 Make an Appointment
               </button>
             </div>
