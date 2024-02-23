@@ -36,7 +36,7 @@ import Doctor from '../public/images/counter/doctor.png';
 import Miniglobal from '../public/images/counter/global.png';
 import Search from '../public/images/search.svg';
 import AboutAircraft from '../public/images/Homepage/about.png';
-import Aeroplane1 from '../public/images/sliderIcon/aeroplane.svg';
+
 import Cost from '../public/images/sliderIcon/Cost.svg';
 import Global1 from '../public/images/sliderIcon/global.svg';
 import SelectionComponent from '@/components/selection/SelectionComponent';
@@ -47,13 +47,15 @@ import DoctorOnboard from '../public/images/fleet_tabs/doctor_onboard.png';
 import GlobalCoverage from '../public/images/fleet_tabs/global_coverage.png';
 import CountUp from 'react-countup';
 import Aeroplane from '../public/images/aeroplane.png';
-import DoctorIcon from '../public/images/counter/doctorIcon.svg';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
 import GlobalIcon from '../public/images/counter/globalIcon.svg';
 import Trusted from '@/components/trusted/Trusted';
 import aeroIcon from '../public/images/aeroplaneicon.svg';
 import CostEffective from '../public/images/counter/COstEffective.svg';
 import Honeycomb from '../public/images/honeycomb.png';
+import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
+import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
+import Champion from '../public/images/trusted_contact/champion.svg';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
@@ -483,6 +485,27 @@ and typenews…`,
     per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
     frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
     faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
+    },
+  ];
+
+  const tasktab = [
+    {
+      img: Aeroplane1,
+      title: 'Express Lane to Care',
+      description:
+        'Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief',
+    },
+    {
+      img: DoctorIcon,
+      title: 'Innovation in Every Flight',
+      description:
+        "QwikLif Air Ambulance embraces cutting-edge medical technology. Think of our ambulances as flying hospitals, complete with state-of-the-art equipment. We're not just transporting patients; we're bringing a mobile medical unit to ensure the best care possible.",
+    },
+    {
+      img: Champion,
+      title: 'Angels in the Air:',
+      description:
+        "Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.",
     },
   ];
 
@@ -1215,7 +1238,7 @@ and typenews…`,
               <h1 className="font-semibold text-[37px] leading-[48px] text-center text-white mt-[30px]">
                 Fastest and best medical care
               </h1>
-              <p className="font-medium text-[21px]   text-center text-white mt-[30px]">
+              <p className="font-medium text-[21px]   text-center text-white mt-[30px] sm:px-[10px]">
                 Time is precious, especially during emergencies. Our air
                 ambulances are not just vehicles; they are a beacon of hope on
                 the
@@ -1442,9 +1465,17 @@ and typenews…`,
               <div class="font-semibold text-[32px] text-[#fff] ">
                 Your Trusted Global Air Ambulance <br /> Provider
               </div>
-              <div className="">
-                <Trusted />
-              </div>
+              {tasktab.map((data, index) => {
+                return (
+                  <div key={index} className="mb-3">
+                    <Trusted
+                      img={data.img}
+                      title={data.title}
+                      descripation={data.description}
+                    />
+                  </div>
+                );
+              })}
             </div>
 
             <div className="w-[480px] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] bg-white h-[620px] flex flex-col items-start shadow-2xl rounded-lg">

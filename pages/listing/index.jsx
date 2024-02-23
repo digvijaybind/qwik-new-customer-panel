@@ -84,6 +84,7 @@ const Listing = ({ isMobile }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [aircraftData, setAircraftData] = useState([]);
   const [uniquePrice, setuniquePrice] = useState([]);
+  const [pricewithTechalt, setpricewithTechhalt] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -140,8 +141,8 @@ const Listing = ({ isMobile }) => {
 
             departureFormatted = departureTime.format('HH:mm');
             arrivalFormatted = arrivalTime.format('HH:mm');
-            setDepartureFormatted(departureFormatted1);
-            setArrivalFormatted(arrivalFormatted1);
+            // setDepartureFormatted(departureFormatted1);
+            // setArrivalFormatted(arrivalFormatted1);
             console.log('arrivalFormatted', arrivalFormatted);
 
             console.log('departureFormatted', departureFormatted);
@@ -151,6 +152,7 @@ const Listing = ({ isMobile }) => {
             console.log('Are the times in the same timezone? ', sameTimezone);
             var durationMs = arrivalTime.diff(departureTime);
             duration = moment.duration(durationMs);
+            console.log(' duration line 154 ', duration);
             var hours = Math.floor(duration.asHours());
             var minutes = duration.minutes();
 
@@ -175,9 +177,7 @@ const Listing = ({ isMobile }) => {
             setFlightDurations((prev) => [...prev, duration.asHours()]);
           });
         });
-        setTotalPrice(data.price.totalPrice);
 
-        setuniquePrice(data.price.totalPrice);
         Finalresults.push({
           departureIataCode: departureIataCode,
           arrivalIataCode: arrivalIataCode,
@@ -190,7 +190,7 @@ const Listing = ({ isMobile }) => {
         });
       });
       setAircraftData(Finalresults);
-      console.log('aircraftData', Finalresults);
+      console.log('aircraftData line 194', Finalresults);
       // Assuming totalPrice is available from somewhere in your data
       const totalPrice = finalData.price?.totalPrice.toFixed(3);
 
@@ -200,6 +200,7 @@ const Listing = ({ isMobile }) => {
         finalData?.AirCraftDatawithNotechStop?.length === 0) &&
       finalData?.AirCraftDatawithtechStop?.length > 0
     ) {
+      let Location = [];
       finalData?.AirCraftDatawithtechStop?.map((data, index) => {
         console.log('data line 167', data);
         data.aircraft.itineraries.forEach((innerData) => {
@@ -208,6 +209,12 @@ const Listing = ({ isMobile }) => {
             const arrivalIataCode = segmentData.arrival.iataCode;
             setDepartureLocations(departureIataCode);
             setArrivalLocations(arrivalIataCode);
+            Location.push({
+              departureIataCode: departureIataCode,
+              arrivalIataCode: arrivalIataCode,
+            });
+
+            console.log('aircraftData line 194', Finalresults);
 
             const departureTime = moment(segmentData.departure.at).tz(
               'Asia/Dubai'
@@ -215,15 +222,23 @@ const Listing = ({ isMobile }) => {
             const arrivalTime = moment(segmentData.arrival.at).tz('Asia/Dubai');
             console.log('departureTime line 182', departureTime);
             console.log('arrivalTime line 183', arrivalTime);
-
+            Finalresults.push({
+              departureTime: departureTime,
+              arrivalTime: arrivalTime,
+            });
+            console.log('`this is 223 in finalresults`', Finalresults);
             const sameTimezone = departureTime.isSame(arrivalTime, 'minute');
 
             console.log('sameTimezone line 189', sameTimezone);
             const durationMs = arrivalTime.diff(departureTime);
-
             console.log('flying duration time line 194', durationMs);
             const duration = moment.duration(durationMs);
             const hours = Math.floor(duration.asHours());
+            console.log('duration line 228 dureation');
+            Finalresults.push({
+              duration: duration,
+            });
+            console.log('this is 245 Finalresults', Finalresults);
 
             console.log('flying duration time in hour', hours);
             const minutes = duration.minutes();
@@ -252,13 +267,24 @@ const Listing = ({ isMobile }) => {
             });
             return totalDuration;
           };
+
           const totalDurationInMinutes = calculateTotalDuration(
             innerData.segments
           );
           console.log('totalDurationInMinutes', totalDurationInMinutes);
         });
-        setTotalPrice(data.price.totalPrice);
-        setuniquePrice(data.price.totalPrice);
+        Finalresults.push({
+          Location: Location,
+
+          // departureFormatted: departureFormatted,
+          // arrivalFormatted: arrivalFormatted,
+          // departureTime: departureTime,
+          // arrivalTime: arrivalTime,
+          // duration: duration,
+          // totalprice: data.price.totalPrice,
+        });
+        setpricewithTechhalt(Finalresults);
+        console.log('Finalresults line 287', pricewithTechalt);
       });
     }
   }, [finalData]);
@@ -301,25 +327,28 @@ const Listing = ({ isMobile }) => {
 
   console.log(' totalPrice line 185 ', totalPrice);
   const handleEUR = async () => {
-    const EuroPrice = uniquePrice.toFixed(2);
+    console.log('aircraftData.totalprice', aircraftData.totalprice);
+    const EuroPrice = aircraftData.totalprice;
+    console.log('EuroPrice', EuroPrice);
 
-    await setTotalPrice(EuroPrice.toFixed(2));
+    await setTotalPrice(EuroPrice);
   };
   const handleAED = async () => {
-    const PriceAED = uniquePrice * 3.95;
+    const PriceAED = aircraftData.totalprice * 3.95;
+    console.log('PriceAED ', Number(PriceAED));
 
     await setTotalPrice(PriceAED.toFixed(2));
   };
 
   const handleUSD = async () => {
-    const PriceUsd = uniquePrice * 1.077;
+    const PriceUsd = aircraftData.totalprice * 1.077;
+    console.log(' PriceUsd', PriceUsd);
     await setTotalPrice(PriceUsd.toFixed(2));
   };
 
   const handleINR = async () => {
-    alert('this is INR price');
-    const PriceINR = uniquePrice * 89.42;
-
+    const PriceINR = aircraftData.totalprice * 89.42;
+    console.log('PriceINR', PriceINR);
     await setTotalPrice(PriceINR.toFixed(2));
   };
 
@@ -732,229 +761,238 @@ const Listing = ({ isMobile }) => {
           ></Planedesc>
         ))}
       </div>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-2 sm:grid-cols-1">
         <div class="grid grid-rows-5 grid-cols-1 gap-4 px-[35px]">
-          {finalData?.AirCraftDatawithNotechStop?.length > 0 &&
+          {/* {finalData?.AirCraftDatawithNotechStop?.length > 0 &&
             finalData?.AirCraftDatawithNotechStop?.map((data, index) => {
               console.log('data line 300 ', data);
               return (
-                <div key={index}>
-                  <div
-                    className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer  transition-all duration-700 hover:scale-105`}
-                  >
-                    <div class="">
-                      <Image
-                        src={CommercialImage}
-                        alt="Commercial Image"
-                        // class="object-fill"
-                        //   layout="fill"
-                        class="h-64 w-100 object-none object-center"
-                        //   className="rounded"
-                        height={600}
-                        width={400}
-                      />
-                    </div>
-                    <div class="col-span-2">
-                      <div class="grid grid-cols-3 gap-4 mb-5">
-                        <div class="">
-                          <span class="text-[#000000] text-[20px] font-semibold text-center">
-                            {' '}
-                            {departureFormatted[0]}
-                          </span>
-                          <br />
-                          <span class="text-[#000000] text-[20px] font-semibold">
-                            {departureLocations}
-                          </span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                          <div class="">{flightDurations[0]}h</div>
-                          <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
-                          <div class="text-[red] text-[14px]">Non-stop</div>
-                        </div>
-                        <div class="text-end">
-                          <span class="text-[#000000] text-[20px] font-semibold text-center">
-                            {' '}
-                            {arrivalFormatted[0]}
-                          </span>
-                          <br />
-                          <span class="text-[#000000] text-[20px] font-semibold ">
-                            {arrivalLocations}
-                          </span>
-                          <br />
-                        </div>
-                      </div>
-                      <div class="flex justify-between align-middle mb-3">
-                        <div class="">
-                          <div class="font-semibold">Included Perks :</div>
-                          <div class="font-semibold text-[14px]">
-                            -Stretcher ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Doctor OnBoard ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Medical Equipment ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Oxygen(4L/Min) ✅
-                          </div>
-                        </div>
-                        <div class="">
-                          <div>
-                            <span class="font-semibold text-[17px] flex flex-row">
-                              <br />
-                              <div>
-                                <select
-                                  id="currencySelector"
-                                  value={selectedCurrency}
-                                  onChange={handleChange}
-                                  class="mr-2 border-solid border-2 border-black rounded-md"
-                                >
-                                  <option value="EUR">EUR</option>
-                                  <option value="AED">AED</option>
-                                  <option value="USD">USD</option>
-                                  <option value="INR">INR</option>
-                                </select>
-                              </div>
-                              <div class="flex flex-row">
-                                {currencySymbols[selectedCurrency]}
-                                <div class="ml-[5px]"> {totalPrice}</div>
-                              </div>
-                            </span>
-                            <br />
-                            <span class="font-medium text-[16px] italic">
-                              Estimated Price
-                            </span>
-                          </div>
-                          <div>
-                            <span class="font-semibold text-[13px]">
-                              Ticket Availability
-                            </span>
-                            <br />
-                            <span class="font-semibold text-[14px]">
-                              {depatureDate}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
-                        <div>View Details</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+               
               );
-            })}
+            })} */}
+          {aircraftData.map((data, index) => {
+            console.log('date line 850', data);
 
-          {(!finalData?.AirCraftDatawithNotechStop ||
-            finalData?.AirCraftDatawithNotechStop?.length === 0) &&
-            finalData?.AirCraftDatawithtechStop?.length > 0 &&
-            aircraftData?.map((data, index) => {
-              return (
-                <div key={index}>
-                  <div
-                    className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer transition-all duration-700 hover:scale-105`}
-                  >
-                    <div class="">
-                      <Image
-                        src={CommercialImage}
-                        alt="Commercial Image"
-                        class="h-64 w-100 object-none object-center"
-                        height={600}
-                        width={400}
-                      />
+            return (
+              <div key={index}>
+                <div
+                  className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer  transition-all duration-700 hover:scale-105 `}
+                >
+                  <div class="">
+                    <Image
+                      src={CommercialImage}
+                      alt="Commercial Image"
+                      // class="object-fill"
+                      //   layout="fill"
+                      class="h-64 w-100 object-none object-center"
+                      //   className="rounded"
+                      height={600}
+                      width={400}
+                    />
+                  </div>
+                  <div class="col-span-2">
+                    <div class="grid grid-cols-3 gap-4 mb-5">
+                      <div class="">
+                        <span class="text-[#000000] text-[20px] font-semibold text-center">
+                          {' '}
+                          {data.departureFormatted}
+                        </span>
+                        <br />
+                        <span class="text-[#000000] text-[20px] font-semibold">
+                          {data.departureIataCode}
+                        </span>
+                      </div>
+                      <div class="flex flex-col items-center">
+                        <div class="">2h</div>
+                        <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
+                        <div class="text-[red] text-[14px]">Non-stop</div>
+                      </div>
+                      <div class="text-end">
+                        <span class="text-[#000000] text-[20px] font-semibold text-center">
+                          {' '}
+                          {data.arrivalFormatted}
+                        </span>
+                        <br />
+                        <span class="text-[#000000] text-[20px] font-semibold ">
+                          {data.arrivalIataCode}
+                        </span>
+                        <br />
+                      </div>
                     </div>
-                    <div class="col-span-2">
-                      <div class="grid grid-cols-3 gap-2 mb-5">
-                        <div class="">
-                          <span class="text-[rgb(0,0,0)] text-[20px] font-semibold text-center">
-                            {' '}
-                          </span>
-                          <br />
-                          <span class="font-medium">{data?.departureLocations}</span>
+                    <div class="flex justify-between align-middle mb-3">
+                      <div class="">
+                        <div class="font-semibold">Included Perks :</div>
+                        <div class="font-semibold text-[14px]">
+                          -Stretcher ✅
                         </div>
-                        <div class="flex flex-col items-center">
-                          <div class="">2 h</div>
-                          <div class="flex flex-row items-baseline">
-                            <div class="bg-[#42D1E5] w-[50px] h-[5px] mr-1">
-                              Stop+1
-                            </div>
-                            <div class="text-[red] text-[14px] ">
-                              ({departureIataCode})
-                            </div>
-                          </div>
+                        <div class="font-semibold text-[14px]">
+                          -Doctor OnBoard ✅
                         </div>
-                        <div class="text-end">
-                          <span class="text-[#000000] text-[20px] font-semibold ">
-                            {/* {Arrivalformatted[1]} */}
-                          </span>
-                          <br />
-                          <span class="font-medium">{data?.arrivalIataCode}</span>
+                        <div class="font-semibold text-[14px]">
+                          -Medical Equipment ✅
+                        </div>
+                        <div class="font-semibold text-[14px]">
+                          -Oxygen(4L/Min) ✅
                         </div>
                       </div>
-                      <div class="flex justify-between align-middle mb-3">
-                        <div class="">
-                          <div class="font-semibold">Included Perks :</div>
-                          <div class="font-semibold text-[14px]">
-                            -Stretcher ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Doctor OnBoard ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Medical Equipment ✅
-                          </div>
-                          <div class="font-semibold text-[14px]">
-                            -Oxygen(4L/Min) ✅
-                          </div>
-                        </div>
-                        <div class="">
-                          <div class="">
-                            <span class="font-semibold text-[17px] flex flex-row ">
+                      <div class="">
+                        <div>
+                          <span class="font-semibold text-[17px] flex flex-row">
+                            <br />
+                            <div>
                               <select
                                 id="currencySelector"
                                 value={selectedCurrency}
                                 onChange={handleChange}
-                                class="border-solid border-2 border-black rounded-md"
+                                class="mr-2 border-solid border-2 border-black rounded-md"
                               >
                                 <option value="EUR">EUR</option>
                                 <option value="AED">AED</option>
                                 <option value="USD">USD</option>
                                 <option value="INR">INR</option>
                               </select>
-                              {/* € {data.price.totalPrice.toFixed(3)} */}
-                              <span class="ml-4 ">
-                                <div>
-                                  {currencySymbols[selectedCurrency]}
-                                  <span class="ml-[5px]"> {data?.totalPrice}</span>
-                                </div>
-                              </span>
-                              <br />
-                            </span>
-                            <br />
-                            <span class="font-medium text-[16px] italic">
-                              Estimated Price
-                            </span>
-                          </div>
-                          <div>
-                            <span class="font-semibold text-[13px]">
-                              Ticket Availability
-                            </span>
-                            <br />
-                            <span class="font-semibold text-[14px]">
-                              {data?.departureFormatted}
-                            </span>
-                          </div>
+                            </div>
+                            <div class="flex flex-row">
+                              {currencySymbols[selectedCurrency]}
+                              <div class="ml-[5px]"> {totalPrice}</div>
+                            </div>
+                          </span>
+                          <br />
+                          <span class="font-medium text-[16px] italic">
+                            Estimated Price
+                          </span>
+                        </div>
+                        <div>
+                          <span class="font-semibold text-[13px]">
+                            Ticket Availability
+                          </span>
+                          <br />
+                          <span class="font-semibold text-[14px]">
+                            {depatureDate}
+                          </span>
                         </div>
                       </div>
-                      <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
-                        <div>View Details</div>
-                      </div>
+                    </div>
+                    <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
+                      <div>View Details</div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
+          {pricewithTechalt.map((data, index) => {
+            console.log('data in line 973', data);
+            return (
+              <div key={index}>
+                <div
+                  className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer transition-all duration-700 hover:scale-105`}
+                >
+                  <div class="">
+                    <Image
+                      src={CommercialImage}
+                      alt="Commercial Image"
+                      class="h-64 w-100 object-none object-center"
+                      height={600}
+                      width={400}
+                    />
+                  </div>
+                  <div class="col-span-2">
+                    <div class="grid grid-cols-3 gap-2 mb-5">
+                      <div class="">
+                        <span class="text-[rgb(0,0,0)] text-[20px] font-semibold text-center">
+                          {' '}
+                        </span>
+                        <br />
+                        <span class="font-medium">
+                          {data?.departureLocations}
+                        </span>
+                      </div>
+                      <div class="flex flex-col items-center">
+                        <div class="">2 h</div>
+                        <div class="flex flex-row items-baseline">
+                          <div class="bg-[#42D1E5] w-[50px] h-[5px] mr-1">
+                            Stop+1
+                          </div>
+                          <div class="text-[red] text-[14px] ">
+                            {/* ({departureIataCode}) */}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-end">
+                        <span class="text-[#000000] text-[20px] font-semibold ">
+                          {/* {Arrivalformatted[1]} */}
+                        </span>
+                        <br />
+                        <span class="font-medium">{data?.arrivalIataCode}</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-between align-middle mb-3">
+                      <div class="">
+                        <div class="font-semibold">Included Perks :</div>
+                        <div class="font-semibold text-[14px]">
+                          -Stretcher ✅
+                        </div>
+                        <div class="font-semibold text-[14px]">
+                          -Doctor OnBoard ✅
+                        </div>
+                        <div class="font-semibold text-[14px]">
+                          -Medical Equipment ✅
+                        </div>
+                        <div class="font-semibold text-[14px]">
+                          -Oxygen(4L/Min) ✅
+                        </div>
+                      </div>
+                      <div class="">
+                        <div class="">
+                          <span class="font-semibold text-[17px] flex flex-row ">
+                            <select
+                              id="currencySelector"
+                              value={selectedCurrency}
+                              onChange={handleChange}
+                              class="border-solid border-2 border-black rounded-md"
+                            >
+                              <option value="EUR">EUR</option>
+                              <option value="AED">AED</option>
+                              <option value="USD">USD</option>
+                              <option value="INR">INR</option>
+                            </select>
+                            {/* € {data.price.totalPrice.toFixed(3)} */}
+                            <span class="ml-4 ">
+                              <div>
+                                {currencySymbols[selectedCurrency]}
+                                <span class="ml-[5px]">
+                                  {' '}
+                                  {data?.totalPrice}
+                                </span>
+                              </div>
+                            </span>
+                            <br />
+                          </span>
+                          <br />
+                          <span class="font-medium text-[16px] italic">
+                            Estimated Price
+                          </span>
+                        </div>
+                        <div>
+                          <span class="font-semibold text-[13px]">
+                            Ticket Availability
+                          </span>
+                          <br />
+                          <span class="font-semibold text-[14px]">
+                            {data?.departureFormatted}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
+                      <div>View Details</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div class="grid grid-cols-1 gap-4">
           <DedicatedCard />

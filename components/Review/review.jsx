@@ -55,9 +55,9 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 1,
-  // slidesToScroll: 1,
-  // autoplay: true,
-  // autoplaySpeed: 5000,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
   nextArrow: <CustomNextArrow />,
   prevArrow: <CustomPrevArrow />,
 };
@@ -69,10 +69,12 @@ const Review = () => {
         <div className="flex justify-center items-center text-center">
           <div
             key={review.id}
-            className="review-item text-[#fff]  h-[200px] px-[100px] py-[20px] "
+            className="review-item text-[#fff]  h-[200px] px-[100px] py-[40px] "
           >
-            <p>{review.text}</p>
-            <p className="author">- {review.author}</p>
+            <p className="text-[16px] font-italic font-medium  mb-2">
+              {review.text}
+            </p>
+            <p className="font-semibold text-[24px]">{review.author}</p>
           </div>
         </div>
       ))}
