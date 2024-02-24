@@ -13,11 +13,11 @@ import CommercialCard from '@/components/commercialCard/CommercialCard';
 import Image from 'next/image';
 import Landing from '../../public/images/Searchlanding.svg';
 import axios from 'axios';
-import CommercialImage from '../../public/images/commercial.svg';
 import moment from 'moment-timezone';
 import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
 import swal from 'sweetalert';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
+import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 
 const Listing = ({ isMobile }) => {
   const { apiData } = useData();
@@ -50,14 +50,6 @@ const Listing = ({ isMobile }) => {
     return result;
   };
 
-  const [apiResponse, setApiResponse] = useState(null);
-
-  // function handle(e) {
-  //   const newdata = {...otherData};
-  //   newdata[e.target.id] = e.target.value;
-  //   setOtherData(newdata);
-  //   console.log(newdata);
-  // }
   const url = 'http://localhost:8000/customer/Amadeusairline';
   const [formData, setFormData] = useState({
     originLocationCode: '',
@@ -69,12 +61,8 @@ const Listing = ({ isMobile }) => {
     max: 5,
   });
   const [finalData, setFinaldata] = useState([]);
-  const [ArrivalLocation, setArrivalLocation] = useState();
-  const [depatureLocation, setdepatureLocation] = useState();
-  const [responseData, setResponseData] = useState(null);
-  const [error, setError] = useState(null);
-  const [depatureDate, setdepatureDate] = useState();
-  const [depatureTime, setdepatureTime] = useState();
+  const [departureLocation, setDepartureLocation] = useState();
+  const [destinationLocation, setDestinationLocation] = useState();
   const [departureLocations, setDepartureLocations] = useState([]);
   const [arrivalLocations, setArrivalLocations] = useState([]);
   const [flightDurations, setFlightDurations] = useState([]);
@@ -84,14 +72,12 @@ const Listing = ({ isMobile }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [aircraftData, setAircraftData] = useState([]);
   const [uniquePrice, setuniquePrice] = useState([]);
-  const [pricewithTechalt, setpricewithTechhalt] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log('Form submitted with data', formData);
     try {
-      console.log('formdata in line 89', formData);
       const headers = {
         'Content-Type': 'application/json', // Adjust content type as needed
         // Add any other headers here
@@ -102,16 +88,17 @@ const Listing = ({ isMobile }) => {
         { headers }
       );
       console.log('Response:', response.data);
+      setDepartureLocation(formData?.originLocationCode);
+      setDestinationLocation(formData?.destinationLocationCode);
       setFinaldata(response.data);
       setSelectedCurrency('EUR');
-      console.log('final data line 113', response.data);
-      setError(null);
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
   console.log('finalData', finalData);
+  console.log('aircraftData', aircraftData);
   useEffect(() => {
     let Finalresults = [];
     let departureIataCode = null;
@@ -123,7 +110,6 @@ const Listing = ({ isMobile }) => {
     let duration = null;
     if (finalData?.AirCraftDatawithNotechStop?.length > 0) {
       finalData.AirCraftDatawithNotechStop.forEach((data) => {
-        console.log('data line 125', data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
             departureIataCode = segmentData.departure.iataCode;
@@ -131,8 +117,6 @@ const Listing = ({ isMobile }) => {
 
             setDepartureLocations(departureIataCode);
             setArrivalLocations(arrivalIataCode);
-            console.log('departureIataCode', departureIataCode);
-            console.log('arrivalIataCode', arrivalIataCode);
             var departureTime = moment.tz(
               segmentData.departure.at,
               'Asia/Dubai'
@@ -143,27 +127,14 @@ const Listing = ({ isMobile }) => {
             arrivalFormatted = arrivalTime.format('HH:mm');
             // setDepartureFormatted(departureFormatted1);
             // setArrivalFormatted(arrivalFormatted1);
-            console.log('arrivalFormatted', arrivalFormatted);
-
-            console.log('departureFormatted', departureFormatted);
             var sameTimezone =
               departureTime.utcOffset() === arrivalTime.utcOffset();
 
-            console.log('Are the times in the same timezone? ', sameTimezone);
             var durationMs = arrivalTime.diff(departureTime);
             duration = moment.duration(durationMs);
-            console.log(' duration line 154 ', duration);
             var hours = Math.floor(duration.asHours());
             var minutes = duration.minutes();
 
-            console.log('Time duration in hour', hours);
-            console.log(
-              `Flight duration: ${hours} hours and ${minutes} minutes`
-            );
-
-            console.log('departureTime line 182', departureFormatted);
-            console.log('arrivalTime line 183', arrivalFormatted);
-            console.log('sameTimezone line 189', sameTimezone);
             departureTime = moment(departureTime);
             setDepartureFormatted((prev) => [
               ...prev,
@@ -190,11 +161,8 @@ const Listing = ({ isMobile }) => {
         });
       });
       setAircraftData(Finalresults);
-      console.log('aircraftData line 194', Finalresults);
       // Assuming totalPrice is available from somewhere in your data
       const totalPrice = finalData.price?.totalPrice.toFixed(3);
-
-      console.log('line 154 totalPrice', totalPrice);
     } else if (
       (!finalData?.AirCraftDatawithNotechStop ||
         finalData?.AirCraftDatawithNotechStop?.length === 0) &&
@@ -202,7 +170,6 @@ const Listing = ({ isMobile }) => {
     ) {
       let Location = [];
       finalData?.AirCraftDatawithtechStop?.map((data, index) => {
-        console.log('data line 167', data);
         data.aircraft.itineraries.forEach((innerData) => {
           innerData.segments.forEach((segmentData) => {
             const departureIataCode = segmentData.departure.iataCode;
@@ -214,42 +181,26 @@ const Listing = ({ isMobile }) => {
               arrivalIataCode: arrivalIataCode,
             });
 
-            console.log('aircraftData line 194', Finalresults);
-
             const departureTime = moment(segmentData.departure.at).tz(
               'Asia/Dubai'
             );
             const arrivalTime = moment(segmentData.arrival.at).tz('Asia/Dubai');
-            console.log('departureTime line 182', departureTime);
-            console.log('arrivalTime line 183', arrivalTime);
             Finalresults.push({
               departureTime: departureTime,
               arrivalTime: arrivalTime,
             });
-            console.log('`this is 223 in finalresults`', Finalresults);
             const sameTimezone = departureTime.isSame(arrivalTime, 'minute');
 
-            console.log('sameTimezone line 189', sameTimezone);
             const durationMs = arrivalTime.diff(departureTime);
-            console.log('flying duration time line 194', durationMs);
             const duration = moment.duration(durationMs);
             const hours = Math.floor(duration.asHours());
-            console.log('duration line 228 dureation');
             Finalresults.push({
               duration: duration,
             });
-            console.log('this is 245 Finalresults', Finalresults);
 
-            console.log('flying duration time in hour', hours);
             const minutes = duration.minutes();
 
-            console.log(
-              `Flight duration: ${hours} hours and ${minutes} minutes`
-            );
-            console.log('sameTimezone line 189', sameTimezone);
             const arrivalTime1 = moment(arrivalTime);
-            console.log('departureTime line 191', departureTime);
-            console.log('arrivalTime line 192', arrivalTime);
             setFlightDurations((prev) => [...prev, duration.asHours()]);
             setDepartureLocations((prev) => [...prev, departureIataCode]);
             setArrivalLocations((prev) => [...prev, arrivalIataCode]);
@@ -271,7 +222,6 @@ const Listing = ({ isMobile }) => {
           const totalDurationInMinutes = calculateTotalDuration(
             innerData.segments
           );
-          console.log('totalDurationInMinutes', totalDurationInMinutes);
         });
         Finalresults.push({
           Location: Location,
@@ -283,73 +233,12 @@ const Listing = ({ isMobile }) => {
           // duration: duration,
           // totalprice: data.price.totalPrice,
         });
-        setpricewithTechhalt(Finalresults);
-        console.log('Finalresults line 287', pricewithTechalt);
       });
     }
   }, [finalData]);
-  console.log('totalPrice line 216', totalPrice);
-  console.log('arrivalLocations line 194', arrivalLocations);
-  console.log('departureLocations line 195', departureLocations);
 
-  const formatDate = (date) => {
-    return date.toISOString().substr(0, 10);
-  };
-
-  const currencySymbols = {
-    EUR: '€',
-    AED: 'AED',
-    USD: '$',
-    INR: '₹',
-  };
-  console.log(' totalPrice line 164 ', totalPrice);
-  const handleChange = (event) => {
+  const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
-    // You can call a function here based on the selected currency
-    switch (event.target.value) {
-      case 'EUR':
-        handleEUR();
-        break;
-      case 'AED':
-        handleAED();
-        break;
-      case 'USD':
-        handleUSD();
-        break;
-      case 'INR':
-        handleINR();
-        break;
-      default:
-        // console.error("Invalid currency selected.");
-        return error;
-    }
-  };
-
-  console.log(' totalPrice line 185 ', totalPrice);
-  const handleEUR = async () => {
-    console.log('aircraftData.totalprice', aircraftData.totalprice);
-    const EuroPrice = aircraftData.totalprice;
-    console.log('EuroPrice', EuroPrice);
-
-    await setTotalPrice(EuroPrice);
-  };
-  const handleAED = async () => {
-    const PriceAED = aircraftData.totalprice * 3.95;
-    console.log('PriceAED ', Number(PriceAED));
-
-    await setTotalPrice(PriceAED.toFixed(2));
-  };
-
-  const handleUSD = async () => {
-    const PriceUsd = aircraftData.totalprice * 1.077;
-    console.log(' PriceUsd', PriceUsd);
-    await setTotalPrice(PriceUsd.toFixed(2));
-  };
-
-  const handleINR = async () => {
-    const PriceINR = aircraftData.totalprice * 89.42;
-    console.log('PriceINR', PriceINR);
-    await setTotalPrice(PriceINR.toFixed(2));
   };
 
   const handleInpUTChange = (field, value) => {
@@ -358,11 +247,12 @@ const Listing = ({ isMobile }) => {
       [field]: value,
     });
   };
+
   const handleCountryCodeChange = (event) => {
     const countryCodeValue = event.target.value;
     handleInpUTChange('countryCode', countryCodeValue);
   };
-  console.log('final data  line 228', finalData);
+
   return (
     <div className="font-poppins">
       <Image src={Landing} height={420} width={1874} />
@@ -481,7 +371,7 @@ const Listing = ({ isMobile }) => {
                 </option>
                 <option value="+682">Cook Islands (CK)</option>
                 <option value="+506">Costa Rica (CR)</option>
-                <option value="+225">Cote D'ivoire (CI)</option>
+                <option value="+225">Cote D&apos;ivoire (CI)</option>
                 <option value="+385">Croatia (HR)</option>
                 <option value="+53">Cuba (CU)</option>
                 <option value="+357">Cyprus (CY)</option>
@@ -546,13 +436,13 @@ const Listing = ({ isMobile }) => {
                 <option value="+254">Kenya (KE)</option>
                 <option value="+686">Kiribati (KI)</option>
                 <option value="+850">
-                  Korea, Democratic People's Republic of (KP)
+                  Korea, Democratic People&apos;s Republic of (KP)
                 </option>
                 <option value="+82">Korea, Republic of (KR)</option>
                 <option value="+965">Kuwait (KW)</option>
                 <option value="+996">Kyrgyzstan (KG)</option>
                 <option value="+856">
-                  Lao People's Democratic Republic (LA)
+                  Lao People&apos;s Democratic Republic (LA)
                 </option>
                 <option value="+371">Latvia (LV)</option>
                 <option value="+961">Lebanon (LB)</option>
@@ -763,236 +653,32 @@ const Listing = ({ isMobile }) => {
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-1">
         <div class="grid grid-rows-5 grid-cols-1 gap-4 px-[35px]">
-          {/* {finalData?.AirCraftDatawithNotechStop?.length > 0 &&
-            finalData?.AirCraftDatawithNotechStop?.map((data, index) => {
-              console.log('data line 300 ', data);
+          {finalData?.AirCraftDatawithNotechStop?.map((data, index) => {
+            return (
+              <AircraftDetailsCard
+                key={'airacraft-list-item' + index}
+                aircraftData={data}
+                selectedCurrency={selectedCurrency}
+                handleCurrencyChange={handleCurrencyChange}
+                departureLocation={departureLocation}
+                destinationLocation={destinationLocation}
+              />
+            );
+          })}
+          {(!finalData?.AirCraftDatawithNotechStop ||
+            finalData?.AirCraftDatawithNotechStop?.length === 0) &&
+            finalData?.AirCraftDatawithtechStop?.map((data, index) => {
               return (
-               
+                <AircraftDetailsCard
+                  key={'airacraft-list-item' + index}
+                  aircraftData={data}
+                  selectedCurrency={selectedCurrency}
+                  handleCurrencyChange={handleCurrencyChange}
+                  departureLocation={departureLocation}
+                  destinationLocation={destinationLocation}
+                />
               );
-            })} */}
-          {aircraftData.map((data, index) => {
-            console.log('date line 850', data);
-
-            return (
-              <div key={index}>
-                <div
-                  className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer  transition-all duration-700 hover:scale-105 `}
-                >
-                  <div class="">
-                    <Image
-                      src={CommercialImage}
-                      alt="Commercial Image"
-                      // class="object-fill"
-                      //   layout="fill"
-                      class="h-64 w-100 object-none object-center"
-                      //   className="rounded"
-                      height={600}
-                      width={400}
-                    />
-                  </div>
-                  <div class="col-span-2">
-                    <div class="grid grid-cols-3 gap-4 mb-5">
-                      <div class="">
-                        <span class="text-[#000000] text-[20px] font-semibold text-center">
-                          {' '}
-                          {data.departureFormatted}
-                        </span>
-                        <br />
-                        <span class="text-[#000000] text-[20px] font-semibold">
-                          {data.departureIataCode}
-                        </span>
-                      </div>
-                      <div class="flex flex-col items-center">
-                        <div class="">2h</div>
-                        <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
-                        <div class="text-[red] text-[14px]">Non-stop</div>
-                      </div>
-                      <div class="text-end">
-                        <span class="text-[#000000] text-[20px] font-semibold text-center">
-                          {' '}
-                          {data.arrivalFormatted}
-                        </span>
-                        <br />
-                        <span class="text-[#000000] text-[20px] font-semibold ">
-                          {data.arrivalIataCode}
-                        </span>
-                        <br />
-                      </div>
-                    </div>
-                    <div class="flex justify-between align-middle mb-3">
-                      <div class="">
-                        <div class="font-semibold">Included Perks :</div>
-                        <div class="font-semibold text-[14px]">
-                          -Stretcher ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Doctor OnBoard ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Medical Equipment ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Oxygen(4L/Min) ✅
-                        </div>
-                      </div>
-                      <div class="">
-                        <div>
-                          <span class="font-semibold text-[17px] flex flex-row">
-                            <br />
-                            <div>
-                              <select
-                                id="currencySelector"
-                                value={selectedCurrency}
-                                onChange={handleChange}
-                                class="mr-2 border-solid border-2 border-black rounded-md"
-                              >
-                                <option value="EUR">EUR</option>
-                                <option value="AED">AED</option>
-                                <option value="USD">USD</option>
-                                <option value="INR">INR</option>
-                              </select>
-                            </div>
-                            <div class="flex flex-row">
-                              {currencySymbols[selectedCurrency]}
-                              <div class="ml-[5px]"> {totalPrice}</div>
-                            </div>
-                          </span>
-                          <br />
-                          <span class="font-medium text-[16px] italic">
-                            Estimated Price
-                          </span>
-                        </div>
-                        <div>
-                          <span class="font-semibold text-[13px]">
-                            Ticket Availability
-                          </span>
-                          <br />
-                          <span class="font-semibold text-[14px]">
-                            {depatureDate}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
-                      <div>View Details</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-          {pricewithTechalt.map((data, index) => {
-            console.log('data in line 973', data);
-            return (
-              <div key={index}>
-                <div
-                  className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer transition-all duration-700 hover:scale-105`}
-                >
-                  <div class="">
-                    <Image
-                      src={CommercialImage}
-                      alt="Commercial Image"
-                      class="h-64 w-100 object-none object-center"
-                      height={600}
-                      width={400}
-                    />
-                  </div>
-                  <div class="col-span-2">
-                    <div class="grid grid-cols-3 gap-2 mb-5">
-                      <div class="">
-                        <span class="text-[rgb(0,0,0)] text-[20px] font-semibold text-center">
-                          {' '}
-                        </span>
-                        <br />
-                        <span class="font-medium">
-                          {data?.departureLocations}
-                        </span>
-                      </div>
-                      <div class="flex flex-col items-center">
-                        <div class="">2 h</div>
-                        <div class="flex flex-row items-baseline">
-                          <div class="bg-[#42D1E5] w-[50px] h-[5px] mr-1">
-                            Stop+1
-                          </div>
-                          <div class="text-[red] text-[14px] ">
-                            {/* ({departureIataCode}) */}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-end">
-                        <span class="text-[#000000] text-[20px] font-semibold ">
-                          {/* {Arrivalformatted[1]} */}
-                        </span>
-                        <br />
-                        <span class="font-medium">{data?.arrivalIataCode}</span>
-                      </div>
-                    </div>
-                    <div class="flex justify-between align-middle mb-3">
-                      <div class="">
-                        <div class="font-semibold">Included Perks :</div>
-                        <div class="font-semibold text-[14px]">
-                          -Stretcher ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Doctor OnBoard ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Medical Equipment ✅
-                        </div>
-                        <div class="font-semibold text-[14px]">
-                          -Oxygen(4L/Min) ✅
-                        </div>
-                      </div>
-                      <div class="">
-                        <div class="">
-                          <span class="font-semibold text-[17px] flex flex-row ">
-                            <select
-                              id="currencySelector"
-                              value={selectedCurrency}
-                              onChange={handleChange}
-                              class="border-solid border-2 border-black rounded-md"
-                            >
-                              <option value="EUR">EUR</option>
-                              <option value="AED">AED</option>
-                              <option value="USD">USD</option>
-                              <option value="INR">INR</option>
-                            </select>
-                            {/* € {data.price.totalPrice.toFixed(3)} */}
-                            <span class="ml-4 ">
-                              <div>
-                                {currencySymbols[selectedCurrency]}
-                                <span class="ml-[5px]">
-                                  {' '}
-                                  {data?.totalPrice}
-                                </span>
-                              </div>
-                            </span>
-                            <br />
-                          </span>
-                          <br />
-                          <span class="font-medium text-[16px] italic">
-                            Estimated Price
-                          </span>
-                        </div>
-                        <div>
-                          <span class="font-semibold text-[13px]">
-                            Ticket Availability
-                          </span>
-                          <br />
-                          <span class="font-semibold text-[14px]">
-                            {data?.departureFormatted}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
-                      <div>View Details</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+            })}
         </div>
         <div class="grid grid-cols-1 gap-4">
           <DedicatedCard />
