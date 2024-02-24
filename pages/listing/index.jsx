@@ -18,6 +18,7 @@ import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
 import swal from 'sweetalert';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
 import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
+import Loader from '@/components/Utils/Loader';
 
 const Listing = ({ isMobile }) => {
   const { apiData } = useData();
@@ -60,188 +61,45 @@ const Listing = ({ isMobile }) => {
     mobile: '',
     max: 5,
   });
-  const [finalData, setFinaldata] = useState([]);
+  const [aircraftData, setAircraftData] = useState([]);
   const [departureLocation, setDepartureLocation] = useState();
   const [destinationLocation, setDestinationLocation] = useState();
-  const [departureLocations, setDepartureLocations] = useState([]);
-  const [arrivalLocations, setArrivalLocations] = useState([]);
-  const [flightDurations, setFlightDurations] = useState([]);
-  const [departureFormatted, setDepartureFormatted] = useState([]);
-  const [arrivalFormatted, setArrivalFormatted] = useState([]);
-  const [totalPrice, setTotalPrice] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
-  const [aircraftData, setAircraftData] = useState([]);
-  const [uniquePrice, setuniquePrice] = useState([]);
+  const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log('Form submitted with data', formData);
-    try {
-      const headers = {
-        'Content-Type': 'application/json', // Adjust content type as needed
-        // Add any other headers here
-      };
-      const response = await axios.post(
-        `http://localhost:8000/customer/Amadeusairline`,
-        formData,
-        { headers }
-      );
-      console.log('Response:', response.data);
-      setDepartureLocation(formData?.originLocationCode);
-      setDestinationLocation(formData?.destinationLocationCode);
-      setFinaldata(response.data);
-      setSelectedCurrency('EUR');
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    setAircraftDataLoading(true);
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    axios(`http://localhost:8000/customer/Amadeusairline`, {
+      method: 'POST',
+      data: formData,
+      headers: headers,
+    })
+      .then((response) => {
+        console.log('Response:', response.data);
+        setDepartureLocation(formData?.originLocationCode);
+        setDestinationLocation(formData?.destinationLocationCode);
+        setAircraftData(response.data);
+        setSelectedCurrency('EUR');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        setAircraftDataLoading(false);
+      });
   };
 
-  console.log('finalData', finalData);
   console.log('aircraftData', aircraftData);
-  useEffect(() => {
-    let Finalresults = [];
-    let departureIataCode = null;
-    let arrivalIataCode = null;
-    let departureFormatted = null;
-    let arrivalFormatted = null;
-    let departureTime = null;
-    let arrivalTime = null;
-    let duration = null;
-    if (finalData?.AirCraftDatawithNotechStop?.length > 0) {
-      finalData.AirCraftDatawithNotechStop.forEach((data) => {
-        data.aircraft.itineraries.forEach((innerData) => {
-          innerData.segments.forEach((segmentData) => {
-            departureIataCode = segmentData.departure.iataCode;
-            arrivalIataCode = segmentData.arrival.iataCode;
-
-            setDepartureLocations(departureIataCode);
-            setArrivalLocations(arrivalIataCode);
-            var departureTime = moment.tz(
-              segmentData.departure.at,
-              'Asia/Dubai'
-            );
-            var arrivalTime = moment.tz(segmentData.arrival.at, 'Asia/Dubai');
-
-            departureFormatted = departureTime.format('HH:mm');
-            arrivalFormatted = arrivalTime.format('HH:mm');
-            // setDepartureFormatted(departureFormatted1);
-            // setArrivalFormatted(arrivalFormatted1);
-            var sameTimezone =
-              departureTime.utcOffset() === arrivalTime.utcOffset();
-
-            var durationMs = arrivalTime.diff(departureTime);
-            duration = moment.duration(durationMs);
-            var hours = Math.floor(duration.asHours());
-            var minutes = duration.minutes();
-
-            departureTime = moment(departureTime);
-            setDepartureFormatted((prev) => [
-              ...prev,
-              departureTime.format('HH:mm'),
-            ]);
-            arrivalTime = moment(arrivalTime);
-            setArrivalFormatted((prev) => [
-              ...prev,
-              arrivalTime.format('HH:mm'),
-            ]);
-            setFlightDurations((prev) => [...prev, duration.asHours()]);
-          });
-        });
-
-        Finalresults.push({
-          departureIataCode: departureIataCode,
-          arrivalIataCode: arrivalIataCode,
-          departureFormatted: departureFormatted,
-          arrivalFormatted: arrivalFormatted,
-          departureTime: departureTime,
-          arrivalTime: arrivalTime,
-          duration: duration,
-          totalprice: data.price.totalPrice,
-        });
-      });
-      setAircraftData(Finalresults);
-      // Assuming totalPrice is available from somewhere in your data
-      const totalPrice = finalData.price?.totalPrice.toFixed(3);
-    } else if (
-      (!finalData?.AirCraftDatawithNotechStop ||
-        finalData?.AirCraftDatawithNotechStop?.length === 0) &&
-      finalData?.AirCraftDatawithtechStop?.length > 0
-    ) {
-      let Location = [];
-      finalData?.AirCraftDatawithtechStop?.map((data, index) => {
-        data.aircraft.itineraries.forEach((innerData) => {
-          innerData.segments.forEach((segmentData) => {
-            const departureIataCode = segmentData.departure.iataCode;
-            const arrivalIataCode = segmentData.arrival.iataCode;
-            setDepartureLocations(departureIataCode);
-            setArrivalLocations(arrivalIataCode);
-            Location.push({
-              departureIataCode: departureIataCode,
-              arrivalIataCode: arrivalIataCode,
-            });
-
-            const departureTime = moment(segmentData.departure.at).tz(
-              'Asia/Dubai'
-            );
-            const arrivalTime = moment(segmentData.arrival.at).tz('Asia/Dubai');
-            Finalresults.push({
-              departureTime: departureTime,
-              arrivalTime: arrivalTime,
-            });
-            const sameTimezone = departureTime.isSame(arrivalTime, 'minute');
-
-            const durationMs = arrivalTime.diff(departureTime);
-            const duration = moment.duration(durationMs);
-            const hours = Math.floor(duration.asHours());
-            Finalresults.push({
-              duration: duration,
-            });
-
-            const minutes = duration.minutes();
-
-            const arrivalTime1 = moment(arrivalTime);
-            setFlightDurations((prev) => [...prev, duration.asHours()]);
-            setDepartureLocations((prev) => [...prev, departureIataCode]);
-            setArrivalLocations((prev) => [...prev, arrivalIataCode]);
-          });
-          const calculateTotalDuration = (segments) => {
-            let totalDuration = 0;
-            segments?.forEach((segment) => {
-              const departureTime = moment(segment.departure.at).tz(
-                'Asia/Dubai'
-              );
-              const arrivalTime = moment(segment.arrival.at).tz('Asia/Dubai');
-
-              const duration = moment.duration(arrivalTime.diff(departureTime));
-              totalDuration += duration.asMinutes(); // Convert duration to minutes and accumulate
-            });
-            return totalDuration;
-          };
-
-          const totalDurationInMinutes = calculateTotalDuration(
-            innerData.segments
-          );
-        });
-        Finalresults.push({
-          Location: Location,
-
-          // departureFormatted: departureFormatted,
-          // arrivalFormatted: arrivalFormatted,
-          // departureTime: departureTime,
-          // arrivalTime: arrivalTime,
-          // duration: duration,
-          // totalprice: data.price.totalPrice,
-        });
-      });
-    }
-  }, [finalData]);
 
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
 
-  const handleInpUTChange = (field, value) => {
+  const handleInputChange = (field, value) => {
     setFormData({
       ...formData,
       [field]: value,
@@ -250,7 +108,7 @@ const Listing = ({ isMobile }) => {
 
   const handleCountryCodeChange = (event) => {
     const countryCodeValue = event.target.value;
-    handleInpUTChange('countryCode', countryCodeValue);
+    handleInputChange('countryCode', countryCodeValue);
   };
 
   return (
@@ -270,7 +128,7 @@ const Listing = ({ isMobile }) => {
               name="originLocationCode"
               value={formData.originLocationCode}
               onChange={(e) =>
-                handleInpUTChange('originLocationCode', e.target.value)
+                handleInputChange('originLocationCode', e.target.value)
               }
             />
 
@@ -284,7 +142,7 @@ const Listing = ({ isMobile }) => {
                 name="destinationLocationCode"
                 value={formData.destinationLocationCode}
                 onChange={(e) =>
-                  handleInpUTChange('destinationLocationCode', e.target.value)
+                  handleInputChange('destinationLocationCode', e.target.value)
                 }
               />
             </div>
@@ -296,7 +154,7 @@ const Listing = ({ isMobile }) => {
               name="departureDate"
               value={formData.departureDate}
               onChange={(e) =>
-                handleInpUTChange('departureDate', e.target.value)
+                handleInputChange('departureDate', e.target.value)
               }
             />
             {/* <CustomDatePicker   className="w-[160px] md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
@@ -304,7 +162,7 @@ const Listing = ({ isMobile }) => {
               name="departureDate"
               value={formData.departureDate}
               onChange={(e) =>
-                handleInpUTChange('departureDate', e.target.value)
+                handleInputChange('departureDate', e.target.value)
               }/> */}
             {/* Country Code Selection */}
 
@@ -592,7 +450,7 @@ const Listing = ({ isMobile }) => {
                 name="mobile"
                 placeholder="123-456-7890"
                 value={formData.mobile}
-                onChange={(e) => handleInpUTChange('mobile', e.target.value)}
+                onChange={(e) => handleInputChange('mobile', e.target.value)}
               />
             </div>
 
@@ -602,7 +460,7 @@ const Listing = ({ isMobile }) => {
               label="Pax"
               name="pax"
               value={formData.pax}
-              onChange={(e) => handleInpUTChange('pax', e.target.value)}
+              onChange={(e) => handleInputChange('pax', e.target.value)}
             />
 
             {/* Search Button */}
@@ -653,32 +511,40 @@ const Listing = ({ isMobile }) => {
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-1">
         <div class="grid grid-rows-5 grid-cols-1 gap-4 px-[35px]">
-          {finalData?.AirCraftDatawithNotechStop?.map((data, index) => {
-            return (
-              <AircraftDetailsCard
-                key={'airacraft-list-item' + index}
-                aircraftData={data}
-                selectedCurrency={selectedCurrency}
-                handleCurrencyChange={handleCurrencyChange}
-                departureLocation={departureLocation}
-                destinationLocation={destinationLocation}
-              />
-            );
-          })}
-          {(!finalData?.AirCraftDatawithNotechStop ||
-            finalData?.AirCraftDatawithNotechStop?.length === 0) &&
-            finalData?.AirCraftDatawithtechStop?.map((data, index) => {
-              return (
-                <AircraftDetailsCard
-                  key={'airacraft-list-item' + index}
-                  aircraftData={data}
-                  selectedCurrency={selectedCurrency}
-                  handleCurrencyChange={handleCurrencyChange}
-                  departureLocation={departureLocation}
-                  destinationLocation={destinationLocation}
-                />
-              );
-            })}
+          {aircraftDataLoading ? (
+            <div className="flex justify-center items-center py-10">
+              <Loader className="h-6 w-6" />
+            </div>
+          ) : (
+            <>
+              {aircraftData?.AirCraftDatawithNotechStop?.map((data, index) => {
+                return (
+                  <AircraftDetailsCard
+                    key={'airacraft-list-item' + index}
+                    aircraftData={data}
+                    selectedCurrency={selectedCurrency}
+                    handleCurrencyChange={handleCurrencyChange}
+                    departureLocation={departureLocation}
+                    destinationLocation={destinationLocation}
+                  />
+                );
+              })}
+              {(!aircraftData?.AirCraftDatawithNotechStop ||
+                aircraftData?.AirCraftDatawithNotechStop?.length === 0) &&
+                aircraftData?.AirCraftDatawithtechStop?.map((data, index) => {
+                  return (
+                    <AircraftDetailsCard
+                      key={'airacraft-list-item' + index}
+                      aircraftData={data}
+                      selectedCurrency={selectedCurrency}
+                      handleCurrencyChange={handleCurrencyChange}
+                      departureLocation={departureLocation}
+                      destinationLocation={destinationLocation}
+                    />
+                  );
+                })}
+            </>
+          )}
         </div>
         <div class="grid grid-cols-1 gap-4">
           <DedicatedCard />
