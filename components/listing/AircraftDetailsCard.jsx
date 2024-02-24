@@ -18,7 +18,7 @@ const AircraftDetailsCard = ({
   destinationLocation,
 }) => {
   const [totalCost, setTotalCost] = useState(
-    aircraftData?.price?.grandTotal ?? 0
+    parseFloat((aircraftData?.price?.totalPrice).toFixed(2)) ?? 0
   );
   const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
@@ -47,23 +47,27 @@ const AircraftDetailsCard = ({
   };
 
   useEffect(() => {
+    console.log('test');
+    const actualTotalPrice = parseFloat(
+      (aircraftData?.price?.totalPrice).toFixed(2)
+    );
     switch (selectedCurrency) {
       case 'EUR':
-        setTotalCost(getEUR(aircraftData?.price?.grandTotal));
+        setTotalCost(getEUR(actualTotalPrice));
         break;
       case 'AED':
-        setTotalCost(getAED(aircraftData?.price?.grandTotal));
+        setTotalCost(getAED(actualTotalPrice));
         break;
       case 'USD':
-        setTotalCost(getUSD(aircraftData?.price?.grandTotal));
+        setTotalCost(getUSD(actualTotalPrice));
         break;
       case 'INR':
-        setTotalCost(getINR(aircraftData?.price?.grandTotal));
+        setTotalCost(getINR(actualTotalPrice));
         break;
       default:
         setTotalCost(0);
     }
-  }, [aircraftData?.price?.grandTotal, selectedCurrency]);
+  }, [aircraftData?.price?.totalPrice, selectedCurrency]);
 
   const getLocationData = () => {
     const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
@@ -102,7 +106,6 @@ const AircraftDetailsCard = ({
       );
     }
 
-    console.log('travelDuration', travelDuration);
     const minutes = Math.floor((travelDuration / (1000 * 60)) % 60);
     const hours = Math.floor((travelDuration / (1000 * 60 * 60)) % 24);
     setTotalTravelDuration(minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`);
