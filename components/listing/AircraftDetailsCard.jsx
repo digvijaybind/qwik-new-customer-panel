@@ -10,6 +10,8 @@ const currencySymbols = {
   INR: '₹',
 };
 
+const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
 const AircraftDetailsCard = ({
   aircraftData,
   selectedCurrency,
@@ -23,9 +25,6 @@ const AircraftDetailsCard = ({
   const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
   const [techStops, setTechStops] = useState([]);
-  console.log('aircraftData', aircraftData);
-  console.log('locationData', locationData);
-  console.log('techStops', techStops);
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -47,7 +46,6 @@ const AircraftDetailsCard = ({
   };
 
   useEffect(() => {
-    console.log('test');
     const actualTotalPrice = parseFloat(
       (aircraftData?.price?.totalPrice).toFixed(2)
     );
@@ -95,6 +93,9 @@ const AircraftDetailsCard = ({
     if (segments?.length > 1) {
       let departureTime = segments[0]?.departure?.at;
       let arrivalTime = segments.at(-1)?.arrival?.at;
+
+      console.log('departureTime', departureTime);
+      console.log('arrivalTime', arrivalTime);
       travelDuration += Math.abs(
         new Date(arrivalTime) - new Date(departureTime)
       );
@@ -107,7 +108,10 @@ const AircraftDetailsCard = ({
     }
 
     const minutes = Math.floor((travelDuration / (1000 * 60)) % 60);
-    const hours = Math.floor((travelDuration / (1000 * 60 * 60)) % 24);
+    const hours = Math.floor(travelDuration / (1000 * 60 * 60));
+    console.log('travelDuration', travelDuration);
+    console.log('minutes', minutes);
+    console.log('hours', hours);
     setTotalTravelDuration(minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`);
   };
 
@@ -122,6 +126,15 @@ const AircraftDetailsCard = ({
       });
     }
     setTechStops(stops);
+  };
+
+  const formatTime = (date) => {
+    return new Date(
+      (typeof date === 'string' ? new Date(date) : date).toLocaleString(
+        'en-US',
+        { timeZone: currentTimeZone }
+      )
+    );
   };
 
   useEffect(() => {
@@ -149,7 +162,9 @@ const AircraftDetailsCard = ({
             <div class="">
               <span class="font-semibold text-2xl">
                 {locationData?.departureTime
-                  ? moment(locationData?.departureTime).format('HH:mm')
+                  ? moment(formatTime(locationData?.departureTime)).format(
+                      'HH:mm'
+                    )
                   : '--:--'}
               </span>
               <br />
@@ -170,13 +185,18 @@ const AircraftDetailsCard = ({
               <div className="flex">
                 <span class="font-semibold text-2xl">
                   {locationData?.destinationTime
-                    ? moment(locationData?.destinationTime).format('HH:mm')
+                    ? moment(formatTime(locationData?.destinationTime)).format(
+                        'HH:mm'
+                      )
                     : '--:--'}
                 </span>
-                {moment(locationData?.destinationTime).format('dd') !==
-                  moment(locationData?.departureTime).format('dd') && (
+                {moment(locationData?.destinationTime).format('d') !==
+                  moment(locationData?.departureTime).format('d') && (
                   <span className="text-[red] text-center heigh text-xs font-medium leading-3 ml-1.5">
-                    + 1 <br />
+                    +{' '}
+                    {moment(locationData?.destinationTime).format('d') -
+                      moment(locationData?.departureTime).format('d')}{' '}
+                    <br />
                     DAY
                   </span>
                 )}
