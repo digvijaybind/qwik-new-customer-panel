@@ -2,7 +2,33 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import CommercialImage from '../../public/images/commercial.svg';
 import moment from 'moment';
-
+import Aircanada from '../../public/images/airlines/air-canada.jpg';
+import Airfrance from '../../public/images/airlines/air-france.jpg';
+import Airmauritius from '../../public/images/airlines/air-mauritius.jpg';
+import NipponAirline from '../../public/images/airlines/all-nippon-airways.jpg';
+import americanAirline from '../../public/images/airlines/american-airlines.jpg';
+import BritishAirways from '../../public/images/airlines/british-airways.jpg';
+import cathayAirline from '../../public/images/airlines/cathay-pacific.jpg';
+import DeltaAirline from '../../public/images/airlines/delta-airlines.jpg';
+import Emirates from '../../public/images/airlines/Emirates.jpg';
+import Ethiads from '../../public/images/airlines/etihad-airways.jpg';
+import Indigo from '../../public/images/airlines/indigo.jpg';
+import KLMAirline from '../../public/images/airlines/KLM-Royal-Dutch-Airlines.jpg';
+import Lufthansa from '../../public/images/airlines/Lufthansa.jpg';
+import malesiyaAirline from '../../public/images/airlines/malaysi-airlines.jpg';
+import PhillippinesAirlines from '../../public/images/airlines/philippine-airlines.jpg';
+import Quantas from '../../public/images/airlines/Qantas.jpg';
+import QatarAirway from '../../public/images/airlines/Qatar-airways.jpg';
+import SaudiAirline from '../../public/images/airlines/Saudia.jpg';
+import SingaporeAirline from '../../public/images/airlines/singapore-airlines.jpg';
+import SouthAfrican from '../../public/images/airlines/south-african-airways.jpg';
+import TurkishAirlineNew from '../../public/images/airlines/turkish-airlines.jpg';
+import TurkishAirline from '../../public/images/airlines/Turkish.jpg';
+import UnitedAirline from '../../public/images/airlines/united-airlines.jpg';
+import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg';
+import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
+import AirIndia from '../../public/images/airlines/Air-india.jpg';
+import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
 const currencySymbols = {
   EUR: '€',
   AED: 'AED',
@@ -16,6 +42,7 @@ const AircraftDetailsCard = ({
   aircraftData,
   selectedCurrency,
   handleCurrencyChange,
+  availticket,
   departureLocation,
   destinationLocation,
 }) => {
@@ -25,6 +52,9 @@ const AircraftDetailsCard = ({
   const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
   const [techStops, setTechStops] = useState([]);
+  const [availableticket, setavailableticket] = useState('');
+  const [airlineName, setairlineName] = useState('');
+  const [airlineImage, setairlineImage] = useState('');
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -67,6 +97,67 @@ const AircraftDetailsCard = ({
     }
   }, [aircraftData?.price?.totalPrice, selectedCurrency]);
 
+  const airlineNames = {
+    AC: 'Air Canada',
+    '6E': 'IndiGo',
+    AF: 'Air France',
+    AI: 'Air India',
+    AA: 'American Airlines',
+    BA: 'British Airways',
+    CX: 'Cathay Pacific',
+    DL: 'Delta Air Lines',
+    EK: 'Emirates',
+    EY: 'Etihad Airways',
+    KL: 'KLM Royal Dutch Airlines',
+    LH: 'Lufthansa',
+    QF: 'Qantas',
+    QR: 'Qatar Airways',
+    SQ: 'Singapore Airlines',
+    TK: 'Turkish Airlines',
+    UA: 'United Airlines',
+    VS: 'Virgin Atlantic',
+    THY: 'Turkish Airlines',
+    WY: 'Oman Air',
+    OMA: 'Oman Air',
+    SAA: 'South African Airways',
+    ANA: 'All Nippon Airways',
+    PAL: 'Philippine Airlines',
+    VIR: 'Virgin Atlantic',
+    MAU: 'Air Mauritius',
+    MH: 'Malaysia Airlines',
+    SV: 'Saudia',
+  };
+  const AirlineImages = {
+    AC: Aircanada,
+    '6E': Indigo,
+    AF: Airfrance,
+    AI: AirIndia,
+    AA: americanAirline,
+    BA: BritishAirways,
+    CX: cathayAirline,
+    DL: DeltaAirline,
+    EK: Emirates,
+    EY: Ethiads,
+    KL: KLMAirline,
+    LH: Lufthansa,
+    QF: Quantas,
+    QR: QatarAirway,
+    SQ: SingaporeAirline,
+    TK: TurkishAirline,
+    UA: UnitedAirline,
+    VS: VirginAtlantic,
+    THY: TurkishAirlineNew,
+    WY: OmanAirline,
+    OMA: OmanAirline,
+    SAA: SouthAfrican,
+    ANA: NipponAirline,
+    PAL: PhillippinesAirlines,
+    VIR: VirginAirline,
+    MAU: Airmauritius,
+    MH: malesiyaAirline,
+    SV: SaudiAirline,
+  };
+
   const getLocationData = () => {
     const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
@@ -85,34 +176,76 @@ const AircraftDetailsCard = ({
       });
     }
   };
-
-  const getTravelDuration = () => {
-    let travelDuration = 0;
-    const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
-
-    if (segments?.length > 1) {
-      let departureTime = segments[0]?.departure?.at;
-      let arrivalTime = segments.at(-1)?.arrival?.at;
-
-      console.log('departureTime', departureTime);
-      console.log('arrivalTime', arrivalTime);
-      travelDuration += Math.abs(
-        new Date(arrivalTime) - new Date(departureTime)
-      );
-    } else {
-      let departureTime = segments[0]?.departure?.at;
-      let arrivalTime = segments[0]?.arrival?.at;
-      travelDuration += Math.abs(
-        new Date(arrivalTime) - new Date(departureTime)
-      );
+  const parseISO8601Duration = (durationString) => {
+    let TimeDuration = [];
+    const regex =
+      /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
+    const matches = durationString.match(regex);
+    if (!matches) {
+      throw new Error('Invalid ISO8601 duration format');
     }
 
-    const minutes = Math.floor((travelDuration / (1000 * 60)) % 60);
-    const hours = Math.floor(travelDuration / (1000 * 60 * 60));
-    console.log('travelDuration', travelDuration);
-    console.log('minutes', minutes);
-    console.log('hours', hours);
-    setTotalTravelDuration(minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`);
+    const [, years, months, days, hours, minutes, seconds] =
+      matches.map(Number);
+
+    const totalSeconds = seconds || 0;
+    const totalMinutes = totalSeconds / 60 + (minutes || 0);
+    const totalHours = totalMinutes / 60 + (hours || 0);
+    const totalDays = totalHours / 24 + (days || 0);
+
+    TimeDuration.push({
+      years: years || 0,
+      months: months || 0,
+      days: days || 0,
+      hours: hours || 0,
+      minutes: minutes || 0,
+      seconds: seconds || 0,
+      totalDays,
+      totalHours,
+      totalMinutes,
+      totalSeconds,
+    });
+    console.log('TimeDuration line 196', TimeDuration);
+    return TimeDuration;
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    console.log('date month and year', `${date.getDate()} ${month} ${year}`);
+    return `${date.getDate()} ${month} ${year}`;
+  };
+  const TicketAvailable = () => {
+    const ticketDate = availticket ?? [];
+    console.log(' ticketDate line 125', ticketDate);
+    setavailableticket(formatDate(ticketDate));
+  };
+
+  const renderAirlineName = (carrierCode) => {
+    return airlineNames[carrierCode] || 'Unknow Airline';
+  };
+
+  const AirlineImage = () => {
+    const airlineName =
+      aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+    const airlineImage = AirlineImages[airlineName];
+    setairlineImage(airlineImage);
+  };
+  const AirlineName = () => {
+    const airlineName =
+      aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+    console.log(' airlineName  line 125', airlineName);
+    const airline = renderAirlineName(airlineName);
+    setairlineName(airline);
+  };
+
+  const getTravelDuration = () => {
+    const timeduration = aircraftData?.aircraft?.itineraries[0]?.duration ?? [];
+
+    let flyingTime = parseISO8601Duration(timeduration);
+    console.log('flyingTime  line 209', flyingTime);
+    setTotalTravelDuration(flyingTime);
   };
 
   const getTechStops = () => {
@@ -141,6 +274,9 @@ const AircraftDetailsCard = ({
     getLocationData();
     getTravelDuration();
     getTechStops();
+    TicketAvailable();
+    AirlineImage();
+    AirlineName();
   }, []);
 
   return (
@@ -150,7 +286,7 @@ const AircraftDetailsCard = ({
       >
         <div class="">
           <Image
-            src={CommercialImage}
+            src={airlineImage}
             alt="Commercial Image"
             class="h-64 w-100 object-none object-center"
             height={600}
@@ -173,7 +309,13 @@ const AircraftDetailsCard = ({
               </span>
             </div>
             <div class="flex flex-col items-center">
-              <div class="">{totalTravelDuration}</div>
+              {/* <div class="">{totalTravelDuration}</div> */}
+              {totalTravelDuration?.length > 0 &&
+                totalTravelDuration.map((data) => {
+                  return `${Math.floor(data.totalHours)}h${Math.floor(
+                    data.totalMinutes
+                  )}m`;
+                })}
               <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
               <div class="text-[red] text-xs">
                 {techStops?.length > 0
@@ -218,39 +360,51 @@ const AircraftDetailsCard = ({
               <div>
                 <span class="font-semibold text-[17px] flex flex-row">
                   <br />
-                  <div>
-                    <select
-                      id="currencySelector"
-                      value={selectedCurrency}
-                      onChange={handleCurrencyChange}
-                      class="mr-2 border-solid border-2 border-black rounded-md"
-                    >
-                      {Object.keys(currencySymbols)?.map((currency, index) => {
-                        return (
-                          <option
-                            value={currency}
-                            key={'currency-item' + index}
-                          >
-                            {currency}
-                          </option>
-                        );
-                      })}
-                    </select>
+                  <div class="flex flex-col">
+                    <div>
+                      <span class="font-semibold text-[13px]">
+                        Estimated Price
+                      </span>
+                    </div>
+                    <div>
+                      <select
+                        id="currencySelector"
+                        value={selectedCurrency}
+                        onChange={handleCurrencyChange}
+                        class="mr-2 border-solid border-2 border-black rounded-md"
+                      >
+                        {Object.keys(currencySymbols)?.map(
+                          (currency, index) => {
+                            return (
+                              <option
+                                value={currency}
+                                key={'currency-item' + index}
+                              >
+                                {currency}
+                              </option>
+                            );
+                          }
+                        )}
+                      </select>
+                    </div>
                   </div>
-                  <div class="flex flex-row">
+                  <div class="flex flex-row items-end">
                     {currencySymbols[selectedCurrency]}
                     <div class="ml-[5px]"> {totalCost}</div>
                   </div>
                 </span>
                 <br />
-                <span class="font-medium text-[16px] italic">
-                  Estimated Price
-                </span>
               </div>
-              <div>
+              <div class="flex flex-row justify-between">
+                <span class="font-semibold text-[13px]">Airline Name</span>:
+                <span class="font-semibold text-[13px]">{airlineName}</span>
+              </div>
+              <div class="flex flex-row justify-between items-center">
                 <span class="font-semibold text-[13px]">
                   Ticket Availability
                 </span>
+                :
+                <span class="font-semibold text-[12px]">{availableticket}</span>
                 <br />
                 <span class="font-semibold text-[14px]">
                   {aircraftData?.depatureDate}

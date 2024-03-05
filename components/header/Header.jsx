@@ -34,7 +34,7 @@ const Header = () => {
     'Home',
     'About',
     'Services',
-    'Fleet',
+    'Book',
     'Media',
     'Blog',
     'Our Location',
@@ -54,8 +54,8 @@ const Header = () => {
       url: '',
     },
     {
-      title: 'Fleet',
-      url: '/fleet',
+      title: 'book',
+      url: '/listing',
     },
     {
       title: 'Media',
