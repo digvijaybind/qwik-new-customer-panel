@@ -171,12 +171,16 @@ const Listing = ({ isMobile }) => {
               <select
                 value={formData.countryCode}
                 onChange={handleCountryCodeChange}
-                className="w-36 h-[40px] px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
+                className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
               >
                 {/* Add more options as needed */}{' '}
                 {countries.map((data) => {
                   return (
-                    <option value={data.code} class="text-black">
+                    <option
+                      value={data.code}
+                      key={data.code}
+                      class="text-black"
+                    >
                       {data.name}
                     </option>
                   );
