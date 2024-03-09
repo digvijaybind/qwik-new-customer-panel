@@ -29,6 +29,8 @@ import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg
 import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
+import RoyalBrunei from '../../public/images/airlines/Royal-brunei.jpg';
+import Rawanda from '../../public/images/airlines/rawanda.jpg';
 const currencySymbols = {
   EUR: '€',
   AED: 'AED',
@@ -98,6 +100,7 @@ const AircraftDetailsCard = ({
   }, [aircraftData?.price?.totalPrice, selectedCurrency]);
 
   const airlineNames = {
+    LH: 'Lufthansa',
     AC: 'Air Canada',
     '6E': 'IndiGo',
     AF: 'Air France',
@@ -109,7 +112,6 @@ const AircraftDetailsCard = ({
     EK: 'Emirates',
     EY: 'Etihad Airways',
     KL: 'KLM Royal Dutch Airlines',
-    LH: 'Lufthansa',
     QF: 'Qantas',
     QR: 'Qatar Airways',
     SQ: 'Singapore Airlines',
@@ -128,6 +130,7 @@ const AircraftDetailsCard = ({
     SV: 'Saudia',
   };
   const AirlineImages = {
+    LH: Lufthansa,
     AC: Aircanada,
     '6E': Indigo,
     AF: Airfrance,
@@ -139,7 +142,6 @@ const AircraftDetailsCard = ({
     EK: Emirates,
     EY: Ethiads,
     KL: KLMAirline,
-    LH: Lufthansa,
     QF: Quantas,
     QR: QatarAirway,
     SQ: SingaporeAirline,
@@ -156,6 +158,8 @@ const AircraftDetailsCard = ({
     MAU: Airmauritius,
     MH: malesiyaAirline,
     SV: SaudiAirline,
+    BI: RoyalBrunei,
+    WB: Rawanda,
   };
 
   const getLocationData = () => {
