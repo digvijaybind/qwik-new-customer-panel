@@ -15,8 +15,9 @@ module.exports = {
       Roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
-      textColor: {
+      colors: {
         Bluedark: '#15264C',
+        primary: '#11B6E3',
       },
     },
     screens: {
