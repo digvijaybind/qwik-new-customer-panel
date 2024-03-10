@@ -14,7 +14,7 @@ const SelectionComponent = ({ img, title, descripation }) => {
         </div>
       </div>
 
-      <div className="font-Roboto text-gray-500 font-medium">
+      <div className="font-roboto text-gray-500 font-medium">
         {descripation}
       </div>
     </div>

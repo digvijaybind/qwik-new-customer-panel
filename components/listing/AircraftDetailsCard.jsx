@@ -280,141 +280,145 @@ const AircraftDetailsCard = ({
   }, []);
 
   return (
-    <div>
-      <div
-        className={`w-full py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] cursor-pointer  transition-all duration-700 hover:scale-105`}
-      >
-        <div class="">
-          <Image
-            src={airlineImage}
-            alt="Commercial Image"
-            class="h-64 w-100 object-none object-center"
-            height={600}
-            width={400}
-          />
-        </div>
-        <div class="col-span-2">
-          <div class="grid grid-cols-3 gap-4 mb-5">
-            <div class="">
+    <div
+      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      style={{
+        boxShadow:
+          'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+      }}
+    >
+      <div class="h-full">
+        <Image
+          src={airlineImage}
+          alt="Commercial Image"
+          className="w-full object-cover object-center rounded-md border border-slate-100 bg-slate-100"
+        />
+      </div>
+      <div class="col-span-2">
+        <div class="grid grid-cols-3 gap-4 mb-5">
+          <div class="">
+            <span class="font-semibold text-2xl">
+              {locationData?.departureTime
+                ? moment(formatTime(locationData?.departureTime)).format(
+                    'HH:mm'
+                  )
+                : '--:--'}
+            </span>
+            <br />
+            <span class="text-[#545454] text-base font-semibold text-center">
+              {locationData?.departureLocation}
+            </span>
+          </div>
+          <div class="flex flex-col items-center">
+            {/* <div class="">{totalTravelDuration}</div> */}
+            {totalTravelDuration?.length > 0 &&
+              totalTravelDuration.map((data) => {
+                return `${Math.floor(data.totalHours)}h ${Math.floor(
+                  data.totalMinutes
+                )}m`;
+              })}
+            <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
+            <div class="text-[red] text-xs">
+              {techStops?.length > 0
+                ? `${techStops?.length} stop via ${techStops?.join(', ')}`
+                : 'Non-stop'}
+            </div>
+          </div>
+          <div class="flex flex-col items-end">
+            <div className="flex">
               <span class="font-semibold text-2xl">
-                {locationData?.departureTime
-                  ? moment(formatTime(locationData?.departureTime)).format(
+                {locationData?.destinationTime
+                  ? moment(formatTime(locationData?.destinationTime)).format(
                       'HH:mm'
                     )
                   : '--:--'}
               </span>
-              <br />
-              <span class="text-[#545454] text-base font-semibold text-center">
-                {locationData?.departureLocation}
-              </span>
-            </div>
-            <div class="flex flex-col items-center">
-              {/* <div class="">{totalTravelDuration}</div> */}
-              {totalTravelDuration?.length > 0 &&
-                totalTravelDuration.map((data) => {
-                  return `${Math.floor(data.totalHours)}h${Math.floor(
-                    data.totalMinutes
-                  )}m`;
-                })}
-              <div class="bg-[#42D1E5] w-[40px] h-[3px]"></div>
-              <div class="text-[red] text-xs">
-                {techStops?.length > 0
-                  ? `${techStops?.length} stop via ${techStops?.join(', ')}`
-                  : 'Non-stop'}
-              </div>
-            </div>
-            <div class="flex flex-col items-end">
-              <div className="flex">
-                <span class="font-semibold text-2xl">
-                  {locationData?.destinationTime
-                    ? moment(formatTime(locationData?.destinationTime)).format(
-                        'HH:mm'
-                      )
-                    : '--:--'}
-                </span>
-                {moment(locationData?.destinationTime).format('d') !==
-                  moment(locationData?.departureTime).format('d') && (
-                  <span className="text-[red] text-center heigh text-xs font-medium leading-3 ml-1.5">
-                    +{' '}
-                    {moment(locationData?.destinationTime).format('d') -
-                      moment(locationData?.departureTime).format('d')}{' '}
-                    <br />
-                    DAY
-                  </span>
-                )}
-              </div>
-              <span class="text-[#545454] text-base font-semibold text-center">
-                {locationData?.destinationLocation}
-              </span>
-            </div>
-          </div>
-          <div class="flex justify-between align-middle mb-3">
-            <ul class="list-disc ml-4">
-              <li class="font-semibold">Included Perks :</li>
-              <li class="font-semibold text-[14px]">Stretcher ✅</li>
-              <li class="font-semibold text-[14px]">Doctor OnBoard ✅</li>
-              <li class="font-semibold text-[14px]">Medical Equipment ✅</li>
-              <li class="font-semibold text-[14px]">Oxygen(4L/Min) ✅</li>
-            </ul>
-            <div class="">
-              <div>
-                <span class="font-semibold text-[17px] flex flex-row">
+              {moment(locationData?.destinationTime).format('d') !==
+                moment(locationData?.departureTime).format('d') && (
+                <span className="text-[red] text-center heigh text-xs font-medium leading-3 ml-1.5">
+                  +{' '}
+                  {moment(locationData?.destinationTime).format('d') -
+                    moment(locationData?.departureTime).format('d')}{' '}
                   <br />
-                  <div class="flex flex-col">
-                    <div>
-                      <span class="font-semibold text-[13px]">
-                        Estimated Price
-                      </span>
-                    </div>
-                    <div>
-                      <select
-                        id="currencySelector"
-                        value={selectedCurrency}
-                        onChange={handleCurrencyChange}
-                        class="mr-2 border-solid border-2 border-black rounded-md"
-                      >
-                        {Object.keys(currencySymbols)?.map(
-                          (currency, index) => {
-                            return (
-                              <option
-                                value={currency}
-                                key={'currency-item' + index}
-                              >
-                                {currency}
-                              </option>
-                            );
-                          }
-                        )}
-                      </select>
-                    </div>
-                  </div>
+                  DAY
+                </span>
+              )}
+            </div>
+            <span class="text-[#545454] text-base font-semibold text-center">
+              {locationData?.destinationLocation}
+            </span>
+          </div>
+        </div>
+        <div class="flex justify-between align-middle mb-5">
+          <div className="flex flex-col">
+            <p class="font-semibold">Included Perks :</p>
+            <ul class="list-disc ml-4 flex flex-col gap-1">
+              <li class="font-semibold text-slate-600 text-xs">Stretcher ✅</li>
+              <li class="font-semibold text-slate-600 text-xs">
+                Doctor OnBoard ✅
+              </li>
+              <li class="font-semibold text-slate-600 text-xs">
+                Medical Equipment ✅
+              </li>
+              <li class="font-semibold text-slate-600 text-xs">
+                Oxygen(4L/Min) ✅
+              </li>
+            </ul>
+          </div>
+          <div class="">
+            <div>
+              <div class="font-semibold text-[17px] flex flex-col">
+                <div class="font-semibold w-full text-end text-[13px]">
+                  Estimated Price
+                </div>
+                <div className="flex justify-end gap-6">
+                  <select
+                    id="currencySelector"
+                    value={selectedCurrency}
+                    onChange={handleCurrencyChange}
+                    class="border-solid border-2 border-black rounded-md text-xs"
+                  >
+                    {Object.keys(currencySymbols)?.map((currency, index) => {
+                      return (
+                        <option value={currency} key={'currency-item' + index}>
+                          {currency}
+                        </option>
+                      );
+                    })}
+                  </select>
+
                   <div class="flex flex-row items-end">
                     {currencySymbols[selectedCurrency]}
-                    <div class="ml-[5px]"> {totalCost}</div>
+                    <div class=" font-extrabold"> {totalCost}</div>
                   </div>
+                </div>
+              </div>
+              <br />
+            </div>
+            <div className="flex flex-col gap-3">
+              <div class="flex flex-col justify-end text-end">
+                <span class="font-semibold text-[11px] text-gray-500 leading-tight">
+                  Airline Name
                 </span>
-                <br />
+                <span class="font-semibold leading-tight">{airlineName}</span>
               </div>
-              <div class="flex flex-row justify-between">
-                <span class="font-semibold text-[13px]">Airline Name</span>:
-                <span class="font-semibold text-[13px]">{airlineName}</span>
-              </div>
-              <div class="flex flex-row justify-between items-center">
-                <span class="font-semibold text-[13px]">
+              <div class="flex flex-col justify-end text-end">
+                <span class="font-semibold text-[11px] text-gray-500 leading-tight">
                   Ticket Availability
                 </span>
-                :
-                <span class="font-semibold text-[12px]">{availableticket}</span>
-                <br />
-                <span class="font-semibold text-[14px]">
-                  {aircraftData?.depatureDate}
+
+                <span class="font-semibold text-[12px]">
+                  {availableticket ?? 0}
                 </span>
+                {/* <span class="font-semibold text-[14px]">
+                  {aircraftData?.depatureDate}
+                </span> */}
               </div>
             </div>
           </div>
-          <div class="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
-            <div>View Details</div>
-          </div>
+        </div>
+        <div class="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
+          <div>View Details</div>
         </div>
       </div>
     </div>

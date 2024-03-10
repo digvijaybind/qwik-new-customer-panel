@@ -4,14 +4,12 @@
 /* styles.css or index.css */
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
-@import '@fontsource/lato';
-@import '../styles//fonts/font.css';
-@import url('https://fonts.googleapis.coPm/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: 'PoppinsRegular', 'Lato';
+  --font-mono: 'Poppins', 'Lato';
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -126,12 +124,22 @@ a {
 
 .customCarousel .slick-prev:before,
 .customCarousel .slick-next:before {
-  color: #11B6E3 !important;
-  /* font-size: 2rem; */
+  color: #11b6e3 !important;
+  font-size: 2rem;
+  background: white;
+  border-radius: 100px;
+  overflow: hidden;
 }
 
-/* .customCarousel .slick-prev:before {
-  margin-right: -4rem;
-  z-index: 100;
-  position: relative;
-} */
+.customCarousel .slick-prev,
+.customCarousel .slick-next {
+  z-index: 1000;
+  filter: drop-shadow(0px 20px 30px rgba(38, 57, 77, 1));
+}
+
+.customCarousel .slick-prev {
+  left: 1rem;
+}
+.customCarousel .slick-next {
+  right: 1rem;
+}

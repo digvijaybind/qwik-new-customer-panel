@@ -15,10 +15,10 @@ import 'slick-carousel/slick/slick-theme.css';
 const SearchHeader = () => {
   return (
     <div
-      className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white h-[60dvh] px-28"
+      className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white h-[60dvh] px-36"
       style={{ backgroundImage: "url('/images/search-detail-bg.png')" }}
     >
-      <h2 className="text-[2rem] font-extrabold mb-0.5 drop-shadow">
+      <h2 className="text-[2.2rem] font-extrabold mb-0.5 drop-shadow">
         Search Result
       </h2>
       <p className="text-sm">The new generation of private jets</p>
@@ -148,7 +148,7 @@ const FlightImages = () => {
 const FlightDetails = () => {
   return (
     <div
-      className="rounded-md p-5 text-[0.86rem]"
+      className="rounded-md p-5 text-[0.9rem]"
       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
     >
       <h2 className="text-base font-bold">Flight Details</h2>
@@ -164,8 +164,9 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72"></div>
-            <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            <div className="bg-gray-300 h-[2px] w-72">
+              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            </div>
           </div>
           <span className="font-bold text-base">Mumbai</span>
         </div>
@@ -188,8 +189,9 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72" />
-            <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            <div className="bg-gray-300 h-[2px] w-72">
+              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            </div>
           </div>
           <span className="font-bold text-base">Mumbai</span>
         </div>
@@ -212,8 +214,9 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72" />
-            <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            <div className="bg-gray-300 h-[2px] w-72">
+              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+            </div>
           </div>
           <span className="font-bold text-base">Mumbai</span>
         </div>
@@ -231,11 +234,11 @@ const FlightDetails = () => {
 const CostDetails = () => {
   return (
     <div
-      className="flex flex-col rounded-md p-5 text-[0.86rem]"
+      className="flex flex-col rounded-md p-5 text-[0.9rem]"
       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
     >
       <h2 className="text-base font-bold mb-4">Cost Details</h2>
-      <div className="flex flex-col gap-3 text-[0.86rem]">
+      <div className="flex flex-col gap-3 text-[0.9rem]">
         <p className="flex justify-between">
           <span>Flight Cost (@ 1,26,500 per hour)</span>
           <span>₹ 9,00,833</span>
@@ -252,9 +255,9 @@ const CostDetails = () => {
           <span>GST (18%)</span>
           <span>₹ 2,02,719</span>
         </p>
-        <p className="flex justify-between">
+        <p className="flex justify-between items-center">
           <span>Estimated cost</span>
-          <span>₹ 13,28,936</span>
+          <span className='font-bold text-base'>₹ 13,28,936</span>
         </p>
       </div>
       <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
@@ -268,7 +271,7 @@ const SearchDetails = () => {
   return (
     <div className="">
       <SearchHeader />
-      <div className="px-28">
+      <div className="px-36">
         <p className="text-sm my-3">
           Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
@@ -277,7 +280,7 @@ const SearchDetails = () => {
           <div className="w-8/12">
             <FlightImages />
           </div>
-          <div className="w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.86rem]">
+          <div className="w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
             <JourneyDetails />
           </div>
         </div>

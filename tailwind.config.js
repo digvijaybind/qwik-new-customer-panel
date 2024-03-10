@@ -10,9 +10,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      Poppins: ['Poppins', 'sans-serif'],
-      lato: ['Lato', 'sans-serif'],
-      Roboto: ['Roboto', 'sans-serif'],
+      poppins: ['Poppins', 'sans-serif'],
+      lato: ['LatoRegular', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
       colors: {

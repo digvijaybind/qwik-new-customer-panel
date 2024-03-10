@@ -113,11 +113,11 @@ const Listing = ({ isMobile }) => {
   };
 
   return (
-    <div className="font-poppins">
+    <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8">
       <Image src={Landing} height={420} width={1874} />
 
       <Shadow
-        classname={`${styles.Top_container} px-[10px] py-[15px] bottom-[30px]  mx-[30px] relative   lg:relative sm:static drop-shadow-xl border-8 border-solid border-[#14B4E3] p-4`}
+        classname={`${styles.Top_container} px-[10px] py-[15px] bottom-[30px]  w-10/12 relative   lg:relative sm:static drop-shadow-xl border-8 border-solid border-[#14B4E3] p-4`}
       >
         <form onSubmit={handleSubmit}>
           <div className="flex flex-row items-baseline justify-evenly  md:flex-col md:mb-3  sm:flex-col sm:mb-3 ">
@@ -216,7 +216,7 @@ const Listing = ({ isMobile }) => {
                   Search
                 </button>
               ) : (
-                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center">
+                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none">
                   <Image src={Search} height={24} width={24} />
                 </button>
               )}
@@ -224,66 +224,46 @@ const Listing = ({ isMobile }) => {
           </div>
         </form>
       </Shadow>
-
-      <Shadow
-        classname={`mt-[20px] w-[90%]  font-bold mb-[15px] text-center p-[10px] flex  ml-[50%] transform translate-x-[-50%] items-center`}
-      >
-        <button
-          className={`${styles.Right_border} w-[50%]   font-extrabold cursor-pointer hover:gray`}
+      <div className="px-36">
+        <Shadow
+          classname={`mt-2 w-full font-bold mb-8 text-center p-[10px] flex transform items-center`}
         >
-          COMMERCIAL
-        </button>
-        <button className="w-[50%] font-extrabold cursor-pointer hover:opacity-100">
-          CHARTERED
-        </button>
-      </Shadow>
-      {apiData?.nearestOperatorWithPrice?.length > 0 && (
-        <p className="my-3 w-[90%] ml-[50%] transform translate-x-[-50%] font-semibold text-sm">
-          Showing {apiData?.nearestOperatorWithPrice?.length} results
-        </p>
-      )}
-      <div className="px-[5%] flex justify-between items-stretch flex-wrap">
-        {apiData?.nearestOperatorWithPrice?.map((el, i) => (
-          <Planedesc
-            key={'reesult-item-' + i}
-            name={el.operator.Aircraft_type}
-            price={Math.ceil(el.price * 10) / 10}
-            time={convertTime(el.totalTime)}
-            speed={el.operator.speed}
-            from={apiData.from}
-            to={apiData.to}
-          ></Planedesc>
-        ))}
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-1">
-        <div class="grid grid-rows-5 grid-cols-1 gap-4 px-[35px]">
-          {aircraftDataLoading ? (
-            <div className="flex justify-center items-center py-10">
-              <Loader className="h-6 w-6" />
-            </div>
-          ) : (
-            <>
-              {aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                (data, index) => {
-                  return (
-                    <AircraftDetailsCard
-                      key={'airacraft-list-item' + index}
-                      aircraftData={data}
-                      availticket={
-                        aircraftData?.ResponseData?.TicketAvailability
-                      }
-                      selectedCurrency={selectedCurrency}
-                      handleCurrencyChange={handleCurrencyChange}
-                      departureLocation={departureLocation}
-                      destinationLocation={destinationLocation}
-                    />
-                  );
-                }
-              )}
-              {(!aircraftData?.ResponseData?.AirCraftDatawithNotechStop ||
-                aircraftData?.ResponseData?.AirCraftDatawithNotechStop
-                  ?.length === 0) &&
-                aircraftData?.ResponseData?.AirCraftDatawithtechStop?.map(
+          <button
+            className={`border-r-2 w-[50%]   font-extrabold cursor-pointer hover:gray`}
+          >
+            COMMERCIAL
+          </button>
+          <button className="w-[50%] font-extrabold cursor-pointer hover:opacity-100">
+            CHARTERED
+          </button>
+        </Shadow>
+        {apiData?.nearestOperatorWithPrice?.length > 0 && (
+          <p className="my-3 w-[90%] ml-[50%] transform translate-x-[-50%] font-semibold text-sm">
+            Showing {apiData?.nearestOperatorWithPrice?.length} results
+          </p>
+        )}
+        <div className="px-[5%] flex justify-between items-stretch flex-wrap">
+          {apiData?.nearestOperatorWithPrice?.map((el, i) => (
+            <Planedesc
+              key={'reesult-item-' + i}
+              name={el.operator.Aircraft_type}
+              price={Math.ceil(el.price * 10) / 10}
+              time={convertTime(el.totalTime)}
+              speed={el.operator.speed}
+              from={apiData.from}
+              to={apiData.to}
+            ></Planedesc>
+          ))}
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-1 gap-8">
+          <div class="grid grid-rows-5 grid-cols-1 gap-8">
+            {aircraftDataLoading ? (
+              <div className="flex justify-center items-center py-10">
+                <Loader className="h-6 w-6" />
+              </div>
+            ) : (
+              <>
+                {aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
                     return (
                       <AircraftDetailsCard
@@ -300,20 +280,41 @@ const Listing = ({ isMobile }) => {
                     );
                   }
                 )}
-            </>
-          )}
+                {(!aircraftData?.ResponseData?.AirCraftDatawithNotechStop ||
+                  aircraftData?.ResponseData?.AirCraftDatawithNotechStop
+                    ?.length === 0) &&
+                  aircraftData?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data, index) => {
+                      return (
+                        <AircraftDetailsCard
+                          key={'airacraft-list-item' + index}
+                          aircraftData={data}
+                          availticket={
+                            aircraftData?.ResponseData?.TicketAvailability
+                          }
+                          selectedCurrency={selectedCurrency}
+                          handleCurrencyChange={handleCurrencyChange}
+                          departureLocation={departureLocation}
+                          destinationLocation={destinationLocation}
+                        />
+                      );
+                    }
+                  )}
+              </>
+            )}
+          </div>
+          <div class="grid grid-cols-1 gap-8">
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
+          </div>
         </div>
-        <div class="grid grid-cols-1 gap-4">
-          <DedicatedCard />
-          <DedicatedCard />
-          <DedicatedCard />
-          <DedicatedCard />
-          <DedicatedCard />
-        </div>
+        <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
+          Show more results
+        </button>
       </div>
-      <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
-        Show more results
-      </button>
     </div>
   );
 };
