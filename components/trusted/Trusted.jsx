@@ -10,7 +10,7 @@ const Trusted = ({ img, title, descripation }) => {
         </div>
         <div class="flex flex-col col-span-5">
           <div class="text-[22px] text-[#fff] font-bold">{title}</div>
-          <div class="text-[#a9b5bf] text-[16px] font-[400]">
+          <div class="text-[#a9b5bf] text-[16px] font-[400] text-shadow">
             {descripation}
           </div>
         </div>
