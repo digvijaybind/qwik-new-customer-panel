@@ -4,7 +4,7 @@ import Image from 'next/image';
 const NewsUpdates = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      class={`mx-[10px]  flex flex-col items-center ${styles.boxShadow} p-[30px] shadow-2xl`}
+      class={`mx-[10px]  flex flex-col items-center ${styles.boxShadow} p-[30px] shadow-2xl rounded-md`}
     >
       <div class="w-full ">
         <Image
@@ -30,7 +30,7 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
             November 15, 2018
           </h3>
         </div>
-        <p className="font-bold leading-[33.6px] text-[24px] max-w-[20rem] text-[#111111]">
+        <p className="font-arcaMajoraBold text-2xl text-slate-800 max-w-[20rem]">
           {title}
         </p>
         <p className="text-[#646464] leading-[28.8px] text-[16px] font-normal max-w-[26rem]">

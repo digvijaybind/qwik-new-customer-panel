@@ -128,11 +128,36 @@ const Newfooter = () => {
           © 2024 Qwiklif. All rights reserved.{' '}
         </div>
         <div class="grid grid-cols-5 gap-5">
-          <Image src={Linkedin} height={30} width={30} class="cursor-pointer" />
-          <Image src={Insta} height={30} width={30} class="cursor-pointer" />
-          <Image src={Tiktok} height={30} width={30} class="cursor-pointer" />
-          <Image src={Twitter} height={30} width={30} class="cursor-pointer" />
-          <Image src={Facebook} height={30} width={30} class="cursor-pointer" />
+          <Image
+            src={Linkedin}
+            height={35}
+            width={35}
+            class="cursor-pointer rounded-full object-center"
+          />
+          <Image
+            src={Insta}
+            height={35}
+            width={35}
+            class="cursor-pointer rounded-full object-center"
+          />
+          <Image
+            src={Tiktok}
+            height={35}
+            width={35}
+            class="cursor-pointer rounded-full object-center"
+          />
+          <Image
+            src={Twitter}
+            height={35}
+            width={35}
+            class="cursor-pointer rounded-full object-center"
+          />
+          <Image
+            src={Facebook}
+            height={35}
+            width={35}
+            class="cursor-pointer rounded-full object-center"
+          />
         </div>
       </div>
     </div>

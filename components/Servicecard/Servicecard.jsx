@@ -5,7 +5,7 @@ import ForwardSlash from '../../public/images/ForwardSlash.svg';
 const Servicecard = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      class={`transition ease-in-out delay-90  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[10px] px-[10px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer`}
+      class={`transition ease-in-out delay-90  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[10px] px-[10px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer hover:shadow-xl hover:z-[999999999999]`}
     >
       <div class="w-full relative ">
         <Image
@@ -27,7 +27,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
         />
       </div>
       <div className="flex flex-col items-start mt-[80px] gap-[30px]">
-        <p className="font-bold leading-[28px] text-[22px] max-w-[20rem] text-[#111111]">
+        <p className="font-bold leading-[28px] text-[22px] max-w-[20rem] text-slate-800">
           {title}
         </p>
         <p className="text-[#646464] leading-[28.8px] text-[16px] font-normal max-w-[26rem]">

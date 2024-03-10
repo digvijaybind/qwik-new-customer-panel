@@ -56,6 +56,8 @@ import Honeycomb from '../public/images/honeycomb.png';
 import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
 import Champion from '../public/images/trusted_contact/champion.svg';
+import { BsPlus } from 'react-icons/bs';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 export default function Home() {
@@ -865,143 +867,122 @@ and typenews…`,
             </div>
           </form>
         </Shadow>
-        <div class="px-10">
-          {/* <div class="grid grid-cols-2 gap-5">
-            <div class="w-full h-64 overflow-hidden">
-              <Image src={AboutAircraft} />
-            </div>
-            <div class=""></div>
-          </div> */}
-          <div class="grid grid-cols-2 gap-2 sm:grid-cols-1">
-            <Image src={AboutAircraft} height={460} width={620} />
+        <div class="px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16">
+          <Image src={AboutAircraft} height={460} width={620} />
 
-            <div class="grid grid-rows-3 gap-3">
-              <div class="text-[38px] text-[#111111] font-bold">
-                Fastest{' '}
-                <span class="text-[38px] text-[#11B6E3] font-bold">
-                  Air Ambulance
-                </span>
-                <br />
-                Services
-              </div>
-              <div class="text-[#7A7A7A] text-[16px]">
-                Qwiklif Air Ambulance Service is your trusted partner for urgent
-                International Air Ambulance Transportation worldwide. With a
-                dedicated team of skilled professionals and state-of-the-art
-                aircraft, we specialize in swift and safe medical transfers.
-                With over 15+ Professional Doctors and paramedics and access to
-                air ambulance aircraft worldwide in 20+ countries qwiklif Air
-                Ambulance is ready for rapid response, We find the nearest
-                aircraft available to you for quick response and affordable
-                pricing, compare air ambulance prices from other air operators
-                across the world.
-              </div>
-              <div class="text-[#7A7A7A] text-[16px]">
-                We are a worldwide air ambulance company with emergency medical
-                transport experience. Through our international air ambulance
-                service, we can arrange quick, efficient medical evacuation
-                flights worldwide to ensure you get where you need to, safely
-                and quickly.
-              </div>
+          <div class="flex flex-col gap-3">
+            <div class="font-arcaMajoraHeavy text-4xl font-bold">
+              Fastest <span class=" text-[#11B6E3]">Air Ambulance</span>
+              <br />
+              Services
+            </div>
+            <div class="text-[#7A7A7A] text-[16px]">
+              Qwiklif Air Ambulance Service is your trusted partner for urgent
+              International Air Ambulance Transportation worldwide. With a
+              dedicated team of skilled professionals and state-of-the-art
+              aircraft, we specialize in swift and safe medical transfers. With
+              over 15+ Professional Doctors and paramedics and access to air
+              ambulance aircraft worldwide in 20+ countries qwiklif Air
+              Ambulance is ready for rapid response, We find the nearest
+              aircraft available to you for quick response and affordable
+              pricing, compare air ambulance prices from other air operators
+              across the world.
+            </div>
+            <div class="text-[#7A7A7A] text-[16px]">
+              We are a worldwide air ambulance company with emergency medical
+              transport experience. Through our international air ambulance
+              service, we can arrange quick, efficient medical evacuation
+              flights worldwide to ensure you get where you need to, safely and
+              quickly.
             </div>
           </div>
-
-          <div class=""></div>
         </div>
 
-        <div className="w-[70%] mx-[15%] sm:w-[90%] sm:mx-[5%] lg:w-[80%] lg:mx-[10%]  flex flex-col  mt-[50px] lg:mt-[10px] items-center gap-[80px] xs:gap-[100px]">
-          <div className="w-full flex flex-row  justify-between lg:gap-[60px] items-center sm:flex-col xl:gap-[50px]">
-            <div className="flex flex-row gap-[30px]">
-              <Image
-                className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
-                src="/images/rapid_time.png"
-                width={50}
-                height={50}
-                alt="rapid Time"
-                layout="contain"
-              />
-              <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
-                <p className="font-bold leading-[32px] text-[20px]">
-                  Rapid Response Time
-                </p>
-                <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
-                  QwikLif prides itself on its quick response times, ensuring
-                  that
-                  <br />
-                  critical medical transport is initiated promptly.
-                </p>
-              </div>
+        <div className="grid grid-cols-2 lg:grid-cols-2 grid-rows-2 items-center px-36">
+          <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+            <Image
+              className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
+              src="/images/rapid_time.png"
+              width={50}
+              height={50}
+              alt="rapid Time"
+            />
+            <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
+              <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+                Rapid Response Time
+              </p>
+              <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
+                QwikLif prides itself on its quick response times, ensuring that
+                critical medical transport is initiated promptly.
+              </p>
             </div>
-            <div className="flex flex-row  gap-[30px]">
-              <Image
-                className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
-                src="/images/saftey_first.png"
-                width={50}
-                height={50}
-                alt="Safety First"
-                layout="contain"
-              />
-              <div lass="w-full flex  flex-col items-start">
-                <p className="font-bold leading-[32px] text-[20px]">
-                  Safety First
-                </p>
-                <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
-                  Qwiklif pilots undergo rigorous training, and our aircraft are
-                  regularly
-                  <br />
-                  maintained to meet or exceed industry safety standards.
-                </p>
-              </div>
+          </div>
+          <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+            <Image
+              className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
+              src="/images/saftey_first.png"
+              width={50}
+              height={50}
+              alt="Safety First"
+            />
+            <div lass="w-full flex  flex-col items-start">
+              <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+                Safety First
+              </p>
+              <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
+                Qwiklif pilots undergo rigorous training, and our aircraft are
+                regularly
+                <br />
+                maintained to meet or exceed industry safety standards.
+              </p>
             </div>
           </div>
 
-          <div className="w-full flex flex-row  justify-between lg:gap-[60px] items-center sm:flex-col xl:gap-[50px]">
-            <div className="flex flex-row gap-[30px]">
-              <Image
-                className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
-                src="/images/state_art.png"
-                width={50}
-                height={50}
-                alt="State Art"
-              />
-              <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
-                <p className="font-bold leading-[32px] text-[20px]">
-                  State-of-the-Art Equipment
-                </p>
-                <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
-                  Our air ambulances are equipped with cutting-edge medical
-                  <br /> technology to provide advanced life support, ensuring
-                  the best
-                  <br /> possible care during transport.
-                </p>
-              </div>
+          <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+            <Image
+              className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
+              src="/images/state_art.png"
+              width={50}
+              height={50}
+              alt="State Art"
+            />
+            <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
+              <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+                State-of-the-Art Equipment
+              </p>
+              <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
+                Our air ambulances are equipped with cutting-edge medical
+                <br /> technology to provide advanced life support, ensuring the
+                best
+                <br /> possible care during transport.
+              </p>
             </div>
-            <div className="flex flex-row gap-[30px]">
-              <Image
-                className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px]"
-                src="/images/patient.png"
-                width={50}
-                height={50}
-                alt="rapid Time"
-              />
-              <div lass="w-full flex  flex-col items-start">
-                <p className="font-bold leading-[32px] text-[20px]">
-                  Patient-Centric Approach
-                </p>
-                <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
-                  We prioritize patient comfort and well-being, with a focus on
-                  providing
-                  <br /> a stress-free and comfortable experience for patients
-                  and their
-                  <br /> families.
-                </p>
-              </div>
+          </div>
+          <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+            <Image
+              className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
+              src="/images/patient.png"
+              width={50}
+              height={50}
+              alt="rapid Time"
+            />
+            <div lass="w-full flex  flex-col items-start">
+              <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+                Patient-Centric Approach
+              </p>
+              <p className="text-[#373333] leading-[26px] text-[16px] font-normal">
+                We prioritize patient comfort and well-being, with a focus on
+                providing
+                <br /> a stress-free and comfortable experience for patients and
+                their
+                <br /> families.
+              </p>
             </div>
           </div>
         </div>
 
         <div id="services" className="mt-[100px]">
-          <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
+          <h2 className="text-[#111111] font-arcaMajoraHeavy text-4xl leading-[34px] text-center">
             Our Air Ambulance Services
           </h2>
           <div className="flex justify-center items-center mt-[20px] mb-[30px]">
@@ -1031,7 +1012,7 @@ and typenews…`,
         </div>
 
         <div id="services" className="mt-[100px] w-full ">
-          <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
+          <h2 className="font-arcaMajoraHeavy text-4xl text-center">
             How to Book Air Ambulance
           </h2>
           <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
@@ -1119,19 +1100,16 @@ and typenews…`,
             )}
           </div>
 
-          <div className="px-[50px] sm:px-[25px]">
-            <div className="flex justify-around sm:w-full  sm:flex-col mt-10 mb-10 py-10">
+          <div className="px-20">
+            <div className="flex sm:w-full  sm:flex-col mt-10 mb-10 py-10">
               <div className="">
-                <h2 className="text-[#000] font-bold text-[32px] leading-[34px] text-center">
+                <h2 className="font-arcaMajoraHeavy text-4xl text-center border-r-2 border-[#396CF0] h-full pr-16 flex items-center">
                   Why choose Qwiklif?
                 </h2>
-                <div className="sm:flex justify-center">
-                  <hr className="bg-[#11B6E3] h-[6px] w-[60px] mt-[20px] rounded-sm" />
-                </div>
               </div>
 
-              <div className="border-l-[2px] border-l-solid border-l-[#396CF0] sm:mt-5  sm:border-l-[3px]">
-                <p className="text-[#646464] text-[18px] ml-5   leading-[32px] ml-[10px] lg:ml-0 font-medium sm:ml-3">
+              <div className="pl-16">
+                <p className="text-[#646464] text-[18px] leading-[32px] ml-[10px] lg:ml-0 font-medium sm:ml-3">
                   Fly Fast and Safe with Qwiklif Air Ambulance We have access to
                   global hospitals including finest
                   <br />
@@ -1139,10 +1117,10 @@ and typenews…`,
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-10  gap-5 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
+            <div className="grid grid-cols-10 gap-20 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
               <div className="col-span-3  flex flex-col mb-5">
                 <button
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between  ${
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] hover:text-white sm:justify-between  ${
                     activeTab === 1 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(1)}
@@ -1150,13 +1128,13 @@ and typenews…`,
                   <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
                     <Image src={aeroIcon} height={40} width={35} />
                   </div>
-                  <div className="font-semibold text-[20px] hover:text-[#fff] sm:flex justify-end">
+                  <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
                     Biggest Fleet Network
                   </div>
                 </button>
 
                 <button
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
                     activeTab === 2 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(2)}
@@ -1164,13 +1142,13 @@ and typenews…`,
                   <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                     <Image src={DoctorIcon} width={30} height={25} />
                   </div>
-                  <div className="font-semibold text-[20px] hover:text-[#fff]">
-                    24X7 Doctors On Board
+                  <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
+                    24x7 Doctors On Board
                   </div>
                 </button>
 
                 <button
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
                     activeTab === 3 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(3)}
@@ -1179,13 +1157,13 @@ and typenews…`,
                   <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                     <Image src={GlobalIcon} width={35} height={25} />
                   </div>
-                  <div className="font-semibold text-[20px] hover:text-[#fff]">
+                  <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
                     Global Coverage
                   </div>
                 </button>
 
                 <button
-                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] ${
+                  className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
                     activeTab === 4 ? styles.aboutPageMenuActive : ''
                   }`}
                   onClick={() => setActiveTab(4)}
@@ -1194,7 +1172,7 @@ and typenews…`,
                   <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                     <Image src={CostEffective} width={35} height={25} />
                   </div>
-                  <div className="font-semibold text-[20px] hover:text-[#fff]">
+                  <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
                     Cost-Effective Solution
                   </div>
                 </button>
@@ -1235,7 +1213,7 @@ and typenews…`,
             className={`${styles.lower_plane} h-[600px] w-full mt-[80px] relative`}
           >
             <div className="flex flex-col items-center w-full">
-              <h1 className="font-semibold text-[37px] leading-[48px] text-center text-white mt-[30px]">
+              <h1 className="font-arcaMajoraHeavy text-4xl text-shadow-lg text-center text-white mt-[30px]">
                 Fastest and best medical care
               </h1>
               <p className="font-medium text-[21px]   text-center text-white mt-[30px] sm:px-[10px]">
@@ -1300,10 +1278,10 @@ and typenews…`,
           </div>
 
           <div id="services" className="mt-[290px] sm:mt-[1090px]">
-            <h1 className="text-[#11B6E3] font-medium text-[16px] leading-[26px] text-center mb-[10px]">
+            <h1 className="text-[#11B6E3] font-arcaMajoraBold text-center mb-[10px]">
               Latest News
             </h1>
-            <h2 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center">
+            <h2 className="font-arcaMajoraHeavy text-3xl text-center">
               Get Every News & Updates
             </h2>
             <div className="flex justify-center items-center mt-[20px] mb-[30px]">
@@ -1360,6 +1338,7 @@ and typenews…`,
           </div> */}
 
           <div
+          className='mt-14'
             style={{
               background: `#007BFF url("/images/honeycomb.png")`,
             }}
@@ -1369,7 +1348,7 @@ and typenews…`,
 
           <div className="w-[90%] mx-[5%] flex flex-col items-start mt-[90px]">
             <div className="flex flex-col items-start w-full sm:items-center ">
-              <h1 className="text-[#111111] font-bold text-[32px] leading-[34px] text-center mb-[20px]">
+              <h1 className="font-arcaMajoraHeavy text-3xl text-center mb-2">
                 Why you should choose our services
               </h1>
               <h2 className="text-[#646464] font-medium text-[16px] leading-[26px] text-center sm:mx-[5%]">
@@ -1399,8 +1378,8 @@ and typenews…`,
                         className={`ml-[30px] ${
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
-                            : 'text-[#111111]'
-                        } font-medium leading-[20px] text-[20px]`}
+                            : ''
+                        } font-arcaMajoraBold text-xl`}
                       >
                         {item.header}
                       </h4>
@@ -1414,14 +1393,7 @@ and typenews…`,
                               setSelectedCollapseIndex(index);
                             }}
                           >
-                            <Image
-                              className="w-[30px] h-[30px]"
-                              src="/images/plus_icon.png"
-                              width={35}
-                              height={15}
-                              alt="rapid Time"
-                              layout="contain"
-                            />
+                            <FaPlus className="text-2xl font-" />
                           </button>
                         ) : (
                           <button
@@ -1430,14 +1402,7 @@ and typenews…`,
                               setSelectedCollapseIndex(-1);
                             }}
                           >
-                            <Image
-                              className="w-[30px] h-[30px]"
-                              src="/images/minus_icon.png"
-                              width={40}
-                              height={40}
-                              alt="rapid Time"
-                              layout="contain"
-                            />
+                            <FaMinus className="text-2xl font-" />
                           </button>
                         )}
                       </div>
@@ -1481,7 +1446,7 @@ and typenews…`,
             <div className="w-[480px] sm:max-w-[90%] sm:ml-[5%] sm:mr-[5%] bg-white h-[620px] flex flex-col items-start shadow-2xl rounded-lg">
               <div className="w-[90%] mx-[5%] my-[5%]">
                 <div className="flex flex-col items-start sm:w-full sm:items-center ">
-                  <h2 className="text-[#000] font-bold text-[32px] leading-[34px] text-center">
+                  <h2 className="font-arcaMajoraHeavy text-3xl text-center">
                     Get Quote Now
                   </h2>
                   <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
