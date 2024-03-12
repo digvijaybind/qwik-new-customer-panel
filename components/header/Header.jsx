@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../../public/images/logo.svg';
 import Image from 'next/image';
 import styles from './Header.module.css';
-import Telephone from '../../public/images/Telephone1.svg';
 import Link from 'next/link';
+import { BsTelephoneFill } from 'react-icons/bs';
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -103,7 +103,11 @@ const Header = () => {
           <div className={``}></div>
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>
-              <Image src={Telephone} width={18} height={26} />
+              <BsTelephoneFill
+                style={{
+                  color: '#fff',
+                }}
+              />
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7`}
               >

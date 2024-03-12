@@ -158,22 +158,13 @@ const Listing = ({ isMobile }) => {
                 handleInputChange('departureDate', e.target.value)
               }
             />
-            {/* <CustomDatePicker   className="w-[160px] md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
-              label="Date"
-              name="departureDate"
-              value={formData.departureDate}
-              onChange={(e) =>
-                handleInputChange('departureDate', e.target.value)
-              }/> */}
-            {/* Country Code Selection */}
-
+          
             <div>
               <select
                 value={formData.countryCode}
                 onChange={handleCountryCodeChange}
                 className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
               >
-                {/* Add more options as needed */}{' '}
                 {countries.map((data) => {
                   return (
                     <option
@@ -187,8 +178,6 @@ const Listing = ({ isMobile }) => {
                 })}
               </select>
             </div>
-
-            {/* Mobile Number Input */}
             <div class="md:mb-3 sm:mb-3">
               <TextInput
                 className="w-[180px] md:w-[145px] sm:w-[100%] mr-[20px]"
@@ -199,8 +188,6 @@ const Listing = ({ isMobile }) => {
                 onChange={(e) => handleInputChange('mobile', e.target.value)}
               />
             </div>
-
-            {/* Pax Input */}
             <TextInput
               className="w-[90px]  md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
               label="Pax"
@@ -209,7 +196,6 @@ const Listing = ({ isMobile }) => {
               onChange={(e) => handleInputChange('pax', e.target.value)}
             />
 
-            {/* Search Button */}
             <div className="md:justify-center sm:justify-center">
               {isMobile1 ? (
                 <button className="w-[216px] rounded-md bg-[#40D1F0] text-[24px] font-semibold cursor-pointer">
