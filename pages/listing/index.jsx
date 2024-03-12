@@ -158,19 +158,19 @@ const Listing = ({ isMobile }) => {
                 handleInputChange('departureDate', e.target.value)
               }
             />
-          
-            <div>
+
+            <div className="sm:mb-4">
               <select
                 value={formData.countryCode}
                 onChange={handleCountryCodeChange}
-                className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
+                className="w-60 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
               >
                 {countries.map((data) => {
                   return (
                     <option
                       value={data.code}
                       key={data.code}
-                      class="text-black"
+                      class="text-black w-[15px] items-center"
                     >
                       {data.name}
                     </option>
@@ -202,7 +202,10 @@ const Listing = ({ isMobile }) => {
                   Search
                 </button>
               ) : (
-                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none">
+                <button
+                  className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none"
+                  onClick={() => handleSubmit()}
+                >
                   <Image src={Search} height={24} width={24} />
                 </button>
               )}
@@ -210,7 +213,7 @@ const Listing = ({ isMobile }) => {
           </div>
         </form>
       </Shadow>
-      <div className="px-36">
+      <div className="px-36 sm:px-[20px]">
         <Shadow
           classname={`mt-2 w-full font-bold mb-8 text-center p-[10px] flex transform items-center`}
         >
@@ -242,7 +245,7 @@ const Listing = ({ isMobile }) => {
           ))}
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-1 gap-8">
-          <div class="grid grid-rows-5 grid-cols-1 gap-8">
+          <div class="grid grid-rows-5 grid-cols-1 gap-8 sm:gap-1">
             {aircraftDataLoading ? (
               <div className="flex justify-center items-center py-10">
                 <Loader className="h-6 w-6" />
