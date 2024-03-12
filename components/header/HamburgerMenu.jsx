@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React, {useState} from "react";
-import Logo from "../../public/images/logo.svg";
-import styles from "./Header.module.css";
-import Telephone from "../../public/images/telephone.svg";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import Logo from '../../public/images/logo.svg';
+import styles from './Header.module.css';
+import Telephone from '../../public/images/telephone.svg';
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,7 +11,7 @@ const HamburgerMenu = () => {
   };
   return (
     <div>
-      <div class="flex flex-row justify-between items-center px-[25px] py-[20px]">
+      <div class="flex flex-row justify-between items-center px-[25px] py-[20px] sm:px-[10px]">
         <div class="flex flex-row justify-between">
           <div class="">
             <Image src={Logo} width={95} height={90} />
@@ -24,7 +24,7 @@ const HamburgerMenu = () => {
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7`}
               >
-                {" "}
+                {' '}
                 +971 502 825 433
               </span>
             </div>
