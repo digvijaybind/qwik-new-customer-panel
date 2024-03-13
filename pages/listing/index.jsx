@@ -216,7 +216,10 @@ const Listing = ({ isMobile }) => {
                   Search
                 </button>
               ) : (
-                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none">
+                <button
+                  className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none"
+                  onClick={() => handleSubmit()}
+                >
                   <Image src={Search} height={24} width={24} />
                 </button>
               )}

@@ -281,21 +281,21 @@ const AircraftDetailsCard = ({
 
   return (
     <div
-      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border sm:grid-cols-1 sm:gap-2`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div class="h-full">
+      <div class="h-full sm:h-1/3">
         <Image
           src={airlineImage}
           alt="Commercial Image"
-          className="w-full object-cover object-center rounded-md border border-slate-100 bg-slate-100"
+          className="w-full object-cover object-center rounded-md border border-slate-100 bg-slate-100 sm:h-1/2"
         />
       </div>
       <div class="col-span-2">
-        <div class="grid grid-cols-3 gap-4 mb-5">
+        <div class="grid grid-cols-3 gap-4 mb-5 sm:gap-6">
           <div class="">
             <span class="font-semibold text-2xl">
               {locationData?.departureTime
@@ -310,7 +310,6 @@ const AircraftDetailsCard = ({
             </span>
           </div>
           <div class="flex flex-col items-center">
-            {/* <div class="">{totalTravelDuration}</div> */}
             {totalTravelDuration?.length > 0 &&
               totalTravelDuration.map((data) => {
                 return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -410,9 +409,6 @@ const AircraftDetailsCard = ({
                 <span class="font-semibold text-[12px]">
                   {availableticket ?? 0}
                 </span>
-                {/* <span class="font-semibold text-[14px]">
-                  {aircraftData?.depatureDate}
-                </span> */}
               </div>
             </div>
           </div>
