@@ -11,14 +11,14 @@ const DedicatedCard = () => {
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div class="h-full">
+      <div class="h-full sm:col-span-3">
         <Image
           src={CommercialImage}
           alt="Commercial Image"
-          class="h-full w-full object-cover  object-center rounded-md"
+          class="h-full w-full object-cover  object-center rounded-md sm:max-h-40"
         />
       </div>
-      <div class="col-span-2">
+      <div class=" sm:col-span-3 col-span-2">
         <div class="grid grid-cols-3 gap-4 mb-5">
           <div class="flex flex-col items-start">
             <span class="font-semibold text-2xl">06:30</span>

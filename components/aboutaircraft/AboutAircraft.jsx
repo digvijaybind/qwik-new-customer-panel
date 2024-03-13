@@ -4,7 +4,7 @@ import Image from 'next/image';
 const AboutAircraft = () => {
   return (
     <div>
-      <div class="px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16">
+      <div class="sm:px-10 px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16">
         <Image src={AboutAircraftimage} height={460} width={620} />
 
         <div class="flex flex-col gap-3">

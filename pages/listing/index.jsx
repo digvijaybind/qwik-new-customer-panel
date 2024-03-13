@@ -20,7 +20,7 @@ import CustomDatePicker from '@/components/date/CustomDatePicker';
 import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 import Loader from '@/components/Utils/Loader';
 import countries from '../../db/country.json';
-const Listing = ({ isMobile }) => {
+const Listing = () => {
   const { apiData } = useData();
   const [airdata, setAirData] = useState({});
 
@@ -28,11 +28,11 @@ const Listing = ({ isMobile }) => {
     // setAirData(JSON?.parse(localStorage?.getItem("aircraft")));
   }, []);
 
-  const [isMobile1, setIsMobile1] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile1(window.innerWidth <= 1000); // Change threshold as needed
+      setIsMobile(window.innerWidth <= 1000); // Change threshold as needed
     };
 
     window.addEventListener('resize', handleResize);
@@ -158,12 +158,12 @@ const Listing = ({ isMobile }) => {
                 handleInputChange('departureDate', e.target.value)
               }
             />
-          
+
             <div>
               <select
                 value={formData.countryCode}
                 onChange={handleCountryCodeChange}
-                className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
+                className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600 mb-[15px]"
               >
                 {countries.map((data) => {
                   return (
@@ -197,8 +197,8 @@ const Listing = ({ isMobile }) => {
             />
 
             <div className="md:justify-center sm:justify-center">
-              {isMobile1 ? (
-                <button className="w-[216px] rounded-md bg-[#40D1F0] text-[24px] font-semibold cursor-pointer">
+              {isMobile ? (
+                <button className="px-20 py-2 rounded-md bg-[#40D1F0] text-xl font-semibold cursor-pointer">
                   Search
                 </button>
               ) : (
@@ -210,7 +210,7 @@ const Listing = ({ isMobile }) => {
           </div>
         </form>
       </Shadow>
-      <div className="px-36">
+      <div className="sm:px-10 px-36">
         <Shadow
           classname={`mt-2 w-full font-bold mb-8 text-center p-[10px] flex transform items-center`}
         >
@@ -242,7 +242,19 @@ const Listing = ({ isMobile }) => {
           ))}
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-1 gap-8">
-          <div class="grid grid-rows-5 grid-cols-1 gap-8">
+          <div
+            class={`grid grid-rows-5 grid-cols-1 gap-8 ${
+              isMobile &&
+              !(
+                aircraftDataLoading ||
+                aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.length >
+                  0 ||
+                aircraftData?.ResponseData?.AirCraftDatawithtechStop?.length > 0
+              )
+                ? 'hidden'
+                : ''
+            }`}
+          >
             {aircraftDataLoading ? (
               <div className="flex justify-center items-center py-10">
                 <Loader className="h-6 w-6" />

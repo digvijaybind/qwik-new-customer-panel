@@ -287,14 +287,14 @@ const AircraftDetailsCard = ({
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div class="h-full">
+      <div class="sm:col-span-3 h-full">
         <Image
           src={airlineImage}
           alt="Commercial Image"
-          className="w-full object-cover object-center rounded-md border border-slate-100 bg-slate-100"
+          className="w-full object-cover sm:max-h-40 object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
-      <div class="col-span-2">
+      <div class="sm:col-span-3 col-span-2">
         <div class="grid grid-cols-3 gap-4 mb-5">
           <div class="">
             <span class="font-semibold text-2xl">

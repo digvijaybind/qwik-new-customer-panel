@@ -4,8 +4,8 @@ import React from 'react';
 const QwiklifFeature = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 lg:grid-cols-2 grid-rows-2 items-center px-36">
-        <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+      <div className="grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-4 grid-rows-2 sm:px-10 px-36">
+        <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
           <Image
             className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
             src="/images/rapid_time.png"
@@ -23,7 +23,7 @@ const QwiklifFeature = () => {
             </p>
           </div>
         </div>
-        <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+        <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
           <Image
             className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
             src="/images/saftey_first.png"
@@ -44,7 +44,7 @@ const QwiklifFeature = () => {
           </div>
         </div>
 
-        <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+        <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
           <Image
             className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
             src="/images/state_art.png"
@@ -64,7 +64,7 @@ const QwiklifFeature = () => {
             </p>
           </div>
         </div>
-        <div className="w-full h-full flex gap-8 p-8 hover:shadow-2xl rounded-lg">
+        <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
           <Image
             className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
             src="/images/patient.png"

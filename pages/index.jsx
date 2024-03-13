@@ -28,7 +28,6 @@ import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 import LatestNew from '@/components/latestnews/LatestNew';
 
 export default function Home() {
-  const router = useRouter();
   const [formData, setformData] = useState({});
   const [fromSearch, setfromSearch] = useState('');
   const [tosearch, setTosearch] = useState('');
@@ -48,6 +47,20 @@ export default function Home() {
   const [fieldType, setFieldtype] = useState('');
   const { loading, startLoading, stopLoading, setApiData } = useData();
   const [activeTab, setActiveTab] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000); // Change threshold as needed
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call once to set initial state
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   console.log('fieldType', fieldType);
   useEffect(() => {
@@ -164,7 +177,6 @@ export default function Home() {
       image: MRO,
     },
   ];
-
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -321,13 +333,13 @@ export default function Home() {
               <div>
                 <select
                   value={formData.countryCode}
-                  className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600"
+                  className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600 mb-[15px]  "
                 >
                   {countries.map((data) => {
                     return (
                       <option
                         value={data.code}
-                        key={data.code}
+                        key={'country-' + data.code}
                         class="text-black"
                       >
                         {data.name}
@@ -354,9 +366,15 @@ export default function Home() {
                 onChange={(e) => handleInpUTChange('pax', e.target.value)}
               />
               <div className="md:justify-center sm:justify-center">
-                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center">
-                  <Image src={Search} height={24} width={24} />
-                </button>
+                {isMobile ? (
+                  <button className="px-20 py-2 rounded-md bg-[#40D1F0] text-xl font-semibold cursor-pointer">
+                    Search
+                  </button>
+                ) : (
+                  <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center">
+                    <Image src={Search} height={24} width={24} />
+                  </button>
+                )}
               </div>
             </div>
           </form>
@@ -366,7 +384,7 @@ export default function Home() {
           <QwiklifFeature />
         </div>
 
-        <div id="services" className="mt-[100px] w-full ">
+        <div id="services" className="mt-[100px] w-full sm:px-10">
           <h2 className="font-arcaMajoraHeavy text-4xl text-center">
             How to Book Air Ambulance
           </h2>
@@ -381,7 +399,6 @@ export default function Home() {
 
           <LatestNew />
 
-      
           <div
             className="mt-14"
             style={{
@@ -409,7 +426,7 @@ export default function Home() {
               {collapsable.map((item, index) => {
                 return (
                   <div
-                    key={index}
+                    key={'choose-us-features' + index}
                     className="flex-col items-start w-full h-auto"
                   >
                     <div
@@ -466,9 +483,9 @@ export default function Home() {
             </div>
           </div>
           <div
-            className={`${styles.gray_plane} h-[900px] px-36 sm:h-[1300px] w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
+            className={`${styles.gray_plane} py-12 sm:px-10 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
-            <div className="flex items-start flex-col col-span-7">
+            <div className="flex items-start flex-col col-span-7 sm:col-span-1">
               <div class="text-[#a9b5bf] font-arcaMajoraBold">
                 QwikLif Air Ambulance
               </div>
@@ -477,7 +494,7 @@ export default function Home() {
               </div>
               {tasktab.map((data, index) => {
                 return (
-                  <div key={index} className="mb-3">
+                  <div key={'tasktab' + index} className="mb-3">
                     <Trusted
                       img={data.img}
                       title={data.title}
@@ -488,9 +505,9 @@ export default function Home() {
               })}
             </div>
 
-            <div className="sm:ml-[5%] sm:mr-[5%] bg-white flex flex-col items-start shadow-2xl rounded-lg  col-span-5 py-10 px-12">
+            <div className="bg-white flex flex-col items-start shadow-2xl rounded-lg col-span-5 sm:col-span-1 py-10 sm:px-6 px-12">
               <div className="flex flex-col items-start sm:w-full sm:items-center ">
-                <h2 className="font-arcaMajoraHeavy text-3xl text-center">
+                <h2 className="font-arcaMajoraHeavy text-3xl sm:text-2xl text-center">
                   Get Quote Now
                 </h2>
                 <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
@@ -500,7 +517,7 @@ export default function Home() {
                 onSubmit={handleSubmit}
                 className={`mt-[30px] ${styles.form}`}
               >
-                <div className="flex flex-col gap-[30px] ">
+                <div className="flex flex-col gap-3 ">
                   <input
                     type="text"
                     value=""
@@ -515,28 +532,28 @@ export default function Home() {
                     placeholder="To *"
                     className=" rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
-                  <div className="flex flex-row justify-between w-full ">
+                  <div className="flex flex-row sm:gap-3 sm:flex-col justify-between w-full ">
                     <input
                       type="text"
                       value=""
                       placeholder="Phone *"
-                      className="h-[50px] w-[40%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      className="h-[50px] w-[40%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                     <input
                       type="text"
                       value=""
                       placeholder="E-mail*"
-                      className=" h-[50px] w-[50%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      className=" h-[50px] w-[50%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
 
-                  <div className="flex flex-row justify-between w-full ">
-                    <CustomDatePicker className=" h-[50px] w-[25%] rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50" />
+                  <div className="flex flex-row sm:flex-col sm:gap-3 justify-between w-full ">
+                    <CustomDatePicker className=" h-[50px] w-[25%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50" />
                     <input
                       type="text"
                       value=""
                       placeholder="Time*"
-                      className=" h-[50px]  w-[40%]  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      className="h-[50px] w-[40%] sm:w-full  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
 

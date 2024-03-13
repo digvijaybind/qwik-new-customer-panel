@@ -15,10 +15,10 @@ import 'slick-carousel/slick/slick-theme.css';
 const SearchHeader = () => {
   return (
     <div
-      className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white h-[60dvh] px-36"
+      className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
       style={{ backgroundImage: "url('/images/search-detail-bg.png')" }}
     >
-      <h2 className="text-[2.2rem] font-extrabold mb-0.5 drop-shadow">
+      <h2 className="sm:text-3xl text-[2.2rem] font-extrabold mb-0.5 drop-shadow">
         Search Result
       </h2>
       <p className="text-sm">The new generation of private jets</p>
@@ -90,15 +90,15 @@ const FlightImages = () => {
         >
           <img
             src="/images/search-detail/VT-VBSext.png"
-            className="object-cover object-center h-[40dvh] w-full rounded-md overflow-hidden"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
           />
           <img
             src="/images/search-detail/VT-VBSlopa.png"
-            className="object-cover object-center h-[40dvh] w-full rounded-md overflow-hidden"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
           />
           <img
             src="/images/search-detail/VT-VBSint.png"
-            className="object-cover object-center h-[40dvh] w-full rounded-md overflow-hidden"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
           />
         </Slider>
       </div>
@@ -164,7 +164,7 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72">
+            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
               <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
             </div>
           </div>
@@ -189,7 +189,7 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72">
+            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
               <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
             </div>
           </div>
@@ -214,7 +214,7 @@ const FlightDetails = () => {
         <div className="flex justify-between items-center w-full mt-3">
           <span className="font-bold text-base">Pune</span>
           <div className="relative">
-            <div className="bg-gray-300 h-[2px] w-72">
+            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
               <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
             </div>
           </div>
@@ -271,24 +271,24 @@ const SearchDetails = () => {
   return (
     <div className="">
       <SearchHeader />
-      <div className="px-36">
+      <div className="sm:px-10 lg:px-36">
         <p className="text-sm my-3">
           Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
         </p>
-        <div className="flex gap-5 my-3">
-          <div className="w-8/12">
+        <div className="flex sm:flex-col gap-5 my-3">
+          <div className="sm:w-full w-8/12">
             <FlightImages />
           </div>
-          <div className="w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
+          <div className="sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
             <JourneyDetails />
           </div>
         </div>
-        <div className="flex gap-5 mt-8 mb-8">
-          <div className="w-6/12">
+        <div className="flex sm:flex-col gap-5 mt-8 mb-8">
+          <div className="sm:w-full w-6/12">
             <FlightDetails />
           </div>
-          <div className="w-6/12">
+          <div className="sm:w-full w-6/12">
             <CostDetails />
           </div>
         </div>

@@ -15,27 +15,24 @@ const ChooseQwiklif = () => {
   const [activeTab, setActiveTab] = useState(1);
   return (
     <div>
-      <div className="px-20">
+      <div className="sm:px-0 px-20">
         <div className="flex sm:w-full  sm:flex-col mt-10 mb-10 py-10">
-          <div className="">
-            <h2 className="font-arcaMajoraHeavy text-4xl text-center border-r-2 border-[#396CF0] h-full pr-16 flex items-center">
-              Why choose Qwiklif?
-            </h2>
-          </div>
+          <h2 className="font-arcaMajoraHeavy text-4xl sm:text-2xl text-center border-r-2 border-[#396CF0] sm:border-none h-full sm:pr-0 pr-16 flex items-center sm:w-full">
+            Why choose Qwiklif?
+          </h2>
 
-          <div className="pl-16">
+          <div className="sm:pl-0 pl-16">
             <p className="text-[#646464] text-[18px] leading-[32px] ml-[10px] lg:ml-0 font-medium sm:ml-3">
               Fly Fast and Safe with Qwiklif Air Ambulance We have access to
               global hospitals including finest
-              <br />
               medic and eminent surgeons across the globe.
             </p>
           </div>
         </div>
         <div className="grid grid-cols-10 gap-20 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
-          <div className="col-span-3  flex flex-col mb-5">
+          <div className="col-span-3 sm:col-span-12 flex flex-col mb-5">
             <button
-              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] hover:text-white sm:justify-between  ${
+              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full hover:text-white sm:justify-between  ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
@@ -49,7 +46,7 @@ const ChooseQwiklif = () => {
             </button>
 
             <button
-              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
+              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${
                 activeTab === 2 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(2)}
@@ -63,7 +60,7 @@ const ChooseQwiklif = () => {
             </button>
 
             <button
-              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
+              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${
                 activeTab === 3 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(3)}
@@ -78,7 +75,7 @@ const ChooseQwiklif = () => {
             </button>
 
             <button
-              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-[280px] sm:justify-between sm:px-[10px] hover:text-white ${
+              className={`w-[410px] h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${
                 activeTab === 4 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(4)}
@@ -92,7 +89,7 @@ const ChooseQwiklif = () => {
               </div>
             </button>
           </div>
-          <div className="col-span-7">
+          <div className="col-span-7 sm:col-span-12">
             {activeTab === 1 && (
               <SelectionComponent
                 img={Biggest_fleet}
