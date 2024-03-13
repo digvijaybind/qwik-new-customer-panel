@@ -281,7 +281,7 @@ const AircraftDetailsCard = ({
 
   return (
     <div
-      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border sm:grid-cols-1`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',

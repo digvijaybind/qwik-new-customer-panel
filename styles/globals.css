@@ -156,3 +156,21 @@ a {
 .customCarousel .slick-next {
   right: 1rem;
 }
+/*option custom css*/
+.option {
+  display: flex;
+  align-items: center;
+  color: black;
+  width: 100%; 
+}
+
+@media (max-width: 768px) {
+  .option {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .option {
+    width: 25%;
+  }
+}

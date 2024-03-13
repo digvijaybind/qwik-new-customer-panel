@@ -170,7 +170,7 @@ const Listing = ({ isMobile }) => {
                     <option
                       value={data.code}
                       key={data.code}
-                      class="text-black w-[] items-center"
+                      class="text-black  items-center"
                     >
                       {data.name}
                     </option>
@@ -202,10 +202,7 @@ const Listing = ({ isMobile }) => {
                   Search
                 </button>
               ) : (
-                <button
-                  className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none"
-                  onClick={() => handleSubmit()}
-                >
+                <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center shadow-lg hover:shadow-none">
                   <Image src={Search} height={24} width={24} />
                 </button>
               )}
