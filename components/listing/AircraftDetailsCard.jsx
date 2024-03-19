@@ -29,6 +29,7 @@ import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg
 import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
+import Link from 'next/link';
 const currencySymbols = {
   EUR: '€',
   AED: 'AED',
@@ -43,6 +44,7 @@ const AircraftDetailsCard = ({
   selectedCurrency,
   handleCurrencyChange,
   availticket,
+  aircraftId,
   departureLocation,
   destinationLocation,
 }) => {
@@ -55,6 +57,7 @@ const AircraftDetailsCard = ({
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [airlineImage, setairlineImage] = useState('');
+  const [aircraftid, setAircraftid] = useState('');
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -158,6 +161,12 @@ const AircraftDetailsCard = ({
     SV: SaudiAirline,
   };
 
+  const AllAircraftid = () => {
+    const id = aircraftData?.aircraft?.id;
+    console.log('id line 166', id);
+    setAircraftid(id);
+  };
+  console.log('aircraftid', aircraftid);
   const getLocationData = () => {
     const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
@@ -208,6 +217,14 @@ const AircraftDetailsCard = ({
     console.log('TimeDuration line 196', TimeDuration);
     return TimeDuration;
   };
+
+  const AllsingleId = () => {
+    const id = aircraftData?.aircraft?.id;
+
+    setAircraftid(id);
+  };
+
+  console.log('id line 223', aircraftid);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -277,6 +294,8 @@ const AircraftDetailsCard = ({
     TicketAvailable();
     AirlineImage();
     AirlineName();
+    AllsingleId();
+    AllAircraftid();
   }, []);
 
   return (
@@ -417,9 +436,16 @@ const AircraftDetailsCard = ({
             </div>
           </div>
         </div>
-        <div class="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
-          <div>View Details</div>
-        </div>
+        <Link
+          href={`/search-details/${`${aircraftId}-${aircraftData?.aircraft?.id}`}`}
+        >
+          <button
+            class="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white"
+            onClick={() => console.log('line 441', aircraftData.aircraft.id)}
+          >
+            <div>View Details</div>
+          </button>
+        </Link>
       </div>
     </div>
   );

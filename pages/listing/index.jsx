@@ -20,7 +20,7 @@ import CustomDatePicker from '@/components/date/CustomDatePicker';
 import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 import Loader from '@/components/Utils/Loader';
 import countries from '../../db/country.json';
-const Listing = () => {
+const Listing = ({ id }) => {
   const { apiData } = useData();
   const [airdata, setAirData] = useState({});
 
@@ -66,7 +66,6 @@ const Listing = () => {
   const [destinationLocation, setDestinationLocation] = useState();
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setAircraftDataLoading(true);
@@ -83,7 +82,6 @@ const Listing = () => {
         setDepartureLocation(formData?.originLocationCode);
         setDestinationLocation(formData?.destinationLocationCode);
         setAircraftData(response.data);
-
         setSelectedCurrency('EUR');
       })
       .catch((error) => {
@@ -93,36 +91,29 @@ const Listing = () => {
         setAircraftDataLoading(false);
       });
   };
-
   console.log('aircraftData', aircraftData);
 
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
-
   const handleInputChange = (field, value) => {
     setFormData({
       ...formData,
       [field]: value,
     });
   };
-
   const handleCountryCodeChange = (event) => {
     const countryCodeValue = event.target.value;
     handleInputChange('countryCode', countryCodeValue);
   };
-
   return (
     <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8">
       <Image src={Landing} height={420} width={1874} />
-
       <Shadow
         classname={`${styles.Top_container} px-[10px] py-[15px] bottom-[30px]  w-10/12 relative   lg:relative sm:static drop-shadow-xl border-8 border-solid border-[#14B4E3] p-4`}
       >
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-row items-baseline justify-evenly  md:flex-col md:mb-3  sm:flex-col sm:mb-3 ">
-            {/* From Input */}
-
+          <div className="flex flex-row items-baseline justify-evenly  md:flex-col md:mb-3  sm:flex-col sm:mb-3">
             <TextInput
               className="w-[220px] md:w-[145px] sm:w-[100%] mr-[20px] md:mb-3 sm:mb-3"
               label="From"
@@ -147,8 +138,6 @@ const Listing = () => {
                 }
               />
             </div>
-
-            {/* Date Input */}
             <DateInput
               className="w-[160px] md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
               label="Date"
@@ -158,7 +147,6 @@ const Listing = () => {
                 handleInputChange('departureDate', e.target.value)
               }
             />
-
             <div>
               <select
                 value={formData.countryCode}
@@ -263,6 +251,7 @@ const Listing = () => {
               <>
                 {aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
+                    console.log('data', data);
                     return (
                       <AircraftDetailsCard
                         key={'airacraft-list-item' + index}
@@ -274,6 +263,7 @@ const Listing = () => {
                         handleCurrencyChange={handleCurrencyChange}
                         departureLocation={departureLocation}
                         destinationLocation={destinationLocation}
+                        aircraftId={aircraftData.aircraftId}
                       />
                     );
                   }
@@ -294,6 +284,8 @@ const Listing = () => {
                           handleCurrencyChange={handleCurrencyChange}
                           departureLocation={departureLocation}
                           destinationLocation={destinationLocation}
+                          aircraftId={aircraftData.aircraftId}
+                          
                         />
                       );
                     }
