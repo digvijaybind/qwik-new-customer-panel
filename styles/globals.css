@@ -156,3 +156,33 @@ a {
 .customCarousel .slick-next {
   right: 1rem;
 }
+
+.rotate-x-180 {
+  transform: rotateY('180deg');
+}
+
+.flag-wrapper {
+  perspective: 150rem;
+  background: none;
+}
+
+.flag-card {
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+}
+
+.flag-card.back {
+  transform: rotateY(-180deg);
+}
+
+.flag-wrapper:hover .flag-card.front {
+  transform: rotateY(180deg);
+}
+
+.flag-wrapper:hover .flag-card.back {
+  transform: rotateY(0deg);
+}
