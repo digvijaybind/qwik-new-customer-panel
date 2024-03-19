@@ -2,7 +2,8 @@ import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
 import Nav from "@/components/Nav/nav";
 import { BlogsCard } from "@/components/blog/BlogsCard";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { 
+useEffect, useState } from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
 import axios from "axios";
 import Link from "next/link";

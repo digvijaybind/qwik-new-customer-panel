@@ -6,13 +6,14 @@ import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { GiWeight } from 'react-icons/gi';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaPersonMilitaryPointing } from 'react-icons/fa6';
-import { IoIosAirplane, IoIosArrowDroprightCircle } from 'react-icons/io';
-
+import { IoIosAirplane } from 'react-icons/io';
+import { useRouter } from 'next/router';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-const SearchHeader = () => {
+import { useEffect } from 'react';
+import axios from 'axios';
+const DedicatedeHeader = () => {
   return (
     <div
       className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
@@ -145,6 +146,82 @@ const FlightImages = () => {
   );
 };
 
+const Flightchallenger605 = () => {
+  return (
+    <>
+      <div className="mb-2">
+        <Slider
+          className="customCarousel"
+          arrows={true}
+          infinite={true}
+          speed={500}
+          slidesToShow={1}
+          slidesToScroll={1}
+        >
+          <img
+            src="/images/C90-airtransfer/challenger-605-airambulance-first.jpg"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+          />
+          <img
+            src="/images/C90-airtransfer/challenger-605-airambulance-second.jpg"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+          />
+          <img
+            src="/images/C90-airtransfer/C90-airtransfer-three.jpg"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+          />
+          <img
+            src="/images/C90-airtransfer/C90-airtransfer-four.jpg"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+          />
+          <img
+            src="/images/C90-airtransfer/C90-airtransfer-five.jpg"
+            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+          />
+        </Slider>
+      </div>
+      <div className="grid grid-cols-3 gap-3">
+        <img
+          src="/images/search-detail/VT-VBSext.png"
+          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+        />
+        <img
+          src="/images/search-detail/VT-VBSlopa.png"
+          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+        />
+        <img
+          src="/images/search-detail/VT-VBSint.png"
+          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+        />
+      </div>
+      <div className="bg-gray-200 rounded-md p-3 grid grid-cols-5 text-sm">
+        <div className="flex items-center gap-1">
+          <MdOutlineAirlineSeatReclineExtra className="text-base text-Bluedark" />
+          6
+        </div>
+        <div className="flex items-center gap-1">
+          <GiWeight className="text-base text-Bluedark" />
+          400 Kgs.
+        </div>
+        <div className="flex items-center gap-1">
+          <FaLocationDot className="text-base text-Bluedark" />
+          Pune
+        </div>
+        <div className="flex items-center gap-1">
+          <FaPersonMilitaryPointing className="text-base text-Bluedark" /> 6
+        </div>
+        <div className="flex items-center gap-1">
+          <BsSpeedometer className="text-base text-Bluedark" />
+          400
+        </div>
+        <div className="flex items-center gap-1">
+          <FaUserNurse className="text-base text-Bluedark" />
+          Yes
+        </div>
+      </div>
+    </>
+  );
+};
 const FlightDetails = () => {
   return (
     <div
@@ -230,7 +307,6 @@ const FlightDetails = () => {
     </div>
   );
 };
-
 const CostDetails = () => {
   return (
     <div
@@ -257,7 +333,7 @@ const CostDetails = () => {
         </p>
         <p className="flex justify-between items-center">
           <span>Estimated cost</span>
-          <span className='font-bold text-base'>₹ 13,28,936</span>
+          <span className="font-bold text-base">₹ 13,28,936</span>
         </p>
       </div>
       <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
@@ -266,17 +342,131 @@ const CostDetails = () => {
     </div>
   );
 };
+const Airtransfer = () => {
+  return (
+    <div className="flex flex-col px-[50px] mb-10">
+      <h1 className="text-center font-bold text-[black] text-[25px]">
+        How we do Medical transfer
+      </h1>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step1 :-Assessment and Coordination
+        </h1>
+        <p className="text-[16px] font-medium">
+          The need for an air ambulance transfer is typically assessed by
+          medical professionals at the referring facility or by emergency
+          responders at the scene of an incident. Once the decision is made to
+          transfer the patient by air ambulance, coordination begins between the
+          referring facility, the receiving facility, and the air ambulance
+          service provider.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step 2 :- Dispatch and Arrival of Air Ambulance
+        </h1>
+        <p className="text-[16px] font-medium">
+          Medical staff at the referring facility prepare the patient for
+          transfer, which may include stabilizing their condition, administering
+          necessary medications, and ensuring they are safely packaged for
+          transport.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step 3:- Dispatch and Arrival of Air Ambulance
+        </h1>
+        <p className="text-[16px] font-medium">
+          Once the air ambulance arrives, the patient is carefully transferred
+          from the referring facility to the aircraft. The patient is secured in
+          the aircraft and connected to any necessary medical equipment.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step 3:- Transfer to the Air Ambulance
+        </h1>
+        <p className="text-[16px] font-medium">
+          Once the air ambulance arrives, the patient is carefully transferred
+          from the referring facility to the aircraft. The patient is secured in
+          the aircraft and connected to any necessary medical equipment.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold"> Step 4:- In-flight Care</h1>
+        <p className="text-[16px] font-medium">
+          During the flight, the medical crew provides continuous care to the
+          patient, including monitoring vital signs, administering medications,
+          and managing any medical emergencies that may arise.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step 5:- Arrival at the Receiving Facility
+        </h1>
+        <p className="text-[16px] font-medium">
+          Upon arrival at the receiving facility, the patient is safely
+          transferred from the air ambulance to the facility's medical staff.
+          The receiving facility's medical staff assumes care of the patient and
+          continues treatment as necessary.
+        </p>
+      </div>{' '}
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold">
+          {' '}
+          Step 6:- Post-transfer Documentation
+        </h1>
+        <p className="text-[16px] font-medium">
+          After the transfer is complete, the air ambulance service provider and
+          the referring and receiving facilities may exchange medical records
+          and documentation related to the transfer for continuity of care.
+        </p>
+      </div>
+      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
+        <p className="text-[16px] font-medium">
+          Once the patient has been transferred, follow-up care and treatment
+          are provided as needed based on the patient's condition and the
+          recommendations of the medical team.
+        </p>
+      </div>
+    </div>
+  );
+};
 
-const SearchDetails = () => {
+const AmadeuspageDetails = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  console.log('id', id);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log('id line 450', id);
+        const response = await axios.get(
+          `http://localhost:8000/customer/aircraft/:${id}`
+        );
+        console.log('response data line 451', response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div className="">
-      <SearchHeader />
-      <div className="sm:px-10 lg:px-36">
+      <DedicatedeHeader />
+      <div className="sm:px-20 lg:px-45 md:px-30 xl:40 2xl:30">
         <p className="text-sm my-3">
           Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
         </p>
-        <div className="flex sm:flex-col gap-5 my-3">
+        <div className="flex sm:flex-col gap-5 my-3 px-[20px]">
           <div className="sm:w-full w-8/12">
             <FlightImages />
           </div>
@@ -284,7 +474,7 @@ const SearchDetails = () => {
             <JourneyDetails />
           </div>
         </div>
-        <div className="flex sm:flex-col gap-5 mt-8 mb-8">
+        <div className="flex sm:flex-col gap-5 mt-8 mb-8 px-[50px]">
           <div className="sm:w-full w-6/12">
             <FlightDetails />
           </div>
@@ -292,9 +482,9 @@ const SearchDetails = () => {
             <CostDetails />
           </div>
         </div>
+        <Airtransfer />
       </div>
     </div>
   );
 };
-
-export default SearchDetails;
+export default AmadeuspageDetails;
