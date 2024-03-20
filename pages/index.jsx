@@ -265,10 +265,7 @@ export default function Home() {
               </div>
               <div className="flex gap-2 items-center">
                 Looking for Air Ambulance Service?
-                <Link href="/location" className="flex items-center">
-                  <span className="font-medium">Explore Location</span>{' '}
-                  <HiOutlineGlobeAlt className="text-base" />
-                </Link>
+              
               </div>
             </div>
             <div className="flex">

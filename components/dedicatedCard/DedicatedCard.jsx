@@ -1,7 +1,7 @@
 import React from 'react';
 import CommercialImage from '../../public/images/commercial.svg';
 import Image from 'next/image';
-
+import Link from 'next/link';
 const DedicatedCard = () => {
   return (
     <div
@@ -88,9 +88,11 @@ const DedicatedCard = () => {
             </div>
           </div>
         </div>
-        <div class="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
-          <div>View Details</div>
-        </div>
+        <Link href={`/aviapage`}>
+          <div class="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
+            <div>View Details</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

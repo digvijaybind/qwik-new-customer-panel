@@ -47,11 +47,7 @@ const JourneyDetails = () => {
         <span>Estimated Cost</span>
         <span className="text-base">₹ 13,28,936</span>
       </p>
-      <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>, grants you the opportunity
-        to enjoy the luxury and convenience of flying private at commercial
-        prices.
-      </div>
+
       <div className="flex flex-col mt-5">
         <input
           name="username"
@@ -441,17 +437,19 @@ const Airtransfer = () => {
 
 const AmadeuspageDetails = () => {
   const router = useRouter();
-  console.log('router.query', router.query)
+  console.log('router.query', router.query);
   const { id } = router.query;
   console.log('id11', id);
   const [results, setResults] = useState([]);
   const [Error, setError] = useState('');
-  const [locationData, setLocationData] = useState({});
+  // const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
   const [techStops, setTechStops] = useState([]);
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
-
+  const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const [Aircraftdata, setAircraftData] = useState([]);
+  let locationData = {};
   const airlineNames = {
     AC: 'Air Canada',
     '6E': 'IndiGo',
@@ -483,11 +481,11 @@ const AmadeuspageDetails = () => {
     SV: 'Saudia',
   };
 
-  const AllAircraftid = () => {
-    const id = results?.aircraft?.id;
-    console.log('id line 166', id);
-    setAircraftid(id);
-  };
+  // const AllAircraftid = () => {
+  //   const id = results?.aircraft?.id;
+  //   console.log('id line 166', id);
+  //   setAircraftid(id);
+  // };
   // const getLocationData = () => {
   //   const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
   //   if (segments?.length > 1) {
@@ -511,7 +509,7 @@ const AmadeuspageDetails = () => {
   //   const regex =
   //     /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
 
-  //   const matches = (durationString || "").match(regex);
+  //   const matches = (durationString || '').match(regex);
   //   // const matches = true;
   //   if (!matches) {
   //     throw new Error('Invalid ISO8601 duration format');
@@ -559,11 +557,6 @@ const AmadeuspageDetails = () => {
   //   console.log(' ticketDate line 125', ticketDate);
   //   setavailableticket(formatDate(ticketDate));
   // };
-
-  // const renderAirlineName = (carrierCode) => {
-  //   return airlineNames[carrierCode] || 'Unknow Airline';
-  // };
-
   // const AirlineImage = () => {
   //   const airlineName =
   //     results?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
@@ -582,7 +575,7 @@ const AmadeuspageDetails = () => {
   //   const timeduration = results?.aircraft?.itineraries[0]?.duration ?? [];
 
   //   // let flyingTime = parseISO8601Duration(timeduration);
-  //   let flyingTime = timeduration
+  //   let flyingTime = timeduration;
   //   console.log('flyingTime  line 209', flyingTime);
   //   setTotalTravelDuration(flyingTime);
   // };
@@ -609,17 +602,53 @@ const AmadeuspageDetails = () => {
   //   );
   // };
 
+  const renderAirlineName = (carrierCode) => {
+    return airlineNames[carrierCode] || 'Unknow Airline';
+  };
+
   const fetchData = async () => {
     try {
       console.log('id line 450', id);
+      setAircraftDataLoading(true);
       const response = await axios.get(
         `http://localhost:8000/customer/aircraft/${id}`
       );
 
       console.log('response data line 451', response.data.specificAircraft);
       if (response) {
-        setResults(response.data.specificAircraft);
-        setError('');
+        // setResults(response.data.specificAircraft);
+
+        // setAircraftData(
+        //   response.data.specificAircraft.aircraft?.itineraries[0]?.segments
+        // );
+        // setSelectedCurrency('EUR');
+        const segments =
+          response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
+        console.log('segment line 632', segments);
+        locationData.push({
+          departureLocation: segments[0]?.departure?.iataCode,
+          departureTime: segments[0]?.departure?.at,
+          destinationLocation: segments.at(-1)?.arrival?.iataCode,
+          destinationTime: segments.at(-1)?.arrival?.at,
+        });
+        // if (segments?.length > 1) {
+
+        // } else {
+        //   setLocationData({
+        //     departureLocation: segments[0]?.departure?.iataCode,
+        //     departureTime: segments[0]?.departure?.at,
+        //     destinationLocation: segments[0]?.arrival?.iataCode,
+        //     destinationTime: segments[0]?.arrival?.at,
+        //   });
+        // }
+
+        const airlineName =
+          aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ??
+          [];
+        console.log('airlineName  line 125', airlineName);
+        const airline = renderAirlineName(airlineName);
+        setairlineName(airline);
+
         console.log('results line 460', results);
       } else {
         setError('error');
@@ -629,9 +658,14 @@ const AmadeuspageDetails = () => {
       console.error(error);
     }
   };
-
+  console.log('segments line 636', Aircraftdata);
+  console.log('destination location', locationData);
+  const getLocation = () => {
+    const segments = results.aircraft?.itineraries[0]?.segments ?? [];
+  };
   useEffect(() => {
     fetchData();
+    // getLocation();
     // getLocationData();
     // getTravelDuration();
     // getTechStops();
@@ -644,7 +678,6 @@ const AmadeuspageDetails = () => {
       <DedicatedeHeader />
       <div className="sm:px-20 lg:px-45 md:px-30 xl:40 2xl:30">
         <p className="text-sm my-3">
-          Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
         </p>
         <div className="flex sm:flex-col gap-5 my-3 px-[20px]">
