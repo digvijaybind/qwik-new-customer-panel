@@ -411,9 +411,9 @@ const Airtransfer = () => {
         </h1>
         <p className="text-[16px] font-medium">
           Upon arrival at the receiving facility, the patient is safely
-          transferred from the air ambulance to the facility's medical staff.
-          The receiving facility's medical staff assumes care of the patient and
-          continues treatment as necessary.
+          transferred from the air ambulance to the facility&apos;s medical
+          staff. The receiving facility&apos;s medical staff assumes care of the
+          patient and continues treatment as necessary.
         </p>
       </div>{' '}
       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
@@ -431,7 +431,7 @@ const Airtransfer = () => {
         <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
         <p className="text-[16px] font-medium">
           Once the patient has been transferred, follow-up care and treatment
-          are provided as needed based on the patient's condition and the
+          are provided as needed based on the patient&apos;s condition and the
           recommendations of the medical team.
         </p>
       </div>
@@ -441,8 +441,9 @@ const Airtransfer = () => {
 
 const AmadeuspageDetails = () => {
   const router = useRouter();
+  console.log('router.query', router.query)
   const { id } = router.query;
-  console.log('id', id);
+  console.log('id11', id);
   const [results, setResults] = useState([]);
   const [Error, setError] = useState('');
   const [locationData, setLocationData] = useState({});
@@ -487,124 +488,126 @@ const AmadeuspageDetails = () => {
     console.log('id line 166', id);
     setAircraftid(id);
   };
-  const getLocationData = () => {
-    const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
-    if (segments?.length > 1) {
-      setLocationData({
-        departureLocation: segments[0]?.departure?.iataCode,
-        departureTime: segments[0]?.departure?.at,
-        destinationLocation: segments.at(-1)?.arrival?.iataCode,
-        destinationTime: segments.at(-1)?.arrival?.at,
-      });
-    } else {
-      setLocationData({
-        departureLocation: segments[0]?.departure?.iataCode,
-        departureTime: segments[0]?.departure?.at,
-        destinationLocation: segments[0]?.arrival?.iataCode,
-        destinationTime: segments[0]?.arrival?.at,
-      });
-    }
-  };
-  const parseISO8601Duration = (durationString) => {
-    let TimeDuration = [];
-    const regex =
-      /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
-      
-    const matches = durationString.match(regex);
-    if (!matches) {
-      throw new Error('Invalid ISO8601 duration format');
-    }
+  // const getLocationData = () => {
+  //   const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
+  //   if (segments?.length > 1) {
+  //     setLocationData({
+  //       departureLocation: segments[0]?.departure?.iataCode,
+  //       departureTime: segments[0]?.departure?.at,
+  //       destinationLocation: segments.at(-1)?.arrival?.iataCode,
+  //       destinationTime: segments.at(-1)?.arrival?.at,
+  //     });
+  //   } else {
+  //     setLocationData({
+  //       departureLocation: segments[0]?.departure?.iataCode,
+  //       departureTime: segments[0]?.departure?.at,
+  //       destinationLocation: segments[0]?.arrival?.iataCode,
+  //       destinationTime: segments[0]?.arrival?.at,
+  //     });
+  //   }
+  // };
+  // const parseISO8601Duration = (durationString) => {
+  //   let TimeDuration = [];
+  //   const regex =
+  //     /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
 
-    const [, years, months, days, hours, minutes, seconds] =
-      matches.map(Number);
+  //   const matches = (durationString || "").match(regex);
+  //   // const matches = true;
+  //   if (!matches) {
+  //     throw new Error('Invalid ISO8601 duration format');
+  //   }
 
-    const totalSeconds = seconds || 0;
-    const totalMinutes = totalSeconds / 60 + (minutes || 0);
-    const totalHours = totalMinutes / 60 + (hours || 0);
-    const totalDays = totalHours / 24 + (days || 0);
+  //   const [, years, months, days, hours, minutes, seconds] =
+  //     matches.map(Number);
 
-    TimeDuration.push({
-      years: years || 0,
-      months: months || 0,
-      days: days || 0,
-      hours: hours || 0,
-      minutes: minutes || 0,
-      seconds: seconds || 0,
-      totalDays,
-      totalHours,
-      totalMinutes,
-      totalSeconds,
-    });
-    console.log('TimeDuration line 196', TimeDuration);
-    return TimeDuration;
-  };
+  //   const totalSeconds = seconds || 0;
+  //   const totalMinutes = totalSeconds / 60 + (minutes || 0);
+  //   const totalHours = totalMinutes / 60 + (hours || 0);
+  //   const totalDays = totalHours / 24 + (days || 0);
 
-  const AllsingleId = () => {
-    const id = results?.aircraft?.id;
+  //   TimeDuration.push({
+  //     years: years || 0,
+  //     months: months || 0,
+  //     days: days || 0,
+  //     hours: hours || 0,
+  //     minutes: minutes || 0,
+  //     seconds: seconds || 0,
+  //     totalDays,
+  //     totalHours,
+  //     totalMinutes,
+  //     totalSeconds,
+  //   });
+  //   console.log('TimeDuration line 196', TimeDuration);
+  //   return TimeDuration;
+  // };
 
-    setAircraftid(id);
-  };
+  // const AllsingleId = () => {
+  //   const id = results?.aircraft?.id;
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const month = date.toLocaleString('default', { month: 'long' });
-    const year = date.getFullYear();
-    console.log('date month and year', `${date.getDate()} ${month} ${year}`);
-    return `${date.getDate()} ${month} ${year}`;
-  };
-  const TicketAvailable = () => {
-    const ticketDate = availticket ?? [];
-    console.log(' ticketDate line 125', ticketDate);
-    setavailableticket(formatDate(ticketDate));
-  };
+  //   setAircraftid(id);
+  // };
 
-  const renderAirlineName = (carrierCode) => {
-    return airlineNames[carrierCode] || 'Unknow Airline';
-  };
+  // const formatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   const month = date.toLocaleString('default', { month: 'long' });
+  //   const year = date.getFullYear();
+  //   console.log('date month and year', `${date.getDate()} ${month} ${year}`);
+  //   return `${date.getDate()} ${month} ${year}`;
+  // };
+  // const TicketAvailable = () => {
+  //   const ticketDate = availticket ?? [];
+  //   console.log(' ticketDate line 125', ticketDate);
+  //   setavailableticket(formatDate(ticketDate));
+  // };
 
-  const AirlineImage = () => {
-    const airlineName =
-      results?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
-    const airlineImage = AirlineImages[airlineName];
-    setairlineImage(airlineImage);
-  };
-  const AirlineName = () => {
-    const airlineName =
-      results?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
-    console.log(' airlineName  line 125', airlineName);
-    const airline = renderAirlineName(airlineName);
-    setairlineName(airline);
-  };
+  // const renderAirlineName = (carrierCode) => {
+  //   return airlineNames[carrierCode] || 'Unknow Airline';
+  // };
 
-  const getTravelDuration = () => {
-    const timeduration = results?.aircraft?.itineraries[0]?.duration ?? [];
+  // const AirlineImage = () => {
+  //   const airlineName =
+  //     results?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+  //   const airlineImage = AirlineImages[airlineName];
+  //   setairlineImage(airlineImage);
+  // };
+  // const AirlineName = () => {
+  //   const airlineName =
+  //     results?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+  //   console.log(' airlineName  line 125', airlineName);
+  //   const airline = renderAirlineName(airlineName);
+  //   setairlineName(airline);
+  // };
 
-    let flyingTime = parseISO8601Duration(timeduration);
-    console.log('flyingTime  line 209', flyingTime);
-    setTotalTravelDuration(flyingTime);
-  };
+  // const getTravelDuration = () => {
+  //   const timeduration = results?.aircraft?.itineraries[0]?.duration ?? [];
 
-  const getTechStops = () => {
-    const stops = [];
-    const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
-    if (segments?.length > 1) {
-      segments?.forEach((item, index) => {
-        if (index !== segments?.length - 1) {
-          stops.push(item?.arrival?.iataCode);
-        }
-      });
-    }
-    setTechStops(stops);
-  };
+  //   // let flyingTime = parseISO8601Duration(timeduration);
+  //   let flyingTime = timeduration
+  //   console.log('flyingTime  line 209', flyingTime);
+  //   setTotalTravelDuration(flyingTime);
+  // };
 
-  const formatTime = (date) => {
-    return new Date(
-      (typeof date === 'string' ? new Date(date) : date).toLocaleString(
-        'en-US',
-        { timeZone: currentTimeZone }
-      )
-    );
-  };
+  // const getTechStops = () => {
+  //   const stops = [];
+  //   const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
+  //   if (segments?.length > 1) {
+  //     segments?.forEach((item, index) => {
+  //       if (index !== segments?.length - 1) {
+  //         stops.push(item?.arrival?.iataCode);
+  //       }
+  //     });
+  //   }
+  //   setTechStops(stops);
+  // };
+
+  // const formatTime = (date) => {
+  //   return new Date(
+  //     (typeof date === 'string' ? new Date(date) : date).toLocaleString(
+  //       'en-US',
+  //       { timeZone: currentTimeZone }
+  //     )
+  //   );
+  // };
 
   const fetchData = async () => {
     try {
@@ -629,12 +632,12 @@ const AmadeuspageDetails = () => {
 
   useEffect(() => {
     fetchData();
-    getLocationData();
-    getTravelDuration();
-    getTechStops();
-    TicketAvailable();
-    AirlineImage();
-    AirlineName();
+    // getLocationData();
+    // getTravelDuration();
+    // getTechStops();
+    // TicketAvailable();
+    // AirlineImage();
+    // AirlineName();
   }, []);
   return (
     <div className="">

@@ -237,7 +237,12 @@ export default function Home() {
               <div className="flex gap-5">
                 <div className="flex items-center">
                   <TiUserOutline className="text-base" />
-                  <select className="border-none focus:outline-none">
+                  <select
+                    className="border-none focus:outline-none"
+                    name="pax"
+                    value={formData?.pax}
+                    onChange={(e) => handleInputChange('pax', e)}
+                  >
                     <option value="1">1 Adult</option>
                     <option value="2">2 Adults</option>
                     <option value="3">3 Adults</option>
@@ -301,7 +306,7 @@ export default function Home() {
                     className="col-span-3 bg-transparent py-3 focus:outline-none"
                     name="mobile"
                     type="tel"
-                    placeholder='Mobile'
+                    placeholder="Mobile"
                     value={formData.mobile}
                     onChange={(e) => handleInputChange('mobile', e)}
                   />
