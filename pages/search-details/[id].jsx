@@ -1,7 +1,7 @@
 'use client';
 
 import { FaUserNurse } from 'react-icons/fa6';
-import { BsSpeedometer } from 'react-icons/bs';
+import { FaUserDoctor } from 'react-icons/fa6';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { GiWeight } from 'react-icons/gi';
 import { FaLocationDot } from 'react-icons/fa6';
@@ -102,8 +102,42 @@ const JourneyDetails = ({
   locationData,
   aircraft,
   totalCost,
+  getLocationData,
   price,
 }) => {
+  const [formData, setFormData] = useState({
+    Name: '',
+    Email: '',
+    Phone: '',
+  });
+
+  const handleInputchange = (field, e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    axios(`http://localhost:8000/equiry/confirmEquiry`, {
+      method: 'POST',
+      data: formData,
+      headers: headers,
+    })
+      .then((response) => {
+        console.log('response', response.data.equiry);
+        // e.target.reset();
+        // document.getElementById('myForm').reset();
+      })
+      .catch((error) => {
+        console.error('error', error);
+      });
+  };
   return (
     <>
       <h3 className="font-bold">
@@ -160,29 +194,40 @@ const JourneyDetails = ({
         </div>
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>, helps in your emergency by providing private air ambulance at
-        commercial prices.
+        <span className="font-bold">Qwiklif</span>, helps in your emergency by
+        providing private air ambulance at commercial prices.
       </div>
-      <div className="flex flex-col mt-5">
-        <input
-          name="username"
-          className="border-b mb-5 px-2 py-1"
-          placeholder="Your Name"
-        />
-        <input
-          name="username"
-          className="border-b mb-5 px-2 py-1"
-          placeholder="Phone"
-        />
-        <input
-          name="username"
-          className="border-b mb-5 px-2 py-1"
-          placeholder="Email"
-        />
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2">
-          Enquire Now
-        </button>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="flex flex-col mt-5">
+          <input
+            name="Name"
+            className="border-b mb-5 px-2 py-1"
+            placeholder="Your Name"
+            value={formData.Name}
+            onChange={(e) => handleInputchange('Name', e)}
+          />
+          <input
+            name="Email"
+            className="border-b mb-5 px-2 py-1"
+            placeholder="email"
+            value={formData.Email}
+            onChange={(e) => handleInputchange('Email', e)}
+          />
+          <input
+            name="Phone"
+            className="border-b mb-5 px-2 py-1"
+            placeholder="Phone"
+            value={formData.Phone}
+            onChange={(e) => handleInputchange('Phone', e)}
+          />
+          <button
+            type="submit"
+            className="bg-primary rounded-md font-medium p-2 text-sm mt-2"
+          >
+            Enquire Now
+          </button>
+        </div>
+      </form>
     </>
   );
 };
@@ -239,15 +284,14 @@ const FlightImages = ({ locationData }) => {
         </div>
         <div className="flex items-center gap-1">
           <FaLocationDot className="text-base text-Bluedark" />
-          {locationData?.departureLocation} -{' '}
-          {locationData?.destinationLocation}
+          {locationData?.departureLocation}
         </div>
         <div className="flex items-center gap-1">
           <FaPersonMilitaryPointing className="text-base text-Bluedark" /> 6
         </div>
         <div className="flex items-center gap-1">
-          <BsSpeedometer className="text-base text-Bluedark" />
-          400
+          <FaUserDoctor className="text-base text-Bluedark" />
+          Yes
         </div>
         <div className="flex items-center gap-1">
           <FaUserNurse className="text-base text-Bluedark" />
@@ -323,8 +367,8 @@ const Flightchallenger605 = () => {
           <FaPersonMilitaryPointing className="text-base text-Bluedark" /> 6
         </div>
         <div className="flex items-center gap-1">
-          <BsSpeedometer className="text-base text-Bluedark" />
-          400
+          <FaUserDoctor className="text-base text-Bluedark" />
+          Yes
         </div>
         <div className="flex items-center gap-1">
           <FaUserNurse className="text-base text-Bluedark" />
@@ -841,6 +885,7 @@ const AmadeuspageDetails = () => {
               selectedCurrency={selectedCurrency}
               handleCurrencyChange={handleCurrencyChange}
               totalCost={totalCost}
+              getLocationData={getLocationData}
             />
           </div>
         </div>
