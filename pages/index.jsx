@@ -28,6 +28,7 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import { TiUserOutline } from 'react-icons/ti';
 import { RiPriceTag3Line } from 'react-icons/ri';
 import { HiOutlineGlobeAlt } from 'react-icons/hi2';
+import Link from 'next/link';
 
 export default function Home() {
   const [formData, setformData] = useState({});
@@ -258,20 +259,20 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex gap-2 items-center">
-                Looking for Travel Emergency?
-                <div className="flex items-center">
+                Looking for Air Ambulance Service?
+                <Link href="/location" className="flex items-center">
                   <span className="font-medium">Explore Location</span>{' '}
                   <HiOutlineGlobeAlt className="text-base" />
-                </div>
+                </Link>
               </div>
             </div>
             <div className="flex">
               <div className="flex-1 grid grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
-                <div className="col-span-6 grid grid-cols-2">
+                <div className="col-span-5 grid grid-cols-2">
                   <div className="col-span-1 flex gap-3 items-center">
-                    <IoAirplaneSharp className="w-[25px] h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                    <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
                     <input
-                      className="col-span-3 bg-transparent py-3 focus:outline-none"
+                      className="bg-transparent py-3 focus:outline-none"
                       name="originLocationCode"
                       type="text"
                       placeholder="Arrival"
@@ -282,9 +283,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="col-span-1 flex gap-3 items-center">
-                    <IoAirplaneSharp className="w-[25px] h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                    <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
                     <input
-                      className="col-span-3 bg-transparent py-3 focus:outline-none"
+                      className="bg-transparent py-3 focus:outline-none"
                       name="destinationLocationCode"
                       type="text"
                       placeholder="Destination"
@@ -295,7 +296,17 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="col-span-6 border-l-2 border-white px-5 flex justify-between items-center">
+                <div className="col-span-2 border-l-2 border-white px-5 flex justify-between items-center">
+                  <input
+                    className="col-span-3 bg-transparent py-3 focus:outline-none"
+                    name="mobile"
+                    type="tel"
+                    placeholder='Mobile'
+                    value={formData.mobile}
+                    onChange={(e) => handleInputChange('mobile', e)}
+                  />
+                </div>
+                <div className="col-span-5 border-l-2 border-white px-5 flex justify-between items-center">
                   <input
                     className="col-span-3 bg-transparent py-3 focus:outline-none"
                     name="departureDate"
@@ -308,7 +319,7 @@ export default function Home() {
                     value={formData.countryCode}
                     name="countryCode"
                     onChange={(e) => handleInputChange('countryCode', e)}
-                    className="focus:outline-none bg-transparent border-none max-w-56"
+                    className="focus:outline-none bg-transparent border-none max-w-52"
                   >
                     {countries.map((data) => {
                       return (
