@@ -32,6 +32,7 @@ const Footer = () => {
               <ul class="text-white font-medium cursor-pointer">
                 <li class={`${styles.Text}mb-1`}>Aviation</li>
                 <li class={`${styles.Text}mb-1`}>MRO services</li>
+                <li class={`${styles.Text}mb-1`}>Testimonials</li>
                 <li class={`${styles.Text}mb-1`}>Managnement</li>
                 <li class={`${styles.Text}mb-1`}>Training</li>
               </ul>

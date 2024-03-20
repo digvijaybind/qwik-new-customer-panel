@@ -1,7 +1,180 @@
-.headerMangnement {
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  height: 70px;
-  width: 200px;
+  justify-content: space-between;
+  width: 100%;
+  height: 110px;
+  background-color: transparent;
+  color: #333;
+  transform: translateY(0);
+  transition: transform 0.6s ease;
 }
+
+.header2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 130px;
+  background-color: #0f2738;
+  color: rosybrown;
+  transform: translateY(10);
+  transition: transform 6s ease;
+  animation: myanimation 3s;
+  z-index: 2;
+}
+.telephone {
+  background: #11b6e3;
+  width: 204.98px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.telephonehamburg {
+  background: #11b6e3;
+  width: 160.98px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.telephoneText {
+  font-size: 16px;
+  margin-left: 5px;
+}
+.Innertelephone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+@keyframes myanimation {
+  0% {
+    background-color: transparent;
+    color: transparent;
+  }
+  35% {
+    background-color: gray;
+    color: rosybrown;
+  }
+  100% {
+    background-color: gray;
+    color: rosybrown;
+  }
+}
+
+.header.shadow {
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+}
+
+.header.hidden {
+  transform: translateY(-110%);
+}
+
+.logo {
+  font-size: 28px;
+  color: #f59596;
+}
+
+.links {
+  padding: 0;
+  margin: 0 24px;
+}
+
+.link-item {
+  display: inline-block;
+  margin: 0 12px;
+  cursor: pointer;
+}
+/* HamburgerMenu.module.css */
+.hamburgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden; /* Hide overflowing content */
+  z-index: 1000; /* Ensure the menu appears above other content */
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%; /* Set the width of the menu */
+  background-color: white;
+  padding: 20px;
+  transform: translateX(100%); /* Initially hide menu outside the screen */
+  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
+}
+
+.CrossButton {
+  display: flex;
+  justify-content: end;
+}
+.open .menu {
+  transform: translateX(0); /* Slide the menu into view */
+}
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  /* Set the width of the menu */
+  background-color: white;
+  padding: 20px;
+  transform: translateX(100%); /* Initially hide menu outside the screen */
+  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
+}
+
+.CrossButton {
+  display: flex;
+  justify-content: end;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.hamburgerButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%; /* Set the width of the menu */
+  background-color: white;
+  padding: 20px;
+  transform: translateX(100%); /* Initially hide menu outside the screen */
+  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
+}
+
+/* Add more styling as needed */

@@ -2,15 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 /* styles.css or index.css */
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-@import "@fontsource/lato";
-@import "../styles//fonts/font.css";
-@import url("https://fonts.googleapis.coPm/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@layer base {
+  @font-face {
+    font-family: 'Arca Majora 3 Bold';
+    src: local('Arca Majora 3 Bold'),
+      url('./fonts/ArcaMajora3-Bold.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Arca Majora 3 Heavy';
+    src: local('Arca Majora 3 Heavy'),
+      url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
+  }
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: "PoppinsRegular", "Lato";
+  --font-mono: 'Poppins', 'Lato';
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -90,15 +102,87 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  @apply text-slate-900;
 }
 
 body {
-  color: black;
   background: white;
-  font-family: "PoppinsRegular", sans-serif;
+  font-family: 'PoppinsRegular', sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+.react-datepicker {
+  font-family: 'Arial', sans-serif;
+}
+
+.react-datepicker__input-container {
+  display: block;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+}
+
+.disabled {
+  color: #d1d5db;
+  pointer-events: none;
+}
+
+.customCarousel .slick-prev:before,
+.customCarousel .slick-next:before {
+  color: #11b6e3 !important;
+  font-size: 2rem;
+  background: white;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.customCarousel .slick-prev,
+.customCarousel .slick-next {
+  z-index: 1000;
+  filter: drop-shadow(0px 20px 30px rgba(38, 57, 77, 1));
+}
+
+.customCarousel .slick-prev {
+  left: 1rem;
+}
+.customCarousel .slick-next {
+  right: 1rem;
+}
+
+.rotate-x-180 {
+  transform: rotateY('180deg');
+}
+
+.flag-wrapper {
+  perspective: 150rem;
+  background: none;
+}
+
+.flag-card {
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+}
+
+.flag-card.back {
+  transform: rotateY(-180deg);
+}
+
+.flag-wrapper:hover .flag-card.front {
+  transform: rotateY(180deg);
+}
+
+.flag-wrapper:hover .flag-card.back {
+  transform: rotateY(0deg);
 }

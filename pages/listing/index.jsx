@@ -1,20 +1,51 @@
-"use client";
+'use client';
 
-import styles from "./page.module.css";
-import {Shadow} from "@/components/Utils/utils";
-import {TextInput} from "@/components/Form/input";
-import Planedesc from "../../components/Planedesc/planedesc";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
-import {useData} from "../../context/DataContext";
-import {Switch} from "@mui/material";
-
-const Listing = () => {
-  const {apiData} = useData();
-
+import styles from './page.module.css';
+import { Shadow } from '@/components/Utils/utils';
+import { DateInput, TextInput } from '@/components/Form/input';
+import Planedesc from '../../components/Planedesc/planedesc';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useData } from '../../context/DataContext';
+import { Switch } from '@mui/material';
+import Search from '../../public/images/search-white.svg';
+import CommercialCard from '@/components/commercialCard/CommercialCard';
+import Image from 'next/image';
+import Landing from '../../public/images/Searchlanding.svg';
+import axios from 'axios';
+import moment from 'moment-timezone';
+import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
+import swal from 'sweetalert';
+import CustomDatePicker from '@/components/date/CustomDatePicker';
+import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
+import Loader from '@/components/Utils/Loader';
+import countries from '../../db/country.json';
+import { TiUserOutline } from 'react-icons/ti';
+import { RiPriceTag3Line } from 'react-icons/ri';
+import Link from 'next/link';
+import { HiOutlineGlobeAlt } from 'react-icons/hi2';
+import { IoAirplaneSharp } from 'react-icons/io5';
+const Listing = ({ id }) => {
+  const { apiData } = useData();
   const [airdata, setAirData] = useState({});
+
   useEffect(() => {
     // setAirData(JSON?.parse(localStorage?.getItem("aircraft")));
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000); // Change threshold as needed
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call once to set initial state
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const convertTime = (data) => {
@@ -24,105 +55,308 @@ const Listing = () => {
     const result = `${hours}h ${minutes}m`;
     return result;
   };
+
+  const url = 'http://localhost:8000/customer/Amadeusairline';
+  const [formData, setFormData] = useState({
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    pax: 1,
+    countryCode: '',
+    mobile: '',
+    max: 5,
+  });
+  const [aircraftData, setAircraftData] = useState([]);
+  const [departureLocation, setDepartureLocation] = useState();
+  const [destinationLocation, setDestinationLocation] = useState();
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setAircraftDataLoading(true);
+    console.log('formData', formData);
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    axios(`http://localhost:8000/customer/Amadeusairline`, {
+      method: 'POST',
+      data: formData,
+      headers: headers,
+    })
+      .then((response) => {
+        console.log('Response:', response.data.ResponseData);
+        setDepartureLocation(formData?.originLocationCode);
+        setDestinationLocation(formData?.destinationLocationCode);
+        setAircraftData(response.data);
+        setSelectedCurrency('EUR');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        setAircraftDataLoading(false);
+      });
+  };
+  console.log('aircraftData', aircraftData);
+
+  const handleCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value);
+  };
+  const handleInputChange = (field, e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+  const handleCountryCodeChange = (event) => {
+    const countryCodeValue = event.target.value;
+    handleInputChange('countryCode', countryCodeValue);
+  };
   return (
-    <div className="font-poppins">
+    <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8">
+      <Image src={Landing} height={420} width={1874} />
       <Shadow
-        classname={`mt-[20px] w-[90%] p-[20px] flex flex-wrap ml-[50%] transform translate-x-[-50%] items-center`}
+        classname={`${styles.Top_container} bottom-[30px] mx-[30px] relative  lg:relative sm:static drop-shadow-xl bg-white px-7 py-7`}
       >
-        <TextInput
-          className={"w-[300px] sm:w-[100%] mr-[30px] mb-[15px]"}
-          label={"From"}
-          labelClass="text-sm px-1"
-        ></TextInput>
-        <TextInput
-          className={"w-[150px]  sm:w-[100%] mr-[30px] mb-[15px]"}
-          label={"To"}
-          labelClass="text-sm px-1"
-        ></TextInput>
-        <TextInput
-          className={"w-[150px]  sm:w-[100%] mb-[15px] mr-[30px]"}
-          label={"Depart"}
-          labelClass="text-sm px-1"
-        ></TextInput>
-        <TextInput
-          className={"w-[200px]  sm:w-[100%] mb-[15px] mr-[30px]"}
-          label={"Departure Time"}
-          labelClass="text-sm px-1"
-        ></TextInput>
-        <TextInput
-          className={"w-[300px]  sm:w-[100%] mb-[15px] mr-[30px]"}
-          label={"Passenger (Apart from patient)"}
-          labelClass="text-sm px-1"
-        ></TextInput>
-        <div className="py-[8px] mb-[15px] px-[16px] bg-[#40D1F0]">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <div className="flex justify-between items-center pb-4 text-sm">
+            <div className="flex gap-5">
+              <div className="flex items-center">
+                <TiUserOutline className="text-base" />
+                <select
+                  className="border-none focus:outline-none"
+                  name="pax"
+                  value={formData?.pax}
+                  onChange={(e) => handleInputChange('pax', e)}
+                  defaultValue={'1'}
+                >
+                  <option value="1">1 Adult</option>
+                  <option value="2">2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                  <option value="5">5 Adults</option>
+                  <option value="6">6 Adults</option>
+                  <option value="7">7 Adults</option>
+                  <option value="8">8 Adults</option>
+                  <option value="9">9 Adults</option>
+                  <option value="10">10 Adults</option>
+                </select>
+              </div>
+              <div className="flex">
+                <RiPriceTag3Line className="text-base" />
+                <select className="border-none focus:outline-none">
+                  <option value="Commercial">Commercial</option>
+                  <option value="Commercial">Chartered</option>
+                </select>
+              </div>
+            </div>
+            <div className="flex gap-2 items-center">
+              Looking for Air Ambulance Service?
+              <Link href="/location" className="flex items-center">
+                <span className="font-medium">Explore Location</span>{' '}
+                <HiOutlineGlobeAlt className="text-base" />
+              </Link>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="flex-1 grid grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
+              <div className="col-span-5 grid grid-cols-2">
+                <div className="col-span-1 flex gap-3 items-center">
+                  <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                  <input
+                    className="bg-transparent py-3 focus:outline-none"
+                    name="originLocationCode"
+                    type="text"
+                    placeholder="Arrival"
+                    value={formData.originLocationCode}
+                    onChange={(e) => handleInputChange('originLocationCode', e)}
+                  />
+                </div>
+                <div className="col-span-1 flex gap-3 items-center">
+                  <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                  <input
+                    className="bg-transparent py-3 focus:outline-none"
+                    name="destinationLocationCode"
+                    type="text"
+                    placeholder="Destination"
+                    value={formData.destinationLocationCode}
+                    onChange={(e) =>
+                      handleInputChange('destinationLocationCode', e)
+                    }
+                  />
+                </div>
+              </div>
+              <div className="col-span-2 border-l-2 border-white px-5 flex justify-between items-center">
+                <input
+                  className="col-span-3 bg-transparent py-3 focus:outline-none"
+                  name="mobile"
+                  type="tel"
+                  placeholder="Mobile"
+                  value={formData.mobile}
+                  onChange={(e) => handleInputChange('mobile', e)}
+                />
+              </div>
+              <div className="col-span-5 border-l-2 border-white px-5 flex justify-between items-center">
+                <input
+                  className="col-span-3 bg-transparent py-3 focus:outline-none"
+                  name="departureDate"
+                  type="date"
+                  value={formData.departureDate}
+                  onChange={(e) => handleInputChange('departureDate', e)}
+                />
+                <hr className="h-1 w-8 bg-white rounded-sm" />
+                <select
+                  value={formData.countryCode}
+                  name="countryCode"
+                  onChange={(e) => handleInputChange('countryCode', e)}
+                  className="focus:outline-none bg-transparent border-none max-w-52"
+                >
+                  {countries.map((data) => {
+                    return (
+                      <option
+                        value={data.code}
+                        key={data.code}
+                        class="text-black "
+                      >
+                        {data.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <div className="md:justify-center sm:justify-center">
+              {isMobile ? (
+                <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-Bluedark  flex items-center gap-2 mt-2">
+                  Search{' '}
+                  <Image
+                    src={Search}
+                    height={23}
+                    width={23}
+                    alt="search icon"
+                  />
+                </button>
+              ) : (
+                <button className="bg-Bluedark flex justify-center items-center h-full w-[55px]">
+                  <Image
+                    src={Search}
+                    height={24}
+                    width={24}
+                    alt="search icon"
+                  />
+                </button>
+              )}
+            </div>
+          </div>
+        </form>
+      </Shadow>
+      <div className="sm:px-10 px-36">
+        <Shadow
+          classname={`mt-2 w-full font-bold mb-8 text-center p-[10px] flex transform items-center`}
+        >
+          <button
+            className={`border-r-2 w-[50%]   font-extrabold cursor-pointer hover:gray`}
           >
-            <path
-              d="M16.9781 15.3281L16.9659 15.3444L16.9803 15.3588L21.3903 19.7688C21.5856 19.9875 21.6898 20.2727 21.6816 20.5658C21.6734 20.8591 21.5532 21.1382 21.3457 21.3457C21.1382 21.5532 20.8591 21.6734 20.5658 21.6816C20.2727 21.6898 19.9875 21.5856 19.7688 21.3903L15.3588 16.9803L15.3444 16.9659L15.3281 16.9781C13.9186 18.0369 12.2029 18.6085 10.44 18.6066C5.93701 18.6066 2.27344 14.943 2.27344 10.44C2.27344 5.93701 5.93701 2.27344 10.44 2.27344C14.943 2.27344 18.6066 5.93701 18.6066 10.44C18.6085 12.2029 18.0369 13.9186 16.9781 15.3281ZM4.56656 10.44V10.44C4.56843 11.9972 5.18783 13.49 6.28891 14.5911C7.38998 15.6922 8.88282 16.3116 10.44 16.3134H10.44C11.6017 16.3134 12.7372 15.969 13.7031 15.3236C14.669 14.6782 15.4218 13.7609 15.8664 12.6877C16.3109 11.6144 16.4272 10.4335 16.2006 9.29415C15.974 8.15481 15.4146 7.10827 14.5931 6.28685C13.7717 5.46544 12.7252 4.90605 11.5859 4.67942C10.4465 4.45279 9.26556 4.56911 8.19233 5.01365C7.1191 5.4582 6.2018 6.21101 5.55642 7.17689C4.91103 8.14278 4.56656 9.27834 4.56656 10.44Z"
-              fill="#112211"
-              stroke="#112211"
-              stroke-width="0.046875"
-            />
-          </svg>
+            COMMERCIAL
+          </button>
+          <button className="w-[50%] font-extrabold cursor-pointer hover:opacity-100">
+            CHARTERED
+          </button>
+        </Shadow>
+        {apiData?.nearestOperatorWithPrice?.length > 0 && (
+          <p className="my-3 w-[90%] ml-[50%] transform translate-x-[-50%] font-semibold text-sm">
+            Showing {apiData?.nearestOperatorWithPrice?.length} results
+          </p>
+        )}
+        <div className="px-[5%] flex justify-between items-stretch flex-wrap">
+          {apiData?.nearestOperatorWithPrice?.map((el, i) => (
+            <Planedesc
+              key={'reesult-item-' + i}
+              name={el.operator.Aircraft_type}
+              price={Math.ceil(el.price * 10) / 10}
+              time={convertTime(el.totalTime)}
+              speed={el.operator.speed}
+              from={apiData.from}
+              to={apiData.to}
+            ></Planedesc>
+          ))}
         </div>
-      </Shadow>
-      <Shadow
-        classname={`mt-[20px] w-[90%] p-[10px] sm:hidden flex  ml-[50%] transform translate-x-[-50%] items-center`}
-      >
-        <div className="flex w-[50%]">
-          <div className={`${styles.Right_border} w-[50%] text-center`}>
-            <h2 className="font-[600]">Cheapest</h2>
-            <p className="text-[#A0A7A0] font-semibold">9h 2002</p>
+        <div class="grid grid-cols-2 sm:grid-cols-1 gap-8">
+          <div
+            class={`grid grid-rows-5 grid-cols-1 gap-8 ${
+              isMobile &&
+              !(
+                aircraftDataLoading ||
+                aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.length >
+                  0 ||
+                aircraftData?.ResponseData?.AirCraftDatawithtechStop?.length > 0
+              )
+                ? 'hidden'
+                : ''
+            }`}
+          >
+            {aircraftDataLoading ? (
+              <div className="flex justify-center items-center py-10">
+                <Loader className="h-6 w-6" />
+              </div>
+            ) : (
+              <>
+                {aircraftData?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                  (data, index) => {
+                    console.log('data', data);
+                    return (
+                      <AircraftDetailsCard
+                        key={'airacraft-list-item' + index}
+                        aircraftData={data}
+                        availticket={
+                          aircraftData?.ResponseData?.TicketAvailability
+                        }
+                        selectedCurrency={selectedCurrency}
+                        handleCurrencyChange={handleCurrencyChange}
+                        departureLocation={departureLocation}
+                        destinationLocation={destinationLocation}
+                        aircraftId={aircraftData.aircraftId}
+                      />
+                    );
+                  }
+                )}
+                {(!aircraftData?.ResponseData?.AirCraftDatawithNotechStop ||
+                  aircraftData?.ResponseData?.AirCraftDatawithNotechStop
+                    ?.length === 0) &&
+                  aircraftData?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data, index) => {
+                      return (
+                        <AircraftDetailsCard
+                          key={'airacraft-list-item' + index}
+                          aircraftData={data}
+                          availticket={
+                            aircraftData?.ResponseData?.TicketAvailability
+                          }
+                          selectedCurrency={selectedCurrency}
+                          handleCurrencyChange={handleCurrencyChange}
+                          departureLocation={departureLocation}
+                          destinationLocation={destinationLocation}
+                          aircraftId={aircraftData.aircraftId}
+                        />
+                      );
+                    }
+                  )}
+              </>
+            )}
           </div>
-          <div className={`${styles.Right_border}  w-[50%] text-center`}>
-            <h2 className="font-[600]">Fastest</h2>
-            <p className="text-[#A0A7A0] font-semibold">9h 2002</p>
+          <div class="grid grid-cols-1 gap-8">
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
+            <DedicatedCard />
           </div>
         </div>
-        <div className="flex w-[50%] justify-between items-center">
-          <div className={`w-[50%] text-center`}>
-            <h2 className="font-[700]">Commercial</h2>
-          </div>
-          <Switch />
-          <div className={`w-[50%] text-center`}>
-            <h2 className="font-[700]">Chartered</h2>
-          </div>
-        </div>
-      </Shadow>
-      <Shadow
-        classname={`mt-[20px] w-[90%]  font-bold mb-[15px] text-center p-[10px] flex  ml-[50%] transform translate-x-[-50%] items-center`}
-      >
-        <h1 className={`${styles.Right_border} w-[50%]  font-extrabold`}>
-          COMMERCIAL
-        </h1>
-        <h1 className="w-[50%] font-extrabold">CHARTERED</h1>
-      </Shadow>
-      {apiData?.nearestOperatorWithPrice?.length > 0 && (
-        <p className="my-3 w-[90%] ml-[50%] transform translate-x-[-50%] font-semibold text-sm">
-          Showing {apiData?.nearestOperatorWithPrice?.length} results
-        </p>
-      )}
-      <div className="px-[5%] flex justify-between items-stretch flex-wrap">
-        {apiData?.nearestOperatorWithPrice?.map((el, i) => (
-          <Planedesc
-            key={"reesult-item-" + i}
-            name={el.operator.Aircraft_type}
-            price={Math.ceil(el.price * 10) / 10}
-            time={convertTime(el.totalTime)}
-            speed={el.operator.speed}
-            from={apiData.from}
-            to={apiData.to}
-          ></Planedesc>
-        ))}
+        <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
+          Show more results
+        </button>
       </div>
-      <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
-        Show more results
-      </button>
     </div>
   );
 };

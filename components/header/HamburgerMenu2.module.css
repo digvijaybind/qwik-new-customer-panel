@@ -1,0 +1,53 @@
+/* HamburgerMenu.module.css */
+.hamburgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden; /* Hide overflowing content */
+  z-index: 1000; /* Ensure the menu appears above other content */
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%; /* Set the width of the menu */
+  background-color: white;
+  padding: 20px;
+  transform: translateX(100%); /* Initially hide menu outside the screen */
+  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
+}
+
+.CrossButton {
+  display: flex;
+  justify-content: end;
+}
+.open .menu {
+  transform: translateX(0); /* Slide the menu into view */
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.hamburgerButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Add more styling as needed */

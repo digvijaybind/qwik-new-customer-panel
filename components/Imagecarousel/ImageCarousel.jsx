@@ -12,7 +12,7 @@ const ImageCarousel = ({images}) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, // Enable auto-play
+    autoplay: true,
     autoplaySpeed: 1200,
   };
 
@@ -25,7 +25,7 @@ const ImageCarousel = ({images}) => {
               src={imageUrl}
               alt={`Slide ${index + 1}`}
               width={1900} // Set the desired width
-              height={200}
+              height={100}
               objectFit="cover"
               style={{zIndex: 1}}
               // style={{borderRadius: "60px"}}
