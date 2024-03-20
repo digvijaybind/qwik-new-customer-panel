@@ -8,24 +8,26 @@ import { useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import { useRouter } from 'next/router';
 import countries from '../db/country.json';
-import Training from '../public/images/neona.png';
-import MRO from '../public/images/dedicate_air.png';
-import Aviation from '../public/images/ecmo.png';
 import Slider from 'react-slick';
 import Navnew from '@/components/Nav/Navnew';
-import Search from '../public/images/search.svg';
+import Search from '../public/images/search-white.svg';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
 import Trusted from '@/components/trusted/Trusted';
 import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
 import Champion from '../public/images/trusted_contact/champion.svg';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { IoAirplaneSharp } from 'react-icons/io5';
 import AboutAircraft from '@/components/aboutaircraft/AboutAircraft';
 import QwiklifFeature from '@/components/qwiklifFeatures/QwiklifFeature';
 import Roadmap from '@/components/roadmaps/Roadmap';
 import ChooseQwiklif from '@/components/whychooseqwiklif/ChooseQwiklif';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 import LatestNew from '@/components/latestnews/LatestNew';
+import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
+import { TiUserOutline } from 'react-icons/ti';
+import { RiPriceTag3Line } from 'react-icons/ri';
+import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 
 export default function Home() {
   const [formData, setformData] = useState({});
@@ -139,52 +141,21 @@ export default function Home() {
       [field]: value,
     }));
   };
-  const services = [
-    {
-      title: `Neonatal and Pediatric Air\n Transfer Services`,
-      description: `Expert Transport for Neonates and Pediatric\n Patients QwikLif Air Ambulance specializes in\n
-      safe and expert…`,
-      image: Training,
-    },
-    {
-      title: `ECMO Initiation and Air\n Transfer Services`,
-      description: `Expert ECMO Assistance with Global Air\n Ambulance Solutions QwikLif Air Ambulance\n specializes in expert ECMO…`,
-
-      image: Aviation,
-    },
-    {
-      title: `Dedicated Air Ambulance`,
-      description: `Swift and Expert Medical Transport Anywhere,\n Anytime QwikLif Air Ambulance offers\n
-      unparalleled specialized air ambulance…`,
-      image: MRO,
-    },
-    {
-      title: `Neonatal and Pediatric Air\n Transfer Services`,
-      description: `Expert Transport for Neonates and Pediatric\n Patients QwikLif Air Ambulance specializes in\n
-      safe and expert…`,
-      image: Training,
-    },
-    {
-      title: `ECMO Initiation and Air\n Transfer Services`,
-      description: `Expert ECMO Assistance with Global Air\n Ambulance Solutions QwikLif Air Ambulance\n specializes in expert ECMO…`,
-
-      image: Aviation,
-    },
-    {
-      title: `Dedicated Air Ambulance`,
-      description: `Swift and Expert Medical Transport Anywhere,\n Anytime QwikLif Air Ambulance offers\n
-      unparalleled specialized air ambulance…`,
-      image: MRO,
-    },
-  ];
+  const handleInputChange = (field, e) => {
+    const { name, value } = e.target;
+    setformData((pre) => ({
+      ...pre,
+      [field]: value,
+    }));
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % homeServices.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [services]);
+  }, [homeServices]);
   const [apiResponse, setApiResponse] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -232,44 +203,6 @@ export default function Home() {
     setSelectedIndex(index);
   };
 
-  const collapsable = [
-    {
-      header: '1. How quickly does an air ambulance travel?',
-      description: `The type of aircraft, the distance traveled, the weather, and air traffic all affect how quickly an air ambulance travels. Air ambulances typically travel between 150 and 300 miles
-    per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
-    frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
-    faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
-    },
-    {
-      header: '2. How much is the cost of an air ambulance in the US?',
-      description: `The type of aircraft, the distance traveled, the weather, and air traffic all affect how quickly an air ambulance travels. Air ambulances typically travel between 150 and 300 miles
-    per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
-    frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
-    faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
-    },
-    {
-      header: '3. What are the signs that you need an air ambulance?',
-      description: `The type of aircraft, the distance traveled, the weather, and air traffic all affect how quickly an air ambulance travels. Air ambulances typically travel between 150 and 300 miles
-    per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
-    frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
-    faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
-    },
-    {
-      header: '4. Is air ambulance service available in India?',
-      description: `The type of aircraft, the distance traveled, the weather, and air traffic all affect how quickly an air ambulance travels. Air ambulances typically travel between 150 and 300 miles
-    per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
-    frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
-    faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
-    },
-    {
-      header: '5.How do you choose a private air ambulance provider?',
-      description: `The type of aircraft, the distance traveled, the weather, and air traffic all affect how quickly an air ambulance travels. Air ambulances typically travel between 150 and 300 miles
-    per hour, or 240 and 480 kilometers per hour. Helicopter air ambulances typically travel between 120 and 160 miles per hour (190 and 260 kilometers per hour), and they are
-    frequently utilized in more urban or challenging environments. Longer distances are covered by fixed-wing air ambulances, such as jets or turboprop aircraft, which generally go
-    faster—on average, 300 miles per hour (480 kilometers per hour) or more, depending on the kind of aircraft.`,
-    },
-  ];
-
   const tasktab = [
     {
       img: Aeroplane1,
@@ -296,83 +229,120 @@ export default function Home() {
       <div class="font-Montserrat">
         <Navnew></Navnew>
         <Shadow
-          classname={`${styles.Top_container} px-[10px] py-[15px] bottom-[135px]  mx-[30px] relative   lg:relative sm:static drop-shadow-xl border-8 border-solid border-[#14B4E3] p-4`}
+          classname={`${styles.Top_container} bottom-[135px] mx-[30px] relative   lg:relative sm:static drop-shadow-xl bg-white px-7 py-7`}
         >
-          <form onSubmit={handleSubmit}>
-            <div className="flex flex-row items-baseline justify-evenly md:flex-col md:mb-3 sm:flex-col sm:mb-3 ">
-              <TextInput
-                className="w-[220px] md:w-[145px] sm:w-[100%] mr-[20px] md:mb-3 sm:mb-3"
-                label="From"
-                name="originLocationCode"
-                value={formData.originLocationCode}
-                onChange={(e) =>
-                  handleInpUTChange('originLocationCode', e.target.value)
-                }
-              />
-
-              <div
-                style={{ position: 'relative' }}
-                className="mb-[15px] w-[200px] sm:w-[100%] mr-[20px] md:mb-3 sm:md-3"
-              >
-                <TextInput
-                  className="w-[220px]  md:w-[145px] sm:w-[100%] mr-[20px]"
-                  label="To"
-                  name="destinationLocationCode"
-                  value={formData.destinationLocationCode}
-                  onChange={(e) =>
-                    handleInpUTChange('destinationLocationCode', e.target.value)
-                  }
-                />
+          <form onSubmit={handleSubmit} className="flex flex-col">
+            <div className="flex justify-between items-center pb-4 text-sm">
+              <div className="flex gap-5">
+                <div className="flex items-center">
+                  <TiUserOutline className="text-base" />
+                  <select className="border-none focus:outline-none">
+                    <option value="1">1 Adult</option>
+                    <option value="2">2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                    <option value="5">5 Adults</option>
+                    <option value="6">6 Adults</option>
+                    <option value="7">7 Adults</option>
+                    <option value="8">8 Adults</option>
+                    <option value="9">9 Adults</option>
+                    <option value="10">10 Adults</option>
+                  </select>
+                </div>
+                <div className="flex">
+                  <RiPriceTag3Line className="text-base" />
+                  <select className="border-none focus:outline-none">
+                    <option value="Commercial">Commercial</option>
+                    <option value="Commercial">Chartered</option>
+                  </select>
+                </div>
               </div>
-              <DateInput
-                className="w-[160px] md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
-                label="Date"
-                name="departureDate"
-                value={formData.departureDate}
-              />
-              <div>
-                <select
-                  value={formData.countryCode}
-                  className="w-36 h-[40px] text-black px-4 py-2 border rounded-lg  focus:outline-none  border-solid border-1 border-gray-600 mb-[15px]  "
-                >
-                  {countries.map((data) => {
-                    return (
-                      <option
-                        value={data.code}
-                        key={'country-' + data.code}
-                        class="text-black"
-                      >
-                        {data.name}
-                      </option>
-                    );
-                  })}
-                </select>
+              <div className="flex gap-2 items-center">
+                Looking for Travel Emergency?
+                <div className="flex items-center">
+                  <span className="font-medium">Explore Location</span>{' '}
+                  <HiOutlineGlobeAlt className="text-base" />
+                </div>
               </div>
-              <div class="md:mb-3 sm:mb-3">
-                <TextInput
-                  className="w-[180px] md:w-[145px] sm:w-[100%] mr-[20px]"
-                  label="Mobile Number"
-                  name="mobile"
-                  placeholder="123-456-7890"
-                  value={formData.mobile}
-                  onChange={(e) => handleInpUTChange('mobile', e.target.value)}
-                />
+            </div>
+            <div className="flex">
+              <div className="flex-1 grid grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
+                <div className="col-span-6 grid grid-cols-2">
+                  <div className="col-span-1 flex gap-3 items-center">
+                    <IoAirplaneSharp className="w-[25px] h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                    <input
+                      className="col-span-3 bg-transparent py-3 focus:outline-none"
+                      name="originLocationCode"
+                      type="text"
+                      placeholder="Arrival"
+                      value={formData.originLocationCode}
+                      onChange={(e) =>
+                        handleInputChange('originLocationCode', e)
+                      }
+                    />
+                  </div>
+                  <div className="col-span-1 flex gap-3 items-center">
+                    <IoAirplaneSharp className="w-[25px] h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
+                    <input
+                      className="col-span-3 bg-transparent py-3 focus:outline-none"
+                      name="destinationLocationCode"
+                      type="text"
+                      placeholder="Destination"
+                      value={formData.destinationLocationCode}
+                      onChange={(e) =>
+                        handleInputChange('destinationLocationCode', e)
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="col-span-6 border-l-2 border-white px-5 flex justify-between items-center">
+                  <input
+                    className="col-span-3 bg-transparent py-3 focus:outline-none"
+                    name="departureDate"
+                    type="date"
+                    value={formData.departureDate}
+                    onChange={(e) => handleInputChange('departureDate', e)}
+                  />
+                  <hr className="h-1 w-8 bg-white rounded-sm" />
+                  <select
+                    value={formData.countryCode}
+                    name="countryCode"
+                    onChange={(e) => handleInputChange('countryCode', e)}
+                    className="focus:outline-none bg-transparent border-none max-w-56"
+                  >
+                    {countries.map((data) => {
+                      return (
+                        <option
+                          value={data.code}
+                          key={data.code}
+                          class="text-black "
+                        >
+                          {data.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
               </div>
-              <TextInput
-                className="w-[90px]  md:w-[145px] sm:w-[100%] mr-[20px] mb-[15px]"
-                label="Pax"
-                name="pax"
-                value={formData.pax}
-                onChange={(e) => handleInpUTChange('pax', e.target.value)}
-              />
               <div className="md:justify-center sm:justify-center">
                 {isMobile ? (
-                  <button className="px-20 py-2 rounded-md bg-[#40D1F0] text-xl font-semibold cursor-pointer">
-                    Search
+                  <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-Bluedark  flex items-center gap-2 mt-2">
+                    Search{' '}
+                    <Image
+                      src={Search}
+                      height={23}
+                      width={23}
+                      alt="search icon"
+                    />
                   </button>
                 ) : (
-                  <button className="h-[45px] w-[45px] bg-[#40D1F0] flex justify-center align-middle rounded-md items-center">
-                    <Image src={Search} height={24} width={24} />
+                  <button className="bg-Bluedark flex justify-center items-center h-full w-[55px]">
+                    <Image
+                      src={Search}
+                      height={24}
+                      width={24}
+                      alt="search icon"
+                    />
                   </button>
                 )}
               </div>
@@ -423,7 +393,7 @@ export default function Home() {
             </div>
 
             <div className="flex-col items-start w-full mt-[40px] flex gap-[10px]">
-              {collapsable.map((item, index) => {
+              {homeCollapsable.map((item, index) => {
                 return (
                   <div
                     key={'choose-us-features' + index}
@@ -483,9 +453,9 @@ export default function Home() {
             </div>
           </div>
           <div
-            className={`${styles.gray_plane} py-12 sm:px-10 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
+            className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
-            <div className="flex items-start flex-col col-span-7 sm:col-span-1">
+            <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
               <div class="text-[#a9b5bf] font-arcaMajoraBold">
                 QwikLif Air Ambulance
               </div>
