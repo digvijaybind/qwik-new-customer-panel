@@ -65,7 +65,7 @@ export default function Home() {
     };
   }, []);
 
-  console.log('fieldType', fieldType);
+ 
   useEffect(() => {
     const asyncTask = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));

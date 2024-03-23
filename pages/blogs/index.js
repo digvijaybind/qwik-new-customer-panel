@@ -1,21 +1,21 @@
-import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
-import Nav from "@/components/Nav/nav";
-import { BlogsCard } from "@/components/blog/BlogsCard";
-import Image from "next/image";
-import React, { 
-useEffect, useState } from "react";
-import LandingImage from "../../public/images/qwiklif11.jpg";
-import axios from "axios";
-import Link from "next/link";
+import ImageCarousel from '@/components/Imagecarousel/ImageCarousel';
+import Nav from '@/components/Nav/nav';
+import { BlogsCard } from '@/components/blog/BlogsCard';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import LandingImage from '../../public/images/qwiklif11.jpg';
+import axios from 'axios';
+import Link from 'next/link';
+import styles from './Blogs.module.css';
 const Blogs = ({ data }) => {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
     axios({
-      url: "https://dev.a2zqr.com/wp-json/wp/v2/posts",
-      method: "GET",
+      url: 'https://dev.a2zqr.com/wp-json/wp/v2/posts',
+      method: 'GET',
       params: {
-        _embed: "true",
+        _embed: 'true',
         per_page: 100,
       },
     })
@@ -31,7 +31,7 @@ const Blogs = ({ data }) => {
   return (
     <div className="p-[50px]">
       {/* console.log("allPosts",allPosts) */}
-      <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
+      {/* <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
       <div className="px-5 font-lato">
         <div className="justify-center">
           <div className="text-[64px] text-center font-lato  text-{#000000} mb-5 mt-5 ">
@@ -40,26 +40,43 @@ const Blogs = ({ data }) => {
         </div>
         <div className="justify-start">
           <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
+        </div> */}
+      <div>
+        <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
+          <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
+            <p className="text-[50px]  pt-[150px]">All Posts</p>
+            <div className="flex pt-[30px] text-[20px]">
+              <p className="text-[#C5D5FF] pr-[10px]">
+                {'Air Ambulance Services '}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-8 mb-3">
+        <div className="grid grid-cols-3 sm:grid-cols-1 gap-8 mb-3">
           {allPosts?.length > 0 &&
             allPosts?.map((item, index) => {
               return (
-                <div key={"blog-post-" + index} className="rounded-md drop-shadow-md bg-white p-5">
+                <div
+                  key={'blog-post-' + index}
+                  className="rounded-md drop-shadow-md bg-white p-5"
+                >
                   <img
                     src={
-                      item?._embedded["wp:featuredmedia"]?.length > 0
-                        ? item?._embedded["wp:featuredmedia"][0]?.source_url
-                        : ""
+                      item?._embedded['wp:featuredmedia']?.length > 0
+                        ? item?._embedded['wp:featuredmedia'][0]?.source_url
+                        : ''
                     }
                   />
-                  <Link href={`blogs/${item?.slug}`} className="font-semibold text-lg">
+                  <Link
+                    href={`blogs/${item?.slug}`}
+                    className="font-semibold text-lg"
+                  >
                     {item?.title?.rendered}
                   </Link>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: item?.excerpt?.rendered || "",
+                      __html: item?.excerpt?.rendered || '',
                     }}
                   ></div>
                 </div>

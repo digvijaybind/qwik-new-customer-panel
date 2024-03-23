@@ -1,11 +1,12 @@
-import Image from "next/image";
-import React, {useState} from "react";
-import Logo from "../../public/images/logo.svg";
-import styles from "./Header.module.css";
-import Telephone from "../../public/images/telephone.svg";
+import Image from 'next/image';
+import React, { useState } from 'react';
+import Logo from '../../public/images/logo.svg';
+import styles from './Header.module.css';
+import Telephone from '../../public/images/telephone.svg';
+import { useRouter } from 'next/router';
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const router = useRouter();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -24,7 +25,7 @@ const HamburgerMenu = () => {
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7`}
               >
-                {" "}
+                {' '}
                 +971 502 825 433
               </span>
             </div>
@@ -41,9 +42,24 @@ const HamburgerMenu = () => {
           className={`bg-[#fff] p-6 shadow-2xl snap-y max-h-[200px] overflow-y-auto`}
         >
           <ul class="">
-            <li class="font-semibold text-[16px] p-2 hover:gray">Home</li>
-            <li class="font-semibold text-[16px] p-2 hover:gray">Services</li>
-            <li class="font-semibold text-[16px] p-2 hover:gray">Blog</li>
+            <li
+              onClick={() => router.push('/')}
+              class="font-semibold text-[16px] p-2 hover:gray"
+            >
+              Home
+            </li>
+            <li
+              onClick={() => router.push('/services')}
+              class="font-semibold text-[16px] p-2 hover:gray"
+            >
+              Services
+            </li>
+            <li
+              onClick={() => router.push('/blog')}
+              class="font-semibold text-[16px] p-2 hover:gray"
+            >
+              Blog
+            </li>
             <li class="font-semibold text-[16px] p-2 hover:gray">
               Our Location
             </li>
