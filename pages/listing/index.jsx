@@ -71,24 +71,33 @@ const Listing = ({ id }) => {
   const [destinationLocation, setDestinationLocation] = useState();
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const [CharteredData, setcharteredData] = useState([]);
+  const [Charteredepature, setcharteredDepature] = useState();
+  const [ChartereArrival, setchartereArrival] = useState();
+  const [ChartereId, setchartereId] = useState();
+
+  const AvaiapageSubmit = () => {
+    console.log('formData', formData);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setAircraftDataLoading(true);
-    console.log('formData', formData);
     const headers = {
       'Content-Type': 'application/json',
     };
-    axios(`http://localhost:8000/customer/Amadeusairline`, {
+
+    axios(`http://localhost:8000/customer/customerSearch`, {
       method: 'POST',
       data: formData,
       headers: headers,
     })
       .then((response) => {
-        console.log('Response:', response.data.ResponseData);
-        setDepartureLocation(formData?.originLocationCode);
-        setDestinationLocation(formData?.destinationLocationCode);
-        setAircraftData(response.data);
-        setSelectedCurrency('EUR');
+        console.log('data line 83', response.data.aviapages.responseObj);
+        setcharteredData(response.data.aviapages);
+        setcharteredDepature(response.data.aviapages.responseObj.from);
+        setchartereArrival(response.data.aviapages.responseObj.to);
+        setchartereId();
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -96,6 +105,29 @@ const Listing = ({ id }) => {
       .finally(() => {
         setAircraftDataLoading(false);
       });
+
+    // console.log('formData', formData);
+    // const headers = {
+    //   'Content-Type': 'application/json',
+    // };
+    // axios(`http://localhost:8000/customer/Amadeusairline`, {
+    //   method: 'POST',
+    //   data: formData,
+    //   headers: headers,
+    // })
+    //   .then((response) => {
+    //     console.log('Response:', response.data.ResponseData);
+    //     setDepartureLocation(formData?.originLocationCode);
+    //     setDestinationLocation(formData?.destinationLocationCode);
+    //     setAircraftData(response.data);
+    //     setSelectedCurrency('EUR');
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //   })
+    //   .finally(() => {
+    //     setAircraftDataLoading(false);
+    //   });
   };
   console.log('aircraftData', aircraftData);
 
@@ -342,16 +374,24 @@ const Listing = ({ id }) => {
             )}
           </div>
           <div class="grid grid-cols-1 gap-8">
-            <DedicatedCard />
-            <DedicatedCard />
-            <DedicatedCard />
-            <DedicatedCard />
-            <DedicatedCard />
+            {CharteredData?.responseObj?.nearestOperatorWithPrice?.map(
+              (data, index) => {
+                return (
+                  <DedicatedCard
+                    key={'airacraft-list-item' + index}
+                    CharteredData={data}
+                    Charteredepature={Charteredepature}
+                    ChartereArrival={ChartereArrival}
+                    ChartereId={CharteredData.aircraftId}
+                  />
+                );
+              }
+            )}
           </div>
         </div>
-        <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
+        {/* <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
           Show more results
-        </button>
+        </button> */}
       </div>
     </div>
   );

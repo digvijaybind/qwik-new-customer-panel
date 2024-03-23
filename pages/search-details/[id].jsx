@@ -672,7 +672,7 @@ const AmadeuspageDetails = () => {
     // TicketAvailable();
     // AirlineImage();
     // AirlineName();
-  }, []);
+  }, [id]);
   return (
     <div className="">
       <DedicatedeHeader />
