@@ -4,12 +4,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-const CustomDatePicker = ({ ClassName }) => {
+const CustomDatePicker = ({ ClassName, containerClass }) => {
   const [startDate, setStartDate] = useState(null);
 
   return (
-    <div className="relative">
+    <div className={`relative ${containerClass}`}>
       <DatePicker
+        wrapperClassName="w-full"
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         minDate={new Date()}
@@ -17,7 +18,7 @@ const CustomDatePicker = ({ ClassName }) => {
         dayClassName={(date) => (date < new Date() ? 'disabled' : '')}
       />
 
-      <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+      <span className="absolute inset-y-0 right-3 flex items-center">
         <FontAwesomeIcon icon={faCalendarAlt} className="text-gray-400" />
       </span>
     </div>

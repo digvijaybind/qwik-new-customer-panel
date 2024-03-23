@@ -56,7 +56,7 @@ const AircraftDetailsCard = ({
   const [techStops, setTechStops] = useState([]);
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
-  const [airlineImage, setairlineImage] = useState('');
+  const [airlineImage, setAirlineImage] = useState('');
   const [aircraftid, setAircraftid] = useState('');
 
   const getEUR = (price) => {
@@ -247,7 +247,7 @@ const AircraftDetailsCard = ({
     const airlineName =
       aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
     const airlineImage = AirlineImages[airlineName];
-    setairlineImage(airlineImage);
+    setAirlineImage(airlineImage);
   };
   const AirlineName = () => {
     const airlineName =
