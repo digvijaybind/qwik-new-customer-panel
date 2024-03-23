@@ -85,7 +85,7 @@ const Header = () => {
         <div className={`flex flex-row items-center`}>
           <ul className={`flex flex-row`}>
             {tabs.map((tab, index) => (
-              <Link href={tab.url}>
+              <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
                   className={`cursor-pointer py-10 px-5  border-b-2 text-[16px]  font-semibold ${

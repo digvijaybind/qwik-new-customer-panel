@@ -12,7 +12,7 @@ const reviews = [
   },
   {
     id: 2,
-    text: 'We are very happy to receive our relative back to Iran from Dubai UAE ,he was very sick and admitted at Rashid hospital Dubaii, Qwiklif Air Ambulance Service has arranged this safe repatriation from UAE to Iran ,they arranged every thing in hours from airline approvals to ground ambulance at both the locations, Qwiklif’s medical team was very professional and they took care of the patient with ICU setup during all the travel time, we wish Qwiklif Air Ambulance best success in their work and also recommend this company to all who needs any kind of medical assistance to transfer their patients from any country to any where in the world.',
+    text: "We are very happy to receive our relative back to Iran from Dubai UAE ,he was very sick and admitted at Rashid hospital Dubaii, Qwiklif Air Ambulance Service has arranged this safe repatriation from UAE to Iran ,they arranged every thing in hours from airline approvals to ground ambulance at both the locations, Qwiklif's medical team was very professional and they took care of the patient with ICU setup during all the travel time, we wish Qwiklif Air Ambulance best success in their work and also recommend this company to all who needs any kind of medical assistance to transfer their patients from any country to any where in the world.",
     author: '- Thammem',
   },
   {
@@ -65,8 +65,11 @@ const settings = {
 const Review = () => {
   return (
     <Slider {...settings} className="flex justify-center items-center">
-      {reviews.map((review) => (
-        <div className="flex justify-center items-center text-center">
+      {reviews.map((review, index) => (
+        <div
+          className="flex justify-center items-center text-center"
+          key={'review-item-' + index}
+        >
           <div
             key={review.id}
             className="review-item text-[#fff]  h-[200px] px-[100px] py-[40px] "

@@ -263,15 +263,14 @@ export default function Home() {
                   </select>
                 </div>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-2 items-center sm:hidden">
                 Looking for Air Ambulance Service?
-              
               </div>
             </div>
-            <div className="flex">
-              <div className="flex-1 grid grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
+            <div className="flex sm:flex-col">
+              <div className="flex-1 grid sm:grid-cols-1 grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
                 <div className="col-span-5 grid grid-cols-2">
-                  <div className="col-span-1 flex gap-3 items-center">
+                  <div className="col-span-1 sm:col-span-2 flex gap-3 items-center">
                     <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
                     <input
                       className="bg-transparent py-3 focus:outline-none"
@@ -284,7 +283,7 @@ export default function Home() {
                       }
                     />
                   </div>
-                  <div className="col-span-1 flex gap-3 items-center">
+                  <div className="col-span-1 sm:col-span-2 flex gap-3 items-center">
                     <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
                     <input
                       className="bg-transparent py-3 focus:outline-none"
@@ -308,15 +307,15 @@ export default function Home() {
                     onChange={(e) => handleInputChange('mobile', e)}
                   />
                 </div>
-                <div className="col-span-5 border-l-2 border-white px-5 flex justify-between items-center">
+                <div className="col-span-5 border-l-2 border-white px-5 flex sm:flex-col justify-between items-center sm:items-start sm:pb-4">
                   <input
-                    className="col-span-3 bg-transparent py-3 focus:outline-none"
+                    className="bg-transparent py-3 focus:outline-none"
                     name="departureDate"
                     type="date"
                     value={formData.departureDate}
                     onChange={(e) => handleInputChange('departureDate', e)}
                   />
-                  <hr className="h-1 w-8 bg-white rounded-sm" />
+                  <hr className="h-1 w-8 sm:hidden bg-white rounded-sm" />
                   <select
                     value={formData.countryCode}
                     name="countryCode"
