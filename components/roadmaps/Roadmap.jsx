@@ -8,7 +8,7 @@ const Roadmap = () => {
   return (
     <div>
       <div
-        className={`w-[90%] mx-[5%] h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] ${styles.boxShadow} mt-[60px]`}
+        className={`h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] ${styles.boxShadow} mt-[60px]`}
       >
         <div className="h-[60px] flex flex-row w-full md:flex-col sm:flex-col">
           {bookTypes.map((item, index) => {

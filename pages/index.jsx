@@ -366,20 +366,21 @@ export default function Home() {
           <QwiklifFeature />
         </div>
 
-        <div id="services" className="mt-[100px] w-full sm:px-10">
-          <h2 className="font-arcaMajoraHeavy text-4xl text-center">
-            How to Book Air Ambulance
-          </h2>
-          <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
-            Here’s simple step to Book Air Ambulance
-            <br /> Call now to our professional doctors to discuss patient
-            medical condition
-          </p>
-          <Roadmap />
-          <ChooseQwiklif />
-          <FastestMedical />
-
-          <LatestNew />
+        <div id="services" className="mt-[100px] w-full">
+          <div className="px-36 sm:px-10">
+            <h2 className="font-arcaMajoraHeavy text-4xl text-center">
+              How to Book Air Ambulance
+            </h2>
+            <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
+              Here’s simple step to Book Air Ambulance
+              <br /> Call now to our professional doctors to discuss patient
+              medical condition
+            </p>
+            <Roadmap />
+            <ChooseQwiklif />
+            <FastestMedical />
+            <LatestNew />
+          </div>
 
           <div
             className="mt-14"
@@ -390,7 +391,7 @@ export default function Home() {
             <Review />
           </div>
 
-          <div className="w-[90%] mx-[5%] flex flex-col items-start mt-[90px]">
+          <div className="flex flex-col items-start px-36 sm:px-10 py-16">
             <div className="flex flex-col items-start w-full sm:items-center ">
               <h1 className="font-arcaMajoraHeavy text-3xl text-center mb-2">
                 Why you should choose our services
@@ -412,7 +413,7 @@ export default function Home() {
                     className="flex-col items-start w-full h-auto"
                   >
                     <div
-                      className={`w-full flex-row justify-between items-center h-[90px] flex ${
+                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-primary hover:!text-white transition-all duration-300 ${
                         SelectedCollapseIndex != index
                           ? 'bg-[#F1F7FA]'
                           : 'bg-[#11B6E3]'
@@ -422,8 +423,8 @@ export default function Home() {
                         className={`ml-[30px] ${
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
-                            : 'text-slate-800'
-                        } font-arcaMajoraBold text-xl`}
+                            : ''
+                        }  font-arcaMajoraBold text-xl`}
                       >
                         {item.header}
                       </h4>
@@ -437,7 +438,7 @@ export default function Home() {
                               setSelectedCollapseIndex(index);
                             }}
                           >
-                            <FaPlus className="text-2xl font-" />
+                            <FaPlus className="text-2xl" />
                           </button>
                         ) : (
                           <button
@@ -446,7 +447,7 @@ export default function Home() {
                               setSelectedCollapseIndex(-1);
                             }}
                           >
-                            <FaMinus className="text-2xl font-" />
+                            <FaMinus className="text-2xl text-white" />
                           </button>
                         )}
                       </div>
@@ -497,53 +498,53 @@ export default function Home() {
 
               <form
                 onSubmit={handleSubmit}
-                className={`mt-[30px] ${styles.form}`}
+                className={`mt-[30px] w-full ${styles.form}`}
               >
-                <div className="flex flex-col gap-3 ">
+                <div className="grid grid-cols-5 gap-3">
                   <input
                     type="text"
                     value=""
                     placeholder="From *"
                     // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
-                    class=" h-[50px]  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    class=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
 
                   <input
                     type="text"
                     value=""
                     placeholder="To *"
-                    className=" rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    className=" rounded-md  col-span-5 sm:col-span-5 !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
-                  <div className="flex flex-row sm:gap-3 sm:flex-col justify-between w-full ">
-                    <input
-                      type="text"
-                      value=""
-                      placeholder="Phone *"
-                      className="h-[50px] w-[40%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                    <input
-                      type="text"
-                      value=""
-                      placeholder="E-mail*"
-                      className=" h-[50px] w-[50%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value=""
+                    placeholder="Phone *"
+                    className="h-[50px]  col-span-2 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
+                  <input
+                    type="text"
+                    value=""
+                    placeholder="E-mail*"
+                    className=" h-[50px]  col-span-3 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
 
-                  <div className="flex flex-row sm:flex-col sm:gap-3 justify-between w-full ">
-                    <CustomDatePicker className=" h-[50px] w-[25%] sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50" />
-                    <input
-                      type="text"
-                      value=""
-                      placeholder="Time*"
-                      className="h-[50px] w-[40%] sm:w-full  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
+                  <CustomDatePicker
+                    containerClass="col-span-3 sm:col-span-5"
+                    ClassName="h-[50px] rounded-md  !border w-full !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
+                  <input
+                    type="text"
+                    value=""
+                    placeholder="Time*"
+                    className="h-[50px] col-span-2 sm:col-span-5 rounded-md !border !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
+                  <div className="col-span-5">
+                    <button
+                      className={`${styles.boxShado} w-full h-[50px] bg-[#11B6E3] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#3c70fa] shadow-lg shadow-[#11B6E3]`}
+                    >
+                      Get Quote
+                    </button>
                   </div>
-
-                  <button
-                    className={`${styles.boxShado} w-full h-[50px] bg-[#11B6E3] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#3c70fa] shadow-lg shadow-[#11B6E3]`}
-                  >
-                    Get Quote
-                  </button>
                 </div>
               </form>
             </div>
