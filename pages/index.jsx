@@ -366,21 +366,23 @@ export default function Home() {
           <QwiklifFeature />
         </div>
 
-        <div id="services" className="mt-[100px] w-full">
+        <div id="services" className="w-full">
           <div className="px-36 sm:px-10">
-            <h2 className="font-arcaMajoraHeavy text-4xl text-center">
-              How to Book Air Ambulance
-            </h2>
-            <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
-              Here’s simple step to Book Air Ambulance
-              <br /> Call now to our professional doctors to discuss patient
-              medical condition
-            </p>
-            <Roadmap />
+            <div className="py-24">
+              <h2 className="font-arcaMajoraHeavy text-4xl text-center">
+                How to Book Air Ambulance
+              </h2>
+              <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
+                Here’s simple step to Book Air Ambulance
+                <br /> Call now to our professional doctors to discuss patient
+                medical condition
+              </p>
+              <Roadmap />
+            </div>
             <ChooseQwiklif />
-            <FastestMedical />
-            <LatestNew />
           </div>
+          <FastestMedical />
+          <LatestNew />
 
           <div
             className="mt-14"

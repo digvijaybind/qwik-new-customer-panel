@@ -72,7 +72,7 @@ const Review = () => {
         >
           <div
             key={review.id}
-            className="review-item text-[#fff]  h-[200px] px-36 sm:px-10 py-[40px] "
+            className="review-item text-[#fff]  min-h-[200px] px-36 sm:px-5 py-[40px] "
           >
             <p className="text-[16px] font-italic font-medium  mb-2">
               {review.text}

@@ -31,7 +31,7 @@ const LatestNew = () => {
   };
   return (
     <div>
-      <div id="services" className="mt-[290px] sm:mt-[1090px]">
+      <div id="services" className="px-36 sm:px-10">
         <h1 className="text-[#11B6E3] font-arcaMajoraBold text-center mb-[10px]">
           Latest News
         </h1>
@@ -41,8 +41,8 @@ const LatestNew = () => {
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
           <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
         </div>
-        <div class="">
-          <div className="w-[90%] mx-[5%] sm:w-full sm:mx-0">
+        <div class="w-full">
+          <div className="w-full">
             <Slider {...settings}>
               {newsUpdates.map((item, index) => {
                 return (

@@ -11,7 +11,8 @@ const FastestMedical = () => {
   return (
     <div>
       <div
-        className={`${styles.lower_plane} h-[600px] w-full mt-[80px] relative`}
+        className={`${styles.lower_plane} w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat`}
+        style={{ backgroundImage: "url('/images/lower_plane.png')" }}
       >
         <div className="flex flex-col items-center w-full">
           <h1 className="font-arcaMajoraHeavy text-4xl text-shadow-lg text-center text-white mt-[30px]">
@@ -32,7 +33,7 @@ const FastestMedical = () => {
           </Link>
         </div>
         <div
-          className={`${styles.lowerShadow} w-[90%] mx-[5%] h-[360px] sm:h-[1090px] absolute bg-white bottom-[-200px] items-center sm:bottom-[-960px] flex justify-evenly flex-row sm:flex-wrap sm:justify-center  sm:flex-col sm:items-center`}
+          className={`${styles.lowerShadow} bg-white translate-y-2/3 sm:translate-y-[10%] w-8/12 sm:w-10/12 p-4 shadow-md items-center flex justify-evenly flex-row sm:flex-wrap sm:justify-center  sm:flex-col sm:items-center`}
         >
           <div class="flex flex-col items-center">
             <Image src={MiniAeroplane} height={100} width={100} />
