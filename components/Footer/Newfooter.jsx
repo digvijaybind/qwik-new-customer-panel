@@ -35,7 +35,7 @@ const LocationData = [
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
-    <div class="bg-[#0f2738] px-[100px] pt-8 pb-3 font-poppins sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
+    <div class="bg-[#0f2738] px-[100px] pt-14 pb-8 font-poppins sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
       <div class="grid grid-cols-5 content-center sm:grid-cols-2 gap-3">
         <div class="flex flex-col content-center">
           <div class="text-white cursor-pointer content-center font-poppins font-semibold text-[20px] hover:bg-[[#11B6E3]">
@@ -53,13 +53,14 @@ const Newfooter = () => {
           })}
         </div>
         <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins text-[15px] content-center font-semibold">
+          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Fleet
           </div>
+          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {FleetData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
+                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
                 key={'fleetdata-' + index}
               >
                 {data}
@@ -68,13 +69,14 @@ const Newfooter = () => {
           })}
         </div>
         <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins text-[15px] content-center font-semibold hover:text-[#3788d8]">
+          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Our Services
           </div>
+          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {ServiceData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#11B6E3]"
+                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
                 key={'servicedata-' + index}
               >
                 {data}
@@ -83,10 +85,10 @@ const Newfooter = () => {
           })}
         </div>
         <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins font-semibold text-[15px]">
-            {' '}
+          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Our Locations
           </div>
+          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {LocationData.map((data, index) => {
             return (
               <div
@@ -99,9 +101,10 @@ const Newfooter = () => {
           })}
         </div>
         <div class="flex flex-col content-center items-baseline sm:items-start md:items-start">
-          <div class="text-white cursor-pointer font-poppins text-[15px] content-center font-semibold mb-2">
+          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Qwiklif Air Ambulance
           </div>
+          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           <div class="text-[15px] text-[#fff]  cursor-pointer sm:ml-0 md:ml-0 mb-2">
             Qwiklif Air Ambulance, Warehouse No.3 - Al Qusais Industrial Area 3
             - Dubai
@@ -122,7 +125,7 @@ const Newfooter = () => {
           </div>
         </div>
       </div>
-      <div class="flex justify-center flex-col items-center font-poppins pt-4 pb-4 sm:pt-[20px] sm:pb-[20px]">
+      <div class="flex justify-center flex-col items-center font-poppins pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
         <Image src={Logo} height={53} width={150} class="cursor-pointer" />
         <div class="font-thin text-[16px] text-[#fff] mt-2 mb-2 font-poppins hover:text-[#3788d8]">
           © 2024 Qwiklif. All rights reserved.{' '}

@@ -8,10 +8,8 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
     >
       <div class="w-full ">
         <Image
-          className="w-full h-full"
+          className="w-full aspect-video object-cover object-center"
           src={imageUrl}
-          width={40}
-          height={314}
           alt="rapid Time"
           layout="responsive"
         />

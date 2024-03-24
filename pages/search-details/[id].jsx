@@ -197,6 +197,26 @@ const JourneyDetails = ({
         <span className="font-bold">Qwiklif</span>, helps in your emergency by
         providing private air ambulance at commercial prices.
       </div>
+      <div className="flex flex-col mt-5">
+        <input
+          name="username"
+          className="border-b mb-5 px-2 py-1"
+          placeholder="Your Name"
+        />
+        <input
+          name="username"
+          className="border-b mb-5 px-2 py-1"
+          placeholder="Phone"
+        />
+        <input
+          name="username"
+          className="border-b mb-5 px-2 py-1"
+          placeholder="Email"
+        />
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2">
+          Enquire Now
+        </button>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col mt-5">
           <input
@@ -609,11 +629,14 @@ const AmadeuspageDetails = () => {
   const { id } = router.query;
   const [results, setResults] = useState([]);
   const [Error, setError] = useState('');
-  const [locationData, setLocationData] = useState({});
+  // const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
   const [techStops, setTechStops] = useState([]);
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
+  const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const [Aircraftdata, setAircraftData] = useState([]);
+  let locationData = {};
   const [airlineImage, setAirlineImage] = useState('');
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [totalCost, setTotalCost] = useState(0);
@@ -783,14 +806,46 @@ const AmadeuspageDetails = () => {
   const fetchData = async () => {
     try {
       console.log('id line 450', id);
+      setAircraftDataLoading(true);
       const response = await axios.get(
         `http://localhost:8000/customer/aircraft/${id}`
       );
 
       console.log('response data line 451', response.data.specificAircraft);
       if (response) {
-        setResults(response.data.specificAircraft);
-        setError('');
+        // setResults(response.data.specificAircraft);
+
+        // setAircraftData(
+        //   response.data.specificAircraft.aircraft?.itineraries[0]?.segments
+        // );
+        // setSelectedCurrency('EUR');
+        const segments =
+          response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
+        console.log('segment line 632', segments);
+        locationData.push({
+          departureLocation: segments[0]?.departure?.iataCode,
+          departureTime: segments[0]?.departure?.at,
+          destinationLocation: segments.at(-1)?.arrival?.iataCode,
+          destinationTime: segments.at(-1)?.arrival?.at,
+        });
+        // if (segments?.length > 1) {
+
+        // } else {
+        //   setLocationData({
+        //     departureLocation: segments[0]?.departure?.iataCode,
+        //     departureTime: segments[0]?.departure?.at,
+        //     destinationLocation: segments[0]?.arrival?.iataCode,
+        //     destinationTime: segments[0]?.arrival?.at,
+        //   });
+        // }
+
+        const airlineName =
+          aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ??
+          [];
+        console.log('airlineName  line 125', airlineName);
+        const airline = renderAirlineName(airlineName);
+        setairlineName(airline);
+
         console.log('results line 460', results);
       } else {
         setError('error');
@@ -869,7 +924,6 @@ const AmadeuspageDetails = () => {
       <DedicatedeHeader />
       <div className="sm:px-20 px-36">
         <p className="text-sm my-3">
-          Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
         </p>
         <div className="flex sm:flex-col gap-5 my-3">

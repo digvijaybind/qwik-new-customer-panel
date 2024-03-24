@@ -46,11 +46,7 @@ const JourneyDetails = () => {
         <span>Estimated Cost</span>
         <span className="text-base">₹ 13,28,936</span>
       </p>
-      <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>, grants you the opportunity
-        to enjoy the luxury and convenience of flying private at commercial
-        prices.
-      </div>
+
       <div className="flex flex-col mt-5">
         <input
           name="username"
@@ -417,9 +413,9 @@ const Airtransfer = () => {
         </h1>
         <p className="text-[16px] font-medium">
           Upon arrival at the receiving facility, the patient is safely
-          transferred from the air ambulance to the facility's medical staff.
-          The receiving facility's medical staff assumes care of the patient and
-          continues treatment as necessary.
+          transferred from the air ambulance to the facility&apos;s medical
+          staff. The receiving facility&apos;s medical staff assumes care of the
+          patient and continues treatment as necessary.
         </p>
       </div>{' '}
       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
@@ -437,7 +433,7 @@ const Airtransfer = () => {
         <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
         <p className="text-[16px] font-medium">
           Once the patient has been transferred, follow-up care and treatment
-          are provided as needed based on the patient's condition and the
+          are provided as needed based on the patient&apos;s condition and the
           recommendations of the medical team.
         </p>
       </div>

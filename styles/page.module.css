@@ -43,16 +43,18 @@
 }
 .lower_plane {
   background-image: url('/images/lower_plane.png');
-}
-.lower_plane,
-.gray_plane {
   background-size: cover;
   background-position: center;
 
   background-repeat: no-repeat;
 }
+
 .gray_plane {
-  background-image: url('/images/gray_plane.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
+    url('/images/gray_plane.jpeg');
 }
 
 .form input ::placeholder {
