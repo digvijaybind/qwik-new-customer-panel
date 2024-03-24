@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from '../../styles/page.module.css';
 import style from './About.module.css';
 import { FaPlane } from 'react-icons/fa';
+import { FaUserDoctor, FaTrophy } from 'react-icons/fa6';
 import { useSpring, animated } from 'react-spring';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -276,20 +277,24 @@ const About = () => {
       </div>
       <div className={`${style.Aboutdown} px-[5%] py-[40px]`}>
         <div className="relative z-[1000]">
-          <p className="text-[#A9B5BF]">Qwiflif Air Ambulance</p>
-          <p className="text-[30px] font-bold text-white">
+          <p className="text-[#A9B5BF] mt-[40px]">Qwiflif Air Ambulance</p>
+          <p className="text-[30px] py-[20px] font-bold text-white">
             Your Trusted Global Air Ambulance Provider
           </p>
         </div>
-        <div className="flex">
-          <div className="relative z-[200] w-[60%]">
+        <div className="flex mt-[30px]">
+          <div className="relative  w-[60%]">
             <div className="flex mb-[30px]">
-              <div className="w-[120px] mx-[20px] relative h-[60px]  rounded-[50%] border-white">
-                <FaPlane className="absolute text-[40px] text-white top-[50%] bg-[#396CF0]  left-[50%] transform translate-y-[-50%] translate-x-[-50%]" />
+              <div className=" mr-[50px] relative  p-[10px] rounded-[50%]  border-white">
+                <div className="p-[20px] bg-[#396CF0] rounded-[50%]">
+                  <FaPlane className=" text-[40px]   text-white    " />
+                </div>
               </div>
               <div>
-                <p className="text-white">Express Lane to Care</p>
-                <p className="text-[#A9B5BF] font-semibold">
+                <p className="text-white font-bold text-[25px]">
+                  Express Lane to Care
+                </p>
+                <p className="text-[#A9B5BF] text-[18px] font-semibold">
                   Time is precious, especially during emergencies. Our air
                   ambulances are not just vehicles; they are a beacon of hope on
                   the fastest route to medical assistance. We pride ourselves on
@@ -298,11 +303,17 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="flex">
-              <img src="" alt="" />
+            <div className="flex mb-[30px]">
+              <div className=" mr-[50px] relative  p-[10px] rounded-[50%]  border-white">
+                <div className="p-[20px] bg-[#396CF0] rounded-[50%]">
+                  <FaUserDoctor className=" text-[40px]   text-white    " />
+                </div>
+              </div>
               <div>
-                <p className="text-white">Innovation in Every Flight</p>
-                <p className="text-[#A9B5BF] font-semibold">
+                <p className="text-white text-bold text-[25px]">
+                  Innovation in Every Flight
+                </p>
+                <p className="text-[#A9B5BF] text-[18px] font-semibold">
                   {`
                   QwikLif Air Ambulance embraces cutting-edge medical
                   technology. Think of our ambulances as flying hospitals,
@@ -313,10 +324,16 @@ const About = () => {
               </div>
             </div>
             <div className="flex">
-              <img src="" alt="" />
+              <div className=" mr-[50px] relative  p-[10px] rounded-[50%]  border-white">
+                <div className="p-[20px] bg-[#396CF0] rounded-[50%]">
+                  <FaTrophy className=" text-[40px]   text-white    " />
+                </div>
+              </div>
               <div>
-                <p className="text-white">Angels in the Air:</p>
-                <p className="text-[#A9B5BF] font-semibold">
+                <p className="text-white text-bold text-[25px]">
+                  Angels in the Air:
+                </p>
+                <p className="text-[#A9B5BF] text-[18px] font-semibold">
                   {`
                  Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.`}
                 </p>
@@ -324,7 +341,47 @@ const About = () => {
             </div>
           </div>
 
-          <div></div>
+          <div className="w-[40%] relative  bg-white rounded-[10px] py-[20px] px-[25px]">
+            <h2 className="text-[#111] font-bold text-[25px] mb-[30px] mt-[20px]">Get Quote Now</h2>
+            <input
+              type="text"
+              className="outline-0 border-[1px] border-[#eee] w-[100%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[30px]"
+              placeholder="From"
+            />
+            <input
+              type="text"
+              className="outline-0 border-[1px] border-[#eee] w-[100%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[30px]"
+              placeholder="To"
+            />
+
+            <div className="flex justify-between">
+              <input
+                type="text"
+                className="outline-0 border-[1px] border-[#eee] w-[48%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[30px]"
+                placeholder="Phone No"
+              />
+
+              <input
+                type="text"
+                className="outline-0 border-[1px] border-[#eee] w-[48%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[30px]"
+                placeholder="Email"
+              />
+            </div>
+            <div className="flex justify-between">
+              <input
+                type="date"
+                className="outline-0 border-[1px] border-[#eee] w-[48%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[20px]"
+                placeholder=""
+              />
+
+              <input
+                type="text"
+                className="outline-0 border-[1px] border-[#eee] w-[48%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[20px]"
+                placeholder="Time"
+              />
+            </div>
+            <button className='text-center text-[18px] shadow-lg font-bold mt-[40px] py-[7px] w-[100%] text-white rounded-[5px] bg-[#396CF0]'>Get Quote</button>
+          </div>
         </div>
       </div>
     </div>
