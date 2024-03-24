@@ -1,17 +1,72 @@
-import {useState} from "react";
-import styles from "../../styles/page.module.css";
+import { useState, useEffect } from 'react';
+import styles from '../../styles/page.module.css';
+import style from './About.module.css';
+import { useSpring, animated } from 'react-spring';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 
+  function Number({ n, className }) {
+    const { number } = useSpring({
+      from: { number: 0 },
+      number: n,
+      delay: 200,
+      // to: { opacity: 1 },
+      config: { mass: 1, tension: 20, friction: 10 },
+    });
+
+    return (
+      <animated.div className={className}>
+        {number.to((n) => n.toFixed(0))}
+      </animated.div>
+    );
+  }
+
+  const abouts = [
+    {
+      img: '/images/about1.jpg',
+      head: 'Affordability',
+      text: 'We understand the financial strain that medical emergencies can cause. Qwiklif is committed to offering the most competitive pricing in the industry. We believe that every individual should have access to premium air ambulance services without the burden of excessive costs.',
+    },
+    {
+      img: '/images/about2.png',
+      head: 'Cutting-Edge Aircraft',
+      text: 'Qwiklif only utilizes state-of-the-art aircraft equipped with the latest medical technology. We spare no expense in making sure that our patients receive the best care possible during their journey.',
+    },
+    {
+      img: '/images/about3.png',
+      head: 'Largest Global Network',
+      text: 'We have the largest air ambulance provider with a vast network of aircraft spanning across the globe. Whether you’re in a bustling metropolis or a remote corner of the world, we can reach you and get you to where you need to be.',
+    },
+    {
+      img: '/images/about4.jpg',
+      head: 'Swift Response',
+      text: 'Time is of the essence in critical medical situations. Our team is on standby 24/7, ready to respond to your call at a moment’s notice. We understand the urgency of your situation, and we act accordingly.',
+    },
+    {
+      img: '/images/about5.png',
+      head: 'Top-Notch Medical Expertise',
+      text: 'Our medical teams consist of highly skilled professionals with vast experience in critical care. We provide comprehensive in-flight medical care to ensure the safety and well-being of our patients',
+    },
+  ];
   return (
     <div className="font-poppins">
-      <img src="/images/about-banner.jpg" className="w-full" />
+      <div className={`bg-black ${style.Image}   bg-black h-[400px] w-full`}>
+        <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
+          <p className="text-[50px]  pt-[150px]">About Us</p>
+          <div className="flex pt-[30px] text-[20px]">
+            <p className="text-[#C5D5FF] pr-[10px]">
+              {'Air Ambulance Services >'}
+            </p>
+            <p>About us</p>
+          </div>
+        </div>
+      </div>
       <div className="flex px-32 py-16">
         <div className="w-1/4">
           <ul className="w-full flex flex-col drop-shadow-xl bg-white">
             <li
               className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
-                activeTab === 1 ? styles.aboutPageMenuActive : ""
+                activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
             >
@@ -19,7 +74,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
-                activeTab === 2 ? styles.aboutPageMenuActive : ""
+                activeTab === 2 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(2)}
             >
@@ -27,7 +82,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
-                activeTab === 3 ? styles.aboutPageMenuActive : ""
+                activeTab === 3 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(3)}
             >
@@ -35,7 +90,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
-                activeTab === 4 ? styles.aboutPageMenuActive : ""
+                activeTab === 4 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(4)}
             >
@@ -166,7 +221,58 @@ const About = () => {
           )}
         </div>
       </div>
-      <div className="bg-[#D8D8D8] h-[100px]"></div>
+
+      <div className="px-[5%] w-[100%] flex flex-wrap">
+        {abouts.map((data, i) => (
+          <div
+            key={i}
+            className="w-[30%] mr-[3%]  mb-[30px]  overflow-y-hidden relative"
+          >
+            <img className="rounded-[5px]" src={`${data.img}`} alt="" />
+            <div className={`${style.Slideover} px-[25px]`}>
+              <p className="text-[20px] font-semibold py-[20px]">{data.head}</p>
+              <p>{data.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="px-[5%] mb-[30px] w-[100%] flex justify-between">
+        <div className="w-[20%] flex flex-col items-center text-center">
+          <img src="/images/ab1.png" alt="" />
+          <div className="flex items-center">
+            <Number n={450} className={'font-bold text-[40px]'}></Number>
+            <p className="text-[30px]">+</p>
+          </div>
+
+          <p>Air Transfer</p>
+        </div>
+        <div className="w-[20%] flex flex-col items-center text-center">
+          <img src="/images/ab2.png" alt="" />
+          <div className="flex items-center">
+            <Number n={25} className={'font-bold text-[40px]'}></Number>
+            <p className="text-[30px]">+</p>
+          </div>
+          <p>No of Fleet</p>
+        </div>
+        <div className="w-[20%] flex flex-col items-center text-center">
+          <img src="/images/ab3.png" alt="" />
+          <div className="flex items-center">
+            <Number n={15} className={'font-bold text-[40px]'}></Number>
+            <p className="text-[30px]">+</p>
+          </div>
+
+          <p>Doctors</p>
+        </div>
+        <div className="w-[20%] flex flex-col items-center text-center">
+          <img src="/images/ab4.png" alt="" />
+          <div className="flex items-center">
+            <Number n={7000} className={'font-bold text-[40px]'}></Number>
+            <p className="text-[30px]">+</p>
+          </div>
+
+          <p>Global Affiliation</p>
+        </div>
+      </div>
     </div>
   );
 };
