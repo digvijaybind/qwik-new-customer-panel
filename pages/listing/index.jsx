@@ -26,13 +26,14 @@ import Link from 'next/link';
 import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 import { IoAirplaneSharp } from 'react-icons/io5';
 import SearchBar from '@/components/SearchBar/SearchBar';
+import { useSearchParams } from 'next/navigation';
+
 const Listing = ({ id }) => {
   const { apiData } = useData();
+  const searchParams = useSearchParams();
   const [airdata, setAirData] = useState({});
 
-  useEffect(() => {
-    // setAirData(JSON?.parse(localStorage?.getItem("aircraft")));
-  }, []);
+  console.log('searchParams', searchParams.keys());
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -77,12 +78,30 @@ const Listing = ({ id }) => {
   const [ChartereArrival, setchartereArrival] = useState();
   const [ChartereId, setchartereId] = useState();
 
-  const AvaiapageSubmit = () => {
-    console.log('formData', formData);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    if (
+      searchParams.has('originLocationCode') &&
+      searchParams.has('destinationLocationCode')
+    ) {
+      const formDetails = {
+        originLocationCode: searchParams.get('originLocationCode'),
+        destinationLocationCode: searchParams.get('destinationLocationCode'),
+        departureDate: searchParams.get('departureDate'),
+        pax: searchParams.get('pax'),
+        countryCode: searchParams.get('countryCode'),
+        mobile: searchParams.get('mobile'),
+        max: 5,
+      };
+      setFormData(formDetails);
+      searchFlights(formDetails);
+    }
+  }, [searchParams]);
 
+  const AvaiapageSubmit = (data) => {
+    console.log('formData', data);
+  };
+
+  const searchFlights = (data) => {
     setAircraftDataLoading(true);
     const headers = {
       'Content-Type': 'application/json',
@@ -90,7 +109,7 @@ const Listing = ({ id }) => {
 
     axios(`http://localhost:8000/customer/customerSearch`, {
       method: 'POST',
-      data: formData,
+      data: data,
       headers: headers,
     })
       .then((response) => {
@@ -108,13 +127,13 @@ const Listing = ({ id }) => {
       });
     axios(`http://localhost:8000/customer/Amadeusairline`, {
       method: 'POST',
-      data: formData,
+      data: data,
       headers: headers,
     })
       .then((response) => {
         console.log('Response:', response.data.ResponseData);
-        setDepartureLocation(formData?.originLocationCode);
-        setDestinationLocation(formData?.destinationLocationCode);
+        setDepartureLocation(data?.originLocationCode);
+        setDestinationLocation(data?.destinationLocationCode);
         setAircraftData(response.data);
         setSelectedCurrency('EUR');
       })
@@ -126,6 +145,11 @@ const Listing = ({ id }) => {
       });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchFlights(formData);
+  };
+
   console.log('aircraftData', aircraftData);
 
   const handleCurrencyChange = (event) => {
@@ -133,6 +157,7 @@ const Listing = ({ id }) => {
   };
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
+    console.log('name, value', name, value);
     setFormData({
       ...formData,
       [field]: value,

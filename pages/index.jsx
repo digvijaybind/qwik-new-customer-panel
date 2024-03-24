@@ -32,16 +32,19 @@ import Link from 'next/link';
 import SearchBar from '@/components/SearchBar/SearchBar';
 
 export default function Home() {
-  const [formData, setformData] = useState({});
+  const router = useRouter();
+  const [formData, setformData] = useState({
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    pax: 1,
+    countryCode: '',
+    mobile: '',
+    max: 5,
+  });
   const [fromSearch, setfromSearch] = useState('');
   const [tosearch, setTosearch] = useState('');
-  const [otherData, setOtherData] = useState({
-    From: '',
-    To: '',
-    Pax: '',
-    Date: '',
-    Aircraft: 'Learjet 45',
-  });
+
   const [selectedDate, setSelectedDate] = useState('');
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
@@ -75,39 +78,6 @@ export default function Home() {
     asyncTask();
   }, []);
 
-  useEffect(() => {
-    document.addEventListener('mouseup', function (e) {
-      console.log('event FIred');
-      let container1 = document.querySelector('#fromAutoComplete');
-      console.log('container1', container1);
-      let container2 = document.querySelector('#toAutoComplete');
-      console.log('container2', container2);
-      console.log(
-        'container1 && !container1?.contains(e.target)',
-        container1 && !container1?.contains(e.target)
-      );
-      console.log(
-        'container1?.contains(e.target)',
-        container1?.contains(e.target)
-      );
-      console.log(
-        'container2 && !container2?.contains(e.target)',
-        container2 && !container2?.contains(e.target)
-      );
-      console.log(
-        'container2?.contains(e.target)',
-        container2?.contains(e.target)
-      );
-      console.log(e.target);
-      if (container1 && !container1?.contains(e.target)) {
-        setFieldtype((state) => (state === 'From' ? '' : state));
-      }
-      if (container2 && !container2?.contains(e.target)) {
-        setFieldtype((state) => (state === 'To' ? '' : state));
-      }
-    });
-  }, []);
-
   const searchCity = (text) => {
     console.log('text', text);
     fetch(`${process.env.NEXT_PUBLIC_API_URL}all-airports?q=${text}`)
@@ -129,19 +99,6 @@ export default function Home() {
   }, [fromSearch, tosearch]);
   console.log('cityMatch', cityMatch);
 
-  const handleSelectChange = (e) => {
-    setOtherData((pre) => ({
-      ...pre,
-      Aircraft: e.target.value,
-    }));
-  };
-  const handleOtherInputChange = (field, e) => {
-    const { name, value } = e.target;
-    setOtherData((pre) => ({
-      ...pre,
-      [field]: value,
-    }));
-  };
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
     setformData((pre) => ({
@@ -157,37 +114,21 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [homeServices]);
-  const [apiResponse, setApiResponse] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const apiUrl = 'http://localhost:8000/customer/Amadeusairline';
-    const apiPayload = {
-      originLocationCode: otherData.From,
-      destinationLocationCode: otherData.To,
-      departureDate: otherData.Date,
-      pax: otherData.Pax,
-      max: 20,
-    };
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setApiResponse(data);
-        console.log('API Response:', data);
-      } else {
-        console.error('API Error:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
+    router.push({
+      pathname: '/listing',
+      query: {
+        pax: formData?.pax,
+        originLocationCode: formData.originLocationCode,
+        destinationLocationCode: formData.destinationLocationCode,
+        mobile: formData.mobile,
+        departureDate: formData.departureDate,
+        countryCode: formData.countryCode,
+      },
+    });
   };
 
   const handleDateChange = (event) => {

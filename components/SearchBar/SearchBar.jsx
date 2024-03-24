@@ -142,7 +142,7 @@ const SearchBar = ({
                     type="text"
                     placeholder="Arrival"
                     onFocus={() => setOriginFocus(true)}
-                    // value={formData.originLocationCode}
+                    value={formData.originLocationCode}
                     onChange={(e) => {
                       setOriginSearch(e.target.value);
                       handleInputChange('originLocationCode', e);
@@ -218,7 +218,7 @@ const SearchBar = ({
                     type="text"
                     placeholder="Destination"
                     onFocus={() => setDestinationFocus(true)}
-                    // value={formData.destinationLocationCode}
+                    value={formData.destinationLocationCode}
                     onChange={(e) => {
                       setDestinationSearch(e.target.value);
                       handleInputChange('destinationLocationCode', e);
