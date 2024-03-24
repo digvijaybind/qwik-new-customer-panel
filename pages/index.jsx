@@ -29,6 +29,7 @@ import { TiUserOutline } from 'react-icons/ti';
 import { RiPriceTag3Line } from 'react-icons/ri';
 import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 import Link from 'next/link';
+import SearchBar from '@/components/SearchBar/SearchBar';
 
 export default function Home() {
   const [formData, setformData] = useState({});
@@ -65,7 +66,6 @@ export default function Home() {
     };
   }, []);
 
- 
   useEffect(() => {
     const asyncTask = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -227,140 +227,15 @@ export default function Home() {
   const [SelectedCollapseIndex, setSelectedCollapseIndex] = useState(-1);
   return (
     <main>
-      <div class="font-Montserrat">
+      <div className="font-Montserrat">
         <Navnew></Navnew>
-        <Shadow
-          classname={`${styles.Top_container} bottom-[135px] mx-[30px] relative   lg:relative sm:static drop-shadow-xl bg-white px-7 py-7`}
-        >
-          <form onSubmit={handleSubmit} className="flex flex-col">
-            <div className="flex justify-between items-center pb-4 text-sm">
-              <div className="flex gap-5">
-                <div className="flex items-center">
-                  <TiUserOutline className="text-base" />
-                  <select
-                    className="border-none focus:outline-none"
-                    name="pax"
-                    value={formData?.pax}
-                    onChange={(e) => handleInputChange('pax', e)}
-                  >
-                    <option value="1">1 Adult</option>
-                    <option value="2">2 Adults</option>
-                    <option value="3">3 Adults</option>
-                    <option value="4">4 Adults</option>
-                    <option value="5">5 Adults</option>
-                    <option value="6">6 Adults</option>
-                    <option value="7">7 Adults</option>
-                    <option value="8">8 Adults</option>
-                    <option value="9">9 Adults</option>
-                    <option value="10">10 Adults</option>
-                  </select>
-                </div>
-                <div className="flex">
-                  <RiPriceTag3Line className="text-base" />
-                  <select className="border-none focus:outline-none">
-                    <option value="Commercial">Commercial</option>
-                    <option value="Commercial">Chartered</option>
-                  </select>
-                </div>
-              </div>
-              <div className="flex gap-2 items-center sm:hidden">
-                Looking for Air Ambulance Service?
-              </div>
-            </div>
-            <div className="flex sm:flex-col">
-              <div className="flex-1 grid sm:grid-cols-1 grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20 px-3">
-                <div className="col-span-5 grid grid-cols-2">
-                  <div className="col-span-1 sm:col-span-2 flex gap-3 items-center">
-                    <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
-                    <input
-                      className="bg-transparent py-3 focus:outline-none"
-                      name="originLocationCode"
-                      type="text"
-                      placeholder="Arrival"
-                      value={formData.originLocationCode}
-                      onChange={(e) =>
-                        handleInputChange('originLocationCode', e)
-                      }
-                    />
-                  </div>
-                  <div className="col-span-1 sm:col-span-2 flex gap-3 items-center">
-                    <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center" />
-                    <input
-                      className="bg-transparent py-3 focus:outline-none"
-                      name="destinationLocationCode"
-                      type="text"
-                      placeholder="Destination"
-                      value={formData.destinationLocationCode}
-                      onChange={(e) =>
-                        handleInputChange('destinationLocationCode', e)
-                      }
-                    />
-                  </div>
-                </div>
-                <div className="col-span-2 border-l-2 border-white px-5 flex justify-between items-center">
-                  <input
-                    className="col-span-3 bg-transparent py-3 focus:outline-none"
-                    name="mobile"
-                    type="tel"
-                    placeholder="Mobile"
-                    value={formData.mobile}
-                    onChange={(e) => handleInputChange('mobile', e)}
-                  />
-                </div>
-                <div className="col-span-5 border-l-2 border-white px-5 flex sm:flex-col justify-between items-center sm:items-start sm:pb-4">
-                  <input
-                    className="bg-transparent py-3 focus:outline-none"
-                    name="departureDate"
-                    type="date"
-                    value={formData.departureDate}
-                    onChange={(e) => handleInputChange('departureDate', e)}
-                  />
-                  <hr className="h-1 w-8 sm:hidden bg-white rounded-sm" />
-                  <select
-                    value={formData.countryCode}
-                    name="countryCode"
-                    onChange={(e) => handleInputChange('countryCode', e)}
-                    className="focus:outline-none bg-transparent border-none max-w-52"
-                  >
-                    {countries.map((data) => {
-                      return (
-                        <option
-                          value={data.code}
-                          key={data.code}
-                          class="text-black "
-                        >
-                          {data.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
-              <div className="md:justify-center sm:justify-center">
-                {isMobile ? (
-                  <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-Bluedark  flex items-center gap-2 mt-2">
-                    Search{' '}
-                    <Image
-                      src={Search}
-                      height={23}
-                      width={23}
-                      alt="search icon"
-                    />
-                  </button>
-                ) : (
-                  <button className="bg-Bluedark flex justify-center items-center h-full w-[55px]">
-                    <Image
-                      src={Search}
-                      height={24}
-                      width={24}
-                      alt="search icon"
-                    />
-                  </button>
-                )}
-              </div>
-            </div>
-          </form>
-        </Shadow>
+        <SearchBar
+          className="bottom-56"
+          isMobile={isMobile}
+          formData={formData}
+          handleSubmit={handleSubmit}
+          handleInputChange={handleInputChange}
+        />
         <AboutAircraft />
         <div>
           <QwiklifFeature />
@@ -471,10 +346,10 @@ export default function Home() {
             className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
             <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
-              <div class="text-[#a9b5bf] font-arcaMajoraBold">
+              <div className="text-[#a9b5bf] font-arcaMajoraBold">
                 QwikLif Air Ambulance
               </div>
-              <div class="font-arcaMajoraHeavy text-4xl text-white mt-1 mb-6">
+              <div className="font-arcaMajoraHeavy text-4xl text-white mt-1 mb-6">
                 Your Trusted Global Air Ambulance <br /> Provider
               </div>
               {tasktab.map((data, index) => {
@@ -508,7 +383,7 @@ export default function Home() {
                     value=""
                     placeholder="From *"
                     // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
-                    class=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    className=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
 
                   <input

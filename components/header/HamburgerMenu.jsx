@@ -12,13 +12,13 @@ const HamburgerMenu = () => {
   };
   return (
     <div>
-      <div class="flex flex-row justify-between items-center px-[25px] py-[20px]">
-        <div class="flex flex-row justify-between">
-          <div class="">
+      <div className="flex flex-row justify-between items-center px-[25px] py-[20px]">
+        <div className="flex flex-row justify-between">
+          <div className="">
             <Image src={Logo} width={95} height={90} />
           </div>
         </div>
-        <div class="font-semibold text-[10px]">
+        <div className="font-semibold text-[10px]">
           <div className={styles.telephonehamburg}>
             <div className={styles.Innertelephone}>
               <Image src={Telephone} width={18} height={26} />
@@ -41,30 +41,30 @@ const HamburgerMenu = () => {
         <div
           className={`bg-[#fff] p-6 shadow-2xl snap-y max-h-[200px] overflow-y-auto`}
         >
-          <ul class="">
+          <ul className="">
             <li
               onClick={() => router.push('/')}
-              class="font-semibold text-[16px] p-2 hover:gray"
+              className="font-semibold text-[16px] p-2 hover:gray"
             >
               Home
             </li>
             <li
               onClick={() => router.push('/services')}
-              class="font-semibold text-[16px] p-2 hover:gray"
+              className="font-semibold text-[16px] p-2 hover:gray"
             >
               Services
             </li>
             <li
               onClick={() => router.push('/blog')}
-              class="font-semibold text-[16px] p-2 hover:gray"
+              className="font-semibold text-[16px] p-2 hover:gray"
             >
               Blog
             </li>
-            <li class="font-semibold text-[16px] p-2 hover:gray">
+            <li className="font-semibold text-[16px] p-2 hover:gray">
               Our Location
             </li>
-            <li class="font-semibold text-[16px] p-2 hover:">About</li>
-            <li class="font-semibold text-[16px] p-2 hover:">Contact</li>
+            <li className="font-semibold text-[16px] p-2 hover:">About</li>
+            <li className="font-semibold text-[16px] p-2 hover:">Contact</li>
             {/* Add more menu items as needed */}
           </ul>
         </div>

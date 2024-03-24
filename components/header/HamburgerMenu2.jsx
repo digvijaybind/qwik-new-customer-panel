@@ -13,13 +13,13 @@ const HamburgerMenu2 = () => {
 
   return (
     <div>
-      <div class="flex flex-row justify-between items-center px-[40px] py-[20px]">
-        <div class="flex flex-row justify-between">
-          <div class="">
+      <div className="flex flex-row justify-between items-center px-[40px] py-[20px]">
+        <div className="flex flex-row justify-between">
+          <div className="">
             <Image src={Logo} width={95} height={90} />
           </div>
         </div>
-        <div class="font-semibold text-[10px]">
+        <div className="font-semibold text-[10px]">
           <div className={styles.telephonehamburg}>
             <div className={styles.Innertelephone}>
               <Image src={Telephone} width={18} height={26} />

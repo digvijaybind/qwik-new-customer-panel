@@ -35,16 +35,16 @@ const LocationData = [
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
-    <div class="bg-[#0f2738] px-[100px] pt-14 pb-8 font-poppins sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
-      <div class="grid grid-cols-5 content-center sm:grid-cols-2 gap-3">
-        <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer content-center font-poppins font-semibold text-[20px] hover:bg-[[#11B6E3]">
+    <div className="bg-[#0f2738] px-[100px] pt-14 pb-8 font-poppins sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
+      <div className="grid grid-cols-5 content-center sm:grid-cols-2 gap-3">
+        <div className="flex flex-col content-center">
+          <div className="text-white cursor-pointer content-center font-poppins font-semibold text-[20px] hover:bg-[[#11B6E3]">
             Qwiklif
           </div>
           {QwiklifData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
+                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
                 key={'qwiklif-' + index}
               >
                 {data}
@@ -52,15 +52,15 @@ const Newfooter = () => {
             );
           })}
         </div>
-        <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+        <div className="flex flex-col content-center">
+          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Fleet
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {FleetData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
+                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
                 key={'fleetdata-' + index}
               >
                 {data}
@@ -68,15 +68,15 @@ const Newfooter = () => {
             );
           })}
         </div>
-        <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+        <div className="flex flex-col content-center">
+          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Our Services
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {ServiceData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
+                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
                 key={'servicedata-' + index}
               >
                 {data}
@@ -84,15 +84,15 @@ const Newfooter = () => {
             );
           })}
         </div>
-        <div class="flex flex-col content-center">
-          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+        <div className="flex flex-col content-center">
+          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Our Locations
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {LocationData.map((data, index) => {
             return (
               <div
-                class="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
+                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
                 key={'locationdata-' + index}
               >
                 {data}
@@ -100,66 +100,66 @@ const Newfooter = () => {
             );
           })}
         </div>
-        <div class="flex flex-col content-center items-baseline sm:items-start md:items-start">
-          <div class="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+        <div className="flex flex-col content-center items-baseline sm:items-start md:items-start">
+          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
             Qwiklif Air Ambulance
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
-          <div class="text-[15px] text-[#fff]  cursor-pointer sm:ml-0 md:ml-0 mb-2">
+          <div className="text-[15px] text-[#fff]  cursor-pointer sm:ml-0 md:ml-0 mb-2">
             Qwiklif Air Ambulance, Warehouse No.3 - Al Qusais Industrial Area 3
             - Dubai
           </div>
-          <div class="flex flex-row">
+          <div className="flex flex-row">
             <Image src={Phone} height={30} width={30} />
-            <span class="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8]">
+            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8]">
               <a href=" +971 50 282 5433 hover:text-[#3788d8]">
                 +971 50 282 5433
               </a>
             </span>
           </div>
-          <div class=" flex flex-row">
+          <div className=" flex flex-row">
             <Image src={Mail} height={30} width={30} />
-            <span class="text-[15px] text-[#fff] ml-4 cursor-pointer hover:text-[#3788d8]">
+            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer hover:text-[#3788d8]">
               <a href="mailto:info@qwiklif.com">info@qwiklif.com</a>
             </span>
           </div>
         </div>
       </div>
-      <div class="flex justify-center flex-col items-center font-poppins pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
-        <Image src={Logo} height={53} width={150} class="cursor-pointer" />
-        <div class="font-thin text-[16px] text-[#fff] mt-2 mb-2 font-poppins hover:text-[#3788d8]">
+      <div className="flex justify-center flex-col items-center font-poppins pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
+        <Image src={Logo} height={53} width={150} className="cursor-pointer" />
+        <div className="font-thin text-[16px] text-[#fff] mt-2 mb-2 font-poppins hover:text-[#3788d8]">
           © 2024 Qwiklif. All rights reserved.{' '}
         </div>
-        <div class="grid grid-cols-5 gap-5">
+        <div className="grid grid-cols-5 gap-5">
           <Image
             src={Linkedin}
             height={35}
             width={35}
-            class="cursor-pointer rounded-full object-center"
+            className="cursor-pointer rounded-full object-center"
           />
           <Image
             src={Insta}
             height={35}
             width={35}
-            class="cursor-pointer rounded-full object-center"
+            className="cursor-pointer rounded-full object-center"
           />
           <Image
             src={Tiktok}
             height={35}
             width={35}
-            class="cursor-pointer rounded-full object-center"
+            className="cursor-pointer rounded-full object-center"
           />
           <Image
             src={Twitter}
             height={35}
             width={35}
-            class="cursor-pointer rounded-full object-center"
+            className="cursor-pointer rounded-full object-center"
           />
           <Image
             src={Facebook}
             height={35}
             width={35}
-            class="cursor-pointer rounded-full object-center"
+            className="cursor-pointer rounded-full object-center"
           />
         </div>
       </div>

@@ -4,9 +4,9 @@ import Image from 'next/image';
 const NewsUpdates = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      class={`mx-[10px]  flex flex-col items-center ${styles.boxShadow} p-[30px] shadow-2xl rounded-md`}
+      className={`mx-[10px]  flex flex-col items-center ${styles.boxShadow} p-[30px] shadow-2xl rounded-md`}
     >
-      <div class="w-full ">
+      <div className="w-full ">
         <Image
           className="w-full aspect-video object-cover object-center"
           src={imageUrl}

@@ -38,14 +38,14 @@ const AboutAmbulance = () => {
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
           <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
         </div>
-        <div class="">
+        <div className="">
           <div className="w-[90%] mx-[5%] sm:w-full sm:mx-0">
             <Slider {...settings}>
               {services.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    class="grid grid-cols-3  gap-10 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                    className="grid grid-cols-3  gap-10 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
                   >
                     <Servicecard
                       title={item.title}

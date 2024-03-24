@@ -41,14 +41,14 @@ const LatestNew = () => {
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
           <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
         </div>
-        <div class="w-full">
+        <div className="w-full">
           <div className="w-full">
             <Slider {...settings}>
               {newsUpdates.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    class="grid gap-4 grid-cols-3 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                    className="grid gap-4 grid-cols-3 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
                   >
                     <NewsUpdates
                       title={item.title}

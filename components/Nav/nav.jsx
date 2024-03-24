@@ -10,7 +10,7 @@ const images = [Image1, Image2, Image3, Image4, Image5, Image6];
 
 const Nav = () => {
   return (
-    <div class="mb-70 mt-30">
+    <div className="mb-70 mt-30">
       {/* <div className={`${styles.Nav_first} sm:hidden`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

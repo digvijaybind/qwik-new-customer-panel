@@ -142,7 +142,7 @@ const JourneyDetails = ({
             id="currencySelector"
             value={selectedCurrency}
             onChange={handleCurrencyChange}
-            class="border-solid border-2 border-black rounded-md text-xs"
+            className="border-solid border-2 border-black rounded-md text-xs"
           >
             {Object.keys(currencySymbols)?.map((currency, index) => {
               return (
@@ -153,9 +153,9 @@ const JourneyDetails = ({
             })}
           </select>
 
-          <div class="flex flex-row items-end">
+          <div className="flex flex-row items-end">
             {currencySymbols[selectedCurrency]}
-            <div class=" font-extrabold"> {totalCost}</div>
+            <div className=" font-extrabold"> {totalCost}</div>
           </div>
         </div>
       </div>
@@ -439,7 +439,7 @@ const CostDetails = ({
               id="currencySelector"
               value={selectedCurrency}
               onChange={handleCurrencyChange}
-              class="border-solid border-2 border-black rounded-md text-xs"
+              className="border-solid border-2 border-black rounded-md text-xs"
             >
               {Object.keys(currencySymbols)?.map((currency, index) => {
                 return (
@@ -450,9 +450,9 @@ const CostDetails = ({
               })}
             </select>
 
-            <div class="flex flex-row items-end">
+            <div className="flex flex-row items-end">
               {currencySymbols[selectedCurrency]}
-              <div class=" font-extrabold"> {totalCost}</div>
+              <div className=" font-extrabold"> {totalCost}</div>
             </div>
           </div>
         </div>

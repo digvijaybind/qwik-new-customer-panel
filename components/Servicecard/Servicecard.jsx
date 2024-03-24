@@ -5,9 +5,9 @@ import ForwardSlash from '../../public/images/ForwardSlash.svg';
 const Servicecard = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      class={`transition ease-in-out delay-90  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[10px] px-[10px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer hover:shadow-xl hover:z-[999999999999]`}
+      className={`transition ease-in-out delay-90  hover:-translate-y-1 hover:scale-110  flex flex-col items-center shadow-2xl py-[10px] px-[10px] ${styles.boxShadow} hover:text-[#007bff] cursor-pointer hover:shadow-xl hover:z-[999999999999]`}
     >
-      <div class="w-full relative ">
+      <div className="w-full relative ">
         <Image
           className="w-full h-full"
           src={imageUrl}
@@ -15,7 +15,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           height={314}
           alt="rapid Time"
           layout="responsive"
-          class="hover:scale-60 transition duration-500 cursor-pointer"
+          className="hover:scale-60 transition duration-500 cursor-pointer"
         />
         <Image
           className="max-w-[80px] max-h-[80px] absolute bottom-[-40px] left-[50px] border-r-[100%]"
@@ -37,7 +37,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           <strong className="text-[#396CF0] text-[15px]  leading-[26px] flex flex-row  items-center font-semibold">
             READ MORE{' '}
             <span>
-              <Image src={ForwardSlash} height={7} width={7} class="ml-3" />
+              <Image src={ForwardSlash} height={7} width={7} className="ml-3" />
             </span>
           </strong>
         </button>

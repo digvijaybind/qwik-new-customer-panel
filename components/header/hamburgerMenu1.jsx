@@ -15,9 +15,9 @@ const HamburgerMenu1 = () => {
       {isOpen && (
         <div style={{background: "#fff", padding: "20px", cursor: "pointer"}}>
           <ul className="">
-            <li class="cursor-pointer">Home</li>
-            <li class="cursor-pointer">About</li>
-            <li class="cursor-pointer">Contact</li>
+            <li className="cursor-pointer">Home</li>
+            <li className="cursor-pointer">About</li>
+            <li className="cursor-pointer">Contact</li>
           </ul>
         </div>
       )}

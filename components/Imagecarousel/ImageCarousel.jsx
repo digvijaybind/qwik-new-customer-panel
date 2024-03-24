@@ -20,7 +20,7 @@ const ImageCarousel = ({images}) => {
     <Slider {...settings}>
       {images.map((imageUrl, index) => (
         <div key={index}>
-          <div class="w-full flex justify-center rounded-lg">
+          <div className="w-full flex justify-center rounded-lg">
             <Image
               src={imageUrl}
               alt={`Slide ${index + 1}`}

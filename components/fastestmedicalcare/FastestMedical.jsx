@@ -35,7 +35,7 @@ const FastestMedical = () => {
         <div
           className={`${styles.lowerShadow} bg-white translate-y-2/3 sm:translate-y-[10%] w-8/12 sm:w-10/12 p-4 shadow-md items-center flex justify-evenly flex-row sm:flex-wrap sm:justify-center  sm:flex-col sm:items-center`}
         >
-          <div class="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <Image src={MiniAeroplane} height={100} width={100} />
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={450} duration={5} />+
@@ -43,7 +43,7 @@ const FastestMedical = () => {
             <div className="font-semibold text-black">Air Transfer</div>
           </div>
 
-          <div class="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <Image src={Miniaircraft} width={100} height={100} />
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={25} duration={8} />+
@@ -53,14 +53,14 @@ const FastestMedical = () => {
             </div>
           </div>
 
-          <div class="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <Image src={Doctor} width={100} height={100} />
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={15} duration={10} />+
             </div>
             <div className="font-semibold text-black">Doctors</div>
           </div>
-          <div class="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <Image src={Miniglobal} width={100} height={100} />
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={7000} duration={5} /> +

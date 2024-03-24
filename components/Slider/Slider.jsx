@@ -34,7 +34,7 @@ const SliderComponent = () => {
           return (
             <div
               key={index}
-              class="grid gap-4 grid-cols-3 px-20 mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+              className="grid gap-4 grid-cols-3 px-20 mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
             >
               {/* <Servicecard
                 title={item.title}

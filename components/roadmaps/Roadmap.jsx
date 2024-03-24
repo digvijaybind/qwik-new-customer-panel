@@ -33,7 +33,7 @@ const Roadmap = () => {
                         height={40}
                         alt="rapid Time"
                         layout="contain"
-                        class="block sm:hidden"
+                        className="block sm:hidden"
                       />
                     </div>
                   ) : (
@@ -45,7 +45,7 @@ const Roadmap = () => {
                         height={40}
                         alt="rapid Time"
                         layout="contain"
-                        class="block sm:hidden"
+                        className="block sm:hidden"
                       />
                     </div>
                   )}

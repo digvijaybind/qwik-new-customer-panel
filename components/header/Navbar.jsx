@@ -16,7 +16,7 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  return <div class="">{isMobile ? <HamburgerMenu /> : <Header />}</div>;
+  return <div className="">{isMobile ? <HamburgerMenu /> : <Header />}</div>;
 };
 
 export default Navbar;
