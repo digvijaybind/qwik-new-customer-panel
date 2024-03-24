@@ -51,10 +51,10 @@ const Header = () => {
     },
     {
       title: 'Services',
-      url: '',
+      url: '/services',
     },
     {
-      title: 'book',
+      title: 'Book',
       url: '/listing',
     },
     {
@@ -88,10 +88,10 @@ const Header = () => {
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-10 px-5  border-b-2 text-[16px]  font-semibold ${
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] ${
                     index === activeTab
                       ? 'border-[#11b6e3]  text-[#11b6e3]'
-                      : 'border-transparent text-[#fff]'
+                      : 'border-transparent text-[#000]'
                   }`}
                   onClick={() => handleTabClick(index)}
                 >
