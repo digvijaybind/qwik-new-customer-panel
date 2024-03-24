@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from '../../styles/page.module.css';
 import style from './About.module.css';
+import { FaPlane } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -271,6 +272,59 @@ const About = () => {
           </div>
 
           <p>Global Affiliation</p>
+        </div>
+      </div>
+      <div className={`${style.Aboutdown} px-[5%] py-[40px]`}>
+        <div className="relative z-[1000]">
+          <p className="text-[#A9B5BF]">Qwiflif Air Ambulance</p>
+          <p className="text-[30px] font-bold text-white">
+            Your Trusted Global Air Ambulance Provider
+          </p>
+        </div>
+        <div className="flex">
+          <div className="relative z-[1000]">
+            <div className="flex">
+              <div className='w-[200px] relative h-[100px] bg-[#396CF0] rounded-[50%] border-white'>
+                <FaPlane className='absolute text-[40px] text-white top-[30%]  left-[50%] transform translate-x-[-50%]' />
+              </div>
+              <div>
+                <p className="text-white">Express Lane to Care</p>
+                <p className="text-[#A9B5BF] font-semibold">
+                  Time is precious, especially during emergencies. Our air
+                  ambulances are not just vehicles; they are a beacon of hope on
+                  the fastest route to medical assistance. We pride ourselves on
+                  a lightning-quick response that bridges the gap between
+                  distress and relief
+                </p>
+              </div>
+            </div>
+            <div className="flex">
+              <img src="" alt="" />
+              <div>
+                <p className="text-white">Innovation in Every Flight</p>
+                <p className="text-[#A9B5BF] font-semibold">
+                  {`
+                  QwikLif Air Ambulance embraces cutting-edge medical
+                  technology. Think of our ambulances as flying hospitals,
+                  complete with state-of-the-art equipment. We're not just
+                  transporting patients; we're bringing a mobile medical unit to
+                  ensure the best care possible.`}
+                </p>
+              </div>
+            </div>
+            <div className="flex">
+              <img src="" alt="" />
+              <div>
+                <p className="text-white">Angels in the Air:</p>
+                <p className="text-[#A9B5BF] font-semibold">
+                  {`
+                 Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.`}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div></div>
         </div>
       </div>
     </div>
