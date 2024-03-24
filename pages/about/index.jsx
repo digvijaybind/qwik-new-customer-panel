@@ -282,10 +282,10 @@ const About = () => {
           </p>
         </div>
         <div className="flex">
-          <div className="relative z-[1000]">
-            <div className="flex">
-              <div className='w-[200px] relative h-[100px] bg-[#396CF0] rounded-[50%] border-white'>
-                <FaPlane className='absolute text-[40px] text-white top-[30%]  left-[50%] transform translate-x-[-50%]' />
+          <div className="relative z-[200] w-[60%]">
+            <div className="flex mb-[30px]">
+              <div className="w-[120px] mx-[20px] relative h-[60px]  rounded-[50%] border-white">
+                <FaPlane className="absolute text-[40px] text-white top-[50%] bg-[#396CF0]  left-[50%] transform translate-y-[-50%] translate-x-[-50%]" />
               </div>
               <div>
                 <p className="text-white">Express Lane to Care</p>
