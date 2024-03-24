@@ -410,7 +410,10 @@ const AircraftDetailsCard = ({
 
                   <div className="flex flex-row items-end">
                     {currencySymbols[selectedCurrency]}
-                    <div className=" font-extrabold"> {totalCost}</div>
+                    <div className=" font-extrabold">
+                      {' '}
+                      {totalCost ? totalCost?.toFixed(2) : '-'}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -73,6 +73,8 @@ const Listing = ({ id }) => {
   const [destinationLocation, setDestinationLocation] = useState();
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const [aircraftCommercialDataLoading, setCommercialAircraftDataLoading] =
+    useState(false);
   const [CharteredData, setcharteredData] = useState([]);
   const [Charteredepature, setcharteredDepature] = useState();
   const [ChartereArrival, setchartereArrival] = useState();
@@ -103,6 +105,7 @@ const Listing = ({ id }) => {
 
   const searchFlights = (data) => {
     setAircraftDataLoading(true);
+    setCommercialAircraftDataLoading(true);
     const headers = {
       'Content-Type': 'application/json',
     };
@@ -113,7 +116,6 @@ const Listing = ({ id }) => {
       headers: headers,
     })
       .then((response) => {
-        console.log('data line 83', response.data.aviapages.responseObj);
         setcharteredData(response.data.aviapages);
         setcharteredDepature(response.data.aviapages.responseObj.from);
         setchartereArrival(response.data.aviapages.responseObj.to);
@@ -125,6 +127,7 @@ const Listing = ({ id }) => {
       .finally(() => {
         setAircraftDataLoading(false);
       });
+
     axios(`http://localhost:8000/customer/Amadeusairline`, {
       method: 'POST',
       data: data,
@@ -141,7 +144,7 @@ const Listing = ({ id }) => {
         console.error('Error:', error);
       })
       .finally(() => {
-        setAircraftDataLoading(false);
+        setCommercialAircraftDataLoading(false);
       });
   };
 
@@ -149,8 +152,6 @@ const Listing = ({ id }) => {
     e.preventDefault();
     searchFlights(formData);
   };
-
-  console.log('aircraftData', aircraftData);
 
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -195,7 +196,7 @@ const Listing = ({ id }) => {
             Showing {apiData?.nearestOperatorWithPrice?.length} results
           </p>
         )}
-        <div className="px-[5%] flex justify-between items-stretch flex-wrap">
+        {/* <div className="px-[5%] flex justify-between items-stretch flex-wrap">
           {apiData?.nearestOperatorWithPrice?.map((el, i) => (
             <Planedesc
               key={'reesult-item-' + i}
@@ -207,10 +208,10 @@ const Listing = ({ id }) => {
               to={apiData.to}
             ></Planedesc>
           ))}
-        </div>
+        </div> */}
         <div className="grid grid-cols-2 sm:grid-cols-1 gap-8">
           <div
-            className={`grid grid-rows-5 grid-cols-1 gap-8 ${
+            className={`grid grid-cols-1 gap-8 ${
               isMobile &&
               !(
                 aircraftDataLoading ||
@@ -222,8 +223,8 @@ const Listing = ({ id }) => {
                 : ''
             }`}
           >
-            {aircraftDataLoading ? (
-              <div className="flex justify-center items-center py-10">
+            {aircraftCommercialDataLoading ? (
+              <div className="flex justify-center items-center h-fit py-10">
                 <Loader className="h-6 w-6" />
               </div>
             ) : (
@@ -272,18 +273,26 @@ const Listing = ({ id }) => {
             )}
           </div>
           <div className="grid grid-cols-1 gap-8">
-            {CharteredData?.responseObj?.nearestOperatorWithPrice?.map(
-              (data, index) => {
-                return (
-                  <DedicatedCard
-                    key={'airacraft-list-item' + index}
-                    CharteredData={data}
-                    Charteredepature={Charteredepature}
-                    ChartereArrival={ChartereArrival}
-                    ChartereId={CharteredData.aircraftId}
-                  />
-                );
-              }
+            {aircraftDataLoading ? (
+              <div className="flex justify-center items-center py-10 h-fit">
+                <Loader className="h-6 w-6" />
+              </div>
+            ) : (
+              <>
+                {CharteredData?.responseObj?.nearestOperatorWithPrice?.map(
+                  (data, index) => {
+                    return (
+                      <DedicatedCard
+                        key={'airacraft-list-item' + index}
+                        CharteredData={data}
+                        Charteredepature={Charteredepature}
+                        ChartereArrival={ChartereArrival}
+                        ChartereId={CharteredData.aircraftId}
+                      />
+                    );
+                  }
+                )}
+              </>
             )}
           </div>
         </div>

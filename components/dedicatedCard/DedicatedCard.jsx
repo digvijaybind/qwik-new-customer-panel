@@ -35,7 +35,7 @@ const DedicatedCard = ({
   };
   const TotalTime = () => {
     const time = moment(CharteredData.totalTime).format('HH:mm');
-    console.log("Time line 38",time )
+    console.log('Time line 38', time);
     setTotaltime(time);
   };
   const Aircraft = () => {
@@ -85,7 +85,9 @@ const DedicatedCard = ({
           <div className="flex flex-col">
             <p className="font-semibold">Included Perks :</p>
             <ul className="list-disc ml-4 flex flex-col gap-1">
-              <li className="font-semibold text-slate-600 text-xs">Stretcher ✅</li>
+              <li className="font-semibold text-slate-600 text-xs">
+                Stretcher ✅
+              </li>
               <li className="font-semibold text-slate-600 text-xs">
                 Doctor OnBoard ✅
               </li>
@@ -105,7 +107,10 @@ const DedicatedCard = ({
                 </div>
                 <div className="flex justify-end gap-6">
                   <div className="flex flex-row items-end">
-                    ₹<div className=" font-extrabold">{price} </div>
+                    ₹
+                    <div className=" font-extrabold">
+                      {price ? price?.toFixed(2) : '-'}{' '}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -116,14 +121,18 @@ const DedicatedCard = ({
                 <span className="font-semibold text-[11px] text-gray-500 leading-tight">
                   Airline Name
                 </span>
-                <span className="font-semibold leading-tight">{aircraftName}</span>
+                <span className="font-semibold leading-tight">
+                  {aircraftName}
+                </span>
               </div>
               <div className="flex flex-col justify-end text-end">
                 <span className="font-semibold text-[11px] text-gray-500 leading-tight">
                   Ticket Availability
                 </span>
 
-                <span className="font-semibold text-[12px]">{dateAvailable}</span>
+                <span className="font-semibold text-[12px]">
+                  {dateAvailable}
+                </span>
                 {/* <span className="font-semibold text-[14px]">
               {aircraftData?.depatureDate}
             </span> */}
