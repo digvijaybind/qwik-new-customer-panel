@@ -1,0 +1,36 @@
+.Button {
+  color: #396cf0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.Button:hover .Text {
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+.Button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #396cf0;
+  transition: left 0.3s ease;
+}
+
+.Button:hover::before {
+  left: 0;
+}
+.Imagecon {
+  overflow: hidden;
+}
+.Imagechild {
+  width: 100%;
+  transition: .5s ease;
+}
+.Imagecon:hover .Imagechild {
+  
+  transform: rotateZ(-5deg) scale(1.1);
+}
