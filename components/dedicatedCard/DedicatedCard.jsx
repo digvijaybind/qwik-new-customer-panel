@@ -29,12 +29,13 @@ const DedicatedCard = ({
   };
 
   const Pricedata = () => {
-    const cost = CharteredData.price;
+    const cost = CharteredData.totalPriceWithAdminMargin;
     console.log('PriceDatawithmargin', cost);
     setTotalPrice(cost);
   };
   const TotalTime = () => {
     const time = moment(CharteredData.totalTime).format('HH:mm');
+    console.log("Time line 38",time )
     setTotaltime(time);
   };
   const Aircraft = () => {

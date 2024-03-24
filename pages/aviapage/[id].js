@@ -46,11 +46,7 @@ const JourneyDetails = () => {
         <span>Estimated Cost</span>
         <span className="text-base">₹ 13,28,936</span>
       </p>
-      <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>, grants you the opportunity
-        to enjoy the luxury and convenience of flying private at commercial
-        prices.
-      </div>
+
       <div className="flex flex-col mt-5">
         <input
           name="username"

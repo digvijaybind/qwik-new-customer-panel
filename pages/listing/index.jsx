@@ -92,7 +92,7 @@ const Listing = ({ id }) => {
       data: formData,
       headers: headers,
     })
-      .then((response) => {
+    .then((response) => {
         console.log('data line 83', response.data.aviapages.responseObj);
         setcharteredData(response.data.aviapages);
         setcharteredDepature(response.data.aviapages.responseObj.from);
@@ -105,30 +105,26 @@ const Listing = ({ id }) => {
       .finally(() => {
         setAircraftDataLoading(false);
       });
-
-    // console.log('formData', formData);
-    // const headers = {
-    //   'Content-Type': 'application/json',
-    // };
-    // axios(`http://localhost:8000/customer/Amadeusairline`, {
-    //   method: 'POST',
-    //   data: formData,
-    //   headers: headers,
-    // })
-    //   .then((response) => {
-    //     console.log('Response:', response.data.ResponseData);
-    //     setDepartureLocation(formData?.originLocationCode);
-    //     setDestinationLocation(formData?.destinationLocationCode);
-    //     setAircraftData(response.data);
-    //     setSelectedCurrency('EUR');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error:', error);
-    //   })
-    //   .finally(() => {
-    //     setAircraftDataLoading(false);
-    //   });
+    axios(`http://localhost:8000/customer/Amadeusairline`, {
+      method: 'POST',
+      data: formData,
+      headers: headers,
+    })
+      .then((response) => {
+        console.log('Response:', response.data.ResponseData);
+        setDepartureLocation(formData?.originLocationCode);
+        setDestinationLocation(formData?.destinationLocationCode);
+        setAircraftData(response.data);
+        setSelectedCurrency('EUR');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        setAircraftDataLoading(false);
+      });
   };
+
   console.log('aircraftData', aircraftData);
 
   const handleCurrencyChange = (event) => {
