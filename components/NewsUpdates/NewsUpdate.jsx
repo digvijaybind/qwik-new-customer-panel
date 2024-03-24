@@ -11,6 +11,8 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
           className="w-full aspect-video object-cover object-center"
           src={imageUrl}
           alt="rapid Time"
+            width={40}
+            height={40}
           layout="responsive"
         />
       </div>
