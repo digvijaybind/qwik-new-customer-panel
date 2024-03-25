@@ -457,7 +457,7 @@ const CostDetails = ({
           </div>
         </div>
       </div>
-      <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
+      <button className="border border-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white shadow-lg shadow-primary/70 bg-primary text-white">
         Pay Now
       </button>
     </div>

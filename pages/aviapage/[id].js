@@ -43,7 +43,9 @@ const JourneyDetails = ({
         {aircraft?.aviapagesResponse?.airport?.departure_airport} to{' '}
         {aircraft?.aviapagesResponse?.airport?.arrival_airport}
       </h3>
-      <p className="font-bold text-[0.85rem]">{aircraft?.totalTime} hrs</p>
+      <p className="font-bold text-[0.85rem]">
+        {aircraft?.totalTime ? aircraft?.totalTime?.toFixed(2) : '-'} hrs
+      </p>
       <p className="my-3">
         1 Passengers |{' '}
         {aircraft?.lastTicketingDate &&
@@ -379,7 +381,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
           </div>
         </div>
       </div>
-      <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
+      <button className="border border-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white shadow-lg shadow-primary/70 bg-primary text-white">
         Pay Now
       </button>
     </div>
@@ -511,9 +513,9 @@ const AviapageDetails = () => {
   };
 
   useEffect(() => {
-    const actualTotalPrice = aircraftData?.totalPriceWithTechStopAndAdminMargin
+    const actualTotalPrice = aircraftData?.totalPriceWithAdminMargin
       ? parseFloat(
-          (aircraftData?.totalPriceWithTechStopAndAdminMargin).toFixed(2)
+          (aircraftData?.totalPriceWithAdminMargin).toFixed(2)
         )
       : 0;
     switch (selectedCurrency) {
@@ -532,7 +534,7 @@ const AviapageDetails = () => {
       default:
         setTotalCost(0);
     }
-  }, [aircraftData?.totalPriceWithTechStopAndAdminMargin, selectedCurrency]);
+  }, [aircraftData?.totalPriceWithAdminMargin, selectedCurrency]);
 
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -586,6 +588,9 @@ const AviapageDetails = () => {
       fetchData();
     }
   }, [id]);
+
+  console.log('totalCost', totalCost)
+  console.log('aircraftData?.totalPriceWithAdminMargin', aircraftData?.totalPriceWithAdminMargin)
 
   return (
     <div className="">
