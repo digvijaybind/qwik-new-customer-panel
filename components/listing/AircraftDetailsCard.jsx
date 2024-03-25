@@ -52,7 +52,8 @@ const AircraftDetailsCard = ({
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [airlineImage, setAirlineImage] = useState('');
-
+console.log('collection id', aircraftId);
+console.log("aircrfat id",aircraftData?.aircraft?.id)
 
   const getEUR = (price) => {
     const EuroPrice = price;
