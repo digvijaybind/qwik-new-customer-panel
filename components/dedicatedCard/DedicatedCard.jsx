@@ -46,7 +46,9 @@ const DedicatedCard = ({
   };
 
   useEffect(() => {
-    const actualTotalPrice = parseFloat((charteredData?.totalPriceWithTechStopAndAdminMargin).toFixed(2));
+    const actualTotalPrice = parseFloat(
+      charteredData?.totalPriceWithTechStopAndAdminMargin?.toFixed(2)
+    );
     switch (selectedCurrency) {
       case 'EUR':
         setTotalPrice(getEUR(actualTotalPrice));

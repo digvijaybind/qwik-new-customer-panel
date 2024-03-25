@@ -9,14 +9,15 @@ import Insta from '../../public/images/socialmedia/Insta.svg';
 import Tiktok from '../../public/images/socialmedia/tiktok.svg';
 import Twitter from '../../public/images/socialmedia/Twitter.svg';
 import Facebook from '../../public/images/socialmedia/facebook.svg';
+import Link from 'next/link';
 const QwiklifData = [
-  'About us',
-  'Fleet',
-  'Media',
-  'Services',
-  'Contact us',
-  'OurLocation',
-  'Blog',
+  { name: 'About us', link: '/about' },
+  { name: 'Media', link: '/media' },
+  { name: 'Services', link: '/services' },
+  { name: 'Work with us', link: '/workWithus' },
+  { name: 'Contact us', link: '/contact-us' },
+  { name: 'OurLocation', link: '/location' },
+  { name: 'Blog', link: '' },
 ];
 
 const ServiceData = [
@@ -43,12 +44,14 @@ const Newfooter = () => {
           </div>
           {QwiklifData.map((data, index) => {
             return (
-              <div
-                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
-                key={'qwiklif-' + index}
-              >
-                {data}
-              </div>
+              <Link href={data.link}>
+                <div
+                  className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
+                  key={'qwiklif-' + index}
+                >
+                  {data.name}
+                </div>
+              </Link>
             );
           })}
         </div>

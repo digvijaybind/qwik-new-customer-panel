@@ -3,6 +3,7 @@ import styles from '../../styles/page.module.css';
 import style from './About.module.css';
 import { FaPlane } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
+import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -237,7 +238,8 @@ const About = () => {
           </div>
         ))}
       </div>
-      <div className="px-[5%] mb-[30px] w-[100%] flex justify-between">
+      <FastestMedical />
+      {/* <div className="px-[5%] mb-[30px] w-[100%] flex justify-between">
         <div className="w-[20%] flex flex-col items-center text-center">
           <img src="/images/ab1.png" alt="" />
           <div className="flex items-center">
@@ -273,8 +275,8 @@ const About = () => {
 
           <p>Global Affiliation</p>
         </div>
-      </div>
-      <div className={`${style.Aboutdown} px-[5%] py-[40px]`}>
+      </div> */}
+      {/* <div className={`${style.Aboutdown} px-[5%] py-[40px]`}>
         <div className="relative z-[1000]">
           <p className="text-[#A9B5BF]">Qwiflif Air Ambulance</p>
           <p className="text-[30px] font-bold text-white">
@@ -326,7 +328,7 @@ const About = () => {
 
           <div></div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
