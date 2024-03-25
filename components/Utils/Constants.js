@@ -118,3 +118,10 @@ export const locationCountries = [
   { country: 'Malaysia', flagImage: 'Malaysia.jpg' },
   { country: 'Cambodia', flagImage: 'Cambodia.png' },
 ];
+
+export const currencySymbols = {
+  EUR: '€',
+  AED: 'AED',
+  USD: '$',
+  INR: '₹',
+};

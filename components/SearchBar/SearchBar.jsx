@@ -48,7 +48,7 @@ const SearchBar = ({
         .finally(() => {
           setSearchLoading(false);
         });
-    }, 300),
+    }, 400),
     []
   );
 

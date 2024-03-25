@@ -3,55 +3,89 @@ import CommercialImage from '../../public/images/commercial.svg';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
+import { currencySymbols } from '../Utils/Constants';
 const DedicatedCard = ({
-  CharteredData,
-  Charteredepature,
-  ChartereArrival,
-  ChartereId,
+  charteredData,
+  charteredepature,
+  chartereArrival,
+  chartereId,
+  selectedCurrency,
+  handleCurrencyChange,
 }) => {
-  console.log(
-    'data line 11',
-    CharteredData,
-    Charteredepature,
-    ChartereArrival,
-    ChartereId
-  );
+  console.log(charteredData, charteredepature, chartereArrival, chartereId);
+
   const [price, setTotalPrice] = useState();
   const [aircraftName, setaircraftName] = useState('');
   const [Time, setTotaltime] = useState();
   const [dateAvailable, setdateAvailable] = useState('');
 
   const DateAvailble = () => {
-    const aircraftDate = moment(CharteredData.operator.date).format(
+    const aircraftDate = moment(charteredData.operator.date).format(
       'MMMM DD, YYYY'
     );
     setdateAvailable(aircraftDate);
   };
 
-  const Pricedata = () => {
-    const cost = CharteredData.totalPriceWithAdminMargin;
-    console.log('PriceDatawithmargin', cost);
-    setTotalPrice(cost);
+  const getEUR = (price) => {
+    const EuroPrice = price * 0.011;
+    return EuroPrice.toFixed(2);
   };
+  const getAED = (price) => {
+    const PriceAED = price * 0.044;
+    return PriceAED.toFixed(2);
+  };
+
+  const getUSD = (price) => {
+    const PriceUsd = price * 0.012;
+    return PriceUsd.toFixed(2);
+  };
+
+  const getINR = (price) => {
+    const PriceINR = price;
+    return PriceINR.toFixed(2);
+  };
+
+  useEffect(() => {
+    const actualTotalPrice = parseFloat(
+      (charteredData?.totalPriceWithTechStopAndAdminMargin).toFixed(2)
+    );
+    switch (selectedCurrency) {
+      case 'EUR':
+        setTotalPrice(getEUR(actualTotalPrice));
+        break;
+      case 'AED':
+        setTotalPrice(getAED(actualTotalPrice));
+        break;
+      case 'USD':
+        setTotalPrice(getUSD(actualTotalPrice));
+        break;
+      case 'INR':
+        setTotalPrice(getINR(actualTotalPrice));
+        break;
+      default:
+        setTotalPrice(0);
+    }
+  }, [charteredData?.totalPriceWithTechStopAndAdminMargin, selectedCurrency]);
+
   const TotalTime = () => {
-    const time = moment(CharteredData.totalTime).format('HH:mm');
+    const time = moment(charteredData.totalTime).format('HH:mm');
     console.log('Time line 38', time);
     setTotaltime(time);
   };
   const Aircraft = () => {
-    const aircraft = CharteredData.operator.Aircraft_type;
+    const aircraft = charteredData.operator.Aircraft_type;
     setaircraftName(aircraft);
   };
 
   useEffect(() => {
-    Pricedata();
     TotalTime();
     Aircraft();
     DateAvailble();
   }, []);
+
   return (
     <div
-      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer  transition-all duration-700 hover:scale-105`}
+      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer  transition-all duration-700 hover:scale-105`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
@@ -64,20 +98,20 @@ const DedicatedCard = ({
           className="h-full w-full object-cover  object-center rounded-md sm:max-h-40"
         />
       </div>
-      <div className=" sm:col-span-3 col-span-2">
+      <div className="sm:col-span-3 col-span-2">
         <div className="grid grid-cols-3 gap-4 mb-5">
           <div className="flex flex-col items-start">
             <span className="text-[#545454] text-base font-semibold">
-              {Charteredepature}
+              {charteredepature}
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-[red] text-xs">{Time}</div>
+            {Time}
             <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
           </div>
-          <div className=" flex flex-col items-end">
+          <div className="flex flex-col items-end">
             <span className="text-[#545454] text-base font-semibold text-center">
-              {ChartereArrival}
+              {chartereArrival}
             </span>
           </div>
         </div>
@@ -106,11 +140,24 @@ const DedicatedCard = ({
                   Estimated Price
                 </div>
                 <div className="flex justify-end gap-6">
+                  <select
+                    id="currencySelector"
+                    value={selectedCurrency}
+                    onChange={handleCurrencyChange}
+                    className="border-solid border-2 border-black rounded-md text-xs"
+                  >
+                    {Object.keys(currencySymbols)?.map((currency, index) => {
+                      return (
+                        <option value={currency} key={'currency-item' + index}>
+                          {currency}
+                        </option>
+                      );
+                    })}
+                  </select>
+
                   <div className="flex flex-row items-end">
-                    ₹
-                    <div className=" font-extrabold">
-                      {price ? price?.toFixed(2) : '-'}{' '}
-                    </div>
+                    {currencySymbols[selectedCurrency]}
+                    <div className=" font-extrabold">{price}</div>
                   </div>
                 </div>
               </div>
@@ -141,7 +188,7 @@ const DedicatedCard = ({
           </div>
         </div>
         <Link
-          href={`/aviapage/${`${ChartereId}-${CharteredData?.operator?._id}`}`}
+          href={`/aviapage/${`${chartereId}-${charteredData?.operator?._id}`}`}
           className="block w-full"
         >
           <div className="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
