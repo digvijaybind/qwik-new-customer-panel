@@ -15,7 +15,12 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { currencySymbols } from '@/components/Utils/Constants';
+import {
+  c90Slides,
+  challenger605Slides,
+  currencySymbols,
+  learjet45Slides,
+} from '@/components/Utils/Constants';
 
 const DedicatedeHeader = () => {
   return (
@@ -116,7 +121,20 @@ const JourneyDetails = ({
   );
 };
 
-const FlightImages = () => {
+const FlightImages = ({ aircraftType }) => {
+  const [slides, setSlides] = useState([]);
+  useEffect(() => {
+    switch (aircraftType) {
+      case 'Challenger 605':
+        setSlides(challenger605Slides);
+      case 'Learjet 45':
+        setSlides(learjet45Slides);
+      case 'C-90':
+        setSlides(c90Slides);
+      default:
+        setSlides(challenger605Slides);
+    }
+  }, [aircraftType]);
   return (
     <>
       <div className="mb-2">
@@ -128,41 +146,27 @@ const FlightImages = () => {
           slidesToShow={1}
           slidesToScroll={1}
         >
-          <img
-            src="/images/C90-airtransfer/C90-airtransfer-one.jpg"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
-          <img
-            src="/images/C90-airtransfer/C90-airtransfer-two.jpg"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
-          <img
-            src="/images/C90-airtransfer/C90-airtransfer-three.jpg"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
-          <img
-            src="/images/C90-airtransfer/C90-airtransfer-four.jpg"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
-          <img
-            src="/images/C90-airtransfer/C90-airtransfer-five.jpg"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
+          {slides?.map((slideImg, index) => {
+            return (
+              <img
+                key={'slide-item' + index}
+                src={slideImg}
+                className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+              />
+            );
+          })}
         </Slider>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        <img
-          src="/images/search-detail/VT-VBSext.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
-        />
-        <img
-          src="/images/search-detail/VT-VBSlopa.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
-        />
-        <img
-          src="/images/search-detail/VT-VBSint.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
-        />
+      <div className={`grid grid-cols-${slides?.length} gap-3`}>
+        {slides?.map((slideImg, index) => {
+          return (
+            <img
+              key={'slide-preview-item' + index}
+              src={slideImg}
+              className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+            />
+          );
+        })}
       </div>
       <div className="bg-gray-200 rounded-md p-3 grid grid-cols-5 text-sm">
         <div className="flex items-center gap-1">
@@ -514,9 +518,7 @@ const AviapageDetails = () => {
 
   useEffect(() => {
     const actualTotalPrice = aircraftData?.totalPriceWithAdminMargin
-      ? parseFloat(
-          (aircraftData?.totalPriceWithAdminMargin).toFixed(2)
-        )
+      ? parseFloat((aircraftData?.totalPriceWithAdminMargin).toFixed(2))
       : 0;
     switch (selectedCurrency) {
       case 'EUR':
@@ -589,9 +591,6 @@ const AviapageDetails = () => {
     }
   }, [id]);
 
-  console.log('totalCost', totalCost)
-  console.log('aircraftData?.totalPriceWithAdminMargin', aircraftData?.totalPriceWithAdminMargin)
-
   return (
     <div className="">
       <DedicatedeHeader />
@@ -602,7 +601,9 @@ const AviapageDetails = () => {
         </p>
         <div className="flex sm:flex-col gap-5 my-3">
           <div className="sm:w-full w-8/12">
-            <FlightImages />
+            <FlightImages
+              aircraftType={aircraftData?.aviapagesResponse?.aircraft}
+            />
           </div>
           <div className="sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
             <JourneyDetails

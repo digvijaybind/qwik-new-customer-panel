@@ -125,3 +125,26 @@ export const currencySymbols = {
   USD: '$',
   INR: '₹',
 };
+
+export const challenger605Slides = [
+  '/images/challenger-605-airtransfer/challenger-605-airambulance-first.jpg',
+  '/images/challenger-605-airtransfer/challenger-605-airambulance-second.jpg',
+  '/images/challenger-605-airtransfer/challenger-605-airambulance-three.jpg',
+  '/images/challenger-605-airtransfer/challenger-605-airambulance-four.jpg',
+  '/images/challenger-605-airtransfer/challenger-605-airambulance-five.jpg',
+];
+
+export const learjet45Slides = [
+  '/images/Learjet-45-airtransfer/Learjet-45-airtransfer-one.jpeg',
+  '/images/Learjet-45-airtransfer/Learjet-45-airtransfer-two.jpeg',
+  '/images/Learjet-45-airtransfer/Learjet-45-airtransfer-three.jpg',
+];
+
+export const c90Slides = [
+  '/images/C90-airtransfer/C90-airtransfer-one.jpeg',
+  '/images/C90-airtransfer/C90-airtransfer-two.jpeg',
+  '/images/C90-airtransfer/C90-airtransfer-three.jpg',
+  '/images/C90-airtransfer/C90-airtransfer-four.jpeg',
+  '/images/C90-airtransfer/C90-airtransfer-five.jpeg',
+  '/images/C90-airtransfer/C90-airtransfer-six.jpeg',
+];
