@@ -52,8 +52,8 @@ const AircraftDetailsCard = ({
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [airlineImage, setAirlineImage] = useState('');
-console.log('collection id', aircraftId);
-console.log("aircrfat id",aircraftData?.aircraft?.id)
+  console.log('collection id', aircraftId);
+  console.log('aircrfat id', aircraftData?.aircraft?.id);
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -159,8 +159,6 @@ console.log("aircrfat id",aircraftData?.aircraft?.id)
     SV: SaudiAirline,
   };
 
-
-
   const getLocationData = () => {
     const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
@@ -211,7 +209,6 @@ console.log("aircrfat id",aircraftData?.aircraft?.id)
     console.log('TimeDuration line 196', TimeDuration);
     return TimeDuration;
   };
-
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -291,11 +288,12 @@ console.log("aircrfat id",aircraftData?.aircraft?.id)
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div className="sm:col-span-3 h-full">
+      <div className="sm:col-span-3 col-span-1 max-h-full">
         <Image
           src={airlineImage}
           alt="Commercial Image"
-          className="w-full object-cover sm:max-h-40 object-center rounded-md border border-slate-100 bg-slate-100"
+          height="100"
+          className="w-full object-cover sm:max-h-40 h-64 object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
@@ -339,7 +337,7 @@ console.log("aircrfat id",aircraftData?.aircraft?.id)
               </span>
               {moment(locationData?.destinationTime).format('d') !==
                 moment(locationData?.departureTime).format('d') && (
-                <span className="text-[red] text-center heigh text-xs font-medium leading-3 ml-1.5">
+                <span className="text-[red] text-center text-xs font-medium leading-3 ml-1.5">
                   +{' '}
                   {moment(locationData?.destinationTime).format('d') -
                     moment(locationData?.departureTime).format('d')}{' '}

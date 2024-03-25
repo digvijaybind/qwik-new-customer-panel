@@ -90,13 +90,13 @@ const DedicatedCard = ({
 
   return (
     <div
-      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer  transition-all duration-700 hover:scale-105`}
+      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div className="h-full sm:col-span-3">
+      <div className="sm:col-span-3 col-span-1 h-full">
         <Image
           src={
             charteredData?.aviapagesResponse?.aircraft === 'Challenger 605'
@@ -108,13 +108,15 @@ const DedicatedCard = ({
               : CommercialImage
           }
           alt="Commercial Image"
-          className="h-full w-full object-cover  object-center rounded-md sm:max-h-40"
+          className="w-full object-cover sm:max-h-40 h-full object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
         <div className="grid grid-cols-3 gap-4 mb-5">
-          <div className="flex flex-col items-start">
-            <span className="text-[#545454] text-base font-semibold">
+          <div className="">
+            <span className="font-semibold text-2xl invisible">5:40</span>
+            <br />
+            <span className="text-[#545454] text-base font-semibold text-center">
               {charteredepature}
             </span>
           </div>
@@ -123,6 +125,9 @@ const DedicatedCard = ({
             <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
           </div>
           <div className="flex flex-col items-end">
+            <div className="flex">
+              <span className="font-semibold text-2xl invisible">5:40</span>
+            </div>
             <span className="text-[#545454] text-base font-semibold text-center">
               {chartereArrival}
             </span>
