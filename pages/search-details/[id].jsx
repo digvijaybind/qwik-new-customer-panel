@@ -458,7 +458,7 @@ const CostDetails = ({
         </div>
       </div>
       <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
-        Download Proforma Invoice
+        Pay Now
       </button>
     </div>
   );
@@ -744,17 +744,11 @@ const AmadeuspageDetails = () => {
       console.log('id line 450', id);
       setAircraftDataLoading(true);
       const response = await axios.get(
-        `http://localhost:8000/customer/aircraft/${id}`
+        `http://localhost:8000/customer/avipage/aircraft/${id}`
       );
 
-      console.log('response data line 451', response.data.specificAircraft);
       if (response) {
-        // setResults(response.data.specificAircraft);
-
-        // setAircraftData(
-        //   response.data.specificAircraft.aircraft?.itineraries[0]?.segments
-        // );
-        // setSelectedCurrency('EUR');
+        setResults(response.data.specificAircraft);
         const segments =
           response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
         console.log('segment line 632', segments);
@@ -781,8 +775,9 @@ const AmadeuspageDetails = () => {
         console.log('airlineName  line 125', airlineName);
         const airline = renderAirlineName(airlineName);
         setairlineName(airline);
-
+        setAircraftDataLoading(false);
         console.log('results line 460', results);
+        setResults([]);
       } else {
         setError('error');
         setResults([]);

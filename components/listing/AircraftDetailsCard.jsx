@@ -30,12 +30,7 @@ import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
 import Link from 'next/link';
-const currencySymbols = {
-  EUR: '€',
-  AED: 'AED',
-  USD: '$',
-  INR: '₹',
-};
+import { currencySymbols } from '../Utils/Constants';
 
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -77,6 +72,8 @@ const AircraftDetailsCard = ({
     const PriceINR = price * 89.42;
     return PriceINR.toFixed(2);
   };
+
+  console.log('totalCost', totalCost);
 
   useEffect(() => {
     const actualTotalPrice = parseFloat(
@@ -287,7 +284,7 @@ const AircraftDetailsCard = ({
 
   return (
     <div
-      className={`w-full px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',

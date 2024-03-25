@@ -7,14 +7,14 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
       className={`mx-[10px]  flex flex-col items-center ${styles.boxShadow} p-[30px] shadow-2xl rounded-md`}
     >
       <div className="w-full ">
-        <Image
-          className="w-full aspect-video object-cover object-center"
+        <img
+          className="w-full aspect-[16/13] object-cover object-center"
           src={imageUrl}
           alt="rapid Time"
           layout="responsive"
         />
       </div>
-      <div className="flex flex-col items-start sm:items-center mt-[80px] gap-[30px]">
+      <div className="flex flex-col items-start sm:items-center mt-10 gap-[30px]">
         <div className="flex flex-row items-center justify-start gap-[10px]">
           <Image
             className="w-[20px] h-[20px]"

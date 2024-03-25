@@ -11,6 +11,11 @@ import { IoIosAirplane } from 'react-icons/io';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { currencySymbols } from '@/components/Utils/Constants';
 
 const DedicatedeHeader = () => {
   return (
@@ -26,27 +31,65 @@ const DedicatedeHeader = () => {
   );
 };
 
-const JourneyDetails = () => {
+const JourneyDetails = ({
+  aircraft,
+  selectedCurrency,
+  handleCurrencyChange,
+  totalCost,
+}) => {
   return (
     <>
-      <h3 className="font-bold">Mumbai to Chennai</h3>
-      <p className="font-bold text-[0.85rem]">7 Hrs 50 Min</p>
-      <p className="my-3">6 Passengers | 30 March, 2024</p>
+      <h3 className="font-bold">
+        {aircraft?.aviapagesResponse?.airport?.departure_airport} to{' '}
+        {aircraft?.aviapagesResponse?.airport?.arrival_airport}
+      </h3>
+      <p className="font-bold text-[0.85rem]">{aircraft?.totalTime} hrs</p>
+      <p className="my-3">
+        1 Passengers |{' '}
+        {aircraft?.lastTicketingDate &&
+          moment(aircraft?.lastTicketingDate)?.format('DD MMM, YYYY')}
+      </p>
       <div className="border-b border-t my-2">
-        <p className="flex justify-between py-3">
+        <div className="flex items-center justify-between py-3">
           <span>Flying Cost</span>
-          <span>₹ 11,26,217</span>
-        </p>
-        <p className="flex justify-between py-3">
+          <span>
+            {currencySymbols[selectedCurrency]}
+            {totalCost}
+          </span>
+        </div>
+        {/* <p className="flex justify-between py-3">
           <span>GST (18%)</span>
           <span>₹ 2,02,719</span>
-        </p>
+        </p> */}
       </div>
-      <p className="flex justify-between items-center py-1 font-bold">
+      <div className="flex justify-between items-center py-1 font-bold">
         <span>Estimated Cost</span>
-        <span className="text-base">₹ 13,28,936</span>
-      </p>
+        <div className="text-base flex items-center">
+          <select
+            id="currencySelector"
+            value={selectedCurrency}
+            onChange={handleCurrencyChange}
+            className="border-solid border-2 border-black rounded-md text-xs"
+          >
+            {Object.keys(currencySymbols)?.map((currency, index) => {
+              return (
+                <option value={currency} key={'currency-item' + index}>
+                  {currency}
+                </option>
+              );
+            })}
+          </select>
 
+          <div className="flex flex-row items-end">
+            {currencySymbols[selectedCurrency]}
+            <div className=" font-extrabold"> {totalCost}</div>
+          </div>
+        </div>
+      </div>
+      <div className="rounded-md bg-gray-300 p-2 my-4">
+        <span className="font-bold">Qwiklif</span>, helps in your emergency by
+        providing private air ambulance at commercial prices.
+      </div>
       <div className="flex flex-col mt-5">
         <input
           name="username"
@@ -281,35 +324,10 @@ const FlightDetails = () => {
           </span>
         </p>
       </div>
-      <div className="my-3 py-3 border-b-2 border-gray-100">
-        <p className="flex justify-between text-[0.85rem]">
-          <span>3/30/2024</span>
-          <span>3/30/2024</span>
-        </p>
-        <p className="flex justify-between text-[0.85rem]">
-          <span>9:50:00 PM</span>
-          <span>11:00:00 PM</span>
-        </p>
-        <div className="flex justify-between items-center w-full mt-3">
-          <span className="font-bold text-base">Pune</span>
-          <div className="relative">
-            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
-              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-          <span className="font-bold text-base">Mumbai</span>
-        </div>
-        <p className="flex justify-between">
-          <span className="max-w-40 text-start">Lohegaon Airport</span>
-          <span className="max-w-40 text-end">
-            Chhatrapati Shivaji International Airport
-          </span>
-        </p>
-      </div>
     </div>
   );
 };
-const CostDetails = () => {
+const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
   return (
     <div
       className="flex flex-col rounded-md p-5 text-[0.9rem]"
@@ -318,10 +336,13 @@ const CostDetails = () => {
       <h2 className="text-base font-bold mb-4">Cost Details</h2>
       <div className="flex flex-col gap-3 text-[0.9rem]">
         <p className="flex justify-between">
-          <span>Flight Cost (@ 1,26,500 per hour)</span>
-          <span>₹ 9,00,833</span>
+          <span>Flight Cost </span>
+          <span>
+            {currencySymbols[selectedCurrency]}
+            {totalCost}
+          </span>
         </p>
-        <p className="flex justify-between">
+        {/* <p className="flex justify-between">
           <span>Airport handling charges</span>
           <span>₹ 1,23,000</span>
         </p>
@@ -332,21 +353,41 @@ const CostDetails = () => {
         <p className="flex justify-between">
           <span>GST (18%)</span>
           <span>₹ 2,02,719</span>
-        </p>
-        <p className="flex justify-between items-center">
+        </p> */}
+        <div className="flex justify-between items-center">
           <span>Estimated cost</span>
-          <span className="font-bold text-base">₹ 13,28,936</span>
-        </p>
+          <div className="font-bold text-base flex items-center">
+            <select
+              id="currencySelector"
+              value={selectedCurrency}
+              onChange={handleCurrencyChange}
+              className="border-solid border-2 border-black rounded-md text-xs"
+            >
+              {Object.keys(currencySymbols)?.map((currency, index) => {
+                return (
+                  <option value={currency} key={'currency-item' + index}>
+                    {currency}
+                  </option>
+                );
+              })}
+            </select>
+
+            <div className="flex flex-row items-end">
+              {currencySymbols[selectedCurrency]}
+              <div className=" font-extrabold"> {totalCost}</div>
+            </div>
+          </div>
+        </div>
       </div>
       <button className="border border-primary text-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white">
-        Download Proforma Invoice
+        Pay Now
       </button>
     </div>
   );
 };
 const Airtransfer = () => {
   return (
-    <div className="flex flex-col px-[50px] mb-10">
+    <div className="flex flex-col my-10">
       <h1 className="text-center font-bold text-[black] text-[25px]">
         How we do Medical transfer
       </h1>
@@ -442,28 +483,141 @@ const Airtransfer = () => {
 };
 
 const AviapageDetails = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
+  const [aircraftData, setAircraftData] = useState({});
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const [totalCost, setTotalCost] = useState(0);
+
+  const getEUR = (price) => {
+    const EuroPrice = price * 0.011;
+    return EuroPrice.toFixed(2);
+  };
+  const getAED = (price) => {
+    const PriceAED = price * 0.044;
+    return PriceAED.toFixed(2);
+  };
+
+  const getUSD = (price) => {
+    const PriceUsd = price * 0.012;
+    return PriceUsd.toFixed(2);
+  };
+
+  const getINR = (price) => {
+    const PriceINR = price;
+    return PriceINR.toFixed(2);
+  };
+
+  useEffect(() => {
+    const actualTotalPrice = aircraftData?.totalPriceWithTechStopAndAdminMargin
+      ? parseFloat(
+          (aircraftData?.totalPriceWithTechStopAndAdminMargin).toFixed(2)
+        )
+      : 0;
+    switch (selectedCurrency) {
+      case 'EUR':
+        setTotalCost(getEUR(actualTotalPrice));
+        break;
+      case 'AED':
+        setTotalCost(getAED(actualTotalPrice));
+        break;
+      case 'USD':
+        setTotalCost(getUSD(actualTotalPrice));
+        break;
+      case 'INR':
+        setTotalCost(getINR(actualTotalPrice));
+        break;
+      default:
+        setTotalCost(0);
+    }
+  }, [aircraftData?.totalPriceWithTechStopAndAdminMargin, selectedCurrency]);
+
+  const handleCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value);
+  };
+
+  const fetchData = async () => {
+    try {
+      setAircraftDataLoading(true);
+      const response = await axios(
+        `http://localhost:8000/customer/avipage/aircraft/${id}`
+      );
+
+      if (response) {
+        setAircraftData(response?.data?.specificAircraft);
+        const segments =
+          response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
+        console.log('segment line 632', segments);
+        locationData.push({
+          departureLocation: segments[0]?.departure?.iataCode,
+          departureTime: segments[0]?.departure?.at,
+          destinationLocation: segments.at(-1)?.arrival?.iataCode,
+          destinationTime: segments.at(-1)?.arrival?.at,
+        });
+        // if (segments?.length > 1) {
+
+        // } else {
+        //   setLocationData({
+        //     departureLocation: segments[0]?.departure?.iataCode,
+        //     departureTime: segments[0]?.departure?.at,
+        //     destinationLocation: segments[0]?.arrival?.iataCode,
+        //     destinationTime: segments[0]?.arrival?.at,
+        //   });
+        // }
+
+        const airlineName =
+          aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ??
+          [];
+        const airline = renderAirlineName(airlineName);
+        setairlineName(airline);
+      } else {
+        setError('error');
+        setResults([]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
+
   return (
     <div className="">
       <DedicatedeHeader />
-      <div className="sm:px-20 lg:px-45 md:px-30 xl:40 2xl:30">
+      <div className="sm:px-20 px-36">
         <p className="text-sm my-3">
           Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
         </p>
-        <div className="flex sm:flex-col gap-5 my-3 px-[20px]">
+        <div className="flex sm:flex-col gap-5 my-3">
           <div className="sm:w-full w-8/12">
             <FlightImages />
           </div>
           <div className="sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
-            <JourneyDetails />
+            <JourneyDetails
+              aircraft={aircraftData || {}}
+              selectedCurrency={selectedCurrency}
+              handleCurrencyChange={handleCurrencyChange}
+              totalCost={totalCost}
+            />
           </div>
         </div>
-        <div className="flex sm:flex-col gap-5 mt-8 mb-8 px-[50px]">
+        <div className="flex sm:flex-col gap-5 mt-8 mb-20">
           <div className="sm:w-full w-6/12">
             <FlightDetails />
           </div>
           <div className="sm:w-full w-6/12">
-            <CostDetails />
+            <CostDetails
+              totalCost={totalCost}
+              selectedCurrency={selectedCurrency}
+              handleCurrencyChange={handleCurrencyChange}
+            />
           </div>
         </div>
         <Airtransfer />
