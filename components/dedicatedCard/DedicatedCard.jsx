@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import CommercialImage from '../../public/images/commercial.svg';
+import Challenger605 from '../../public/images/challenger-605-airtransfer/challenger-605-airambulance-first.jpg';
+import Learjet45 from '../../public/images/Learjet-45-airtransfer/Learjet-45-airtransfer-one.jpeg';
+import C90 from '../../public/images/C90-airtransfer/C90-airtransfer-one.jpg';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -46,7 +49,9 @@ const DedicatedCard = ({
   };
 
   useEffect(() => {
-    const actualTotalPrice = parseFloat((charteredData?.totalPriceWithTechStopAndAdminMargin).toFixed(2));
+    const actualTotalPrice = parseFloat(
+      (charteredData?.totalPriceWithAdminMargin).toFixed(2)
+    );
     switch (selectedCurrency) {
       case 'EUR':
         setTotalPrice(getEUR(actualTotalPrice));
@@ -63,7 +68,9 @@ const DedicatedCard = ({
       default:
         setTotalPrice(0);
     }
-  }, [charteredData?.totalPriceWithTechStopAndAdminMargin, selectedCurrency]);
+  }, [charteredData?.totalPriceWithAdminMargin, selectedCurrency]);
+
+  console.log('charteredData', charteredData);
 
   const TotalTime = () => {
     const time = moment(charteredData.totalTime).format('HH:mm');
@@ -91,7 +98,15 @@ const DedicatedCard = ({
     >
       <div className="h-full sm:col-span-3">
         <Image
-          src={CommercialImage}
+          src={
+            charteredData?.aviapagesResponse?.aircraft === 'Challenger 605'
+              ? Challenger605
+              : charteredData?.aviapagesResponse?.aircraft === 'Learjet 45'
+              ? Learjet45
+              : charteredData?.aviapagesResponse?.aircraft === 'C-90'
+              ? C90
+              : CommercialImage
+          }
           alt="Commercial Image"
           className="h-full w-full object-cover  object-center rounded-md sm:max-h-40"
         />
