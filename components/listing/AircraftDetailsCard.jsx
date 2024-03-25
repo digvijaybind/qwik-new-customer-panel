@@ -57,7 +57,7 @@ const AircraftDetailsCard = ({
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [airlineImage, setAirlineImage] = useState('');
-  const [aircraftid, setAircraftid] = useState('');
+
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -161,12 +161,8 @@ const AircraftDetailsCard = ({
     SV: SaudiAirline,
   };
 
-  const AllAircraftid = () => {
-    const id = aircraftData?.aircraft?.id;
-    console.log('id line 166', id);
-    setAircraftid(id);
-  };
-  console.log('aircraftid', aircraftid);
+
+
   const getLocationData = () => {
     const segments = aircraftData?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
@@ -218,13 +214,6 @@ const AircraftDetailsCard = ({
     return TimeDuration;
   };
 
-  const AllsingleId = () => {
-    const id = aircraftData?.aircraft?.id;
-
-    setAircraftid(id);
-  };
-
-  console.log('id line 223', aircraftid);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -294,8 +283,6 @@ const AircraftDetailsCard = ({
     TicketAvailable();
     AirlineImage();
     AirlineName();
-    AllsingleId();
-    AllAircraftid();
   }, []);
 
   return (
