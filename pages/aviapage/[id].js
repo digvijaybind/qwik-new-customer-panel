@@ -701,7 +701,7 @@ const CostDetails = ({
 const Airtransfer = () => {
   return (
     <div
-      className={`px-[30px] w-[90%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
     >
       <div className="flex flex-col px-[50px] mb-10">
@@ -990,7 +990,7 @@ const AviapageDetails = () => {
   return (
     <div className="">
       <DedicatedeHeader />
-      <div className="sm:px-20 px-36">
+      <div className="sm:px-20 px-32">
         <p className="text-sm my-3">
           Home Search / List /{' '}
           <span className="font-medium">Search Result</span>
