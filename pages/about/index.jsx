@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react';
 import styles from '../../styles/page.module.css';
 import style from './About.module.css';
+import { Raleway } from 'next/font/google';
+
 import { FaPlane } from 'react-icons/fa';
 import { FaUserDoctor, FaTrophy } from 'react-icons/fa6';
 import { useSpring, animated } from 'react-spring';
+const raleway = Raleway({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -22,7 +28,7 @@ const About = () => {
       </animated.div>
     );
   }
-
+  
   const abouts = [
     {
       img: '/images/about1.jpg',
@@ -51,7 +57,7 @@ const About = () => {
     },
   ];
   return (
-    <div className="font-poppins">
+    <div className={`${raleway.className}`}>
       <div className={`bg-black ${style.Image}   bg-black h-[400px] w-full`}>
         <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
           <p className="text-[50px]  pt-[150px]">About Us</p>
@@ -311,7 +317,7 @@ const About = () => {
           </p>
         </div>
         <div className="flex mt-[30px]">
-          <div className="relative  w-[60%]">
+          <div className="relative  w-[60%] mr-[30px]">
             <div className="flex mb-[30px]">
               <div className=" mr-[50px] relative  p-[10px] rounded-[50%]  border-white">
                 <div className="p-[20px] bg-[#396CF0] rounded-[50%]">
