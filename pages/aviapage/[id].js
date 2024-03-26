@@ -7,7 +7,7 @@ import { GiWeight } from 'react-icons/gi';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaPersonMilitaryPointing } from 'react-icons/fa6';
 import { IoIosAirplane } from 'react-icons/io';
-
+import styles from './aviapage.module.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -309,6 +309,7 @@ const FlightDetails = ({ aircraftData, data }) => {
     </div>
   );
 };
+
 const CostDetails = ({
   selectedCurrency,
   handleCurrencyChange,
@@ -375,98 +376,205 @@ const CostDetails = ({
     </div>
   );
 };
+// const Airtransfer = () => {
+//   return (
+//     <div className="flex flex-col my-10">
+//       <h1 className="text-center font-bold text-[black] text-[25px]">
+//         How we do Medical transfer
+//       </h1>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step1 :-Assessment and Coordination
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           The need for an air ambulance transfer is typically assessed by
+//           medical professionals at the referring facility or by emergency
+//           responders at the scene of an incident. Once the decision is made to
+//           transfer the patient by air ambulance, coordination begins between the
+//           referring facility, the receiving facility, and the air ambulance
+//           service provider.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step 2 :- Dispatch and Arrival of Air Ambulance
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           Medical staff at the referring facility prepare the patient for
+//           transfer, which may include stabilizing their condition, administering
+//           necessary medications, and ensuring they are safely packaged for
+//           transport.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step 3:- Dispatch and Arrival of Air Ambulance
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           Once the air ambulance arrives, the patient is carefully transferred
+//           from the referring facility to the aircraft. The patient is secured in
+//           the aircraft and connected to any necessary medical equipment.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step 3:- Transfer to the Air Ambulance
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           Once the air ambulance arrives, the patient is carefully transferred
+//           from the referring facility to the aircraft. The patient is secured in
+//           the aircraft and connected to any necessary medical equipment.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold"> Step 4:- In-flight Care</h1>
+//         <p className="text-[16px] font-medium">
+//           During the flight, the medical crew provides continuous care to the
+//           patient, including monitoring vital signs, administering medications,
+//           and managing any medical emergencies that may arise.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step 5:- Arrival at the Receiving Facility
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           Upon arrival at the receiving facility, the patient is safely
+//           transferred from the air ambulance to the facility&apos;s medical
+//           staff. The receiving facility&apos;s medical staff assumes care of the
+//           patient and continues treatment as necessary.
+//         </p>
+//       </div>{' '}
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold">
+//           {' '}
+//           Step 6:- Post-transfer Documentation
+//         </h1>
+//         <p className="text-[16px] font-medium">
+//           After the transfer is complete, the air ambulance service provider and
+//           the referring and receiving facilities may exchange medical records
+//           and documentation related to the transfer for continuity of care.
+//         </p>
+//       </div>
+//       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+//         <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
+//         <p className="text-[16px] font-medium">
+//           Once the patient has been transferred, follow-up care and treatment
+//           are provided as needed based on the patient&apos;s condition and the
+//           recommendations of the medical team.
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
 const Airtransfer = () => {
   return (
-    <div className="flex flex-col my-10">
-      <h1 className="text-center font-bold text-[black] text-[25px]">
-        How we do Medical transfer
-      </h1>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step1 :-Assessment and Coordination
+    <div
+      className={`px-[30px] w-[90%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+    >
+      <div className="flex flex-col px-[50px] mb-10">
+        <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
+          How we do Medical transfer
         </h1>
-        <p className="text-[16px] font-medium">
-          The need for an air ambulance transfer is typically assessed by
-          medical professionals at the referring facility or by emergency
-          responders at the scene of an incident. Once the decision is made to
-          transfer the patient by air ambulance, coordination begins between the
-          referring facility, the receiving facility, and the air ambulance
-          service provider.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step 2 :- Dispatch and Arrival of Air Ambulance
-        </h1>
-        <p className="text-[16px] font-medium">
-          Medical staff at the referring facility prepare the patient for
-          transfer, which may include stabilizing their condition, administering
-          necessary medications, and ensuring they are safely packaged for
-          transport.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step 3:- Dispatch and Arrival of Air Ambulance
-        </h1>
-        <p className="text-[16px] font-medium">
-          Once the air ambulance arrives, the patient is carefully transferred
-          from the referring facility to the aircraft. The patient is secured in
-          the aircraft and connected to any necessary medical equipment.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step 3:- Transfer to the Air Ambulance
-        </h1>
-        <p className="text-[16px] font-medium">
-          Once the air ambulance arrives, the patient is carefully transferred
-          from the referring facility to the aircraft. The patient is secured in
-          the aircraft and connected to any necessary medical equipment.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold"> Step 4:- In-flight Care</h1>
-        <p className="text-[16px] font-medium">
-          During the flight, the medical crew provides continuous care to the
-          patient, including monitoring vital signs, administering medications,
-          and managing any medical emergencies that may arise.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step 5:- Arrival at the Receiving Facility
-        </h1>
-        <p className="text-[16px] font-medium">
-          Upon arrival at the receiving facility, the patient is safely
-          transferred from the air ambulance to the facility&apos;s medical
-          staff. The receiving facility&apos;s medical staff assumes care of the
-          patient and continues treatment as necessary.
-        </p>
-      </div>{' '}
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold">
-          {' '}
-          Step 6:- Post-transfer Documentation
-        </h1>
-        <p className="text-[16px] font-medium">
-          After the transfer is complete, the air ambulance service provider and
-          the referring and receiving facilities may exchange medical records
-          and documentation related to the transfer for continuity of care.
-        </p>
-      </div>
-      <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-        <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
-        <p className="text-[16px] font-medium">
-          Once the patient has been transferred, follow-up care and treatment
-          are provided as needed based on the patient&apos;s condition and the
-          recommendations of the medical team.
-        </p>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step1 :-Assessment and Coordination
+          </h1>
+          <p className="text-[16px] font-medium">
+            The need for an air ambulance transfer is typically assessed by
+            medical professionals at the referring facility or by emergency
+            responders at the scene of an incident. Once the decision is made to
+            transfer the patient by air ambulance, coordination begins between
+            the referring facility, the receiving facility, and the air
+            ambulance service provider.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 2 :- Dispatch and Arrival of Air Ambulance
+          </h1>
+          <p className="text-[16px] font-medium">
+            Medical staff at the referring facility prepare the patient for
+            transfer, which may include stabilizing their condition,
+            administering necessary medications, and ensuring they are safely
+            packaged for transport.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 3:- Dispatch and Arrival of Air Ambulance
+          </h1>
+          <p className="text-[16px] font-medium">
+            Once the air ambulance arrives, the patient is carefully transferred
+            from the referring facility to the aircraft. The patient is secured
+            in the aircraft and connected to any necessary medical equipment.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 3:- Transfer to the Air Ambulance
+          </h1>
+          <p className="text-[16px] font-medium">
+            Once the air ambulance arrives, the patient is carefully transferred
+            from the referring facility to the aircraft. The patient is secured
+            in the aircraft and connected to any necessary medical equipment.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 4:- In-flight Care
+          </h1>
+          <p className="text-[16px] font-medium">
+            During the flight, the medical crew provides continuous care to the
+            patient, including monitoring vital signs, administering
+            medications, and managing any medical emergencies that may arise.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 5:- Arrival at the Receiving Facility
+          </h1>
+          <p className="text-[16px] font-medium">
+            Upon arrival at the receiving facility, the patient is safely
+            transferred from the air ambulance to the facility&apos;s medical
+            staff. The receiving facility&apos;s medical staff assumes care of
+            the patient and continues treatment as necessary.
+          </p>
+        </div>{' '}
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 6:- Post-transfer Documentation
+          </h1>
+          <p className="text-[16px] font-medium">
+            After the transfer is complete, the air ambulance service provider
+            and the referring and receiving facilities may exchange medical
+            records and documentation related to the transfer for continuity of
+            care.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            Step 7:- Follow-up Care
+          </h1>
+          <p className="text-[16px] font-medium">
+            Once the patient has been transferred, follow-up care and treatment
+            are provided as needed based on the patient&apos;s condition and the
+            recommendations of the medical team.
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -666,7 +774,9 @@ const AviapageDetails = () => {
               aircraftType={aircraftData?.aviapagesResponse?.aircraft}
             />
           </div>
-          <div className="sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]">
+          <div
+            className={`sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]  ${styles.Shadow}`}
+          >
             <JourneyDetails
               aircraft={aircraftData || {}}
               selectedCurrency={selectedCurrency}
