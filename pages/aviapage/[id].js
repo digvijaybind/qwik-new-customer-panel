@@ -190,7 +190,9 @@ const JourneyDetails = ({
         </div>
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>      </div>
+        <span className="font-bold">Qwiklif</span> Air Ambulance Service is your
+        trusted partner for urgent International Air Ambulance Transportation{' '}
+      </div>
       <div className="flex flex-col mt-5">
         <input
           name="username"
@@ -1000,7 +1002,7 @@ const AviapageDetails = () => {
             />
           </div>
           <div
-            className={`sm:w-full w-4/12 border border-gray-300 border-dashed rounded-md p-4 text-[0.9rem]  ${styles.Shadow}`}
+            className={`sm:w-full w-4/12 border border-gray-300 shadow-lg rounded-[8px] p-4 text-[0.9rem] ${styles.Shadow}`}
           >
             <JourneyDetails
               aircraft={aircraftData || {}}
