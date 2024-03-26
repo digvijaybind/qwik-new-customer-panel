@@ -107,9 +107,10 @@ const JourneyDetails = ({
   return (
     <>
       <h3 className="font-bold">
-        {locationData?.departureLocation} to {locationData?.destinationLocation}
+        {locationData?.departureLocation} {locationData?.destinationLocation}
       </h3>
       <p className="font-bold text-[0.85rem]">
+        Total Travel:-{' '}
         {totalTravelDuration?.length > 0 &&
           totalTravelDuration.map((data) => {
             return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -153,7 +154,7 @@ const JourneyDetails = ({
             })}
           </select>
 
-          <div className="flex flex-row items-end">
+          <div className="flex flex-row items-end ml-2">
             {currencySymbols[selectedCurrency]}
             <div className=" font-extrabold"> {totalCost}</div>
           </div>
@@ -161,7 +162,7 @@ const JourneyDetails = ({
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
         <span className="font-bold">Qwiklif</span>, helps in your emergency by
-        providing private air ambulance at commercial prices.
+        providing private air ambulance service .
       </div>
       <div className="flex flex-col mt-5">
         <input
@@ -334,7 +335,7 @@ const Flightchallenger605 = () => {
     </>
   );
 };
-const FlightDetails = ({ segments }) => {
+const FlightDetails = ({ segments, data, totalTravelDuration }) => {
   return (
     <div
       className="rounded-md p-5 text-[0.9rem]"
@@ -349,49 +350,52 @@ const FlightDetails = ({ segments }) => {
           >
             <p className="flex justify-between text-[0.85rem]">
               <span>
-                {segment?.arrival?.at
+                {segment?.departure?.at
                   ? moment(segment?.arrival?.at)?.format('DD/MM/YYYY')
                   : '-/-/-'}
               </span>
               <span>
-                {segment?.departure?.at
+                {segment?.arrival?.at
                   ? moment(segment?.departure?.at)?.format('DD/MM/YYYY')
                   : '-/-/-'}
               </span>
             </p>
+
             <p className="flex justify-between text-[0.85rem]">
               <span>
-                {segment?.arrival?.at
+                {segment?.departure?.at
                   ? moment(segment?.arrival?.at)?.format('HH:mm')
                   : '-:-'}
               </span>
               <span>
-                {segment?.departure?.at
+                {segment?.arrival?.at
                   ? moment(segment?.departure?.at)?.format('HH:mm')
                   : '-:-'}
               </span>
             </p>
+
             <div className="flex justify-between items-center w-full mt-3">
               <span className="font-bold text-base">
                 {' '}
-                {segment?.arrival?.iataCode}
+                {segment?.departure?.iataCode}
               </span>
               <div className="relative">
-                <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
+                <div className="bg-gray-300 h-[2px]  sm:w-36 w-72">
                   <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
                 </div>
               </div>
               <span className="font-bold text-base">
-                {segment?.departure?.iataCode}
+                {segment?.arrival?.iataCode}
               </span>
             </div>
+
             <p className="flex justify-between">
               <span className="max-w-40 text-start">
                 {' '}
-                {segment?.arrival?.iataCode}
+                {segment?.departure?.iataCode}
               </span>
               <span className="max-w-40 text-end">
-                {segment?.departure?.iataCode}
+                {segment?.arrival?.iataCode}
               </span>
             </p>
           </div>
@@ -434,7 +438,7 @@ const CostDetails = ({
         </p> */}
         <div className="flex justify-between items-center">
           <span>Estimated cost</span>
-          <div className="font-bold text-base flex items-center">
+          <div className="font-bold text-base flex items-center ">
             <select
               id="currencySelector"
               value={selectedCurrency}
@@ -450,7 +454,7 @@ const CostDetails = ({
               })}
             </select>
 
-            <div className="flex flex-row items-end">
+            <div className="flex flex-row items-end ml-2 ">
               {currencySymbols[selectedCurrency]}
               <div className=" font-extrabold"> {totalCost}</div>
             </div>
@@ -565,14 +569,14 @@ const AmadeuspageDetails = () => {
   const { id } = router.query;
   const [results, setResults] = useState([]);
   const [Error, setError] = useState('');
-  // const [locationData, setLocationData] = useState({});
+  const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState('');
   const [techStops, setTechStops] = useState([]);
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
   const [Aircraftdata, setAircraftData] = useState([]);
-  let locationData = {};
+  // let locationData = {};
   const [airlineImage, setAirlineImage] = useState('');
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [totalCost, setTotalCost] = useState(0);
@@ -622,19 +626,19 @@ const AmadeuspageDetails = () => {
   const getLocationData = () => {
     const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
-      setLocationData({
-        departureLocation: segments[0]?.departure?.iataCode,
-        departureTime: segments[0]?.departure?.at,
-        destinationLocation: segments.at(-1)?.arrival?.iataCode,
-        destinationTime: segments.at(-1)?.arrival?.at,
-      });
+      // setLocationData({
+      //   departureLocation: segments[0]?.departure?.iataCode,
+      //   departureTime: segments[0]?.departure?.at,
+      //   destinationLocation: segments.at(-1)?.arrival?.iataCode,
+      //   destinationTime: segments.at(-1)?.arrival?.at,
+      // });
     } else {
-      setLocationData({
-        departureLocation: segments[0]?.departure?.iataCode,
-        departureTime: segments[0]?.departure?.at,
-        destinationLocation: segments[0]?.arrival?.iataCode,
-        destinationTime: segments[0]?.arrival?.at,
-      });
+      // setLocationData({
+      //   departureLocation: segments[0]?.departure?.iataCode,
+      //   departureTime: segments[0]?.departure?.at,
+      //   destinationLocation: segments[0]?.arrival?.iataCode,
+      //   destinationTime: segments[0]?.arrival?.at,
+      // });
     }
   };
   const parseISO8601Duration = (durationString) => {
@@ -744,11 +748,12 @@ const AmadeuspageDetails = () => {
       console.log('id line 450', id);
       setAircraftDataLoading(true);
       const response = await axios.get(
-        `http://localhost:8000/customer/avipage/aircraft/${id}`
+        `http://localhost:8000/customer/amadeus/aircraft/${id}`
       );
 
       if (response) {
         setResults(response.data.specificAircraft);
+        console.log('data line 752', response.data.specificAircraft);
         const segments =
           response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
         console.log('segment line 632', segments);
@@ -798,6 +803,7 @@ const AmadeuspageDetails = () => {
       getLocationData();
       // getTravelDuration();
       getTechStops();
+      getTravelDuration();
       // TicketAvailable();
       // AirlineImage();
       // AirlineName();
@@ -877,6 +883,7 @@ const AmadeuspageDetails = () => {
           <div className="sm:w-full w-6/12">
             <FlightDetails
               segments={results?.aircraft?.itineraries?.[0]?.segments || []}
+              totalTravelDuration={totalTravelDuration}
             />
           </div>
           <div className="sm:w-full w-6/12">

@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import CommercialImage from '../../public/images/commercial.svg';
+import Challenger605 from '../../public/images/challenger-605-airtransfer/challenger-605-airambulance-first.jpg';
+import Learjet45 from '../../public/images/Learjet-45-airtransfer/Learjet-45-airtransfer-one.jpeg';
+import C90 from '../../public/images/C90-airtransfer/C90-airtransfer-one.jpg';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';
 import { currencySymbols } from '../Utils/Constants';
+
+
 const DedicatedCard = ({
   charteredData,
+  AircraftType,
   charteredepature,
   chartereArrival,
   chartereId,
   selectedCurrency,
   handleCurrencyChange,
 }) => {
-  console.log(charteredData, charteredepature, chartereArrival, chartereId);
+  console.log(
+    'data line 19',
+    charteredData,
+    charteredepature,
+    chartereArrival,
+    chartereId,
+    AircraftType
+  );
 
   const [price, setTotalPrice] = useState();
   const [aircraftName, setaircraftName] = useState('');
@@ -47,7 +60,7 @@ const DedicatedCard = ({
 
   useEffect(() => {
     const actualTotalPrice = parseFloat(
-      charteredData?.totalPriceWithTechStopAndAdminMargin?.toFixed(2)
+      charteredData?.totalPriceWithAdminMargin?.toFixed(2)
     );
     switch (selectedCurrency) {
       case 'EUR':
@@ -65,7 +78,9 @@ const DedicatedCard = ({
       default:
         setTotalPrice(0);
     }
-  }, [charteredData?.totalPriceWithTechStopAndAdminMargin, selectedCurrency]);
+  }, [charteredData?.totalPriceWithAdminMargin, selectedCurrency]);
+
+  console.log('charteredData', charteredData);
 
   const TotalTime = () => {
     const time = moment(charteredData.totalTime).format('HH:mm');
@@ -85,23 +100,33 @@ const DedicatedCard = ({
 
   return (
     <div
-      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer  transition-all duration-700 hover:scale-105`}
+      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div className="h-full sm:col-span-3">
+      <div className="sm:col-span-3 col-span-1 h-full">
         <Image
-          src={CommercialImage}
+          src={
+            AircraftType === 'Challenger 605'
+              ? Challenger605
+              : AircraftType === 'Learjet 45'
+              ? Learjet45
+              : AircraftType === 'C-90'
+              ? C90
+              : CommercialImage
+          }
           alt="Commercial Image"
-          className="h-full w-full object-cover  object-center rounded-md sm:max-h-40"
+          className="w-full object-cover sm:max-h-40 h-full object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
         <div className="grid grid-cols-3 gap-4 mb-5">
-          <div className="flex flex-col items-start">
-            <span className="text-[#545454] text-base font-semibold">
+          <div className="">
+            <span className="font-semibold text-2xl invisible">5:40</span>
+            <br />
+            <span className="text-[#545454] text-base font-semibold text-center">
               {charteredepature}
             </span>
           </div>
@@ -110,6 +135,9 @@ const DedicatedCard = ({
             <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
           </div>
           <div className="flex flex-col items-end">
+            <div className="flex">
+              <span className="font-semibold text-2xl invisible">5:40</span>
+            </div>
             <span className="text-[#545454] text-base font-semibold text-center">
               {chartereArrival}
             </span>

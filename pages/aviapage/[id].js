@@ -21,6 +21,7 @@ import {
   currencySymbols,
   learjet45Slides,
 } from '@/components/Utils/Constants';
+import LoadScript from '@/components/Utils/loadScript';
 
 const DedicatedeHeader = () => {
   return (
@@ -41,20 +42,25 @@ const JourneyDetails = ({
   selectedCurrency,
   handleCurrencyChange,
   totalCost,
+  data,
 }) => {
   return (
     <>
       <h3 className="font-bold">
-        {aircraft?.aviapagesResponse?.airport?.departure_airport} to{' '}
-        {aircraft?.aviapagesResponse?.airport?.arrival_airport}
+        {data?.from} to {data?.to}
       </h3>
       <p className="font-bold text-[0.85rem]">
-        {aircraft?.totalTime ? aircraft?.totalTime?.toFixed(2) : '-'} hrs
+        {data?.specificAircraft?.totalTime
+          ? data?.specificAircraft?.totalTime?.toFixed(2)
+          : '-'}{' '}
+        hrs
       </p>
       <p className="my-3">
         1 Passengers |{' '}
-        {aircraft?.lastTicketingDate &&
-          moment(aircraft?.lastTicketingDate)?.format('DD MMM, YYYY')}
+        {aircraft?.specificAircraft?.operator?.date &&
+          moment(aircraft?.specificAircraft?.operator?.date)?.format(
+            'DD MMM, YYYY'
+          )}
       </p>
       <div className="border-b border-t my-2">
         <div className="flex items-center justify-between py-3">
@@ -87,7 +93,7 @@ const JourneyDetails = ({
             })}
           </select>
 
-          <div className="flex flex-row items-end">
+          <div className="flex flex-row items-end ml-2">
             {currencySymbols[selectedCurrency]}
             <div className=" font-extrabold"> {totalCost}</div>
           </div>
@@ -95,7 +101,7 @@ const JourneyDetails = ({
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
         <span className="font-bold">Qwiklif</span>, helps in your emergency by
-        providing private air ambulance at commercial prices.
+        providing private air ambulance at affordable Price.
       </div>
       <div className="flex flex-col mt-5">
         <input
@@ -273,7 +279,7 @@ const Flightchallenger605 = () => {
     </>
   );
 };
-const FlightDetails = () => {
+const FlightDetails = ({ aircraftData, data }) => {
   return (
     <div
       className="rounded-md p-5 text-[0.9rem]"
@@ -285,55 +291,30 @@ const FlightDetails = () => {
           <span>3/30/2024</span>
           <span>3/30/2024</span>
         </p>
-        <p className="flex justify-between text-[0.85rem]">
-          <span>9:50:00 PM</span>
-          <span>11:00:00 PM</span>
-        </p>
+
         <div className="flex justify-between items-center w-full mt-3">
-          <span className="font-bold text-base">Pune</span>
+          <span className="font-bold text-base">{data?.from}</span>
           <div className="relative">
             <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
               <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
             </div>
           </div>
-          <span className="font-bold text-base">Mumbai</span>
+          <span className="font-bold text-base">{data?.to}</span>
         </div>
         <p className="flex justify-between">
-          <span className="max-w-40 text-start">Lohegaon Airport</span>
-          <span className="max-w-40 text-end">
-            Chhatrapati Shivaji International Airport
-          </span>
-        </p>
-      </div>
-      <div className="my-3 py-3 border-b-2 border-gray-100">
-        <p className="flex justify-between text-[0.85rem]">
-          <span>3/30/2024</span>
-          <span>3/30/2024</span>
-        </p>
-        <p className="flex justify-between text-[0.85rem]">
-          <span>9:50:00 PM</span>
-          <span>11:00:00 PM</span>
-        </p>
-        <div className="flex justify-between items-center w-full mt-3">
-          <span className="font-bold text-base">Pune</span>
-          <div className="relative">
-            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
-              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-          <span className="font-bold text-base">Mumbai</span>
-        </div>
-        <p className="flex justify-between">
-          <span className="max-w-40 text-start">Lohegaon Airport</span>
-          <span className="max-w-40 text-end">
-            Chhatrapati Shivaji International Airport
-          </span>
+          <span className="max-w-40 text-start">{data?.from}</span>
+          <span className="max-w-40 text-end">{data?.to}</span>
         </p>
       </div>
     </div>
   );
 };
-const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
+const CostDetails = ({
+  selectedCurrency,
+  handleCurrencyChange,
+  totalCost,
+  makePayment,
+}) => {
   return (
     <div
       className="flex flex-col rounded-md p-5 text-[0.9rem]"
@@ -378,14 +359,17 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
               })}
             </select>
 
-            <div className="flex flex-row items-end">
+            <div className="flex flex-row items-end ml-2">
               {currencySymbols[selectedCurrency]}
               <div className=" font-extrabold"> {totalCost}</div>
             </div>
           </div>
         </div>
       </div>
-      <button className="border border-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white shadow-lg shadow-primary/70 bg-primary text-white">
+      <button
+        className="border border-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white shadow-lg shadow-primary/70 bg-primary text-white"
+        onClick={() => alert('hii')}
+      >
         Pay Now
       </button>
     </div>
@@ -494,6 +478,7 @@ const AviapageDetails = () => {
 
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
   const [aircraftData, setAircraftData] = useState({});
+  const [data, setData] = useState({});
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [totalCost, setTotalCost] = useState(0);
 
@@ -551,6 +536,8 @@ const AviapageDetails = () => {
 
       if (response) {
         setAircraftData(response?.data?.specificAircraft);
+        setData(response?.data);
+        console.log('date', response?.data?.specificAircraft?.operator?.date);
         const segments =
           response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
         console.log('segment line 632', segments);
@@ -560,6 +547,7 @@ const AviapageDetails = () => {
           destinationLocation: segments.at(-1)?.arrival?.iataCode,
           destinationTime: segments.at(-1)?.arrival?.at,
         });
+
         // if (segments?.length > 1) {
 
         // } else {
@@ -585,9 +573,82 @@ const AviapageDetails = () => {
     }
   };
 
+  const amount = totalCost;
+  const currency = selectedCurrency;
+  const receiptId = 'quicklftReceipt';
+  const makePayment = async (e) => {
+    const response = await fetch('http://localhost:8000/rayzorpay/Order', {
+      method: 'POST',
+      body: JSON.stringify({
+        amount: amount,
+        currency: currency,
+        receipt: receiptId,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const order = await response.json();
+    console.log('this is line 27', order.order.id);
+
+    let options = {
+      key: 'rzp_test_dSGUgBKlIU2Ecm',
+      amount: amount,
+      currency: currency,
+      name: 'Qickly',
+      description: 'Test Transaction',
+      image: 'https://example.com/your_logo',
+      order_id: order.order.id,
+      handler: async function (response) {
+        const body = {
+          ...response,
+        };
+
+        const validateRes = await fetch(
+          'http://localhost:8000/rayzorpay/Order/verify',
+          {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        const jsonRes = await validateRes.json();
+        console.log(jsonRes);
+      },
+      prefill: {
+        name: 'Gaurav Kumar',
+        email: 'gaurav.kumar@example.com',
+        contact: '9000090000',
+      },
+      notes: {
+        address: 'Razorpay Corporate Office',
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+    var rzp1 = new window.Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    rzp1.open();
+    e.preventDefault();
+  };
   useEffect(() => {
     if (id) {
       fetchData();
+      const loadRayzorPaymentScript = async () => {
+        await LoadScript('https://checkout.razorpay.com/v1/checkout.js');
+      };
+      loadRayzorPaymentScript();
     }
   }, [id]);
 
@@ -611,18 +672,20 @@ const AviapageDetails = () => {
               selectedCurrency={selectedCurrency}
               handleCurrencyChange={handleCurrencyChange}
               totalCost={totalCost}
+              data={data}
             />
           </div>
         </div>
         <div className="flex sm:flex-col gap-5 mt-8 mb-20">
           <div className="sm:w-full w-6/12">
-            <FlightDetails />
+            <FlightDetails aircraftData={aircraftData} data={data} />
           </div>
           <div className="sm:w-full w-6/12">
             <CostDetails
               totalCost={totalCost}
               selectedCurrency={selectedCurrency}
               handleCurrencyChange={handleCurrencyChange}
+              makePayment={makePayment}
             />
           </div>
         </div>
