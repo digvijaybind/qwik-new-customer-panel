@@ -221,6 +221,34 @@ const About = () => {
               </p>
             </div>
           )}
+          <div className="mt-[30px] flex ">
+            <div className={`w-[45%] mr-[30px] ${style.Aboutsub}`}>
+              <img
+                src="https://qwiklif.com/wp-content/uploads/2019/01/20-1-1-630x408.jpg"
+                alt=""
+              />
+              <img
+                className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
+                src="https://qwiklif.com/wp-content/themes/medilink/assets/img/play.png"
+                alt=""
+              />
+            </div>
+            <div className="w-[45%] flex items-center justify-center border-[#ccc] border-[1px] rounded-[5px]">
+              <div className="flex items-start">
+                <img
+                  src="https://qwiklif.com/wp-content/uploads/2018/11/figure6.png"
+                  alt=""
+                  className="mr-[20px]"
+                />
+                <div>
+                  <p className="text-[#111]  font-bold text-[24px]">
+                    Emergency Cases
+                  </p>
+                  <p className="text-[18px]">+971 5028 25 433</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -342,7 +370,9 @@ const About = () => {
           </div>
 
           <div className="w-[40%] relative  bg-white rounded-[10px] py-[20px] px-[25px]">
-            <h2 className="text-[#111] font-bold text-[25px] mb-[30px] mt-[20px]">Get Quote Now</h2>
+            <h2 className="text-[#111] font-bold text-[25px] mb-[30px] mt-[20px]">
+              Get Quote Now
+            </h2>
             <input
               type="text"
               className="outline-0 border-[1px] border-[#eee] w-[100%] text-[18px] pl-[10px] py-[7px] rounded-[5px] mb-[30px]"
@@ -380,7 +410,9 @@ const About = () => {
                 placeholder="Time"
               />
             </div>
-            <button className='text-center text-[18px] shadow-lg font-bold mt-[40px] py-[7px] w-[100%] text-white rounded-[5px] bg-[#396CF0]'>Get Quote</button>
+            <button className="text-center text-[18px] shadow-lg font-bold mt-[40px] py-[7px] w-[100%] text-white rounded-[5px] bg-[#396CF0]">
+              Get Quote
+            </button>
           </div>
         </div>
       </div>
