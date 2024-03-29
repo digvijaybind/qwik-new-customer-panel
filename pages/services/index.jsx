@@ -42,28 +42,30 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <div className="text-center w-[50%] sm:w-[80%] m-auto py-[30px]">
-        <h2 className="text-[25px] font-bold text-[#111]">Our Services</h2>
-        <p className="pt-[10px]">
-          At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
-          And Service When It Matters Most.
-        </p>
-      </div>
-      <div className="flex justify-between sm:items-center px-[10%] flex-wrap">
-        {servicee.map((data, i) => (
-          <div
-            className={`w-[47%] sm:w-[100%] mt-[20px] ${
-              i == 4 ? 'mb-[20px]' : ''
-            } `}
-            key={i}
-          >
-            <ShadowCard
-              img={data.img}
-              head={data.head}
-              text={data.text}
-            ></ShadowCard>
-          </div>
-        ))}
+      <div className="bg-[#efefef]">
+        <div className="text-center w-[50%] sm:w-[80%] m-auto py-[30px]">
+          <h2 className="text-[25px] font-bold text-[#111]">Our Services</h2>
+          <p className="pt-[10px]">
+            At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
+            And Service When It Matters Most.
+          </p>
+        </div>
+        <div className="flex justify-between sm:items-center px-[10%] flex-wrap">
+          {servicee.map((data, i) => (
+            <div
+              className={`w-[47%] sm:w-[100%] mt-[20px] ${
+                i == 4 ? 'mb-[20px]' : ''
+              } `}
+              key={i}
+            >
+              <ShadowCard
+                img={data.img}
+                head={data.head}
+                text={data.text}
+              ></ShadowCard>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
