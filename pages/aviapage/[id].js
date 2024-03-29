@@ -22,6 +22,7 @@ import {
   learjet45Slides,
 } from '@/components/Utils/Constants';
 import LoadScript from '@/components/Utils/loadScript';
+import Layout from '@/components/layout/Layout';
 
 const DedicatedeHeader = () => {
   return (
@@ -626,52 +627,54 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
     loadRayzorPaymentScript();
   }, []);
   return (
-    <div
-      className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow}`}
-      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
-    >
-      <h2 className="text-base font-bold mb-4">Cost Details</h2>
-      <div className="flex flex-col gap-3 text-[0.9rem]">
-        <div className="flex justify-between">
-          <span>Flight Cost </span>
-          <span>
-            {currencySymbols[selectedCurrency]}
-            {totalCost}
-          </span>
-        </div>
-
-        <div className="flex justify-between items-center">
-          <span>Estimated cost</span>
-          <div className="font-bold text-base flex items-center">
-            <select
-              id="currencySelector"
-              value={selectedCurrency}
-              onChange={handleCurrencyChange}
-              className="border-solid border-2 border-black rounded-md text-xs"
-            >
-              {Object.keys(currencySymbols)?.map((currency, index) => {
-                return (
-                  <option value={currency} key={'currency-item' + index}>
-                    {currency}
-                  </option>
-                );
-              })}
-            </select>
-
-            <div className="flex flex-row items-end ml-2">
+    <Layout>
+      <div
+        className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow}`}
+        style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+      >
+        <h2 className="text-base font-bold mb-4">Cost Details</h2>
+        <div className="flex flex-col gap-3 text-[0.9rem]">
+          <div className="flex justify-between">
+            <span>Flight Cost </span>
+            <span>
               {currencySymbols[selectedCurrency]}
-              <div className=" font-extrabold"> {totalCost}</div>
+              {totalCost}
+            </span>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <span>Estimated cost</span>
+            <div className="font-bold text-base flex items-center">
+              <select
+                id="currencySelector"
+                value={selectedCurrency}
+                onChange={handleCurrencyChange}
+                className="border-solid border-2 border-black rounded-md text-xs"
+              >
+                {Object.keys(currencySymbols)?.map((currency, index) => {
+                  return (
+                    <option value={currency} key={'currency-item' + index}>
+                      {currency}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <div className="flex flex-row items-end ml-2">
+                {currencySymbols[selectedCurrency]}
+                <div className=" font-extrabold"> {totalCost}</div>
+              </div>
             </div>
           </div>
         </div>
+        <button
+          className="border border-[#0FE7E7] text- rounded-md p-2 text-sm mt-10 hover:bg-[#0FE7E7] hover:text-white"
+          onClick={makePayment}
+        >
+          Pay Now
+        </button>
       </div>
-      <button
-        className="border border-[#0FE7E7] text- rounded-md p-2 text-sm mt-10 hover:bg-[#0FE7E7] hover:text-white"
-        onClick={makePayment}
-      >
-        Pay Now
-      </button>
-    </div>
+    </Layout>
   );
 };
 // const Airtransfer = () => {

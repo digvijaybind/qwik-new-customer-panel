@@ -4,6 +4,7 @@ import style from './About.module.css';
 import { FaPlane } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
+import Layout from '@/components/layout/Layout';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 

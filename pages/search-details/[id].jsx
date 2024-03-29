@@ -43,6 +43,7 @@ import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg
 import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
+import Layout from '@/components/layout/Layout';
 
 const currencySymbols = {
   EUR: '€',
@@ -96,98 +97,6 @@ const DedicatedeHeader = () => {
   );
 };
 
-// const JourneyDetails = ({
-//   totalTravelDuration,
-//   selectedCurrency,
-//   handleCurrencyChange,
-//   locationData,
-//   aircraft,
-//   totalCost,
-//   price,
-// }) => {
-//   return (
-//     <>
-//       <h3 className="font-bold">
-//         {locationData?.departureLocation} {locationData?.destinationLocation}
-//       </h3>
-//       <p className="font-bold text-[0.85rem]">
-//         Total Travel:-{' '}
-//         {totalTravelDuration?.length > 0 &&
-//           totalTravelDuration.map((data) => {
-//             return `${Math.floor(data.totalHours)}h ${Math.floor(
-//               data.totalMinutes
-//             )}m`;
-//           })}
-//       </p>
-//       <p className="my-3">
-//         1 Passengers |{' '}
-//         {aircraft?.lastTicketingDate &&
-//           moment(aircraft?.lastTicketingDate)?.format('DD MMM, YYYY')}
-//       </p>
-//       <div className="border-b border-t my-2">
-//         <div className="flex items-center justify-between py-3">
-//           <span>Flying Cost</span>
-//           <span>
-//             {currencySymbols[selectedCurrency]}
-//             {totalCost}
-//           </span>
-//         </div>
-//         {/* <p className="flex justify-between py-3">
-//           <span>GST (18%)</span>
-//           <span>₹ 2,02,719</span>
-//         </p> */}
-//       </div>
-//       <div className="flex justify-between items-center py-1 font-bold">
-//         <span>Estimated Cost</span>
-//         <div className="text-base flex items-center">
-//           <select
-//             id="currencySelector"
-//             value={selectedCurrency}
-//             onChange={handleCurrencyChange}
-//             className="border-solid border-2 border-black rounded-md text-xs"
-//           >
-//             {Object.keys(currencySymbols)?.map((currency, index) => {
-//               return (
-//                 <option value={currency} key={'currency-item' + index}>
-//                   {currency}
-//                 </option>
-//               );
-//             })}
-//           </select>
-
-//           <div className="flex flex-row items-end ml-2">
-//             {currencySymbols[selectedCurrency]}
-//             <div className=" font-extrabold"> {totalCost}</div>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="rounded-md bg-gray-300 p-2 my-4">
-//         <span className="font-bold">Qwiklif</span>, helps in your emergency by
-//         providing private air ambulance service .
-//       </div>
-//       <div className="flex flex-col mt-5">
-//         <input
-//           name="username"
-//           className="border-b mb-5 px-2 py-1"
-//           placeholder="Your Name"
-//         />
-//         <input
-//           name="username"
-//           className="border-b mb-5 px-2 py-1"
-//           placeholder="Phone"
-//         />
-//         <input
-//           name="username"
-//           className="border-b mb-5 px-2 py-1"
-//           placeholder="Email"
-//         />
-//         <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2">
-//           Enquire Now
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
 
 const JourneyDetails = ({
   totalTravelDuration,
@@ -225,10 +134,7 @@ const JourneyDetails = ({
             {totalCost}
           </span>
         </div>
-        {/* <p className="flex justify-between py-3">
-          <span>GST (18%)</span>
-          <span>₹ 2,02,719</span>
-        </p> */}
+        
       </div>
 
       <div className="flex justify-between items-center py-1 font-bold">
@@ -430,75 +336,7 @@ const Flightchallenger605 = () => {
     </>
   );
 };
-// const FlightDetails = ({ segments, data, totalTravelDuration }) => {
-//   return (
-//     <div
-//       className="flex flex-col rounded-md p-5 text-[0.9rem]"
-//       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-//     >
-//       <h2 className="text-base font-bold">Flight Details</h2>
-//       {segments?.map((segment) => {
-//         return (
-//           <div
-//             key={'segment-' + segment?.number}
-//             className="mt-2 mb-3 py-3 border-b-2 border-gray-100"
-//           >
-//             <p className="flex justify-between text-[0.85rem]">
-//               <span>
-//                 {segment?.departure?.at
-//                   ? moment(segment?.arrival?.at)?.format('DD/MM/YYYY')
-//                   : '-/-/-'}
-//               </span>
-//               <span>
-//                 {segment?.arrival?.at
-//                   ? moment(segment?.departure?.at)?.format('DD/MM/YYYY')
-//                   : '-/-/-'}
-//               </span>
-//             </p>
 
-//             <p className="flex justify-between text-[0.85rem]">
-//               <span>
-//                 {segment?.departure?.at
-//                   ? moment(segment?.arrival?.at)?.format('HH:mm')
-//                   : '-:-'}
-//               </span>
-//               <span>
-//                 {segment?.arrival?.at
-//                   ? moment(segment?.departure?.at)?.format('HH:mm')
-//                   : '-:-'}
-//               </span>
-//             </p>
-
-//             <div className="flex justify-between items-center w-full mt-3">
-//               <span className="font-bold text-base">
-//                 {' '}
-//                 {segment?.departure?.iataCode}
-//               </span>
-//               <div className="relative">
-//                 <div className="bg-gray-300 h-[2px]  sm:w-36 w-72">
-//                   <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-//                 </div>
-//               </div>
-//               <span className="font-bold text-base">
-//                 {segment?.arrival?.iataCode}
-//               </span>
-//             </div>
-
-//             <p className="flex justify-between">
-//               <span className="max-w-40 text-start">
-//                 {' '}
-//                 {segment?.departure?.iataCode}
-//               </span>
-//               <span className="max-w-40 text-end">
-//                 {segment?.arrival?.iataCode}
-//               </span>
-//             </p>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
 
 const FlightDetails = ({ segments, data, totalTravelDuration }) => {
   return (
@@ -569,138 +407,6 @@ const FlightDetails = ({ segments, data, totalTravelDuration }) => {
     </div>
   );
 };
-
-//   return (
-//     <div
-//       className="rounded-md p-5 text-[0.9rem]"
-//       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-//     >
-//       <h2 className="text-base font-bold">Flight Details</h2>
-//       {segments?.map((segment) => {
-//         return (
-//           <div
-//             key={'segment-' + segment?.number}
-//             className="mt-2 mb-3 py-3 border-b-2 border-gray-100"
-//           >
-//             <p className="flex justify-between text-[0.85rem]">
-//               <span>
-//                 {segment?.departure?.at
-//                   ? moment(segment?.arrival?.at)?.format('DD/MM/YYYY')
-//                   : '-/-/-'}
-//               </span>
-//               <span>
-//                 {segment?.arrival?.at
-//                   ? moment(segment?.departure?.at)?.format('DD/MM/YYYY')
-//                   : '-/-/-'}
-//               </span>
-//             </p>
-
-//             <p className="flex justify-between text-[0.85rem]">
-//               <span>
-//                 {segment?.departure?.at
-//                   ? moment(segment?.arrival?.at)?.format('HH:mm')
-//                   : '-:-'}
-//               </span>
-//               <span>
-//                 {segment?.arrival?.at
-//                   ? moment(segment?.departure?.at)?.format('HH:mm')
-//                   : '-:-'}
-//               </span>
-//             </p>
-
-//             <div className="flex justify-between items-center w-full mt-3">
-//               <span className="font-bold text-base">
-//                 {' '}
-//                 {segment?.departure?.iataCode}
-//               </span>
-//               <div className="relative">
-//                 <div className="bg-gray-300 h-[2px]  sm:w-36 w-72">
-//                   <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-//                 </div>
-//               </div>
-//               <span className="font-bold text-base">
-//                 {segment?.arrival?.iataCode}
-//               </span>
-//             </div>
-
-//             <p className="flex justify-between">
-//               <span className="max-w-40 text-start">
-//                 {' '}
-//                 {segment?.departure?.iataCode}
-//               </span>
-//               <span className="max-w-40 text-end">
-//                 {segment?.arrival?.iataCode}
-//               </span>
-//             </p>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-// const CostDetails = ({
-//   price,
-//   selectedCurrency,
-//   handleCurrencyChange,
-//   totalCost,
-// }) => {
-//   return (
-//     <div
-//       className="flex flex-col rounded-md p-5 text-[0.9rem]"
-//       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-//     >
-//       <h2 className="text-base font-bold mb-4">Cost Details</h2>
-//       <div className="flex flex-col gap-3 text-[0.9rem]">
-//         <p className="flex justify-between">
-//           <span>Flight Cost </span>
-//           <span>
-//             {currencySymbols[selectedCurrency]}
-//             {totalCost}
-//           </span>
-//         </p>
-//         {/* <p className="flex justify-between">
-//           <span>Airport handling charges</span>
-//           <span>₹ 1,23,000</span>
-//         </p>
-//         <p className="flex justify-between">
-//           <span>Sub total</span>
-//           <span>₹ 11,26,217</span>
-//         </p>
-//         <p className="flex justify-between">
-//           <span>GST (18%)</span>
-//           <span>₹ 2,02,719</span>
-//         </p> */}
-//         <div className="flex justify-between items-center">
-//           <span>Estimated cost</span>
-//           <div className="font-bold text-base flex items-center ">
-//             <select
-//               id="currencySelector"
-//               value={selectedCurrency}
-//               onChange={handleCurrencyChange}
-//               className="border-solid border-2 border-black rounded-md text-xs"
-//             >
-//               {Object.keys(currencySymbols)?.map((currency, index) => {
-//                 return (
-//                   <option value={currency} key={'currency-item' + index}>
-//                     {currency}
-//                   </option>
-//                 );
-//               })}
-//             </select>
-
-//             <div className="flex flex-row items-end ml-2 ">
-//               {currencySymbols[selectedCurrency]}
-//               <div className=" font-extrabold"> {totalCost}</div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//       <button className="border border-primary rounded-md p-2 text-sm mt-10 hover:bg-primary hover:text-white shadow-lg shadow-primary/70 bg-primary text-white">
-//         Pay Now
-//       </button>
-//     </div>
-//   );
-// };
 
 const CostDetails = ({
   price,
@@ -1315,50 +1021,52 @@ const AmadeuspageDetails = () => {
   }, [results?.price?.totalPrice, selectedCurrency]);
 
   return (
-    <div className="">
-      <DedicatedeHeader />
-      <div className="sm:px-20 px-36">
-        <p className="text-sm my-3">
-          <span className="font-medium">Search Result</span>
-        </p>
-        <div className="flex sm:flex-col gap-5 my-3">
-          <div className="sm:w-full w-8/12">
-            <FlightImages locationData={locationData} />
+  
+      <div className="">
+        <DedicatedeHeader />
+        <div className="sm:px-20 px-36">
+          <p className="text-sm my-3">
+            <span className="font-medium">Search Result</span>
+          </p>
+          <div className="flex sm:flex-col gap-5 my-3">
+            <div className="sm:w-full w-8/12">
+              <FlightImages locationData={locationData} />
+            </div>
+            <div
+              className={`sm:w-full w-4/12 border border-gray-300 shadow-lg rounded-[8px] p-4 text-[0.9rem] ${styles.Shadow}`}
+            >
+              <JourneyDetails
+                totalTravelDuration={totalTravelDuration}
+                locationData={locationData}
+                aircraft={results?.aircraft || {}}
+                price={results?.price || {}}
+                selectedCurrency={selectedCurrency}
+                handleCurrencyChange={handleCurrencyChange}
+                totalCost={totalCost}
+              />
+            </div>
           </div>
-          <div
-            className={`sm:w-full w-4/12 border border-gray-300 shadow-lg rounded-[8px] p-4 text-[0.9rem] ${styles.Shadow}`}
-          >
-            <JourneyDetails
-              totalTravelDuration={totalTravelDuration}
-              locationData={locationData}
-              aircraft={results?.aircraft || {}}
-              price={results?.price || {}}
-              selectedCurrency={selectedCurrency}
-              handleCurrencyChange={handleCurrencyChange}
-              totalCost={totalCost}
-            />
+          <div className="flex sm:flex-col gap-5 mt-8 mb-8">
+            <div className="sm:w-full w-6/12">
+              <FlightDetails
+                segments={results?.aircraft?.itineraries?.[0]?.segments || []}
+                totalTravelDuration={totalTravelDuration}
+              />
+            </div>
+            <div className="sm:w-full w-6/12">
+              <CostDetails
+                price={results?.price || {}}
+                selectedCurrency={selectedCurrency}
+                handleCurrencyChange={handleCurrencyChange}
+                totalCost={totalCost}
+                makePayment={makePayment}
+              />
+            </div>
           </div>
+          <Airtransfer />
         </div>
-        <div className="flex sm:flex-col gap-5 mt-8 mb-8">
-          <div className="sm:w-full w-6/12">
-            <FlightDetails
-              segments={results?.aircraft?.itineraries?.[0]?.segments || []}
-              totalTravelDuration={totalTravelDuration}
-            />
-          </div>
-          <div className="sm:w-full w-6/12">
-            <CostDetails
-              price={results?.price || {}}
-              selectedCurrency={selectedCurrency}
-              handleCurrencyChange={handleCurrencyChange}
-              totalCost={totalCost}
-              makePayment={makePayment}
-            />
-          </div>
-        </div>
-        <Airtransfer />
       </div>
-    </div>
+   
   );
 };
 export default AmadeuspageDetails;

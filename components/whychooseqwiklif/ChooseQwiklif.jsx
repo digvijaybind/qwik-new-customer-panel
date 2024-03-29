@@ -99,7 +99,7 @@ const ChooseQwiklif = () => {
             )}
             {activeTab === 2 && (
               <SelectionComponent
-                img={CostEffect}
+                img={CostEffective}
                 title="24x7 Doctors on Board"
                 descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
               />

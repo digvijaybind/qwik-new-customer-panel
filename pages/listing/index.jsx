@@ -27,6 +27,7 @@ import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 import { IoAirplaneSharp } from 'react-icons/io5';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
+import Layout from '@/components/layout/Layout';
 
 const Listing = ({ id }) => {
   const searchParams = useSearchParams();
@@ -73,7 +74,7 @@ const Listing = ({ id }) => {
   const [Charteredepature, setcharteredDepature] = useState('BOM');
   const [ChartereArrival, setchartereArrival] = useState('DXB');
   const [ChartereId, setchartereId] = useState();
-  const[CommericialId,setCommericialId]=useState();
+  const [CommericialId, setCommericialId] = useState();
   useEffect(() => {
     if (
       searchParams.has('originLocationCode') &&
@@ -90,7 +91,6 @@ const Listing = ({ id }) => {
       };
       setFormData(formDetails);
       searchFlights(formDetails);
-      
     }
   }, [searchParams]);
 

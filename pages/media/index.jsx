@@ -1,11 +1,14 @@
-import MediaSection from "@/components/media/MediaSection";
-import React from "react";
+import Layout from '@/components/layout/Layout';
+import MediaSection from '@/components/media/MediaSection';
+import React from 'react';
 
 const Media = () => {
   return (
-    <div>
-      <MediaSection />
-    </div>
+    <Layout>
+      <div>
+        <MediaSection />
+      </div>
+    </Layout>
   );
 };
 

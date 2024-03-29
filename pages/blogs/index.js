@@ -7,40 +7,29 @@ import LandingImage from '../../public/images/qwiklif11.jpg';
 import axios from 'axios';
 import Link from 'next/link';
 import styles from './Blogs.module.css';
-const Blogs = ({ data }) => {
-  const [allPosts, setAllPosts] = useState([]);
+const Blogs = ({ allPosts }) => {
+  // const [allPosts, setAllPosts] = useState([]);
 
-  useEffect(() => {
-    axios({
-      url: 'https://dev.a2zqr.com/wp-json/wp/v2/posts',
-      method: 'GET',
-      params: {
-        _embed: 'true',
-        per_page: 100,
-      },
-    })
-      .then(({ data }) => {
-        console.log(data);
-        setAllPosts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios({
+  //     url: 'https://dev.a2zqr.com/wp-json/wp/v2/posts',
+  //     method: 'GET',
+  //     params: {
+  //       _embed: 'true',
+  //       per_page: 100,
+  //     },
+  //   })
+  //     .then(({ data }) => {
+  //       console.log(data);
+  //       setAllPosts(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <div className="p-[50px]">
-      {/* console.log("allPosts",allPosts) */}
-      {/* <Image src={LandingImage} alt="Picture of the author" className="h-[430px] w-full" />
-      <div className="px-5 font-lato">
-        <div className="justify-center">
-          <div className="text-[64px] text-center font-lato  text-{#000000} mb-5 mt-5 ">
-            NEWS AND BLOGS
-          </div>
-        </div>
-        <div className="justify-start">
-          <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
-        </div> */}
       <div>
         <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
           <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
@@ -87,6 +76,21 @@ const Blogs = ({ data }) => {
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  // Fetch data from an API
+  const res = await fetch(
+    'https://dev.a2zqr.com/wp-json/wp/v2/posts?_embed=true&per_page=100'
+  );
+  const data = await res.json();
+
+  // Return data as props
+  return {
+    props: {
+      allPosts: data,
+    },
+  };
+}
 
 export default Blogs;
 
