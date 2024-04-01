@@ -1,0 +1,31 @@
+.InputText {
+  color: #999; /* Placeholder text color */
+  font-style: normal; /* Placeholder text style */
+  font-size: medium;
+}
+
+.InputText::placeholder {
+  color: #999; /* Placeholder text color */
+  font-style: normal; /* Placeholder text style */
+  font-size: medium;
+}
+
+@media (min-width: 768px) {
+  .InputText::placeholder {
+    padding-left: 15px;
+  }
+}
+.SelectText {
+  color: #999; /* Placeholder text color */
+  font-style: normal; /* Placeholder text style */
+  font-size: medium;
+}
+.SelectText::placeholder {
+  color: #999; /* Placeholder text color */
+  font-style: normal; /* Placeholder text style */
+  font-size: medium;
+}
+
+.DateBackground {
+  background-color: #e7e5e5;
+}

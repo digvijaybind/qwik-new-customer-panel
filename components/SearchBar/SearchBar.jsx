@@ -11,6 +11,12 @@ import _debounce from 'lodash/debounce';
 import axios from 'axios';
 import { FaCross, FaX } from 'react-icons/fa6';
 import Loader from '../Utils/Loader';
+import styles from './Searchbar.module.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import CustomDatePicker from '../date/CustomDatePicker';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaCalendarAlt } from 'react-icons/fa';
 
 const SearchBar = ({
   className = '',
@@ -90,7 +96,7 @@ const SearchBar = ({
 
   return (
     <Shadow
-      classname={`mx-36 sm:mx-10 relative lg:relative sm:static drop-shadow-xl bg-white px-7 py-7 ${className} `}
+      classname={`mx-36 sm:mx-5 relative lg:relative sm:static drop-shadow-xl bg-white px-7 sm:px-2 py-7 `}
     >
       <form onSubmit={handleSubmit} className="flex flex-col">
         <div className="flex justify-between items-center pb-4 text-sm">
@@ -98,7 +104,7 @@ const SearchBar = ({
             <div className="flex items-center">
               <TiUserOutline className="text-base" />
               <select
-                className="border-none focus:outline-none"
+                className={`border-none focus:outline-none ${styles.SelectText}`}
                 name="pax"
                 value={formData?.pax}
                 onChange={(e) => handleInputChange('pax', e)}
@@ -115,32 +121,22 @@ const SearchBar = ({
                 <option value="10">10 Adults</option>
               </select>
             </div>
-            <div className="flex">
-              <RiPriceTag3Line className="text-base" />
-              <select className="border-none focus:outline-none">
-                <option value="Commercial">Commercial</option>
-                <option value="Commercial">Chartered</option>
-              </select>
-            </div>
-          </div>
-          <div className="flex gap-2 items-center sm:hidden">
-            Looking for Air Ambulance Service?
           </div>
         </div>
         <div className="flex sm:flex-col">
-          <div className="flex-1 grid sm:grid-cols-1 grid-cols-12 gap-2 md:flex-col md:mb-3 sm:flex-col sm:mb-3 bg-primary/20">
-            <div className="col-span-5 grid grid-cols-2">
+          <div className="flex-1 grid sm:grid-cols-1 grid-cols-11 gap-0.3 md:flex-col md:mb-3 sm:flex-col sm:mb-3">
+            <div className="col-span-4 grid grid-cols-2 gap-0.3 sm:grid sm:grid-rows-1 sm:gap-2  border-white sm:mb-3">
               <div
-                className="col-span-1 sm:col-span-2 flex gap-3 items-center relative"
+                className="col-span-1 sm:col-span-1 flex gap-1 items-center relative border-r-2 border-white px-5 sm:px-5  bg-[#e7e5e5] sm:rounded-lg"
                 id="originLocationContainer"
               >
-                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3" />
+                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3 sm:hidden" />
                 {!originSearchSelected && (
                   <input
-                    className="bg-transparent py-3 focus:outline-none"
+                    className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
                     name="originLocationCode"
                     type="text"
-                    placeholder="Arrival"
+                    placeholder="From"
                     onFocus={() => setOriginFocus(true)}
                     value={formData.originLocationCode}
                     onChange={(e) => {
@@ -151,7 +147,7 @@ const SearchBar = ({
                 )}
                 {originSearchSelected?.city_name && (
                   <div className="flex-1 h-full py-2">
-                    <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2">
+                    <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2 border-l-2 border-white px-5 ">
                       {originSearchSelected?.city_name}{' '}
                       {originSearchSelected?.iata
                         ? `(${originSearchSelected?.iata})`
@@ -207,16 +203,16 @@ const SearchBar = ({
                 </ul>
               </div>
               <div
-                className="col-span-1 sm:col-span-2 flex gap-3 items-center relative"
+                className="col-span-1 sm:col-span-1 flex gap-3 items-center  sm:px-5  relative  bg-[#e7e5e5] sm:rounded-lg"
                 id="destinationLocationContainer"
               >
-                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3" />
+                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3 sm:hidden sm:hidden" />
                 {!destinationSearchSelected && (
                   <input
-                    className="bg-transparent py-3 focus:outline-none"
+                    className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
                     name="destinationLocationCode"
                     type="text"
-                    placeholder="Destination"
+                    placeholder="To"
                     onFocus={() => setDestinationFocus(true)}
                     value={formData.destinationLocationCode}
                     onChange={(e) => {
@@ -253,7 +249,7 @@ const SearchBar = ({
                     searchResults?.map((location, index) => {
                       return (
                         <li
-                          className="w-full px-3 py-1.5 hover:bg-primary/5 cursor-pointer"
+                          className="w-full px-3 py-1.5 hover:bg-primary/5 cursor-pointer border-l-2 border-white px-5 "
                           key={'destination-search-result' + index}
                           onClick={(e) => {
                             e.stopPropagation();
@@ -283,30 +279,21 @@ const SearchBar = ({
                 </ul>
               </div>
             </div>
-            <div className="col-span-2 border-l-2 border-white px-5 flex justify-between items-center">
+            <div className="col-span-2  border-l-2 sm:border-b-2 border-white px-2 sm:px-2 flex  border-r-2   sm:col-span-5  bg-[#e7e5e5] sm:mb-3 sm:rounded-lg">
               <input
-                className="col-span-3 bg-transparent py-3 focus:outline-none"
-                name="mobile"
-                type="tel"
-                placeholder="Mobile"
-                value={formData.mobile}
-                onChange={(e) => handleInputChange('mobile', e)}
-              />
-            </div>
-            <div className="col-span-5 border-l-2 border-white px-5 flex sm:flex-col justify-between items-center sm:items-start sm:pb-4">
-              <input
-                className="bg-transparent py-3 focus:outline-none"
+                className={`bg-transparent py-3 focus:outline-none sm:max-w-80 ${styles.InputText} flex-1`}
                 name="departureDate"
                 type="date"
                 value={formData.departureDate}
                 onChange={(e) => handleInputChange('departureDate', e)}
               />
-              <hr className="h-1 w-8 sm:hidden bg-white rounded-sm" />
+            </div>
+            <div className="col-span-2   border-white  sm:p-4 flex sm:col-span-5 bg-[#e7e5e5] sm:mb-3  sm:rounded-lg">
               <select
                 value={formData.countryCode}
                 name="countryCode"
                 onChange={(e) => handleInputChange('countryCode', e)}
-                className="focus:outline-none bg-transparent border-none max-w-52"
+                className={`focus:outline-none bg-transparent border-none max-w-48 sm:max-w-80 ${styles.SelectText}`}
               >
                 {countries.map((data, index) => {
                   return (
@@ -321,15 +308,27 @@ const SearchBar = ({
                 })}
               </select>
             </div>
+
+            <div className="col-span-3 px-3 border-l-2   flex justify-between items-center border-t-2 border-white sm:col-span-5 bg-[#e7e5e5] sm:rounded-lg">
+              <input
+                className={`col-span-3 bg-transparent py-3 focus:outline-none ${styles.InputText}`}
+                name="mobile"
+                type="tel"
+                placeholder="Mobile"
+                value={formData.mobile}
+                onChange={(e) => handleInputChange('mobile', e)}
+              />
+            </div>
           </div>
-          <div className="md:justify-center sm:justify-center">
+
+          <div className="flex md:justify-center sm:justify-center cursor-pointer ">
             {isMobile ? (
-              <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-Bluedark  flex items-center gap-2 mt-2">
+              <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-[#11b6e3] flex items-center gap-2 mt-2">
                 Search{' '}
                 <Image src={Search} height={23} width={23} alt="search icon" />
               </button>
             ) : (
-              <button className="bg-Bluedark flex justify-center items-center h-full w-[55px]">
+              <button className="bg-[#11b6e3] flex justify-center items-center h-full w-[55px]">
                 <Image src={Search} height={24} width={24} alt="search icon" />
               </button>
             )}

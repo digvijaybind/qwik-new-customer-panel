@@ -352,7 +352,7 @@ const AircraftDetailsCard = ({
           </div>
         </div>
         <div className="flex justify-between align-middle mb-5">
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <p className="font-semibold">Included Perks :</p>
             <ul className="list-disc ml-4 flex flex-col gap-1">
               <li className="font-semibold text-slate-600 text-xs">
@@ -368,7 +368,7 @@ const AircraftDetailsCard = ({
                 Oxygen(4L/Min) ✅
               </li>
             </ul>
-          </div>
+          </div> */}
           <div className="">
             <div>
               <div className="font-semibold text-[17px] flex flex-col">
