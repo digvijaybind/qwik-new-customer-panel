@@ -14,9 +14,7 @@ import Loader from '../Utils/Loader';
 import styles from './Searchbar.module.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import CustomDatePicker from '../date/CustomDatePicker';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaCalendarAlt } from 'react-icons/fa';
+import Pax from '../../db/pax.json';
 
 const SearchBar = ({
   className = '',
@@ -96,30 +94,24 @@ const SearchBar = ({
 
   return (
     <Shadow
-      classname={`mx-36 sm:mx-5 relative lg:relative sm:static drop-shadow-xl bg-white px-7 sm:px-2 py-7 `}
+      classname={`mx-36 sm:mx-5 relative lg:relative sm:static drop-shadow-xl bg-white px-7 sm:px-2 py-7 ${className}`}
     >
       <form onSubmit={handleSubmit} className="flex flex-col">
         <div className="flex justify-between items-center pb-4 text-sm">
           <div className="flex gap-5">
             <div className="flex items-center">
               <TiUserOutline className="text-base" />
-              <select
-                className={`border-none focus:outline-none ${styles.SelectText}`}
-                name="pax"
-                value={formData?.pax}
-                onChange={(e) => handleInputChange('pax', e)}
-              >
-                <option value="1">1 Adult</option>
-                <option value="2">2 Adults</option>
-                <option value="3">3 Adults</option>
-                <option value="4">4 Adults</option>
-                <option value="5">5 Adults</option>
-                <option value="6">6 Adults</option>
-                <option value="7">7 Adults</option>
-                <option value="8">8 Adults</option>
-                <option value="9">9 Adults</option>
-                <option value="10">10 Adults</option>
-              </select>
+              {Pax.map((index, data) => {
+                <select
+                  className={`border-none focus:outline-none ${styles.SelectText}`}
+                  name="pax"
+                  value={formData?.pax}
+                  key={index}
+                  onChange={(e) => handleInputChange('pax', e)}
+                >
+                  <option value={data.value}>{data.name}</option>
+                </select>;
+              })}
             </div>
           </div>
         </div>
@@ -127,7 +119,7 @@ const SearchBar = ({
           <div className="flex-1 grid sm:grid-cols-1 grid-cols-11 gap-0.3 md:flex-col md:mb-3 sm:flex-col sm:mb-3">
             <div className="col-span-4 grid grid-cols-2 gap-0.3 sm:grid sm:grid-rows-1 sm:gap-2  border-white sm:mb-3">
               <div
-                className="col-span-1 sm:col-span-1 flex gap-1 items-center relative border-r-2 border-white px-5 sm:px-5  bg-[#e7e5e5] sm:rounded-lg"
+                className="col-span-1 sm:col-span-1 flex gap-1 items-center relative border-r-2 border-white px-2 sm:px-5  bg-[#e7e5e5] sm:rounded-lg"
                 id="originLocationContainer"
               >
                 <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3 sm:hidden" />
