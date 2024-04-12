@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import Menu from "./Menu";
 import HamburgerMenu from "./HamburgerMenu";
 import Header from "./Header";
 import HamburgerMenu1 from "./hamburgerMenu1";

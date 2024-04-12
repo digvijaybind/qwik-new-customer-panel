@@ -8,7 +8,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { currencySymbols } from '../Utils/Constants';
 
-
 const DedicatedCard = ({
   charteredData,
   AircraftType,
@@ -34,7 +33,7 @@ const DedicatedCard = ({
 
   const DateAvailble = () => {
     const aircraftDate = moment(charteredData.operator.date).format(
-      'MMMM DD, YYYY'
+      'MMM DD, YYYY'
     );
     setdateAvailable(aircraftDate);
   };
@@ -100,13 +99,13 @@ const DedicatedCard = ({
 
   return (
     <div
-      className={`w-full h-fit px-8 py-8 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
       }}
     >
-      <div className="sm:col-span-3 col-span-1 h-full">
+      <div className="sm:col-span-3 col-span-1 ">
         <Image
           src={
             AircraftType === 'Challenger 605'
@@ -122,15 +121,15 @@ const DedicatedCard = ({
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
-        <div className="grid grid-cols-3 gap-4 mb-5">
+        <div className="grid grid-cols-3 gap-4 mb-5 items-center">
           <div className="">
             <span className="font-semibold text-2xl invisible">5:40</span>
             <br />
-            <span className="text-[#545454] text-base font-semibold text-center">
+            <span className="text-[#111827] text-sm font-semibold text-center">
               {charteredepature}
             </span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center text-[13px] text-[#344056]">
             {Time}
             <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
           </div>
@@ -138,29 +137,12 @@ const DedicatedCard = ({
             <div className="flex">
               <span className="font-semibold text-2xl invisible">5:40</span>
             </div>
-            <span className="text-[#545454] text-base font-semibold text-center">
+            <span className="text-[#111827] text-sm font-semibold text-center">
               {chartereArrival}
             </span>
           </div>
         </div>
-        <div className="flex justify-between align-middle mb-5">
-          <div className="flex flex-col">
-            <p className="font-semibold">Included Perks :</p>
-            <ul className="list-disc ml-4 flex flex-col gap-1">
-              <li className="font-semibold text-slate-600 text-xs">
-                Stretcher ✅
-              </li>
-              <li className="font-semibold text-slate-600 text-xs">
-                Doctor OnBoard ✅
-              </li>
-              <li className="font-semibold text-slate-600 text-xs">
-                Medical Equipment✅
-              </li>
-              <li className="font-semibold text-slate-600 text-xs">
-                Oxygen(4L/Min) ✅
-              </li>
-            </ul>
-          </div>
+        {/* <div className="flex justify-between align-middle mb-5">
           <div className="">
             <div>
               <div className="font-semibold text-[17px] flex flex-col">
@@ -208,10 +190,57 @@ const DedicatedCard = ({
                 <span className="font-semibold text-[12px]">
                   {dateAvailable}
                 </span>
-                {/* <span className="font-semibold text-[14px]">
-              {aircraftData?.depatureDate}
-            </span> */}
+            
               </div>
+            </div>
+          </div>
+        </div> */}
+        <div className=" sm:flex-col">
+          <div className="flex justify-between mb-5 ">
+            <div className="font-semibold text-[17px] flex flex-col">
+              <div className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+                Estimated Price
+              </div>
+              <div className="flex justify-end gap-2">
+                <select
+                  id="currencySelector"
+                  value={selectedCurrency}
+                  onChange={handleCurrencyChange}
+                  className="border-solid border-2 border-black rounded-md text-xs"
+                >
+                  {Object.keys(currencySymbols)?.map((currency, index) => {
+                    return (
+                      <option value={currency} key={'currency-item' + index}>
+                        {currency}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="flex flex-row items-end text-[#101729]">
+                  {currencySymbols[selectedCurrency]}
+                  <div className=" font-extrabold text-[#101729]"> {price}</div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div className="flex flex-col items-center">
+              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+                Aircraft
+              </span>
+              <span className="font-medium text-[10px]">{aircraftName}</span>
+            </div>
+            <div className="flex flex-col items-center  sm:hidden">
+              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+                Ticket Available
+              </span>
+
+              <span className="font-medium leading-tight text-[12px]">
+                {dateAvailable}
+              </span>
+              {/* <span className="font-semibold text-[14px]">
+                  {aircraftData?.depatureDate}
+                </span> */}
             </div>
           </div>
         </div>
@@ -219,7 +248,7 @@ const DedicatedCard = ({
           href={`/aviapage/${`${chartereId}-${charteredData?.operator?._id}`}`}
           className="block w-full"
         >
-          <div className="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-primary/20 hover:bg-[#4BDCF0] hover:text-white">
+          <div className="rounded font-semibold text-Bluedark py-1.5 text-[0.9rem] text-center align-middle border cursor-pointer bg-[#11b6e3] hover:bg-[#4BDCF0] hover:text-white">
             <div>View Details</div>
           </div>
         </Link>

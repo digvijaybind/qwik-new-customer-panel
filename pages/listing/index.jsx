@@ -174,22 +174,22 @@ const Listing = ({ id }) => {
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
       />
-      <div className="sm:px-10 px-36 w-full">
+      <div className="sm:px-5 px-36 w-full sm:mt-5">
         <Shadow
-          classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2`}
+          classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-2`}
         >
           <button
-            className={`border-r-2 font-extrabold cursor-pointer hover:gray col-span-1`}
+            className={`border-r-2 sm:border-r-0 font-extrabold cursor-pointer hover:gray col-span-1 `}
           >
             COMMERCIAL
           </button>
-          <button className="font-extrabold cursor-pointer hover:opacity-100 col-span-1">
+          <button className="font-extrabold cursor-pointer hover:opacity-100 col-span-1 sm:border-t-2 ">
             CHARTERED
           </button>
         </Shadow>
-        <div className="flex sm:flex-col gap-8">
+        <div className="flex sm:flex-col gap-8 sm:gap-5">
           <div
-            className={`grid grid-cols-1 gap-8 w-1/2 h-fit ${
+            className={`grid grid-cols-1 gap-8 w-full h-fit sm:w-full ${
               isMobile &&
               !(
                 aircraftDataLoading ||
@@ -250,7 +250,7 @@ const Listing = ({ id }) => {
               </>
             )}
           </div>
-          <div className="grid grid-cols-1 gap-8 w-1/2 h-fit">
+          <div className="grid grid-cols-1 gap-8 w-full h-fit">
             {aircraftDataLoading ? (
               <div className="flex justify-center items-center py-10 h-fit">
                 <Loader className="h-6 w-6" />

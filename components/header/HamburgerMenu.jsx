@@ -12,7 +12,7 @@ const HamburgerMenu = () => {
   };
   return (
     <div>
-      <div className="flex flex-row justify-between items-center px-[25px] py-[20px]">
+      <div className="flex flex-row justify-between items-center px-[10px] py-[10px]">
         <div className="flex flex-row justify-between">
           <div className="">
             <Image src={Logo} width={95} height={90} />
@@ -21,9 +21,9 @@ const HamburgerMenu = () => {
         <div className="font-semibold text-[10px]">
           <div className={styles.telephonehamburg}>
             <div className={styles.Innertelephone}>
-              <Image src={Telephone} width={18} height={26} />
+              <Image src={Telephone} width={18} height={26} className={styles.ImageSvg} />
               <span
-                className={`${styles.telephoneText} text-[#fff] border-r-7`}
+                className={`${styles.telephoneText} text-[#fff] border-r-7 `}
               >
                 {' '}
                 +971 502 825 433
@@ -44,7 +44,7 @@ const HamburgerMenu = () => {
           <ul className="">
             <li
               onClick={() => router.push('/')}
-              className="font-semibold text-[16px] p-2 hover:gray"
+              className="font-semibold text-[16px] p-2   hover:gray"
             >
               Home
             </li>

@@ -76,7 +76,7 @@ const Header = () => {
   ];
   return (
     <div>
-      <header className={`${header} ${styles.shadow} px-[70px]`}>
+      <header className={`${header} ${styles.shadow} px-[70px] font-sans`}>
         <div className={styles.logo}>
           <Link href="/">
             <Image src={Logo} height={100} width={150} />
@@ -88,10 +88,10 @@ const Header = () => {
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] ${
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans ${
                     index === activeTab
-                      ? 'border-[#11b6e3]  text-[#11b6e3]'
-                      : 'border-transparent text-[#000]'
+                      ? 'border-[#000]  text-[#fff]'
+                      : 'border-transparent text-[#fff]'
                   }`}
                   onClick={() => handleTabClick(index)}
                 >

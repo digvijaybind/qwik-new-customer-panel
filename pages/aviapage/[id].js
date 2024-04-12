@@ -23,6 +23,7 @@ import {
 } from '@/components/Utils/Constants';
 import LoadScript from '@/components/Utils/loadScript';
 import Layout from '@/components/layout/Layout';
+import Image from 'next/image';
 
 const DedicatedeHeader = () => {
   return (
@@ -30,9 +31,6 @@ const DedicatedeHeader = () => {
       className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
       style={{ backgroundImage: "url('/images/search-detail-bg.png')" }}
     >
-      <h2 className="sm:text-3xl text-[2.2rem] font-extrabold mb-0.5 drop-shadow">
-        Search Result
-      </h2>
       <p className="text-sm">The new generation of private jets</p>
     </div>
   );
@@ -191,8 +189,8 @@ const JourneyDetails = ({
         </div>
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span> Air Ambulance Service is your
-        trusted partner for urgent International Air Ambulance Transportation{' '}
+        <span className="font-bold">Qwiklif</span> Air Ambulance Service Which
+        provide affordable air ambulance services to Patience{' '}
       </div>
       <div className="flex flex-col mt-5">
         <input
@@ -210,7 +208,7 @@ const JourneyDetails = ({
           className="border-b mb-5 px-2 py-1"
           placeholder="Email"
         />
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2">
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2 font-semibold">
           Enquire Now
         </button>
       </div>
@@ -220,20 +218,97 @@ const JourneyDetails = ({
 
 //dedicatedHeader
 
-const FlightImages = ({ aircraftType }) => {
-  const [slides, setSlides] = useState([]);
-  useEffect(() => {
-    switch (aircraftType) {
-      case 'Challenger 605':
-        setSlides(challenger605Slides);
-      case 'Learjet 45':
-        setSlides(learjet45Slides);
-      case 'C-90':
-        setSlides(c90Slides);
-      default:
-        setSlides(challenger605Slides);
-    }
-  }, [aircraftType]);
+const WhyWithqwiklif = () => {
+  return (
+    <div
+      className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+    >
+      <div className="flex flex-col px-[50px] sm:px-[13px] mb-10">
+        <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
+          why to choose qwiklif
+        </h1>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            1. Instant quotation and Instant Support
+          </h1>
+          <p className="text-[16px] font-medium">
+            Qwiklif is World First Air Ambulance company providing Instant
+            quotation for medical air transfer .
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            2. well qualified Flying Doctor's and Paramedics Team's
+          </h1>
+          <p className="text-[16px] font-medium">
+            Qwiklif Have well qualified flying doctor's with 30+year experience
+            .qwiklif have well qualified paramedics team.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">3. 24/7 Availability</h1>
+          <p className="text-[16px] font-medium">
+            Medical emergencies can occur at any time, which is why we operate
+            round-the-clock to provide timely assistance whenever you need it.
+            Whether it's a critical situation or a planned transfer, we are
+            ready to assist you anytime, anywhere.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">4. Global Reach</h1>
+          <p className="text-[16px] font-medium">
+            Our air transfer services are not confined to a specific region. We
+            have the capability to operate both domestically and
+            internationally, ensuring that you can reach your desired
+            destination swiftly and safely, no matter where you are.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            5. Compassionate Customer Service
+          </h1>
+          <p className="text-[16px] font-medium">
+            We understand that dealing with medical emergencies can be
+            stressful. That's why our dedicated customer service team is always
+            available to address your concerns and provide assistance every step
+            of the way. Your comfort and peace of mind are our top priorities.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold"> 6.Customized Solutions</h1>
+          <p className="text-[16px] font-medium">
+            We recognize that every patient is unique, and their medical needs
+            may vary. That's why we offer customized air transfer solutions
+            tailored to meet individual requirements. Whether it's specialized
+            medical equipment or specific accommodations, we strive to
+            accommodate your needs to the best of our abilities.
+          </p>
+        </div>{' '}
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">7. Transparent Pricing</h1>
+          <p className="text-[16px] font-medium">
+            We believe in transparency when it comes to pricing. You can trust
+            us to provide clear and upfront cost estimates without any hidden
+            fees or surprises. We understand the financial burden that medical
+            emergencies can impose, and we are committed to providing
+            cost-effective solutions.
+          </p>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2  w-[100px]">
+          Pay Now
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const FlightImages = ({ aircraftType, slides }) => {
   return (
     <>
       <div className="mb-2">
@@ -308,7 +383,7 @@ const Flightchallenger605 = () => {
           slidesToShow={1}
           slidesToScroll={1}
         >
-          <img
+          <Image
             src="/images/C90-airtransfer/challenger-605-airambulance-first.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
           />
@@ -400,7 +475,7 @@ const Flightchallenger605 = () => {
 //   );
 // };
 
-const FlightDetails = ({ aircraftData, data }) => {
+const FlightDetails = ({ data }) => {
   return (
     <div
       className="rounded-md p-5 text-[0.9rem]"
@@ -430,6 +505,32 @@ const FlightDetails = ({ aircraftData, data }) => {
           <span className="max-w-40 text-end">{data?.to}</span>
         </p>
       </div>
+      <div className="flex justify-between align-middle mb-5">
+        <div className="flex flex-col">
+          <p className="font-semibold">
+            Medical Equiment and Dediacted Medical Team :
+          </p>
+          <ul className="list-disc ml-4 flex flex-col gap-1">
+            <li className="font-semibold text-slate-600 text-xs">
+              Stretcher ✅
+            </li>
+            <li className="font-semibold text-slate-600 text-xs">
+              Doctor OnBoard ✅
+            </li>
+            <li className="font-semibold text-slate-600 text-xs">
+              Medical Equipment✅
+            </li>
+            <li className="font-semibold text-slate-600 text-xs">
+              Oxygen(4L/Min) ✅
+            </li>
+            <li className="font-semibold text-slate-600 text-xs">
+              We additional Provide medical equipment based on Patience
+              condition ✅
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* <div className="my-3 py-3 border-b-2 border-gray-100">
         <p className="flex justify-between text-[0.85rem]">
           <span>3/30/2024</span>
@@ -668,11 +769,14 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
           </div>
         </div>
         <button
-          className="border border-[#0FE7E7] text- rounded-md p-2 text-sm mt-10 hover:bg-[#0FE7E7] hover:text-white"
+          className="border border-[#11b6e3] text- rounded-md p-2 text-sm mt-10 hover:bg-[#11b6e3] hover:text-white mb-3 font-semibold"
           onClick={makePayment}
         >
           Pay Now
         </button>
+        <div className="font-semibold text-[12px] text-[#11b6e3]">
+          * Reserve Seat by paying 20% amount of Total Price{' '}
+        </div>
       </div>
     </Layout>
   );
@@ -783,7 +887,7 @@ const Airtransfer = () => {
         <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
           How we do Medical transfer
         </h1>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step1 :-Assessment and Coordination
@@ -797,7 +901,7 @@ const Airtransfer = () => {
             ambulance service provider.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 2 :- Dispatch and Arrival of Air Ambulance
@@ -809,7 +913,7 @@ const Airtransfer = () => {
             packaged for transport.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 3:- Dispatch and Arrival of Air Ambulance
@@ -820,7 +924,7 @@ const Airtransfer = () => {
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 3:- Transfer to the Air Ambulance
@@ -831,7 +935,7 @@ const Airtransfer = () => {
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 4:- In-flight Care
@@ -842,7 +946,7 @@ const Airtransfer = () => {
             medications, and managing any medical emergencies that may arise.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 5:- Arrival at the Receiving Facility
@@ -854,7 +958,7 @@ const Airtransfer = () => {
             the patient and continues treatment as necessary.
           </p>
         </div>{' '}
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 6:- Post-transfer Documentation
@@ -866,7 +970,7 @@ const Airtransfer = () => {
             care.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 7:- Follow-up Care
@@ -877,6 +981,11 @@ const Airtransfer = () => {
             recommendations of the medical team.
           </p>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2 w-[100px] font-semibold">
+          Pay Now
+        </button>
       </div>
     </div>
   );
@@ -959,7 +1068,6 @@ const AviapageDetails = () => {
         });
 
         // if (segments?.length > 1) {
-
         // } else {
         //   setLocationData({
         //     departureLocation: segments[0]?.departure?.iataCode,
@@ -1060,18 +1168,29 @@ const AviapageDetails = () => {
     }
   }, [id]);
 
+  const [slides, setSlides] = useState([]);
+  useEffect(() => {
+    switch (aircraftData?.aviapagesResponse?.aircraft) {
+      case 'Challenger 605':
+        setSlides(challenger605Slides);
+      case 'Learjet 45':
+        setSlides(learjet45Slides);
+      case 'C-90':
+        setSlides(c90Slides);
+      default:
+        setSlides(challenger605Slides);
+    }
+  }, [aircraftData?.aviapagesResponse?.aircraft]);
+
   return (
     <div className="">
       <DedicatedeHeader />
       <div className="sm:px-20 px-32">
-        <p className="text-sm my-3">
-          Home Search / List /{' '}
-          <span className="font-medium">Search Result</span>
-        </p>
         <div className="flex sm:flex-col gap-5 my-3">
           <div className="sm:w-full w-8/12">
             <FlightImages
               aircraftType={aircraftData?.aviapagesResponse?.aircraft}
+              slides={slides}
             />
           </div>
           <div
@@ -1099,6 +1218,7 @@ const AviapageDetails = () => {
             />
           </div>
         </div>
+        <WhyWithqwiklif />
         <Airtransfer />
       </div>
     </div>

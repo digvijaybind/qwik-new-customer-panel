@@ -36,12 +36,13 @@ const LocationData = [
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
-    <div className="bg-[#0f2738] px-[100px] pt-14 pb-8 font-poppins sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
+    <div className="bg-[#0f2738] px-[100px] pt-14 pb-8 font-sans sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
       <div className="grid grid-cols-5 content-center sm:grid-cols-2 gap-3">
         <div className="flex flex-col content-center">
-          <div className="text-white cursor-pointer content-center font-poppins font-semibold text-[20px] hover:bg-[[#11B6E3]">
+          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Qwiklif
           </div>
+          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {QwiklifData.map((data, index) => {
             return (
               <Link href={data.link}>
@@ -56,7 +57,7 @@ const Newfooter = () => {
           })}
         </div>
         <div className="flex flex-col content-center">
-          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Fleet
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
@@ -72,7 +73,7 @@ const Newfooter = () => {
           })}
         </div>
         <div className="flex flex-col content-center">
-          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Our Services
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
@@ -88,7 +89,7 @@ const Newfooter = () => {
           })}
         </div>
         <div className="flex flex-col content-center">
-          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Our Locations
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
@@ -104,7 +105,7 @@ const Newfooter = () => {
           })}
         </div>
         <div className="flex flex-col content-center items-baseline sm:items-start md:items-start">
-          <div className="text-white cursor-pointer font-poppins text-xl content-center font-medium">
+          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Qwiklif Air Ambulance
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
@@ -128,18 +129,23 @@ const Newfooter = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center flex-col items-center font-poppins pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
+      <div className="flex justify-center flex-col items-center  font-sans pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
         <Image src={Logo} height={53} width={150} className="cursor-pointer" />
-        <div className="font-thin text-[16px] text-[#fff] mt-2 mb-2 font-poppins hover:text-[#3788d8]">
+        <div className="font-thin text-[14px] text-[#fff] mt-2 mb-2  font-sans hover:text-[#3788d8]">
           © 2024 Qwiklif. All rights reserved.{' '}
         </div>
         <div className="grid grid-cols-5 gap-5">
-          <Image
-            src={Linkedin}
-            height={35}
-            width={35}
-            className="cursor-pointer rounded-full object-center"
-          />
+          <Link
+            href="https://www.linkedin.com/company/qwiklif-air-ambulance-service/"
+            target="_blank"
+          >
+            <Image
+              src={Linkedin}
+              height={35}
+              width={35}
+              className="cursor-pointer rounded-full object-center"
+            />
+          </Link>
           <Image
             src={Insta}
             height={35}

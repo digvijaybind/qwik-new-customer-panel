@@ -172,7 +172,7 @@ export default function Home() {
       <div className="font-Montserrat">
         <Navnew></Navnew>
         <SearchBar
-          className="bottom-40"
+          className="bottom-40 sm:bottom-60"
           isMobile={isMobile}
           formData={formData}
           handleSubmit={handleSubmit}

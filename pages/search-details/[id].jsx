@@ -44,6 +44,7 @@ import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
 import Layout from '@/components/layout/Layout';
+import Image from 'next/image';
 
 const currencySymbols = {
   EUR: '€',
@@ -97,7 +98,6 @@ const DedicatedeHeader = () => {
   );
 };
 
-
 const JourneyDetails = ({
   totalTravelDuration,
   selectedCurrency,
@@ -134,7 +134,6 @@ const JourneyDetails = ({
             {totalCost}
           </span>
         </div>
-        
       </div>
 
       <div className="flex justify-between items-center py-1 font-bold">
@@ -162,8 +161,8 @@ const JourneyDetails = ({
         </div>
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
-        <span className="font-bold">Qwiklif</span>, helps in your emergency by
-        providing private air ambulance service .
+        <span className="font-bold">Qwiklif</span>, Air Ambulance Service Which
+        provide affordable air ambulance services to Patience .
       </div>
       <div className="flex flex-col mt-5">
         <input
@@ -181,7 +180,7 @@ const JourneyDetails = ({
           className="border-b mb-5 px-2 py-1"
           placeholder="Email"
         />
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2">
+        <button className="bg-primary rounded-md font-semibold p-2 text-sm mt-2">
           Enquire Now
         </button>
       </div>
@@ -217,15 +216,15 @@ const FlightImages = ({ locationData }) => {
         </Slider>
       </div>
       <div className="grid grid-cols-3 gap-3">
-        <img
+        <Image
           src="/images/search-detail/VT-VBSext.png"
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
-        <img
+        <Image
           src="/images/search-detail/VT-VBSlopa.png"
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
-        <img
+        <Image
           src="/images/search-detail/VT-VBSint.png"
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
@@ -337,73 +336,99 @@ const Flightchallenger605 = () => {
   );
 };
 
-
 const FlightDetails = ({ segments, data, totalTravelDuration }) => {
   return (
-    <div
-      className="rounded-md p-5 text-[0.9rem]"
-      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
-    >
-      <h2 className="text-base font-bold">Flight Details</h2>
-      {segments?.map((segment) => {
-        return (
-          <div
-            key={'segment-' + segment?.number}
-            className="mt-2 mb-3 py-3 border-b-2 border-gray-100"
-          >
-            <p className="flex justify-between text-[0.85rem]">
-              <span>
-                {segment?.departure?.at
-                  ? moment(segment?.arrival?.at)?.format('DD/MM/YYYY')
-                  : '-/-/-'}
-              </span>
-              <span>
-                {segment?.arrival?.at
-                  ? moment(segment?.departure?.at)?.format('DD/MM/YYYY')
-                  : '-/-/-'}
-              </span>
-            </p>
+    <div>
+      <div
+        className="rounded-md p-5 text-[0.9rem]"
+        style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+      >
+        <h2 className="text-base font-bold">Flight Details</h2>
+        {segments?.map((segment) => {
+          return (
+            <div
+              key={'segment-' + segment?.number}
+              className="mt-2 mb-3 py-3 border-b-2 border-gray-100"
+            >
+              <p className="flex justify-between text-[0.85rem]">
+                <span>
+                  {segment?.departure?.at
+                    ? moment(segment?.arrival?.at)?.format('DD/MM/YYYY')
+                    : '-/-/-'}
+                </span>
+                <span>
+                  {segment?.arrival?.at
+                    ? moment(segment?.departure?.at)?.format('DD/MM/YYYY')
+                    : '-/-/-'}
+                </span>
+              </p>
 
-            <p className="flex justify-between text-[0.85rem]">
-              <span>
-                {segment?.departure?.at
-                  ? moment(segment?.arrival?.at)?.format('HH:mm')
-                  : '-:-'}
-              </span>
-              <span>
-                {segment?.arrival?.at
-                  ? moment(segment?.departure?.at)?.format('HH:mm')
-                  : '-:-'}
-              </span>
-            </p>
+              <p className="flex justify-between text-[0.85rem]">
+                <span>
+                  {segment?.departure?.at
+                    ? moment(segment?.arrival?.at)?.format('HH:mm')
+                    : '-:-'}
+                </span>
+                <span>
+                  {segment?.arrival?.at
+                    ? moment(segment?.departure?.at)?.format('HH:mm')
+                    : '-:-'}
+                </span>
+              </p>
 
-            <div className="flex justify-between items-center w-full mt-3">
-              <span className="font-bold text-base">
-                {' '}
-                {segment?.departure?.iataCode}
-              </span>
-              <div className="relative">
-                <div className="bg-gray-300 h-[2px]  sm:w-36 w-72">
-                  <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+              <div className="flex justify-between items-center w-full mt-3">
+                <span className="font-bold text-base">
+                  {' '}
+                  {segment?.departure?.iataCode}
+                </span>
+                <div className="relative">
+                  <div className="bg-gray-300 h-[2px]  sm:w-36 w-72">
+                    <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
+                  </div>
                 </div>
+                <span className="font-bold text-base">
+                  {segment?.arrival?.iataCode}
+                </span>
               </div>
-              <span className="font-bold text-base">
-                {segment?.arrival?.iataCode}
-              </span>
-            </div>
 
-            <p className="flex justify-between">
-              <span className="max-w-40 text-start">
-                {' '}
-                {segment?.departure?.iataCode}
-              </span>
-              <span className="max-w-40 text-end">
-                {segment?.arrival?.iataCode}
-              </span>
+              <p className="flex justify-between">
+                <span className="max-w-40 text-start">
+                  {' '}
+                  {segment?.departure?.iataCode}
+                </span>
+                <span className="max-w-40 text-end">
+                  {segment?.arrival?.iataCode}
+                </span>
+              </p>
+            </div>
+          );
+        })}
+        <div className="flex justify-between align-middle mb-5">
+          <div className="flex flex-col">
+            <p className="font-semibold">
+              Medical Equiment and Dedicated Medical Team:
             </p>
+            <ul className="list-disc ml-4 flex flex-col gap-1">
+              <li className="font-semibold text-slate-600 text-xs">
+                Stretcher ✅
+              </li>
+              <li className="font-semibold text-slate-600 text-xs">
+                Doctor OnBoard ✅
+              </li>
+              <li className="font-semibold text-slate-600 text-xs">
+                Medical Equipment✅
+              </li>
+              <li className="font-semibold text-slate-600 text-xs">
+                Oxygen(4L/Min) ✅
+              </li>
+              <li className="font-semibold text-slate-600 text-xs">
+                We are Providing additional equiment based on patience
+                condition✅
+              </li>
+            </ul>
           </div>
-        );
-      })}
+        </div>
+      </div>
     </div>
   );
 };
@@ -528,26 +553,30 @@ const CostDetails = ({
           </div>
         </div>
       </div>
+
       <button
-        className="border border-[#0FE7E7] text- rounded-md p-2 text-sm mt-10 hover:bg-[#0FE7E7] hover:text-white"
+        className="border border-[#11b6e3] text- rounded-md p-2 text-sm mt-10 hover:bg-[#11b6e3] hover:text-white mb-3 font-semibold"
         onClick={makePayment}
       >
         Pay Now
       </button>
+      <div className="font-semibold text-[12px] text-[#11b6e3]">
+        * Reserve Seat by paying 20% amount of Total Price{' '}
+      </div>
     </div>
   );
 };
 const Airtransfer = () => {
   return (
     <div
-      className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
     >
-      <div className="flex flex-col px-[50px] mb-10">
+      <div className="flex flex-col px-[50px] sm:px-[13px] mb-10">
         <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
           How we do Medical transfer
         </h1>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step1 :-Assessment and Coordination
@@ -561,7 +590,7 @@ const Airtransfer = () => {
             ambulance service provider.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 2 :- Dispatch and Arrival of Air Ambulance
@@ -573,7 +602,7 @@ const Airtransfer = () => {
             packaged for transport.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 3:- Dispatch and Arrival of Air Ambulance
@@ -584,7 +613,7 @@ const Airtransfer = () => {
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 3:- Transfer to the Air Ambulance
@@ -595,7 +624,7 @@ const Airtransfer = () => {
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 4:- In-flight Care
@@ -606,7 +635,7 @@ const Airtransfer = () => {
             medications, and managing any medical emergencies that may arise.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 5:- Arrival at the Receiving Facility
@@ -618,7 +647,7 @@ const Airtransfer = () => {
             the patient and continues treatment as necessary.
           </p>
         </div>{' '}
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 6:- Post-transfer Documentation
@@ -630,7 +659,7 @@ const Airtransfer = () => {
             care.
           </p>
         </div>
-        <div className="rounded-lg  bg-[#0FE7E7] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[20px] font-semibold">
             {' '}
             Step 7:- Follow-up Care
@@ -641,6 +670,101 @@ const Airtransfer = () => {
             recommendations of the medical team.
           </p>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="bg-primary rounded-md  p-2 text-sm mt-2  w-[100px] font-semibold">
+          Pay Now
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const WhyWithqwiklif = () => {
+  return (
+    <div
+      className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+    >
+      <div className="flex flex-col px-[50px] sm:px-[13px] mb-10">
+        <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
+          why to choose qwiklif
+        </h1>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            1. Instant quotation and Instant Support
+          </h1>
+          <p className="text-[16px] font-medium">
+            Qwiklif is World First Air Ambulance company providing Instant
+            quotation for medical air transfer .
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            2. well qualified Flying Doctor's and Paramedics Team's
+          </h1>
+          <p className="text-[16px] font-medium">
+            Qwiklif Have well qualified flying doctor's with 30+year experience
+            .qwiklif have well qualified paramedics team.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">3. 24/7 Availability</h1>
+          <p className="text-[16px] font-medium">
+            Medical emergencies can occur at any time, which is why we operate
+            round-the-clock to provide timely assistance whenever you need it.
+            Whether it's a critical situation or a planned transfer, we are
+            ready to assist you anytime, anywhere.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">4. Global Reach</h1>
+          <p className="text-[16px] font-medium">
+            Our air transfer services are not confined to a specific region. We
+            have the capability to operate both domestically and
+            internationally, ensuring that you can reach your desired
+            destination swiftly and safely, no matter where you are.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">
+            {' '}
+            5. Compassionate Customer Service
+          </h1>
+          <p className="text-[16px] font-medium">
+            We understand that dealing with medical emergencies can be
+            stressful. That's why our dedicated customer service team is always
+            available to address your concerns and provide assistance every step
+            of the way. Your comfort and peace of mind are our top priorities.
+          </p>
+        </div>
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold"> 6.Customized Solutions</h1>
+          <p className="text-[16px] font-medium">
+            We recognize that every patient is unique, and their medical needs
+            may vary. That's why we offer customized air transfer solutions
+            tailored to meet individual requirements. Whether it's specialized
+            medical equipment or specific accommodations, we strive to
+            accommodate your needs to the best of our abilities.
+          </p>
+        </div>{' '}
+        <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
+          <h1 className="text-[20px] font-semibold">7. Transparent Pricing:</h1>
+          <p className="text-[16px] font-medium">
+            We believe in transparency when it comes to pricing. You can trust
+            us to provide clear and upfront cost estimates without any hidden
+            fees or surprises. We understand the financial burden that medical
+            emergencies can impose, and we are committed to providing
+            cost-effective solutions.
+          </p>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2  w-[100px]">
+          Pay Now
+        </button>
       </div>
     </div>
   );
@@ -1021,52 +1145,51 @@ const AmadeuspageDetails = () => {
   }, [results?.price?.totalPrice, selectedCurrency]);
 
   return (
-  
-      <div className="">
-        <DedicatedeHeader />
-        <div className="sm:px-20 px-36">
-          <p className="text-sm my-3">
-            <span className="font-medium">Search Result</span>
-          </p>
-          <div className="flex sm:flex-col gap-5 my-3">
-            <div className="sm:w-full w-8/12">
-              <FlightImages locationData={locationData} />
-            </div>
-            <div
-              className={`sm:w-full w-4/12 border border-gray-300 shadow-lg rounded-[8px] p-4 text-[0.9rem] ${styles.Shadow}`}
-            >
-              <JourneyDetails
-                totalTravelDuration={totalTravelDuration}
-                locationData={locationData}
-                aircraft={results?.aircraft || {}}
-                price={results?.price || {}}
-                selectedCurrency={selectedCurrency}
-                handleCurrencyChange={handleCurrencyChange}
-                totalCost={totalCost}
-              />
-            </div>
+    <div className="">
+      <DedicatedeHeader />
+      <div className="px-36 sm:px-8">
+        <p className="text-sm my-3">
+        
+        </p>
+        <div className="flex sm:flex-col gap-5 my-3">
+          <div className="sm:w-full w-8/12">
+            <FlightImages locationData={locationData} />
           </div>
-          <div className="flex sm:flex-col gap-5 mt-8 mb-8">
-            <div className="sm:w-full w-6/12">
-              <FlightDetails
-                segments={results?.aircraft?.itineraries?.[0]?.segments || []}
-                totalTravelDuration={totalTravelDuration}
-              />
-            </div>
-            <div className="sm:w-full w-6/12">
-              <CostDetails
-                price={results?.price || {}}
-                selectedCurrency={selectedCurrency}
-                handleCurrencyChange={handleCurrencyChange}
-                totalCost={totalCost}
-                makePayment={makePayment}
-              />
-            </div>
+          <div
+            className={`sm:w-full w-4/12 border border-gray-300 shadow-lg rounded-[8px] p-4 text-[0.9rem] ${styles.Shadow}`}
+          >
+            <JourneyDetails
+              totalTravelDuration={totalTravelDuration}
+              locationData={locationData}
+              aircraft={results?.aircraft || {}}
+              price={results?.price || {}}
+              selectedCurrency={selectedCurrency}
+              handleCurrencyChange={handleCurrencyChange}
+              totalCost={totalCost}
+            />
           </div>
-          <Airtransfer />
         </div>
+        <div className="flex sm:flex-col gap-5 mt-8 mb-8">
+          <div className="sm:w-full w-6/12">
+            <FlightDetails
+              segments={results?.aircraft?.itineraries?.[0]?.segments || []}
+              totalTravelDuration={totalTravelDuration}
+            />
+          </div>
+          <div className="sm:w-full w-6/12">
+            <CostDetails
+              price={results?.price || {}}
+              selectedCurrency={selectedCurrency}
+              handleCurrencyChange={handleCurrencyChange}
+              totalCost={totalCost}
+              makePayment={makePayment}
+            />
+          </div>
+        </div>
+        <WhyWithqwiklif />
+        <Airtransfer />
       </div>
-   
+    </div>
   );
 };
 export default AmadeuspageDetails;
