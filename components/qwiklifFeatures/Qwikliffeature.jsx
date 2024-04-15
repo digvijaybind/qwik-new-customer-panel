@@ -4,7 +4,7 @@ import React from 'react';
 const QwiklifFeature = () => {
   return (
     <div>
-      <div className="grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-4 grid-rows-2 sm:px-10 px-36">
+      <div className="grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-4 grid-rows-2 sm:px-10 px-36 font-sans">
         <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
           <Image
             className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
@@ -14,10 +14,10 @@ const QwiklifFeature = () => {
             alt="rapid Time"
           />
           <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
-            <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+            <p className="text-xl font-sans font-extrabold text-slate-700">
               Rapid Response Time
             </p>
-            <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
+            <p className="text-[#646464] font-sans leading-[26px] text-[16px] font-normal">
               QwikLif prides itself on its quick response times, ensuring that
               critical medical transport is initiated promptly.
             </p>
@@ -32,7 +32,7 @@ const QwiklifFeature = () => {
             alt="Safety First"
           />
           <div lass="w-full flex  flex-col items-start">
-            <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+            <p className="text-xl font-sans font-extrabold text-slate-700">
               Safety First
             </p>
             <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
@@ -53,10 +53,10 @@ const QwiklifFeature = () => {
             alt="State Art"
           />
           <div lass="w-full flex  flex-col items-start sm:gap-[10px]">
-            <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+            <p className="text-xl font-sans font-extrabold text-slate-700">
               State-of-the-Art Equipment
             </p>
-            <p className="text-[#646464] leading-[26px] text-[16px] font-normal">
+            <p className="text-[#646464] leading-[26px] text-[16px] font-sans font-normal">
               Our air ambulances are equipped with cutting-edge medical
               <br /> technology to provide advanced life support, ensuring the
               best
@@ -73,10 +73,10 @@ const QwiklifFeature = () => {
             alt="rapid Time"
           />
           <div lass="w-full flex  flex-col items-start">
-            <p className="text-xl font-arcaMajoraHeavy text-slate-700">
+            <p className="text-xl font-sans font-extrabold text-slate-700">
               Patient-Centric Approach
             </p>
-            <p className="text-[#373333] leading-[26px] text-[16px] font-normal">
+            <p className="text-[#373333] leading-[26px] text-[16px] font-sans font-normal">
               We prioritize patient comfort and well-being, with a focus on
               providing
               <br /> a stress-free and comfortable experience for patients and

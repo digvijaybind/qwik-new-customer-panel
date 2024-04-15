@@ -4,16 +4,16 @@ import Image from 'next/image';
 const AboutAircraft = () => {
   return (
     <div>
-      <div className="sm:px-10 px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16">
+      <div className="sm:px-10 px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
         <Image src={AboutAircraftimage} height={460} width={620} />
 
         <div className="flex flex-col gap-3">
-          <div className="font-arcaMajoraHeavy text-4xl font-bold">
+          <div className="font-sans text-4xl font-extrabold">
             Fastest <span className=" text-[#11B6E3]">Air Ambulance</span>
             <br />
             Services
           </div>
-          <div className="text-[#7A7A7A] text-[16px]">
+          <div className="text-[#7A7A7A] text-[16px] font-sans">
             Qwiklif Air Ambulance Service is your trusted partner for urgent
             International Air Ambulance Transportation worldwide. With a
             dedicated team of skilled professionals and state-of-the-art
@@ -24,7 +24,7 @@ const AboutAircraft = () => {
             to you for quick response and affordable pricing, compare air
             ambulance prices from other air operators across the world.
           </div>
-          <div className="text-[#7A7A7A] text-[16px]">
+          <div className="text-[#7A7A7A] text-[16px] font-sans">
             We are a worldwide air ambulance company with emergency medical
             transport experience. Through our international air ambulance
             service, we can arrange quick, efficient medical evacuation flights

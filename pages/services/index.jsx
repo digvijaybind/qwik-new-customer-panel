@@ -31,7 +31,7 @@ const Services = () => {
   ];
 
   return (
-    <div>
+    <div className="font-sans">
       <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
         <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
           <p className="text-[50px]  pt-[150px] sm:pt-[100px]">Services </p>
@@ -45,8 +45,10 @@ const Services = () => {
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[50%] sm:w-[80%] m-auto py-[30px]">
-          <h2 className="text-[25px] font-bold text-[#111]">Our Services</h2>
-          <p className="pt-[10px]">
+          <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
+            Our Services
+          </h2>
+          <p className="pt-[10px] font-sans">
             At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
             And Service When It Matters Most.
           </p>

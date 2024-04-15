@@ -42,7 +42,7 @@ const JoinMailingList = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="px-8 py-2 bg-[#40D1F0] text-white rounded-full font-medium"
+            className="px-8 py-2 bg-[#4B68B8] text-white rounded-full font-medium"
           >
             Get Quote Now
           </button>

@@ -64,10 +64,13 @@ const settings = {
 
 const Review = () => {
   return (
-    <Slider {...settings} className="flex justify-center items-center">
+    <Slider
+      {...settings}
+      className="flex justify-center items-center font-sans"
+    >
       {reviews.map((review, index) => (
         <div
-          className="flex justify-center items-center text-center"
+          className="flex justify-center items-center text-center font-sans"
           key={'review-item-' + index}
         >
           <div
@@ -77,7 +80,9 @@ const Review = () => {
             <p className="text-[16px] font-italic font-medium  mb-2">
               {review.text}
             </p>
-            <p className="font-semibold text-[24px]">{review.author}</p>
+            <p className="font-semibold text-[24px] font-sans">
+              {review.author}
+            </p>
           </div>
         </div>
       ))}

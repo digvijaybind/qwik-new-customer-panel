@@ -16,7 +16,7 @@ const Roadmap = () => {
               <button
                 key={index}
                 className={`w-[50%] flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${
-                  SelectedIndex === index ? 'bg-[#14A4D4]' : 'bg-[#F0F0F09C]'
+                  SelectedIndex === index ? 'bg-[#4B68B8]' : 'bg-[#F0F0F09C]'
                 }`}
                 onClick={(e) => {
                   e.preventDefault();

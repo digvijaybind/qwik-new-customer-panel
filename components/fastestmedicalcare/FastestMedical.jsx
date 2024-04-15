@@ -9,16 +9,16 @@ import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
 const FastestMedical = () => {
   return (
-    <div>
+    <div className='font-sans'>
       <div
         className={`${styles.lower_plane} w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat`}
         style={{ backgroundImage: "url('/images/lower_plane.png')" }}
       >
         <div className="flex flex-col items-center w-full">
-          <h1 className="font-arcaMajoraHeavy text-4xl text-shadow-lg text-center text-white mt-[30px]">
+          <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">
             Fastest and best medical care
           </h1>
-          <p className="font-medium text-[21px]   text-center text-white mt-[30px] sm:px-[10px]">
+          <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px]">
             Time is precious, especially during emergencies. Our air ambulances
             are not just vehicles; they are a beacon of hope on the
             <br />
@@ -27,7 +27,7 @@ const FastestMedical = () => {
             relief.
           </p>
           <Link href="/contact-us">
-            <button className="w-[300px] h-[60px] bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)">
+            <button className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)">
               Make an Appointment
             </button>
           </Link>
@@ -40,7 +40,9 @@ const FastestMedical = () => {
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={450} duration={5} />+
             </div>
-            <div className="font-semibold text-black">Air Transfer</div>
+            <div className="font-semibold text-black font-sans">
+              Air Transfer
+            </div>
           </div>
 
           <div className="flex flex-col items-center">
@@ -48,7 +50,7 @@ const FastestMedical = () => {
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={25} duration={8} />+
             </div>
-            <div className="font-semibold text-black font-medium">
+            <div className="font-semibold text-black font-medium font-sans">
               No of Fleet
             </div>
           </div>
@@ -58,14 +60,16 @@ const FastestMedical = () => {
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={15} duration={10} />+
             </div>
-            <div className="font-semibold text-black">Doctors</div>
+            <div className="font-semibold text-black font-sans">Doctors</div>
           </div>
           <div className="flex flex-col items-center">
             <Image src={Miniglobal} width={100} height={100} />
             <div className="font-bold text-[50px]">
               <CountUp start={1} end={7000} duration={5} /> +
             </div>
-            <div className="font-semibold text-black">Global Affiliation</div>
+            <div className="font-semibold text-black font-sans">
+              Global Affiliation
+            </div>
           </div>
         </div>
       </div>

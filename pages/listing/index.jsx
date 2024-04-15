@@ -165,7 +165,7 @@ const Listing = ({ id }) => {
     handleInputChange('countryCode', countryCodeValue);
   };
   return (
-    <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8">
+    <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8 font-sans">
       <Image src={Landing} height={420} width={1874} alt="top background" />
       <SearchBar
         className="bottom-10"
@@ -176,7 +176,7 @@ const Listing = ({ id }) => {
       />
       <div className="sm:px-5 px-36 w-full sm:mt-5">
         <Shadow
-          classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-2`}
+          classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-2 font-sans`}
         >
           <button
             className={`border-r-2 sm:border-r-0 font-extrabold cursor-pointer hover:gray col-span-1 `}

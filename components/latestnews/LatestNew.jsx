@@ -32,10 +32,10 @@ const LatestNew = () => {
   return (
     <div>
       <div id="services" className="px-36 sm:px-10">
-        <h1 className="text-[#11B6E3] font-arcaMajoraBold text-center mb-[10px]">
+        <h1 className="text-[#11B6E3] font-sans font-extrabold text-center mb-[10px]">
           Latest News
         </h1>
-        <h2 className="font-arcaMajoraHeavy text-3xl text-center">
+        <h2 className="font-sans font-extrabold text-3xl text-center">
           Get Every News & Updates
         </h2>
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">

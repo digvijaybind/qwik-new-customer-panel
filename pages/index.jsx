@@ -169,10 +169,10 @@ export default function Home() {
   const [SelectedCollapseIndex, setSelectedCollapseIndex] = useState(-1);
   return (
     <main>
-      <div className="font-Montserrat">
+      <div className="font-sans">
         <Navnew></Navnew>
         <SearchBar
-          className="bottom-40 sm:bottom-60"
+          className="bottom-60 sm:bottom-60"
           isMobile={isMobile}
           formData={formData}
           handleSubmit={handleSubmit}
@@ -186,10 +186,10 @@ export default function Home() {
         <div id="services" className="w-full">
           <div className="px-36 sm:px-10">
             <div className="py-24">
-              <h2 className="font-arcaMajoraHeavy text-4xl text-center">
+              <h2 className="font-sans font-extrabold text-4xl text-center">
                 How to Book Air Ambulance
               </h2>
-              <p className="text-[#413D3D] leading-[26px] text-[18px] font-normal text-center mt-[30px]">
+              <p className="text-[#413D3D] leading-[26px] text-[18px] font-sans font-normal text-center mt-[30px]">
                 Here’s simple step to Book Air Ambulance
                 <br /> Call now to our professional doctors to discuss patient
                 medical condition
@@ -212,10 +212,10 @@ export default function Home() {
 
           <div className="flex flex-col items-start px-36 sm:px-10 py-16">
             <div className="flex flex-col items-start w-full sm:items-center ">
-              <h1 className="font-arcaMajoraHeavy text-3xl text-center mb-2">
+              <h1 className="font-sans font-extrabold text-3xl text-center mb-2">
                 Why you should choose our services
               </h1>
-              <h2 className="text-[#646464] font-medium text-[16px] leading-[26px] text-center sm:mx-[5%]">
+              <h2 className="text-[#646464] font-sans font-medium text-[16px] leading-[26px] text-center sm:mx-[5%]">
                 Do you have questions about flying privately? Wondering more
                 about Whether you’re flying in a small, medium, or large group,
               </h2>
@@ -232,10 +232,10 @@ export default function Home() {
                     className="flex-col items-start w-full h-auto"
                   >
                     <div
-                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-primary hover:!text-white transition-all duration-300 ${
+                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${
                         SelectedCollapseIndex != index
                           ? 'bg-[#F1F7FA]'
-                          : 'bg-[#11B6E3]'
+                          : 'bg-[#4B68B8]'
                       }`}
                     >
                       <h4
@@ -243,7 +243,7 @@ export default function Home() {
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
                             : ''
-                        }  font-arcaMajoraBold text-xl`}
+                        }  font-sans font-extrabold text-xl`}
                       >
                         {item.header}
                       </h4>
@@ -274,7 +274,7 @@ export default function Home() {
 
                     {SelectedCollapseIndex === index ? (
                       <div className="h-[180px] sm:h-[290px] bg-[#FBFBFB] w-full">
-                        <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] font-normal leading-[26px] pt-[50px] sm:pt-[30px]">
+                        <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] font-normal font-sans leading-[26px] pt-[50px] sm:pt-[30px]">
                           {item.description}
                         </p>
                       </div>
@@ -288,10 +288,10 @@ export default function Home() {
             className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
             <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
-              <div className="text-[#a9b5bf] font-arcaMajoraBold">
+              <div className="text-[#a9b5bf] font-sans font-extrabold">
                 QwikLif Air Ambulance
               </div>
-              <div className="font-arcaMajoraHeavy text-4xl text-white mt-1 mb-6">
+              <div className="font-sans font-extrabold text-4xl text-white mt-1 mb-6">
                 Your Trusted Global Air Ambulance <br /> Provider
               </div>
               {tasktab.map((data, index) => {
@@ -309,7 +309,7 @@ export default function Home() {
 
             <div className="bg-white flex flex-col items-start shadow-2xl rounded-lg col-span-5 sm:col-span-1 py-10 sm:px-6 px-12">
               <div className="flex flex-col items-start sm:w-full sm:items-center ">
-                <h2 className="font-arcaMajoraHeavy text-3xl sm:text-2xl text-center">
+                <h2 className="font-sans font-extrabold text-3xl sm:text-2xl text-center">
                   Get Quote Now
                 </h2>
                 <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
@@ -359,7 +359,7 @@ export default function Home() {
                   />
                   <div className="col-span-5">
                     <button
-                      className={`${styles.boxShado} w-full h-[50px] bg-[#11B6E3] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#3c70fa] shadow-lg shadow-[#11B6E3]`}
+                      className={`${styles.boxShado} w-full h-[50px] bg-[#4B68B8] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#4B68B8] shadow-lg shadow-[#4B68B8]`}
                     >
                       Get Quote
                     </button>

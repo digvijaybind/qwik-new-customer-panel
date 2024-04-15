@@ -27,7 +27,8 @@ import TurkishAirline from '../../public/images/airlines/Turkish.jpg';
 import UnitedAirline from '../../public/images/airlines/united-airlines.jpg';
 import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg';
 import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
-import AirIndia from '../../public/images/airlines/Air-india.jpg';
+// import AirIndia from '../../public/images/airlines/Air-india.jpg';
+import AirIndia from '../../public/images/updated-images/Air-India.svg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
 import Link from 'next/link';
 import { currencySymbols } from '../Utils/Constants';
@@ -282,7 +283,7 @@ const AircraftDetailsCard = ({
 
   return (
     <div
-      className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border font-sans`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
@@ -293,7 +294,7 @@ const AircraftDetailsCard = ({
           src={airlineImage}
           alt="Commercial Image"
           height="60"
-          className="w-full object-cover sm:max-h-40 h-40 object-center rounded-md border border-slate-100 bg-slate-100"
+          className="w-full object-cover sm:max-h-40 h-[180px] object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
@@ -326,7 +327,7 @@ const AircraftDetailsCard = ({
                 : 'Non-stop'}
             </div>
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-end font-sans">
             <div className="flex">
               <span className="font-semibold text-xl">
                 {locationData?.destinationTime
@@ -337,7 +338,7 @@ const AircraftDetailsCard = ({
               </span>
               {moment(locationData?.destinationTime).format('d') !==
                 moment(locationData?.departureTime).format('d') && (
-                <span className="text-[red] text-center text-xs font-medium leading-3 ml-1.5">
+                <span className="text-[red] text-center text-xs font-medium leading-3 ml-1.5 font-sans">
                   +{' '}
                   {moment(locationData?.destinationTime).format('d') -
                     moment(locationData?.departureTime).format('d')}{' '}
@@ -346,7 +347,7 @@ const AircraftDetailsCard = ({
                 </span>
               )}
             </div>
-            <span className="text-[#111827]   font-semibold text-center text-sm">
+            <span className="text-[#111827]   font-semibold text-center text-sm font-sans">
               {locationData?.destinationLocation}
             </span>
           </div>
@@ -356,7 +357,7 @@ const AircraftDetailsCard = ({
             <div className="font-semibold text-[17px] flex flex-col">
               <div
                 className="font-semibold text-[11px] 
-text-[#4C5564] leading-tight mb-2"
+text-[#4C5564] leading-tight mb-2 font-sans"
               >
                 Estimated Price
               </div>
@@ -369,16 +370,20 @@ text-[#4C5564] leading-tight mb-2"
                 >
                   {Object.keys(currencySymbols)?.map((currency, index) => {
                     return (
-                      <option value={currency} key={'currency-item' + index}>
+                      <option
+                        value={currency}
+                        key={'currency-item' + index}
+                        className="font-sans"
+                      >
                         {currency}
                       </option>
                     );
                   })}
                 </select>
 
-                <div className="flex flex-row items-end text-[#101729]">
+                <div className="flex flex-row items-end text-[#101729] font-sans">
                   {currencySymbols[selectedCurrency]}
-                  <div className=" font-extrabold text-[#101729] text-base">
+                  <div className=" font-extrabold text-[#101729] text-base font-sans">
                     {' '}
                     {totalCost}
                   </div>
@@ -389,20 +394,20 @@ text-[#4C5564] leading-tight mb-2"
 
             <div className="flex flex-col gap-3">
               <div className="flex flex-col justify-end text-end items-center ">
-                <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+                <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2 font-sans">
                   Airline
                 </span>
-                <span className="font-medium leading-tight text-[12px]">
+                <span className="font-medium leading-tight text-[12px] font-sans">
                   {airlineName}
                 </span>
               </div>
             </div>
             <div className="flex flex-col items-center  sm:hidden">
-              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2 font-sans">
                 Ticket Available
               </span>
 
-              <span className="font-medium leading-tight text-[12px]">
+              <span className="font-medium leading-tight text-[12px] font-sans">
                 {availableticket ?? 0}
               </span>
               {/* <span className="font-semibold text-[14px]">
@@ -416,10 +421,10 @@ text-[#4C5564] leading-tight mb-2"
           className="block w-full"
         >
           <button
-            className="rounded font-semibold text-white bg-[#11b6e3] py-1.5 text-[0.9rem] w-full text-center align-middle border cursor-pointer  hover:bg-[#5bc9e8] hover:text-white"
+            className="rounded font-semibold text-Bluedark bg-[#11b6e3] py-1.5 text-[0.9rem] w-full text-center align-middle border cursor-pointer  hover:bg-[#5bc9e8] hover:text-white"
             onClick={() => console.log('line 441', aircraftData.aircraft.id)}
           >
-            <div>View Details</div>
+            <div className="font-sans">View Details</div>
           </button>
         </Link>
       </div>

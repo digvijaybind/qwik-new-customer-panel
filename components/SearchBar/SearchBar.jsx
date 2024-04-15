@@ -315,12 +315,12 @@ const SearchBar = ({
 
           <div className="flex md:justify-center sm:justify-center cursor-pointer ">
             {isMobile ? (
-              <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-[#11b6e3] flex items-center gap-2 mt-2">
+              <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-[#4B68B8] flex items-center gap-2 mt-2">
                 Search{' '}
                 <Image src={Search} height={23} width={23} alt="search icon" />
-              </button>
+            </button>
             ) : (
-              <button className="bg-[#11b6e3] flex justify-center items-center h-full w-[55px]">
+              <button className="bg-[#4B68B8] flex justify-center items-center h-full w-[55px]">
                 <Image src={Search} height={24} width={24} alt="search icon" />
               </button>
             )}

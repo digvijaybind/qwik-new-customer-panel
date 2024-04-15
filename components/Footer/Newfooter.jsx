@@ -33,6 +33,20 @@ const LocationData = [
   'Air Ambulance in UK',
   'Air Ambulance in singapore',
 ];
+const WorkWithQwiklif = [
+  {
+    Name: "For Aviation firm's /Aircraft Operators",
+    Link: '',
+  },
+  {
+    Name: "For Hospital's",
+    Link: '',
+  },
+  {
+    Name: "For Hospital's",
+    Link: '',
+  },
+];
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
@@ -90,7 +104,7 @@ const Newfooter = () => {
         </div>
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
-            Our Locations
+            Work with us
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {LocationData.map((data, index) => {

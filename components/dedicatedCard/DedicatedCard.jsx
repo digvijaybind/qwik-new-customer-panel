@@ -99,7 +99,7 @@ const DedicatedCard = ({
 
   return (
     <div
-      className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border`}
+      className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border font-sans`}
       style={{
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
@@ -117,27 +117,31 @@ const DedicatedCard = ({
               : CommercialImage
           }
           alt="Commercial Image"
-          className="w-full object-cover sm:max-h-40 h-full object-center rounded-md border border-slate-100 bg-slate-100"
+          className="w-full object-cover sm:max-h-40 h-[180px] object-center rounded-md border border-slate-100 bg-slate-100"
         />
       </div>
       <div className="sm:col-span-3 col-span-2">
         <div className="grid grid-cols-3 gap-4 mb-5 items-center">
           <div className="">
-            <span className="font-semibold text-2xl invisible">5:40</span>
+            <span className="font-semibold text-2xl invisible font-sans">
+              5:40
+            </span>
             <br />
-            <span className="text-[#111827] text-sm font-semibold text-center">
+            <span className="text-[#111827] text-sm font-semibold text-center font-sans">
               {charteredepature}
             </span>
           </div>
           <div className="flex flex-col items-center text-[13px] text-[#344056]">
             {Time}
-            <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
+            <div className="bg-[#42D1E5] w-[40px] h-[5px]"></div>
           </div>
           <div className="flex flex-col items-end">
             <div className="flex">
-              <span className="font-semibold text-2xl invisible">5:40</span>
+              <span className="font-semibold text-2xl invisible font-sans">
+                5:40
+              </span>
             </div>
-            <span className="text-[#111827] text-sm font-semibold text-center">
+            <span className="text-[#111827] text-sm font-semibold text-center font-sans">
               {chartereArrival}
             </span>
           </div>
@@ -198,7 +202,7 @@ const DedicatedCard = ({
         <div className=" sm:flex-col">
           <div className="flex justify-between mb-5 ">
             <div className="font-semibold text-[17px] flex flex-col">
-              <div className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+              <div className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2 font-sans">
                 Estimated Price
               </div>
               <div className="flex justify-end gap-2">
@@ -210,7 +214,11 @@ const DedicatedCard = ({
                 >
                   {Object.keys(currencySymbols)?.map((currency, index) => {
                     return (
-                      <option value={currency} key={'currency-item' + index}>
+                      <option
+                        value={currency}
+                        key={'currency-item' + index}
+                        className="font-sans"
+                      >
                         {currency}
                       </option>
                     );
@@ -219,13 +227,16 @@ const DedicatedCard = ({
 
                 <div className="flex flex-row items-end text-[#101729]">
                   {currencySymbols[selectedCurrency]}
-                  <div className=" font-extrabold text-[#101729]"> {price}</div>
+                  <div className="font-extrabold font-weight-[900] text-[#101729] font-sans">
+                    {' '}
+                    {price}
+                  </div>
                 </div>
               </div>
             </div>
             <br />
             <div className="flex flex-col items-center">
-              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2">
+              <span className="font-semibold text-[11px] text-[#4C5564] leading-tight mb-2 ">
                 Aircraft
               </span>
               <span className="font-medium text-[10px]">{aircraftName}</span>

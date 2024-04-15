@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./CommercialCard.module.css";
-import CommercialImage from "../../public/images/commercial.svg";
-import Image from "next/image";
+import React from 'react';
+import styles from './CommercialCard.module.css';
+import CommercialImage from '../../public/images/commercial.svg';
+import Image from 'next/image';
 
 const CommercialCard = () => {
   return (
@@ -24,7 +24,7 @@ const CommercialCard = () => {
         <div className="grid grid-cols-3 gap-2 mb-5">
           <div className="">
             <span className="text-[#000000] text-[20px] font-semibold text-center">
-              {" "}
+              {' '}
               21:40
             </span>
             <br />
@@ -36,7 +36,9 @@ const CommercialCard = () => {
             <div className="text-[#6D7278]">Non stop</div>
           </div>
           <div className="text-end">
-            <span className="text-[#000000] text-[20px] font-semibold ">00:35</span>
+            <span className="text-[#000000] text-[20px] font-semibold ">
+              00:35
+            </span>
             <br />
             <span className="font-medium">Bengaluru</span>
           </div>
@@ -46,7 +48,9 @@ const CommercialCard = () => {
             <div className="font-semibold">Included Perks :</div>
             <div className="font-semibold text-[14px]">-Stretcher ✅</div>
             <div className="font-semibold text-[14px]">-Doctor OnBoard ✅</div>
-            <div className="font-semibold text-[14px]">-Medical Equipment ✅</div>
+            <div className="font-semibold text-[14px]">
+              -Medical Equipment ✅
+            </div>
             <div className="font-semibold text-[14px]">-Oxygen(4L/Min) ✅</div>
           </div>
           <div className="">
@@ -55,7 +59,7 @@ const CommercialCard = () => {
             <span className="font-medium text-[16px]">Estimated Price</span>
           </div>
         </div>
-        <div className="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-[#4BDCF0] hover:bg-[#4BDCF0] hover:text-[#fff]">
+        <div className="rounded text-center align-middle border border-[#4BDCF0]  h-[31px] cursor-pointer text-Bluedark hover:bg-[#4BDCF0] hover:text-[#fff]">
           <div>View Details</div>
         </div>
       </div>

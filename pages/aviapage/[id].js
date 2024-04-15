@@ -30,9 +30,7 @@ const DedicatedeHeader = () => {
     <div
       className="flex flex-col items-start justify-center bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
       style={{ backgroundImage: "url('/images/search-detail-bg.png')" }}
-    >
-      <p className="text-sm">The new generation of private jets</p>
-    </div>
+    ></div>
   );
 };
 
@@ -134,7 +132,7 @@ const JourneyDetails = ({
   data,
 }) => {
   return (
-    <>
+    <div className="font-sans">
       <h3 className="font-bold">
         {data?.from} to {data?.to}
       </h3>
@@ -212,7 +210,7 @@ const JourneyDetails = ({
           Enquire Now
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -221,7 +219,7 @@ const JourneyDetails = ({
 const WhyWithqwiklif = () => {
   return (
     <div
-      className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow} font-sans`}
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
     >
       <div className="flex flex-col px-[50px] sm:px-[13px] mb-10">
@@ -229,28 +227,28 @@ const WhyWithqwiklif = () => {
           why to choose qwiklif
         </h1>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             1. Instant quotation and Instant Support
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Qwiklif is World First Air Ambulance company providing Instant
             quotation for medical air transfer .
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             2. well qualified Flying Doctor's and Paramedics Team's
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Qwiklif Have well qualified flying doctor's with 30+year experience
             .qwiklif have well qualified paramedics team.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">3. 24/7 Availability</h1>
-          <p className="text-[16px] font-medium">
+          <h1 className="text-[18px] font-semibold">3. 24/7 Availability</h1>
+          <p className="text-[15px] font-medium">
             Medical emergencies can occur at any time, which is why we operate
             round-the-clock to provide timely assistance whenever you need it.
             Whether it's a critical situation or a planned transfer, we are
@@ -258,8 +256,8 @@ const WhyWithqwiklif = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">4. Global Reach</h1>
-          <p className="text-[16px] font-medium">
+          <h1 className="text-[18px] font-semibold">4. Global Reach</h1>
+          <p className="text-[15px] font-medium">
             Our air transfer services are not confined to a specific region. We
             have the capability to operate both domestically and
             internationally, ensuring that you can reach your desired
@@ -267,11 +265,11 @@ const WhyWithqwiklif = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             5. Compassionate Customer Service
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             We understand that dealing with medical emergencies can be
             stressful. That's why our dedicated customer service team is always
             available to address your concerns and provide assistance every step
@@ -279,8 +277,8 @@ const WhyWithqwiklif = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold"> 6.Customized Solutions</h1>
-          <p className="text-[16px] font-medium">
+          <h1 className="text-[18px] font-semibold"> 6.Customized Solutions</h1>
+          <p className="text-[15px] font-medium">
             We recognize that every patient is unique, and their medical needs
             may vary. That's why we offer customized air transfer solutions
             tailored to meet individual requirements. Whether it's specialized
@@ -289,8 +287,8 @@ const WhyWithqwiklif = () => {
           </p>
         </div>{' '}
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">7. Transparent Pricing</h1>
-          <p className="text-[16px] font-medium">
+          <h1 className="text-[18px] font-semibold">7. Transparent Pricing</h1>
+          <p className="text-[15px] font-medium">
             We believe in transparency when it comes to pricing. You can trust
             us to provide clear and upfront cost estimates without any hidden
             fees or surprises. We understand the financial burden that medical
@@ -300,7 +298,7 @@ const WhyWithqwiklif = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2  w-[100px]">
+        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2  w-[100px] font-semibold">
           Pay Now
         </button>
       </div>
@@ -311,7 +309,7 @@ const WhyWithqwiklif = () => {
 const FlightImages = ({ aircraftType, slides }) => {
   return (
     <>
-      <div className="mb-2">
+      <div className="mb-2 font-sans">
         <Slider
           className="customCarousel"
           arrows={true}
@@ -478,7 +476,7 @@ const Flightchallenger605 = () => {
 const FlightDetails = ({ data }) => {
   return (
     <div
-      className="rounded-md p-5 text-[0.9rem]"
+      className="rounded-md p-5 text-[0.9rem] font-sans"
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
     >
       <h2 className="text-base font-bold">Flight Details</h2>
@@ -730,7 +728,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
   return (
     <Layout>
       <div
-        className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow}`}
+        className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow} font-sans`}
         style={{ boxShadow: '#000 0px 0px 10px 0px' }}
       >
         <h2 className="text-base font-bold mb-4">Cost Details</h2>
@@ -788,11 +786,11 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 //         How we do Medical transfer
 //       </h1>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step1 :-Assessment and Coordination
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           The need for an air ambulance transfer is typically assessed by
 //           medical professionals at the referring facility or by emergency
 //           responders at the scene of an incident. Once the decision is made to
@@ -802,11 +800,11 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step 2 :- Dispatch and Arrival of Air Ambulance
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           Medical staff at the referring facility prepare the patient for
 //           transfer, which may include stabilizing their condition, administering
 //           necessary medications, and ensuring they are safely packaged for
@@ -814,41 +812,41 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step 3:- Dispatch and Arrival of Air Ambulance
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           Once the air ambulance arrives, the patient is carefully transferred
 //           from the referring facility to the aircraft. The patient is secured in
 //           the aircraft and connected to any necessary medical equipment.
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step 3:- Transfer to the Air Ambulance
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           Once the air ambulance arrives, the patient is carefully transferred
 //           from the referring facility to the aircraft. The patient is secured in
 //           the aircraft and connected to any necessary medical equipment.
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold"> Step 4:- In-flight Care</h1>
-//         <p className="text-[16px] font-medium">
+//         <h1 className="text-[18px] font-semibold"> Step 4:- In-flight Care</h1>
+//         <p className="text-[15px] font-medium">
 //           During the flight, the medical crew provides continuous care to the
 //           patient, including monitoring vital signs, administering medications,
 //           and managing any medical emergencies that may arise.
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step 5:- Arrival at the Receiving Facility
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           Upon arrival at the receiving facility, the patient is safely
 //           transferred from the air ambulance to the facility&apos;s medical
 //           staff. The receiving facility&apos;s medical staff assumes care of the
@@ -856,19 +854,19 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 //         </p>
 //       </div>{' '}
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold">
+//         <h1 className="text-[18px] font-semibold">
 //           {' '}
 //           Step 6:- Post-transfer Documentation
 //         </h1>
-//         <p className="text-[16px] font-medium">
+//         <p className="text-[15px] font-medium">
 //           After the transfer is complete, the air ambulance service provider and
 //           the referring and receiving facilities may exchange medical records
 //           and documentation related to the transfer for continuity of care.
 //         </p>
 //       </div>
 //       <div className="rounded-lg shadow-lg bg-white p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-//         <h1 className="text-[20px] font-semibold"> Step 7:- Follow-up Care</h1>
-//         <p className="text-[16px] font-medium">
+//         <h1 className="text-[18px] font-semibold"> Step 7:- Follow-up Care</h1>
+//         <p className="text-[15px] font-medium">
 //           Once the patient has been transferred, follow-up care and treatment
 //           are provided as needed based on the patient&apos;s condition and the
 //           recommendations of the medical team.
@@ -880,7 +878,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 const Airtransfer = () => {
   return (
     <div
-      className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow}`}
+      className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow} font-sans`}
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
     >
       <div className="flex flex-col px-[50px] mb-10">
@@ -888,11 +886,11 @@ const Airtransfer = () => {
           How we do Medical transfer
         </h1>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step1 :-Assessment and Coordination
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             The need for an air ambulance transfer is typically assessed by
             medical professionals at the referring facility or by emergency
             responders at the scene of an incident. Once the decision is made to
@@ -902,11 +900,11 @@ const Airtransfer = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 2 :- Dispatch and Arrival of Air Ambulance
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Medical staff at the referring facility prepare the patient for
             transfer, which may include stabilizing their condition,
             administering necessary medications, and ensuring they are safely
@@ -914,44 +912,44 @@ const Airtransfer = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 3:- Dispatch and Arrival of Air Ambulance
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Once the air ambulance arrives, the patient is carefully transferred
             from the referring facility to the aircraft. The patient is secured
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 3:- Transfer to the Air Ambulance
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Once the air ambulance arrives, the patient is carefully transferred
             from the referring facility to the aircraft. The patient is secured
             in the aircraft and connected to any necessary medical equipment.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 4:- In-flight Care
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             During the flight, the medical crew provides continuous care to the
             patient, including monitoring vital signs, administering
             medications, and managing any medical emergencies that may arise.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 5:- Arrival at the Receiving Facility
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Upon arrival at the receiving facility, the patient is safely
             transferred from the air ambulance to the facility&apos;s medical
             staff. The receiving facility&apos;s medical staff assumes care of
@@ -959,11 +957,11 @@ const Airtransfer = () => {
           </p>
         </div>{' '}
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 6:- Post-transfer Documentation
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             After the transfer is complete, the air ambulance service provider
             and the referring and receiving facilities may exchange medical
             records and documentation related to the transfer for continuity of
@@ -971,11 +969,11 @@ const Airtransfer = () => {
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
-          <h1 className="text-[20px] font-semibold">
+          <h1 className="text-[18px] font-semibold">
             {' '}
             Step 7:- Follow-up Care
           </h1>
-          <p className="text-[16px] font-medium">
+          <p className="text-[15px] font-medium">
             Once the patient has been transferred, follow-up care and treatment
             are provided as needed based on the patient&apos;s condition and the
             recommendations of the medical team.
@@ -983,7 +981,7 @@ const Airtransfer = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2 w-[100px] font-semibold">
+        <button className="bg-primary rounded-md  p-2 text-sm mt-2 w-[100px] font-semibold">
           Pay Now
         </button>
       </div>

@@ -17,12 +17,12 @@ const ChooseQwiklif = () => {
     <div>
       <div className="">
         <div className="flex sm:w-full sm:flex-col mt-10 sm:mt-0 sm:pt-0 mb-10 py-10">
-          <h2 className="font-arcaMajoraHeavy text-4xl sm:text-2xl text-center border-r-2 border-[#396CF0] sm:border-none h-full sm:pr-0 pr-16 flex items-center sm:w-full">
+          <h2 className="font-sans font-extrabold text-4xl sm:text-2xl text-center border-r-2 border-[#396CF0] sm:border-none h-full sm:pr-0 pr-16 flex items-center sm:w-full">
             Why choose Qwiklif?
           </h2>
 
           <div className="sm:pl-0 pl-16">
-            <p className="text-[#646464] text-[18px] leading-[32px] ml-[10px] lg:ml-0 font-medium sm:ml-3">
+            <p className="text-[#646464] text-[18px] leading-[32px] ml-[10px] lg:ml-0 font-sans font-medium sm:ml-3">
               Fly Fast and Safe with Qwiklif Air Ambulance We have access to
               global hospitals including finest medic and eminent surgeons
               across the globe.
@@ -40,7 +40,7 @@ const ChooseQwiklif = () => {
               <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
                 <Image src={aeroIcon} height={40} width={35} />
               </div>
-              <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
+              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
                 Biggest Fleet Network
               </div>
             </button>
@@ -54,7 +54,7 @@ const ChooseQwiklif = () => {
               <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                 <Image src={DoctorIcon} width={30} height={25} />
               </div>
-              <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
+              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
                 24x7 Doctors On Board
               </div>
             </button>
@@ -69,7 +69,7 @@ const ChooseQwiklif = () => {
               <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                 <Image src={GlobalIcon} width={35} height={25} />
               </div>
-              <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
+              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
                 Global Coverage
               </div>
             </button>
@@ -84,7 +84,7 @@ const ChooseQwiklif = () => {
               <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
                 <Image src={CostEffective} width={35} height={25} />
               </div>
-              <div className="font-arcaMajoraBold text-xl sm:flex justify-end">
+              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
                 Cost-Effective Solution
               </div>
             </button>

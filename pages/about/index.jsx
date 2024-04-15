@@ -4,7 +4,12 @@ import style from './About.module.css';
 import { FaPlane } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
+import Aeroplane1 from '../../public/images/trusted_contact/aeroplane1.svg';
+import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
+import Champion from '../../public/images/trusted_contact/champion.svg';
 import Layout from '@/components/layout/Layout';
+import Trusted from '@/components/trusted/Trusted';
+import CustomDatePicker from '@/components/date/CustomDatePicker';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -24,6 +29,26 @@ const About = () => {
     );
   }
 
+  const tasktab = [
+    {
+      img: Aeroplane1,
+      title: 'Express Lane to Care',
+      description:
+        'Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief',
+    },
+    {
+      img: DoctorIcon,
+      title: 'Innovation in Every Flight',
+      description:
+        "QwikLif Air Ambulance embraces cutting-edge medical technology. Think of our ambulances as flying hospitals, complete with state-of-the-art equipment. We're not just transporting patients; we're bringing a mobile medical unit to ensure the best care possible.",
+    },
+    {
+      img: Champion,
+      title: 'Angels in the Air:',
+      description:
+        "Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.",
+    },
+  ];
   const abouts = [
     {
       img: '/images/about1.jpg',
@@ -52,15 +77,15 @@ const About = () => {
     },
   ];
   return (
-    <div className="font-poppins">
+    <div className="font-sans">
       <div className={`bg-black ${style.Image}   bg-black h-[400px] w-full`}>
         <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
-          <p className="text-[50px]  pt-[150px]">About Us</p>
+          <p className="text-[50px]  pt-[150px] font-sans">About Us</p>
           <div className="flex pt-[30px] text-[20px]">
             <p className="text-[#C5D5FF] pr-[10px]">
               {'Air Ambulance Services >'}
             </p>
-            <p>About us</p>
+            <p className="font-sans font-extrabold">About us</p>
           </div>
         </div>
       </div>
@@ -68,7 +93,7 @@ const About = () => {
         <div className="w-1/4">
           <ul className="w-full flex flex-col drop-shadow-xl bg-white">
             <li
-              className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
+              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-extrabold ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
@@ -76,7 +101,7 @@ const About = () => {
               Company Profile
             </li>
             <li
-              className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
                 activeTab === 2 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(2)}
@@ -84,7 +109,7 @@ const About = () => {
               Mission and Vision
             </li>
             <li
-              className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
                 activeTab === 3 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(3)}
@@ -92,7 +117,7 @@ const About = () => {
               Milestones
             </li>
             <li
-              className={`px-5 text-sm font-medium py-4 border-b-2 cursor-pointer ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
                 activeTab === 4 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(4)}
@@ -233,7 +258,7 @@ const About = () => {
           >
             <img className="rounded-[5px]" src={`${data.img}`} alt="" />
             <div className={`${style.Slideover} px-[25px]`}>
-              <p className="text-[20px] font-semibold py-[20px]">{data.head}</p>
+              <p className="text-[18px] font-semibold py-[25px]">{data.head}</p>
               <p>{data.text}</p>
             </div>
           </div>
@@ -330,6 +355,87 @@ const About = () => {
           <div></div>
         </div>
       </div> */}
+      <div
+        className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full  sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
+      >
+        <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
+          <div className="text-[#a9b5bf] font-sans font-extrabold">
+            QwikLif Air Ambulance
+          </div>
+          <div className="font-sans font-extrabold text-4xl text-white mt-1 mb-6">
+            Your Trusted Global Air Ambulance <br /> Provider
+          </div>
+          {tasktab.map((data, index) => {
+            return (
+              <div key={'tasktab' + index} className="mb-3">
+                <Trusted
+                  img={data.img}
+                  title={data.title}
+                  descripation={data.description}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="bg-white flex flex-col items-start shadow-2xl rounded-lg col-span-5 sm:col-span-1 py-10 sm:px-6 px-12">
+          <div className="flex flex-col items-start sm:w-full sm:items-center ">
+            <h2 className="font-sans font-extrabold text-3xl sm:text-2xl text-center">
+              Get Quote Now
+            </h2>
+            <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
+          </div>
+
+          <form className={`mt-[30px] w-full ${styles.form}`}>
+            <div className="grid grid-cols-5 gap-3">
+              <input
+                type="text"
+                value=""
+                placeholder="From *"
+                // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
+                className=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+
+              <input
+                type="text"
+                value=""
+                placeholder="To *"
+                className=" rounded-md  col-span-5 sm:col-span-5 !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+              <input
+                type="text"
+                value=""
+                placeholder="Phone *"
+                className="h-[50px]  col-span-2 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+              <input
+                type="text"
+                value=""
+                placeholder="E-mail*"
+                className=" h-[50px]  col-span-3 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+
+              <CustomDatePicker
+                containerClass="col-span-3 sm:col-span-5"
+                ClassName="h-[50px] rounded-md  !border w-full !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+              <input
+                type="text"
+                value=""
+                placeholder="Time*"
+                className="h-[50px] col-span-2 sm:col-span-5 rounded-md !border !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              />
+              <div className="col-span-5">
+                <button
+                  className={`${styles.boxShado} w-full h-[50px] bg-[#4B68B8] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#4B68B8] shadow-lg shadow-[#4B68B8]`}
+                >
+                  Get Quote
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
