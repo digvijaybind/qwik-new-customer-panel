@@ -28,10 +28,13 @@ const ServiceData = [
   'Dedicated Air Ambulance',
 ];
 const LocationData = [
-  'Air Ambulance in UAE',
-  'Air Ambulance in India',
-  'Air Ambulance in UK',
-  'Air Ambulance in singapore',
+  'Middle East (MENA)',
+  'United States',
+  'Africa',
+  'Asia',
+  'Europe',
+  'North America',
+  'South America',
 ];
 const WorkWithQwiklif = [
   {
@@ -104,7 +107,7 @@ const Newfooter = () => {
         </div>
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
-            Work with us
+            Location's
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {LocationData.map((data, index) => {

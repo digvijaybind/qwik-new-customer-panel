@@ -4,11 +4,9 @@ import React from 'react';
 
 const Media = () => {
   return (
-    <Layout>
-      <div>
-        <MediaSection />
-      </div>
-    </Layout>
+    <div className="px-[50px] py-[30px]">
+      <MediaSection />
+    </div>
   );
 };
 

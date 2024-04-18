@@ -15,6 +15,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import Signature from '../../public/images/dummy-sign.png';
 import {
   c90Slides,
   challenger605Slides,
@@ -728,52 +729,76 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
   return (
     <Layout>
       <div
-        className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow} font-sans`}
+        className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow} font-sans grid grid-cols-1`}
         style={{ boxShadow: '#000 0px 0px 10px 0px' }}
       >
-        <h2 className="text-base font-bold mb-4">Cost Details</h2>
-        <div className="flex flex-col gap-3 text-[0.9rem]">
-          <div className="flex justify-between">
-            <span>Flight Cost </span>
-            <span>
-              {currencySymbols[selectedCurrency]}
-              {totalCost}
-            </span>
-          </div>
-
-          <div className="flex justify-between items-center">
-            <span>Estimated cost</span>
-            <div className="font-bold text-base flex items-center">
-              <select
-                id="currencySelector"
-                value={selectedCurrency}
-                onChange={handleCurrencyChange}
-                className="border-solid border-2 border-black rounded-md text-xs"
-              >
-                {Object.keys(currencySymbols)?.map((currency, index) => {
-                  return (
-                    <option value={currency} key={'currency-item' + index}>
-                      {currency}
-                    </option>
-                  );
-                })}
-              </select>
-
-              <div className="flex flex-row items-end ml-2">
+        <div>
+          <h2 className="text-base font-bold mb-4">Cost Details</h2>
+          <div className="flex flex-col gap-3 text-[0.9rem]">
+            <div className="flex justify-between">
+              <span>Flight Cost </span>
+              <span>
                 {currencySymbols[selectedCurrency]}
-                <div className=" font-extrabold"> {totalCost}</div>
+                {totalCost}
+              </span>
+            </div>
+
+            <div className="flex justify-between items-center">
+              <span>Estimated cost</span>
+              <div className="font-bold text-base flex items-center">
+                <select
+                  id="currencySelector"
+                  value={selectedCurrency}
+                  onChange={handleCurrencyChange}
+                  className="border-solid border-2 border-black rounded-md text-xs"
+                >
+                  {Object.keys(currencySymbols)?.map((currency, index) => {
+                    return (
+                      <option value={currency} key={'currency-item' + index}>
+                        {currency}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="flex flex-row items-end ml-2">
+                  {currencySymbols[selectedCurrency]}
+                  <div className=" font-extrabold"> {totalCost}</div>
+                </div>
               </div>
             </div>
           </div>
+          <div className="flex justify-center">
+            <button
+              className="border border-[#11b6e3] text- rounded-md p-2 text-sm mt-10 hover:bg-[#11b6e3] hover:text-white mb-3 font-semibold "
+              onClick={makePayment}
+            >
+              Pay Now
+            </button>
+          </div>
         </div>
-        <button
-          className="border border-[#11b6e3] text- rounded-md p-2 text-sm mt-10 hover:bg-[#11b6e3] hover:text-white mb-3 font-semibold"
-          onClick={makePayment}
-        >
-          Pay Now
-        </button>
-        <div className="font-semibold text-[12px] text-[#11b6e3]">
-          * Reserve Seat by paying 20% amount of Total Price{' '}
+        <div className="grid grid-cols-1 items-center">
+          <div className="text-center font-sans font-extrabold">
+            OUR GUARANTEE
+          </div>
+          <p>
+            We Guarantee that when choosing Qwiklif, your loved ones shall be
+            treated with professional and compassionate care. We consider every
+            patient as family, we strive to perfection and continuously
+            monitoring our operations. When choosing A provider, Remember that
+            Qwiklif if world first Air ambulance service provider who give
+            instant quote and support to patient when you come to inquiry itself
+          </p>
+
+          <div className="flex items-center flex-col font-sans font-extrabold">
+            <Image
+              src={Signature}
+              height={130}
+              width={130}
+              className="justify-center"
+            />
+            <p> Qwiklif CEO</p>
+          </div>
         </div>
       </div>
     </Layout>

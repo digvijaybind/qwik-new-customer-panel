@@ -28,17 +28,17 @@ const PostDetails = () => {
   }, [router.query.slug]);
   return (
     <Layout>
-      <div>
+      <div className="mt-[50px] font-sans">
         <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
           <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-            <p className="text-[35px] sm:text-[30px]  pt-[150px] sm:pt-[50px]">
+            <p className="text-[30px] sm:text-[30px]  pt-[150px] sm:pt-[50px] font-sans">
               {postDetails?.title?.rendered}
             </p>
             <div className="flex pt-[30px] text-[20px]">
-              <p className="text-[#C5D5FF] pr-[10px]">
+              <p className="text-[#C5D5FF] pr-[10px] font-sans">
                 {'Air Ambulance Services >'}
               </p>
-              <p> blog</p>
+              <p className="font-sans"> blog</p>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@ const PostDetails = () => {
         </div>
 
         <div
-          className="px-[5%] mt-[5px] py-[20px]"
+          className="px-[5%] mt-[5px] py-[20px] font-sans"
           dangerouslySetInnerHTML={{
             __html: postDetails?.excerpt?.rendered || '',
           }}

@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout';
 import styles from './Services.module.css';
 import ShadowCard from '@/components/shadowCard';
 const Services = () => {
-  const servicee = [
+  const service = [
     {
       img: 'https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png',
       head: 'Neonatal and Pediatric Air Transfer Services',
@@ -54,7 +54,7 @@ const Services = () => {
           </p>
         </div>
         <div className="flex justify-between sm:items-center px-[10%] flex-wrap">
-          {servicee.map((data, i) => (
+          {service.map((data, i) => (
             <div
               className={`w-[47%] sm:w-[100%] mt-[20px] ${
                 i == 4 ? 'mb-[20px]' : ''

@@ -29,7 +29,7 @@ const Blogs = ({ allPosts }) => {
   // }, []);
 
   return (
-    <div className="p-[50px]">
+    <div className="p-[50px] bg-[#f2f2f2]">
       <div>
         <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
           <div className=" font-[700] z-[100px] pl-[40px] relative  text-white">
@@ -42,13 +42,13 @@ const Blogs = ({ allPosts }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-1 gap-8 mb-3">
+        <div className="grid grid-cols-3 sm:grid-cols-1 gap-8 mb-3 mt-[80px] ">
           {allPosts?.length > 0 &&
             allPosts?.map((item, index) => {
               return (
                 <div
                   key={'blog-post-' + index}
-                  className="rounded-md drop-shadow-md bg-white p-5"
+                  className="rounded-md drop-shadow-lg bg-[#fff] p-5 font-sans"
                 >
                   <img
                     src={
@@ -56,14 +56,16 @@ const Blogs = ({ allPosts }) => {
                         ? item?._embedded['wp:featuredmedia'][0]?.source_url
                         : ''
                     }
+                    className="mb-[12px]"
                   />
                   <Link
                     href={`blogs/${item?.slug}`}
-                    className="font-semibold text-lg"
+                    className="font-semibold text-[17px] font-sans mb-3 mt-5"
                   >
                     {item?.title?.rendered}
                   </Link>
                   <div
+                    className="font-sans mt-[12px]"
                     dangerouslySetInnerHTML={{
                       __html: item?.excerpt?.rendered || '',
                     }}

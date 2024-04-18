@@ -54,21 +54,22 @@ const Header = () => {
       url: '/services',
     },
     {
-      title: 'Book',
-      url: '/listing',
+      title: 'Our Location',
+      url: '/location',
     },
     {
       title: 'Media',
       url: '/media',
     },
     {
+      title: 'Work with us',
+      url: '',
+    },
+    {
       title: 'Blog',
       url: '/blogs',
     },
-    {
-      title: 'Our Location',
-      url: '/location',
-    },
+
     {
       title: 'Contact',
       url: '/contact-us',

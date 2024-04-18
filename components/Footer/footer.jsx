@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./footer.module.css";
-import Link from "next/link";
+import React from 'react';
+import styles from './footer.module.css';
+import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className={`font-poppins ${styles.container}`}>
@@ -57,13 +57,13 @@ const Footer = () => {
                 Locations
               </h2>
               <ul className="text-white dark:text-gray-400 font-medium cursor-pointer">
-                <li className="mb-1">Air Ambulance in UAE</li>
-                <li className="mb-1">Air Ambulance in Saudi Arabia</li>
-                <li className="mb-1">Air Ambulance in Qatar A</li>
-                <li className="mb-1">Air Ambulance in Oman</li>
-                <li className="mb-1">Air Ambulance in Kuwait</li>
-                <li className="mb-1">Air Ambulance in Israel</li>
-                <li className="mb-1">Air Ambulance in India</li>
+                <li className="mb-1">Middle East (MENA)</li>
+                <li className="mb-1">United States</li>
+                <li className="mb-1">Africa</li>
+                <li className="mb-1">Asia</li>
+                <li className="mb-1">Europe</li>
+                <li className="mb-1">North America</li>
+                <li className="mb-1">South America</li>
               </ul>
             </div>
             <div>
