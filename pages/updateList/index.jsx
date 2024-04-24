@@ -9,6 +9,7 @@ import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
+import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
 
 const UpdateList = () => {
   const searchParams = useSearchParams();
@@ -36,16 +37,13 @@ const UpdateList = () => {
   const searchFlights = (data) => {
     setAircraftDataLoading(true);
     setCommercialAircraftDataLoading(true);
-  
+
     const headers = {
       'Content-Type': 'application/json',
     };
 
-    axios(`http://localhost:8000/customer/customerSearch`,{
-      
-    });
+    axios(`http://localhost:8000/customer/customerSearch`, {});
   };
-
 
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
@@ -79,6 +77,11 @@ const UpdateList = () => {
     }
   }, [searchParams]);
 
+  const Dedicatedtab =
+    selectedTab === 'dedicated'
+      ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
+      : '';
+
   return (
     <div className="">
       <div className="">
@@ -90,9 +93,9 @@ const UpdateList = () => {
           handleInputChange={handleInputChange}
         />
       </div>
-      <div className="px-[50px] py-[20px]">
+      <div className="px-[70px] py-[20px] bg-[#f4f4f4]">
         <div className="flex justify-center">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-12">
             <div className="flex flex-col items-start justify-between w-[173px]">
               <div className="text-[12px] font-normal font-sans">
                 Select your flight types
@@ -102,10 +105,10 @@ const UpdateList = () => {
               </div>
             </div>
             <div
-              className={`commericial-tab h-[55px] w-[173px]  border-2 border-[#959494] rounded flex justify-center items-center flex-col cursor-pointer  ${
+              className={`commericial-tab h-[55px] w-[173px]  rounded flex justify-center items-center flex-col cursor-pointer  ${
                 selectedTab === 'commercial'
-                  ? 'bg-[#d9ebf1]  border-[#55CDF1] border-2 text-[#55CDF1]'
-                  : ''
+                  ? 'bg-[#d9ebf1] border-2  border-[#55CDF1]  text-[#55CDF1]'
+                  : 'border-2 border-[#959494]'
               } `}
               onInput={() => handleTabChange('commercial')}
             >
@@ -117,7 +120,7 @@ const UpdateList = () => {
                   value="commercial"
                   checked={selectedTab === 'commercial'}
                   onChange={() => handleTabChange('commercial')}
-                  className={`mr-2 inline-block ${styles.styledRadio}`}
+                  className={`mr-2 inline-block ${styles.styledRadio} font-bold`}
                 />
                 Commercial
               </label>
@@ -128,10 +131,10 @@ const UpdateList = () => {
             <div
               className={`dedicated-tab  h-[55px] w-[173px] ${
                 styles.TabButton
-              } border-2 border-[#959494] rounded flex justify-center items-center flex-col cursor-pointer  ${
+              }  rounded flex justify-center items-center flex-col cursor-pointer  ${
                 selectedTab === 'dedicated'
-                  ? 'bg-[#d9ebf1]  border-[#55CDF1] border-2 text-[#55CDF1]'
-                  : ''
+                  ? 'bg-[#d9ebf1] border-2 border-[#55CDF1] text-[#55CDF1]'
+                  : 'border-2 border-[#959494]'
               }`}
               onInput={() => handleTabChange('dedicated')}
             >
@@ -143,7 +146,7 @@ const UpdateList = () => {
                     value="dedicated"
                     checked={selectedTab === 'dedicated'}
                     onChange={() => handleTabChange('dedicated')}
-                    className={`mr-2 inline-block ${styles.styledRadio} font-extrabold`}
+                    className={`mr-2 inline-block ${styles.styledRadio} font-bold`}
                   />
                   Dedicated
                 </label>
@@ -154,9 +157,48 @@ const UpdateList = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-10">
-          <div className={`commericial ${styles.CommericialCard} `}></div>
-          <div className={`dedicated ${styles.DedicatedCard}`}></div>
+        <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[20px]">
+          <div
+            className={`commericial ${
+              styles.CommericialCard
+            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] ${
+              selectedTab === 'commercial'
+                ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
+                : ''
+            }`}
+          >
+            <div
+              className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[30px]  ${
+                selectedTab === 'commercial'
+                  ? 'bg-[#dbebeb] text-[#12B5E4]'
+                  : 'bg-[#f5f5f5] text-[#D9D9D9]'
+              }`}
+            >
+              Commericial Flight
+            </div>
+            <UpdatedDedicated />
+          </div>
+          <div
+            className={`dedicated ${
+              styles.DedicatedCard
+            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] ${
+              selectedTab === 'dedicated'
+                ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
+                : ''
+            }`}
+          >
+            <div
+              className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[30px]  ${
+                selectedTab === 'dedicated'
+                  ? 'bg-[#dbebeb] text-[#12B5E4]'
+                  : 'bg-[#f5f5f5] text-[#D9D9D9]'
+              }`}
+            >
+              Charter Flight
+            </div>
+
+            <UpdatedDedicated />
+          </div>
         </div>
       </div>
       {/* <SearchBar

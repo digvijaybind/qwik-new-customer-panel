@@ -113,8 +113,9 @@ const Listing = ({ id }) => {
     })
       .then((response) => {
         setcharteredData(response.data.aviapages);
-        setcharteredDepature(response.data.aviapages.responseObj.from);
-        setchartereArrival(response.data.aviapages.responseObj.to);
+        console.log('Final data response line 116', response.data);
+        setcharteredDepature(response.data.aviapages?.Response.from);
+        setchartereArrival(response.data.aviapages?.Response.to);
         setchartereId();
       })
       .catch((error) => {
@@ -130,7 +131,7 @@ const Listing = ({ id }) => {
       headers: headers,
     })
       .then((response) => {
-        console.log('Response:', response.data.ResponseData);
+        console.log('Response:', response.data);
         setCommericialId(response.data.aircraftId);
         setDepartureLocation(data?.originLocationCode);
         setDestinationLocation(data?.destinationLocationCode);
