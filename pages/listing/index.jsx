@@ -28,6 +28,7 @@ import { IoAirplaneSharp } from 'react-icons/io5';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
 import Layout from '@/components/layout/Layout';
+import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 
 const Listing = ({ id }) => {
   const searchParams = useSearchParams();
@@ -105,7 +106,7 @@ const Listing = ({ id }) => {
       'Content-Type': 'application/json',
     };
 
-    axios(`http://localhost:8000/customer/customerSearch`, {
+    axios(`http://localhost:8000/customer/dedicatedSearch`, {
       method: 'POST',
       data: data,
       headers: headers,
@@ -123,7 +124,7 @@ const Listing = ({ id }) => {
         setAircraftDataLoading(false);
       });
 
-    axios(`http://localhost:8000/customer/Amadeusairline`, {
+    axios(`http://localhost:8000/customer/commericialSearch`, {
       method: 'POST',
       data: data,
       headers: headers,
@@ -174,6 +175,13 @@ const Listing = ({ id }) => {
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
       />
+      {/* <UpdateSearch
+        className="bottom-10"
+        isMobile={isMobile}
+        formData={formData}
+        handleSubmit={handleSubmit}
+        handleInputChange={handleInputChange}
+      /> */}
       <div className="sm:px-5 px-36 w-full sm:mt-5">
         <Shadow
           classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-2 font-sans`}

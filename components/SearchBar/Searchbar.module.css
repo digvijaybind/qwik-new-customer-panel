@@ -29,3 +29,63 @@
 .DateBackground {
   background-color: #e7e5e5;
 }
+
+/* dummy css for testing of table */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-radius: 10px;
+  overflow: hidden; /* To make sure rounded corners are visible */
+  width: 100%; /* Optional: Adjust width as needed */
+  padding: 10px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  border-right: 1px solid #000; /* Add line on the right side of each column */
+  box-sizing: border-box; /* Include border in column width calculation */
+}
+
+.cell {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid black; /* Optional: Add border style */
+}
+
+.custom-table {
+  border-collapse: collapse;
+  width: 100%; /* Optional: Adjust width as needed */
+  border-radius: 10px;
+  overflow: hidden; /* To make sure rounded corners are visible */
+  border: 1px solid #000;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px;
+  text-align: center;
+  border-left: 1px solid #000; /* Add a right-hand line to each column */
+  border-bottom: 1px solid #000; /* Add a bottom line to each row */
+}
+
+/* Remove left border from first column */
+.custom-table td:first-child {
+  border-left: none;
+}
+
+/* Remove bottom border from last row */
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.Eachcell {
+  width: 320px;
+  height: 112px;
+  border-right: solid 1px #e7e7e7;
+  cursor: pointer;
+}

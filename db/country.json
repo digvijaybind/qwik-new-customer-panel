@@ -127,10 +127,7 @@
   { "code": "+370", "name": "Lithuania (LT)" },
   { "code": "+352", "name": "Luxembourg (LU)" },
   { "code": "+853", "name": "Macao (MO)" },
-  {
-    "code": "+389",
-    " name": "Macedonia, The Former Yugoslav Republic of (MK)"
-  },
+  {"code": "+389"," name": "Macedonia"},
   { "code": "+261", " name": "Madagascar (MG)" },
   { "code": "+265", " name": "Malawi (MW)" },
   { "code": "+60", " name": "Malaysia (MY)" },
@@ -143,8 +140,8 @@
   { "code": "+230", " name": "Mauritius (MU)" },
   { "code": "+269", " name": "Mayotte (YT)" },
   { "code": "+52", " name": "Mexico (MX)" },
-  { "code": "+691", " name": "Micronesia, Federated States of (FM)" },
-  { "code": "+373", " name": "Moldova, Republic of (MD)" },
+  { "code": "+691", " name": "Micronesia" },
+  { "code": "+373", " name": "Moldova" },
   { "code": "+377", " name": "Monaco (MC)" },
   { "code": "+976", " name": "Mongolia (MN)" },
   { "code": "+382", " name": "Montenegro (ME)" },
@@ -169,7 +166,7 @@
   { "code": "+968", " name": "Oman (OM)" },
   { "code": "+92", " name": "Pakistan (PK)" },
   { "code": "+680", " name": "Palau (PW)" },
-  { "code": "+970", " name": "Palestinian Territory, Occupied (PS)" },
+  { "code": "+970", " name": "Palestinian Territory" },
   { "code": "+507", " name": "Panama (PA)" },
   { "code": "+675", " name": "Papua New Guinea (PG)" },
   { "code": "+595", " name": "Paraguay (PY)" },
@@ -203,10 +200,7 @@
   { "code": "+677", " name": "Solomon Islands (SB)" },
   { "code": "+252", " name": "Somalia (SO)" },
   { "code": "+27", " name": "South Africa (ZA)" },
-  {
-    "code": "+500",
-    " name": "South Georgia and The South Sandwich Islands (GS)"
-  },
+  {"code": "+500"," name": "South Georgia and The South Sandwich Islands (GS)"},
   { "code": "+34", " name": "Spain (ES)" },
   { "code": "+94", " name": "Sri Lanka (LK)" },
   { "code": "+249", " name": "Sudan (SD)" },

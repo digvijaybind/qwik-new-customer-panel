@@ -31,6 +31,7 @@ import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 import Link from 'next/link';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import Layout from '@/components/layout/Layout';
+import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 
 export default function Home() {
   const router = useRouter();
@@ -178,6 +179,14 @@ export default function Home() {
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
         />
+        <UpdateSearch
+          className="bottom-60 sm:bottom-60"
+          isMobile={isMobile}
+          formData={formData}
+          handleSubmit={handleSubmit}
+          handleInputChange={handleInputChange}
+        />
+        {/* <UpdateSearch /> */}
         <AboutAircraft />
         <div>
           <QwiklifFeature />

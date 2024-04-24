@@ -278,6 +278,7 @@ const SearchBar = ({
                 type="date"
                 value={formData.departureDate}
                 onChange={(e) => handleInputChange('departureDate', e)}
+                min={new Date().toISOString().split('T')[0]}
               />
             </div>
             <div className="col-span-2   border-white  sm:p-4 flex sm:col-span-5 bg-[#e7e5e5] sm:mb-3  sm:rounded-lg">
@@ -287,17 +288,15 @@ const SearchBar = ({
                 onChange={(e) => handleInputChange('countryCode', e)}
                 className={`focus:outline-none bg-transparent border-none max-w-48 sm:max-w-80 ${styles.SelectText}`}
               >
-                {countries.map((data, index) => {
-                  return (
-                    <option
-                      key={data.code + '' + index}
-                      value={data.code}
-                      className="text-black "
-                    >
-                      {data.name}
-                    </option>
-                  );
-                })}
+                {countries.map((data) => (
+                  <option
+                    key={data.code} // Use a unique key (e.g., country code)
+                    value={data.code}
+                    className="text-black"
+                  >
+                    {data.name}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -318,7 +317,7 @@ const SearchBar = ({
               <button className="px-14 py-2 rounded-md text-white font-semibold cursor-pointer bg-[#4B68B8] flex items-center gap-2 mt-2">
                 Search{' '}
                 <Image src={Search} height={23} width={23} alt="search icon" />
-            </button>
+              </button>
             ) : (
               <button className="bg-[#4B68B8] flex justify-center items-center h-full w-[55px]">
                 <Image src={Search} height={24} width={24} alt="search icon" />

@@ -18,7 +18,9 @@ const CustomDatePicker = ({ ClassName, containerClass }) => {
         dayClassName={(date) => (date < new Date() ? 'disabled' : '')}
       />
 
-      <span className="absolute inset-y-0 right-3 flex items-center">
+      <span
+        className={`absolute inset-y-0 right-3 flex items-center `}
+      >
         <FontAwesomeIcon icon={faCalendarAlt} className="text-gray-400" />
       </span>
     </div>
