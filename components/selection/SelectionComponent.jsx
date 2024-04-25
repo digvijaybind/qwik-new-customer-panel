@@ -5,7 +5,7 @@ const SelectionComponent = ({ img, title, descripation }) => {
   return (
     <div className="flex flex-col">
       <div className="mb-6">
-        <Image src={img} height={20} width={300} className='object-cover sm:w-full'/>
+        <Image src={img} height={20} width={300} className='object-cover sm:w-full' alt=""/>
       </div>
       <div className="font-semibold text-[24px] text-[#111] mb-5">
         {title}

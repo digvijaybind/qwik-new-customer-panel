@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CommercialImage from '../../public/images/commercial.svg';
 import Challenger605 from '../../public/images/challenger-605-airtransfer/challenger-605-airambulance-first.jpg';
-import Learjet45 from '../../public/images/Learjet-45-airtransfer/Learjet-45-airtransfer-one.jpeg';
+import Learjet45 from '../../public/images/Learjet-45-airtransfer/Learjet-45-airtransfer-one.png';
 import C90 from '../../public/images/C90-airtransfer/C90-airtransfer-one.jpg';
 import moment from 'moment';
 import Image from 'next/image';

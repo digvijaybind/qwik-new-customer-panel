@@ -126,8 +126,7 @@ const UpdateSearch = ({
         setSearchResults([]);
       }
     },
-    [destinationSearch]
-  );
+    [destinationSearch]);
 
   const handleClosePopup = () => {
     setIsOpen(false);

@@ -48,6 +48,7 @@ const PostDetails = () => {
               <img
                 src={postDetails?._embedded['wp:featuredmedia'][0]?.source_url}
                 className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
+                alt=""
               />
             )}
         </div>

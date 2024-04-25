@@ -23,7 +23,7 @@
 
 .CrossButton {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .open .menu {
   transform: translateX(0); /* Slide the menu into view */

@@ -57,6 +57,7 @@ const Blogs = ({ allPosts }) => {
                         : ''
                     }
                     className="mb-[12px]"
+                    alt=""
                   />
                   <Link
                     href={`blogs/${item?.slug}`}

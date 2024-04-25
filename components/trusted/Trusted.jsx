@@ -9,6 +9,7 @@ const Trusted = ({ img, title, descripation }) => {
           <Image
             src={img}
             className="object-cover sm:w-[25px] w-[30px] sm:h-[25px] h-[30px]"
+            alt=""
           />
         </div>
         <div className="flex flex-col col-span-5">

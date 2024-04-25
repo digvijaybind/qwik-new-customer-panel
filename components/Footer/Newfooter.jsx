@@ -62,7 +62,7 @@ const Newfooter = () => {
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {QwiklifData.map((data, index) => {
             return (
-              <Link href={data.link}>
+              <Link href={data.link} key={index}>
                 <div
                   className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
                   key={'qwiklif-' + index}
@@ -107,7 +107,7 @@ const Newfooter = () => {
         </div>
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
-            Location's
+            Location&apos;s
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {LocationData.map((data, index) => {

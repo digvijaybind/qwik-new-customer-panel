@@ -27,25 +27,24 @@ const Roadmap = () => {
                   {SelectedIndex === index ? (
                     <div>
                       <Image
-                        className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
+                        className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px] block sm:hidden"
                         src="/images/small_plane.svg"
                         width={40}
                         height={40}
                         alt="rapid Time"
                         layout="contain"
-                        className="block sm:hidden"
                       />
                     </div>
                   ) : (
                     <div>
                       <Image
-                        className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px]"
+                        className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px] block sm:hidden"
                         src="/images/small_plane.svg"
                         width={40}
                         height={40}
                         alt="rapid Time"
                         layout="contain"
-                        className="block sm:hidden"
+                       
                       />
                     </div>
                   )}

@@ -229,7 +229,6 @@ const WhyWithqwiklif = () => {
         </h1>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
             1. Instant quotation and Instant Support
           </h1>
           <p className="text-[15px] font-medium">
@@ -239,12 +238,11 @@ const WhyWithqwiklif = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
-            2. well qualified Flying Doctor's and Paramedics Team's
+            2. well qualified Flying Doctor &apos;s and Paramedics Team&apos;s
           </h1>
           <p className="text-[15px] font-medium">
-            Qwiklif Have well qualified flying doctor's with 30+year experience
-            .qwiklif have well qualified paramedics team.
+            Qwiklif Have well qualified flying doctor&apos;s with 30+year
+            experience .qwiklif have well qualified paramedics team.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
@@ -252,8 +250,8 @@ const WhyWithqwiklif = () => {
           <p className="text-[15px] font-medium">
             Medical emergencies can occur at any time, which is why we operate
             round-the-clock to provide timely assistance whenever you need it.
-            Whether it's a critical situation or a planned transfer, we are
-            ready to assist you anytime, anywhere.
+            Whether it &apos;s a critical situation or a planned transfer, we
+            are ready to assist you anytime, anywhere.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
@@ -272,19 +270,20 @@ const WhyWithqwiklif = () => {
           </h1>
           <p className="text-[15px] font-medium">
             We understand that dealing with medical emergencies can be
-            stressful. That's why our dedicated customer service team is always
-            available to address your concerns and provide assistance every step
-            of the way. Your comfort and peace of mind are our top priorities.
+            stressful. That&apos;s why our dedicated customer service team is
+            always available to address your concerns and provide assistance
+            every step of the way. Your comfort and peace of mind are our top
+            priorities.
           </p>
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold"> 6.Customized Solutions</h1>
           <p className="text-[15px] font-medium">
             We recognize that every patient is unique, and their medical needs
-            may vary. That's why we offer customized air transfer solutions
-            tailored to meet individual requirements. Whether it's specialized
-            medical equipment or specific accommodations, we strive to
-            accommodate your needs to the best of our abilities.
+            may vary. That&apos;s why we offer customized air transfer solutions
+            tailored to meet individual requirements. Whether it&apos;s
+            specialized medical equipment or specific accommodations, we strive
+            to accommodate your needs to the best of our abilities.
           </p>
         </div>{' '}
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
@@ -324,6 +323,7 @@ const FlightImages = ({ aircraftType, slides }) => {
               <img
                 key={'slide-item' + index}
                 src={slideImg}
+                alt=""
                 className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
               />
             );
@@ -336,6 +336,7 @@ const FlightImages = ({ aircraftType, slides }) => {
             <img
               key={'slide-preview-item' + index}
               src={slideImg}
+              alt=""
               className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
             />
           );
@@ -385,22 +386,27 @@ const Flightchallenger605 = () => {
           <Image
             src="/images/C90-airtransfer/challenger-605-airambulance-first.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            alt=""
           />
           <img
             src="/images/C90-airtransfer/challenger-605-airambulance-second.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            alt=""
           />
           <img
             src="/images/C90-airtransfer/C90-airtransfer-three.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            alt=""
           />
           <img
             src="/images/C90-airtransfer/C90-airtransfer-four.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            alt=""
           />
           <img
             src="/images/C90-airtransfer/C90-airtransfer-five.jpg"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            alt=""
           />
         </Slider>
       </div>
@@ -408,6 +414,7 @@ const Flightchallenger605 = () => {
         <img
           src="/images/search-detail/VT-VBSext.png"
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+          alt=""
         />
         <img
           src="/images/search-detail/VT-VBSlopa.png"

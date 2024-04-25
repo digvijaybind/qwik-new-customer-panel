@@ -9,13 +9,13 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
     >
       <div className="w-full relative ">
         <Image
-          className="w-full h-full"
+          className="w-full h-full hover:scale-60 transition duration-500 cursor-pointer"
           src={imageUrl}
           width={40}
           height={314}
           alt="rapid Time"
           layout="responsive"
-          className="hover:scale-60 transition duration-500 cursor-pointer"
+          
         />
         <Image
           className="max-w-[80px] max-h-[80px] absolute bottom-[-40px] left-[50px] border-r-[100%]"
@@ -37,7 +37,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           <strong className="text-[#396CF0] text-[15px]  leading-[26px] flex flex-row  items-center font-semibold">
             READ MORE{' '}
             <span>
-              <Image src={ForwardSlash} height={7} width={7} className="ml-3" />
+              <Image src={ForwardSlash} height={7} width={7} className="ml-3" alt="" />
             </span>
           </strong>
         </button>
