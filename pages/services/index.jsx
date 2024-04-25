@@ -1,4 +1,3 @@
-import Layout from '@/components/layout/Layout';
 import styles from './Services.module.css';
 import ShadowCard from '@/components/shadowCard';
 const Services = () => {

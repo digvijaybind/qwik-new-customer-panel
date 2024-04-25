@@ -126,7 +126,7 @@ const JourneyDetails = ({
       </p>
       <div className="border-b border-t my-2 font-sans">
         <div className="flex items-center justify-between py-3">
-          <span className='font-sans'>Flying Cost</span>
+          <span className="font-sans">Flying Cost</span>
           <span>
             {currencySymbols[selectedCurrency]}
             {totalCost}
@@ -135,7 +135,7 @@ const JourneyDetails = ({
       </div>
 
       <div className="flex justify-between items-center py-1 font-bold font-sans">
-        <span className='font-sans'>Estimated Cost</span>
+        <span className="font-sans">Estimated Cost</span>
         <div className="text-base flex items-center">
           <select
             id="currencySelector"
@@ -145,7 +145,11 @@ const JourneyDetails = ({
           >
             {Object.keys(currencySymbols)?.map((currency, index) => {
               return (
-                <option value={currency} key={'currency-item' + index} className='font-sans'>
+                <option
+                  value={currency}
+                  key={'currency-item' + index}
+                  className="font-sans"
+                >
                   {currency}
                 </option>
               );
@@ -199,13 +203,11 @@ const FlightImages = ({ locationData }) => {
           slidesToShow={1}
           slidesToScroll={1}
         >
-          <img
+          <Image
             src="/images/search-detail/VT-VBSext.png"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
-          <img
-            src="/images/search-detail/VT-VBSlopa.png"
-            className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
+            width={500} // Specify the width here
+            height={500} // Specify the height here
+            className="object-cover object-top rounded-md overflow-hidden"
           />
           <img
             src="/images/search-detail/VT-VBSint.png"
@@ -213,13 +215,19 @@ const FlightImages = ({ locationData }) => {
           />
         </Slider>
       </div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 w-full">
         <Image
           src="/images/search-detail/VT-VBSext.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+          width={500} // Specify the width here
+          height={500} // Specify the height here
+          className="object-cover object-top rounded-md overflow-hidden"
         />
+
+
         <Image
           src="/images/search-detail/VT-VBSlopa.png"
+          width={500} // Specify the width here
+          height={500} // Specify the height here
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
         <Image
@@ -291,14 +299,12 @@ const Flightchallenger605 = () => {
           />
         </Slider>
       </div>
-      <div className="grid grid-cols-3 gap-3">
-        <img
-          src="/images/search-detail/VT-VBSext.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
-        />
-        <img
+      <div className="grid grid-cols-3 gap-3 w-full">
+        <Image
           src="/images/search-detail/VT-VBSlopa.png"
-          className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
+          width={500} // Specify the width here
+          height={500} // Specify the height here
+          className="object-cover object-top rounded-md overflow-hidden"
         />
         <img
           src="/images/search-detail/VT-VBSint.png"
@@ -336,7 +342,7 @@ const Flightchallenger605 = () => {
 
 const FlightDetails = ({ segments, data, totalTravelDuration }) => {
   return (
-    <div className='font-sans'>
+    <div className="font-sans">
       <div
         className="rounded-md p-5 text-[0.9rem]"
         style={{ boxShadow: '#000 0px 0px 10px 0px' }}
@@ -831,19 +837,7 @@ const AmadeuspageDetails = () => {
   const getLocationData = () => {
     const segments = results?.aircraft?.itineraries[0]?.segments ?? [];
     if (segments?.length > 1) {
-      // setLocationData({
-      //   departureLocation: segments[0]?.departure?.iataCode,
-      //   departureTime: segments[0]?.departure?.at,
-      //   destinationLocation: segments.at(-1)?.arrival?.iataCode,
-      //   destinationTime: segments.at(-1)?.arrival?.at,
-      // });
     } else {
-      // setLocationData({
-      //   departureLocation: segments[0]?.departure?.iataCode,
-      //   departureTime: segments[0]?.departure?.at,
-      //   destinationLocation: segments[0]?.arrival?.iataCode,
-      //   destinationTime: segments[0]?.arrival?.at,
-      // });
     }
   };
   const parseISO8601Duration = (durationString) => {
@@ -968,17 +962,6 @@ const AmadeuspageDetails = () => {
           destinationLocation: segments.at(-1)?.arrival?.iataCode,
           destinationTime: segments.at(-1)?.arrival?.at,
         });
-        // if (segments?.length > 1) {
-
-        // } else {
-        //   setLocationData({
-        //     departureLocation: segments[0]?.departure?.iataCode,
-        //     departureTime: segments[0]?.departure?.at,
-        //     destinationLocation: segments[0]?.arrival?.iataCode,
-        //     destinationTime: segments[0]?.arrival?.at,
-        //   });
-        // }
-
         const airlineName =
           aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ??
           [];
@@ -1088,12 +1071,8 @@ const AmadeuspageDetails = () => {
   useEffect(() => {
     if (results?.aircraft) {
       getLocationData();
-      // getTravelDuration();
       getTechStops();
       getTravelDuration();
-      // TicketAvailable();
-      // AirlineImage();
-      // AirlineName();
       setTotalCost(
         results?.price?.totalPrice
           ? parseFloat((results?.price?.totalPrice).toFixed(2))
@@ -1147,9 +1126,7 @@ const AmadeuspageDetails = () => {
     <div className="">
       <DedicatedeHeader />
       <div className="px-36 sm:px-8">
-        <p className="text-sm my-3">
-        
-        </p>
+        <p className="text-sm my-3"></p>
         <div className="flex sm:flex-col gap-5 my-3">
           <div className="sm:w-full w-8/12">
             <FlightImages locationData={locationData} />

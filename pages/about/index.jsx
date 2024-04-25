@@ -1,24 +1,25 @@
-import { useState, useEffect } from 'react';
-import styles from '../../styles/page.module.css';
-import style from './About.module.css';
-import { FaPlane } from 'react-icons/fa';
+import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
+import Trusted from '@/components/trusted/Trusted';
+import CustomDatePicker from '@/components/date/CustomDatePicker';
+
 import Aeroplane1 from '../../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import Champion from '../../public/images/trusted_contact/champion.svg';
-import Layout from '@/components/layout/Layout';
-import Trusted from '@/components/trusted/Trusted';
-import CustomDatePicker from '@/components/date/CustomDatePicker';
+
+import styles from '../../styles/page.module.css';
+import style from './About.module.css';
+
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const [value, setValue] = useState('');
 
   function Number({ n, className }) {
     const { number } = useSpring({
       from: { number: 0 },
-      number: n,
+      to: { number: n },
       delay: 200,
-      // to: { opacity: 1 },
       config: { mass: 1, tension: 20, friction: 10 },
     });
 
@@ -76,6 +77,9 @@ const About = () => {
       text: 'Our medical teams consist of highly skilled professionals with vast experience in critical care. We provide comprehensive in-flight medical care to ensure the safety and well-being of our patients',
     },
   ];
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
   return (
     <div className="font-sans">
       <div className={`bg-black ${style.Image}   bg-black h-[400px] w-full`}>
@@ -256,7 +260,11 @@ const About = () => {
             key={i}
             className="w-[30%] mr-[3%]  mb-[30px]  overflow-y-hidden relative"
           >
-            <img className="rounded-[5px]" src={`${data.img}`} alt="" />
+            <img
+              className="rounded-[5px]"
+              src={`${data.img}`}
+              alt="Description of the image content"
+            />
             <div className={`${style.Slideover} px-[25px]`}>
               <p className="text-[18px] font-semibold py-[25px]">{data.head}</p>
               <p>{data.text}</p>
@@ -265,96 +273,6 @@ const About = () => {
         ))}
       </div>
       <FastestMedical />
-      {/* <div className="px-[5%] mb-[30px] w-[100%] flex justify-between">
-        <div className="w-[20%] flex flex-col items-center text-center">
-          <img src="/images/ab1.png" alt="" />
-          <div className="flex items-center">
-            <Number n={450} className={'font-bold text-[40px]'}></Number>
-            <p className="text-[30px]">+</p>
-          </div>
-
-          <p>Air Transfer</p>
-        </div>
-        <div className="w-[20%] flex flex-col items-center text-center">
-          <img src="/images/ab2.png" alt="" />
-          <div className="flex items-center">
-            <Number n={25} className={'font-bold text-[40px]'}></Number>
-            <p className="text-[30px]">+</p>
-          </div>
-          <p>No of Fleet</p>
-        </div>
-        <div className="w-[20%] flex flex-col items-center text-center">
-          <img src="/images/ab3.png" alt="" />
-          <div className="flex items-center">
-            <Number n={15} className={'font-bold text-[40px]'}></Number>
-            <p className="text-[30px]">+</p>
-          </div>
-
-          <p>Doctors</p>
-        </div>
-        <div className="w-[20%] flex flex-col items-center text-center">
-          <img src="/images/ab4.png" alt="" />
-          <div className="flex items-center">
-            <Number n={7000} className={'font-bold text-[40px]'}></Number>
-            <p className="text-[30px]">+</p>
-          </div>
-
-          <p>Global Affiliation</p>
-        </div>
-      </div> */}
-      {/* <div className={`${style.Aboutdown} px-[5%] py-[40px]`}>
-        <div className="relative z-[1000]">
-          <p className="text-[#A9B5BF]">Qwiflif Air Ambulance</p>
-          <p className="text-[30px] font-bold text-white">
-            Your Trusted Global Air Ambulance Provider
-          </p>
-        </div>
-        <div className="flex">
-          <div className="relative z-[200] w-[60%]">
-            <div className="flex mb-[30px]">
-              <div className="w-[120px] mx-[20px] relative h-[60px]  rounded-[50%] border-white">
-                <FaPlane className="absolute text-[40px] text-white top-[50%] bg-[#396CF0]  left-[50%] transform translate-y-[-50%] translate-x-[-50%]" />
-              </div>
-              <div>
-                <p className="text-white">Express Lane to Care</p>
-                <p className="text-[#A9B5BF] font-semibold">
-                  Time is precious, especially during emergencies. Our air
-                  ambulances are not just vehicles; they are a beacon of hope on
-                  the fastest route to medical assistance. We pride ourselves on
-                  a lightning-quick response that bridges the gap between
-                  distress and relief
-                </p>
-              </div>
-            </div>
-            <div className="flex">
-              <img src="" alt="" />
-              <div>
-                <p className="text-white">Innovation in Every Flight</p>
-                <p className="text-[#A9B5BF] font-semibold">
-                  {`
-                  QwikLif Air Ambulance embraces cutting-edge medical
-                  technology. Think of our ambulances as flying hospitals,
-                  complete with state-of-the-art equipment. We're not just
-                  transporting patients; we're bringing a mobile medical unit to
-                  ensure the best care possible.`}
-                </p>
-              </div>
-            </div>
-            <div className="flex">
-              <img src="" alt="" />
-              <div>
-                <p className="text-white">Angels in the Air:</p>
-                <p className="text-[#A9B5BF] font-semibold">
-                  {`
-                 Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.`}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div></div>
-        </div>
-      </div> */}
       <div
         className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full  sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
       >
@@ -392,7 +310,7 @@ const About = () => {
                 type="text"
                 value=""
                 placeholder="From *"
-                // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
+                onChange={handleChange}
                 className=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
               />
 
@@ -400,18 +318,21 @@ const About = () => {
                 type="text"
                 value=""
                 placeholder="To *"
+                onChange={handleChange}
                 className=" rounded-md  col-span-5 sm:col-span-5 !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
               />
               <input
                 type="text"
                 value=""
                 placeholder="Phone *"
+                onChange={handleChange}
                 className="h-[50px]  col-span-2 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
               />
               <input
                 type="text"
                 value=""
                 placeholder="E-mail*"
+                onChange={handleChange}
                 className=" h-[50px]  col-span-3 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
               />
 
@@ -423,6 +344,7 @@ const About = () => {
                 type="text"
                 value=""
                 placeholder="Time*"
+                onChange={handleChange}
                 className="h-[50px] col-span-2 sm:col-span-5 rounded-md !border !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
               />
               <div className="col-span-5">

@@ -3,7 +3,6 @@ import Layout from '@/components/layout/Layout';
 
 const Challenger605 = () => {
   return (
-    <Layout>
       <div className="font-poppins">
         <img
           src="/images/challenger-605.jpg"
@@ -55,7 +54,7 @@ const Challenger605 = () => {
         </div>
         <img
           src="/images/challenger-605-flying.jpg"
-          alt="Challenger 605"
+          alt="Challenger 605 Flying"
           className="w-full"
         />
         <div className="sm:px-10 px-28 sm:my-10 my-28 text-center">
@@ -74,14 +73,13 @@ const Challenger605 = () => {
           </h2>
           <img
             src="/images/challenger-605-map-range.png"
-            alt="Challenger 605 Layout"
+            alt="Challenger 605 Range Map"
             className="w-full"
           />
         </div>
         <JoinMailingList />
         <div className="bg-[#D8D8D8] h-[100px]"></div>
       </div>
-    </Layout>
   );
 };
 

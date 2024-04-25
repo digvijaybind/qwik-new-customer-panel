@@ -3,11 +3,10 @@ import Layout from '@/components/layout/Layout';
 
 const BeechcraftB200 = () => {
   return (
-    <Layout>
       <div className="font-poppins">
         <img
           src="/images/beechcraft-b200.jpg"
-          alt="Challenger 605"
+          alt="Beechcraft B200"
           className="w-full"
         />
         <h1 className="text-2xl font-bold uppercase text-center mt-12 mb-8">
@@ -55,7 +54,7 @@ const BeechcraftB200 = () => {
         </div>
         <img
           src="/images/beechcraft-b200-flying.jpg"
-          alt="Beechcraft B200"
+          alt="Beechcraft B200 Flying"
           className="w-full"
         />
         <div className="sm:px-10 px-28 sm:my-10 my-28 text-center">
@@ -64,7 +63,7 @@ const BeechcraftB200 = () => {
           </h2>
           <img
             src="/images/challenger-605-layout.png"
-            alt="Challenger 605 Layout"
+            alt="Beechcraft B200 Layout"
             className="w-full"
           />
         </div>
@@ -74,14 +73,13 @@ const BeechcraftB200 = () => {
           </h2>
           <img
             src="/images/challenger-605-map-range.png"
-            alt="Challenger 605 Layout"
+            alt="Beechcraft B200 Range Map"
             className="w-full"
           />
         </div>
         <JoinMailingList />
         <div className="bg-[#D8D8D8] h-[100px]"></div>
       </div>
-    </Layout>
   );
 };
 

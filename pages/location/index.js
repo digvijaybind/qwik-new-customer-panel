@@ -1,5 +1,4 @@
 import { locationCountries } from '@/components/Utils/Constants';
-import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
 import React from 'react';
 

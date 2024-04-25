@@ -1,7 +1,6 @@
 import JoinMailingList from '@/components/JoinMailingList/JoinMailingList';
 import styles from '../../styles/page.module.css';
 import { useState } from 'react';
-import Layout from '@/components/layout/Layout';
 import Promises from '@/components/Promises';
 
 const ContactUs = () => {

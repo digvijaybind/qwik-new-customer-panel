@@ -1,34 +1,15 @@
 'use client';
-
-import styles from './page.module.css';
 import { Shadow } from '@/components/Utils/utils';
-import { DateInput, TextInput } from '@/components/Form/input';
-import Planedesc from '../../components/Planedesc/planedesc';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useData } from '../../context/DataContext';
-import { Switch } from '@mui/material';
-import Search from '../../public/images/search-white.svg';
-import CommercialCard from '@/components/commercialCard/CommercialCard';
 import Image from 'next/image';
 import Landing from '../../public/images/Searchlanding.svg';
 import axios from 'axios';
-import moment from 'moment-timezone';
 import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
-import swal from 'sweetalert';
-import CustomDatePicker from '@/components/date/CustomDatePicker';
 import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 import Loader from '@/components/Utils/Loader';
-import countries from '../../db/country.json';
-import { TiUserOutline } from 'react-icons/ti';
-import { RiPriceTag3Line } from 'react-icons/ri';
-import Link from 'next/link';
-import { HiOutlineGlobeAlt } from 'react-icons/hi2';
-import { IoAirplaneSharp } from 'react-icons/io5';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
-import Layout from '@/components/layout/Layout';
-import UpdateSearch from '@/components/SearchBar/UpdateSearch';
+
 
 const Listing = ({ id }) => {
   const searchParams = useSearchParams();

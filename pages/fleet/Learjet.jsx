@@ -1,9 +1,7 @@
 import JoinMailingList from '@/components/JoinMailingList/JoinMailingList';
-import Layout from '@/components/layout/Layout';
 
 const Learjet = () => {
   return (
-    <Layout>
       <div className="font-poppins">
         <img
           src="/images/learjet.jpg"
@@ -78,7 +76,6 @@ const Learjet = () => {
         <JoinMailingList />
         <div className="bg-[#D8D8D8] h-[100px]"></div>
       </div>
-    </Layout>
   );
 };
 
