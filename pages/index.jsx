@@ -1,23 +1,16 @@
-import Image from 'next/image';
 import styles from '../styles/page.module.css';
 import Review from '@/components/review/Review';
-import { TextInput, DateInput } from '../components/Form/input';
 import { useState } from 'react';
-import { Shadow } from '../components/Utils/utils';
 import { useEffect } from 'react';
 import { useData } from '../context/DataContext';
 import { useRouter } from 'next/router';
-import countries from '../db/country.json';
-import Slider from 'react-slick';
 import Navnew from '@/components/Nav/Navnew';
-import Search from '../public/images/search-white.svg';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
 import Trusted from '@/components/trusted/Trusted';
 import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
 import Champion from '../public/images/trusted_contact/champion.svg';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { IoAirplaneSharp } from 'react-icons/io5';
 import AboutAircraft from '@/components/aboutaircraft/AboutAircraft';
 import QwiklifFeature from '@/components/qwiklifFeatures/QwiklifFeature';
 import Roadmap from '@/components/roadmaps/Roadmap';
@@ -25,12 +18,7 @@ import ChooseQwiklif from '@/components/whychooseqwiklif/ChooseQwiklif';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 import LatestNew from '@/components/latestnews/LatestNew';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
-import { TiUserOutline } from 'react-icons/ti';
-import { RiPriceTag3Line } from 'react-icons/ri';
-import { HiOutlineGlobeAlt } from 'react-icons/hi2';
-import Link from 'next/link';
 import SearchBar from '@/components/SearchBar/SearchBar';
-import Layout from '@/components/layout/Layout';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 
 export default function Home() {
@@ -50,7 +38,6 @@ export default function Home() {
   const [selectedDate, setSelectedDate] = useState('');
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cityMatch, setCitymatch] = useState([]);
   const [fieldType, setFieldtype] = useState('');

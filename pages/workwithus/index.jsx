@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Workwithus = () => {
   return (
-    <div>Workwithus</div>
-  )
-}
+    <div>
+      <h1> Workwithus</h1>
+    </div>
+  );
+};
 
-export default Workwithus
+export default Workwithus;
