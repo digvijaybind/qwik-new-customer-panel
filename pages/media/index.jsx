@@ -1,4 +1,4 @@
-import Layout from '@/components/layout/Layout';
+'use client';
 import MediaSection from '@/components/media/MediaSection';
 import React from 'react';
 

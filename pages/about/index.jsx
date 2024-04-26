@@ -1,13 +1,12 @@
+'use client';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 import Trusted from '@/components/trusted/Trusted';
 import CustomDatePicker from '@/components/date/CustomDatePicker';
-
 import Aeroplane1 from '../../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import Champion from '../../public/images/trusted_contact/champion.svg';
-
 import styles from '../../styles/page.module.css';
 import style from './About.module.css';
 

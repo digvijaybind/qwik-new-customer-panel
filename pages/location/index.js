@@ -1,3 +1,4 @@
+'use client';
 import { locationCountries } from '@/components/Utils/Constants';
 import Link from 'next/link';
 import React from 'react';

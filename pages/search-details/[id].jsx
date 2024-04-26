@@ -786,8 +786,6 @@ const AmadeuspageDetails = () => {
   const [availableticket, setavailableticket] = useState('');
   const [airlineName, setairlineName] = useState('');
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
-  const [Aircraftdata, setAircraftData] = useState([]);
-  // let locationData = {};
   const [airlineImage, setAirlineImage] = useState('');
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [totalCost, setTotalCost] = useState(0);

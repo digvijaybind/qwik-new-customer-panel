@@ -1,3 +1,4 @@
+'use client';
 import JoinMailingList from '@/components/JoinMailingList/JoinMailingList';
 import styles from '../../styles/page.module.css';
 import { useState } from 'react';
@@ -9,7 +10,6 @@ const ContactUs = () => {
   return (
     <div className="font-poppins">
       <img
-        Q36
         src="/images/contact-us-banne/r.jpg"
         className="w-full"
         alt="banner"

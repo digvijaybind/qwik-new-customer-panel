@@ -1,12 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Shadow } from '@/components/Utils/utils';
-import { DateInput, TextInput } from '@/components/Form/input';
-import Image from 'next/image';
 import axios from 'axios';
-import Loader from '@/components/Utils/Loader';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
-import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
@@ -201,13 +196,6 @@ const UpdateList = () => {
           </div>
         </div>
       </div>
-      {/* <SearchBar
-        className="bottom-10"
-        isMobile={isMobile}
-        formData={formData}
-        handleSubmit={handleSubmit}
-        handleInputChange={handleInputChange}
-      /> */}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+'use client';
 import styles from './Services.module.css';
 import ShadowCard from '@/components/shadowCard';
 const Services = () => {
