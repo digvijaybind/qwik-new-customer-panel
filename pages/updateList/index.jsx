@@ -5,7 +5,7 @@ import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
-
+import MobileSearch from '@/components/mobileSearch/MobileSearch';
 const UpdateList = () => {
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
@@ -13,46 +13,27 @@ const UpdateList = () => {
   const [airacraftData, setAircraftDataLoading] = useState(false);
   const [aircraftCommercialDataLoading, setCommercialAircraftDataLoading] =
     useState(false);
-
-  const [formData, setFormData] = useState({
-    originLocationCode: '',
-    destinationLocationCode: '',
-    departureDate: '',
-    pax: 1,
-    countryCode: '',
-    mobile: '',
-    max: 5,
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    searchFlights(formData);
-  };
-
-  const searchFlights = (data) => {
-    setAircraftDataLoading(true);
-    setCommercialAircraftDataLoading(true);
-
-    const headers = {
-      'Content-Type': 'application/json',
+  const [CharteredData, setcharteredData] = useState({});
+  const [Charteredepature, setcharteredDepature] = useState('BOM');
+  const [ChartereArrival, setchartereArrival] = useState('DXB');
+  const [ChartereId, setchartereId] = useState();
+  const [CommericialId, setCommericialId] = useState();
+  const [destinationLocation, setDestinationLocation] = useState();
+  const [departureLocation, setDepartureLocation] = useState();
+  const [aircraftData, setAircraftData] = useState({});
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const [selectedOption, setSelectedOption] = useState('Commericial');
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000);
     };
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
-    axios(`http://localhost:8000/customer/customerSearch`, {});
-  };
-
-  const handleInputChange = (field, e) => {
-    const { name, value } = e.target;
-    console.log('name, value', name, value);
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
-  };
-
-  const handleTabChange = (tab) => {
-    setSelectedTab(tab);
-  };
-
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   useEffect(() => {
     if (
       searchParams.has('originLocationCode') &&
@@ -71,6 +52,85 @@ const UpdateList = () => {
       searchFlights(formDetails);
     }
   }, [searchParams]);
+  const [formData, setFormData] = useState({
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    pax: 1,
+    countryCode: '',
+    mobile: '',
+    max: 5,
+  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchFlights(formData);
+  };
+  const searchFlights = (data) => {
+    setAircraftDataLoading(true);
+    setCommercialAircraftDataLoading(true);
+
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+
+    axios(`http://localhost:8000/customer/customerSearch`, {
+      method: 'POST',
+      headers: headers,
+      data: data,
+    })
+      .then((response) => {
+        setcharteredData(response.data.aviapages);
+        console.log('Final data response line 116', response.data);
+        setcharteredDepature(response.data.aviapages?.Response.from);
+        setchartereArrival(response.data.aviapages.Response.to);
+        setchartereId();
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
+      .finally(() => {
+        setAircraftDataLoading(false);
+      });
+
+    axios(`http://localhost:8000/customer/commericialSearch`, {
+      method: 'POST',
+      headers: headers,
+      data: data,
+    })
+      .then((response) => {
+        setCommericialId(response.data.aircraftId);
+        setdepatureLocation(data?.originLocationCode);
+        setDestinationLocation(data?.destinationLocationCode);
+        setAircraftData(response.data);
+        setSelectedCurrency('EUR');
+      })
+      .catch((error) => {
+        console.log('Error', error);
+      })
+      .finally(() => {
+        setCommercialAircraftDataLoading(false);
+      });
+  };
+
+  const handleInputChange = (field, e) => {
+    const { name, value } = e.target;
+    console.log('name, value', name, value);
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  const handleSelectChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+  const handleTabChange = (tab) => {
+    setSelectedTab(tab);
+  };
+
+  const handleCurrencyChange = () => {
+    setSelectedCurrency(e.target.value);
+  };
 
   const Dedicatedtab =
     selectedTab === 'dedicated'
@@ -80,17 +140,24 @@ const UpdateList = () => {
   return (
     <div className="">
       <div className="">
-        <UpdateSearch
+        {/* <UpdateSearch
           className=""
           isMobile={isMobile}
           formData={formData}
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
+        /> */}
+
+        <MobileSearch
+          formData={formData}
+          handleSubmit={handleSubmit}
+          handleInputChange={handleInputChange}
         />
       </div>
-      <div className="px-[70px] py-[20px] bg-[#f4f4f4]">
-        <div className="flex justify-center">
-          <div className="grid grid-cols-3 gap-12">
+
+      <div className="px-[70px] py-[20px] bg-[#f4f4f4] sm:px-[10px] sm:py-[10px]">
+        <div className="flex justify-around mt-10">
+          {/* <div className="grid grid-cols-3 gap-12">
             <div className="flex flex-col items-start justify-between w-[173px]">
               <div className="text-[12px] font-normal font-sans">
                 Select your flight types
@@ -150,20 +217,42 @@ const UpdateList = () => {
                 </p>
               </div>
             </div>
+          </div> */}
+
+          {/* this is mobile navigation , and this is mobile view  */}
+          <div className="Mobile-tab mt-10 flex flex-row items-center justify-between">
+            <div className="flex flex-col justify-start">
+              <span className="font-sans text-[8px] font-medium">
+                Choose Flight Types
+              </span>
+              <div class="h-[20px] w-[50px] rounded-full bg-gradient-to-r from-green-400 to-green-800 flex justify-center items-center font-extrabold text-[8px] text-[#fff] font-sans">
+                {' '}
+                Priority
+              </div>
+            </div>
+            <select
+              id="countries"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[120px] h-[50px] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              onChange={handleSelectChange}
+            >
+              <option value="Commericial">Commericial</option>
+              <option value="Dedicated">Dedicated</option>
+            </select>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[20px]">
+
+        <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[20px] sm:px-[0px]">
           <div
             className={`commericial ${
               styles.CommericialCard
-            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] ${
+            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] sm:px-[5px] sm:py-[10px] sm:max-w-4xl  ${
               selectedTab === 'commercial'
-                ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
+                ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300 sm:transition sm:ease-in-out sm:delay-150-translate-y-1 sm:scale-103  sm:duration-300'
                 : ''
             }`}
           >
             <div
-              className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[30px]  ${
+              className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[30px] sm:w-[193px]   ${
                 selectedTab === 'commercial'
                   ? 'bg-[#dbebeb] text-[#12B5E4]'
                   : 'bg-[#f5f5f5] text-[#D9D9D9]'
@@ -176,7 +265,7 @@ const UpdateList = () => {
           <div
             className={`dedicated ${
               styles.DedicatedCard
-            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] ${
+            } shadow-2xl bg-[#fff] rounded-2xl px-[30px] py-[50px] sm:px-[10px] sm:py-[10px]  ${
               selectedTab === 'dedicated'
                 ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
                 : ''
@@ -191,7 +280,6 @@ const UpdateList = () => {
             >
               Charter Flight
             </div>
-
             <UpdatedDedicated />
           </div>
         </div>

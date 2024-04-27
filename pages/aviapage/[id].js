@@ -1,5 +1,4 @@
 'use client';
-
 import { FaUserNurse } from 'react-icons/fa6';
 import { BsSpeedometer } from 'react-icons/bs';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
@@ -117,7 +116,7 @@ const JourneyDetails = ({
           className="border-b mb-5 px-2 py-1"
           placeholder="Email"
         />
-        <button className="bg-primary rounded-md font-medium p-2 text-sm mt-2 font-semibold">
+        <button className="bg-primary rounded-md  p-2 text-sm mt-2 font-semibold">
           Enquire Now
         </button>
       </div>
@@ -417,57 +416,6 @@ const FlightDetails = ({ data }) => {
           </ul>
         </div>
       </div>
-
-      {/* <div className="my-3 py-3 border-b-2 border-gray-100">
-        <p className="flex justify-between text-[0.85rem]">
-          <span>3/30/2024</span>
-          <span>3/30/2024</span>
-        </p>
-        <p className="flex justify-between text-[0.85rem]">
-          <span>9:50:00 PM</span>
-          <span>11:00:00 PM</span>
-        </p> */}
-      {/* <div className="flex justify-between items-center w-full mt-3">
-          <span className="font-bold text-base">Pune</span>
-          <div className="relative">
-            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
-              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-          <span className="font-bold text-base">Mumbai</span>
-        </div> */}
-      {/* <p className="flex justify-between">
-          <span className="max-w-40 text-start">Lohegaon Airport</span>
-          <span className="max-w-40 text-end">
-            Chhatrapati Shivaji International Airport
-          </span>
-        </p>
-      </div> */}
-      {/* <div className="my-3 py-3 border-b-2 border-gray-100">
-        <p className="flex justify-between text-[0.85rem]">
-          <span>3/30/2024</span>
-          <span>3/30/2024</span>
-        </p>
-        <p className="flex justify-between text-[0.85rem]">
-          <span>9:50:00 PM</span>
-          <span>11:00:00 PM</span>
-        </p>
-        <div className="flex justify-between items-center w-full mt-3">
-          <span className="font-bold text-base">Pune</span>
-          <div className="relative">
-            <div className="bg-gray-300 h-[2px] sm:w-36 w-72">
-              <IoIosAirplane className="text-primary bg-primary/20 rounded-full p-1 text-2xl absolute left-1/2 top-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-          <span className="font-bold text-base">Mumbai</span>
-        </div>
-        <p className="flex justify-between">
-          <span className="max-w-40 text-start">Lohegaon Airport</span>
-          <span className="max-w-40 text-end">
-            Chhatrapati Shivaji International Airport
-          </span>
-        </p>
-      </div> */}
     </div>
   );
 };
@@ -475,7 +423,7 @@ const FlightDetails = ({ data }) => {
 const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
   const amount = 500;
   const currency = 'INR';
-  const receiptId = 'quicklftReceipt';
+  const receiptId = 'quickliftReceipt';
   const makePayment = async (e) => {
     const response = await fetch('http://localhost:8000/rayzorpay/Order', {
       method: 'POST',

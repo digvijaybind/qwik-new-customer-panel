@@ -311,6 +311,7 @@ const AircraftDetailsCard = ({
             </span>
           </div>
           <div className="flex flex-col items-center text-[10px] text-[#344056]">
+            {/* <div className="">{totalTravelDuration}</div> */}
             {totalTravelDuration?.length > 0 &&
               totalTravelDuration.map((data) => {
                 return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -407,6 +408,9 @@ text-[#4C5564] leading-tight mb-2 font-sans"
               <span className="font-medium leading-tight text-[12px] font-sans">
                 {availableticket ?? 0}
               </span>
+              {/* <span className="font-semibold text-[14px]">
+                  {aircraftData?.depatureDate}
+                </span> */}
             </div>
           </div>
         </div>

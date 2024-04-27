@@ -20,6 +20,7 @@ import LatestNew from '@/components/latestnews/LatestNew';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
+import MobileSearch from '@/components/mobileSearch/MobileSearch';
 
 export default function Home() {
   const router = useRouter();
@@ -159,20 +160,25 @@ export default function Home() {
     <main>
       <div className="font-sans">
         <Navnew></Navnew>
-        <SearchBar
+        {/* <SearchBar
           className="bottom-60 sm:bottom-60"
           isMobile={isMobile}
           formData={formData}
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
-        />
-        <UpdateSearch
-          className="bottom-60 sm:bottom-60"
-          isMobile={isMobile}
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        />
+        /> */}
+        {isMobile ? (
+          <UpdateSearch
+            className="bottom-60 sm:bottom-60"
+            isMobile={isMobile}
+            formData={formData}
+            handleSubmit={handleSubmit}
+            handleInputChange={handleInputChange}
+          />
+        ) : (
+          <MobileSearch />
+        )}
+
         {/* <UpdateSearch /> */}
         <AboutAircraft />
         <div>

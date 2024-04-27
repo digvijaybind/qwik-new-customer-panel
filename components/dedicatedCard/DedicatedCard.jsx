@@ -146,59 +146,6 @@ const DedicatedCard = ({
             </span>
           </div>
         </div>
-        {/* <div className="flex justify-between align-middle mb-5">
-          <div className="">
-            <div>
-              <div className="font-semibold text-[17px] flex flex-col">
-                <div className="font-semibold w-full text-end text-[13px]">
-                  Estimated Price
-                </div>
-                <div className="flex justify-end gap-6">
-                  <select
-                    id="currencySelector"
-                    value={selectedCurrency}
-                    onChange={handleCurrencyChange}
-                    className="border-solid border-2 border-black rounded-md text-xs"
-                  >
-                    {Object.keys(currencySymbols)?.map((currency, index) => {
-                      return (
-                        <option value={currency} key={'currency-item' + index}>
-                          {currency}
-                        </option>
-                      );
-                    })}
-                  </select>
-
-                  <div className="flex flex-row items-end">
-                    {currencySymbols[selectedCurrency]}
-                    <div className=" font-extrabold">{price}</div>
-                  </div>
-                </div>
-              </div>
-              <br />
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-col justify-end text-end">
-                <span className="font-semibold text-[11px] text-gray-500 leading-tight">
-                  Airline Name
-                </span>
-                <span className="font-semibold leading-tight">
-                  {aircraftName}
-                </span>
-              </div>
-              <div className="flex flex-col justify-end text-end">
-                <span className="font-semibold text-[11px] text-gray-500 leading-tight">
-                  Ticket Availability
-                </span>
-
-                <span className="font-semibold text-[12px]">
-                  {dateAvailable}
-                </span>
-            
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div className=" sm:flex-col">
           <div className="flex justify-between mb-5 ">
             <div className="font-semibold text-[17px] flex flex-col">
@@ -249,9 +196,6 @@ const DedicatedCard = ({
               <span className="font-medium leading-tight text-[12px]">
                 {dateAvailable}
               </span>
-              {/* <span className="font-semibold text-[14px]">
-                  {aircraftData?.depatureDate}
-                </span> */}
             </div>
           </div>
         </div>

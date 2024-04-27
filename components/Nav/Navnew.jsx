@@ -10,7 +10,7 @@ import Image5 from '../../public/images/slider/5.png';
 
 import ImageCarousel from '../Imagecarousel/ImageCarousel';
 const images = [Image1, Image3, Image4, Image5];
-const Navnew = () => {
+const Navnew = ({ isMobile }) => {
   const [header, setHeader] = useState(styles.header);
 
   const listenScrollEvent = () => {

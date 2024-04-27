@@ -42,7 +42,6 @@ import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg
 import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
 import AirIndia from '../../public/images/airlines/Air-india.jpg';
 import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
-import Layout from '@/components/layout/Layout';
 import Image from 'next/image';
 
 const currencySymbols = {

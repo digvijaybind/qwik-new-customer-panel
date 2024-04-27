@@ -94,7 +94,6 @@ const Listing = ({ id }) => {
     })
       .then((response) => {
         setcharteredData(response.data.aviapages);
-        console.log('Final data response line 116', response.data);
         setcharteredDepature(response.data.aviapages?.Response.from);
         setchartereArrival(response.data.aviapages?.Response.to);
         setchartereId();
@@ -148,7 +147,7 @@ const Listing = ({ id }) => {
     handleInputChange('countryCode', countryCodeValue);
   };
   return (
-    <div className="font-poppins bg-[#F4F9FD] flex flex-col items-center mb-8 font-sans">
+    <div className="bg-[#F4F9FD] flex flex-col items-center mb-8 font-sans">
       <Image src={Landing} height={420} width={1874} alt="top background" />
       <SearchBar
         className="bottom-10"
@@ -157,13 +156,6 @@ const Listing = ({ id }) => {
         handleSubmit={handleSubmit}
         handleInputChange={handleInputChange}
       />
-      {/* <UpdateSearch
-        className="bottom-10"
-        isMobile={isMobile}
-        formData={formData}
-        handleSubmit={handleSubmit}
-        handleInputChange={handleInputChange}
-      /> */}
       <div className="sm:px-5 px-36 w-full sm:mt-5">
         <Shadow
           classname={`w-full font-bold mb-8 text-center p-[10px] grid grid-cols-2 sm:grid-cols-1 sm:grid-rows-2 font-sans`}
@@ -267,9 +259,6 @@ const Listing = ({ id }) => {
             )}
           </div>
         </div>
-        {/* <button className="w-[90%] ml-[50%] transform translate-x-[-50%] rounded-[4px] my-[20px] px-[16px] py-[8px] bg-[#40D1F0] text-white font-[600] text-[14px]">
-          Show more results
-        </button> */}
       </div>
     </div>
   );
