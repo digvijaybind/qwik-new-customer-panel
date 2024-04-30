@@ -63,7 +63,7 @@ const Header = () => {
     },
     {
       title: 'Partner with us',
-      url: '',
+      url: '/workwithus',
     },
     {
       title: 'Blog',

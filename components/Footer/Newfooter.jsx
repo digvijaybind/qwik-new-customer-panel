@@ -14,10 +14,10 @@ const QwiklifData = [
   { name: 'About us', link: '/about' },
   { name: 'Media', link: '/media' },
   { name: 'Services', link: '/services' },
-  { name: 'Partner with us', link: '/workWithus' },
+  { name: '', link: '/workWithus' },
   { name: 'Contact us', link: '/contact-us' },
-  { name: 'OurLocation', link: '/location' },
-  { name: 'Blog', link: '' },
+  { name: 'Our Location', link: '/location' },
+  { name: 'Blog', link: '/blogs' },
 ];
 
 const ServiceData = [
