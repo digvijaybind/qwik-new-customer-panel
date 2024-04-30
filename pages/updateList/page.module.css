@@ -66,7 +66,7 @@ input[type='radio'].styledRadio {
   width: 1em;
   height: 1em;
   border: 2px solid #4f46e5;
-  border: 2px solid #55CDF1;
+  border: 2px solid #55cdf1;
   border-radius: 50%;
   outline: none;
   transition: 0.2s;

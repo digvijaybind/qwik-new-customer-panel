@@ -9,7 +9,8 @@ import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 import Loader from '@/components/Utils/Loader';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';
-
+import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
+import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
 
 const Listing = ({ id }) => {
   const searchParams = useSearchParams();
@@ -17,25 +18,20 @@ const Listing = ({ id }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1000); // Change threshold as needed
+      setIsMobile(window.innerWidth <= 1000);
     };
-
     window.addEventListener('resize', handleResize);
-    handleResize(); // Call once to set initial state
-
+    handleResize();
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
   const convertTime = (data) => {
-    const hours = Math.floor(data); // Extract whole hours
-    const minutes = Math.round((data - hours) * 60); // Convert fractional part to minutes and round
-
+    const hours = Math.floor(data);
+    const minutes = Math.round((data - hours) * 60);
     const result = `${hours}h ${minutes}m`;
     return result;
   };
-
   const [formData, setFormData] = useState({
     originLocationCode: '',
     destinationLocationCode: '',
@@ -93,10 +89,13 @@ const Listing = ({ id }) => {
       headers: headers,
     })
       .then((response) => {
-        setcharteredData(response.data.aviapages);
-        setcharteredDepature(response.data.aviapages?.Response.from);
-        setchartereArrival(response.data.aviapages?.Response.to);
-        setchartereId();
+        console.log('response dedicated 97', response);
+        setcharteredData(response.data);
+        response.data.forEach((data) => {
+          setcharteredDepature(data.aviapages?.Response.from);
+          setchartereArrival(data.aviapages?.Response.to);
+          setchartereId();
+        });
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -115,7 +114,7 @@ const Listing = ({ id }) => {
         setCommericialId(response.data.aircraftId);
         setDepartureLocation(data?.originLocationCode);
         setDestinationLocation(data?.destinationLocationCode);
-        setAircraftData(response.data);
+        setAircraftData(response.ResponseData);
         setSelectedCurrency('EUR');
       })
       .catch((error) => {
@@ -146,6 +145,18 @@ const Listing = ({ id }) => {
     const countryCodeValue = event.target.value;
     handleInputChange('countryCode', countryCodeValue);
   };
+
+  console.log('aircraftData', aircraftData);
+  console.log('CharteredData', CharteredData);
+  console.log('Charteredepature', Charteredepature);
+  console.log('ChartereArrival', ChartereArrival);
+  console.log('CharteredData', CharteredData);
+  console.log('CharteredData', CharteredData);
+  console.log('CommericialId', CommericialId);
+  console.log('departureLocation', departureLocation);
+  console.log('destinationLocation', destinationLocation);
+  console.log('aircraftData', aircraftData);
+
   return (
     <div className="bg-[#F4F9FD] flex flex-col items-center mb-8 font-sans">
       <Image src={Landing} height={420} width={1874} alt="top background" />
@@ -193,7 +204,7 @@ const Listing = ({ id }) => {
                   (data, index) => {
                     console.log('data', data);
                     return (
-                      <AircraftDetailsCard
+                      <UpdateCommericial
                         key={'airacraft-list-item' + index}
                         aircraftData={data}
                         availticket={
@@ -214,7 +225,7 @@ const Listing = ({ id }) => {
                   aircraftData?.ResponseData?.AirCraftDatawithtechStop?.map(
                     (data, index) => {
                       return (
-                        <AircraftDetailsCard
+                        <UpdateCommericial
                           key={'airacraft-list-item' + index}
                           aircraftData={data}
                           availticket={
@@ -242,7 +253,7 @@ const Listing = ({ id }) => {
                 {CharteredData?.responseObj?.nearestOperatorWithPrice?.map(
                   (data, index) => {
                     return (
-                      <DedicatedCard
+                      <UpdatedDedicated
                         key={'airacraft-list-item' + index}
                         charteredData={data}
                         AircraftType={data.operator.Aircraft_type}

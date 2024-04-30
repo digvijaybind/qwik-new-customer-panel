@@ -12,19 +12,19 @@ const Header = () => {
   };
   const [header, setHeader] = useState(styles.header);
 
-  const listenScrollEvent = () => {
-    if (window.scrollY < 73) {
-      setHeader(styles.header);
-    } else if (window.scrollY > 70) {
-      setHeader(styles.header2);
-    }
-  };
+  // const listenScrollEvent = () => {
+  //   if (window.scrollY < 73) {
+  //     setHeader(styles.header);
+  //   } else if (window.scrollY > 70) {
+  //     setHeader(styles.header2);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', listenScrollEvent);
 
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
+  //   return () => window.removeEventListener('scroll', listenScrollEvent);
+  // }, []);
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index) => {
@@ -62,7 +62,7 @@ const Header = () => {
       url: '/media',
     },
     {
-      title: 'Work with us',
+      title: 'Partner with us',
       url: '',
     },
     {
@@ -101,7 +101,7 @@ const Header = () => {
               </Link>
             ))}
           </ul>
-          <div className={``}></div>
+
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>
               <BsTelephoneFill

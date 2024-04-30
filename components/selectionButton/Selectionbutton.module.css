@@ -1,0 +1,7 @@
+.backgroundContainer {
+  background: linear-gradient(
+    90deg,
+    rgba(63, 249, 126, 1) 0%,
+    rgba(10, 123, 35, 1) 100%
+  );
+}
