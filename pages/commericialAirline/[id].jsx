@@ -39,16 +39,7 @@ const TravelDuration = () => {
 const CommercialAirline = () => {
   return (
     <div className={`${styles.Container} `}>
-      {/* <div className="bg-[#68D2F3] h-[300px]"></div>
-     
-
-      <div className="bg-[#fff]  grid grid-cols-2 shadow-2xl gap-5 px-[30px] py-[25px] ">
-        <div className="Main-cost">
-        
-        </div>
-
-        <div className="reverse and pay now"></div>
-      </div> */}
+      <h1> this is Cmmericial Airline </h1>
       <TravelDuration />
     </div>
   );

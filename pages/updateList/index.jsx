@@ -147,7 +147,7 @@ const UpdateList = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="sm:px-[20px] sm:py-[20px]">
         <div className="">
           {/* <SearchBar
           className="bottom-10"
