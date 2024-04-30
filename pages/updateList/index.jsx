@@ -149,14 +149,6 @@ const UpdateList = () => {
     <div>
       <div className="">
         <div className="">
-          <UpdateSearch
-            className=""
-            isMobile={isMobile}
-            formData={formData}
-            handleSubmit={handleSubmit}
-            handleInputChange={handleInputChange}
-          />
-
           {/* <SearchBar
           className="bottom-10"
           isMobile={isMobile}
@@ -169,9 +161,26 @@ const UpdateList = () => {
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
         /> */}
+          {!isMobile ? (
+            <UpdateSearch
+              className=""
+              isMobile={isMobile}
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleInputChange={handleInputChange}
+            />
+          ) : (
+            <div className="mt-5 mb-5">
+              <MobileSearch
+                formData={formData}
+                handleSubmit={handleSubmit}
+                handleInputChange={handleInputChange}
+              />
+            </div>
+          )}
         </div>
 
-        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:px-[10px] sm:py-[10px]">
+        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px]">
           {!isMobile ? (
             <div className="flex justify-around">
               {' '}
@@ -181,7 +190,7 @@ const UpdateList = () => {
               />
             </div>
           ) : (
-            <MobileButton onChange={handleTabChange} />
+            <MobileButton onChange={() => handleTabChange()} />
           )}
 
           {!isMobile ? (
