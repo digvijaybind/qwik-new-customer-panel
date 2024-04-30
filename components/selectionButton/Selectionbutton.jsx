@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Selectionbutton.module.css';
 const Selectionbutton = ({ selectedTab, handleTabChange }) => {
   return (
-    <div className="grid grid-cols-3 gap-12">
+    <div className="grid grid-cols-3 gap-12 font-sans">
       <div className="flex flex-col items-start justify-between w-[173px]">
         <div className="text-[12px] font-normal font-sans">
           Select your flight types
