@@ -1,6 +1,5 @@
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import styles from '../styles/page.module.css';
-import Review from '@/components/review/review';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useData } from '../context/DataContext';
@@ -20,6 +19,7 @@ import LatestNew from '@/components/latestnews/LatestNew';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
+import Review from '@/components/Review/review';
 
 export default function Home() {
   const router = useRouter();
