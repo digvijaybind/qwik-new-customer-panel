@@ -49,7 +49,7 @@ const Guarantee = () => {
       is World First air ambulance service provider giving instant quotation.
     </div>
     <div>
-      <Image src={Signature} width={200} height={125} />
+      <Image src={Signature} alt='Qwiklif CEO' width={200} height={125} />
     </div>
     <div className="font-extrabold text-[12px] font-sans">CEO , QWIKLIF</div>
   </div>;
