@@ -1,5 +1,5 @@
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import styles from '../styles/page.module.css';
-import Review from '@/components/review/Review';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useData } from '../context/DataContext';
@@ -10,17 +10,16 @@ import Trusted from '@/components/trusted/Trusted';
 import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
 import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
 import Champion from '../public/images/trusted_contact/champion.svg';
-import { FaMinus, FaPlus } from 'react-icons/fa';
 import AboutAircraft from '@/components/aboutaircraft/AboutAircraft';
-import QwiklifFeature from '@/components/qwiklifFeatures/QwiklifFeature';
+import QwiklifFeature from '@/components/qwiklifFeatures/Qwikliffeature';
 import Roadmap from '@/components/roadmaps/Roadmap';
 import ChooseQwiklif from '@/components/whychooseqwiklif/ChooseQwiklif';
 import FastestMedical from '@/components/fastestmedicalcare/FastestMedical';
 import LatestNew from '@/components/latestnews/LatestNew';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
-import SearchBar from '@/components/SearchBar/SearchBar';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
+import Review from '@/components/Review/review';
 
 export default function Home() {
   const router = useRouter();

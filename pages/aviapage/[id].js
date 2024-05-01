@@ -558,6 +558,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
           <div className="flex items-center flex-col font-sans font-extrabold">
             <Image
               src={Signature}
+              alt='Qwiklif CEO'
               height={130}
               width={130}
               className="justify-center"
@@ -942,7 +943,7 @@ const AviapageDetails = () => {
       };
       loadRayzorPaymentScript();
     }
-  }, [id]);
+  }, [id, fetchData]);
 
   const [slides, setSlides] = useState([]);
   useEffect(() => {
