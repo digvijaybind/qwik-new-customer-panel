@@ -67,10 +67,6 @@ const JourneyDetails = ({
             {totalCost}
           </span>
         </div>
-        {/* <p className="flex justify-between py-3">
-          <span>GST (18%)</span>
-          <span>₹ 2,02,719</span>
-        </p> */}
       </div>
       <div className="flex justify-between items-center py-1 font-bold">
         <span>Estimated Cost</span>

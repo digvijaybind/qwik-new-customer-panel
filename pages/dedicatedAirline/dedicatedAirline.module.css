@@ -5,3 +5,33 @@
   background-color: #55cdf1;
   min-height: 300px;
 }
+.backgroundContainer {
+  background: linear-gradient(
+    90deg,
+    rgba(63, 249, 126, 1) 0%,
+    rgba(10, 123, 35, 1) 100%
+  );
+}
+
+
+/* styles.module.css */
+
+.sliderContainer {
+  overflow: hidden;
+}
+
+.sliderRow {
+  display: flex;
+  flex-wrap: nowrap; 
+  overflow-x: auto; 
+  margin-bottom: -10px; 
+}
+
+.slide {
+  margin-right: 10px; 
+}
+
+.video {
+  width: 260px; 
+  height: 158px; 
+}
