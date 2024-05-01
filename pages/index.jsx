@@ -166,19 +166,26 @@ export default function Home() {
           handleSubmit={handleSubmit}
           handleInputChange={handleInputChange}
         /> */}
-        {isMobile ? (
-          <UpdateSearch
-            className="bottom-60 sm:bottom-60"
-            isMobile={isMobile}
-            formData={formData}
-            handleSubmit={handleSubmit}
-            handleInputChange={handleInputChange}
-          />
-        ) : (
-          <MobileSearch />
-        )}
 
-        {/* <UpdateSearch /> */}
+        {!isMobile ? (
+          <div className="relative bottom-56">
+            <UpdateSearch
+              className="bottom-60 sm:bottom-60"
+              isMobile={isMobile}
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleInputChange={handleInputChange}
+            />
+          </div>
+        ) : (
+          <div className="relative bottom-15">
+            <MobileSearch
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleInputChange={handleInputChange}
+            />
+          </div>
+        )}
         <AboutAircraft />
         <div>
           <QwiklifFeature />
@@ -201,7 +208,6 @@ export default function Home() {
           </div>
           <FastestMedical />
           <LatestNew />
-
           <div
             className="mt-14"
             style={{
@@ -325,7 +331,6 @@ export default function Home() {
                     type="text"
                     value=""
                     placeholder="From *"
-                    // className="border-[#DEE5E9] border-[1px] h-[50px] outline-0 rounded-md"
                     className=" h-[50px] col-span-5 sm:col-span-5  rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
 

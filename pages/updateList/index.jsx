@@ -9,7 +9,7 @@ import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
-import Mobilecard from '@/components/mobile/Mobilecard';
+import Mobilecard from '@/components/mobileCard/Mobilecard';
 import MobileButton from '@/components/selectionButton/MobileButton';
 const UpdateList = () => {
   const searchParams = useSearchParams();

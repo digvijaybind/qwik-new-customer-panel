@@ -10,7 +10,7 @@ import Image from 'next/image';
 const MobileSearch = () => {
   return (
     <div className="flex flex-col items-center font-sans">
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
+      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
         <Image src={Depature} width={44} height={24} />
         <div className="flex flex-col items-start">
           <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
@@ -22,7 +22,7 @@ const MobileSearch = () => {
           </p>
         </div>
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
+      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
         <Image src={Destination} width={44} height={24} />
         <div className="flex flex-col items-start">
           <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
@@ -32,7 +32,7 @@ const MobileSearch = () => {
           <p className="text-[7px]">Dubai international Airport</p>
         </div>
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
+      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
         <Image src={Date} width={44} height={24} />
         <div className="flex flex-col items-start">
           <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
@@ -42,7 +42,7 @@ const MobileSearch = () => {
           <p className="text-[7px]">thus 2024</p>
         </div>
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
+      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
         <Image src={Date} width={44} height={24} />
         <div className="flex flex-col items-start">
           <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
@@ -61,7 +61,7 @@ const MobileSearch = () => {
           <div className="text-[15px] font-extrabold">8788825286</div>
         </div>
       </div>
-      <button className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold">
+      <button className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold hover:text-[#000]">
         Search
       </button>
     </div>

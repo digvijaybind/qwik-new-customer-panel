@@ -1,3 +1,7 @@
-.Container{
-    
+.Container {
+}
+
+.Section1_Container {
+  background-color: #55cdf1;
+  min-height: 300px;
 }
