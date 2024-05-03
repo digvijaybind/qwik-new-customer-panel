@@ -240,16 +240,18 @@ export default function Home() {
                     className="flex-col items-start w-full h-auto"
                   >
                     <div
-                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${SelectedCollapseIndex != index
-                        ? 'bg-[#F1F7FA]'
-                        : 'bg-[#4B68B8]'
-                        }`}
+                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${
+                        SelectedCollapseIndex != index
+                          ? 'bg-[#F1F7FA]'
+                          : 'bg-[#4B68B8]'
+                      }`}
                     >
                       <h4
-                        className={`ml-[30px] ${SelectedCollapseIndex === index
-                          ? 'text-[#FFFFFF]'
-                          : ''
-                          }  font-sans font-extrabold text-xl`}
+                        className={`ml-[30px] ${
+                          SelectedCollapseIndex === index
+                            ? 'text-[#FFFFFF]'
+                            : ''
+                        }  font-sans font-extrabold text-xl`}
                       >
                         {item.header}
                       </h4>
@@ -280,7 +282,7 @@ export default function Home() {
 
                     {SelectedCollapseIndex === index ? (
                       <div className="h-[180px] sm:h-[290px] bg-[#FBFBFB] w-full">
-                        <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] font-normal font-sans leading-[26px] pt-[50px] sm:pt-[30px]">
+                        <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] font-normal font-sans leading-[26px] pt-[25px] pb-[25px] sm:pt-[30px] font-sans">
                           {item.description}
                         </p>
                       </div>
