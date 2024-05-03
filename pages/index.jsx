@@ -20,6 +20,7 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import Review from '@/components/Review/review';
+import { StyledSection } from '@/components/shared';
 
 export default function Home() {
   const router = useRouter();
@@ -158,7 +159,7 @@ export default function Home() {
   return (
     <main>
       <div className="font-sans">
-        <Navnew></Navnew>
+        <Navnew />
         {/* <SearchBar
           className="bottom-60 sm:bottom-60"
           isMobile={isMobile}
@@ -186,10 +187,10 @@ export default function Home() {
             />
           </div>
         )}
-        <AboutAircraft />
-        <div>
+        <StyledSection>
+          <AboutAircraft />
           <QwiklifFeature />
-        </div>
+        </StyledSection>
 
         <div id="services" className="w-full">
           <div className="px-36 sm:px-10">
@@ -239,18 +240,16 @@ export default function Home() {
                     className="flex-col items-start w-full h-auto"
                   >
                     <div
-                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${
-                        SelectedCollapseIndex != index
-                          ? 'bg-[#F1F7FA]'
-                          : 'bg-[#4B68B8]'
-                      }`}
+                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${SelectedCollapseIndex != index
+                        ? 'bg-[#F1F7FA]'
+                        : 'bg-[#4B68B8]'
+                        }`}
                     >
                       <h4
-                        className={`ml-[30px] ${
-                          SelectedCollapseIndex === index
-                            ? 'text-[#FFFFFF]'
-                            : ''
-                        }  font-sans font-extrabold text-xl`}
+                        className={`ml-[30px] ${SelectedCollapseIndex === index
+                          ? 'text-[#FFFFFF]'
+                          : ''
+                          }  font-sans font-extrabold text-xl`}
                       >
                         {item.header}
                       </h4>
