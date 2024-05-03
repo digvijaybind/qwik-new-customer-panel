@@ -53,8 +53,8 @@ const WorkWithQwiklif = [
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
-    <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]">
-      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-4 lg:gap-6 content-center">
+    <div className="bg-[#0f2738] px-[80px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]">
+      <div className="grid xs:grid-cols-5 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-3 lg:gap-4 content-center">
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Qwiklif
