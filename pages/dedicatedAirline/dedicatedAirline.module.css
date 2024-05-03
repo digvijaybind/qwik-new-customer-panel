@@ -13,7 +13,6 @@
   );
 }
 
-
 /* styles.module.css */
 
 .sliderContainer {
@@ -22,16 +21,16 @@
 
 .sliderRow {
   display: flex;
-  flex-wrap: nowrap; 
-  overflow-x: auto; 
-  margin-bottom: -10px; 
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: -10px;
 }
 
 .slide {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .video {
-  width: 260px; 
-  height: 158px; 
+  width: 260px;
+  height: 158px;
 }
