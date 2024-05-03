@@ -13,11 +13,12 @@ import Point from '../../public/images/PointIcon.svg';
 import { useState } from 'react';
 import Important from '../../db/important.json';
 
+
 const Guarantee = () => {
   return (
     <div
-      class="responsive-box-sizing border border-gray-300 rounded-md flex flex-col items-center sm:items-start md:items-start sm:py-4 sm:px-2 md:px-8 lg:px-2 xl:px-4 
-          sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12 mx-auto"
+      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:items-start md:items-start sm:py-4 sm:px-2 md:px-8 lg:px-2 xl:px-4 
+          sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12 mx-auto"
     >
       <div class="font-black text-lg font-sans">OUR GUARANTEE</div>
       <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">

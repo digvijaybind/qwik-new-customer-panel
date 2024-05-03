@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@screen sm {
+  .responsiveBoxSizing {
+    box-sizing: border-box;
+  }
+}
+
+@screen md {
+  .responsiveBoxSizing {
+    box-sizing: border-box;
+  }
+}
+
+@screen lg {
+  .responsiveBoxSizing {
+    box-sizing: border-box;
+  }
+}
+
+@screen xl {
+  .responsiveBoxSizing {
+    box-sizing:border-box;
+  }
+}
