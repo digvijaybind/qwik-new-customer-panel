@@ -4,13 +4,13 @@ import Image from 'next/image';
 const AboutAircraft = () => {
   return (
     <div>
-      <div className="sm:px-10 px-36 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
-        <Image src={AboutAircraftimage} height={460} width={620} />
+      <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
+        <Image src={AboutAircraftimage} height={460} width={620} className='rounded-lg' />
 
         <div className="flex flex-col gap-3">
-          <div className="font-sans text-4xl font-extrabold">
-            Fastest <span className=" text-[#11B6E3]">Air Ambulance</span>
-            <br />
+          <div className="font-sans text-4xl sm:text-3xl font-extrabold sm:text-center text-wrap sm:px-4">
+            Fastest <span className=" text-[#11B6E3] sm:mr-2">Air Ambulance</span>
+            <br className='sm:hidden' />
             Services
           </div>
           <div className="text-[#7A7A7A] text-[16px] font-sans">
