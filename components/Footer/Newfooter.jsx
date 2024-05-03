@@ -53,8 +53,8 @@ const WorkWithQwiklif = [
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 const Newfooter = () => {
   return (
-    <div className="bg-[#0f2738] px-[90px] pt-14 pb-8 font-sans sm:px-[20px] md:px-[0px] hover:text-[#3788d8]">
-      <div className="grid grid-cols-5 content-center sm:grid-cols-2 gap-3">
+    <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]">
+      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-4 lg:gap-6 content-center">
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Qwiklif
@@ -146,6 +146,7 @@ const Newfooter = () => {
           </div>
         </div>
       </div>
+      {/*  */}
       <div className="flex justify-center flex-col items-center  font-sans pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
         <Image src={Logo} height={53} width={150} className="cursor-pointer" />
         <div className="font-thin text-[14px] text-[#fff] mt-2 mb-2  font-sans hover:text-[#3788d8]">
