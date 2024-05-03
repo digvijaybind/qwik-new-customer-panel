@@ -10,15 +10,12 @@ import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
-import Slider from 'react-slick';
-import ReactPlayer from 'react-player';
-import Modal from 'react-modal';
 import { useState } from 'react';
 import Important from '../../db/important.json';
 
 const Guarantee = () => {
   return (
-    <div className="flex justify-center flex-col  items-center px-[30px] py-[40px] border-2 border-[#D9D9D9] rounded-md w-[881px] shadow-md">
+    <div className="flex justify-center flex-col  items-center px-[25px] py-[30px] border-2 border-[#D9D9D9] rounded-md  shadow-md sm:px-[10px] sm:py-[10px] sm:w-[320px] md:w-[768px] lg:w-[881px] xl:min-w-[881px]">
       <div className="font-black text-[16px] font-sans">OUR GUARANTEE</div>
       <div className="font-sans text-[12px] font-medium mt-3">
         We Guarantee that when choosing Qwiklif, your loved ones shall be
@@ -48,7 +45,7 @@ const MedicalInstruments = ({ src, width, height, Title, descripation }) => {
   );
 };
 
-const AutoVideoSlider = ({ videos, interval }) => {
+const AutoVideoSlider = ({ videos, interval, isMobile }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -66,7 +63,9 @@ const AutoVideoSlider = ({ videos, interval }) => {
           <div
             key={index}
             className={`slide cursor-pointer ${
-              index >= currentSlide && index < currentSlide + 3 ? 'active' : ''
+              index >= currentSlide && index < currentSlide + (isMobile ? 1 : 3)
+                ? 'active'
+                : ''
             }`}
             style={{ marginRight: '10px' }}
           >
@@ -83,9 +82,9 @@ const AutoVideoSlider = ({ videos, interval }) => {
 
 const TravelDuration = () => {
   return (
-    <div className="px-[15px] py-[25px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md mb-5">
-      <div className="Topsection flex flex-col">
-        <div className="flex justify-between">
+    <div className="px-[15px] py-[25px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md mb-5 sm:min-w-[320px]">
+      <div className="Topsection flex flex-col sm:px-[10px] sm:py-[10px]">
+        <div className="flex justify-between sm:flex-col">
           <div className="flex items-center  justify-around w-[200px]">
             <span className="font-black text-[16px] font-sans">Mumbai</span>
             <span className="">
@@ -94,13 +93,13 @@ const TravelDuration = () => {
             <span className="font-black text-[16px] font-sans"> Dubai</span>
           </div>
           <div
-            className={`w-[165px] h-[20px] text-[#fff] text-[12px] font-extrabold font-sans text-center  ${styles.backgroundContainer}`}
+            className={`w-[165px] h-[20px] text-[#fff] text-[12px] font-extrabold font-sans text-center  ${styles.backgroundContainer} sm:mt-3`}
           >
             Your Booking On Priority
           </div>
         </div>
-        <div className={`flex justify-between mt-2`}>
-          <div className="flex justify-between items-center w-[240px]">
+        <div className={`flex justify-between mt-2 sm:flex-col sm:mt-3`}>
+          <div className="flex justify-between items-center w-[240px] sm:flex-col sm:items-baseline">
             <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px] font-extrabold flex justify-between items-center px-[5px] rounded-sm">
               {' '}
               Saturday, Apr 27
@@ -111,13 +110,13 @@ const TravelDuration = () => {
             Check Terms
           </div>
         </div>
-        <div className="flex justify-between items-center">
-          <div className="flex flex-row items-center">
+        <div className="flex justify-between items-center sm:flex sm:flex-col sm:items-baseline">
+          <div className="flex flex-row items-center sm:justify-between">
             <Image src={Airline} width={50} height={20} />
             <div className="font-black text-[12px] mr-[10px]">Vistara</div>
             <div className="font-medium text-[10px]">UK 583, UK 848</div>
           </div>
-          <div className="font-medium text-[#323232] text-[12px]">
+          <div className="font-black text-[#323232] text-[12px]">
             Charter Plane
           </div>
         </div>
@@ -172,8 +171,10 @@ const TravelDuration = () => {
             />
           </div>
         </div> */}
-        <div className="grid grid-cols-3 grid-rows-3 gap-x-2 gap-y-2 mt-5">
-          <div className="flex justify-center">
+
+        {/* grid system */}
+        {/* <div className="grid grid-cols-3 grid-rows-3 gap-x-2 gap-y-2 mt-5  sm:grid sm:grid-cols-1 sm:gap-x-1 sm:gap-y-1">
+          <div className="flex justify-center sm:flex-col">
             <MedicalInstruments
               src={Strectres}
               width={26}
@@ -182,7 +183,7 @@ const TravelDuration = () => {
               descripation="1 Stretcher for patient "
             />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center sm:flex-col">
             <MedicalInstruments
               src={Doctors}
               width={26}
@@ -191,7 +192,7 @@ const TravelDuration = () => {
               descripation="2 Doctor, 1 Head Nurse & 1 Attendent"
             />
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center sm:flex-col">
             <MedicalInstruments
               src={Oxygen}
               width={26}
@@ -218,13 +219,62 @@ const TravelDuration = () => {
               descripation=""
             />
           </div>
+        </div> */}
+        <div className="grid grid-cols-3 grid-rows-3  gap-2 mt-5 sm:grid-cols-1 sm:gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex justify-center sm:justify-start">
+            <MedicalInstruments
+              src={Strectres}
+              width={26}
+              height={26}
+              Title="Stretcher:"
+              descripation="1 Stretcher for patient"
+            />
+          </div>
+          <div className="flex justify-center sm:justify-start">
+            <MedicalInstruments
+              src={Doctors}
+              width={26}
+              height={26}
+              Title="Doctor Onboard:"
+              descripation="2 Doctor, 1 Head Nurse & 1 Attendant"
+            />
+          </div>
+          <div className="flex justify-center sm:justify-start">
+            <MedicalInstruments
+              src={Oxygen}
+              width={26}
+              height={26}
+              Title="Oxygen (4L/Min)"
+              descripation=""
+            />
+          </div>
+          <div className="flex justify-center sm:justify-start">
+            <MedicalInstruments
+              src={Medicalequiment}
+              width={26}
+              height={26}
+              Title="Medical Equipment"
+              descripation=""
+            />
+          </div>
+          <div className="flex justify-center sm:justify-start sm:hidden"></div>
+          <div className="flex justify-center sm:justify-start sm:hidden"></div>
+          <div className="flex justify-center sm:justify-start">
+            <MedicalInstruments
+              src={Strectres}
+              width={26}
+              height={26}
+              Title="Patient condition is critical? Don’t stress we additional provide medical equipment based on patient condition"
+              descripation=""
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const OurStories = () => {
+const OurStories = ({ isMobile }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -254,7 +304,11 @@ const OurStories = () => {
           </span>
         </div>
         <div className=" ">
-          <AutoVideoSlider videos={videos} interval={1000} />
+          <AutoVideoSlider
+            videos={videos}
+            interval={1000}
+            isMobile={isMobile}
+          />
           {/* <div className="w-[264px] h-[158px] bg-red-600"></div> */}
         </div>
       </div>
@@ -264,13 +318,13 @@ const OurStories = () => {
 
 const InfomationHead = ({ title, descripation }) => {
   return (
-    <div className="grid grid-cols-12 gap-1 mt-5">
-      <div className="col-span-1 flex items-start justify-center">
+    <div className="grid grid-cols-12 gap-1 mt-5 sm:grid sm:grid-cols-2 sm:w-[320px]">
+      <div className="col-span-2 flex items-start justify-center sm:contents">
         <Image src={Point} width={26} height={26} />
       </div>
       <div className="col-span-8">
         <div className="font-extrabold text-[16px] font-sans">{title}</div>
-        <li className="text-[12px] font-medium font-sans mt-3">
+        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px]">
           {descripation}
         </li>
       </div>
@@ -279,7 +333,7 @@ const InfomationHead = ({ title, descripation }) => {
 };
 const ImportantInfo = () => {
   return (
-    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5">
+    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5 sm:px-[10px] sm:py-[10px]">
       <div className="grid grid-rows-auto grid-cols-1">
         <div className="text-[18px] font-extrabold font-sans text-black">
           Important Infomation
@@ -303,7 +357,7 @@ const ImportantInfo = () => {
 
 const TotalFare = () => {
   return (
-    <div className="flex flex-col justify-start px-[25px] h-[125px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md">
+    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md">
       <div className=" text-[16px] font-black">Fare Summary</div>
       <div className="flex justify-between mb-2">
         <div className="font-bold text-[12px] font-sans">Base Fare</div>
@@ -327,7 +381,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[125px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
@@ -343,22 +397,37 @@ const PayConfirmation = () => {
         className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl"
         placeholder="Enter Your Email ID"
       />
+      <button className="bg-[#12B5E4] rounded-md mt-3 py-[7px] cursor-pointer text-[12px] text-[#fff] font-bold font-sans hover:text-[#323232]">
+        Pay now
+      </button>
     </div>
   );
 };
 
 const DedicatedAirline = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="grid grid-cols-8 grid-rows-1 gap-15 px-[80px] py-[10px] relative bottom-40 sm:px-[5px] sm:py-[5px]">
-        <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px]">
+        <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px] sm:px-[0px] sm:py-[0px]">
           <TravelDuration />
           <Guarantee />
-          <OurStories />
+          <OurStories isMobile={isMobile} />
           <ImportantInfo />
         </div>
-        <div className="col-span-2 border-2 border-gray-200  shadow-2xl h-[100px] rounded-xl flex justify-between flex-col items-center sm:hidden">
+        <div className="col-span-2 border-2 border-gray-200  shadow-2xl h-[100px] rounded-xl flex justify-between flex-col items-center sm:hidden md:hidden lg:hidden">
           <TotalFare />
           <PayConfirmation />
         </div>
