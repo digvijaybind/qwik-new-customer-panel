@@ -169,7 +169,7 @@ export default function Home() {
         /> */}
 
         {!isMobile ? (
-          <div className="relative bottom-56">
+          <div className="relative bottom-56 flex justify-center">
             <UpdateSearch
               className="bottom-60 sm:bottom-60"
               isMobile={isMobile}

@@ -32,11 +32,6 @@ const WorkwithUs = () => {
     },
     {
       img: 'https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png',
-      head: 'Private Aircraft Owner',
-      text: 'Own a private aircraft? Partner with Qwiklif Air Ambulance and help us provide life-saving medical transportation. Make a difference with your aircraft. Partner with us today!',
-    },
-    {
-      img: 'https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png',
       head: 'Pilots',
       text: 'Attention Pilots! Join the Qwiklif Air Ambulance team and be part of a mission that saves lives. Fly with us and make a real difference. Join our team today!',
     },
@@ -45,7 +40,9 @@ const WorkwithUs = () => {
     <div className="font-sans">
       <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
         <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-          <p className="text-[50px]  pt-[150px] sm:pt-[100px]">Partner with us </p>
+          <p className="text-[50px]  pt-[150px] sm:pt-[100px]">
+            Partner with us{' '}
+          </p>
           <div className="flex pt-[30px] text-[20px]">
             <p className="text-[#C5D5FF] pr-[10px]">
               {'Air Ambulance Services >'}
@@ -59,7 +56,7 @@ const WorkwithUs = () => {
           <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
             partner with us
           </h2>
-          <p className="pt-[10px] font-sans">
+          <p className="pt-[10px] font-sans font-medium">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,
@@ -67,7 +64,7 @@ const WorkwithUs = () => {
             pilots to join us in our mission to provide the highest quality air
             ambulance services.
           </p>
-          <p className="pt-[10px] font-sans">
+          <p className="pt-[10px] font-sans font-medium">
             If you are committed to delivering exceptional care and service, and
             if you thrive in a dynamic and challenging environment, we want to
             hear from you. Join us at Qwiklif and be a part of a team that is
@@ -75,10 +72,10 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[6%] flex-wrap">
+        <div className="flex justify-between sm:items-center px-[6%] py-[4%] flex-wrap">
           {service.map((data, i) => (
             <div
-              className={`w-[40%] sm:w-[100%] mt-[20px] ${
+              className={`w-[30%] sm:w-[100%] mt-[20px] ${
                 i == 4 ? 'mb-[20px]' : ''
               } `}
               key={i}

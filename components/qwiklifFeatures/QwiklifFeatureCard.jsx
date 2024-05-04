@@ -3,7 +3,7 @@ import React from 'react';
 
 const QwiklifFeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="mx-auto flex items-start gap-8 sm:gap-6 p-8 sm:p-4 border cursor-pointer shadow hover:shadow rounded-lg">
+    <div className="mx-auto flex items-start gap-8 sm:gap-6 p-8 sm:p-4  cursor-pointer hover:border  hover:shadow rounded-lg">
       <Image
         className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
         src={icon}
@@ -17,7 +17,9 @@ const QwiklifFeatureCard = ({ icon, title, description }) => {
           {title}
         </p>
         <p className="text-[#646464] font-sans leading-[26px] text-[16px] font-normal">
-          {description[1]} <br className='hidden' /> {description[2]}  <br className='hidden' />{description[3]}
+          {description[1]} <br className="hidden" /> {description[2]}{' '}
+          <br className="hidden" />
+          {description[3]}
         </p>
       </div>
     </div>
