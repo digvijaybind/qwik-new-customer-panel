@@ -4,6 +4,7 @@ import SelectionComponent from '@/components/selection/SelectionComponent';
 import aeroIcon from '../../public/images/aeroplaneicon.svg';
 import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import GlobalIcon from '../../public/images/counter/globalIcon.svg';
+import CostEffectIcon from '../../public/images/counter/CostEffective.svg'
 import CostEffective from '../../public/images/counter/CostEffective.png';
 import DoctorOnboard from '../../public/images/fleet_tabs/doctor_onboard.png';
 import GlobalCoverage from '../../public/images/fleet_tabs/global_coverage.png';
@@ -25,7 +26,7 @@ const faqs = [
   {
     index: 3,
     title: "Cost-Effective Solution",
-    icon: CostEffective
+    icon: CostEffectIcon
   },
   {
     index: 4,
