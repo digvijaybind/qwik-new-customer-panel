@@ -232,7 +232,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex-col items-start w-full mt-[40px] flex gap-[10px]">
+            <div className="flex-col items-start w-full mt-[40px] flex gap-[10px] sm:gap-[15px]">
               {homeCollapsable.map((item, index) => {
                 return (
                   <div
@@ -251,7 +251,7 @@ export default function Home() {
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
                             : ''
-                        }  font-sans font-extrabold text-xl`}
+                        }  font-sans font-extrabold text-xl sm:text-base`}
                       >
                         {item.header}
                       </h4>
