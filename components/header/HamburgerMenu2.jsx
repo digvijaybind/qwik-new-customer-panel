@@ -13,7 +13,7 @@ const HamburgerMenu2 = () => {
 
   return (
     <div>
-      <div className="flex flex-row justify-between items-center px-[40px] py-[20px]">
+      <div className="flex flex-row justify-between items-center px-[40px] py-[20px] font-sans">
         <div className="flex flex-row justify-between">
           <div className="">
             <Image src={Logo} width={95} height={90} />

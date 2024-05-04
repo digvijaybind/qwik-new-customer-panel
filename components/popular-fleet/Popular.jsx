@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/page.module.css";
 const Popular = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-10 font-sans">
       <div className="flex justify-between">
         <h2 className="text-3xl font-bold mb-5">
           Popular Fleets <br />

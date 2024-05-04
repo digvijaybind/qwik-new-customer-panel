@@ -2,7 +2,7 @@
 import React from 'react';
 const Career = () => {
   return (
-    <div className="font-poppins">
+    <div className="font-sans">
       <img src="/images/career-banner.jpg" className="w-full" alt="banner" />
       <div className="flex justify-center">
         <div className="sm:w-full sm:px-10 w-[60%]">

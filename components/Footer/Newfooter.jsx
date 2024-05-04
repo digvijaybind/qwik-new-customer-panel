@@ -59,7 +59,7 @@ const Newfooter = () => {
   return (
     <StyledSection
       containerClassName='bg-[#0f2738]'
-      className='sm:!px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]'
+      className='sm:!px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8] font-sans'
     >
       {/* <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]"> */}
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-4 lg:gap-6 content-center">

@@ -5,7 +5,7 @@ import React from "react";
 export const BlogsCard = ({title, date}) => {
   return (
     <Link href="/about">
-      <div className=" mx-auto">
+      <div className=" mx-auto font-sans">
         <div className="bg-[#E8E8EA] shadow-md border border-gray-200 rounded-lg max-w-[390px] mb-5 p-5">
           {/* <a href="#"> */}
           <img

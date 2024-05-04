@@ -8,7 +8,7 @@ const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="font-poppins">
+    <div className="font-sans">
       <img
         src="/images/contact-us-banne/r.jpg"
         className="w-full"

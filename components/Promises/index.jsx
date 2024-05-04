@@ -5,7 +5,7 @@ const Promises = () => {
   return (
     <div
       style={{ boxShadow: '#000 0px 0px 10px 0px' }}
-      className="px-6 py-6 border-r-[8px]"
+      className="px-6 py-6 border-r-[8px] font-sans"
     >
       {' '}
       <div className="grid grid-cols-1 items-center ">

@@ -94,7 +94,7 @@ const SearchBar = ({
 
   return (
     <Shadow
-      classname={`mx-36 sm:mx-5 relative lg:relative sm:static drop-shadow-xl bg-white px-7 sm:px-2 py-7 ${className}`}
+      classname={`mx-36 sm:mx-5 relative lg:relative sm:static drop-shadow-xl bg-white px-7 sm:px-2 py-7 ${className} font-sans`}
     >
       <form onSubmit={handleSubmit} className="flex flex-col">
         <div className="flex justify-between items-center pb-4 text-sm">
@@ -290,7 +290,7 @@ const SearchBar = ({
               >
                 {countries.map((data) => (
                   <option
-                    key={data.code} // Use a unique key (e.g., country code)
+                    key={data.code} 
                     value={data.code}
                     className="text-black"
                   >

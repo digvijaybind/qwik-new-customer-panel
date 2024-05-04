@@ -8,7 +8,7 @@ const HamburgerMenu1 = () => {
   };
 
   return (
-    <div className="hamburger-menu">
+    <div className="hamburger-menu font-sans">
       <button className="hamburger-button" onClick={toggleMenu}>
         ☰ {/* Hamburger icon */}
       </button>

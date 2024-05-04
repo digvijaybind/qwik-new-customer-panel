@@ -558,7 +558,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
           <div className="flex items-center flex-col font-sans font-extrabold">
             <Image
               src={Signature}
-              alt='Qwiklif CEO'
+              alt="Qwiklif CEO"
               height={130}
               width={130}
               className="justify-center"
@@ -669,7 +669,7 @@ const Airtransfer = () => {
   return (
     <div
       className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow} font-sans`}
-      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+      style={{ boxShadow: '#000 0px 0px 10px 0px font-sans' }}
     >
       <div className="flex flex-col px-[50px] mb-10">
         <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">

@@ -440,7 +440,7 @@ const DedicatedAirline = () => {
     };
   }, []);
   return (
-    <div className={`${styles.Container}`}>
+    <div className={`${styles.Container} font-sans`}>
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="grid grid-cols-8 grid-rows-1 gap-15 px-[80px] py-[10px] relative bottom-40 sm:px-[5px] sm:py-[5px] md:px-[60px]">
         <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px] sm:col-span-1 sm:px-[8px] sm:py-[8px]">

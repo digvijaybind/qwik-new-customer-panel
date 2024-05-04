@@ -6,7 +6,7 @@ import Image from 'next/image';
 const CommercialCard = () => {
   return (
     <div
-      className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]`}
+      className={`h-[277px] w-[680px] py-[20px] px-[20px] bg-[#fffafa]  rounded grid grid-cols-3 gap-5 items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] font-sans`}
     >
       <div className="">
         <Image

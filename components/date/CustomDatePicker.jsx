@@ -8,7 +8,7 @@ const CustomDatePicker = ({ ClassName, containerClass }) => {
   const [startDate, setStartDate] = useState(null);
 
   return (
-    <div className={`relative ${containerClass}`}>
+    <div className={`relative ${containerClass} font-sans`}>
       <DatePicker
         wrapperClassName="w-full"
         selected={startDate}

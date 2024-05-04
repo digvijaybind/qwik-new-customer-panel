@@ -1,7 +1,7 @@
 const JoinMailingList = () => {
   return (
     <form
-      className="mt-28 mb-20 font-poppins flex justify-center"
+      className="mt-28 mb-20 font-sans flex justify-center"
       onSubmit={(e) => {
         e.preventDefault();
       }}

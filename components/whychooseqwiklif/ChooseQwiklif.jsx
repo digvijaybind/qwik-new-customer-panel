@@ -109,13 +109,13 @@ export default ChooseQwiklif;
 const ChooseQwiklifButton = ({ activeTab, setActiveTab, tabIndex, title, icon }) => {
   return (
     <button
-      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#396CF0] rounded sm:w-full hover:text-white transition-colors duration-300 ${activeTab === tabIndex && '!bg-[#396CF0] !text-white'}`}
+      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#396CF0] rounded sm:w-full hover:text-white transition-colors duration-300 ${activeTab === tabIndex && '!bg-[#396CF0] !text-white'} font-sans`}
       onClick={() => setActiveTab(tabIndex)}
     >
       <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
         <Image src={icon} height={40} width={35} alt={title} />
       </div>
-      <div className="font-sans font-extrabold text-xl sm:flex justify-end">
+      <div className="font-sans font-extrabold text-xl sm:flex justify-end sm:text-base">
         {title}
       </div>
     </button>

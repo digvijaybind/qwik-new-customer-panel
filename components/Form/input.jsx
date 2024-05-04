@@ -22,7 +22,7 @@ export const TextInput = ({
 };
 export const DateInput = ({ label, className, register, value, onChange }) => {
   return (
-    <div className={`flex flex-col relative ${className}`}>
+    <div className={`flex flex-col relative ${className} font-sans`}>
       <input
         className={`${styles.TextInput} outline-0 h-[40px] text-[14px] pl-[8px]`}
         type="date"

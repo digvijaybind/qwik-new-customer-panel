@@ -4,7 +4,7 @@ import QwiklifFeatureCard from './QwiklifFeatureCard';
 
 const QwiklifFeature = () => {
   return (
-      <div className="w-fit grid grid-cols-2  sm:grid-cols-1 gap-6 sm:gap-4 font-sans xs:px-4">
+      <div className="w-fit grid grid-cols-2 font-sans  sm:grid-cols-1 gap-6 sm:gap-4  xs:px-4">
         {QwiklifFeatures.map(({ icon, title, description }, key) =>
           <QwiklifFeatureCard
             key={title + key}

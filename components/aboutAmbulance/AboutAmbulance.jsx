@@ -31,7 +31,7 @@ const settings = {
 const AboutAmbulance = () => {
   return (
     <div>
-      <div id="services" className="mt-[100px]">
+      <div id="services" className="mt-[100px] font-sans">
         <h2 className="text-[#111111] font-arcaMajoraHeavy text-4xl leading-[34px] text-center">
           Our Air Ambulance Services
         </h2>

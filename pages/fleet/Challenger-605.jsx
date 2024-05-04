@@ -4,7 +4,7 @@ import JoinMailingList from '@/components/JoinMailingList/JoinMailingList';
 
 const Challenger605 = () => {
   return (
-    <div className="font-poppins">
+    <div className="font-sans">
       <img
         src="/images/challenger-605.jpg"
         alt="Challenger 605"

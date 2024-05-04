@@ -14,7 +14,7 @@ const Newcard = ({ Title, date, descripation, Cardimage, buttontitle }) => {
   };
   return (
     <Slider {...settings}>
-      <div className="flex flex-col items-stretch border border-[#ececec] h-full">
+      <div className="flex flex-col items-stretch border border-[#ececec] h-full font-sans">
         <div className="w-full">
           <Image
             src={Cardimage}

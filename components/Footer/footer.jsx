@@ -3,7 +3,7 @@ import styles from './footer.module.css';
 import Link from 'next/link';
 const Footer = () => {
   return (
-    <footer className={`font-poppins ${styles.container}`}>
+    <footer className={`font-sans ${styles.container}`}>
       <div className="mx-auto w-full max-w-screen-xl pb-12 px-10 py-10 lg:py-8 ">
         <div className="md:flex md:justify-around">
           <div className="grid grid-cols-7 gap-3 sm:gap-3 sm:grid-cols-1">

@@ -7,7 +7,7 @@ const Roadmap = () => {
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
     <div>
-      <div className={`shadow rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px]`}  >
+      <div className={`shadow rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px] font-sans`}  >
         <div className="h-[60px] sm:h-fit flex flex-row w-full rounded-t overflow-hidden">
           {bookTypes.map((item, index) => {
             return (

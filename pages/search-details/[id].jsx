@@ -1120,7 +1120,7 @@ const AmadeuspageDetails = () => {
   }, [results?.price?.totalPrice, selectedCurrency]);
 
   return (
-    <div className="">
+    <div className="font-sans">
       <DedicatedeHeader />
       <div className="px-36 sm:px-8">
         <p className="text-sm my-3"></p>

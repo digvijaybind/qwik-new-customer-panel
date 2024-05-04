@@ -297,7 +297,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 font-sans border-2 border-[#D9D9D9]">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 border-2 border-[#D9D9D9] font-sans">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>

@@ -7,14 +7,12 @@ import Doctor from '../../public/images/counter/doctor.png';
 import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
 
-
-
 const FastestMedical = () => {
   return (
     <div
       className={`font-sans w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat`}
     >
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col items-center w-full sm:hidden">
         <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">
           Fastest and best medical care
         </h1>
@@ -39,15 +37,16 @@ const FastestMedical = () => {
 
 export default FastestMedical;
 
-
-
 const FloatingBox = () => {
   return (
     <div
       className={`bg-white translate-y-1/2 w-fit sm:max-w-[66.666%] xs:max-w-[85%] px-8 sm:px-4 py-4 rounded-md shadow-md items-center flex justify-evenly gap-8 sm:gap-6 sm:flex-wrap sm:justify-center sm:items-center`}
     >
       <div className="flex flex-col items-center">
-        <Image src={MiniAeroplane} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <Image
+          src={MiniAeroplane}
+          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+        />
         <p className="font-bold text-5xl sm:text-xl ">
           <CountUp start={1} end={450} duration={5} />+
         </p>
@@ -57,7 +56,10 @@ const FloatingBox = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <Image src={Miniaircraft} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <Image
+          src={Miniaircraft}
+          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+        />
         <p className="font-bold text-5xl sm:text-xl ">
           <CountUp start={1} end={25} duration={8} />+
         </p>
@@ -67,7 +69,10 @@ const FloatingBox = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <Image src={Doctor} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <Image
+          src={Doctor}
+          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+        />
         <p className="font-bold text-5xl sm:text-xl ">
           <CountUp start={1} end={15} duration={10} />+
         </p>
@@ -76,7 +81,10 @@ const FloatingBox = () => {
         </p>
       </div>
       <div className="flex flex-col items-center">
-        <Image src={Miniglobal} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <Image
+          src={Miniglobal}
+          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+        />
         <p className="font-bold text-5xl sm:text-xl ">
           <CountUp start={1} end={7000} duration={5} /> +
         </p>
@@ -85,5 +93,5 @@ const FloatingBox = () => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};

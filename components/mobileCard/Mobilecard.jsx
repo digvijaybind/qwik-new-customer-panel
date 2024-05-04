@@ -4,7 +4,7 @@ import UpdatedDedicated from '../dedicatedCard/UpdatedDedicated';
 
 const Mobilecard = ({ selectedTab }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center font-sans">
       {selectedTab === 'commercial' ? (
         <UpdateCommericial />
       ) : (

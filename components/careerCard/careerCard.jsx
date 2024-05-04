@@ -1,6 +1,6 @@
 const Careercard = ({ img, head, text }) => {
   return (
-    <div className="flex sm:flex-col  items-center sm:justify-center shadow-md bg-white rounded-[10px] px-[15px] py-[15px] cursor-pointer font-sans transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-300 ">
+    <div className="flex sm:flex-col  items-center sm:justify-center shadow-md bg-white rounded-[10px] px-[15px] py-[15px] cursor-pointer  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-300 font-sans">
       <div className="mr-[15px]">
         <img src={img} className="w-[800px]" alt="" />
       </div>

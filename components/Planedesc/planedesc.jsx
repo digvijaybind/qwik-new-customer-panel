@@ -2,7 +2,7 @@ import {Shadow} from "../Utils/utils";
 import {Checkbox} from "@mui/material";
 const Planedesc = ({price, name, time, speed, from, to}) => {
   return (
-    <div className="w-[48%] sm:w-[100%] mb-8">
+    <div className="w-[48%] sm:w-[100%] mb-8 font-sans">
       <Shadow classname={"flex sm:flex-col   items-start p-[15px]"}>
         <img
           className="mr-[10px] sm:w-full sm:mb-[20px]"
