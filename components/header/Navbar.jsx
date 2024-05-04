@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import HamburgerMenu from './HamburgerMenu';
 
+
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
