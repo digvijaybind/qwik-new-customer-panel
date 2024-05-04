@@ -11,79 +11,61 @@ import GlobalCoverage from '../../public/images/fleet_tabs/global_coverage.png';
 import Biggest_fleet from '../../public/images/fleet_tabs/biggest_fleet.png';
 
 
+
+const faqs = [
+  {
+    index: 1,
+    title: "Global Coverage",
+    icon: GlobalIcon
+  },
+  {
+    index: 2,
+    title: "Biggest Fleet Network",
+    icon: aeroIcon
+  },
+  {
+    index: 3,
+    title: "Cost-Effective Solution",
+    icon: CostEffective
+  },
+  {
+    index: 4,
+    title: "24x7 Doctors On Board",
+    icon: DoctorIcon
+  },
+]
+
+
 const ChooseQwiklif = () => {
   const [activeTab, setActiveTab] = useState(1);
   return (
     <div>
       <div className="">
         <div className="flex sm:w-full sm:flex-col mt-10 sm:mt-0 sm:pt-0 mb-10 py-10">
-          <h2 className="font-sans font-extrabold text-4xl sm:text-2xl text-center border-r-2 border-[#396CF0] sm:border-none h-full sm:pr-0 pr-16 flex items-center sm:w-full">
+          <h2 className="font-sans font-extrabold text-4xl sm:text-2xl text-center border-r-2 border-[#396CF0] sm:border-none sm:pr-0 pr-16 sm:mb-2 sm:w-full">
             Why choose Qwiklif?
           </h2>
 
           <div className="sm:pl-0 pl-16">
-            <p className="text-[#646464] text-[18px] leading-[32px] ml-[10px] lg:ml-0 font-sans font-medium sm:ml-3">
+            <p className="text-[#646464] text-lg text-center leading-[32px] ml-[10px] lg:ml-0 font-sans font-medium sm:ml-3">
               Fly Fast and Safe with Qwiklif Air Ambulance We have access to
               global hospitals including finest medic and eminent surgeons
               across the globe.
             </p>
           </div>
         </div>
+
         <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
           <div className="col-span-4 sm:col-span-12 flex flex-col mb-5">
-            <button
-              className={`h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full hover:text-white sm:justify-between  ${activeTab === 1 ? styles.aboutPageMenuActive : ''
-                }`} p
-              onClick={() => setActiveTab(1)}
-            >
-              <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
-                <Image src={aeroIcon} height={40} width={35} alt="" />
-              </div>
-              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
-                Biggest Fleet Network
-              </div>
-            </button>
-
-            <button
-              className={`h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${activeTab === 2 ? styles.aboutPageMenuActive : ''
-                }`}
-              onClick={() => setActiveTab(2)}
-            >
-              <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
-                <Image src={DoctorIcon} width={30} height={25} />
-              </div>
-              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
-                24x7 Doctors On Board
-              </div>
-            </button>
-
-            <button
-              className={`h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${activeTab === 3 ? styles.aboutPageMenuActive : ''
-                }`}
-              onClick={() => setActiveTab(3)}
-            >
-              {' '}
-              <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
-                <Image src={GlobalIcon} width={35} height={25} />
-              </div>
-              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
-                Global Coverage
-              </div>
-            </button>
-
-            <button
-              className={`h-[80px] px-[30px] bg-[#F0F4FF] mb-5 cursor-pointer flex items-center justify-between hover:bg-[#396CF0] rounded sm:w-full sm:justify-between sm:px-[10px] hover:text-white ${activeTab === 4 ? styles.aboutPageMenuActive : ''
-                }`}
-              onClick={() => setActiveTab(4)}
-            >
-              {' '}
-              <div className="bg-[#396CF0] rounded-full w-[50px] h-[50px] flex justify-center items-center">
-                <Image src={CostEffective} width={35} height={25} />
-              </div>
-              <div className="font-sans font-extrabold text-xl sm:flex justify-end">
-                Cost-Effective Solution
-              </div>
-            </button>
+            {faqs.map(({ icon, index, title }) =>
+              <ChooseQwiklifButton
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                icon={icon}
+                tabIndex={index}
+                title={title}
+                key={title + index}
+              />)}
           </div>
           <div className="col-span-6 sm:col-span-12 sm:mb-10">
             {activeTab === 1 && (
@@ -122,3 +104,22 @@ const ChooseQwiklif = () => {
 };
 
 export default ChooseQwiklif;
+
+
+
+const ChooseQwiklifButton = ({ activeTab, setActiveTab, tabIndex, title, icon }) => {
+  return (
+    <button
+      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#396CF0] rounded sm:w-full hover:text-white transition-colors duration-300 ${activeTab === tabIndex && '!bg-[#396CF0] !text-white'}`}
+      onClick={() => setActiveTab(tabIndex)}
+    >
+      <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
+        <Image src={icon} height={40} width={35} alt={title} />
+      </div>
+      <div className="font-sans font-extrabold text-xl sm:flex justify-end">
+        {title}
+      </div>
+    </button>
+
+  )
+}

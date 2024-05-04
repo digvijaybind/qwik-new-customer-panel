@@ -31,11 +31,11 @@ const LatestNew = () => {
   };
   return (
     <div>
-      <div id="services" className="px-36 sm:px-10">
+      <div id="services">
         <h1 className="text-[#11B6E3] font-sans font-extrabold text-center mb-[10px]">
           Latest News
         </h1>
-        <h2 className="font-sans font-extrabold text-3xl text-center">
+        <h2 className="font-sans font-extrabold text-3xl sm:text-xl text-center">
           Get Every News & Updates
         </h2>
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
@@ -48,7 +48,7 @@ const LatestNew = () => {
                 return (
                   <div
                     key={index}
-                    className="grid gap-4 grid-cols-3 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                    className="grid gap-4 grid-cols-3 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 lg:grid-cols-2 sm:gap-4 sm:px-5"
                   >
                     <NewsUpdates
                       title={item.title}

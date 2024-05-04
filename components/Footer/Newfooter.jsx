@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './newFooter.module.css';
 import Phone from '../../public/images/Phone.svg';
 import Mail from '../../public/images/Mail.svg';
 import Image from 'next/image';
@@ -10,6 +9,9 @@ import Tiktok from '../../public/images/socialmedia/tiktok.svg';
 import Twitter from '../../public/images/socialmedia/Twitter.svg';
 import Facebook from '../../public/images/socialmedia/facebook.svg';
 import Link from 'next/link';
+import { StyledSection } from '../shared';
+
+
 const QwiklifData = [
   { name: 'About us', link: '/about' },
   { name: 'Media', link: '/media' },
@@ -51,9 +53,15 @@ const WorkWithQwiklif = [
   },
 ];
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
+
+
 const Newfooter = () => {
   return (
-    <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]">
+    <StyledSection
+      containerClassName='bg-[#0f2738]'
+      className='sm:!px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]'
+    >
+      {/* <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]"> */}
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-4 lg:gap-6 content-center">
         <div className="flex flex-col content-center">
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
@@ -190,7 +198,8 @@ const Newfooter = () => {
           />
         </div>
       </div>
-    </div>
+      {/* </div> */}
+    </StyledSection>
   );
 };
 
