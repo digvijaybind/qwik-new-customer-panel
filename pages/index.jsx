@@ -274,10 +274,11 @@ export default function Home() {
                         }`}
                     >
                       <h4
-                        className={`ml-[30px] ${SelectedCollapseIndex === index
-                          ? 'text-[#FFFFFF]'
-                          : ''
-                          }  font-sans font-extrabold text-xl`}
+                        className={`ml-[30px] ${
+                          SelectedCollapseIndex === index
+                            ? 'text-[#FFFFFF]'
+                            : ''
+                        }  font-sans font-extrabold text-xl`}
                       >
                         {item.header}
                       </h4>

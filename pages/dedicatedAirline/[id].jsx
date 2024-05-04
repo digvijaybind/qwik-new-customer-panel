@@ -13,11 +13,35 @@ import Point from '../../public/images/PointIcon.svg';
 import { useState } from 'react';
 import Important from '../../db/important.json';
 
+
 const Guarantee = () => {
   return (
-    <div className="flex justify-center flex-col  items-center px-[25px] py-[30px] border-2 border-[#D9D9D9] rounded-md  shadow-md sm:px-[10px] sm:py-[10px] sm:w-[320px] md:w-[768px] lg:w-[881px] xl:min-w-[881px]">
+    <div
+      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:items-start
+          sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12 "
+    >
+      <div class="font-black text-lg font-sans">OUR GUARANTEE</div>
+      <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">
+        We guarantee that when choosing Qwiklif, your loved ones shall be
+        treated with professional and compassionate care. We consider every
+        patient as family, we strive for perfection, and continuously monitor
+        our operations. When choosing a provider, remember that Qwiklif Air
+        Ambulance is the world's first air ambulance service provider giving an
+        instant quotation.
+      </div>
+      <div class="flex items-center flex-col justify-center mt-5">
+        <Image src={Signature} width={200} height={125} />
+        <div class="font-extrabold text-sm font-sans">CEO, QWIKLIF</div>
+      </div>
+    </div>
+  );
+};
+
+const GuarranteeUpdate = () => {
+  return (
+    <div className="px-[25px] py-[30px] border-2 border-[#D9D9D9] rounded-md flex items-center flex-col  sm:items-start md:items-start sm:py-[20px] sm:px-[15px] md:px-[35px] lg:px-[15px] xl:">
       <div className="font-black text-[16px] font-sans">OUR GUARANTEE</div>
-      <div className="font-sans text-[12px] font-medium mt-3">
+      <div className="font-sans text-[12px] font-medium mt-3 px-[20px] sm:w-[320px] sm:px-[20px]  md:w-[768px] lg:w-[881px] xl:w-[881px]">
         We Guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
         patient as family, we strive to perfection and continuously monitoring
@@ -25,10 +49,12 @@ const Guarantee = () => {
         ambulance is World First air ambulance service provider giving instant
         quotation.
       </div>
-      <div>
+      <div className="flex items-center flex-col justify-center">
         <Image src={Signature} width={200} height={125} />
+        <div className="font-extrabold text-[12px] font-sans">
+          CEO , QWIKLIF
+        </div>
       </div>
-      <div className="font-extrabold text-[12px] font-sans">CEO , QWIKLIF</div>
     </div>
   );
 };
@@ -93,20 +119,20 @@ const TravelDuration = () => {
             <span className="font-black text-[16px] font-sans"> Dubai</span>
           </div>
           <div
-            className={`w-[165px] h-[20px] text-[#fff] text-[12px] font-extrabold font-sans text-center  ${styles.backgroundContainer} sm:mt-3`}
+            className={`w-[165px] h-[20px] text-[#fff] text-[12px] font-extrabold font-sans text-center rounded-md  ${styles.backgroundContainer} sm:mt-4`}
           >
             Your Booking On Priority
           </div>
         </div>
         <div className={`flex justify-between mt-2 sm:flex-col sm:mt-3`}>
           <div className="flex justify-between items-center w-[240px] sm:flex-col sm:items-baseline">
-            <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px] font-extrabold flex justify-between items-center px-[5px] rounded-sm">
+            <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px]   font-extrabold flex justify-between items-center px-[10px] rounded-md">
               {' '}
               Saturday, Apr 27
             </div>
             <span className="font-medium text-[12px]">Non Stop - 2h 10m</span>
           </div>
-          <div className="font-medium text-[12px] text-[#68D2F3]">
+          <div className="font-bold text-[12px] text-[#68D2F3]">
             Check Terms
           </div>
         </div>
@@ -248,7 +274,7 @@ const TravelDuration = () => {
               descripation=""
             />
           </div>
-          <div className="flex justify-center sm:justify-start">
+          <div className="flex justify-start col-span-3 sm:justify-start pl-[20px] md:col-span-1 sm:col-span-1 sm:pl-[0px]">
             <MedicalInstruments
               src={Medicalequiment}
               width={26}
@@ -257,9 +283,7 @@ const TravelDuration = () => {
               descripation=""
             />
           </div>
-          <div className="flex justify-center sm:justify-start sm:hidden"></div>
-          <div className="flex justify-center sm:justify-start sm:hidden"></div>
-          <div className="flex justify-center sm:justify-start">
+          <div className="flex justify-start col-span-3 sm:justify-start pl-[20px] md:col-span-1 sm:col-span-1 sm:pl-[0px]">
             <MedicalInstruments
               src={Strectres}
               width={26}
@@ -357,7 +381,7 @@ const ImportantInfo = () => {
 
 const TotalFare = () => {
   return (
-    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md">
+    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9]">
       <div className=" text-[16px] font-black">Fare Summary</div>
       <div className="flex justify-between mb-2">
         <div className="font-bold text-[12px] font-sans">Base Fare</div>
@@ -365,9 +389,7 @@ const TotalFare = () => {
       </div>
       <div class="border-b border-gray-300"></div>
       <div className="flex justify-between mb-2">
-        <div className="font-bold text-[12px] font-sans">
-          Taxes & Surcharges
-        </div>
+        <div className="font-bold text-[12px] font-sans">Taxes</div>
         <div className="font-medium text-[12px] ">$ 2000</div>
       </div>
       <div class="border-b border-gray-300"></div>
@@ -381,20 +403,20 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 font-sans border-2 border-[#D9D9D9]">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
       <input
-        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl"
+        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl text-[10px]"
         placeholder="Enter Your Name"
       />
       <input
-        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl"
+        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl text-[10px]"
         placeholder="Enter Your Phone Number"
       />
       <input
-        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl"
+        className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl text-[10px]"
         placeholder="Enter Your Email ID"
       />
       <button className="bg-[#12B5E4] rounded-md mt-3 py-[7px] cursor-pointer text-[12px] text-[#fff] font-bold font-sans hover:text-[#323232]">
@@ -420,14 +442,14 @@ const DedicatedAirline = () => {
   return (
     <div className={`${styles.Container}`}>
       <div className={`${styles.Section1_Container} w-full`}></div>
-      <div className="grid grid-cols-8 grid-rows-1 gap-15 px-[80px] py-[10px] relative bottom-40 sm:px-[5px] sm:py-[5px]">
-        <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px] sm:px-[0px] sm:py-[0px]">
+      <div className="grid grid-cols-8 grid-rows-1 gap-15 px-[80px] py-[10px] relative bottom-40 sm:px-[5px] sm:py-[5px] md:px-[60px]">
+        <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px] sm:col-span-1 sm:px-[8px] sm:py-[8px]">
           <TravelDuration />
           <Guarantee />
           <OurStories isMobile={isMobile} />
           <ImportantInfo />
         </div>
-        <div className="col-span-2 border-2 border-gray-200  shadow-2xl h-[100px] rounded-xl flex justify-between flex-col items-center sm:hidden md:hidden lg:hidden">
+        <div className="col-span-2 border-2 border-gray-200  shadow-2xl h-[100px] rounded-xl flex justify-between flex-col items-center sm:hidden md:hidden lg:hidden xl:hidden">
           <TotalFare />
           <PayConfirmation />
         </div>

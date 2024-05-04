@@ -17,9 +17,9 @@ const QwiklifData = [
   { name: 'Media', link: '/media' },
   { name: 'Services', link: '/services' },
   { name: '', link: '/workWithus' },
-  { name: 'Contact us', link: '/contact-us' },
-  { name: 'Our Location', link: '/location' },
   { name: 'Blog', link: '/blogs' },
+  { name: 'Our Location', link: '/location' },
+  { name: 'Contact us', link: '/contact-us' },
 ];
 
 const ServiceData = [
@@ -138,9 +138,9 @@ const Newfooter = () => {
             Qwiklif Air Ambulance, Warehouse No.3 - Al Qusais Industrial Area 3
             - Dubai
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row sm:flex sm:items-end">
             <Image src={Phone} height={30} width={30} />
-            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8]">
+            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8] sm:text-[10px]">
               <a href=" +971 50 282 5433 hover:text-[#3788d8]">
                 +971 50 282 5433
               </a>

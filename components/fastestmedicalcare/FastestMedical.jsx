@@ -6,6 +6,9 @@ import Miniaircraft from '../../public/images/counter/aeroplane2.png';
 import Doctor from '../../public/images/counter/doctor.png';
 import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
+
+
+
 const FastestMedical = () => {
   return (
     <div

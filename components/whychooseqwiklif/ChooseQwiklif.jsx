@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import SelectionComponent from '@/components/selection/SelectionComponent';
-import styles from './ChooseQwiklif.module.css';
 import aeroIcon from '../../public/images/aeroplaneicon.svg';
 import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import GlobalIcon from '../../public/images/counter/globalIcon.svg';
-import CostEffective from '../../public/images/counter/CostEffective.svg';
+import CostEffective from '../../public/images/counter/CostEffective.png';
 import DoctorOnboard from '../../public/images/fleet_tabs/doctor_onboard.png';
 import GlobalCoverage from '../../public/images/fleet_tabs/global_coverage.png';
 import Biggest_fleet from '../../public/images/fleet_tabs/biggest_fleet.png';
@@ -34,7 +33,6 @@ const faqs = [
     icon: DoctorIcon
   },
 ]
-
 
 const ChooseQwiklif = () => {
   const [activeTab, setActiveTab] = useState(1);
