@@ -1,12 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
 import Depature from '../../public/images/inputBox/Depature.svg';
 import Destination from '../../public/images/inputBox/Destination.svg';
-import Patience from '../../public/images/inputBox/Patience.svg';
 import Phone from '../../public/images/inputBox/Phone.svg';
 import Date from '../../public/images/inputBox/Date.svg';
-import Reverse from '../../public/images/inputBox/Reverse.svg';
-import Telephone from '../../public/images/inputBox/telephone.svg';
-import Image from 'next/image';
+
+
+
 const MobileSearch = () => {
   return (
     <div className="flex flex-col items-center font-sans">

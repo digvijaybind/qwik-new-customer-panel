@@ -1,12 +1,15 @@
 import React from 'react'
 
-const StyledSection = ({ children, className = '' }) => {
+const StyledSection = ({ children, containerClassName = '', className = '', styles = {}, containerStyles = {} }) => {
     return (
-        <section className='w-full'>
-            <div className={`${className} xs:w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl 2xl:max-w-5xl max-w-6xl 2x mx-auto`}>
+        <section className={`${containerClassName} w-full `} style={containerStyles}>
+            <div
+                style={styles}
+                className={`${className} xs:w-full sm:px-4 lg:px-6 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl 2xl:max-w-5xl max-w-6xl mx-auto`}
+            >
                 {children}
             </div>
-        </section>
+        </section >
     )
 }
 

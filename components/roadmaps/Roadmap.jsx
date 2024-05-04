@@ -7,17 +7,14 @@ const Roadmap = () => {
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
     <div>
-      <div
-        className={`h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] ${styles.boxShadow} mt-[60px]`}
-      >
-        <div className="h-[60px] flex flex-row w-full md:flex-col sm:flex-col">
+      <div className={`shadow rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px]`}  >
+        <div className="h-[60px] sm:h-fit flex flex-row w-full rounded-t overflow-hidden">
           {bookTypes.map((item, index) => {
             return (
               <button
                 key={index}
-                className={`w-[50%] flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${
-                  SelectedIndex === index ? 'bg-[#4B68B8]' : 'bg-[#F0F0F09C]'
-                }`}
+                className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${SelectedIndex === index ? 'bg-[#4B68B8]' : 'bg-[#F0F0F09C]'
+                  }`}
                 onClick={(e) => {
                   e.preventDefault();
                   setSelectedIndex(index);
@@ -32,7 +29,7 @@ const Roadmap = () => {
                         width={40}
                         height={40}
                         alt="rapid Time"
-                        layout="contain"
+                        layout="cover"
                       />
                     </div>
                   ) : (
@@ -43,15 +40,14 @@ const Roadmap = () => {
                         width={40}
                         height={40}
                         alt="rapid Time"
-                        layout="contain"
-                       
+                        layout="cover"
+
                       />
                     </div>
                   )}
                   <p
-                    className={`font-normal text-[16px] leading-[26px] ${
-                      SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
-                    }`}
+                    className={`font-normal text-[16px] leading-[26px] ${SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
+                      }`}
                   >
                     {item}
                   </p>

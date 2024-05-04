@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './FastestMedical.module.css';
 import Image from 'next/image';
 import CountUp from 'react-countup';
 import MiniAeroplane from '../../public/images/counter/aeroplane.png';
@@ -7,11 +6,13 @@ import Miniaircraft from '../../public/images/counter/aeroplane2.png';
 import Doctor from '../../public/images/counter/doctor.png';
 import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
+
+
+
 const FastestMedical = () => {
   return (
     <div
-      className={`${styles.lower_plane} w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat font-sans`}
-      style={{ backgroundImage: "url('/images/lower_plane.png')" }}
+      className={`font-sans w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat`}
     >
       <div className="flex flex-col items-center w-full">
         <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">
@@ -31,44 +32,58 @@ const FastestMedical = () => {
           </button>
         </Link>
       </div>
-      <div
-        className={`${styles.lowerShadow} bg-white translate-y-2/3 sm:translate-y-[10%] w-8/12 sm:w-10/12 p-4 shadow-md items-center flex justify-evenly flex-row sm:flex-wrap sm:justify-center  sm:flex-col sm:items-center`}
-      >
-        <div className="flex flex-col items-center">
-          <Image src={MiniAeroplane} height={100} width={100} />
-          <div className="font-bold text-[50px]">
-            <CountUp start={1} end={450} duration={5} />+
-          </div>
-          <div className="font-semibold text-black font-sans">Air Transfer</div>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <Image src={Miniaircraft} width={100} height={100} />
-          <div className="font-bold text-[50px]">
-            <CountUp start={1} end={25} duration={8} />+
-          </div>
-          <div className="font-semibold text-black font-sans">No of Fleet</div>
-        </div>
-
-        <div className="flex flex-col items-center">
-          <Image src={Doctor} width={100} height={100} />
-          <div className="font-bold text-[50px]">
-            <CountUp start={1} end={15} duration={10} />+
-          </div>
-          <div className="font-semibold text-black font-sans">Doctors</div>
-        </div>
-        <div className="flex flex-col items-center">
-          <Image src={Miniglobal} width={100} height={100} />
-          <div className="font-bold text-[50px]">
-            <CountUp start={1} end={7000} duration={5} /> +
-          </div>
-          <div className="font-semibold text-black font-sans">
-            Global Affiliation
-          </div>
-        </div>
-      </div>
+      <FloatingBox />
     </div>
   );
 };
 
 export default FastestMedical;
+
+
+
+const FloatingBox = () => {
+  return (
+    <div
+      className={`bg-white translate-y-1/2 w-fit sm:max-w-[66.666%] xs:max-w-[85%] px-8 sm:px-4 py-4 rounded-md shadow-md items-center flex justify-evenly gap-8 sm:gap-6 sm:flex-wrap sm:justify-center sm:items-center`}
+    >
+      <div className="flex flex-col items-center">
+        <Image src={MiniAeroplane} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <p className="font-bold text-5xl sm:text-xl ">
+          <CountUp start={1} end={450} duration={5} />+
+        </p>
+        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+          Air Transfer
+        </p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <Image src={Miniaircraft} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <p className="font-bold text-5xl sm:text-xl ">
+          <CountUp start={1} end={25} duration={8} />+
+        </p>
+        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+          No of Fleet
+        </p>
+      </div>
+
+      <div className="flex flex-col items-center">
+        <Image src={Doctor} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <p className="font-bold text-5xl sm:text-xl ">
+          <CountUp start={1} end={15} duration={10} />+
+        </p>
+        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+          Doctors
+        </p>
+      </div>
+      <div className="flex flex-col items-center">
+        <Image src={Miniglobal} className='w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14' />
+        <p className="font-bold text-5xl sm:text-xl ">
+          <CountUp start={1} end={7000} duration={5} /> +
+        </p>
+        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+          Global Affiliation
+        </p>
+      </div>
+    </div>
+  )
+}
