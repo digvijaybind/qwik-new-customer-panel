@@ -11,7 +11,10 @@ const HamburgerMenu = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div>
+    <div className="flex flex-col font-sans">
+      <div className="text-center flex items-center justify-center bg-[#12B5E4] w-full h-[24px] text-[8px] font-bold text-[#fff] font-sans">
+        AVAILABLE 24/7 FOR INTERNATIONAL AND DOMESTIC FLIGHTS{' '}
+      </div>
       <div className="flex flex-row justify-between items-center px-[10px] py-[10px] font-sans">
         <div className="flex flex-row justify-between">
           <div className="">
@@ -21,7 +24,12 @@ const HamburgerMenu = () => {
         <div className="font-semibold text-[10px]">
           <div className={styles.telephonehamburg}>
             <div className={styles.Innertelephone}>
-              <Image src={Telephone} width={18} height={26} className={styles.ImageSvg} />
+              <Image
+                src={Telephone}
+                width={18}
+                height={26}
+                className={styles.ImageSvg}
+              />
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7 `}
               >
@@ -58,14 +66,13 @@ const HamburgerMenu = () => {
               onClick={() => router.push('/blog')}
               className="font-semibold text-[16px] p-2 hover:gray"
             >
-              Blog
+              Partner with Us
             </li>
             <li className="font-semibold text-[16px] p-2 hover:gray">
               Our Location
             </li>
             <li className="font-semibold text-[16px] p-2 hover:">About</li>
             <li className="font-semibold text-[16px] p-2 hover:">Contact</li>
-            {/* Add more menu items as needed */}
           </ul>
         </div>
       )}
