@@ -168,13 +168,9 @@ export default function Home() {
           handleInputChange={handleInputChange}
         /> */}
 
-        {/* relative bottom-56 */}
-        {/* relative bottom-15 */}
-
         {!isMobile ? (
-          <StyledSection className="">
+          <StyledSection containerClassName='-translate-y-1/2'>
             <UpdateSearch
-              className="bottom-60 sm:bottom-60"
               isMobile={isMobile}
               formData={formData}
               handleSubmit={handleSubmit}
@@ -190,6 +186,7 @@ export default function Home() {
             />
           </StyledSection>
         )}
+
         {/* About Air Craft && Qwiklif Features */}
         <StyledSection>
           <AboutAircraft />

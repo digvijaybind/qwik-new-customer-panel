@@ -24,16 +24,25 @@ module.exports = {
       colors: {
         Bluedark: '#15264C',
         primary: '#11B6E3',
+        card: {
+          primary: '#e6f2f5',
+        }
       },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
-
       // max-width
       maxWidth: {
         '8xl': '1440px',
+      },
+      gridTemplateColumns: {
+        '13': 'repeat(13, minmax(0, 1fr))',
+        '14': 'repeat(14, minmax(0, 1fr))',
+        '15': 'repeat(15, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
+        '17': 'repeat(17, minmax(0, 1fr))',
       }
     },
     screens: {

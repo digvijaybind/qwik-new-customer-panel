@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './Navnew.module.css';
 import Logo from '../../public/images/qwiklif.svg';
 import Telephone from '../../public/images/telephone.svg';
-import Image from 'next/image';
 import Image1 from '../../public/images/slider/1.png';
 import Image3 from '../../public/images/slider/3.png';
 import Image4 from '../../public/images/slider/4.png';
@@ -10,7 +9,9 @@ import Image5 from '../../public/images/slider/5.png';
 
 import ImageCarousel from '../Imagecarousel/ImageCarousel';
 const images = [Image1, Image3, Image4, Image5];
-const Navnew = ({ isMobile }) => {
+
+
+const Navnew = () => {
   const [header, setHeader] = useState(styles.header);
 
   const listenScrollEvent = () => {
@@ -31,6 +32,7 @@ const Navnew = ({ isMobile }) => {
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
+  
   const tabs = [
     'Home',
     'About',

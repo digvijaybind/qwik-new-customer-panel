@@ -1,39 +1,38 @@
 import React from 'react';
+import Image from 'next/image';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Image from 'next/image';
 
 const ImageCarousel = ({ images }) => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
+    speed: 750,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1200,
+    autoplaySpeed: 2500,
   };
 
   return (
-    <Slider {...settings}>
-      {images.map((imageUrl, index) => (
-        <div key={index}>
-          <div className="w-full flex justify-center rounded-lg font-sans">
-            <Image
-              src={imageUrl}
-              alt={`Slide ${index + 1}`}
-              width={1900} // Set the desired width
-              height={40}
-              objectFit="cover"
-              style={{ zIndex: 1 }}
-              // style={{borderRadius: "60px"}}
-            />
+    <div className='relative w-full'>
+      <Slider {...settings}>
+        {images.map((imageUrl, index) => (
+          <div key={index}>
+            <div className="w-full flex justify-center rounded-lg font-sans">
+              <Image
+                src={imageUrl}
+                alt={`Slide ${index + 1}`}
+                objectFit="cover"
+                style={{ zIndex: 1 }}
+                className='w-full h-[75vh]'
+              />
+            </div>
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
