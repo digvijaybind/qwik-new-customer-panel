@@ -1,15 +1,22 @@
 'use client';
 import React from 'react';
 import styles from './commericialAirline.module.css';
-import Arrow from '@/components/Utils/arrow/Arrow';
 import Image from 'next/image';
 import Signature from '../../public/images/Signature.svg';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import Airline from '../../public/images/airlines/indigo.jpg';
+import Doctors from '../../public/images/bookingIcon/doctor.png';
+import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
+import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
+import Strectres from '../../public/images/bookingIcon/strectres.png';
+import Point from '../../public/images/PointIcon.svg';
+import Important from '../../db/important.json';
 
 const Guarantee = () => {
   return (
     <div
       className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:items-start
-          sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12 "
+       sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12"
     >
       <div class="font-black text-lg font-sans">OUR GUARANTEE</div>
       <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">
@@ -99,7 +106,7 @@ const AutoVideoSlider = ({ videos, interval, isMobile }) => {
 
 const TravelDuration = () => {
   return (
-    <div className="px-[15px] py-[25px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md mb-5 sm:min-w-[320px]">
+    <div className="px-[10px] py-[10px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md  sm:min-w-[320px]">
       <div className="Topsection flex flex-col sm:px-[10px] sm:py-[10px]">
         <div className="flex justify-between sm:flex-col">
           <div className="flex items-center  justify-around w-[200px]">
@@ -130,8 +137,10 @@ const TravelDuration = () => {
         <div className="flex justify-between items-center sm:flex sm:flex-col sm:items-baseline">
           <div className="flex flex-row items-center sm:justify-between">
             <Image src={Airline} width={50} height={20} />
-            <div className="font-black text-[12px] mr-[10px]">Vistara</div>
-            <div className="font-medium text-[10px]">UK 583, UK 848</div>
+            <div className="font-black text-[12px] mr-[10px]">
+              Challenger 605
+            </div>
+            <div className="font-medium text-[10px]">Challenger 605</div>
           </div>
           <div className="font-black text-[#323232] text-[12px]">
             Charter Plane
@@ -297,7 +306,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 border-2 border-[#D9D9D9] font-sans">
+    <div className="flex flex-col justify-center px-[25px]  h-[300px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 border-2 border-[#D9D9D9] font-sans">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
@@ -319,18 +328,35 @@ const PayConfirmation = () => {
     </div>
   );
 };
+
+const UpperSection = () => {
+  return (
+    <div className="grid grid-cols-9 gap-5 px-10">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center ">
+        <TravelDuration />
+      </div>
+      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col">
+        <TotalFare />
+        <PayConfirmation />
+      </div>
+    </div>
+  );
+};
+
 const CommercialAirline = () => {
   return (
     <div className="px-[15px]">
       <div className={`${styles.Section1_Container} w-full`}></div>
-      <div className="grid grid-cols-2 gap-10 px-[10px] py-[10px]">
-        <div className="bg-[#fff] rounded-md">
-          {/* <TravelDuration /> */}
-          {/* <Guarantee /> */}
-
-          <Guarantee />
+      <div className="relative bottom-[200px]">
+        <div className="">
+          <UpperSection />
         </div>
-        <div className=""></div>
+        <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
+          <div className="col-span-5  mb-5 shadow-2xl  px-10 py-10">
+            <Guarantee />
+            <ImportantInfo />
+          </div>
+        </div>
       </div>
     </div>
   );
