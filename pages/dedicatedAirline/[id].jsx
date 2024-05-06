@@ -97,7 +97,7 @@ const AutoVideoSlider = ({ videos, interval, isMobile }) => {
 
 const TravelDuration = () => {
   return (
-    <div className="px-[15px] py-[25px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md mb-5 sm:min-w-[320px]">
+    <div className="px-[15px] py-[25px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md mb-5 sm:min-w-[320px] sm:bg-[#fff]">
       <div className="Topsection flex flex-col sm:px-[10px] sm:py-[10px]">
         <div className="flex justify-between sm:flex-col">
           <div className="flex items-center  justify-around w-[200px]">
@@ -115,25 +115,27 @@ const TravelDuration = () => {
         </div>
         <div className={`flex justify-between mt-2 sm:flex-col sm:mt-3`}>
           <div className="flex justify-between items-center w-[240px] sm:flex-col sm:items-baseline">
-            <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px]   font-extrabold flex justify-between items-center px-[10px] rounded-md">
+            <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px]   font-extrabold flex justify-between items-center px-[10px] sm:mb-2 rounded-md">
               {' '}
               Saturday, Apr 27
             </div>
             <span className="font-medium text-[12px]">Non Stop - 2h 10m</span>
           </div>
-          <div className="font-bold text-[12px] text-[#68D2F3]">
+          <div className="font-bold text-[12px] text-[#68D2F3] sm:mt-3">
             Check Terms
           </div>
         </div>
         <div className="flex justify-between items-center sm:flex sm:flex-col sm:items-baseline mt-5 mb-5">
           <div className="flex flex-row items-center sm:justify-between">
-            <Image src={Learjet} width={20} height={15} />
-            <div className="font-black text-[12px] mr-[10px]">
+            <Image src={Learjet} width={30} height={25} />
+            <div className="font-black text-[12px] ml-[10px]">
               Challenger 605
             </div>
-            <div className="font-medium text-[10px]">Challenger 605</div>
+            <div className="font-medium text-[10px] ml-[10px]">
+              Challenger 605
+            </div>
           </div>
-          <div className="font-black text-[#323232] text-[12px]">
+          <div className="font-black text-[#323232] text-[12px] sm:mt-3">
             Charter Plane
           </div>
         </div>
@@ -241,9 +243,11 @@ const InfomationHead = ({ title, descripation }) => {
       <div className="col-span-2 flex items-start justify-center sm:contents">
         <Image src={Point} width={26} height={26} />
       </div>
-      <div className="col-span-8">
-        <div className="font-extrabold text-[16px] font-sans">{title}</div>
-        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px]">
+      <div className="col-span-8 sm:w-full">
+        <div className="font-extrabold text-[16px] font-sans sm:px-[5px]">
+          {title}
+        </div>
+        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px] sm:px-[5px]">
           {descripation}
         </li>
       </div>
@@ -252,7 +256,7 @@ const InfomationHead = ({ title, descripation }) => {
 };
 const ImportantInfo = () => {
   return (
-    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5 sm:px-[10px] sm:py-[10px]">
+    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5 sm:px-[10px] sm:py-[10px] sm:w-full">
       <div className="grid grid-rows-auto grid-cols-1">
         <div className="text-[18px] font-extrabold font-sans text-black">
           Important Infomation
@@ -322,11 +326,11 @@ const PayConfirmation = () => {
 };
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10">
-      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center ">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center  sm:border-0 sm:border-none sm:bg-transparent">
         <TravelDuration />
       </div>
-      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col">
+      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-1">
         <TotalFare />
         <PayConfirmation />
       </div>
@@ -363,14 +367,14 @@ const DedicatedAirline = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="px-[15px]">
+    <div className="px-[15px] font-sans">
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="relative bottom-[200px]">
         <div className="">
           <UpperSection />
         </div>
         <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
-          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10">
+          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3">
             <Guarantee />
             <ImportantInfo />
           </div>

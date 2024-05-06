@@ -331,11 +331,11 @@ const PayConfirmation = () => {
 
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10">
-      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center ">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center sm:col-span-12">
         <TravelDuration />
       </div>
-      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col">
+      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-12">
         <TotalFare />
         <PayConfirmation />
       </div>
@@ -345,7 +345,7 @@ const UpperSection = () => {
 
 const CommercialAirline = () => {
   return (
-    <div className="px-[15px]">
+    <div className="px-[15px] font-sans">
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="relative bottom-[200px]">
         <div className="">
