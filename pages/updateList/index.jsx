@@ -11,6 +11,7 @@ import SearchBar from '@/components/SearchBar/SearchBar';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import MobileButton from '@/components/selectionButton/MobileButton';
+import Updatemobiletab from '@/components/selectionButton/UpdateMobiletab';
 const UpdateList = () => {
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
@@ -147,7 +148,7 @@ const UpdateList = () => {
 
   return (
     <div>
-      <div className="sm:px-[20px] sm:py-[20px] font-sans">
+      <div className="sm:px-[20px] sm:py-[20px] font-sans bg-[#f4f4f4]">
         <div className="flex justify-center items-center">
           {/* <SearchBar
           className="bottom-10"
@@ -190,7 +191,10 @@ const UpdateList = () => {
               />
             </div>
           ) : (
-            <MobileButton onChange={() => handleTabChange()} />
+            <Updatemobiletab
+              selectedTab={selectedTab}
+              handleTabChange={handleTabChange}
+            />
           )}
 
           {!isMobile ? (

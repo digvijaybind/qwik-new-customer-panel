@@ -12,6 +12,7 @@ import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
 import { useState } from 'react';
 import Important from '../../db/important.json';
+import MedicalInstruments from '@/components/medicalInstrument/MedicalInstrument';
 
 
 const Guarantee = () => {
@@ -59,17 +60,7 @@ const GuarranteeUpdate = () => {
   );
 };
 
-const MedicalInstruments = ({ src, width, height, Title, descripation }) => {
-  return (
-    <div className="flex justify-around flex-row items-center">
-      <Image src={src} width={width} height={height} />
-      <div className="font-black text-[12px] font-sans ml-3">{Title}</div>
-      <div className="text-[12px] font-sans font-medium ml-2">
-        {descripation}
-      </div>
-    </div>
-  );
-};
+
 
 const AutoVideoSlider = ({ videos, interval, isMobile }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
