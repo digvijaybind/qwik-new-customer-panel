@@ -15,25 +15,26 @@ import Biggest_fleet from '../../public/images/fleet_tabs/biggest_fleet.png';
 const faqs = [
   {
     index: 1,
-    title: "Global Coverage",
-    icon: GlobalIcon
+    title: 'Biggest Fleet Network',
+    icon: aeroIcon,
   },
   {
     index: 2,
-    title: "Biggest Fleet Network",
-    icon: aeroIcon
+    title: '24x7 Doctors On Board',
+    icon: DoctorIcon,
   },
   {
     index: 3,
-    title: "Cost-Effective Solution",
-    icon: CostEffectIcon
+    title: 'Global Coverage',
+    icon: GlobalIcon,
   },
+
   {
     index: 4,
-    title: "24x7 Doctors On Board",
-    icon: DoctorIcon
+    title: 'Cost-Effective Solution',
+    icon: CostEffectIcon,
   },
-]
+];
 
 const ChooseQwiklif = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -56,7 +57,7 @@ const ChooseQwiklif = () => {
 
         <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
           <div className="col-span-4 sm:col-span-12 flex flex-col mb-5">
-            {faqs.map(({ icon, index, title }) =>
+            {faqs.map(({ icon, index, title }) => (
               <ChooseQwiklifButton
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
@@ -64,7 +65,8 @@ const ChooseQwiklif = () => {
                 tabIndex={index}
                 title={title}
                 key={title + index}
-              />)}
+              />
+            ))}
           </div>
           <div className="col-span-6 sm:col-span-12 sm:mb-10">
             {activeTab === 1 && (
@@ -76,21 +78,21 @@ const ChooseQwiklif = () => {
             )}
             {activeTab === 2 && (
               <SelectionComponent
-                img={CostEffective}
+                img={DoctorOnboard}
                 title="24x7 Doctors on Board"
                 descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
               />
             )}
             {activeTab === 3 && (
               <SelectionComponent
-                img={DoctorOnboard}
+                img={GlobalCoverage}
                 title="Global Coverage"
                 descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.Whether you're in a bustling city or a remote area, our reach extends to every corner, making quality healthcare accessible wherever you are."
               />
             )}
             {activeTab === 4 && (
               <SelectionComponent
-                img={GlobalCoverage}
+                img={CostEffective}
                 title="Cost-Effective Solutions"
                 descripation="We are committed to providing cost-effective air ambulance solutions without compromising on the standard of care. We suggest different modes of transfers like commercial stretchers and other customised transfer plans for making your medical flight cost effective."
               />
