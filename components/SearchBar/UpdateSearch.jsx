@@ -426,7 +426,7 @@ const UpdateSearch = ({
         </div>
       </div>
       <button
-        className={`w-[284px] h-[46px]  text-[#fff] font-semibold bg-[#6DDEFF] position: relative bottom-[44px] left-[660px]  rounded-full hover:text-gray-800 ${className}`}
+        className={`w-[250px] h-[46px]  text-[#fff] font-semibold bg-[#6DDEFF] position: relative bottom-[44px] left-[600px]  rounded-full hover:text-gray-800 ${className}`}
         style={{ boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)' }}
       >
         Search Now
