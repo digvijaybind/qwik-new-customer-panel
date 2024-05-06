@@ -159,7 +159,7 @@ const UpdateSearch = ({
         className={`relative bg-white w-full h-[220px] px-[25px] py-[40px] mb-20 border-2 rounded-lg flex justify-center items-center`}
       >
         {/* Search Container */}
-        <div className="relative grid grid-cols-13 rounded-md border-2 overflow-hidden w-full ">
+        <div className="relative grid grid-cols-13 sm:grid-cols-10 rounded-md border-2 overflow-hidden w-full ">
           {/* From */}
           <SearchLocationCard
             index={1}
@@ -193,11 +193,11 @@ const UpdateSearch = ({
           />
         </div>
 
-        <div className='w-fit bg-[#6DDEFF] rounded-full px-6 py-3 shadow absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'>
+        <div className='w-fit bg-[#6DDEFF] rounded-full px-6 sm:px-3 py-3 sm:py-1.5 shadow absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'>
           <button
-            className={` text-[#fff] font-semibold w-full h-full `}
+            className={`w-full h-full `}
           >
-            Search Now
+            <p className='text-white text-lg sm:text-sm font-semibold sm:font-medium'>  Search Now</p>
           </button>
         </div>
       </div>

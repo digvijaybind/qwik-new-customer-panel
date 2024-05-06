@@ -168,7 +168,17 @@ export default function Home() {
           handleInputChange={handleInputChange}
         /> */}
 
-        {!isMobile ? (
+
+        <StyledSection containerClassName='-translate-y-1/2'>
+          <UpdateSearch
+            isMobile={isMobile}
+            formData={formData}
+            handleSubmit={handleSubmit}
+            handleInputChange={handleInputChange}
+          />
+        </StyledSection>
+        
+        {/* {!isMobile ? (
           <StyledSection containerClassName='-translate-y-1/2'>
             <UpdateSearch
               isMobile={isMobile}
@@ -185,7 +195,7 @@ export default function Home() {
               handleInputChange={handleInputChange}
             />
           </StyledSection>
-        )}
+        )} */}
 
         {/* About Air Craft && Qwiklif Features */}
         <StyledSection>
@@ -271,11 +281,10 @@ export default function Home() {
                         }`}
                     >
                       <h4
-                        className={`ml-[30px] ${
-                          SelectedCollapseIndex === index
-                            ? 'text-[#FFFFFF]'
-                            : ''
-                        }  font-sans font-extrabold text-xl`}
+                        className={`ml-[30px] ${SelectedCollapseIndex === index
+                          ? 'text-[#FFFFFF]'
+                          : ''
+                          }  font-sans font-extrabold text-xl`}
                       >
                         {item.header}
                       </h4>
