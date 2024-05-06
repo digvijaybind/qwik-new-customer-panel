@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './DedicatedCard.module.css';
-import Vistara from '../../public/images/airlines/vistara.svg';
+import Learjet from '../../public/images/airline-mini-logo/learjet-405.svg';
 import Image from 'next/image';
-import LockIcon from '../Utils/lock/LockIcon';
-import Arrow from '../Utils/arrow/Arrow';
+import Doctors from '../../public/images/bookingIcon/doctor.png';
+import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
+import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
+import Strectres from '../../public/images/bookingIcon/strectres.png';
+import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
 const UpdatedDedicated = () => {
   return (
     <div
@@ -14,14 +17,14 @@ const UpdatedDedicated = () => {
           <div className="grid grid-cols-12 grid-rows-1 sm:grid-cols-1 sm:gap-y-5 sm:items-baseline sm:justify-start">
             <div className="logo-name col-span-5 flex flex-row sm:col-span-10">
               <div className="image h-[22px] w-[66px]">
-                <Image src={Vistara} alt="vistara" width={50} />
+                <Image src={Learjet} alt="vistara" width={50} />
               </div>
               <div className="flex flex-col justify-between">
                 <div className=" text-[12px] text-[#323232] font-black">
-                  Vistara
+                  Challenger 605
                 </div>
                 <div className="text-[10px] text-[#959494] font-sans">
-                  UK 583,UK 848
+                  Challenger 605
                 </div>
               </div>
             </div>
@@ -43,26 +46,7 @@ const UpdatedDedicated = () => {
                 </span>
               </div>
             </div>
-            {/* <div className="time-date col-span-7 flex flex-col justify-center items-center sm:flex-row sm:col-span-5">
-              <div className="flex flex-col items-center text-[#323232] font-extrabold text-[18px] font-sans mb-2 sm:mb-0">
-                <div>17:00</div>
-                <div className="font-normal text-[12px] text-[#b4b3b3] font-sans">
-                  Mumbai
-                </div>
-              </div>
-              <div className="flex flex-col items-center text-[13px] text-[#344056] font-sans mx-2 sm:mx-0">
-                <div>4:00hr</div>
-                <div className="bg-[#0A7B23] w-[60px] h-[2px] mt-2 sm:hidden"></div>
-              </div>
-              <div className="flex flex-col items-center text-[#323232] font-extrabold text-[18px] font-sans">
-                <div>20:05</div>
-                <div className="font-normal text-[12px] text-[#b4b3b3] font-sans">
-                  Dubai
-                </div>
-              </div>
-            </div> */}
           </div>
-
           <div className=" grid grid-cols-10 justify-between items-center sm:flex sm:justify-between">
             <div className="col-span-5 flex flex-col  justify-start font-black text-[18px] text-[#323232] font-sans">
               $ 22,735
@@ -76,15 +60,19 @@ const UpdatedDedicated = () => {
               </button>
             </div>
           </div>
-          <div className="flex justify-between items-baseline">
-            <div className="grid-cols-8 h-[34px] w-[292px] bg-[#DBEFF5]  lg:bg-[#b5deea] xl:bg-[#b6e1ed] 2xl:bg-[#a4d1de] rounded-md  flex justify-around items-center flex-row px-[5px] py-[15px] sm:bg-transparent">
-              <LockIcon />
-              <p className="text-[#12B5E4] text-[12px] font-sans font-bold ">
-                Pay 20% and reserve your seat now
-              </p>
-              <Arrow />
+          <div className="flex justify-between items-baseline sm:justify-between sm:w-full">
+            <div className="flex justify-between">
+              <MedicalInstruments src={Strectres} width={26} height={26} />
+              <MedicalInstruments src={Doctors} width={26} height={26} />
+              <MedicalInstruments src={Oxygen} width={26} height={26} />
+              <MedicalInstruments
+                src={Medicalequiment}
+                width={26}
+                height={26}
+              />
+              <MedicalInstruments src={Strectres} width={26} height={26} />
             </div>
-            <div className="grid-cols-4 font-normal text-[10px] font-sans sm:hidden text-[#81C9F3]">
+            <div className="grid-cols-4 font-bold text-[10px] font-sans sm:hidden text-[#81C9F3]">
               View Flight Details
             </div>
           </div>
