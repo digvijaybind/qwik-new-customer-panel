@@ -148,7 +148,7 @@ const UpdateList = () => {
   return (
     <div>
       <div className="sm:px-[20px] sm:py-[20px] font-sans">
-        <div className="">
+        <div className="flex justify-center items-center">
           {/* <SearchBar
           className="bottom-10"
           isMobile={isMobile}
