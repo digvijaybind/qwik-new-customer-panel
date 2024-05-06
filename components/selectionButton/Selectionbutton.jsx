@@ -21,7 +21,11 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
         } `}
         onInput={() => handleTabChange('commercial')}
       >
-        <label className="mr-4 font-bold" for="radio1" name="radios">
+        <label
+          className="mr-4 font-extrabold text-[13px]"
+          for="radio1"
+          name="radios"
+        >
           <input
             type="radio"
             name="tab"
@@ -29,9 +33,9 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
             value="commercial"
             checked={selectedTab === 'commercial'}
             onChange={() => handleTabChange('commercial')}
-            className={`mr-2 inline-block ${styles.styledRadio} font-bold`}
+            className={`mr-2 inline-block ${styles.styledRadio} font-bold `}
           />
-          Commercial
+          Commercial Flights
         </label>
         <p className="text-[#959494] text-[10px] font-sans font-normal ml-6">
           Price will be adjusted
@@ -48,16 +52,20 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
         onInput={() => handleTabChange('dedicated')}
       >
         <div className="">
-          <label className="mr-4 font-bold" for="radio1" name="radios">
+          <label
+            className="mr-4 font-extrabold text-[13px]"
+            for="radio1"
+            name="radios"
+          >
             <input
               type="radio"
               name="tab"
               value="dedicated"
               checked={selectedTab === 'dedicated'}
               onChange={() => handleTabChange('dedicated')}
-              className={`mr-2 inline-block ${styles.styledRadio} font-bold`}
+              className={`mr-2 inline-block ${styles.styledRadio} font-bold text-[10px]`}
             />
-            Dedicated
+            chartered Flights
           </label>
           <p className="text-[#959494] text-[10px] font-sans font-normal ml-6">
             Price will be adjusted
