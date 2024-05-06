@@ -11,7 +11,7 @@ import SearchBar from '@/components/SearchBar/SearchBar';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import MobileButton from '@/components/selectionButton/MobileButton';
-import Updatemobiletab from '@/components/selectionButton/UpdateMobiletab';
+import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
 const UpdateList = () => {
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
@@ -198,7 +198,7 @@ const UpdateList = () => {
               />
             </div>
           ) : (
-            <Updatemobiletab
+            <UpdateMobiletab
               selectedTab={selectedTab}
               handleTabChange={handleTabChange}
             />
@@ -226,7 +226,6 @@ const UpdateList = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-5">
                   <UpdateCommericial isMobile={isMobile} />
-                  <UpdateCommericial />
                 </div>
               </div>
               <div

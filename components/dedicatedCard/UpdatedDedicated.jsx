@@ -7,7 +7,7 @@ import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
-const UpdatedDedicated = () => {
+const UpdatedDedicated = ({}) => {
   return (
     <div
       className={`${styles.cardContainer} w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-2xl  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px] font-sans`}
