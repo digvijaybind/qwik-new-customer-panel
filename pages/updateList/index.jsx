@@ -79,7 +79,7 @@ const UpdateList = () => {
       'Content-Type': 'application/json',
     };
 
-    axios(`http://localhost:8000/customer/customerSearch`, {
+    axios(`http://localhost:8000/customer/dedicatedSearch`, {
       method: 'POST',
       headers: headers,
       data: data,
@@ -163,8 +163,15 @@ const UpdateList = () => {
           handleInputChange={handleInputChange}
         /> */}
           {!isMobile ? (
-            <UpdateSearch
-              className=""
+            // <UpdateSearch
+            //   className=""
+            //   isMobile={isMobile}
+            //   formData={formData}
+            //   handleSubmit={handleSubmit}
+            //   handleInputChange={handleInputChange}
+            // />
+            <SearchBar
+              className="bottom-10"
               isMobile={isMobile}
               formData={formData}
               handleSubmit={handleSubmit}

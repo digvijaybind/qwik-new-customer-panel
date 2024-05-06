@@ -76,53 +76,98 @@ const Listing = ({ id }) => {
     console.log('formData', data);
   };
 
-  const searchFlights = (data) => {
+  // const searchFlights = (data) => {
+  //   setAircraftDataLoading(true);
+  //   setCommercialAircraftDataLoading(true);
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //   };
+
+  //   axios(`http://localhost:8000/customer/dedicatedSearch`, {
+  //     method: 'POST',
+  //     data: data,
+  //     headers: headers,
+  //   })
+  //     .then((response) => {
+  //       console.log('response dedicated 97', response);
+  //       setcharteredData(response.data);
+  //       response.data.forEach((data) => {
+  //         setcharteredDepature(data.aviapages?.Response.from);
+  //         setchartereArrival(data.aviapages?.Response.to);
+  //         setchartereId();
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     })
+  //     .finally(() => {
+  //       setAircraftDataLoading(false);
+  //     });
+
+  //   axios(`http://localhost:8000/customer/commericialSearch`, {
+  //     method: 'POST',
+  //     data: data,
+  //     headers: headers,
+  //   })
+  //     .then((response) => {
+  //       console.log('Response:', response.data);
+  //       setCommericialId(response.data.aircraftId);
+  //       setDepartureLocation(data?.originLocationCode);
+  //       setDestinationLocation(data?.destinationLocationCode);
+  //       setAircraftData(response.ResponseData);
+  //       setSelectedCurrency('EUR');
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     })
+  //     .finally(() => {
+  //       setCommercialAircraftDataLoading(false);
+  //     });
+  // };
+
+  const searchFlights = async (data) => {
     setAircraftDataLoading(true);
     setCommercialAircraftDataLoading(true);
     const headers = {
       'Content-Type': 'application/json',
     };
 
-    axios(`http://localhost:8000/customer/dedicatedSearch`, {
-      method: 'POST',
-      data: data,
-      headers: headers,
-    })
-      .then((response) => {
-        console.log('response dedicated 97', response);
-        setcharteredData(response.data);
-        response.data.forEach((data) => {
-          setcharteredDepature(data.aviapages?.Response.from);
-          setchartereArrival(data.aviapages?.Response.to);
-          setchartereId();
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      })
-      .finally(() => {
-        setAircraftDataLoading(false);
+    try {
+      const dedicatedResponse = await axios.post(
+        'http://localhost:8000/customer/dedicatedSearch',
+        data,
+        { headers }
+      );
+      console.log('Response dedicated:', dedicatedResponse.data);
+      setCharteredData(dedicatedResponse.data);
+      dedicatedResponse.data.forEach((data) => {
+        setCharteredDepature(data.aviapages?.Response.from);
+        setCharteredArrival(data.aviapages?.Response.to);
+        setCharteredId();
       });
+    } catch (error) {
+      console.error('Error in dedicated search:', error);
+    } finally {
+      setAircraftDataLoading(false);
+    }
 
-    axios(`http://localhost:8000/customer/commericialSearch`, {
-      method: 'POST',
-      data: data,
-      headers: headers,
-    })
-      .then((response) => {
-        console.log('Response:', response.data);
-        setCommericialId(response.data.aircraftId);
-        setDepartureLocation(data?.originLocationCode);
-        setDestinationLocation(data?.destinationLocationCode);
-        setAircraftData(response.ResponseData);
-        setSelectedCurrency('EUR');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      })
-      .finally(() => {
-        setCommercialAircraftDataLoading(false);
-      });
+    try {
+      const commercialResponse = await axios.post(
+        'http://localhost:8000/customer/commericialSearch',
+        data,
+        { headers }
+      );
+      console.log('Response commercial:', commercialResponse.data);
+      setCommericialId(commercialResponse.data.aircraftId);
+      setDepartureLocation(data?.originLocationCode);
+      setDestinationLocation(data?.destinationLocationCode);
+      setAircraftData(commercialResponse.data.ResponseData);
+      setSelectedCurrency('EUR');
+    } catch (error) {
+      console.error('Error in commercial search:', error);
+    } finally {
+      setCommercialAircraftDataLoading(false);
+    }
   };
 
   const handleSubmit = (e) => {
