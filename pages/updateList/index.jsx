@@ -163,20 +163,20 @@ const UpdateList = () => {
           handleInputChange={handleInputChange}
         /> */}
           {!isMobile ? (
-            // <UpdateSearch
-            //   className=""
-            //   isMobile={isMobile}
-            //   formData={formData}
-            //   handleSubmit={handleSubmit}
-            //   handleInputChange={handleInputChange}
-            // />
-            <SearchBar
-              className="bottom-10"
+            <UpdateSearch
+              className=""
               isMobile={isMobile}
               formData={formData}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
             />
+            // <SearchBar
+            //   className="bottom-10"
+            //   isMobile={isMobile}
+            //   formData={formData}
+            //   handleSubmit={handleSubmit}
+            //   handleInputChange={handleInputChange}
+            // />
           ) : (
             <div className="mt-5 mb-5">
               <MobileSearch
