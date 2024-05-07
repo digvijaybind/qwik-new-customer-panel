@@ -176,10 +176,10 @@ const UpdateSearch = ({
   return (
     <form onSubmit={handleSubmit} className={`${className}`}>
       <div
-        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[#78D8F4] w-[1400px] rounded-md  ${className}`}
+        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[#78D8F4] w-[1200px] rounded-md  ${className}`}
       >
         <div
-          className={`bg-[#fff] w-[1300px] h-[220px] px-[25px] py-[40px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}}`}
+          className={`bg-[#fff] w-[1100px] h-[220px] px-[25px] py-[40px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}}`}
         >
           <div className="rounded-5 border border-solid border-gray-300 box-border w-full h-[112px] rounded-[5px] flex flex-row">
             <div
@@ -426,7 +426,7 @@ const UpdateSearch = ({
         </div>
       </div>
       <button
-        className={`w-[250px] h-[46px]  font-semibold bg-[#fff] position: relative bottom-[60px] left-[600px]  rounded-md text-gray-800 hover:text-gray-800  hover:bg-gray-100   ${className}`}
+        className={`w-[250px] h-[40px]  font-semibold bg-[#fff] position: relative bottom-[60px] left-[500px]  rounded-md text-gray-800 hover:text-gray-800  hover:bg-gray-100   ${className}`}
         style={{ boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)' }}
       >
         Search Now
