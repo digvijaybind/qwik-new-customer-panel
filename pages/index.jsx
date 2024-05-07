@@ -293,9 +293,9 @@ export default function Home() {
               })}
             </div>
           </div>
-          <div>
+          {/* <div>
             <Googlereview />
-          </div>
+          </div> */}
           <div
             className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
