@@ -189,7 +189,7 @@ export default function Home() {
           </div>
         )}
 
-        <StyledSection className="relative bottom-20">
+        <StyledSection className="relative bottom-[220px] sm:bottom-0">
           <AboutAircraft />
           <QwiklifFeature />
         </StyledSection>
@@ -275,7 +275,7 @@ export default function Home() {
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
                             : ''
-                        }  font-sans font-extrabold text-xl`}
+                        }  font-sans font-extrabold text-sm`}
                       >
                         {item.header}
                       </h4>
