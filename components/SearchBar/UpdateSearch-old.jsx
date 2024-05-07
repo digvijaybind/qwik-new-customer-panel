@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Loader from '../Utils/Loader';
 import _debounce from 'lodash/debounce';
 import axios from 'axios';
-import { FaCross, FaX } from 'react-icons/fa6';
+import {  FaX } from 'react-icons/fa6';
 
 const InputSearch = (onChange, className, onBlur, value) => {
   return (
