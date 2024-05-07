@@ -22,6 +22,7 @@ import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import Review from '@/components/Review/review';
 import { StyledSection } from '@/components/shared';
 import { AirAmbulancerForm } from '@/components/ambulance';
+import ReviewCarosel from '@/components/reviewCarosel/ReviewCarosel';
 
 export default function Home() {
   const router = useRouter();
@@ -195,8 +196,8 @@ export default function Home() {
         </StyledSection>
 
         {/* Roadmap */}
-        <StyledSection>
-          <div className="py-10 sm:py-5">
+        <StyledSection className="relative bottom-[150px] sm:bottom-0">
+          <div className="py-5 sm:py-5">
             <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
               How to Book Air Ambulance
             </h2>
@@ -218,6 +219,7 @@ export default function Home() {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
           }}
+          className="relative bottom-4"
         >
           <FastestMedical />
         </StyledSection>
@@ -233,6 +235,8 @@ export default function Home() {
           <Review />
         </StyledSection>
         {/* Reviews */}
+
+        {/* <ReviewCarosel /> */}
 
         {/* Why Choose Our Services */}
         <StyledSection>
@@ -275,7 +279,7 @@ export default function Home() {
                           SelectedCollapseIndex === index
                             ? 'text-[#FFFFFF]'
                             : ''
-                        }  font-sans font-extrabold text-sm`}
+                        }  font-sans font-extrabold text-lg sm:text-sm`}
                       >
                         {item.header}
                       </h4>
