@@ -13,7 +13,7 @@ const UpdatedDedicated = ({}) => {
       className={`${styles.cardContainer} w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-2xl  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px] font-sans`}
     >
       <div className="flex flex-col">
-        <div className="grid grid-rows-2 gap-8 sm:gap-2 sm:grid-rows-[2fr,1.5fr] sm:items-center ">
+        <div className="grid grid-rows-2 gap-5 sm:gap-2 sm:grid-rows-[2fr,1fr] sm:items-center ">
           <div className="grid grid-cols-12 grid-rows-1 sm:grid-cols-1 sm:gap-y-5 sm:items-baseline sm:justify-start">
             <div className="logo-name col-span-5 flex flex-row sm:col-span-10">
               <div className="image h-[22px] w-[66px]">
@@ -50,7 +50,7 @@ const UpdatedDedicated = ({}) => {
           <div className=" grid grid-cols-10 justify-between items-center sm:flex sm:justify-between">
             <div className="col-span-5 flex flex-col  justify-start font-black text-[18px] text-[#323232] font-sans">
               $ 22,735
-              <span className="font-medium text-[10px] text-[#323232] font-sans">
+              <span className="font-normal text-[10px] text-[#323232] font-sans">
                 Fight/patient
               </span>
             </div>
@@ -61,16 +61,37 @@ const UpdatedDedicated = ({}) => {
             </div>
           </div>
           <div className="flex justify-between items-baseline sm:justify-between sm:w-full">
-            <div className="flex justify-between">
-              <MedicalInstruments src={Strectres} width={26} height={26} />
-              <MedicalInstruments src={Doctors} width={26} height={26} />
-              <MedicalInstruments src={Oxygen} width={26} height={26} />
+            <div className="flex justify-around">
+              <MedicalInstruments
+                src={Strectres}
+                width={26}
+                height={26}
+                Title="Stretcher"
+              />
+              <MedicalInstruments
+                src={Doctors}
+                width={26}
+                height={26}
+                Title="Doctor Onboard"
+              />
+              <MedicalInstruments
+                src={Oxygen}
+                width={26}
+                height={26}
+                Title="Oxygen(4L/MIN)"
+              />
               <MedicalInstruments
                 src={Medicalequiment}
                 width={26}
                 height={26}
+                Title="Medical equipment"
               />
-              <MedicalInstruments src={Strectres} width={26} height={26} />
+              <MedicalInstruments
+                src={Strectres}
+                width={26}
+                height={26}
+                Title="Additional Equipment +"
+              />
             </div>
             <div className="grid-cols-4 font-bold text-[10px] font-sans sm:hidden text-[#81C9F3]">
               View Flight Details

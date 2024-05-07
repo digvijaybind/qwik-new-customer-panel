@@ -11,6 +11,7 @@ import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
 import Important from '../../db/important.json';
+import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
 
 const Guarantee = () => {
   return (
@@ -152,7 +153,7 @@ const TravelDuration = () => {
         <div class="border-b border-[CFCFCF] w-full"></div>
         <div className="grid grid-cols-3 grid-rows-3  gap-2 mt-5 sm:grid-cols-1 sm:gap-2 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex justify-center sm:justify-start">
-            <MedicalInstruments
+            <MedicalInstrumentPayMethod
               src={Strectres}
               width={26}
               height={26}
@@ -161,7 +162,7 @@ const TravelDuration = () => {
             />
           </div>
           <div className="flex justify-center sm:justify-start">
-            <MedicalInstruments
+            <MedicalInstrumentPayMethod
               src={Doctors}
               width={26}
               height={26}
@@ -170,7 +171,7 @@ const TravelDuration = () => {
             />
           </div>
           <div className="flex justify-center sm:justify-start">
-            <MedicalInstruments
+            <MedicalInstrumentPayMethod
               src={Oxygen}
               width={26}
               height={26}
@@ -179,7 +180,7 @@ const TravelDuration = () => {
             />
           </div>
           <div className="flex justify-start col-span-3 sm:justify-start pl-[20px] md:col-span-1 sm:col-span-1 sm:pl-[0px]">
-            <MedicalInstruments
+            <MedicalInstrumentPayMethod
               src={Medicalequiment}
               width={26}
               height={26}
@@ -188,7 +189,7 @@ const TravelDuration = () => {
             />
           </div>
           <div className="flex justify-start col-span-3 sm:justify-start pl-[20px] md:col-span-1 sm:col-span-1 sm:pl-[0px]">
-            <MedicalInstruments
+            <MedicalInstrumentPayMethod
               src={Strectres}
               width={26}
               height={26}
