@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './commericialAirline.module.css';
 import Image from 'next/image';
 import Signature from '../../public/images/Signature.svg';
@@ -10,16 +10,21 @@ import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
+import { useState } from 'react';
 import Important from '../../db/important.json';
+import MedicalInstruments from '@/components/medicalInstrument/MedicalInstrument';
+import Learjet from '../../public/images/airline-mini-logo/learjet-405.svg';
 import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
 
 const Guarantee = () => {
   return (
     <div
-      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:items-start
-       sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12"
+      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:justify-center sm:items-center  py-5 
+          sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12 "
     >
-      <div class="font-black text-lg font-sans">OUR GUARANTEE</div>
+      <div class="font-black text-lg font-sans sm:text-center">
+        OUR GUARANTEE
+      </div>
       <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
@@ -53,18 +58,6 @@ const GuarranteeUpdate = () => {
         <div className="font-extrabold text-[12px] font-sans">
           CEO , QWIKLIF
         </div>
-      </div>
-    </div>
-  );
-};
-
-const MedicalInstruments = ({ src, width, height, Title, descripation }) => {
-  return (
-    <div className="flex justify-around flex-row items-center">
-      <Image src={src} width={width} height={height} />
-      <div className="font-black text-[12px] font-sans ml-3">{Title}</div>
-      <div className="text-[12px] font-sans font-medium ml-2">
-        {descripation}
       </div>
     </div>
   );
@@ -202,47 +195,47 @@ const TravelDuration = () => {
     </div>
   );
 };
-
-const OurStories = ({ isMobile }) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-  };
-  const videos = [
-    { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
-    { url: 'https://www.youtube.com/watch?v=Pup8Mjf86RA' },
-    { url: 'https://www.youtube.com/watch?v=qamsuZ25K0Q' },
-    { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
-  ];
-  return (
-    <div className="border-2 border-[#D9D9D9] rounded-md w-[881px] shadow-md px-[30px] py-[30px] mt-5">
-      <div className="">
-        <div className="h-5 font-sans font-extrabold text-black text-[16px]">
-          Our Success Stories
-        </div>
-        <div className="h-8  flex flex-row items-center">
-          <Image src={Point} width={20} height={20} />{' '}
-          <span className="ml-5 font-extrabold text-[12px] font-sans">
-            Video
-          </span>
-        </div>
-        <div className=" ">
-          <AutoVideoSlider
-            videos={videos}
-            interval={1000}
-            isMobile={isMobile}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
+// const OurStories = ({ isMobile }) => {
+//   const settings = {
+//     dots: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     autoplaySpeed: 5000,
+//     arrows: false,
+//   };
+//   const videos = [
+//     { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
+//     { url: 'https://www.youtube.com/watch?v=Pup8Mjf86RA' },
+//     { url: 'https://www.youtube.com/watch?v=qamsuZ25K0Q' },
+//     { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
+//   ];
+//   return (
+//     <div className="border-2 border-[#D9D9D9] rounded-md w-[881px] shadow-md px-[30px] py-[30px] mt-5">
+//       <div className="">
+//         <div className="h-5 font-sans font-extrabold text-black text-[16px]">
+//           Our Success Stories
+//         </div>
+//         <div className="h-8  flex flex-row items-center">
+//           <Image src={Point} width={20} height={20} />{' '}
+//           <span className="ml-5 font-extrabold text-[12px] font-sans">
+//             Video
+//           </span>
+//         </div>
+//         <div className=" ">
+//           <AutoVideoSlider
+//             videos={videos}
+//             interval={1000}
+//             isMobile={isMobile}
+//           />
+//           {/* <div className="w-[264px] h-[158px] bg-red-600"></div> */}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const InfomationHead = ({ title, descripation }) => {
   return (
@@ -250,9 +243,11 @@ const InfomationHead = ({ title, descripation }) => {
       <div className="col-span-2 flex items-start justify-center sm:contents">
         <Image src={Point} width={26} height={26} />
       </div>
-      <div className="col-span-8">
-        <div className="font-extrabold text-[16px] font-sans">{title}</div>
-        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px]">
+      <div className="col-span-8 sm:w-full">
+        <div className="font-extrabold text-[16px] font-sans sm:px-[5px]">
+          {title}
+        </div>
+        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px] sm:px-[5px] ">
           {descripation}
         </li>
       </div>
@@ -261,7 +256,7 @@ const InfomationHead = ({ title, descripation }) => {
 };
 const ImportantInfo = () => {
   return (
-    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5 sm:px-[10px] sm:py-[10px]">
+    <div className="border-2 border-[#D9D9D9] px-[30px] py-[30px] rounded-md w-[881px] shadow-md mt-5 sm:px-[10px] sm:py-[10px] sm:w-full">
       <div className="grid grid-rows-auto grid-cols-1">
         <div className="text-[18px] font-extrabold font-sans text-black">
           Important Infomation
@@ -307,7 +302,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  h-[300px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 border-2 border-[#D9D9D9] font-sans">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
@@ -329,11 +324,10 @@ const PayConfirmation = () => {
     </div>
   );
 };
-
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-5 sm:gap-2">
-      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center sm:col-span-1">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-3 sm:gap-2">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center  sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1">
         <TravelDuration />
       </div>
       <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-1">
@@ -344,16 +338,43 @@ const UpperSection = () => {
   );
 };
 
-const CommercialAirline = () => {
+const CommericialAirline = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
+    // <div className={`${styles.Container} font-sans`}>
+    //   <div className={`${styles.Section1_Container} w-full`}></div>
+    //   <div className="grid grid-cols-8 grid-rows-1 gap-15 px-[80px] py-[10px] relative bottom-40 sm:px-[5px] sm:py-[5px] md:px-[60px]">
+    //     <div className="col-span-6 border-2  border-gray-200 bg-[#FFF] shadow-2xl  h-auto w-[940px] rounded-xl px-[25px] py-[25px] sm:col-span-1 sm:px-[8px] sm:py-[8px]">
+    //       <TravelDuration />
+    //       <Guarantee />
+    //       <OurStories isMobile={isMobile} />
+    //       <ImportantInfo />
+    //     </div>
+    //     <div className="col-span-2 border-2 border-gray-200  shadow-2xl h-[100px] rounded-xl flex justify-between flex-col items-center sm:hidden md:hidden lg:hidden xl:hidden">
+    //       <TotalFare />
+    //       <PayConfirmation />
+    //     </div>
+    //   </div>
+    // </div>
     <div className="px-[15px] font-sans">
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="relative bottom-[200px]">
         <div className="">
           <UpperSection />
         </div>
-        <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff] sm:grid-cols-1">
-          <div className="col-span-5  mb-5 shadow-2xl  px-10 py-10">
+        <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
+          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3">
             <Guarantee />
             <ImportantInfo />
           </div>
@@ -363,4 +384,4 @@ const CommercialAirline = () => {
   );
 };
 
-export default CommercialAirline;
+export default CommericialAirline;

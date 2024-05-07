@@ -19,10 +19,12 @@ import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalIn
 const Guarantee = () => {
   return (
     <div
-      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center py-5 sm:items-start
-          sm:w-1/2 md:w-3/4 lg:w-11/12 xl:w-11/12 "
+      className="responsiveBoxSizing border border-gray-300 rounded-md flex flex-col items-center sm:justify-center sm:items-center  py-5 
+          sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12 "
     >
-      <div class="font-black text-lg font-sans">OUR GUARANTEE</div>
+      <div class="font-black text-lg font-sans sm:text-center">
+        OUR GUARANTEE
+      </div>
       <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
@@ -303,7 +305,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
