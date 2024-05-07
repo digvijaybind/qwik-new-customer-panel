@@ -21,7 +21,7 @@ import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import Review from '@/components/Review/review';
 import { StyledSection } from '@/components/shared';
-import Googlereview from '@/components/googlreview/Googlereview';
+
 
 export default function Home() {
   const router = useRouter();
@@ -188,7 +188,8 @@ export default function Home() {
             />
           </div>
         )}
-        <StyledSection>
+
+        <StyledSection className="relative bottom-20">
           <AboutAircraft />
           <QwiklifFeature />
         </StyledSection>
