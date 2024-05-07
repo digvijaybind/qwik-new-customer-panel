@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Selectionbutton.module.css';
+
 const Selectionbutton = ({ selectedTab, handleTabChange }) => {
   return (
     <div className="grid grid-cols-3 gap-12 font-sans">
@@ -16,14 +17,14 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
       <div
         className={`commericial-tab h-[55px] w-[173px]  rounded flex justify-center items-center flex-col cursor-pointer  ${
           selectedTab === 'commercial'
-            ? 'bg-[#d9ebf1] border-2  border-[#55CDF1]  text-[#55CDF1]'
-            : 'border-2 border-[#959494]'
+            ? 'bg-[#d9ebf1] border-2  border-[#55CDF1]  text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
+            : 'border-2 border-[#959494] hover:bg-gray-100 transition-colors duration-300'
         } `}
-        onInput={() => handleTabChange('commercial')}
+        onClick={() => handleTabChange('commercial')}
       >
         <label
           className="mr-4 font-extrabold text-[13px]"
-          for="radio1"
+          htmlFor="radio1"
           name="radios"
         >
           <input
@@ -46,15 +47,15 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
           styles.TabButton
         }  rounded flex justify-center items-center flex-col cursor-pointer  ${
           selectedTab === 'dedicated'
-            ? 'bg-[#d9ebf1] border-2 border-[#55CDF1] text-[#55CDF1]'
-            : 'border-2 border-[#959494]'
+            ? 'bg-[#d9ebf1] border-2 border-[#55CDF1] text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
+            : 'border-2 border-[#959494] hover:bg-gray-100 transition-colors duration-300'
         }`}
-        onInput={() => handleTabChange('dedicated')}
+        onClick={() => handleTabChange('dedicated')}
       >
         <div className="">
           <label
             className="mr-4 font-extrabold text-[13px]"
-            for="radio1"
+            htmlFor="radio1"
             name="radios"
           >
             <input
@@ -65,7 +66,7 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
               onChange={() => handleTabChange('dedicated')}
               className={`mr-2 inline-block ${styles.styledRadio} font-bold text-[10px]`}
             />
-            chartered Flights
+            Chartered Flights
           </label>
           <p className="text-[#959494] text-[10px] font-sans font-normal ml-6">
             Price will be adjusted
