@@ -11,7 +11,6 @@ import Facebook from '../../public/images/socialmedia/facebook.svg';
 import Link from 'next/link';
 import { StyledSection } from '../shared';
 
-
 const QwiklifData = [
   { name: 'About us', link: '/about' },
   { name: 'Media', link: '/media' },
@@ -54,12 +53,11 @@ const WorkWithQwiklif = [
 ];
 const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
 
-
 const Newfooter = () => {
   return (
     <StyledSection
-      containerClassName='bg-[#0f2738]'
-      className='sm:!px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8] font-sans'
+      containerClassName="bg-[#0f2738]"
+      className="sm:!px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8] font-sans"
     >
       {/* <div className="bg-[#0f2738] px-[90px] sm:px-[20px] pt-14 pb-8 font-sans  hover:text-[#3788d8]"> */}
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 3xl:grid-cols-5 gap-4 lg:gap-6 content-center">
@@ -138,10 +136,10 @@ const Newfooter = () => {
             Qwiklif Air Ambulance, Warehouse No.3 - Al Qusais Industrial Area 3
             - Dubai
           </div>
-          <div className="flex flex-row sm:flex sm:items-end">
+          <div className="flex flex-row sm:flex sm:items-center">
             <Image src={Phone} height={30} width={30} />
-            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8] sm:text-[10px]">
-              <a href=" +971 50 282 5433 hover:text-[#3788d8]">
+            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8] sm:text-[10px] sm:mb-0">
+              <a href=" +971 50 282 5433 text-[15px] font-extrabold hover:text-[#3788d8]">
                 +971 50 282 5433
               </a>
             </span>
