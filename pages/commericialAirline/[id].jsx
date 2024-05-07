@@ -285,7 +285,7 @@ const ImportantInfo = () => {
 
 const TotalFare = () => {
   return (
-    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9]">
+    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className=" text-[16px] font-black">Fare Summary</div>
       <div className="flex justify-between mb-2">
         <div className="font-bold text-[12px] font-sans">Base Fare</div>
@@ -332,11 +332,11 @@ const PayConfirmation = () => {
 
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1">
-      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center sm:col-span-12">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-5 sm:gap-2">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center sm:col-span-1">
         <TravelDuration />
       </div>
-      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-12">
+      <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-1">
         <TotalFare />
         <PayConfirmation />
       </div>
@@ -352,7 +352,7 @@ const CommercialAirline = () => {
         <div className="">
           <UpperSection />
         </div>
-        <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
+        <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff] sm:grid-cols-1">
           <div className="col-span-5  mb-5 shadow-2xl  px-10 py-10">
             <Guarantee />
             <ImportantInfo />

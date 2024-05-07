@@ -248,7 +248,7 @@ const InfomationHead = ({ title, descripation }) => {
         <div className="font-extrabold text-[16px] font-sans sm:px-[5px]">
           {title}
         </div>
-        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px] sm:px-[5px]">
+        <li className="text-[12px] font-medium font-sans mt-3 sm:min-w-[320px] sm:px-[5px] ">
           {descripation}
         </li>
       </div>
@@ -281,7 +281,7 @@ const ImportantInfo = () => {
 
 const TotalFare = () => {
   return (
-    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9]">
+    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className=" text-[16px] font-black">Fare Summary</div>
       <div className="flex justify-between mb-2">
         <div className="font-bold text-[12px] font-sans">Base Fare</div>
@@ -303,7 +303,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 font-sans border-2 border-[#D9D9D9]">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
@@ -327,8 +327,8 @@ const PayConfirmation = () => {
 };
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1">
-      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center  sm:border-0 sm:border-none sm:bg-transparent">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-5 sm:gap-2">
+      <div className="col-span-6 px-[10px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex justify-center  sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1">
         <TravelDuration />
       </div>
       <div className="col-span-3 px-[15px] py-[15px] border-2 border-[#D9D9D9] rounded-md bg-[#fff] flex flex-col sm:col-span-1">
