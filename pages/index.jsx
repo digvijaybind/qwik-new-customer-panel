@@ -196,7 +196,7 @@ export default function Home() {
 
         {/* Roadmap */}
         <StyledSection>
-          <div className="py-24">
+          <div className="py-10 sm:py-5">
             <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
               How to Book Air Ambulance
             </h2>
