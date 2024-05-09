@@ -97,14 +97,20 @@ const HamburgerMenu = () => {
               </li>
               <li
                 onClick={() => {
-                  router.push('/blog');
+                  router.push('/workwithus');
                   toggleMenu();
                 }}
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
               >
                 Partner with Us
               </li>
-              <li className="font-semibold text-[16px] p-2 hover:gray cursor-pointer">
+              <li
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+                onClick={() => {
+                  router.push('/location');
+                  toggleMenu();
+                }}
+              >
                 Our Location
               </li>
               <li
@@ -119,7 +125,7 @@ const HamburgerMenu = () => {
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
                 onClick={() => {
-                  router.push('/about');
+                  router.push('/contact-us');
                   toggleMenu();
                 }}
               >

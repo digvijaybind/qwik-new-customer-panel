@@ -29,8 +29,8 @@ const Location = () => {
   return (
     <div className="">
       <LocationHeader />
-      <div className="flex sm:flex-col gap-5 my-3 px-36 font-sans">
-        <div className="grid grid-cols-3 gap-6 w-full py-20">
+      <div className="flex sm:flex-col gap-5 my-3 px-36 font-sans sm:px-5">
+        <div className="grid grid-cols-3 gap-6 w-full py-20 sm:grid-cols-1">
           {locationCountries?.map((d) => {
             return (
               <div
