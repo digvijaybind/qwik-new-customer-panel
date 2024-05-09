@@ -1,0 +1,101 @@
+.Nav_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100vw;
+  align-items: start;
+}
+.Nav_first {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+@media screen and (max-width: 639px) {
+  .Nav_first {
+    display: none;
+  }
+  .Nav_container {
+    justify-content: center;
+  }
+}
+.Nav_first > p {
+  padding-left: 5px;
+}
+.Nav_button {
+  display: flex;
+  align-items: center;
+}
+.Nav_btnChild1 {
+  margin-right: 10px;
+}
+
+.Nav_btnChild2 {
+  color: var(--Blackish-Green, #121);
+  background: #40d1f0;
+  padding: 10px 24px;
+  font-weight: 600;
+  border: none;
+}
+.Right_border {
+  border-right: 1px solid #eee;
+}
+
+.TabButton {
+}
+
+.selected-tab {
+  border: 2px solid #55cdf1;
+  border-radius: 4px;
+  background-color: #12b5e4;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid #55cdf1;
+  font-weight: bold;
+}
+
+input[type='radio'].styledRadio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #4f46e5;
+  border: 2px solid #55cdf1;
+  border-radius: 50%;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type='radio'].styledRadio:checked {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* background-color: #55cdf1;
+  border-color: #55cdf1; */
+  background-color: #55cdf1;
+  border-color: #fff;
+  border: 1px solid #fff;
+  padding: 0.3rem; /* Add padding to the checked radio button */
+  box-shadow: 0 0 0 1px #55cdf1;
+}
+
+.CommericialCard {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(199, 197, 197, 0.1);
+  width: 630px;
+  height: 710px;
+}
+.DedicatedCard {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(199, 197, 197, 0.1);
+  width: 630px;
+  height: 710px;
+}
