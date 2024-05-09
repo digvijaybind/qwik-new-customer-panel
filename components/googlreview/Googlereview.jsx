@@ -20,7 +20,7 @@ const ExpandText = ({ children, descripationLength }) => {
         onClick={toggleText}
         className="text-blue-500 font-normal text-[13px]"
       >
-        {isExpanded ? 'Show less' : 'Show more'}
+        {isExpanded ? '' : 'Show more'}
       </span>
     </div>
   );
