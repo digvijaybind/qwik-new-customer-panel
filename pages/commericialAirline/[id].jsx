@@ -367,14 +367,14 @@ const CommericialAirline = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="px-[15px] font-sans">
+    <div className="px-[15px] font-sans z-0">
       <div className={`${styles.Section1_Container} w-full`}></div>
       <div className="relative bottom-[200px]">
-        <div className="">
+        <div className="z-0">
           <UpperSection />
         </div>
         <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
-          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3">
+          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3 z-0">
             <Guarantee />
             <ImportantInfo />
           </div>

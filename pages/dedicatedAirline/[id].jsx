@@ -305,7 +305,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[400px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px] z-0">
       <div className="text-[16px] font-black text-center">
         Pay 20% Reserve Your Seat
       </div>
@@ -370,14 +370,14 @@ const DedicatedAirline = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="px-[15px] font-sans">
+    <div className="px-[15px] font-sans z-0">
       <div className={`${styles.Section1_Container} w-full`}></div>
-      <div className="relative bottom-[200px]">
+      <div className="relative bottom-[200px] z-0">
         <div className="">
           <UpperSection />
         </div>
         <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
-          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3">
+          <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3 z-0">
             <Guarantee />
             <ImportantInfo />
           </div>

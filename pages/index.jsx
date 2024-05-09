@@ -161,7 +161,7 @@ export default function Home() {
   const [SelectedCollapseIndex, setSelectedCollapseIndex] = useState(-1);
   return (
     <main>
-      <div className="font-sans">
+      <div className="font-sans z-0">
         <Navnew />
         {/* <SearchBar
           className="bottom-60 sm:bottom-60"

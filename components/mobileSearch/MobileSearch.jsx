@@ -71,7 +71,7 @@ const MobileSearch = () => {
           <div className="text-[15px] font-extrabold">8788825286</div>
         </div>
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
+      {/* <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
         <div className="w-[30%] flex flex-col">
           {' '}
           <label className="font-bold text-[8px] text-[#000] ">
@@ -101,7 +101,7 @@ const MobileSearch = () => {
             className="text-base"
           />
         </div>
-      </div>
+      </div> */}
       <button className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold hover:text-[#000]">
         Search
       </button>

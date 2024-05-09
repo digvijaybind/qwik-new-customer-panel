@@ -1,19 +1,37 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Logo from '../../public/images/logo.svg';
 import styles from './Header.module.css';
 import Telephone from '../../public/images/telephone.svg';
 import { useRouter } from 'next/router';
+import { MdCancel } from 'react-icons/md';
+
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const menuRef = useRef(null);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col font-sans">
+    <div className="flex flex-col font-sans relative">
       <div className="text-center flex items-center justify-center bg-[#12B5E4] w-full h-[24px] text-[8px] font-bold text-[#fff] font-sans">
-        AVAILABLE 24/7 FOR INTERNATIONAL AND DOMESTIC FLIGHTS{' '}
+        AVAILABLE 24/7 FOR INTERNATIONAL AND DOMESTIC FLIGHTS
       </div>
       <div className="flex flex-row justify-between items-center px-[10px] py-[10px] font-sans">
         <div className="flex flex-row justify-between">
@@ -39,7 +57,7 @@ const HamburgerMenu = () => {
             </div>
           </div>
         </div>
-        <div className="hamburger-menu">
+        <div className=" top-10 right-2 z-50">
           <button className="hamburger-button" onClick={toggleMenu}>
             ☰ {/* Hamburger icon */}
           </button>
@@ -47,33 +65,68 @@ const HamburgerMenu = () => {
       </div>
       {isOpen && (
         <div
-          className={`bg-[#fff] p-6 shadow-2xl snap-y max-h-[200px] overflow-y-auto`}
+          ref={menuRef}
+          onClick={toggleMenu}
+          className="fixed top-0 left-0 w-full h-full bg-[#fff] bg-opacity-90 flex justify-end z-40"
         >
-          <ul className="">
-            <li
-              onClick={() => router.push('/')}
-              className="font-semibold text-[16px] p-2   hover:gray"
+          <div className="bg-[#fff] w-2/3 h-full shadow-lg flex justify-center">
+            <button
+              className="absolute top-0 right-0 p-2 text-gray-800 focus:outline-none"
+              onClick={toggleMenu}
             >
-              Home
-            </li>
-            <li
-              onClick={() => router.push('/services')}
-              className="font-semibold text-[16px] p-2 hover:gray"
-            >
-              Services
-            </li>
-            <li
-              onClick={() => router.push('/blog')}
-              className="font-semibold text-[16px] p-2 hover:gray"
-            >
-              Partner with Us
-            </li>
-            <li className="font-semibold text-[16px] p-2 hover:gray">
-              Our Location
-            </li>
-            <li className="font-semibold text-[16px] p-2 hover:">About</li>
-            <li className="font-semibold text-[16px] p-2 hover:">Contact</li>
-          </ul>
+              <MdCancel />
+            </button>
+            <ul className="text-center mt-10">
+              <li
+                onClick={() => {
+                  router.push('/');
+                  toggleMenu();
+                }}
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+              >
+                Home
+              </li>
+              <li
+                onClick={() => {
+                  router.push('/services');
+                  toggleMenu();
+                }}
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+              >
+                Services
+              </li>
+              <li
+                onClick={() => {
+                  router.push('/blog');
+                  toggleMenu();
+                }}
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+              >
+                Partner with Us
+              </li>
+              <li className="font-semibold text-[16px] p-2 hover:gray cursor-pointer">
+                Our Location
+              </li>
+              <li
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+                onClick={() => {
+                  router.push('/about');
+                  toggleMenu();
+                }}
+              >
+                About
+              </li>
+              <li
+                className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
+                onClick={() => {
+                  router.push('/about');
+                  toggleMenu();
+                }}
+              >
+                Contact
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </div>
