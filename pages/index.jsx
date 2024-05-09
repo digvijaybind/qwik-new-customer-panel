@@ -23,6 +23,7 @@ import Review from '@/components/Review/review';
 import { StyledSection } from '@/components/shared';
 import { AirAmbulancerForm } from '@/components/ambulance';
 import ReviewCarosel from '@/components/reviewCarosel/ReviewCarosel';
+import Googlereview from '@/components/googlreview/Googlereview';
 
 export default function Home() {
   const router = useRouter();
@@ -224,17 +225,12 @@ export default function Home() {
           <FastestMedical />
         </StyledSection>
         {/* Medical Care */}
-
-        {/* Reviews */}
-        <StyledSection
-          containerClassName="mt-14"
-          containerStyles={{
-            background: `#007BFF url("/images/honeycomb.png")`,
-          }}
-        >
-          <Review />
+        {/*News */}
+        <StyledSection className="relative bottom-20 sm:bottom-0">
+          <LatestNew />
         </StyledSection>
-        {/* Reviews */}
+
+        {/*News */}
 
         {/* <ReviewCarosel /> */}
 
@@ -322,6 +318,15 @@ export default function Home() {
           </div>
         </StyledSection>
         {/* Why Choose Our Services */}
+
+        {/* Reviews */}
+        <StyledSection className="relative bottom-4">
+          {/* <ReviewCarosel/> */}
+
+          {/* <Googlereview /> */}
+          <ReviewCarosel />
+        </StyledSection>
+        {/* Reviews */}
 
         {/* Air Ambulance */}
         <div

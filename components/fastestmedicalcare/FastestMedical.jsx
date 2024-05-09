@@ -40,7 +40,7 @@ export default FastestMedical;
 const FloatingBox = () => {
   return (
     <div
-      className={`bg-white translate-y-1/2 w-fit sm:max-w-[66.666%] xs:max-w-[85%] px-8 sm:px-4 py-4 rounded-md shadow-2xl items-center flex justify-evenly gap-8 sm:gap-6 sm:flex-wrap sm:justify-center sm:items-center`}
+      className={`bg-white translate-y-1/2 w-[900px] sm:max-w-[66.666%] xs:max-w-[85%] px-8 sm:px-4 py-5 rounded-md shadow-2xl items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center`}
     >
       <div className="flex flex-col items-center">
         <Image

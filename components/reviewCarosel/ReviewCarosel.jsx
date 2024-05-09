@@ -2,32 +2,42 @@ import React, { useEffect, useState } from 'react';
 import Review from '../../db/Googlereview.json';
 import Googlereview from '../googlreview/Googlereview';
 
-const ReviewCarosel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const ReviewCarosel = ({ interval = 4000 }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % Googlereview.length);
-    }, 300);
-    return () => clearInterval(timer);
-  }, []);
+    const intervalId = setInterval(() => {
+      setCurrentSlide(
+        (prevSlide) => (prevSlide + 1) % Math.ceil(Review.length / 3)
+      );
+    }, interval);
+
+    return () => clearInterval(intervalId);
+  }, [interval]);
+
+  const startIdx = currentSlide * 3;
+  const endIdx = Math.min(startIdx + 3, Review.length);
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="flex space-x-4">
-        {Review.map((data, index) => {
-          <div
-            className={`grid grid-cols-3 gap-2 transition-transform duration-300 transform ${
-              index === activeIndex ? 'scale-100' : 'scale-90'
-            }`}
-          >
+    <div className="flex justify-center flex-col items-center h-screen">
+      <div className="flex justify-center items-center  text-[20px] mb-10 font-black">
+        Testimonials
+      </div>
+      <div className="flex space-x-4 ">
+        {Review.slice(startIdx, endIdx).map((data, index) => (
+          <div key={index}>
             <Googlereview
-              Userimg={data.image}
+              Userimage={data.image}
               UserName={data.UserName}
               description={data.description}
               Date={data.Date}
             />
-          </div>;
-        })}
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center items-center mt-10">
+        <span className="font-black">Google &nbsp;</span> rating score:4.9 of 5
+        based on <span className="font-black"> &nbsp; 54 reviews </span>
       </div>
     </div>
   );

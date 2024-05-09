@@ -1,20 +1,32 @@
 [
-    {
-      "UserName": "David",
-      "Date":"07/05/2024",
-      "description": "Excellent service . Vvv responsible and caring also very professional. I would recommend to anyone looking to move their old parents to their home country via stretcher and on a commercial flight. A v big thank you to each and every staff member who made it possible for my mother who was critically ill in a hospital in Dubai from the hospital to the airport and then from mumbai airport to a hospital in mumbai effortlessly",
-      "image": "/images/googleReview/vijay.png"
-    },
-    {
-      "UserName": "Divyanshu",
-      "Date":"01/02/2024",
-      "description": "Best service ever. Very professional and accurate. Dealing with Humanitarian services and especially Mansour was a great experience. They were really our savers and our backbone to help going through very difficult moments during the repatriation of the body of our late colleague to his home town. Really much appreciated",
-      "image": "/images/googleReview/honeysingh.png"
-    },
-    {
-      "UserName": "Aashi",
-      "Date":"10/04/2024",
-      "description": "Excellent service provider!!Fast, well organized and very professional! And of course excellent communication with their customers! I recommend Air Ambulance Dubai Human care worldwide for all travelers to Europe.",
-      "image": "/images/googleReview/Ansh.png"
-    }
+  {
+    "UserName": "David",
+    "Date": "07/05/2024",
+    "description": "QwikLif Air Ambulance was a beacon of hope for our family. Their team's patience and professionalism during my mother's transfer were exceptional. Their quick response and care were a blessing in our time of need.",
+    "image": "/images/googleReview/vijay.png"
+  },
+  {
+    "UserName": "Divyanshu",
+    "Date": "01/02/2024",
+    "description": "Choosing QwikLif Air Ambulance was the best decision we made. Their team displayed remarkable patience and expertise, ensuring my grandfather's journey was safe and comfortable. We are forever grateful for their prompt and compassionate service",
+    "image": "/images/googleReview/honeysingh.png"
+  },
+  {
+    "UserName": "Aashi",
+    "Date": "10/04/2024",
+    "description": "I cannot thank QwikLif Air Ambulance enough for their outstanding service. From the initial contact to the safe arrival at the hospital, their team showed incredible patience and care. They made a difficult situation much more manageable for our family.",
+    "image": "/images/googleReview/Ansh.png"
+  },
+  {
+    "UserName": "Manu",
+    "Date": "10/04/2024",
+    "description": "Qwiklif Air Ambulance provided exceptional care during my father's transfer. Their team's patience and attention to detail were evident throughout the journey. I highly recommend their services for anyone in need of reliable air ambulance transportation.",
+    "image": "/images/googleReview/Ansh.png"
+  },
+  {
+    "UserName": "Angelina",
+    "Date": "10/04/2024",
+    "description": "Our experience with Qwiklif Air Ambulance was nothing short of excellent. Their team's patience and professionalism were evident from the moment we contacted them. They provided a seamless transfer for my aunt, and we are grateful for their exceptional service.",
+    "image": "/images/googleReview/Ansh.png"
+  }
 ]

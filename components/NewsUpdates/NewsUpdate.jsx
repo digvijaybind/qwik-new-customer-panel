@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-
 const NewsUpdates = ({ title, description, imageUrl, index }) => {
   return (
     <div
@@ -16,7 +15,7 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
         />
       </div>
       <div className="flex flex-col  p-4 items-center mt-2.5 gap-3">
-        <div className="w-full flex flex-row items-center justify-center gap-[10px]">
+        <div className="w-full flex flex-row items-center justify-Start gap-[10px]">
           <Image
             className="w-[20px] h-[20px]"
             src="/images/calender_icon.png"
