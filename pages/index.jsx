@@ -112,7 +112,7 @@ export default function Home() {
     e.preventDefault();
 
     router.push({
-      pathname: '/updateList',
+      pathname: '/searchResponse',
       query: {
         pax: formData?.pax,
         originLocationCode: formData.originLocationCode,
