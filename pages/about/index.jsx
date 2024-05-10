@@ -92,11 +92,11 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex px-32 py-16">
+      <div className="flex px-32 py-16 sm:px-5 sm:py-2 sm:flex-col">
         <div className="w-1/4">
-          <ul className="w-full flex flex-col drop-shadow-xl bg-white">
+          <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
             <li
-              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-extrabold ${
+              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-extrabold sm:px-2 sm:py-2  ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
@@ -104,7 +104,7 @@ const About = () => {
               Company Profile
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2 ${
                 activeTab === 2 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(2)}
@@ -112,7 +112,7 @@ const About = () => {
               Mission and Vision
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2${
                 activeTab === 3 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(3)}
@@ -120,7 +120,7 @@ const About = () => {
               Milestones
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2 ${
                 activeTab === 4 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(4)}
@@ -271,7 +271,6 @@ const About = () => {
           </div>
         ))}
       </div>
-      <FastestMedical />
       <div
         className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full  sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
       >

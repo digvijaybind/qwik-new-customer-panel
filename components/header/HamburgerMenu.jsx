@@ -58,9 +58,18 @@ const HamburgerMenu = () => {
           </div>
         </div>
         <div className=" top-10 right-2 z-50">
-          <button className="hamburger-button" onClick={toggleMenu}>
-            ☰ {/* Hamburger icon */}
-          </button>
+          {isOpen ? (
+            <button
+              className="absolute top-5 right-2 p-2 text-gray-800 focus:outline-none"
+              onClick={toggleMenu}
+            >
+              <MdCancel style={{ fontSize: '1.5rem' }} />
+            </button>
+          ) : (
+            <button className="hamburger-button" onClick={toggleMenu}>
+              ☰ {/* Hamburger icon */}
+            </button>
+          )}
         </div>
       </div>
       {isOpen && (
@@ -70,12 +79,6 @@ const HamburgerMenu = () => {
           className="fixed top-0 left-0 w-full h-full bg-[#fff] bg-opacity-90 flex justify-end z-40"
         >
           <div className="bg-[#fff] w-2/3 h-full shadow-lg flex justify-center">
-            <button
-              className="absolute top-0 right-0 p-2 text-gray-800 focus:outline-none"
-              onClick={toggleMenu}
-            >
-              <MdCancel />
-            </button>
             <ul className="text-center mt-10">
               <li
                 onClick={() => {
