@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }) {
       <DataProvider>
         <Navbar />
         <Component {...pageProps} />
+        
         <Newfooter />
       </DataProvider>
     </>

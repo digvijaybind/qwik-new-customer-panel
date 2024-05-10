@@ -24,6 +24,7 @@ import { StyledSection } from '@/components/shared';
 import { AirAmbulancerForm } from '@/components/ambulance';
 import ReviewCarosel from '@/components/reviewCarosel/ReviewCarosel';
 import Googlereview from '@/components/googlreview/Googlereview';
+import Rotatemap from '@/components/rotateMap/Rotatemap';
 
 export default function Home() {
   const router = useRouter();
@@ -327,6 +328,10 @@ export default function Home() {
           <ReviewCarosel />
         </StyledSection>
         {/* Reviews */}
+
+        <div className="flex justify-center mt-8">
+          <Rotatemap />
+        </div>
 
         {/* Air Ambulance */}
         <div
