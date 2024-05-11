@@ -6,18 +6,24 @@ import { DataProvider } from '@/context/DataContext';
 import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }) {
+  const BusinessWhatsAppNumber = process.env.REACT_WHATSAPP_NUMBER;
+  const handleOpen = () => {
+    const url = `https://wa.me/${BusinessWhatsAppNumber}`;
+    window.open(url, '_blank');
+  };
   return (
     <>
       <DataProvider>
         <Navbar />
         <Component {...pageProps} />
         <FloatingWhatsApp
-          phoneNumber="+918788825286"
+          phoneNumber="+971502825433"
           accountName="Qwiklif Air Ambulance"
           allowEsc
           allowClickAway
           notification
           notificationSound
+          onClick={handleOpen}
         />
         <Newfooter />
       </DataProvider>
