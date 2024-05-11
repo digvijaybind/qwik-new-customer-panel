@@ -18,11 +18,9 @@ const FastestMedical = () => {
         </h1>
         <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px]">
           Time is precious, especially during emergencies. Our air ambulances
-          are not just vehicles; they are a beacon of hope on the
-          <br />
-          fastest route to medical assistance. We pride ourselves on a
-          lightning-quick response that bridges the gap between distress and
-          relief.
+          are not just vehicles. they are a beacon of hope on the fastest route
+          to medical assistance. We pride ourselves on a lightning-quick
+          response that bridges the gap between distress and relief.
         </p>
         <Link href="/contact-us">
           <button className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)">
