@@ -227,7 +227,7 @@ export default function Home() {
         </StyledSection>
         {/* Medical Care */}
         {/*News */}
-        <StyledSection className="relative bottom-0 sm:bottom-0">
+        <StyledSection className="relative top-10 sm:bottom-0">
           <LatestNew />
         </StyledSection>
 
