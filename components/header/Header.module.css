@@ -1,3 +1,5 @@
+/* Header.module.css */
+
 .header {
   position: absolute;
   top: 0;
@@ -31,6 +33,7 @@
   animation: myanimation 0.6s;
   z-index: 2;
 }
+
 .telephone {
   background: #4b68b8;
   width: 204.98px;
@@ -41,46 +44,19 @@
   cursor: pointer;
   border-radius: 7px;
 }
-.telephonehamburg {
-  background: #11b6e3;
-  width: 160.98px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 7px;
-}
-@media (max-width: 760px) {
-  .telephonehamburg {
-    width: 98.98px;
-    height: 30px;
-  }
-}
-
-@media (max-width: 760px) {
-  .ImageSvg {
-    width: 20px;
-    height: 15px;
-  }
-}
 
 .telephoneText {
   font-size: 16px;
   margin-left: 5px;
 }
-@media (max-width: 760px) {
-  .telephoneText {
-    font-size: 8px;
-    margin-left: 5px;
-  }
-}
+
 .Innertelephone {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
+
 @keyframes myanimation {
   0% {
     background-color: transparent;
@@ -119,84 +95,45 @@
   margin: 0 12px;
   cursor: pointer;
 }
-/* HamburgerMenu.module.css */
-.hamburgerMenu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden; /* Hide overflowing content */
-  z-index: 1000; /* Ensure the menu appears above other content */
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1024px) {
+  .header {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
 }
 
-.menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80%; /* Set the width of the menu */
-  background-color: transparent;
-  padding: 20px;
-  transform: translateX(100%); /* Initially hide menu outside the screen */
-  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
+@media (max-width: 760px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .telephone {
+    width: 160.98px;
+    height: 40px;
+  }
+
+  .telephoneText {
+    font-size: 14px;
+  }
 }
 
-.CrossButton {
-  display: flex;
-  justify-content: flex-end;
-}
-.open .menu {
-  transform: translateX(0); /* Slide the menu into view */
-}
-.menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80%;
-  /* Set the width of the menu */
-  background-color: white;
-  padding: 20px;
-  transform: translateX(100%); /* Initially hide menu outside the screen */
-  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
-}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
 
-.CrossButton {
-  display: flex;
-  justify-content: flex-end;
-}
+  .telephone {
+    width: 120.98px;
+    height: 30px;
+  }
 
-.menu ul {
-  list-style-type: none;
-  padding: 0;
+  .telephoneText {
+    font-size: 12px;
+  }
 }
-
-.menu ul li {
-  padding: 8px 0;
-  cursor: pointer;
-}
-
-.hamburgerButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-}
-.menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80%; /* Set the width of the menu */
-  background-color: white;
-  padding: 20px;
-  transform: translateX(100%); /* Initially hide menu outside the screen */
-  transition: transform 0.3s ease-in-out; /* CSS transition for smooth animation */
-}
-
-/* Add more styling as needed */
