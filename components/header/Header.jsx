@@ -110,7 +110,7 @@ const Header = () => {
                 }}
               />
               <span
-                className={`${styles.telephoneText} text-[#fff] border-r-7`}
+                className={`${styles.telephoneText} text-[#fff] border-r-7 font-normal`}
               >
                 {' '}
                 +971 502 825 433
