@@ -221,13 +221,13 @@ export default function Home() {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
           }}
-          className="relative bottom-4"
+          className="px-10 py-5"
         >
           <FastestMedical />
         </StyledSection>
         {/* Medical Care */}
         {/*News */}
-        <StyledSection className="relative bottom-20 sm:bottom-0">
+        <StyledSection className="relative bottom-0 sm:bottom-0">
           <LatestNew />
         </StyledSection>
 

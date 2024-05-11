@@ -176,7 +176,7 @@ const UpdateSearch = ({
   return (
     <form onSubmit={handleSubmit} className={`${className}`}>
       <div
-        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[#78D8F4] w-[1200px] rounded-md  ${className}`}
+        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[#78D8F4] w-[1150px] rounded-md  ${className}`}
       >
         <div
           className={`bg-[#fff] w-[1100px] h-[220px] px-[25px] py-[40px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}}`}
