@@ -10,7 +10,7 @@ import Link from 'next/link';
 const FastestMedical = () => {
   return (
     <div
-      className={`font-sans w-full relative flex flex-col items-center mb-64 sm:mb-32 bg-cover bg-no-repeat`}
+      className={`font-sans w-full relative flex flex-col items-center mb-60 sm:mb-32 bg-cover bg-no-repeat`}
     >
       <div className="flex flex-col items-center w-full">
         <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">

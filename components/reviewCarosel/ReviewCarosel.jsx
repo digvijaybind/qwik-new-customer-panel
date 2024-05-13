@@ -37,7 +37,7 @@ const ReviewCarosel = ({ interval = 4000 }) => {
   const endIdx = Math.min(startIdx + slidesToShow, Review.length);
 
   return (
-    <div className="flex justify-center flex-col items-center ">
+    <div className="flex justify-center flex-col items-center">
       <div className="flex justify-center items-center  text-[20px] mb-10 font-black">
         Testimonials
       </div>

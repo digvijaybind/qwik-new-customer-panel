@@ -32,7 +32,7 @@ const LatestNew = () => {
   return (
     <div>
       <div id="services">
-        <h1 className="text-[#11B6E3]  font-extrabold text-center mb-[10px] font-sans">
+        <h1 className="text-[#11B6E3]  font-black text-[20px] text-center mb-[10px] font-sans">
           Latest News
         </h1>
         <h2 className="font-sans font-extrabold text-3xl sm:text-xl text-center">
