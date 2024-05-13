@@ -169,7 +169,7 @@ export default function Home() {
           handleInputChange={handleInputChange}
         /> */}
 
-        {!isMobile ? (
+        {/* {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearch
               className="bottom-60 sm:bottom-60"
@@ -187,7 +187,8 @@ export default function Home() {
               handleInputChange={handleInputChange}
             />
           </div>
-        )}
+        )} */}
+        
 
         <StyledSection className="relative bottom-20">
           <AboutAircraft />
