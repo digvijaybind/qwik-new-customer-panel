@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import HamburgerMenu from './HamburgerMenu';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import Header from './Header';
-
-const Navbar1 = () => {
+const UpdateNavbar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -18,11 +19,8 @@ const Navbar1 = () => {
   }, []);
 
   return (
-    <nav className="navbar">
-      {isMobile ? <HamburgerMenu /> : null}
-      {!isMobile ? <Header /> : null}
-    </nav>
+    <div className="navbar">{isMobile ? <HamburgerMenu /> : <Header />}</div>
   );
 };
 
-export default Navbar1;
+export default UpdateNavbar;

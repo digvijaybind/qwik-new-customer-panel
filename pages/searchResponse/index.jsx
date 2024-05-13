@@ -120,6 +120,14 @@ const SearchResponse = () => {
 
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
+    if (name === 'mobile') {
+      const mobileNumber = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+      if (mobileNumber.length >= 6) {
+        setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
+      }
+    } else {
+      setFormData((prevData) => ({ ...prevData, [name]: e.target.value }));
+    }
     console.log('name, value', name, value);
     setFormData({
       ...formData,

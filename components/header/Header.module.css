@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
   height: 80px;
   background-color: transparent;
   color: #333;
@@ -98,7 +98,7 @@
 
 /* Media Queries for Responsiveness */
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .header {
     height: 60px;
   }
@@ -136,4 +136,4 @@
   .telephoneText {
     font-size: 12px;
   }
-}
+} */

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
+import Header from './Header1';
 import HamburgerMenu from './HamburgerMenu';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  return <div className="">{isMobile ? <HamburgerMenu /> : <Header/>}</div>;
+  return <div className="">{isMobile ? <HamburgerMenu /> : <Header />}</div>;
 };
 
 export default Navbar;

@@ -25,6 +25,7 @@ import { AirAmbulancerForm } from '@/components/ambulance';
 import ReviewCarosel from '@/components/reviewCarosel/ReviewCarosel';
 import Googlereview from '@/components/googlreview/Googlereview';
 import Rotatemap from '@/components/rotateMap/Rotatemap';
+import UpdateSearch1 from '@/components/SearchBar/UpdateSearch1';
 
 export default function Home() {
   const router = useRouter();
@@ -181,6 +182,7 @@ export default function Home() {
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
             />
+            {/* <UpdateSearch1/> */}
           </div>
         ) : (
           <div className="relative bottom-15">

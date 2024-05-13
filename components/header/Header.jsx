@@ -1,86 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Logo from '../../public/images/logo.svg';
 import Image from 'next/image';
 import styles from './Header.module.css';
 import Link from 'next/link';
+import { useState } from 'react';
 import { BsTelephoneFill } from 'react-icons/bs';
+const tabs = [
+  {
+    title: 'Home',
+    url: '/',
+  },
+  {
+    title: 'About',
+    url: '/about',
+  },
+  {
+    title: 'Services',
+    url: '/services',
+  },
+  {
+    title: 'Our Location',
+    url: '/location',
+  },
+  {
+    title: 'Media',
+    url: '/media',
+  },
+  {
+    title: 'Partner with us',
+    url: '/workwithus',
+  },
+  {
+    title: 'Blog',
+    url: '/blogs',
+  },
+
+  {
+    title: 'Contact',
+    url: '/contact-us',
+  },
+];
+
 const Header = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-  const [header, setHeader] = useState(styles.header);
-
-  // const listenScrollEvent = () => {
-  //   if (window.scrollY < 73) {
-  //     setHeader(styles.header);
-  //   } else if (window.scrollY > 70) {
-  //     setHeader(styles.header2);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', listenScrollEvent);
-
-  //   return () => window.removeEventListener('scroll', listenScrollEvent);
-  // }, []);
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
-  const tabs1 = [
-    'Home',
-    'About',
-    'Services',
-    'Book',
-    'Media',
-    'Blog',
-    'Our Location',
-    'Contact',
-  ];
-  const tabs = [
-    {
-      title: 'Home',
-      url: '/',
-    },
-    {
-      title: 'About',
-      url: '/about',
-    },
-    {
-      title: 'Services',
-      url: '/services',
-    },
-    {
-      title: 'Our Location',
-      url: '/location',
-    },
-    {
-      title: 'Media',
-      url: '/media',
-    },
-    {
-      title: 'Partner with us',
-      url: '/workwithus',
-    },
-    {
-      title: 'Blog',
-      url: '/blogs',
-    },
-
-    {
-      title: 'Contact',
-      url: '/contact-us',
-    },
-  ];
   return (
-    <div>
-      <header className={`${header} ${styles.shadow} px-[70px] font-sans`}>
+    <div className="">
+      <div
+        className={` ${styles.shadow} px-[70px] font-sans flex justify-between items-center flex-row`}
+      >
         <div className={styles.logo}>
           <Link href="/">
-            <Image src={Logo} height={100} width={150} />
+            <div className="relative h-[100px] w-[150px]">
+              <Image
+                src={Logo}
+                // height={100}
+                // width={150}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           </Link>
         </div>
         <div className={`flex flex-row items-center`}>
@@ -89,11 +71,7 @@ const Header = () => {
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans ${
-                    index === activeTab
-                      ? 'border-[#000]  text-[#fff]'
-                      : 'border-transparent text-[#fff]'
-                  }`}
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000]`}
                   onClick={() => handleTabClick(index)}
                 >
                   {tab.title}
@@ -118,7 +96,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>
+      </div>
     </div>
   );
 };
