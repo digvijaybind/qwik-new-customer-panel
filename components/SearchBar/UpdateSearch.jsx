@@ -404,7 +404,7 @@ const UpdateSearch = ({
                     Country Code
                   </span>
                   <div className="flex justify-center items-center">
-                    <div className="bg-white  flex items-center py-0.5 pl-2 border-l-2 border-white px-5 font-sans font-extrabold text-[18px]">
+                    <div className="bg-white  flex items-center py-0.5 pl-2 border-l-2 border-white px-5 font-sans font-extrabold text-[12px]">
                       {
                         countries.find(
                           (country) => country.code === formData.countryCode

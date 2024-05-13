@@ -96,6 +96,37 @@
   cursor: pointer;
 }
 
+.MenuTabResposive .Tabli {
+  @media screen and (min-device-width: 768px) and (max-device-width: 1300px) {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1300px) {
+  .telephone {
+    background: #19c0f0;
+    width: 165px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+  .telephoneText {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .Innertelephone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
 /* Media Queries for Responsiveness */
 
 /* @media (max-width: 1024px) {

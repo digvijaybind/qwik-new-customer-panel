@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <div className="">
       <div
-        className={` ${styles.shadow} px-[70px] font-sans flex justify-between items-center flex-row`}
+        className={` ${styles.shadow} px-[50px] font-sans flex justify-between items-center flex-row `}
       >
         <div className={styles.logo}>
           <Link href="/">
@@ -65,13 +65,19 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <div className={`flex flex-row items-center`}>
+        <div
+          className={`flex flex-row items-center ${styles.MenuTabResposive}`}
+        >
           <ul className={`flex flex-row`}>
             {tabs.map((tab, index) => (
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000]`}
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000] ${styles.Tabli} ${
+                    index === activeTab
+                      ? 'border-[#000]  text-[#000]'
+                      : 'border-transparent text-[#000]'
+                  }`}
                   onClick={() => handleTabClick(index)}
                 >
                   {tab.title}
