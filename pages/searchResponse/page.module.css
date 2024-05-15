@@ -1,3 +1,8 @@
+.HeaderBanner {
+  background-image: url('../../public/images/slider/1.png');
+  background-size: cover;
+  height: max-content;
+}
 .Nav_container {
   display: flex;
   justify-content: space-between;

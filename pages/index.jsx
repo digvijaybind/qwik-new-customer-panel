@@ -165,14 +165,6 @@ export default function Home() {
     <main>
       <div className="font-sans z-0">
         <Navnew />
-        {/* <SearchBar
-          className="bottom-60 sm:bottom-60"
-          isMobile={isMobile}
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        /> */}
-
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearch
@@ -182,7 +174,6 @@ export default function Home() {
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
             />
-            {/* <UpdateSearch1/> */}
           </div>
         ) : (
           <div className="relative bottom-15">

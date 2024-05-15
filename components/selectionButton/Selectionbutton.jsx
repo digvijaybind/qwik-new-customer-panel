@@ -17,7 +17,7 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
       <div
         className={`commericial-tab h-[55px] w-[173px]  rounded flex justify-center items-center flex-col cursor-pointer  ${
           selectedTab === 'commercial'
-            ? 'bg-[#d9ebf1] border-2  border-[#55CDF1]  text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
+            ? 'bg-[#fff] border-2  border-[#55CDF1]  text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
             : 'border-2 border-[#959494] hover:bg-gray-100 transition-colors duration-300'
         } `}
         onClick={() => handleTabChange('commercial')}
@@ -47,7 +47,7 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
           styles.TabButton
         }  rounded flex justify-center items-center flex-col cursor-pointer  ${
           selectedTab === 'dedicated'
-            ? 'bg-[#d9ebf1] border-2 border-[#55CDF1] text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
+            ? 'bg-[#fff] border-2 border-[#55CDF1] text-[#55CDF1] transition-colors duration-300 hover:bg-[#f0f8ff]'
             : 'border-2 border-[#959494] hover:bg-gray-100 transition-colors duration-300'
         }`}
         onClick={() => handleTabChange('dedicated')}

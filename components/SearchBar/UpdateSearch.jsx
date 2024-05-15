@@ -9,6 +9,7 @@ import Loader from '../Utils/Loader';
 import _debounce from 'lodash/debounce';
 import axios from 'axios';
 import { FaCross, FaX } from 'react-icons/fa6';
+import SearchButton from '../searchButton/SearchButton';
 
 const InputSearch = (onChange, className, onBlur, value) => {
   return (
@@ -44,6 +45,7 @@ const AutoSuggestInput = ({
   onFocus,
   value,
   onChange,
+  SearchButton,
   className,
 }) => {
   return (
@@ -68,6 +70,7 @@ const UpdateSearch = ({
   handleSubmit,
   formData,
   handleInputChange,
+  ClassButton,
   isMobile = false,
   className,
 }) => {
@@ -187,7 +190,7 @@ const UpdateSearch = ({
               onClick={() => handleDivClick(1)}
             >
               <div
-                className={` hover:bg-[#e6f2f5] rounded-[10px] px-[15px] py-[15px]`}
+                className={`hover:bg-[#e6f2f5] rounded-[10px] px-[15px] py-[15px]`}
               >
                 <label for="fromcity">
                   <span className="font-sans text-[15px] font-normal">
@@ -471,12 +474,7 @@ const UpdateSearch = ({
           </div>
         </div>
       </div>
-      <button
-        className={`w-[180px] h-[40px]  font-semibold  position: relative bottom-[108px] left-[500px]  rounded-full text-gray-800   hover:bg-[#85d4e9] hover:text-[#fff] bg-[#19c0f0]  ${className}`}
-        style={{ boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)' }}
-      >
-        Search Now
-      </button>
+      <SearchButton className="relative top-[-65px]" />
     </form>
   );
 };
