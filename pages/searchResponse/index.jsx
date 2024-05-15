@@ -196,9 +196,9 @@ const SearchResponse = () => {
           )}
         </div>
 
-        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px]">
+        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] ">
           {!isMobile ? (
-            <div className="flex justify-around">
+            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px]">
               {' '}
               <Selectionbutton
                 selectedTab={selectedTab}
