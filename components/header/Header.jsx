@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../../public/images/logo.svg';
 import Image from 'next/image';
 import styles from './Header.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import { BsTelephoneFill } from 'react-icons/bs';
+
+//Navigation Tabs
 const tabs = [
   {
     title: 'Home',
@@ -42,29 +44,48 @@ const tabs = [
 ];
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  //state for active and scroll position
 
+  const [activeTab, setActiveTab] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  //Handle tab click
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
+
+  //Handle Scroll event to toggle background class
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 50);
+  };
+
+  //Add scroll event listner on mount and clean up on unmount
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="">
+    <div className={`${isScrolled ? styles.header2 : styles.header}`}>
       <div
-        className={` ${styles.shadow} px-[50px] font-sans flex justify-between items-center flex-row `}
+        className={` ${styles.shadow}   px-[50px] font-sans flex justify-between items-center flex-row w-full`}
       >
+        {/* Logo */}
+
         <div className={styles.logo}>
           <Link href="/">
             <div className="relative h-[100px] w-[150px]">
-              <Image
-                src={Logo}
-                // height={100}
-                // width={150}
-                layout="fill"
-                objectFit="contain"
-              />
+              <Image src={Logo} layout="fill" objectFit="contain" />
             </div>
           </Link>
         </div>
+
+        {/* Navigation Tabs */}
+
         <div
           className={`flex flex-row items-center ${styles.MenuTabResposive}`}
         >
@@ -73,7 +94,9 @@ const Header = () => {
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000] ${styles.Tabli} ${
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000] ${
+                    styles.Tabli
+                  } ${
                     index === activeTab
                       ? 'border-[#000]  text-[#000]'
                       : 'border-transparent text-[#000]'
@@ -85,6 +108,8 @@ const Header = () => {
               </Link>
             ))}
           </ul>
+
+          {/* Telephone  Section */}
 
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>

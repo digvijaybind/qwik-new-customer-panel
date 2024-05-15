@@ -198,7 +198,7 @@ const SearchBar = ({
                 className="col-span-1 sm:col-span-1 flex gap-3 items-center  sm:px-5  relative  bg-[#e7e5e5] sm:rounded-lg"
                 id="destinationLocationContainer"
               >
-                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3 sm:hidden sm:hidden" />
+                <IoAirplaneSharp className="min-w-[25px] min-h-[25px] p-1 border border-white rounded-full flex justify-center items-center ml-3 sm:hidden" />
                 {!destinationSearchSelected && (
                   <input
                     className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
