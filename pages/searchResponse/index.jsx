@@ -7,12 +7,11 @@ import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
-import SearchBar from '@/components/SearchBar/SearchBar';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
-import MobileButton from '@/components/selectionButton/MobileButton';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
-const SearchResponse = () => {
+import InstructionTab from '@/components/InstructionalTab/InstructionalTab';
+const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
   const [selectedTab, setSelectedTab] = useState('commercial');
@@ -121,7 +120,7 @@ const SearchResponse = () => {
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
     if (name === 'mobile') {
-      const mobileNumber = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+      const mobileNumber = e.target.value.replace(/\D/g, '');
       if (mobileNumber.length >= 6) {
         setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
       }
@@ -158,34 +157,19 @@ const SearchResponse = () => {
     <div>
       <div className="sm:px-[20px] sm:py-[20px] font-sans bg-[#f4f4f4]">
         <div className="flex justify-center items-center">
-          {/* <SearchBar
-          className="bottom-10"
-          isMobile={isMobile}
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        /> */}
-          {/* <MobileSearch
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleInputChange={handleInputChange}
-        /> */}
           {!isMobile ? (
-            <UpdateSearch
-              className=""
-              isMobile={isMobile}
-              formData={formData}
-              handleSubmit={handleSubmit}
-              handleInputChange={handleInputChange}
-            />
+            <div
+              className={`${styles.HeaderBanner} w-full flex justify-center`}
+            >
+              <UpdateSearch
+                className="relative top-5"
+                isMobile={isMobile}
+                formData={formData}
+                handleSubmit={handleSubmit}
+                handleInputChange={handleInputChange}
+              />
+            </div>
           ) : (
-            // <SearchBar
-            //   className="bottom-10"
-            //   isMobile={isMobile}
-            //   formData={formData}
-            //   handleSubmit={handleSubmit}
-            //   handleInputChange={handleInputChange}
-            // />
             <div className="mt-5 mb-5">
               <MobileSearch
                 formData={formData}
@@ -195,10 +179,9 @@ const SearchResponse = () => {
             </div>
           )}
         </div>
-
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] ">
           {!isMobile ? (
-            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px]">
+            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px] rounded-lg">
               {' '}
               <Selectionbutton
                 selectedTab={selectedTab}
@@ -211,9 +194,15 @@ const SearchResponse = () => {
               handleTabChange={handleTabChange}
             />
           )}
-
+          <InstructionTab
+            className={`${
+              commericialTab
+                ? 'relative bottom-[171px] right-[200px]'
+                : 'relative bottom-[171px] left-[422px]'
+            }`}
+          />
           {!isMobile ? (
-            <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px]">
+            <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px] relative bottom-[150px]">
               <div
                 className={`commericial ${
                   styles.CommericialCard

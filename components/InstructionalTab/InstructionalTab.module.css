@@ -1,0 +1,72 @@
+.instructionTab {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #5a5858;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+.instructionTab::before {
+  content: '';
+  right: -0.7rem;
+  top: 5rem;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  position: absolute;
+  transform: rotate(135deg);
+  border-left: 1px solid grey;
+  border-top: 1px solid grey;
+}
+
+.InstructionCommericialTab {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #5a5858;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+.InstructionCommericialTab::before {
+  content: '';
+  left: -0.7rem;
+  top: 5rem;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  position: absolute;
+  transform: rotate(225deg);
+  border-right: 1px solid grey;
+  border-top: 1px solid grey;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.instructionBox {
+  width: 300px;
+  height: 150px;
+  border: 1px solid #000;
+  padding: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid gray;
+  background-color: #19c0f0;
+}
