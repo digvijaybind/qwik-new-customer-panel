@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styles from './Blogs.module.css';
 
-const PostDetails = () => {
+const BlogsDetails = () => {
   const router = useRouter();
   const [postDetails, setPostDetails] = useState({});
 
@@ -66,4 +66,4 @@ const PostDetails = () => {
   );
 };
 
-export default PostDetails;
+export default BlogsDetails;

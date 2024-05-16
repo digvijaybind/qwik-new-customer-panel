@@ -135,7 +135,7 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Company Profile
               </h2>
-              <p className="text-sm">
+              <p className="text-sm font-sans">
                 About Qwiklif: An air ambulance company with give multiple
                 choices of air ambulance cost which is closest to you,
                 <br /> Qwiklif focuses on giving customer cost effective and

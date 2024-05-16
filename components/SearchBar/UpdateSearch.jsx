@@ -50,7 +50,7 @@ const AutoSuggestInput = ({
 }) => {
   return (
     <div className="flex justify-around items-center bg-[#fff]  px-2 py-1 h-[50px] w-[200px] rounded shadow-2xl  shadow-[#e2e0e0]">
-      <div className={`pr-2 ${className}`}>
+      <div className={`pr-2 ${className} flex items-center`}>
         <FaSearch />
       </div>
       <input
@@ -186,12 +186,10 @@ const UpdateSearch = ({
         >
           <div className="grid grid-cols-8 gap-0 rounded-5 border border-solid border-gray-300 box-border w-full h-[112px] rounded-[5px] sm:grid-cols-1">
             <div
-              className="col-span-2 border-r-2 border-[#e7e7e7]"
+              className="col-span-2 border-r-2 border-[#e7e7e7] hover:bg-[#e6f2f5]"
               onClick={() => handleDivClick(1)}
             >
-              <div
-                className={`hover:bg-[#e6f2f5] rounded-[10px] px-[15px] py-[15px]`}
-              >
+              <div className={` rounded-[10px] px-[15px] py-[15px]`}>
                 <label for="fromcity">
                   <span className="font-sans text-[15px] font-normal">
                     From
@@ -275,10 +273,10 @@ const UpdateSearch = ({
               </div>
             </div>
             <div
-              className="col-span-2 border-r-2 border-[#e7e7e7]"
+              className="col-span-2 border-r-2 border-[#e7e7e7] hover:bg-[#e6f2f5]"
               onClick={() => handleDivClick(2)}
             >
-              <div className={` hover:bg-[#e6f2f5] rounded-[5px]`}>
+              <div className={`  rounded-[5px]`}>
                 <div
                   className={` hover:bg-[#e6f2f5] rounded-[10px] px-[10px] py-[10px]`}
                 >
@@ -352,7 +350,7 @@ const UpdateSearch = ({
               </div>
             </div>
             <div
-              className="col-span-1 border-r-2 border-[#e7e7e7] "
+              className="col-span-1 border-r-2 border-[#e7e7e7] hover:bg-[#e6f2f5]"
               onClick={() => handleDivClick(3)}
             >
               <div
@@ -440,12 +438,10 @@ const UpdateSearch = ({
               )}
             </div>
             <div
-              className="col-span-2 border-r-2 border-[#e7e7e7]"
+              className="col-span-2 border-r-2 border-[#e7e7e7] hover:bg-[#e6f2f5]"
               onClick={() => handleDivClick(5)}
             >
-              <div
-                className={` hover:bg-[#e6f2f5] rounded-[5px]  px-[10px] py-[10px]`}
-              >
+              <div className={`  rounded-[5px]  px-[10px] py-[10px]`}>
                 <label for="mobile flex flex-col">
                   <span className="font-sans text-[15px] font-normal">
                     {' '}

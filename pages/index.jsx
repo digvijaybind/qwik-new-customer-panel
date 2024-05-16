@@ -229,7 +229,7 @@ export default function Home() {
         {/* <ReviewCarosel /> */}
 
         {/* Why Choose Our Services */}
-        <StyledSection className='relative top-10'>
+        <StyledSection className="relative top-10">
           <div className="flex flex-col items-start px-36 sm:px-10 py-16">
             <div className="flex flex-col items-start w-full sm:items-center ">
               <h1 className="font-sans font-extrabold text-3xl text-center mb-2">
@@ -314,7 +314,7 @@ export default function Home() {
         {/* Why Choose Our Services */}
 
         {/* Reviews */}
-        <StyledSection className="relative bottom-4">
+        <StyledSection className="relative bottom-4 mt-5">
           {/* <ReviewCarosel/> */}
 
           {/* <Googlereview /> */}

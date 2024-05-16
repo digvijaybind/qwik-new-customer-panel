@@ -204,14 +204,14 @@ const FlightImages = ({ locationData }) => {
         >
           <Image
             src="/images/search-detail/VT-VBSext.png"
-            width={500} // Specify the width here
+            width={100} // Specify the width here
             height={500} // Specify the height here
-            className="object-cover object-top rounded-md overflow-hidden"
+            className=""
           />
-          <img
+          {/* <img
             src="/images/search-detail/VT-VBSint.png"
             className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
-          />
+          /> */}
         </Slider>
       </div>
       <div className="grid grid-cols-3 gap-3 w-full">
@@ -222,7 +222,6 @@ const FlightImages = ({ locationData }) => {
           className="object-cover object-top rounded-md overflow-hidden"
         />
 
-
         <Image
           src="/images/search-detail/VT-VBSlopa.png"
           width={500} // Specify the width here
@@ -231,6 +230,8 @@ const FlightImages = ({ locationData }) => {
         />
         <Image
           src="/images/search-detail/VT-VBSint.png"
+          width={100} // Specify the width here
+          height={500} // Specify the height here
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
       </div>
@@ -307,6 +308,8 @@ const Flightchallenger605 = () => {
         />
         <img
           src="/images/search-detail/VT-VBSint.png"
+          width={100} // Specify the width here
+          height={500} // Specify the height here
           className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
         />
       </div>

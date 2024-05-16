@@ -38,7 +38,7 @@ const ReviewCarosel = ({ interval = 4000 }) => {
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <div className="flex justify-center items-center  text-[20px] mb-10 font-black">
+      <div className="flex justify-center items-center  text-[25px] mb-10 font-black">
         Testimonials
       </div>
       <div className="flex space-x-4 ">
