@@ -32,8 +32,8 @@ const Guarantee = () => {
         treated with professional and compassionate care. We consider every
         patient as family, we strive for perfection, and continuously monitor
         our operations. When choosing a provider, remember that Qwiklif Air
-        Ambulance is the world's first air ambulance service provider giving an
-        instant quotation.
+        Ambulance is the world&apos first air ambulance service provider giving
+        an instant quotation.
       </div>
       <div class="flex items-center flex-col justify-center mt-5">
         <Image src={Signature} width={200} height={125} />
