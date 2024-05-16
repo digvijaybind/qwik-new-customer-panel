@@ -307,7 +307,7 @@ const PayConfirmation = () => {
   return (
     <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[300px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px] z-0">
       <div className="text-[16px] font-black text-center">
-        Pay 20% Reserve Your Seat
+        Reserve Your Seat
       </div>
       <input
         className="border-2 border-[#CBCBCB] rounded-md mt-5 px-[30px] py-[5px] text-center shadow-2xl text-[10px]"
