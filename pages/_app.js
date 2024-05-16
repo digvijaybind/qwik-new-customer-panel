@@ -1,10 +1,10 @@
 import Newfooter from '@/components/Footer/Newfooter';
-import Navbar from '@/components/header/Navbar';
-
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 import { DataProvider } from '@/context/DataContext';
 import '@/styles/globals.css';
 import UpdateNavbar from '@/components/header/UpdateNavbar';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function App({ Component, pageProps }) {
   const BusinessWhatsAppNumber = process.env.REACT_WHATSAPP_NUMBER;

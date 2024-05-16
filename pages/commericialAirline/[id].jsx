@@ -16,7 +16,7 @@ import Point from '../../public/images/PointIcon.svg';
 import Important from '../../db/important.json';
 import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
 
-const images = ['Strecter', 'scheduledFlight'];
+const Images = [Strecter, scheduledFlight];
 
 const Guarantee = () => {
   return (
@@ -27,7 +27,7 @@ const Guarantee = () => {
       <div class="font-black text-lg font-sans sm:text-center">
         OUR GUARANTEE
       </div>
-      <div class="font-sans text-sm font-medium mt-3 px-4 sm:w-80 sm:px-4">
+      <div class="font-sans text-sm font-medium mt-3 w-1/2 px-4 sm:w-80 sm:px-4">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
         patient as family, we strive for perfection, and continuously monitor
@@ -102,7 +102,7 @@ const AutoVideoSlider = ({ videos, interval, isMobile }) => {
 
 const TravelDuration = () => {
   return (
-    <div className="px-[10px] py-[10px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md  sm:min-w-[320px]">
+    <div className="px-[10px] py-[20px] border-2 border-[#D9D9D9] rounded-md w-[881px]  shadow-md  sm:min-w-[320px]">
       <div className="Topsection flex flex-col sm:px-[10px] sm:py-[10px]">
         <div className="flex justify-between sm:flex-col">
           <div className="flex items-center  justify-around w-[200px]">
@@ -192,11 +192,11 @@ const TravelDuration = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10">
-        <div className="w-1/2">
-          <AutoCarousel images={images} autoplaySpeed={3000} />
+      <div className="mt-2 grid grid-cols-2 gap-5 cursor-pointer">
+        <div className=" bg-[#fff] h-[150px] col-span-1">
+          <AutoCarousel images={Images} autoplaySpeed={3000} />
         </div>
-        <div className=""></div>
+        <div className="col-span-1"></div>
       </div>
     </div>
   );
@@ -267,7 +267,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[10px] h-[350px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-2 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
+    <div className="flex flex-col justify-center px-[25px]  py-[8px] h-[350px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-2 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className="text-[16px] font-black text-center">
         Reserve Your Seat
       </div>

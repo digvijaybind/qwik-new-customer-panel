@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import Slider from 'react-slick';
 
@@ -9,7 +10,7 @@ const AutoCarousel = ({ images, autoplaySpeed }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: autoplaySpeed || 2000, 
+    autoplaySpeed: autoplaySpeed || 2000,
     arrows: false,
   };
 
@@ -17,10 +18,11 @@ const AutoCarousel = ({ images, autoplaySpeed }) => {
     <Slider {...settings}>
       {images.map((image, index) => (
         <div key={index}>
-          <img
+          <Image
             src={image}
             alt={`slide ${index}`}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            height={40}
+            className="rounded-xl w-full h-[160px]"
           />
         </div>
       ))}
