@@ -1,3 +1,4 @@
+//Importing Required modules and component's
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import styles from '../styles/page.module.css';
 import { useState } from 'react';
@@ -19,14 +20,11 @@ import LatestNew from '@/components/latestnews/LatestNew';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
-import Review from '@/components/Review/review';
 import { StyledSection } from '@/components/shared';
-import { AirAmbulancerForm } from '@/components/ambulance';
 import ReviewCarosel from '@/components/reviewCarosel/ReviewCarosel';
-import Googlereview from '@/components/googlreview/Googlereview';
 import Rotatemap from '@/components/rotateMap/Rotatemap';
-import UpdateSearch1 from '@/components/SearchBar/UpdateSearch1';
 
+//Main component function
 export default function Home() {
   const router = useRouter();
   const [formData, setformData] = useState({
@@ -48,22 +46,24 @@ export default function Home() {
   const [cityMatch, setCitymatch] = useState([]);
   const [fieldType, setFieldtype] = useState('');
   const { loading, startLoading, stopLoading, setApiData } = useData();
-  const [activeTab, setActiveTab] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+
+  //handle resize function for mobiel view 
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1000); // Change threshold as needed
+      setIsMobile(window.innerWidth <= 1000);
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Call once to set initial state
+    handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
+  //search for autoSuggestion
   useEffect(() => {
     const asyncTask = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -110,9 +110,10 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [homeServices]);
 
+  //handle submit form API calling
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     router.push({
       pathname: '/searchResponse',
       query: {
@@ -126,20 +127,7 @@ export default function Home() {
     });
   };
 
-  const handleDateChange = (event) => {
-    const selected = new Date(event.target.value);
-    const today = new Date();
-    if (selected < today) {
-      setSelectedDate('');
-    } else {
-      setSelectedDate(event.target.value);
-    }
-  };
-
-  const handlePress = (item, index) => {
-    setSelectedIndex(index);
-  };
-
+  //tab array
   const tasktab = [
     {
       img: Aeroplane1,
@@ -164,7 +152,9 @@ export default function Home() {
   return (
     <main>
       <div className="font-sans z-0">
+        {/*Navbar */}
         <Navnew />
+        {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearch
@@ -186,7 +176,9 @@ export default function Home() {
         )}
 
         <StyledSection className="relative bottom-[220px] sm:bottom-0">
+          {/*About us section component */}
           <AboutAircraft />
+          {/*Qwiklif Feautres Component  */}
           <QwiklifFeature />
         </StyledSection>
 
@@ -357,7 +349,7 @@ export default function Home() {
               </h2>
               <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
             </div>
-
+            {/* this is form of landing page */}
             <form
               onSubmit={handleSubmit}
               className={`mt-[30px] w-full ${styles.form}`}
