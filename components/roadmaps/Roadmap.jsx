@@ -7,14 +7,17 @@ const Roadmap = () => {
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
     <div>
-      <div className={`shadow rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px] font-sans`}  >
+      <div
+        className={`shadow rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px] font-sans`}
+      >
         <div className="h-[60px] sm:h-fit flex flex-row w-full rounded-t overflow-hidden">
           {bookTypes.map((item, index) => {
             return (
               <button
                 key={index}
-                className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${SelectedIndex === index ? 'bg-[#4B68B8]' : 'bg-[#F0F0F09C]'
-                  }`}
+                className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${
+                  SelectedIndex === index ? 'bg-[#19c0f0]' : 'bg-[#F0F0F09C]'
+                }`}
                 onClick={(e) => {
                   e.preventDefault();
                   setSelectedIndex(index);
@@ -41,13 +44,13 @@ const Roadmap = () => {
                         height={40}
                         alt="rapid Time"
                         layout="cover"
-
                       />
                     </div>
                   )}
                   <p
-                    className={`font-normal text-[16px] leading-[26px] ${SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
-                      }`}
+                    className={`font-normal text-[16px] leading-[26px] ${
+                      SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
+                    }`}
                   >
                     {item}
                   </p>
