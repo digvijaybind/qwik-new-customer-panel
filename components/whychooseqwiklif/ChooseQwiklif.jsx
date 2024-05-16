@@ -4,13 +4,11 @@ import SelectionComponent from '@/components/selection/SelectionComponent';
 import aeroIcon from '../../public/images/aeroplaneicon.svg';
 import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import GlobalIcon from '../../public/images/counter/globalIcon.svg';
-import CostEffectIcon from '../../public/images/counter/CostEffective.svg'
+import CostEffectIcon from '../../public/images/counter/CostEffective.svg';
 import CostEffective from '../../public/images/counter/CostEffective.png';
 import DoctorOnboard from '../../public/images/fleet_tabs/doctor_onboard.png';
 import GlobalCoverage from '../../public/images/fleet_tabs/global_coverage.png';
 import Biggest_fleet from '../../public/images/fleet_tabs/biggest_fleet.png';
-
-
 
 const faqs = [
   {
@@ -106,12 +104,18 @@ const ChooseQwiklif = () => {
 
 export default ChooseQwiklif;
 
-
-
-const ChooseQwiklifButton = ({ activeTab, setActiveTab, tabIndex, title, icon }) => {
+const ChooseQwiklifButton = ({
+  activeTab,
+  setActiveTab,
+  tabIndex,
+  title,
+  icon,
+}) => {
   return (
     <button
-      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#396CF0] rounded sm:w-full hover:text-white transition-colors duration-300 ${activeTab === tabIndex && '!bg-[#396CF0] !text-white'} font-sans`}
+      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#19c0f0] rounded sm:w-full hover:text-white transition-colors duration-300 ${
+        activeTab === tabIndex && '!bg-[#19c0f0] !text-white'
+      } font-sans`}
       onClick={() => setActiveTab(tabIndex)}
     >
       <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
@@ -121,6 +125,5 @@ const ChooseQwiklifButton = ({ activeTab, setActiveTab, tabIndex, title, icon })
         {title}
       </div>
     </button>
-
-  )
-}
+  );
+};

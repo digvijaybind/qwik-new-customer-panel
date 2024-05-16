@@ -258,10 +258,10 @@ export default function Home() {
                     }}
                   >
                     <div
-                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#4B68B8] hover:!text-white transition-all duration-300 ${
+                      className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
                         SelectedCollapseIndex != index
                           ? 'bg-[#F1F7FA]'
-                          : 'bg-[#4B68B8] rounded-b-none'
+                          : 'bg-[#19c0f0] rounded-b-none'
                       }`}
                     >
                       <h4
