@@ -213,7 +213,7 @@ const SearchResponse = ({ commericialTab }) => {
                 }`}
               >
                 <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[21px] sm:w-[193px]   ${
+                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[20px] sm:w-[193px]   ${
                     selectedTab === 'commercial'
                       ? 'bg-[#dbebeb] text-[#12B5E4]'
                       : 'bg-[#f5f5f5] text-[#D9D9D9]'
@@ -235,7 +235,7 @@ const SearchResponse = ({ commericialTab }) => {
                 }`}
               >
                 <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[21px]  ${
+                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[20px]  ${
                     selectedTab === 'dedicated'
                       ? 'bg-[#dbebeb] text-[#12B5E4]'
                       : 'bg-[#f5f5f5] text-[#D9D9D9]'
