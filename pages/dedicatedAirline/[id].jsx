@@ -295,7 +295,7 @@ const ImportantInfo = () => {
 
 const TotalFare = () => {
   return (
-    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
+    <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px]  bg-[#fff] w-full  rounded-md font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px]">
       <div className=" text-[16px] font-black">Fare Summary</div>
       <div className="flex justify-between mb-2">
         <div className="font-bold text-[12px] font-sans">Base Fare</div>
@@ -317,7 +317,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[300px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px] z-0">
+    <div className="flex flex-col justify-center px-[25px]  py-[18px] h-[300px] sm:h-[250px]  bg-[#fff] w-full  rounded-md mt-5 sm:mt-2 font-sans border-2 border-[#D9D9D9] sm:px-[10px] sm:py-[10px] z-0">
       <div className="text-[16px] font-black text-center">
         Reserve Your Seat
       </div>

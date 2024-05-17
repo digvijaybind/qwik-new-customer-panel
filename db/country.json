@@ -1,5 +1,5 @@
 [
-  { "code": "0", "name": "Select country code" },
+  { "code": "0", "name": "country code" },
   { "code": "+93", "name": "Afghanistan" },
   { "code": "+358", "name": "Åland Islands (AX)" },
   { "code": "+355", "name": "Albania (AL)" },

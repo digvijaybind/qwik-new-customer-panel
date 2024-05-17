@@ -182,9 +182,9 @@ const UpdateSearch = ({
         className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[] w-[1150px] rounded-md  ${className}`}
       >
         <div
-          className={`bg-[#fff] w-[1100px] h-[220px] px-[20px] py-[25px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}`}
+          className={`bg-[#fff] w-[1100px] h-[220px] px-[20px] py-[5px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}`}
         >
-          <div className="grid grid-cols-8 gap-0 rounded-5 border border-solid border-gray-300 box-border w-full h-[105px] rounded-[5px] sm:grid-cols-1">
+          <div className="grid grid-cols-8 gap-0 rounded-5 border border-solid border-gray-300 box-border w-full h-[112px] rounded-[5px] sm:grid-cols-1">
             <div
               className="col-span-2 border-r-2 border-[#e7e7e7] hover:bg-[#e6f2f5]"
               onClick={() => handleDivClick(1)}
