@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }) {
         {/* <Navbar /> */}
         <UpdateNavbar />
         <Component {...pageProps} />
+        {/*WhatsApp floating Component */}
         <FloatingWhatsApp
           phoneNumber="+971502825433"
           accountName="Qwiklif Air Ambulance"

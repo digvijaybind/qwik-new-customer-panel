@@ -1,6 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = nextConfig;
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.optimization.minimizer.push(new TerserPlugin());
+    }
+
+    return config;
+  },
+};

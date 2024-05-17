@@ -5,6 +5,7 @@ import Googlereview from '../googlreview/Googlereview';
 const ReviewCarosel = ({ interval = 4000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -17,6 +18,7 @@ const ReviewCarosel = ({ interval = 4000 }) => {
   }, [interval, slidesToShow]);
 
   useEffect(() => {
+    setIsMounted(true);
     const updateSlidesToShow = () => {
       if (window.innerWidth < 768) {
         setSlidesToShow(1);
@@ -32,6 +34,10 @@ const ReviewCarosel = ({ interval = 4000 }) => {
     window.addEventListener('resize', updateSlidesToShow);
     return () => window.removeEventListener('resize', updateSlidesToShow);
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   const startIdx = currentSlide * slidesToShow;
   const endIdx = Math.min(startIdx + slidesToShow, Review.length);
