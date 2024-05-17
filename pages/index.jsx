@@ -405,7 +405,7 @@ export default function Home() {
                   />
                   <div className="col-span-5">
                     <button
-                      className={`${styles.boxShado} w-full h-[50px] bg-[#4B68B8] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#4B68B8] shadow-lg shadow-[#4B68B8]`}
+                      className={`${styles.boxShado} w-full h-[50px] bg-[#19c0f0] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#19c0f0] shadow-lg shadow-[#19c0f0]`}
                     >
                       Get Quote
                     </button>
