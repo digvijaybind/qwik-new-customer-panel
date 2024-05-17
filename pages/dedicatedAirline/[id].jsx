@@ -4,17 +4,21 @@ import styles from './dedicatedAirline.module.css';
 import Image from 'next/image';
 import Signature from '../../public/images/Signature.svg';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import Airline from '../../public/images/airlines/indigo.jpg';
 import Doctors from '../../public/images/bookingIcon/doctor.png';
 import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
 import { useState } from 'react';
 import Important from '../../db/important.json';
-import MedicalInstruments from '@/components/medicalInstrument/MedicalInstrument';
 import Learjet from '../../public/images/airline-mini-logo/learjet-405.svg';
 import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
+import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
+import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
+import Strecter from '../../public/images/commerialImages/Strectres.jpg';
+import scheduledFlight from '../../public/images/commerialImages/scheduled-flight-icu.png';
+import Strectres from '../../public/images/bookingIcon/strectres.png';
+
+const Images = [Strecter, scheduledFlight];
 
 const Guarantee = () => {
   return (
@@ -192,6 +196,14 @@ const TravelDuration = () => {
               descripation=""
             />
           </div>
+        </div>
+      </div>
+      <div className="mt-2 grid grid-cols-2 gap-5 cursor-pointer sm:grid-cols-1 md:grid-cols-1">
+        <div className=" bg-[#fff] h-[150px] col-span-1">
+          <AutoCarousel images={Images} autoplaySpeed={3000} />
+        </div>
+        <div className="col-span-1 imagecarsoel">
+          <ImageCarosel />
         </div>
       </div>
     </div>

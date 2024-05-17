@@ -15,6 +15,7 @@ import Strectres from '../../public/images/bookingIcon/strectres.png';
 import Point from '../../public/images/PointIcon.svg';
 import Important from '../../db/important.json';
 import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
+import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
 
 const Images = [Strecter, scheduledFlight];
 
@@ -42,8 +43,6 @@ const Guarantee = () => {
     </div>
   );
 };
-
-
 
 const AutoVideoSlider = ({ videos, interval, isMobile }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -176,7 +175,9 @@ const TravelDuration = () => {
         <div className=" bg-[#fff] h-[150px] col-span-1">
           <AutoCarousel images={Images} autoplaySpeed={3000} />
         </div>
-        <div className="col-span-1"></div>
+        <div className="col-span-1">
+          <ImageCarosel />
+        </div>
       </div>
     </div>
   );
