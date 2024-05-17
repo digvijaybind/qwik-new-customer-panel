@@ -6,7 +6,7 @@ const Trusted = ({ img, title, descripation }) => {
   return (
     <div className={`${styles.Wrapper} font-sans font-extrabold`}>
       <div className=" w-full flex justify-start items-start gap-8">
-        <div className="bg-[#396CF0] overflow-hidden rounded-full sm:w-15 w-[75px] sm:h-12 h-[65px] flex justify-center items-center cursor-pointer">
+        <div className="bg-[#19c0f0] overflow-hidden rounded-full sm:w-15 w-[75px] sm:h-12 h-[65px] flex justify-center items-center cursor-pointer">
           <Image
             src={img}
             className="object-cover sm:!w-[25px] !w-[30px] sm:!h-[25px] !h-[30px]"

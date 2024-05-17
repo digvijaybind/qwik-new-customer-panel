@@ -43,27 +43,7 @@ const Guarantee = () => {
   );
 };
 
-const GuarranteeUpdate = () => {
-  return (
-    <div className="px-[25px] py-[30px] border-2 border-[#D9D9D9] rounded-md flex items-center flex-col  sm:items-start md:items-start sm:py-[20px] sm:px-[15px] md:px-[35px] lg:px-[15px] xl:">
-      <div className="font-black text-[16px] font-sans">OUR GUARANTEE</div>
-      <div className="font-sans text-[12px] font-medium mt-3 px-[20px] sm:w-[320px] sm:px-[20px]  md:w-[768px] lg:w-[881px] xl:w-[881px]">
-        We Guarantee that when choosing Qwiklif, your loved ones shall be
-        treated with professional and compassionate care. We consider every
-        patient as family, we strive to perfection and continuously monitoring
-        our operations. When choosing A provider, Remember that Qwiklif Air
-        ambulance is World First air ambulance service provider giving instant
-        quotation.
-      </div>
-      <div className="flex items-center flex-col justify-center">
-        <Image src={Signature} width={200} height={125} />
-        <div className="font-extrabold text-[12px] font-sans">
-          CEO , QWIKLIF
-        </div>
-      </div>
-    </div>
-  );
-};
+
 
 const AutoVideoSlider = ({ videos, interval, isMobile }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -192,7 +172,7 @@ const TravelDuration = () => {
           </div>
         </div>
       </div>
-      <div className="mt-2 grid grid-cols-2 gap-5 cursor-pointer">
+      <div className="mt-2 grid grid-cols-2 gap-5 cursor-pointer sm:grid-cols-1 md:grid-cols-1">
         <div className=" bg-[#fff] h-[150px] col-span-1">
           <AutoCarousel images={Images} autoplaySpeed={3000} />
         </div>
