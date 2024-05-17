@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './workWithus.module.css';
 import ShadowCard from '@/components/shadowCard';
 import Careercard from '../careerCard/careerCard';
+import UpdatecareerCard from '../careerCard/UpdatecareerCard';
 
 const WorkwithUs = () => {
   const service = [
@@ -80,7 +81,13 @@ const WorkwithUs = () => {
               } `}
               key={i}
             >
-              <Careercard img={data.img} head={data.head} text={data.text} />
+              <UpdatecareerCard
+                image={data.img}
+                headline={data.head}
+                descripation={data.text}
+                height={80}
+                width={80}
+              />
             </div>
           ))}
         </div>
