@@ -18,7 +18,7 @@ const SelectionComponent = ({ img, title, descripation }) => {
           {title}
         </p>
         <div className="flex justify-start  mb-[10px] sm:flex-row sm:w-full">
-          <hr className="bg-[#396CF0] h-[3px] w-[100px]" />
+          <hr className="bg-[#19c0f0] h-[3px] w-[100px]" />
         </div>
       </div>
 
