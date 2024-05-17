@@ -75,12 +75,7 @@ const WorkwithUs = () => {
         </div>
         <div className="flex justify-between sm:items-center px-[6%] py-[4%] flex-wrap">
           {service.map((data, i) => (
-            <div
-              className={`w-[30%] sm:w-[100%] mt-[20px] ${
-                i == 4 ? 'mb-[20px]' : ''
-              } `}
-              key={i}
-            >
+            <div className={`w-[30%] sm:w-[100%] mt-[20px] `} key={i}>
               <UpdatecareerCard
                 image={data.img}
                 headline={data.head}
