@@ -159,7 +159,7 @@ const SearchResponse = ({ commericialTab }) => {
         <div className="flex justify-center items-center">
           {!isMobile ? (
             <div
-              className={`${styles.HeaderBanner} w-full flex justify-center`}
+              className={`${styles.HeaderBanner} w-full flex justify-center `}
             >
               <UpdateSearch
                 className="relative top-5"

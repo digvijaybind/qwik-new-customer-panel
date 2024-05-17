@@ -1,6 +1,6 @@
 .HeaderBanner {
   background-image: url('../../public/images/slider/1.png');
-  background-size: cover;
+  background-size: contain;
   height: max-content;
 }
 .Nav_container {
