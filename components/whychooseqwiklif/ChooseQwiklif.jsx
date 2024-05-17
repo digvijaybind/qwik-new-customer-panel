@@ -118,7 +118,7 @@ const ChooseQwiklifButton = ({
       } font-sans`}
       onClick={() => setActiveTab(tabIndex)}
     >
-      <div className="bg-[#396CF0] rounded-full w-[55px] h-[55px] flex justify-center">
+      <div className="bg-[#19c0f0] rounded-full w-[55px] h-[55px] flex justify-center">
         <Image src={icon} height={40} width={35} alt={title} />
       </div>
       <div className="font-sans font-extrabold text-xl sm:flex justify-end sm:text-base">
