@@ -181,7 +181,7 @@ const SearchResponse = ({ commericialTab }) => {
         </div>
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] ">
           {!isMobile ? (
-            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px] rounded-lg">
+            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px] rounded-lg border-solid border-2 border-[#19c0f0]">
               {' '}
               <Selectionbutton
                 selectedTab={selectedTab}
@@ -206,14 +206,14 @@ const SearchResponse = ({ commericialTab }) => {
               <div
                 className={`commericial ${
                   styles.CommericialCard
-                } shadow-2xl bg-[#fff] rounded-2xl  px-[20px] py-[50px] sm:px-[5px] sm:py-[10px] sm:max-w-4xl   ${
+                } shadow-2xl bg-[#fff] rounded-2xl  px-[20px] py-[50px] sm:px-[5px] sm:py-[10px] sm:max-w-4xl  border-2 border-solid border-[#eae8e8] ${
                   selectedTab === 'commercial'
                     ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300 sm:transition sm:ease-in-out sm:delay-150-translate-y-1 sm:scale-103  sm:duration-300'
                     : ''
                 }`}
               >
                 <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[21px] sm:w-[193px]   ${
+                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[21px] sm:w-[193px]   ${
                     selectedTab === 'commercial'
                       ? 'bg-[#dbebeb] text-[#12B5E4]'
                       : 'bg-[#f5f5f5] text-[#D9D9D9]'
@@ -228,14 +228,14 @@ const SearchResponse = ({ commericialTab }) => {
               <div
                 className={`dedicated ${
                   styles.DedicatedCard
-                } shadow-2xl bg-[#fff] rounded-2xl px-[20px] py-[50px] sm:px-[10px] sm:py-[10px]  ${
+                } shadow-2xl bg-[#fff] rounded-2xl px-[20px] py-[50px] sm:px-[10px] sm:py-[10px] border-2 border-solid border-[#eae8e8] ${
                   selectedTab === 'dedicated'
                     ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
                     : ''
                 }`}
               >
                 <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-sm relative bottom-[50px] right-[21px]  ${
+                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[21px]  ${
                     selectedTab === 'dedicated'
                       ? 'bg-[#dbebeb] text-[#12B5E4]'
                       : 'bg-[#f5f5f5] text-[#D9D9D9]'
