@@ -181,7 +181,7 @@ const SearchResponse = ({ commericialTab }) => {
         </div>
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] ">
           {!isMobile ? (
-            <div className="flex justify-around bg-[#a8e7f3] px-[50px] py-[50px] rounded-lg border-solid border-2 border-[#19c0f0]">
+            <div className="flex justify-around bg-[#a8e7f3] px-[30px] py-[25px] rounded-lg border-solid border-2 border-[#19c0f0]">
               {' '}
               <Selectionbutton
                 selectedTab={selectedTab}

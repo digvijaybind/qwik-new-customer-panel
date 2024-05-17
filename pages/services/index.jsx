@@ -58,8 +58,7 @@ const Services = () => {
         <div className="flex justify-between sm:items-center px-[10%] flex-wrap mb-5">
           {service.map((data, i) => (
             <div
-              className={`w-[47%] sm:w-[100%] mt-[20px] 
-              `}
+              className={`w-[47%] sm:w-[100%] mt-[20px]`}
               key={i}
             >
               <ShadowCard
