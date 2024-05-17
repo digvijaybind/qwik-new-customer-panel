@@ -194,15 +194,15 @@ const SearchResponse = ({ commericialTab }) => {
               handleTabChange={handleTabChange}
             />
           )}
-          <InstructionTab
+          {/* <InstructionTab
             className={`${
               commericialTab
                 ? 'relative bottom-[171px] right-[200px]'
                 : 'relative bottom-[171px] left-[422px]'
             }`}
-          />
+          /> */}
           {!isMobile ? (
-            <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px] relative bottom-[150px]">
+            <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px] ">
               <div
                 className={`commericial ${
                   styles.CommericialCard
