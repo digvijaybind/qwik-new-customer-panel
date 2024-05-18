@@ -5,7 +5,8 @@ import '@/styles/globals.css';
 import UpdateNavbar from '@/components/header/UpdateNavbar';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 export default function App({ Component, pageProps }) {
   const BusinessWhatsAppNumber = process.env.REACT_WHATSAPP_NUMBER;
   const handleOpen = () => {
@@ -13,7 +14,7 @@ export default function App({ Component, pageProps }) {
     window.open(url, '_blank');
   };
   return (
-    <>
+    <Provider store={store}>
       <DataProvider>
         {/* <Navbar /> */}
         <UpdateNavbar />
@@ -30,6 +31,6 @@ export default function App({ Component, pageProps }) {
         />
         <Newfooter />
       </DataProvider>
-    </>
+    </Provider>
   );
 }

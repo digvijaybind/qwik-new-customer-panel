@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import { BsTelephoneFill } from 'react-icons/bs';
-
+import aeroplane from '../../public/images/header/aeroplane.svg';
 //Navigation Tabs
 const tabs = [
   {
@@ -113,17 +113,13 @@ const Header = () => {
 
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>
-              <BsTelephoneFill
-                style={{
-                  color: '#fff',
-                }}
-              />
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7 font-normal`}
               >
                 {' '}
                 +971 502 825 433
               </span>
+              <Image src={aeroplane} height={30} width={45} />
             </div>
           </div>
         </div>
