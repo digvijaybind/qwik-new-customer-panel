@@ -253,7 +253,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="px-[5%] w-[100%] flex flex-wrap">
+      <div className="px-[5%] w-[100%] flex flex-wrap cursor-pointer">
         {abouts.map((data, i) => (
           <div
             key={i}
