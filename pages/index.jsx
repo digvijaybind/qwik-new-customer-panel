@@ -17,6 +17,7 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
+import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
 );
@@ -167,13 +168,14 @@ export default function Home() {
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
-            <UpdateSearch
+            {/* <UpdateSearch
               className="bottom-60 sm:bottom-60"
               isMobile={isMobile}
               formData={formData}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
-            />
+            /> */}
+            <UpdateSearchNew className="relative bottom-[400px] sm:bottom-90" />
           </div>
         ) : (
           <div className="relative bottom-15">

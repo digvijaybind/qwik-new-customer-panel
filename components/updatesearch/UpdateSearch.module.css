@@ -1,0 +1,13 @@
+.container {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.SearchBarSection {
+}
+.searchButton {
+  background-color: #19c0f0;
+  max-height: 50px;
+  min-width: 200px;
+}

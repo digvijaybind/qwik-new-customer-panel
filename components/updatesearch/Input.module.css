@@ -1,0 +1,48 @@
+/* this is input bar css and implemented */
+.inputContainer {
+  background-color: #eeeeee;
+  position: relative;
+  width: 100%;
+  max-width: 256px;
+}
+/*input bar css*/
+.inputField {
+  border: none;
+  outline: none; /* Remove the default focus outline */
+  background-color: #eeeeee;
+  min-width: 60px;
+}
+.inputField:focus {
+  border: none;
+  outline: none; /* Remove the focus outline when the input is focused */
+}
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+/*container css*/
+.Container {
+  background-color: #eeeeee;
+  height: 100%;
+  width: 100%;
+  max-width: 256px;
+  max-height: 67px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* left image or left icon */
+.LeftImage {
+  height: 100px;
+  width: 100px;
+}
+/* right image or Right icon */
+.RightImage {
+  height: 100px;
+  width: 100px;
+}
