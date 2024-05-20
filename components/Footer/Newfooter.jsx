@@ -16,6 +16,7 @@ const QwiklifData = [
   { name: 'Media', link: '/media' },
   { name: 'Services', link: '/services' },
   { name: '', link: '/workWithus' },
+  { name: 'Our doctors', link: '/doctors' },
   { name: 'Blog', link: '/blogs' },
   { name: 'Our Location', link: '/location' },
   { name: 'Contact us', link: '/contact-us' },
