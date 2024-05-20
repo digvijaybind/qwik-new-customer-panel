@@ -94,7 +94,7 @@ const TravelDuration = () => {
             onClick={() => handleClick()}
           >
             <div className="px-[20px] py-[20px] text-[#fff] rounded-md ">
-              April 27 | 7:00 AM
+              April 27 | 11:00 PM
               <br /> <span className="text-[13px]">Arrival</span>
             </div>
           </div>

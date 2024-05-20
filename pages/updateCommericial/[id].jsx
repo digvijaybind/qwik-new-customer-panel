@@ -100,7 +100,7 @@ const TravelDuration = () => {
             onClick={() => handleClick()}
           >
             <div className="px-[20px] py-[20px] text-[#fff] rounded-md ">
-              April 27 | 7:00 AM
+              April 27 | 10:00 PM
               <br /> <span className="text-[13px]">Arrival</span>
             </div>
           </div>
@@ -308,16 +308,13 @@ const ImportantInfo = () => {
   );
 };
 const OurStory = () => {
-  
   return (
     <div className=" w-full shadow-md px-[30px] py-[30px] mt-5 rounded-2xl border-2 border-[#000]">
       <div className="">
         <div className="h-5 font-sans font-extrabold text-black text-[16px] text-center">
           Our Success Stories
         </div>
-        <div className=" ">
-          {/* <OurStories blogs={blogs} /> */}
-        </div>
+        <div className=" ">{/* <OurStories blogs={blogs} /> */}</div>
       </div>
     </div>
   );
