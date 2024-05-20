@@ -16,7 +16,7 @@ const AutoCarousel = ({ images, autoplaySpeed }) => {
 
   return (
     <Slider {...settings}>
-      {images.map((image, index) => (
+      {images?.map((image, index) => (
         <div key={index}>
           <Image
             src={image}

@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
@@ -18,7 +17,7 @@ const ImageCarousel = ({ images }) => {
 
   return (
     <Slider {...settings}>
-      {images.map((imageUrl, index) => (
+      {images?.map((imageUrl, index) => (
         <div key={index}>
           <div className="w-full flex justify-center rounded-lg font-sans z-1">
             <Image

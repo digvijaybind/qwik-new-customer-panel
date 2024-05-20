@@ -4,7 +4,7 @@ import Image from 'next/image';
 import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
 import styles from './commericialAirline.module.css';
 import Strecter from '../../public/images/commerialImages/Strectres.jpg';
-import scheduledFlight from '../../public/images/commerialImages/scheduled-flight-icu.png';
+import scheduledFlight from '../../public/images/commerialImages/scheduledFlight.png';
 import Signature from '../../public/images/Signature.svg';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import Airline from '../../public/images/airlines/indigo.jpg';

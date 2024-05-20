@@ -1,10 +1,11 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import CommericialAirline1 from '../../public/images/commerialImages/scheduled-flight-icu.png';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; //
+import CommericialAirline1 from '../../public/images/commerialImages/scheduledFlight.png';
 import CommericialAirline2 from '../../public/images/commerialImages/Strectres.jpg';
 const ImageCarosel = () => {
   return (
-    <div className="">
+    <div className="w-full sm:w-full">
       <Carousel
         showArrows={true}
         autoplay={true}
@@ -13,18 +14,20 @@ const ImageCarosel = () => {
         showStatus={false}
         interval={3000}
         stopOnHover={true}
-        dynamicHeight={40}
+        dynamicHeight={60}
       >
         <div>
           <img
-            src={CommericialAirline1}
+            src="/images/commerialImages/scheduledFlight.png"
             alt="Commericial Airline medical transfer"
+            className="h-[100px] w-1/2"
           />
         </div>
         <div>
           <img
-            src={CommericialAirline2}
+            src="/images/commerialImages/Strectres.jpg"
             alt="Commericial Airline medical transfer"
+            className="h-[100px] w-1/2"
           />
         </div>
       </Carousel>

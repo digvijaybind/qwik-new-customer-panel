@@ -15,7 +15,7 @@ import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalIn
 import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
 import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
 import Strecter from '../../public/images/commerialImages/Strectres.jpg';
-import scheduledFlight from '../../public/images/commerialImages/scheduled-flight-icu.png';
+import scheduledFlight from '../../public/images/commerialImages/scheduledFlight.png';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 
 const Images = [Strecter, scheduledFlight];
