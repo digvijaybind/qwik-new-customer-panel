@@ -1,7 +1,9 @@
 .HeaderBanner {
   background-image: url('../../public/images/slider/1.png');
-  background-size: contain;
+  background-size: cover;
   height: max-content;
+  min-height: 300px;
+  background-repeat: no-repeat;
 }
 .Nav_container {
   display: flex;

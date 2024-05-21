@@ -11,6 +11,7 @@ import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
 import InstructionTab from '@/components/InstructionalTab/InstructionalTab';
+import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
   const [isMobile, setIsMobile] = useState(false);
@@ -161,13 +162,14 @@ const SearchResponse = ({ commericialTab }) => {
             <div
               className={`${styles.HeaderBanner} w-full flex justify-center `}
             >
-              <UpdateSearch
+              {/* <UpdateSearch
                 className="relative top-5"
                 isMobile={isMobile}
                 formData={formData}
                 handleSubmit={handleSubmit}
                 handleInputChange={handleInputChange}
-              />
+              /> */}
+              {/* <UpdateSearchNew className="" /> */}
             </div>
           ) : (
             <div className="mt-5 mb-5">
