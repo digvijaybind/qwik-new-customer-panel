@@ -169,7 +169,6 @@ const SearchResponse = ({ commericialTab }) => {
                 handleSubmit={handleSubmit}
                 handleInputChange={handleInputChange}
               /> */}
-              {/* <UpdateSearchNew className="" /> */}
             </div>
           ) : (
             <div className="mt-5 mb-5">
@@ -181,7 +180,10 @@ const SearchResponse = ({ commericialTab }) => {
             </div>
           )}
         </div>
-        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] ">
+        <div className="relative bottom-[20px] sm:hidden flex justify-center ">
+          <UpdateSearchNew className="relative bottom-[300px] min-w-min px-[10px] py-[10px] " />
+        </div>
+        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] relative bottom-[300px] sm:hidden sm:bottom-[0px] ">
           {!isMobile ? (
             <div className="flex justify-around bg-[#a8e7f3] px-[30px] py-[25px] rounded-lg border-solid border-2 border-[#19c0f0]">
               {' '}

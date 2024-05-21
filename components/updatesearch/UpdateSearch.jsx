@@ -6,9 +6,9 @@ import UpdateInput from './UpdateInput';
 const UpdateSearchNew = ({ className }) => {
   return (
     <div
-      className={`flex flex-col items-center ${className} py-[20px] bg-[#fff]  rounded-2xl`}
+      className={`flex flex-col items-center ${className} py-[20px] bg-[#fff]  rounded-2xl min-w-min`}
     >
-      <div className={`${styles.container} mb-5 px-[30px] mt-4 rounded-md`}>
+      <div className={`${styles.container} px-[30px]  rounded-md`}>
         {/*this is From city search Input */}
         <div className={`${styles.searchBarSection} mr-2`}>
           <div className="font-sans font-black text-[21px] mb-5">From:</div>
@@ -81,7 +81,7 @@ const UpdateSearchNew = ({ className }) => {
         </div>
       </div>
       <button
-        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center`}
+        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-3`}
       >
         {' '}
         Search Now

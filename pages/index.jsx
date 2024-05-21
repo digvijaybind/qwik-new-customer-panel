@@ -175,7 +175,7 @@ export default function Home() {
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
             /> */}
-            <UpdateSearchNew className="relative bottom-[400px] sm:bottom-90" />
+            <UpdateSearchNew className="relative bottom-[250px] sm:bottom-90" />
           </div>
         ) : (
           <div className="relative bottom-15">
