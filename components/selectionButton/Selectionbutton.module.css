@@ -5,3 +5,7 @@
     rgba(10, 123, 35, 1) 100%
   );
 }
+.styledRadio {
+  width: 20px; /* Adjust the value as needed */
+  height: 20px; /* Adjust the value as needed */
+}
