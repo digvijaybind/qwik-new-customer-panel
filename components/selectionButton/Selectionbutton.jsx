@@ -5,7 +5,7 @@ const Selectionbutton = ({ selectedTab, handleTabChange }) => {
   return (
     <div className="grid grid-cols-2 gap-12 font-sans">
       <div className="flex flex-col items-start justify-between w-auto">
-        <div className="text-[12px] font-black font-sans ">
+        <div className="text-[14px] font-extrabold font-sans ">
           Book commercial airline stretcher And Charter plane stretcher
         </div>
         <div
