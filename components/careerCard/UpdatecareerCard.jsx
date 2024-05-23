@@ -25,7 +25,7 @@ const UpdatecareerCard = ({ image, height, width, headline, descripation }) => {
         </div>
       </div>
       <div
-        className={`font-sans descripation mt-2 ${styles.Descripation} text-[13px]`}
+        className={`font-sans font-normal descripation mt-2 ${styles.Descripation} text-[13px]`}
       >
         {descripation}
       </div>
