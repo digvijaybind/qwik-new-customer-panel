@@ -19,27 +19,30 @@ const ContactUs = () => {
         className={`${styles.GetQuoteWrapper} px-[100px] mt-10 flex justify-between w-full `}
       >
         <div className="flex flex-col justify-center shadow-2xl rounded-md border-2 border-[#000] w-1/2">
-          <div className="text-[30px] font-sans text-center text-[#000] font-black ">
+          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-black ">
             Our Address
+            <div className="flex justify-center items-center">
+              <hr class="bg-[#000] h-[3px] w-[150px]"></hr>
+            </div>
           </div>
           <div className="flex flex-col justify-center items-center">
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
               <FaLocationDot style={{ height: '50px', width: '50px' }} />
-              <div className="text-[15px] text-[#000] w-2/3">
+              <div className="text-[13px] text-[#000] w-2/3">
                 Qwiklif Air Ambulance ,Regus Dafza,8W Level 5,Dubai Airport
                 freezone, Dubai.
               </div>
             </div>
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
               <MdEmail style={{ height: '50px', width: '50px' }} />
-              <div className="text-[15px] text-[#000] w-2/3 cursor-pointer">
-                info@qwiklif.com
+              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer">
+                <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
               </div>
             </div>
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
               <IoLogoWhatsapp style={{ height: '50px', width: '50px' }} />
-              <div className="text-[15px] text-[#000] w-2/3 cursor-pointer">
-                +971 55 208 7745
+              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer">
+                <a href="tel:+971552087745">+971 55 208 7745</a>
               </div>
             </div>
           </div>
@@ -47,8 +50,11 @@ const ContactUs = () => {
         <div
           className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/2`}
         >
-          <div className="font-sans flex justify-center font-black text-[30px] text-[#262626] shadow-2xl px-[120px] py-[15px]">
+          <div className="font-sans  font-black text-[30px]flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px]">
             Get Quote Now
+            <div className="flex justify-center items-center">
+              <hr class="bg-[#000] h-[3px] w-[120px]"></hr>
+            </div>
           </div>
           <form className="flex flex-col justify-center  px-[20px] py-[20px] bg-[#fff]">
             <div className="flex flex-col justify-start">
@@ -118,8 +124,11 @@ const ContactUs = () => {
         </div>
       </div>
       <div className="our offices flex justify-center flex-col  bg-[#fff] mt-10 mb-5">
-        <div className="font-sans flex justify-center bg-[#fff] font-black text-[30px] text-[#262626] shadow-2xl px-[120px] py-[15px] ">
+        <div className="font-sans flex justify-center items-center flex-col bg-[#fff] font-black text-[30px] text-[#262626] shadow-2xl px-[120px] py-[15px] ">
           Our Office
+          <div className="flex justify-center items-center">
+            <hr class="bg-[#000] h-[4px] w-[150px]"></hr>
+          </div>
         </div>
         <div className="W-full flex justify-center bg-[#fff] px-[100px]">
           <iframe
