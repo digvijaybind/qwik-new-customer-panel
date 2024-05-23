@@ -24,7 +24,9 @@ const UpdatecareerCard = ({ image, height, width, headline, descripation }) => {
           {headline}
         </div>
       </div>
-      <div className={`descripation mt-2 ${styles.Descripation} text-[13px]`}>
+      <div
+        className={`font-sans descripation mt-2 ${styles.Descripation} text-[13px]`}
+      >
         {descripation}
       </div>
       <button className="border-[#396CF0] mt-[20px] mb-[10px] sm:ml-[50%] sm:transform sm:translate-x-[-50%] border-[1px] px-[10px] py-[5px] rounded-[5px] font-sans">

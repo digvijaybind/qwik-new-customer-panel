@@ -5,7 +5,7 @@ const ShadowCard = ({ img, head, text }) => {
         <img src={img} className="w-[800px]" alt="" />
       </div>
       <div className="px-[15px]">
-        <p className="text-[24px] sm:text-center text-[#111] py-[5px] font-bold font-sans">
+        <p className="text-[19px] sm:text-center text-[#111] py-[5px] font-bold font-sans">
           {head}
         </p>
         <p className="text-[16px] sm:text-center opacity-[90%] font-[500] py-[10px] font-sans">

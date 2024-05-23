@@ -9,7 +9,7 @@ const WorkwithUs = () => {
     {
       img: 'https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png',
       head: 'Flying doctor/ Airborne Medical Professionals',
-      text: 'Are you a medical professional who thrives in high-pressure situations and excels at making critical decisions? Join our team of Flying Doctors at Qwiklif Air Ambulance! Experience the thrill of providing life-saving care in challenging environments. Apply now and take your career to new heights!',
+      text: 'Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!',
     },
     {
       img: 'https://qwiklif.com/wp-content/uploads/2024/01/5-230x230.png',
@@ -73,7 +73,7 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[6%] py-[4%] flex-wrap">
+        <div className="flex justify-between sm:items-center px-[86px] py-[58px]  flex-wrap">
           {service.map((data, i) => (
             <div className={`w-[30%] sm:w-[100%] mt-[20px] `} key={i}>
               <UpdatecareerCard
