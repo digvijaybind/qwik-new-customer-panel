@@ -134,14 +134,14 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Company Profile
               </h2>
-              <p className="text-sm font-sans">
+              <p className="font-sans font-normal">
                 About Qwiklif: An air ambulance company with give multiple
-                choices of air ambulance cost which is closest to you,
-                <br /> Qwiklif focuses on giving customer cost effective and
-                safest patient transfer. Qwiklif is an air ambulance company
-                which has wide network of aircraft fleet and professional
-                intensivist to airlift the patient from anywhere in the world
-                safely to the destination. Our Services <br />
+                choices of air ambulance cost which is closest to you, Qwiklif
+                focuses on giving customer cost effective and safest patient
+                transfer. Qwiklif is an air ambulance company which has wide
+                network of aircraft fleet and professional intensivist to
+                airlift the patient from anywhere in the world safely to the
+                destination. Our Services <br />
                 1. Dedicated air ambulance service: Fully equipped dedicated
                 charter aircraft with stretcher configuration an best for
                 patient transfer, We have largest network of air ambulance
@@ -169,7 +169,7 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Mission and Vision
               </h2>
-              <p className="text-sm">
+              <p className="font-sans font-normal">
                 Our mission at Qwiklif is simple: to connect people in need of
                 critical medical transportation with the best-equipped, fastest,
                 and most cost-effective air ambulance services. We are driven by
@@ -181,7 +181,7 @@ const About = () => {
           {activeTab === 3 && (
             <div id="mmilestone">
               <h2 className="font-bold text-xl uppercase mb-4">Milestones</h2>
-              <p className="text-sm">
+              <p className="font-sans font-normal">
                 The Qwiklif Difference What sets Qwiklif apart from the rest?
                 It&apos;s <br />
                 our unwavering commitment to excellence, our extensive global
@@ -215,7 +215,7 @@ const About = () => {
           {activeTab === 4 && (
             <div id="policies">
               <h2 className="font-bold text-xl uppercase mb-4">Policies</h2>
-              <p className="text-sm">
+              <p className="font-sans font-normal">
                 Qwiklif is founded on a set of core values that guide our every
                 action: - Compassion: We understand the stress and anxiety that
                 come with a medical emergency.
