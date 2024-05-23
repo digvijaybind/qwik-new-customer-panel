@@ -55,7 +55,7 @@ const WorkwithUs = () => {
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[30px]">
           <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
-            partner with us
+            Partner with us
           </h2>
           <p className="pt-[10px] font-sans font-medium">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
