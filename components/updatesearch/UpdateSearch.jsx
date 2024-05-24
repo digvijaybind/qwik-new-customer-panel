@@ -9,9 +9,9 @@ const UpdateSearchNew = ({ className }) => {
   const [value, setValue] = useState();
   return (
     <div
-      className={`flex flex-col items-center ${className} py-[20px] bg-[#fff]  rounded min-w-min`}
+      className={`flex flex-col items-center ${className} py-[15px] bg-[#fff]  rounded min-w-min`}
     >
-      <div className={`${styles.container} px-[30px]  rounded-md`}>
+      <div className={`${styles.container} px-[25px]  rounded-md`}>
         {/*this is From city search Input */}
         <div className={`${styles.searchBarSection} mr-2`}>
           <div className="font-sans font-black text-[15px] mb-5">From:</div>
@@ -94,7 +94,7 @@ const UpdateSearchNew = ({ className }) => {
         </div>
       </div>
       <button
-        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-3 text-[#fff]`}
+        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[15px] py-[15px] rounded-full flex justify-center items-center mt-3 text-[#fff]`}
       >
         {' '}
         Search Now

@@ -7,7 +7,7 @@
 .searchButton {
   background-color: #19c0f0;
   max-height: 50px;
-  min-width: 200px;
+  min-width: 180px;
 }
 /* PhoneInputCustom.module.css */
 
@@ -22,8 +22,6 @@
   .PhoneInputCountryIconImg {
   width: 24px !important; /* Adjust the flag width */
 }
-
-
 
 .phoneInput .PhoneInputCountry .PhoneInputCountrySelect {
   background: transparent;
