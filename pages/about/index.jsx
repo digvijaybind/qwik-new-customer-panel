@@ -95,7 +95,7 @@ const About = () => {
         <div className="w-1/4">
           <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
             <li
-              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-extrabold sm:px-2 sm:py-2  ${
+              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-[700]  sm:px-2 sm:py-2  font-black ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
@@ -131,7 +131,7 @@ const About = () => {
         <div className="w-3/4 sm:pl-0 pl-12">
           {activeTab === 1 && (
             <div id="company_profile">
-              <h2 className="font-bold text-xl uppercase mb-4">
+              <h2 className="font-extrabold text-xl uppercase mb-4">
                 Company Profile
               </h2>
               <p className="font-sans font-normal">

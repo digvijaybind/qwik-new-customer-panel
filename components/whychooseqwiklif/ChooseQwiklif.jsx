@@ -37,9 +37,9 @@ const faqs = [
 const ChooseQwiklif = () => {
   const [activeTab, setActiveTab] = useState(1);
   return (
-    <div>
+  <div>
       <div className="">
-        <div className="flex sm:w-full sm:flex-col mt-10 sm:mt-0 sm:pt-0 mb-10 py-10">
+        <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10">
           <h2 className="font-sans font-extrabold text-4xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none sm:pr-0 pr-16 sm:mb-2 sm:w-full">
             Why choose Qwiklif?
           </h2>

@@ -188,7 +188,7 @@ export default function Home() {
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative bottom-[180px] sm:bottom-0">
+          <StyledSection className="relative bottom-[150px] sm:bottom-0">
             {/*About us section component */}
             <AboutAircraft />
             {/*Qwiklif Feautres Component  */}
@@ -196,7 +196,7 @@ export default function Home() {
           </StyledSection>
 
           {/* Roadmap */}
-          <StyledSection className="relative bottom-[170px] sm:bottom-0">
+          <StyledSection className="relative bottom-[145px] sm:bottom-0">
             <div className="py-5 sm:py-5">
               <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
                 How to Book Air Ambulance
@@ -208,7 +208,9 @@ export default function Home() {
               </p>
               <Roadmap />
             </div>
-            <ChooseQwiklif />
+            <div>
+              <ChooseQwiklif />
+            </div>
           </StyledSection>
           {/* Roadmap */}
 

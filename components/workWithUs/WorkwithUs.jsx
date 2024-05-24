@@ -53,7 +53,7 @@ const WorkwithUs = () => {
         </div>
       </div>
       <div className="bg-[#efefef]">
-        <div className="text-center w-[80%] sm:w-[80%] m-auto py-[30px]">
+        <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
           <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
             Partner with us
           </h2>
@@ -73,7 +73,7 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] py-[58px]  flex-wrap">
+        <div className="flex justify-between sm:items-center px-[86px] py-[58px]  flex-wrap ">
           {service.map((data, i) => (
             <div className={`w-[30%] sm:w-[100%] mt-[20px] `} key={i}>
               <UpdatecareerCard

@@ -28,7 +28,7 @@
   height: 80px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(25px);
-  color: rosybrown;
+  color: #fff;
   transform: translateY(10);
   transition: transform 0.6s ease;
   animation: myanimation 0.6s;
