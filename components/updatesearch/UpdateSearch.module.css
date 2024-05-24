@@ -4,10 +4,30 @@
   justify-content: space-between;
   flex-direction: row;
 }
-.SearchBarSection {
-}
 .searchButton {
   background-color: #19c0f0;
   max-height: 50px;
   min-width: 200px;
+}
+/* PhoneInputCustom.module.css */
+
+.phoneInput .PhoneInputCountry {
+  display: flex;
+  align-items: center;
+}
+
+.phoneInput
+  .PhoneInputCountry
+  .PhoneInputCountryIcon
+  .PhoneInputCountryIconImg {
+  width: 24px !important; /* Adjust the flag width */
+}
+
+
+
+.phoneInput .PhoneInputCountry .PhoneInputCountrySelect {
+  background: transparent;
+  width: 20px;
+  font-size: 16px;
+  border-right: 3px solid black;
 }

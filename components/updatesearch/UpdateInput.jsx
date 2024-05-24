@@ -2,6 +2,8 @@
 import React from 'react';
 import styles from './Input.module.css';
 import Image from 'next/image';
+import { FaPlaneDeparture } from 'react-icons/fa6';
+
 const UpdateInput = ({
   LeftImage,
   RightImage,
@@ -14,12 +16,18 @@ const UpdateInput = ({
     <div className={`${styles.Container} rounded-md`}>
       {/*Conditional rendering for left icon */}
       {LeftIcon && (
-        <Image src={LeftImage} alt="Left Icon" width={40} height={40} />
+        <Image
+          src={LeftImage}
+          alt="Left Icon"
+          width={40}
+          height={40}
+        />
+        
       )}
       {/*input type with props */}
       <input
         type={type}
-        className={`${styles.inputField }`}
+        className={`${styles.inputField}`}
         placeholder={placeholder}
       />
       {/*Conditional rendering for Right icon */}

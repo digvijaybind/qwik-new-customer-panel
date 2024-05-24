@@ -1,0 +1,63 @@
+.PhoneInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #eeeeee;
+  height: 100%;
+  width: 100%;
+  max-width: 286px;
+  max-height: 67px;
+  padding: 20px;
+}
+.PhoneInputInput {
+  border: none;
+  outline: none;
+  background-color: #eeeeee;
+  min-width: 60px;
+}
+.PhoneInputInput:focus {
+  border: none;
+  outline: none;
+}
+.PhoneInputCountry {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.PhoneInputCountryIcon {
+  width: 24px;
+  height: auto;
+  margin-right: 8px;
+}
+
+/* .PhoneInputCountrySelect {
+  width: 60px;
+  border-right: 2px solid gray;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+} */
+.PhoneInputCountrySelect {
+  position: relative;
+  width: 92px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  margin-right: 15px;
+}
+
+.PhoneInputCountrySelect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: gray;
+}
