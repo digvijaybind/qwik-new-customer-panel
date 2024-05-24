@@ -16,14 +16,14 @@ const Contact = () => {
         </div>
       </div>
       <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[0px] rounded-2xl">
-        <div className="flex flex-col justify-center shadow-2xl rounded-md border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
+        <div className="flex flex-col justify-center shadow-2xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
           <div className="font-sans  font-black text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px]">
             Get Quote Now
             <div className="flex justify-center items-center">
               <hr class="bg-[#000] h-[3px] w-[120px]"></hr>
             </div>
           </div>
-          <form className="flex flex-col justify-center  px-[20px] py-[20px] bg-[#fff]">
+          <form className="flex flex-col justify-center  px-[30px] py-[20px] bg-[#fff]">
             <div className="flex justify-between sm:flex-col">
               <div className="flex flex-col justify-start">
                 <label className="font-bold text-[15px] bg-[#fff] mt-2 font-sans">
