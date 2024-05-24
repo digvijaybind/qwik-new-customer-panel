@@ -73,14 +73,14 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] py-[58px]  flex-wrap ">
+        <div className="flex justify-between sm:items-center px-[86px] py-[58px] sm:px-[25px] flex-wrap ">
           {service.map((data, i) => (
             <div className={`w-[30%] sm:w-[100%] mt-[20px] `} key={i}>
               <UpdatecareerCard
                 image={data.img}
                 headline={data.head}
                 descripation={data.text}
-                height={80}
+                height={20}
                 width={80}
               />
             </div>

@@ -3,24 +3,28 @@ import styles from './UpdatecareerCard.module.css';
 import Image from 'next/image';
 const UpdatecareerCard = ({ image, height, width, headline, descripation }) => {
   return (
-    <div className="flex flex-col  sm:flex-col  items-center sm:justify-center  h-[280px] shadow-md bg-white rounded-[10px] px-[15px] py-[15px] cursor-pointer  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-300 font-sans">
-      <div className="grid grid-cols-2 gap-10">
-        <Image src={image} height={height} width={width} />
-        <div
-          className={`text-[16px] sm:text-center text-[#111] py-[5px] font-bold font-sans`}
-        >
+    <div class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-107  duration-30">
+      <Image
+        src={image}
+        height={height}
+        width={width}
+        className="w-full h-[200px]"
+      />
+
+      <div class="p-6 text-surface text-center dark:text-white">
+        <h5 class="mb-2 text-xl text-center font-medium leading-tight">
           {headline}
-        </div>
+        </h5>
+        <p class="mb-4 text-base">{descripation}</p>
+        <button
+          type="button"
+          class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+          data-twe-ripple-init
+          data-twe-ripple-color="light"
+        >
+          Apply Now
+        </button>
       </div>
-      <div
-        className={`font-sans font-normal descripation mt-2 ${styles.Descripation} text-[13px]`}
-      >
-        {descripation}
-      </div>
-      <button className="border-[#396CF0] mt-[20px] mb-[5
-        px] sm:ml-[50%] sm:transform sm:translate-x-[-50%] border-[1px] px-[10px] py-[5px] rounded-[5px] font-sans">
-        <p className="text-[#396CF0] font-[600] font-sans">{`Apply Now >`}</p>
-      </button>
     </div>
   );
 };

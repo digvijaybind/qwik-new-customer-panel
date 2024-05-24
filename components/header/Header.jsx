@@ -39,7 +39,7 @@ const tabs = [
 
   {
     title: 'Contact',
-    url: '/new-contact-us',
+    url: '/contact',
   },
 ];
 

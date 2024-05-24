@@ -61,13 +61,7 @@ const UpdateCommericial = ({}) => {
             </div>
           </div>
           <div className="flex justify-between items-baseline sm:justify-between sm:w-full">
-            {/* <div className="grid-cols-8 h-[34px] w-[292px] bg-[#DBEFF5] lg:bg-[#b5deea] xl:bg-[#b6e1ed] 2xl:bg-[#a4d1de] rounded-md  flex justify-around items-center flex-row px-[5px] py-[15px] sm:bg-transparent">
-              <LockIcon />
-              <p className="text-[#12B5E4] text-[12px] font-sans font-bold">
-                Pay 20% and reserve your seat now
-              </p>
-              <Arrow />
-            </div> */}
+          
             <div className="flex justify-around">
               <MedicalInstruments
                 src={Strectres}
