@@ -85,7 +85,7 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-8">
               <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-extrabold">
                 Get Quote
               </button>
