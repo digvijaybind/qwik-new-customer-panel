@@ -167,7 +167,10 @@ export default function Home() {
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
-            <UpdateSearchNew className="relative bottom-[250px] sm:bottom-90" />
+            <UpdateSearchNew
+              className="relative bottom-[250px] sm:bottom-90"
+              onClick={() => handleSubmit()}
+            />
           </div>
         ) : (
           <div className="relative bottom-15">
@@ -175,6 +178,7 @@ export default function Home() {
               formData={formData}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
+              onClick={() => handleSubmit()}
             />
           </div>
         )}

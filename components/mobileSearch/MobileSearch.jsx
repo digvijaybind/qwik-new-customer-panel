@@ -6,7 +6,7 @@ import Phone from '../../public/images/inputBox/Phone.svg';
 import Date from '../../public/images/inputBox/Date.svg';
 import countries from '../../db/country.json';
 
-const MobileSearch = () => {
+const MobileSearch = ({ onClick }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const handleSelectChange = (e) => {
     const countryCode = e.target.value;
@@ -71,38 +71,10 @@ const MobileSearch = () => {
           <div className="text-[15px] font-extrabold">8788825286</div>
         </div>
       </div>
-      {/* <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
-        <div className="w-[30%] flex flex-col">
-          {' '}
-          <label className="font-bold text-[8px] text-[#000] ">
-            Country Code
-          </label>
-          <select
-            name="countryCode"
-            // onChange={(e) => handleInputChange('countryCode', e)}
-            onChange={handleSelectChange}
-            className="w-full"
-          >
-            {countries.map((data) => (
-              <option key={data.code} value={data.code} className="text-black">
-                {data.name} :{data.code}
-              </option>
-            ))}
-          </select>
-          {selectedCountry && <div>{selectedCountry.code}</div>}
-        </div>
-        <div className="w-[70%]">
-          <label className="font-bold text-[8px] text-[#000]  ">
-            Phone Number
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Phone Number"
-            className="text-base"
-          />
-        </div>
-      </div> */}
-      <button className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold hover:text-[#000]">
+      <button
+        className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold hover:text-[#000]"
+        onClick={onClick}
+      >
         Search
       </button>
     </div>

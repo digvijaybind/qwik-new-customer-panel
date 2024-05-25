@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Searchbar.module.css';
 import { FaSearch } from 'react-icons/fa';
-import Autosuggest from 'react-autosuggest';
 import DatePicker from 'react-datepicker';
 import countries from '../../db/country.json';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -37,33 +36,33 @@ const suggestions = [
   { name: 'Phoenix' },
 ];
 
-const AutoSuggestInput = ({
-  name,
-  type,
-  placeholder,
-  onFocus,
-  value,
-  onChange,
-  SearchButton,
-  className,
-}) => {
-  return (
-    <div className="flex justify-around items-center bg-[#fff]  px-2 py-1 h-[50px] w-[200px] rounded shadow-2xl  shadow-[#e2e0e0]">
-      <div className={`pr-2 ${className} flex items-center`}>
-        <FaSearch />
-      </div>
-      <input
-        className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        onFocus={onFocus}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
-  );
-};
+// const AutoSuggestInput = ({
+//   name,
+//   type,
+//   placeholder,
+//   onFocus,
+//   value,
+//   onChange,
+//   SearchButton,
+//   className,
+// }) => {
+//   return (
+//     <div className="flex justify-around items-center bg-[#fff]  px-2 py-1 h-[50px] w-[200px] rounded shadow-2xl  shadow-[#e2e0e0]">
+//       <div className={`pr-2 ${className} flex items-center`}>
+//         <FaSearch />
+//       </div>
+//       <input
+//         className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
+//         name={name}
+//         type={type}
+//         placeholder={placeholder}
+//         onFocus={onFocus}
+//         value={value}
+//         onChange={onChange}
+//       />
+//     </div>
+//   );
+// };
 
 const UpdateSearch = ({
   handleSubmit,

@@ -5,13 +5,12 @@ import RightImage from '../../public/images/inputimages/Dropdown.svg';
 import UpdateInput from './UpdateInput';
 import PhoneInput from 'react-phone-number-input';
 
-const UpdateSearchNew = ({ className }) => {
+const UpdateSearchNew = ({ className, onClick }) => {
   const [value, setValue] = useState();
   return (
     <div
       className={`flex flex-col items-center ${className} py-[15px] bg-[#fff]  rounded min-w-min`}
     >
-      <h1>Lorem forem</h1>
       <div className={`${styles.container} px-[25px]  rounded-md`}>
         {/*this is From city search Input */}
         <div className={`${styles.searchBarSection} mr-2`}>
@@ -96,6 +95,7 @@ const UpdateSearchNew = ({ className }) => {
       </div>
       <button
         className={`font-sans font-black text-[18px] ${styles.searchButton} px-[15px] py-[10px] rounded-full flex justify-center items-center mt-3 text-[#fff]`}
+        onClick={onClick}
       >
         {' '}
         Search Now
