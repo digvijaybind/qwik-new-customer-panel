@@ -14,7 +14,6 @@ import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
 import Champion from '../public/images/trusted_contact/champion.svg';
 import Roadmap from '@/components/roadmaps/Roadmap';
 import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
-import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
@@ -168,13 +167,6 @@ export default function Home() {
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
-            {/* <UpdateSearch
-              className="bottom-60 sm:bottom-60"
-              isMobile={isMobile}
-              formData={formData}
-              handleSubmit={handleSubmit}
-              handleInputChange={handleInputChange}
-            /> */}
             <UpdateSearchNew className="relative bottom-[250px] sm:bottom-90" />
           </div>
         ) : (

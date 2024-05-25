@@ -162,13 +162,7 @@ const SearchResponse = ({ commericialTab }) => {
             <div
               className={`${styles.HeaderBanner} w-full flex justify-center `}
             >
-              {/* <UpdateSearch
-                className="relative top-5"
-                isMobile={isMobile}
-                formData={formData}
-                handleSubmit={handleSubmit}
-                handleInputChange={handleInputChange}
-              /> */}
+             
             </div>
           ) : (
             <div className="mt-5 mb-5">

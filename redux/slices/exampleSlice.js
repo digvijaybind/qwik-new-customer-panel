@@ -1,14 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-//define initial state
-
 const initialState = {
-  data: [], // data
-  status: 'idle', // 'idle','loading','succedded','failed'
+  data: [],
+  status: 'idle', 
   error: null,
 };
 
-//define an async thunk for fetching data
 
 export const fetchData = createAsyncThunk('example/fetchdata', async () => {
   const response = await fetch('/api/data');
