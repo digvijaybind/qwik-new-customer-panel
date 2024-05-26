@@ -11,24 +11,22 @@ const UpdateInput = ({
   LeftIcon,
   RightIcon,
   placeholder,
+  name,
+  value,
 }) => {
   return (
     <div className={`${styles.Container} rounded-md`}>
       {/*Conditional rendering for left icon */}
       {LeftIcon && (
-        <Image
-          src={LeftImage}
-          alt="Left Icon"
-          width={40}
-          height={40}
-        />
-        
+        <Image src={LeftImage} alt="Left Icon" width={40} height={40} />
       )}
       {/*input type with props */}
       <input
         type={type}
         className={`${styles.inputField}`}
         placeholder={placeholder}
+        name={name}
+        value={value}
       />
       {/*Conditional rendering for Right icon */}
       {RightIcon && (

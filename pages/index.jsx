@@ -168,15 +168,19 @@ export default function Home() {
             <UpdateSearchNew
               className="relative bottom-[250px] sm:bottom-90"
               onClick={(e) => handleSubmit(e)}
+              onSubmit={(e) => handleSubmit(e)}
+              formData={formData}
+              setfromSearch={setfromSearch}
             />
           </div>
         ) : (
           <div className="relative bottom-15">
             <MobileSearch
-              formData={formData}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
               onClick={(e) => handleSubmit(e)}
+              formData={formData}
+              setfromSearch={setfromSearch}
             />
           </div>
         )}
