@@ -9,12 +9,12 @@ const UpdateSearchNew = ({ className, onClick }) => {
   const [value, setValue] = useState();
   return (
     <div
-      className={`flex flex-col items-center ${className} py-[15px] bg-[#fff]  rounded min-w-min`}
+      className={`flex flex-col items-center ${className} py-[20px] bg-[#fff]  rounded-2xl min-w-min`}
     >
       <div className={`${styles.container} px-[25px]  rounded-md`}>
         {/*this is From city search Input */}
         <div className={`${styles.searchBarSection} mr-2`}>
-          <div className="font-sans font-black text-[15px] mb-5">From:</div>
+          <div className="font-sans font-black text-[15px] mb-8">From:</div>
           {/*input from city search bar */}
           <UpdateInput
             type="text"
@@ -28,7 +28,7 @@ const UpdateSearchNew = ({ className, onClick }) => {
 
         {/* this is To or arrival location serach bar Input */}
         <div className={`${styles.searchBarSection} mr-2`}>
-          <div className="font-sans font-black text-[15px] mb-5">To:</div>
+          <div className="font-sans font-black text-[15px] mb-8">To:</div>
           {/*input from city search bar */}
           <UpdateInput
             type="text"
@@ -42,7 +42,7 @@ const UpdateSearchNew = ({ className, onClick }) => {
 
         {/*this is depature date  section */}
         <div className={`${styles.searchBarSection} mr-2`}>
-          <div className="font-sans font-black text-[15px] mb-5">Date:</div>
+          <div className="font-sans font-black text-[15px] mb-8">Date:</div>
           {/*input from city search bar */}
           <UpdateInput
             type="date"
@@ -69,7 +69,7 @@ const UpdateSearchNew = ({ className, onClick }) => {
         </div> */}
         {/* this is mobile number */}
         <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
-          <div className="font-sans font-black text-[15px] mb-5">
+          <div className="font-sans font-black text-[15px] mb-8">
             Mobile Number:
           </div>
           {/*input from city search bar */}
@@ -94,7 +94,7 @@ const UpdateSearchNew = ({ className, onClick }) => {
         </div>
       </div>
       <button
-        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[15px] py-[10px] rounded-full flex justify-center items-center mt-3 text-[#fff]`}
+        className={`font-sans font-black text-[18px] ${styles.searchButton} px-[15px] py-[10px] rounded-full flex justify-center items-center mt-5 text-[#fff]`}
         onClick={onClick}
       >
         {' '}

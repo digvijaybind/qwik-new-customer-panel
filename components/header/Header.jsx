@@ -22,7 +22,7 @@ const tabs = [
   },
   {
     title: 'Our Location',
-    url: '/location',
+    url: 'https://qwiklif.com/our-location/',
   },
   {
     title: 'Media',

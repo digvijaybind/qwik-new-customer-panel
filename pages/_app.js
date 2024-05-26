@@ -8,11 +8,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 export default function App({ Component, pageProps }) {
-  const BusinessWhatsAppNumber = process.env.REACT_WHATSAPP_NUMBER;
-  const handleOpen = () => {
-    const url = `https://wa.me/${BusinessWhatsAppNumber}`;
-    window.open(url, '_blank');
-  };
+   const phoneNumber = '+971502825433';
+
+   const handleOpen = () => {
+     const whatsappUrl = `https://wa.me/${phoneNumber}`;
+     window.open(whatsappUrl, '_blank');
+   };
+
   return (
     <Provider store={store}>
       <DataProvider>
@@ -21,7 +23,6 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
         {/*WhatsApp floating Component */}
         <FloatingWhatsApp
-          phoneNumber="+971502825433"
           accountName="Qwiklif Air Ambulance"
           allowEsc
           allowClickAway
