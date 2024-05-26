@@ -52,22 +52,6 @@ const UpdateSearchNew = ({ className, onClick }) => {
             LeftIcon={false}
           />
         </div>
-        {/* this is country code */}
-        {/* <div className={`${styles.searchBarSection} mr-2`}>
-          <div className="font-sans font-black text-[15px] mb-5">
-            Country code:
-          </div>
-      
-          <UpdateInput
-            type="text"
-            LeftImage={LeftImage}
-            RightImage={RightImage}
-            RightIcon={false}
-            LeftIcon={false}
-            placeholder="Enter country code"
-          />
-        </div> */}
-        {/* this is mobile number */}
         <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
           <div className="font-sans font-black text-[15px] mb-8">
             Mobile Number:
@@ -83,14 +67,6 @@ const UpdateSearchNew = ({ className, onClick }) => {
               placeholder="Enter Number"
             />
           </div>
-          {/* <UpdateInput
-            type="text"
-            LeftImage={LeftImage}
-            RightImage={RightImage}
-            RightIcon={false}
-            LeftIcon={false}
-            placeholder="Enter a mobile number"
-          /> */}
         </div>
       </div>
       <button

@@ -167,7 +167,7 @@ export default function Home() {
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearchNew
               className="relative bottom-[250px] sm:bottom-90"
-              onClick={() => handleSubmit()}
+              onClick={(e) => handleSubmit(e)}
             />
           </div>
         ) : (
@@ -176,7 +176,7 @@ export default function Home() {
               formData={formData}
               handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
-              onClick={() => handleSubmit()}
+              onClick={(e) => handleSubmit(e)}
             />
           </div>
         )}
