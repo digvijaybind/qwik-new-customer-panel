@@ -119,13 +119,7 @@ export default function Home() {
       Aircraft: e.target.value,
     }));
   };
-  const handleOtherInputChange = (field, e) => {
-    const { name, value } = e.target;
-    setOtherData((pre) => ({
-      ...pre,
-      [field]: value,
-    }));
-  };
+
   const services = [
     {
       title: `Neonatal and Pediatric Air\n Transfer Services`,
