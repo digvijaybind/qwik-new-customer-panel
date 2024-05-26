@@ -28,7 +28,7 @@ const hospitalSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(hospitalApi.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.data = action.payload;
       });
     addCase(hospitalApi.rejected, (state, action) => {

@@ -45,7 +45,7 @@ export const PaymentSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(Createorder.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.data = action.payload;
       })
       .addCase(Createorder.rejected, (state, action) => {

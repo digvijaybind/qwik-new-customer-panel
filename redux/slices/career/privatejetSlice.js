@@ -29,7 +29,7 @@ const PrivatejetSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(PrivatejetApi.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.data = action.payload;
       })
       .addCase(PrivatejetApi.rejected, (state, action) => {

@@ -48,8 +48,6 @@ export default function Home() {
   });
   const [fromSearch, setfromSearch] = useState('');
   const [tosearch, setTosearch] = useState('');
-
-  const [selectedDate, setSelectedDate] = useState('');
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -29,7 +29,7 @@ const dedicatedSlice = createSlice({
         state.status = 'pending';
       })
       .addCase(DedicatedApi.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.dedicatedflights = action.payload;
       })
       .addCase(DedicatedApi.rejected, (state, action) => {

@@ -29,7 +29,7 @@ const ParamedicSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(ParamedicsApi.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.data = action.payload;
       })
       .addCase(ParamedicsApi.rejected,(state,action)=>{

@@ -26,7 +26,7 @@ const DoctorSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(DoctorApi.fulfilled, (state, action) => {
-        state.status = 'fulfilled';
+        state.status = 'succeeded';
         state.data = action.payload;
       })
       .addCase(DoctorApi.rejected, (state, action) => {
