@@ -16,7 +16,7 @@ const MobileSearch = ({ onClick }) => {
   };
 
   return (
-    <div className="flex flex-col items-center font-sans">
+    <div className="flex flex-col items-center font-sans  px-3 py-10 rounded-2xl">
       <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
         <Image src={Depature} width={44} height={24} />
         <div className="flex flex-col items-start">

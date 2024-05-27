@@ -252,8 +252,8 @@ const TotalFare = () => {
       </div>
       <div class="border-b border-gray-300"></div>
       <div className="flex justify-between mb-2">
-        <div className="font-bold text-[12px] font-sans">Taxes</div>
-        <div className="font-medium text-[12px] ">$ 2000</div>
+        <div className="font-bold text-[12px] font-sans">currency</div>
+        <div className="font-medium text-[12px] ">AED</div>
       </div>
       <div class="border-b border-gray-300"></div>
       <div className="flex justify-between mb-2 mt-2 items-center">

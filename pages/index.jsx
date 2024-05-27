@@ -37,15 +37,6 @@ const Rotatemap = dynamic(() => import('@/components/rotateMap/Rotatemap'));
 //Main component function
 export default function Home() {
   const router = useRouter();
-  const [formData, setformData] = useState({
-    originLocationCode: '',
-    destinationLocationCode: '',
-    departureDate: '',
-    pax: 1,
-    countryCode: '',
-    mobile: '',
-    max: 5,
-  });
   const [fromSearch, setfromSearch] = useState('');
   const [tosearch, setTosearch] = useState('');
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
@@ -57,7 +48,13 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
 
   //handle resize function for mobiel view
-
+  const [formData, setFormData] = useState({
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    countryCode:'',
+    mobile: '',
+  });
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
@@ -71,6 +68,7 @@ export default function Home() {
     };
   }, []);
 
+  console.log('formData this is root file', formData);
   //search for autoSuggestion
   useEffect(() => {
     const asyncTask = async () => {
@@ -120,20 +118,7 @@ export default function Home() {
 
   //handle submit form API calling
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    router.push({
-      pathname: '/searchResponse',
-      query: {
-        pax: formData?.pax,
-        originLocationCode: formData.originLocationCode,
-        destinationLocationCode: formData.destinationLocationCode,
-        mobile: formData.mobile,
-        departureDate: formData.departureDate,
-        countryCode: formData.countryCode,
-      },
-    });
-  };
+ 
 
   //tab array
   const tasktab = [
@@ -167,18 +152,14 @@ export default function Home() {
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearchNew
               className="relative bottom-[250px] sm:bottom-90"
-              onClick={(e) => handleSubmit(e)}
-              onSubmit={(e) => handleSubmit(e)}
               formData={formData}
               setfromSearch={setfromSearch}
             />
           </div>
         ) : (
-          <div className="relative bottom-15">
+          <div className="relative bottom-15 flex justify-center px-5">
             <MobileSearch
-              handleSubmit={handleSubmit}
               handleInputChange={handleInputChange}
-              onClick={(e) => handleSubmit(e)}
               formData={formData}
               setfromSearch={setfromSearch}
             />
@@ -365,7 +346,6 @@ export default function Home() {
               </div>
               {/* this is form of landing page */}
               <form
-                onSubmit={handleSubmit}
                 className={`mt-[30px] w-full ${styles.form}`}
               >
                 <div className="grid grid-cols-5 gap-3">

@@ -189,7 +189,7 @@ const UpdateSearch = ({
             >
               <div className={` rounded-[10px] px-[15px] py-[15px]`}>
                 <label for="fromcity">
-                  <span className="font-sans text-[15px] font-normal">
+                <span className="font-sans text-[15px] font-normal">
                     From
                   </span>
                 </label>

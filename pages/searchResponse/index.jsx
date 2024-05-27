@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import UpdateSearch from '@/components/SearchBar/UpdateSearch';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
@@ -10,7 +9,6 @@ import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
-import InstructionTab from '@/components/InstructionalTab/InstructionalTab';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
@@ -29,6 +27,15 @@ const SearchResponse = ({ commericialTab }) => {
   const [aircraftData, setAircraftData] = useState({});
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const [selectedOption, setSelectedOption] = useState('Commericial');
+  const [formData, setFormData] = useState({
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    pax: 1,
+    countryCode: '',
+    mobile: '',
+    max: 5,
+  });
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
@@ -49,28 +56,25 @@ const SearchResponse = ({ commericialTab }) => {
         originLocationCode: searchParams.get('originLocationCode'),
         destinationLocationCode: searchParams.get('destinationLocationCode'),
         departureDate: searchParams.get('departureDate'),
-        pax: searchParams.get('pax'),
+        pax: 1,
         countryCode: searchParams.get('countryCode'),
         mobile: searchParams.get('mobile'),
         max: 5,
       };
       setFormData(formDetails);
       searchFlights(formDetails);
+    } else {
+      console.log('query params id mising ');
     }
   }, [searchParams]);
-  const [formData, setFormData] = useState({
-    originLocationCode: '',
-    destinationLocationCode: '',
-    departureDate: '',
-    pax: 1,
-    countryCode: '',
-    mobile: '',
-    max: 5,
-  });
+
+  console.log('formData', formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     searchFlights(formData);
   };
+
+  console.log('formData this is in searchResponse Page', formData);
   const searchFlights = (data) => {
     setAircraftDataLoading(true);
     setCommercialAircraftDataLoading(true);
@@ -135,15 +139,8 @@ const SearchResponse = ({ commericialTab }) => {
     });
   };
 
-  const handleSelectChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
-  };
-
-  const handleCurrencyChange = () => {
-    setSelectedCurrency(e.target.value);
   };
 
   const Dedicatedtab =
@@ -161,9 +158,7 @@ const SearchResponse = ({ commericialTab }) => {
           {!isMobile ? (
             <div
               className={`${styles.HeaderBanner} w-full flex justify-center `}
-            >
-             
-            </div>
+            ></div>
           ) : (
             <div className="mt-5 mb-5">
               <MobileSearch
@@ -192,13 +187,6 @@ const SearchResponse = ({ commericialTab }) => {
               handleTabChange={handleTabChange}
             />
           )}
-          {/* <InstructionTab
-            className={`${
-              commericialTab
-                ? 'relative bottom-[171px] right-[200px]'
-                : 'relative bottom-[171px] left-[422px]'
-            }`}
-          /> */}
           {!isMobile ? (
             <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px] ">
               <div

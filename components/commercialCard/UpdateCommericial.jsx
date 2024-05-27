@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './CommercialCard.module.css';
 import Vistara from '../../public/images/airlines/vistara.svg';
 import Image from 'next/image';
 import Doctors from '../../public/images/bookingIcon/doctor.png';
@@ -10,7 +9,7 @@ import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
 const UpdateCommericial = ({}) => {
   return (
     <div
-      className={`${styles.cardContainer}  w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-lg  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px]`}
+      className={`w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-lg  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px]`}
     >
       <div className="flex flex-col">
         <div className="grid grid-rows-2 gap-5 sm:gap-2 sm:grid-rows-[2fr,1fr] sm:items-center ">

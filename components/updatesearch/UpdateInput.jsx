@@ -13,6 +13,7 @@ const UpdateInput = ({
   placeholder,
   name,
   value,
+  onChange
 }) => {
   return (
     <div className={`${styles.Container} rounded-md`}>
@@ -27,6 +28,7 @@ const UpdateInput = ({
         placeholder={placeholder}
         name={name}
         value={value}
+        onChange={onChange}
       />
       {/*Conditional rendering for Right icon */}
       {RightIcon && (
