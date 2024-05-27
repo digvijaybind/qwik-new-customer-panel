@@ -7,7 +7,6 @@ import PhoneInput from 'react-phone-number-input';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { useRouter } from 'next/router';
 
-
 const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
   const [formData, setFormData] = useState({
     originLocationCode: '',
@@ -54,13 +53,15 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
   console.log('formdata', formData);
   return (
     <div
-      className={`flex flex-col items-center ${className} py-[20px] bg-[#fff]  rounded-2xl min-w-min`}
+      className={`flex flex-col items-center ${className} py-[20px] px-[20px] bg-[#fff]  rounded-2xl min-w-min`}
     >
       <form onSubmit={handleSubmit} className="flex items-center flex-col">
         <div className={`${styles.container} px-[25px]  rounded-md`}>
           {/*this is From city search Input */}
           <div className={`${styles.searchBarSection} mr-2`}>
-            <div className="font-sans font-black text-[18px] mb-8">From:</div>
+            <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
+              From:
+            </div>
             {/*input from city search bar */}
             <UpdateInput
               type="text"
@@ -77,7 +78,9 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
 
           {/* this is To or arrival location serach bar Input */}
           <div className={`${styles.searchBarSection} mr-2`}>
-            <div className="font-sans font-black text-[18x] mb-8">To:</div>
+            <div className="font-sans font-black text-gray-400 text-[17x] mb-1">
+              To:
+            </div>
             {/*input from city search bar */}
             <UpdateInput
               type="text"
@@ -94,7 +97,9 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
 
           {/*this is depature date  section */}
           <div className={`${styles.searchBarSection} mr-2`}>
-            <div className="font-sans font-black text-[18px] mb-8">Date:</div>
+            <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
+              Date:
+            </div>
             {/*input from city search bar */}
             <UpdateInput
               type="date"
@@ -108,7 +113,7 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
             />
           </div>
           <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
-            <div className="font-sans font-black text-[18px] mb-8">
+            <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
               Mobile Number:
             </div>
             {/*input from city search bar */}
@@ -116,7 +121,7 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
             <div className="flex flex-row rounded-md">
               <PhoneInput
                 defaultCountry="AE"
-                className={`${styles.phoneInput} rounded-md`}
+                className={`${styles.phoneInput} rounded-md h-[60px]`}
                 placeholder="Enter Number"
                 name="mobile"
                 value={formData.mobile}
