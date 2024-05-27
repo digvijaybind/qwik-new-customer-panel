@@ -101,13 +101,13 @@ export default function Home() {
   }, [fromSearch, tosearch]);
   console.log('cityMatch', cityMatch);
 
-  const handleInputChange = useCallback((field, e) => {
+  const handleInputChange = (field, e) => {
     const { name, value } = e.target;
     setformData((pre) => ({
       ...pre,
       [field]: value,
     }));
-  });
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -6,7 +6,20 @@ import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Strectres from '../../public/images/bookingIcon/strectres.png';
 import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
-const UpdateCommericial = ({}) => {
+const UpdateCommericial = ({
+  aircraftData,
+  availticket,
+  selectedCurrency,
+  handleCurrencyChange,
+}) => {
+
+console.log(
+  ' aircraftData,availticket,selectedCurrency',
+  aircraftData,
+  availticket,
+  selectedCurrency
+);
+
   return (
     <div
       className={`w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-lg  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px]`}
@@ -60,7 +73,6 @@ const UpdateCommericial = ({}) => {
             </div>
           </div>
           <div className="flex justify-between items-baseline sm:justify-between sm:w-full">
-          
             <div className="flex justify-around">
               <MedicalInstruments
                 src={Strectres}

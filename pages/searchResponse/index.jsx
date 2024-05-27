@@ -12,6 +12,8 @@ import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 import { DedicatedApi } from '@/redux/slices/dedicatedSlice';
 import { CommericialApi } from '@/redux/slices/commericialSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import CommericialContactCard from '@/components/commericialContactCard/CommericialContactCard';
+
 const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
@@ -28,7 +30,7 @@ const SearchResponse = ({ commericialTab }) => {
   const [destinationLocation, setDestinationLocation] = useState();
   const [departureLocation, setDepartureLocation] = useState();
   const [aircraftData, setAircraftData] = useState({});
-  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const [selectedCurrency, setSelectedCurrency] = useState('AED');
   const [selectedOption, setSelectedOption] = useState('Commericial');
   const [formData, setFormData] = useState({
     originLocationCode: '',
@@ -39,7 +41,6 @@ const SearchResponse = ({ commericialTab }) => {
     mobile: '',
     max: 5,
   });
-
   const commericialflights = useSelector(
     (state) => state.commericial.commericialflights
   );
@@ -79,64 +80,17 @@ const SearchResponse = ({ commericialTab }) => {
   }, [searchParams]);
 
   console.log('formData', formData);
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (formData) {
       dispatch(DedicatedApi(formData));
       dispatch(CommericialApi(formData));
     }
-  });
-
+  };
   console.log('formData this is in searchResponse Page', formData);
 
   console.log('commericialflights this is line 92', commericialflights);
   console.log('DedicatedFlights this is line 768', DedicatedFlights);
-  // const searchFlights = (data) => {
-  //   setAircraftDataLoading(true);
-  //   setCommercialAircraftDataLoading(true);
-
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //   };
-
-  //   axios(`http://localhost:8000/customer/dedicatedSearch`, {
-  //     method: 'POST',
-  //     headers: headers,
-  //     data: data,
-  //   })
-  //     .then((response) => {
-  //       setcharteredData(response.data.aviapages);
-  //       console.log('Final data response line 116', response.data);
-  //       setcharteredDepature(response.data.aviapages?.Response.from);
-  //       setchartereArrival(response.data.aviapages.Response.to);
-  //       setchartereId();
-  //     })
-  //     .catch((error) => {
-  //       console.log('error', error);
-  //     })
-  //     .finally(() => {
-  //       setAircraftDataLoading(false);
-  //     });
-
-  //   axios(`http://localhost:8000/customer/commericialSearch`, {
-  //     method: 'POST',
-  //     headers: headers,
-  //     data: data,
-  //   })
-  //     .then((response) => {
-  //       setCommericialId(response.data.aircraftId);
-  //       setdepatureLocation(data?.originLocationCode);
-  //       setDestinationLocation(data?.destinationLocationCode);
-  //       setAircraftData(response.data);
-  //       setSelectedCurrency('EUR');
-  //     })
-  //     .catch((error) => {
-  //       console.log('Error', error);
-  //     })
-  //     .finally(() => {
-  //       setCommercialAircraftDataLoading(false);
-  //     });
-  // };
 
   console.log('aircraftData line 125 ', aircraftData);
   const handleInputChange = (field, e) => {
@@ -145,7 +99,7 @@ const SearchResponse = ({ commericialTab }) => {
     if (name === 'mobile') {
       const mobileNumber = e.target.value.replace(/\D/g, '');
       if (mobileNumber.length >= 6) {
-        updatedData[name]=mobileNumber; 
+        updatedData[name] = mobileNumber;
         // setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
       }
     } else {
@@ -162,6 +116,14 @@ const SearchResponse = ({ commericialTab }) => {
     setSelectedTab(tab);
   };
   console.log('aircraftData', aircraftData);
+  console.log('formData line 119', formData);
+  // useEffect(() => {
+  //   //  setDestinationLocation(ite)
+
+  //   setCommericialId(commericialflights.aircraftId);
+  //   setAircraftData(commericialflights.ResponseData);
+  //   setSelectedCurrency('AED');
+  // }, [commericialflights, DedicatedFlights]);
 
   return (
     <div>
@@ -223,7 +185,44 @@ const SearchResponse = ({ commericialTab }) => {
                   Commericial Flight
                 </div>
                 <div className="grid grid-cols-1 gap-5">
-                  <UpdateCommericial isMobile={isMobile} />
+                  {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                    (data, index) => {
+                      return (
+                        <UpdateCommericial
+                          key={index}
+                          isMobile={isMobile}
+                          aircraftData={data}
+                          availticket={data.ResponseData.TicketAvailability}
+                          selectedCurrency={selectedCurrency}
+                          handleCurrencyChange={handleCurrencyChange}
+                        />
+                      );
+                    }
+                  )}
+                  {(!commericialflights?.ResponseData
+                    ?.AirCraftDatawithNotechStop ||
+                    commericialflights?.ResponseData?.AirCraftDatawithNotechStop
+                      ?.length === 0) &&
+                    commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
+                      (data) => {
+                        return (
+                          <UpdateCommericial
+                            key={index}
+                            isMobile={isMobile}
+                            aircraftData={data}
+                            availticket={data.ResponseData.TicketAvailability}
+                            selectedCurrency={selectedCurrency}
+                            handleCurrencyChange={handleCurrencyChange}
+                          />
+                        );
+                      }
+                    )}
+                  {commericialflights?.ResponseData === 0 ||
+                  commericialflights?.ResponseData === undefined ? (
+                    <CommericialContactCard />
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
               <div
