@@ -122,6 +122,7 @@ const SearchResponse = ({ commericialTab }) => {
       });
   };
 
+  console.log('aircraftData line 125 ', aircraftData);
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
     if (name === 'mobile') {
@@ -142,12 +143,6 @@ const SearchResponse = ({ commericialTab }) => {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
-
-  const Dedicatedtab =
-    selectedTab === 'dedicated'
-      ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
-      : '';
-
   console.log('aircraftData', aircraftData);
   console.log('CharteredData', CharteredData);
 

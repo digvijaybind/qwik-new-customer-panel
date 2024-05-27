@@ -1,3 +1,4 @@
+//imported libarray and component
 import React, { useEffect, useState } from 'react';
 import styles from './updateCommericial.module.css';
 import Doctors from '../../public/images/bookingIcon/doctor.png';
@@ -8,8 +9,6 @@ import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
 import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
 import Important from '../../db/important.json';
 import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
-import Strecter from '../../public/images/commerialImages/Strectres.jpg';
-import scheduledFlight from '../../public/images/commerialImages/scheduledFlight.png';
 import Signature from '../../public/images/Signature.svg';
 import Point from '../../public/images/PointIcon.svg';
 import Arrow from '../../public/images/commerialImages/arrow.svg';
@@ -20,7 +19,7 @@ import Mircale from '../../public/images/ourstories/Miracle.jpg';
 import Olivia from '../../public/images/ourstories/olivia.jpg';
 import Emily from '../../public/images/ourstories/Emily.jpg';
 
-const Images = [Strecter, scheduledFlight];
+//this blogs json
 const blogs = [
   {
     image: Sarah,
@@ -54,6 +53,8 @@ const blogs = [
   },
   // Add more blog objects as needed
 ];
+
+//this component related to TravelDuration
 const TravelDuration = () => {
   const [value, setValue] = useState(true);
   const handleClick = () => {
@@ -240,6 +241,8 @@ const TravelDuration = () => {
     </div>
   );
 };
+
+//this component related to TotalFare and cost
 const TotalFare = () => {
   return (
     <div className="flex flex-col justify-start px-[25px] h-[145px] py-[18px] shadow-2xl bg-[#fff] w-full  rounded-2xl font-sans border-2 border-[#000000] sm:px-[10px] sm:py-[10px]">
@@ -261,6 +264,7 @@ const TotalFare = () => {
     </div>
   );
 };
+//this compoenent related to Information
 const InfomationHead = ({ title, descripation }) => {
   return (
     <div className="grid grid-cols-12 gap-1 mt-5 sm:grid sm:grid-cols-2 sm:w-[320px]">
@@ -278,6 +282,7 @@ const InfomationHead = ({ title, descripation }) => {
     </div>
   );
 };
+//this component realted to ImportedInfo
 const ImportantInfo = () => {
   return (
     <div className=" px-[30px] py-[30px] w-full   shadow-md mt-5 sm:px-[10px] sm:py-[10px] sm:w-full border-2 border-[#000] rounded-2xl">
@@ -301,6 +306,7 @@ const ImportantInfo = () => {
     </div>
   );
 };
+//this component is OurStory and carosel
 const OurStory = () => {
   return (
     <div className=" w-full shadow-md px-[30px] py-[30px] mt-5 rounded-2xl border-2 border-[#000]">
@@ -313,6 +319,7 @@ const OurStory = () => {
     </div>
   );
 };
+//this component realted to payCondfirmation
 const PayConfirmation = () => {
   return (
     <div className="flex flex-col justify-center px-[25px]  py-[20px] h-[250px] sm:h-[250px] shadow-2xl bg-[#fff] w-full  rounded-2xl mt-2 sm:mt-2 font-sans border-2 border-[#000000] sm:px-[10px] sm:py-[10px]">
@@ -339,6 +346,7 @@ const PayConfirmation = () => {
     </div>
   );
 };
+// this component is Gurrantee and promise
 const Guarantee = () => {
   return (
     <div
@@ -363,6 +371,7 @@ const Guarantee = () => {
     </div>
   );
 };
+//compoenent realted to Top section of Main component
 const UpperSection = () => {
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-3 sm:gap-2">
@@ -376,6 +385,7 @@ const UpperSection = () => {
     </div>
   );
 };
+//this is commericial Component where all compoenet structured and this is main component of commericial booking
 const UpdateCommericial = () => {
   const [isMobile, setIsMobile] = useState(false);
 
