@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
@@ -10,8 +9,12 @@ import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
+import { DedicatedApi } from '@/redux/slices/dedicatedSlice';
+import { CommericialApi } from '@/redux/slices/commericialSlice';
+import { useDispatch, useSelector } from 'react-redux';
 const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
+  const dispatch = useDispatch();
   const [isMobile, setIsMobile] = useState(false);
   const [selectedTab, setSelectedTab] = useState('commercial');
   const [airacraftData, setAircraftDataLoading] = useState(false);
@@ -36,6 +39,13 @@ const SearchResponse = ({ commericialTab }) => {
     mobile: '',
     max: 5,
   });
+
+  const commericialflights = useSelector(
+    (state) => state.commericial.commericialflights
+  );
+  const DedicatedFlights = useSelector(
+    (state) => state.dedicated.dedicatedflights
+  );
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
@@ -62,7 +72,7 @@ const SearchResponse = ({ commericialTab }) => {
         max: 5,
       };
       setFormData(formDetails);
-      searchFlights(formDetails);
+      // searchCity(formDetails);
     } else {
       console.log('query params id mising ');
     }
@@ -71,64 +81,71 @@ const SearchResponse = ({ commericialTab }) => {
   console.log('formData', formData);
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchFlights(formData);
+    if (formData) {
+      dispatch(DedicatedApi(formData));
+      dispatch(CommericialApi(formData));
+    }
   };
 
   console.log('formData this is in searchResponse Page', formData);
-  const searchFlights = (data) => {
-    setAircraftDataLoading(true);
-    setCommercialAircraftDataLoading(true);
 
-    const headers = {
-      'Content-Type': 'application/json',
-    };
+  console.log('commericialflights this is line 92', commericialflights);
+  // const searchFlights = (data) => {
+  //   setAircraftDataLoading(true);
+  //   setCommercialAircraftDataLoading(true);
 
-    axios(`http://localhost:8000/customer/dedicatedSearch`, {
-      method: 'POST',
-      headers: headers,
-      data: data,
-    })
-      .then((response) => {
-        setcharteredData(response.data.aviapages);
-        console.log('Final data response line 116', response.data);
-        setcharteredDepature(response.data.aviapages?.Response.from);
-        setchartereArrival(response.data.aviapages.Response.to);
-        setchartereId();
-      })
-      .catch((error) => {
-        console.log('error', error);
-      })
-      .finally(() => {
-        setAircraftDataLoading(false);
-      });
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //   };
 
-    axios(`http://localhost:8000/customer/commericialSearch`, {
-      method: 'POST',
-      headers: headers,
-      data: data,
-    })
-      .then((response) => {
-        setCommericialId(response.data.aircraftId);
-        setdepatureLocation(data?.originLocationCode);
-        setDestinationLocation(data?.destinationLocationCode);
-        setAircraftData(response.data);
-        setSelectedCurrency('EUR');
-      })
-      .catch((error) => {
-        console.log('Error', error);
-      })
-      .finally(() => {
-        setCommercialAircraftDataLoading(false);
-      });
-  };
+  //   axios(`http://localhost:8000/customer/dedicatedSearch`, {
+  //     method: 'POST',
+  //     headers: headers,
+  //     data: data,
+  //   })
+  //     .then((response) => {
+  //       setcharteredData(response.data.aviapages);
+  //       console.log('Final data response line 116', response.data);
+  //       setcharteredDepature(response.data.aviapages?.Response.from);
+  //       setchartereArrival(response.data.aviapages.Response.to);
+  //       setchartereId();
+  //     })
+  //     .catch((error) => {
+  //       console.log('error', error);
+  //     })
+  //     .finally(() => {
+  //       setAircraftDataLoading(false);
+  //     });
+
+  //   axios(`http://localhost:8000/customer/commericialSearch`, {
+  //     method: 'POST',
+  //     headers: headers,
+  //     data: data,
+  //   })
+  //     .then((response) => {
+  //       setCommericialId(response.data.aircraftId);
+  //       setdepatureLocation(data?.originLocationCode);
+  //       setDestinationLocation(data?.destinationLocationCode);
+  //       setAircraftData(response.data);
+  //       setSelectedCurrency('EUR');
+  //     })
+  //     .catch((error) => {
+  //       console.log('Error', error);
+  //     })
+  //     .finally(() => {
+  //       setCommercialAircraftDataLoading(false);
+  //     });
+  // };
 
   console.log('aircraftData line 125 ', aircraftData);
   const handleInputChange = (field, e) => {
     const { name, value } = e.target;
+    let updatedData = { ...formData };
     if (name === 'mobile') {
       const mobileNumber = e.target.value.replace(/\D/g, '');
       if (mobileNumber.length >= 6) {
-        setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
+        updatedData[name]=mobileNumber; 
+        // setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
       }
     } else {
       setFormData((prevData) => ({ ...prevData, [name]: e.target.value }));
@@ -144,7 +161,6 @@ const SearchResponse = ({ commericialTab }) => {
     setSelectedTab(tab);
   };
   console.log('aircraftData', aircraftData);
-  console.log('CharteredData', CharteredData);
 
   return (
     <div>
@@ -165,7 +181,10 @@ const SearchResponse = ({ commericialTab }) => {
           )}
         </div>
         <div className="relative bottom-[20px] sm:hidden flex justify-center ">
-          <UpdateSearchNew className="relative bottom-[300px] min-w-min px-[10px] py-[10px] " />
+          <UpdateSearchNew
+            className="relative bottom-[300px] min-w-min px-[10px] py-[10px]  "
+            onClick={(e) => handleSubmit(e)}
+          />
         </div>
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] relative bottom-[300px] sm:hidden sm:bottom-[0px] ">
           {!isMobile ? (

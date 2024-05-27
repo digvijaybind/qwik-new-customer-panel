@@ -7,9 +7,16 @@ const BASE_URL = process.env.REACT_API_BASE_URL;
 export const DedicatedApi = createAsyncThunk(
   'api/deicatedairline',
   async (payload) => {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    const config = {
+      headers,
+    };
     const response = await axios.post(
-      `${BASE_URL}/customer/dedicatedSearch`,
-      payload
+      `http://localhost:8000/customer/dedicatedSearch`,
+      payload,
+      config
     );
     return response.data;
   }

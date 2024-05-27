@@ -7,9 +7,17 @@ const BASE_URL = process.env.REACT_API_BASE_URL;
 export const CommericialApi = createAsyncThunk(
   'api1/commericialAPi',
   async (payload) => {
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    const config = {
+      headers,
+    };
+
     const response = await axios.post(
-      `${BASE_URL}/customer/commericialSearch`,
-      payload
+      `http://localhost:8000/customer/commericialSearch`,
+      payload,
+      config
     );
     return response.data;
   }
@@ -18,7 +26,7 @@ export const CommericialApi = createAsyncThunk(
 const commericialSlice = createSlice({
   name: 'commericial',
   initialState: {
-    commericialflights:[],
+    commericialflights: [],
     status: 'idle',
     error: null,
   },
