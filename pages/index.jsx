@@ -17,6 +17,7 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
+import { useCallback } from 'react';
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
 );
@@ -52,7 +53,7 @@ export default function Home() {
     originLocationCode: '',
     destinationLocationCode: '',
     departureDate: '',
-    countryCode:'',
+    countryCode: '',
     mobile: '',
   });
   useEffect(() => {
@@ -100,13 +101,13 @@ export default function Home() {
   }, [fromSearch, tosearch]);
   console.log('cityMatch', cityMatch);
 
-  const handleInputChange = (field, e) => {
+  const handleInputChange = useCallback((field, e) => {
     const { name, value } = e.target;
     setformData((pre) => ({
       ...pre,
       [field]: value,
     }));
-  };
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -117,8 +118,6 @@ export default function Home() {
   }, [homeServices]);
 
   //handle submit form API calling
-
- 
 
   //tab array
   const tasktab = [
@@ -345,9 +344,7 @@ export default function Home() {
                 <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
               </div>
               {/* this is form of landing page */}
-              <form
-                className={`mt-[30px] w-full ${styles.form}`}
-              >
+              <form className={`mt-[30px] w-full ${styles.form}`}>
                 <div className="grid grid-cols-5 gap-3">
                   <input
                     type="text"

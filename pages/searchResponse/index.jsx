@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
@@ -79,13 +79,13 @@ const SearchResponse = ({ commericialTab }) => {
   }, [searchParams]);
 
   console.log('formData', formData);
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     if (formData) {
       dispatch(DedicatedApi(formData));
       dispatch(CommericialApi(formData));
     }
-  };
+  });
 
   console.log('formData this is in searchResponse Page', formData);
 
