@@ -90,6 +90,7 @@ const SearchResponse = ({ commericialTab }) => {
   console.log('formData this is in searchResponse Page', formData);
 
   console.log('commericialflights this is line 92', commericialflights);
+  console.log('DedicatedFlights this is line 768', DedicatedFlights);
   // const searchFlights = (data) => {
   //   setAircraftDataLoading(true);
   //   setCommercialAircraftDataLoading(true);

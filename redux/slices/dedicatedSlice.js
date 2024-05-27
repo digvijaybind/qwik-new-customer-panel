@@ -7,6 +7,7 @@ const BASE_URL = process.env.REACT_API_BASE_URL;
 export const DedicatedApi = createAsyncThunk(
   'api/deicatedairline',
   async (payload) => {
+    console.log("payload in line 10",payload)
     const headers = {
       'Content-Type': 'application/json',
     };
