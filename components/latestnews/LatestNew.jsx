@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import newsUpdates from '../../db/newsUpdates.json';
 import NewsUpdates from '../NewsUpdates/NewsUpdate';
 
-const LatestNew = () => {
+const LatestNew = React.memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const settings = {
     dots: true,
@@ -65,6 +65,6 @@ const LatestNew = () => {
       </div>
     </div>
   );
-};
+});
 
 export default LatestNew;

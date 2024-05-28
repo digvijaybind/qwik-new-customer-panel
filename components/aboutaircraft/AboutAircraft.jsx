@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutAircraftimage from '../../public/images/Homepage/about.png';
 import Image from 'next/image';
-const AboutAircraft = () => {
+const AboutAircraft = React.memo(() => {
   return (
     <div>
       <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
@@ -40,6 +40,6 @@ const AboutAircraft = () => {
       </div>
     </div>
   );
-};
+});
 
 export default AboutAircraft;

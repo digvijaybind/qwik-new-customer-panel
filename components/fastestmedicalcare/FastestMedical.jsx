@@ -7,7 +7,7 @@ import Doctor from '../../public/images/counter/doctor.png';
 import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
 
-const FastestMedical = () => {
+const FastestMedical = React.memo(() => {
   return (
     <div
       className={`font-sans w-full relative flex flex-col items-center mb-60 sm:mb-32 bg-cover bg-no-repeat`}
@@ -31,7 +31,7 @@ const FastestMedical = () => {
       <FloatingBox />
     </div>
   );
-};
+});
 
 export default FastestMedical;
 

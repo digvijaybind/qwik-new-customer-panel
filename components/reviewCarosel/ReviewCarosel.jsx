@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Review from '../../db/Googlereview.json';
 import Googlereview from '../googlreview/Googlereview';
 
-const ReviewCarosel = ({ interval = 4000 }) => {
+const ReviewCarosel = React.memo(({ interval = 4000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
   const [isMounted, setIsMounted] = useState(false);
@@ -65,6 +65,6 @@ const ReviewCarosel = ({ interval = 4000 }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ReviewCarosel;

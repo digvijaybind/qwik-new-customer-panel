@@ -2,7 +2,7 @@ import React from 'react';
 import QwiklifFeatures from '@/data/QwiklifFeatures';
 import QwiklifFeatureCard from './QwiklifFeatureCard';
 
-const QwiklifFeature = () => {
+const QwiklifFeature = React.memo(() => {
   return (
       <div className="w-fit grid grid-cols-2 font-sans  sm:grid-cols-1 gap-6 sm:gap-4  xs:px-4">
         {QwiklifFeatures.map(({ icon, title, description }, key) =>
@@ -14,7 +14,7 @@ const QwiklifFeature = () => {
           />)}
       </div>
   );
-};
+});
 
 export default QwiklifFeature;
 

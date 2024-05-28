@@ -34,7 +34,7 @@ const faqs = [
   },
 ];
 
-const ChooseQwiklif = () => {
+const ChooseQwiklif = React.memo(() => {
   const [activeTab, setActiveTab] = useState(1);
   return (
   <div>
@@ -100,7 +100,7 @@ const ChooseQwiklif = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ChooseQwiklif;
 

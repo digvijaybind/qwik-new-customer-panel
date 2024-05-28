@@ -17,7 +17,6 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
-import { useCallback } from 'react';
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
 );
@@ -36,7 +35,7 @@ const ReviewCarosel = dynamic(() =>
 );
 const Rotatemap = dynamic(() => import('@/components/rotateMap/Rotatemap'));
 //Main component function
-export default function Home() {
+const Home = () => {
   const router = useRouter();
   const [fromSearch, setfromSearch] = useState('');
   const [tosearch, setTosearch] = useState('');
@@ -101,13 +100,13 @@ export default function Home() {
   }, [fromSearch, tosearch]);
   console.log('cityMatch', cityMatch);
 
-  const handleInputChange = (field, e) => {
-    const { name, value } = e.target;
-    setformData((pre) => ({
-      ...pre,
-      [field]: value,
-    }));
-  };
+  // const handleInputChange = (field, e) => {
+  //   const { name, value } = e.target;
+  //   setformData((pre) => ({
+  //     ...pre,
+  //     [field]: value,
+  //   }));
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -157,11 +156,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="relative bottom-15 flex justify-center px-5">
-            <MobileSearch
-              handleInputChange={handleInputChange}
-              formData={formData}
-              setfromSearch={setfromSearch}
-            />
+            <MobileSearch formData={formData} setfromSearch={setfromSearch} />
           </div>
         )}
 
@@ -398,4 +393,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Home;
