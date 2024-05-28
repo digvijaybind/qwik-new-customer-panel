@@ -3,9 +3,49 @@ import styles from './UpdateSearch.module.css';
 import LeftImage from '../../public/images/inputimages/Flight.svg';
 import RightImage from '../../public/images/inputimages/Dropdown.svg';
 import UpdateInput from './UpdateInput';
-import PhoneInput from 'react-phone-number-input';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { useRouter } from 'next/router';
+import PhoneInput, {
+  getCountries,
+  getCountryCallingCode,
+} from 'react-phone-number-input';
+import ReactCountryFlag from 'react-country-flag';
+
+
+const getCountryLabel = (countryCode) => {
+  return (
+    <>
+      <ReactCountryFlag
+        countryCode={countryCode}
+        svg
+        style={{
+          width: '1.5em',
+          height: '1.5em',
+          marginRight: '0.5em',
+        }}
+      />
+      {getCountryCallingCode(countryCode)}
+    </>
+  );
+}; 
+
+const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
+  const countries = getCountries();
+
+  return (
+    <select
+      value={value}
+      onChange={(event) => onChange(event.target.value)}
+      {...rest}
+    >
+      {countries.map((country) => (
+        <option key={country} value={country}>
+          +{getCountryLabel(country)}
+        </option>
+      ))}
+    </select>
+  );
+};
 
 const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -75,7 +115,6 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
               onChange={handleChange}
             />
           </div>
-
           {/* this is To or arrival location serach bar Input */}
           <div className={`${styles.searchBarSection} mr-2`}>
             <div className="font-sans font-black text-gray-400 text-[17x] mb-1">
@@ -94,7 +133,6 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
               onChange={handleChange}
             />
           </div>
-
           {/*this is depature date  section */}
           <div className={`${styles.searchBarSection} mr-2`}>
             <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
@@ -121,11 +159,12 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
             <div className="flex flex-row rounded-md">
               <PhoneInput
                 defaultCountry="AE"
-                className={`${styles.phoneInput} rounded-md h-[60px]`}
+                className={`${styles.phoneInput} rounded-md h-[60px] font-bold text-[14px]`}
                 placeholder="Enter Number"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handlePhoneChange}
+                countrySelectComponent={CustomCountrySelect}
               />
             </div>
           </div>
