@@ -35,15 +35,13 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   );
 };
 
-const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    originLocationCode: '',
-    destinationLocationCode: '',
-    departureDate: '',
-    mobile: '',
-    countryCode: '',
-    pax: 1,
-  });
+const UpdateSearchNew = React.memo(({
+  className,
+  onClick,
+  onSubmit,
+  setFormData,
+  formData,
+}) => {
   const router = useRouter();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,7 +84,7 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
       <form onSubmit={handleSubmit} className="flex items-center flex-col">
         <div className={`${styles.container} px-[25px]  rounded-md`}>
           {/*this is From city search Input */}
-          
+
           <div className={`${styles.searchBarSection} mr-2`}>
             <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
               From:
@@ -178,6 +176,6 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
       </form>
     </div>
   );
-};
+});
 
 export default UpdateSearchNew;

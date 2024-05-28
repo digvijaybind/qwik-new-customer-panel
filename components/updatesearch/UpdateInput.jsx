@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 import Image from 'next/image';
 import { FaPlaneDeparture } from 'react-icons/fa6';
 import { RiFlightLandLine } from 'react-icons/ri';
-const UpdateInput = ({
+const UpdateInput = React.memo(({
   LeftImage,
   RightImage,
   type,
@@ -36,6 +36,6 @@ const UpdateInput = ({
       )}
     </div>
   );
-};
+});
 
 export default UpdateInput;

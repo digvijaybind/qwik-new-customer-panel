@@ -68,7 +68,10 @@ const Home = () => {
     };
   }, []);
 
-  console.log('formData this is root file', formData);
+ 
+ 
+
+  
   //search for autoSuggestion
   useEffect(() => {
     const asyncTask = async () => {
@@ -79,26 +82,26 @@ const Home = () => {
     asyncTask();
   }, []);
 
-  const searchCity = (text) => {
-    console.log('text', text);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}all-airports?q=${text}`)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log('result55', result);
-        setCitymatch(result);
-      })
-      .catch((error) => console.log('error', error));
-  };
+  // const searchCity = (text) => {
+  //   console.log('text', text);
+  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}all-airports?q=${text}`)
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       console.log('result55', result);
+  //       setCitymatch(result);
+  //     })
+  //     .catch((error) => console.log('error', error));
+  // };
   console.log('cityMatch', cityMatch);
-  useEffect(() => {
-    let interval = setTimeout(() => {
-      if (fromSearch || tosearch) {
-        searchCity(fieldType === 'From' ? fromSearch : tosearch);
-      }
-    }, 500);
-    return () => clearInterval(interval);
-  }, [fromSearch, tosearch]);
-  console.log('cityMatch', cityMatch);
+  // useEffect(() => {
+  //   let interval = setTimeout(() => {
+  //     if (fromSearch || tosearch) {
+  //       searchCity(fieldType === 'From' ? fromSearch : tosearch);
+  //     }
+  //   }, 500);
+  //   return () => clearInterval(interval);
+  // }, [fromSearch, tosearch]);
+  // console.log('cityMatch', cityMatch);
 
   // const handleInputChange = (field, e) => {
   //   const { name, value } = e.target;
@@ -119,6 +122,14 @@ const Home = () => {
   //handle submit form API calling
 
   //tab array
+
+  // useEffect(() => {
+  //   console.log('FormData changed:', formData);
+  // }, [formData]);
+
+  useEffect(() => {
+    console.log('currentIndex changed:', currentIndex);
+  }, [currentIndex]);
   const tasktab = [
     {
       img: Aeroplane1,
@@ -151,7 +162,7 @@ const Home = () => {
             <UpdateSearchNew
               className="relative bottom-[250px] sm:bottom-90"
               formData={formData}
-              setfromSearch={setfromSearch}
+              setFormData={setFormData}
             />
           </div>
         ) : (

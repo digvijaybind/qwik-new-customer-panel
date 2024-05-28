@@ -72,9 +72,7 @@ const Listing = ({ id }) => {
     }
   }, [searchParams]);
 
-  const AvaiapageSubmit = (data) => {
-    console.log('formData', data);
-  };
+
 
   // const searchFlights = (data) => {
   //   setAircraftDataLoading(true);

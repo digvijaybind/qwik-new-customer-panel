@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Input.module.css';
-const CustomPhoneInput = ({ placeholder,placeholderColor , ...rest }) => {
+const CustomPhoneInput = React.memo(({ placeholder,placeholderColor , ...rest }) => {
   return (
     <input
       placeholder={placeholder}
@@ -9,6 +9,6 @@ const CustomPhoneInput = ({ placeholder,placeholderColor , ...rest }) => {
       {...rest}
     />
   );
-};
+});
 
 export default CustomPhoneInput;
