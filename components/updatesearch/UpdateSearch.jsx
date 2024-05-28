@@ -9,25 +9,18 @@ import PhoneInput, {
   getCountries,
   getCountryCallingCode,
 } from 'react-phone-number-input';
-import ReactCountryFlag from 'react-country-flag';
 
 
-const getCountryLabel = (countryCode) => {
+const CustomPhoneInput = ({ placeholder, ...rest }) => {
   return (
-    <>
-      <ReactCountryFlag
-        countryCode={countryCode}
-        svg
-        style={{
-          width: '1.5em',
-          height: '1.5em',
-          marginRight: '0.5em',
-        }}
-      />
-      {getCountryCallingCode(countryCode)}
-    </>
+    <input
+      placeholder={placeholder}
+      className={`${styles.inputField}`}
+      {...rest}
+    />
   );
-}; 
+};
+
 
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
@@ -37,10 +30,11 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
       value={value}
       onChange={(event) => onChange(event.target.value)}
       {...rest}
+      className="bg-[#eeee] px-1 py-1 rounded border-r-2 border-gray-400 mr-2"
     >
       {countries.map((country) => (
         <option key={country} value={country}>
-          +{getCountryLabel(country)}
+          +{getCountryCallingCode(country)}
         </option>
       ))}
     </select>
@@ -165,6 +159,7 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
                 value={formData.mobile}
                 onChange={handlePhoneChange}
                 countrySelectComponent={CustomCountrySelect}
+                CustomPhoneInput={CustomPhoneInput}
               />
             </div>
           </div>
