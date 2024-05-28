@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Input.module.css';
 import Image from 'next/image';
 import { FaPlaneDeparture } from 'react-icons/fa6';
-
+import { RiFlightLandLine } from 'react-icons/ri';
 const UpdateInput = ({
   LeftImage,
   RightImage,

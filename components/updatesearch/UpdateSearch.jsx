@@ -4,40 +4,33 @@ import LeftImage from '../../public/images/inputimages/Flight.svg';
 import RightImage from '../../public/images/inputimages/Dropdown.svg';
 import UpdateInput from './UpdateInput';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
+import CustomPhoneInput from './CustomPhoneInput ';
 import { useRouter } from 'next/router';
 import PhoneInput, {
   getCountries,
   getCountryCallingCode,
 } from 'react-phone-number-input';
 
-
-const CustomPhoneInput = ({ placeholder, ...rest }) => {
-  return (
-    <input
-      placeholder={placeholder}
-      className={`${styles.inputField}`}
-      {...rest}
-    />
-  );
-};
-
-
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
 
   return (
-    <select
-      value={value}
-      onChange={(event) => onChange(event.target.value)}
-      {...rest}
-      className="bg-[#eeee] px-1 py-1 rounded border-r-2 border-gray-400 mr-2"
-    >
-      {countries.map((country) => (
-        <option key={country} value={country}>
-          +{getCountryCallingCode(country)}
-        </option>
-      ))}
-    </select>
+    <div className="flex items-center">
+      <select
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        {...rest}
+        className="bg-[#eeee] px-1 py-1 rounded border-r-2 border-gray-400 mr-2"
+        style={{ height: '100%' }}
+      >
+        {countries.map((country) => (
+          <option key={country} value={country}>
+            +{getCountryCallingCode(country)}
+          </option>
+        ))}
+      </select>
+      <div className="h-full border-r border-gray-400"></div>
+    </div>
   );
 };
 
@@ -92,6 +85,7 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
       <form onSubmit={handleSubmit} className="flex items-center flex-col">
         <div className={`${styles.container} px-[25px]  rounded-md`}>
           {/*this is From city search Input */}
+          
           <div className={`${styles.searchBarSection} mr-2`}>
             <div className="font-sans font-black text-gray-400 text-[17px] mb-1">
               From:
@@ -159,7 +153,16 @@ const UpdateSearchNew = ({ className, onClick, onSubmit }) => {
                 value={formData.mobile}
                 onChange={handlePhoneChange}
                 countrySelectComponent={CustomCountrySelect}
-                CustomPhoneInput={CustomPhoneInput}
+                CustomPhoneInput={
+                  <CustomPhoneInput
+                    placeholderText="Enter Number"
+                    placeholderColor="#000"
+                  />
+                }
+                inputComponentProps={{
+                  placeholderText: 'Enter Number',
+                  placeholderColor: '#000',
+                }}
               />
             </div>
           </div>
