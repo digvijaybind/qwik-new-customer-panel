@@ -37,10 +37,15 @@ const SearchResponse = ({ commericialTab }) => {
     destinationLocationCode: '',
     departureDate: '',
     pax: 1,
-    countryCode: '',
+  countryCode: '',
     mobile: '',
     max: 5,
   });
+
+  //  const stableSetFormData = useCallback((data) => {
+  //    setFormData(data);
+  //  }, []);
+   
   const commericialflights = useSelector(
     (state) => state.commericial.commericialflights
   );
@@ -79,7 +84,7 @@ const SearchResponse = ({ commericialTab }) => {
     }
   }, [searchParams]);
 
-  console.log('formData', formData);
+  // console.log('formData', formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData) {
@@ -87,43 +92,20 @@ const SearchResponse = ({ commericialTab }) => {
       dispatch(CommericialApi(formData));
     }
   };
-  console.log('formData this is in searchResponse Page', formData);
+  // console.log('formData this is in searchResponse Page', formData);
 
   console.log('commericialflights this is line 92', commericialflights);
   console.log('DedicatedFlights this is line 768', DedicatedFlights);
 
-  console.log('aircraftData line 125 ', aircraftData);
-  const handleInputChange = (field, e) => {
-    const { name, value } = e.target;
-    let updatedData = { ...formData };
-    if (name === 'mobile') {
-      const mobileNumber = e.target.value.replace(/\D/g, '');
-      if (mobileNumber.length >= 6) {
-        updatedData[name] = mobileNumber;
-        // setFormData((prevData) => ({ ...prevData, [name]: mobileNumber }));
-      }
-    } else {
-      setFormData((prevData) => ({ ...prevData, [name]: e.target.value }));
-    }
-    console.log('name, value', name, value);
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
-  };
+  // console.log('aircraftData line 125 ', aircraftData);
+
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
   console.log('aircraftData', aircraftData);
-  console.log('formData line 119', formData);
-  // useEffect(() => {
-  //   //  setDestinationLocation(ite)
+  // console.log('formData line 119', formData);
 
-  //   setCommericialId(commericialflights.aircraftId);
-  //   setAircraftData(commericialflights.ResponseData);
-  //   setSelectedCurrency('AED');
-  // }, [commericialflights, DedicatedFlights]);
 
   return (
     <div>
@@ -138,7 +120,6 @@ const SearchResponse = ({ commericialTab }) => {
               <MobileSearch
                 formData={formData}
                 handleSubmit={handleSubmit}
-                handleInputChange={handleInputChange}
               />
             </div>
           )}

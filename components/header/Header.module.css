@@ -28,7 +28,7 @@
   height: 80px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(25px);
-  color: #fff;
+  color: #ffffff !important;
   transform: translateY(10);
   transition: transform 0.6s ease;
   animation: myanimation 0.6s;
@@ -65,15 +65,15 @@
 @keyframes myanimation {
   0% {
     background-color: transparent;
-    color: transparent;
+    color: #fff !important;
   }
   35% {
     background-color: gray;
-    color: rosybrown;
+    color: #fff !important;
   }
   100% {
     background-color: transparent;
-    color: rosybrown;
+    color: #fff !important;
   }
 }
 

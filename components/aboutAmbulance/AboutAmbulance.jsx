@@ -36,7 +36,7 @@ const AboutAmbulance = () => {
           Our Air Ambulance Services
         </h2>
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
-          <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
+          <hr className="bg-[#11B6E3] h-[6px] w-[45px]" />
         </div>
         <div className="">
           <div className="w-[90%] mx-[5%] sm:w-full sm:mx-0">

@@ -37,14 +37,14 @@ const faqs = [
 const ChooseQwiklif = React.memo(() => {
   const [activeTab, setActiveTab] = useState(1);
   return (
-  <div>
+    <div>
       <div className="">
         <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10">
           <h2 className="font-sans font-extrabold text-4xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none sm:pr-0 pr-16 sm:mb-2 sm:w-full">
             Why choose Qwiklif?
           </h2>
 
-          <div className="sm:pl-0 pl-16">
+          <div className="sm:pl-0 pl-2">
             <p className="text-[#646464] text-lg text-center leading-[32px] ml-[10px] lg:ml-0 font-sans font-medium sm:ml-3">
               Fly Fast and Safe with Qwiklif Air Ambulance We have access to
               global hospitals including finest medic and eminent surgeons

@@ -21,6 +21,7 @@
   font-weight: bold;
   font-size: 14px;
 }
+
 .inputField:focus {
   border: none;
   outline: none; /* Remove the focus outline when the input is focused */
@@ -31,12 +32,28 @@
   max-height: 40px;
   min-width: 160px;
 }
-/* PhoneInputCustom.module.css */
+.customPhoneInput {
+  border: none;
+  outline: none; /* Remove the default focus outline */
+  background-color: #eeeeee;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+}
 
+.customPhoneInput::placeholder {
+  border: none;
+  outline: none;
+  color: #000;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* PhoneInputCustom.module.css */
 .phoneInput .PhoneInputCountry {
   display: flex;
   align-items: center;
-  
 }
 
 .phoneInput

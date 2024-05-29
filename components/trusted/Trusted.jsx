@@ -13,11 +13,11 @@ const Trusted = ({ img, title, descripation }) => {
             alt={title}
           />
         </div>
-        <div className="w-fit flex flex-col gap-2">
-          <div className="text-2xl sm:text-xl text-[#fff] font-bold">
+        <div className="w-fit flex flex-col gap-3">
+          <div className="text-xl sm:text-xl text-[#fff] font-black">
             {title}
           </div>
-          <div className="text-[#a9b5bf] text-lg text-wrap sm:text-sm font-normal text-shadow">
+          <div className="text-[#a9b5bf] text-[15px] text-wrap sm:text-sm font-medium text-shadow">
             {descripation}
           </div>
         </div>

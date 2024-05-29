@@ -177,7 +177,7 @@ const UpdateSearch = ({
   return (
     <form onSubmit={handleSubmit} className={`${className}`}>
       <div
-        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[] w-[1150px] rounded-md  ${className}`}
+        className={`flex justify-center items-center mt-5 mb-5  h-[300px] bg-[] w-[1150px]   ${className}`}
       >
         <div
           className={`bg-[#fff] w-[1100px] h-[220px] px-[20px] py-[5px] border-2  rounded-lg flex justify-center  items-center  rounded-5 ${className}`}
@@ -189,7 +189,7 @@ const UpdateSearch = ({
             >
               <div className={` rounded-[10px] px-[15px] py-[15px]`}>
                 <label for="fromcity">
-                <span className="font-sans text-[15px] font-normal">
+                  <span className="font-sans text-[15px] font-normal">
                     From
                   </span>
                 </label>

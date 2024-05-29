@@ -31,7 +31,7 @@ const LatestNew = React.memo(() => {
   };
   return (
     <div>
-      <div id="services">
+      <div id="services" className="mt-10 sm:mt-0">
         <h1 className="text-[#11B6E3]  font-black text-[20px] text-center mb-[10px] font-sans">
           Latest News
         </h1>

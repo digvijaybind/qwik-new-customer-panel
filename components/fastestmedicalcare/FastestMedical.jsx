@@ -35,17 +35,17 @@ const FastestMedical = React.memo(() => {
 
 export default FastestMedical;
 
-const FloatingBox = () => {
+const FloatingBox = ({ className }) => {
   return (
     <div
-      className={`bg-white translate-y-1/2 w-[900px] sm:max-w-[66.666%] xs:max-w-[85%] px-10 sm:px-4 py-8 rounded-xl shadow-2xl items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center cursor-pointer`}
+      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 rounded shadow-2xl  items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center cursor-pointer ${className}`}
     >
       <div className="flex flex-col items-center">
         <Image
           src={MiniAeroplane}
-          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-bold text-5xl sm:text-xl ">
+        <p className="font-black text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={450} duration={5} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -56,9 +56,9 @@ const FloatingBox = () => {
       <div className="flex flex-col items-center">
         <Image
           src={Miniaircraft}
-          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-bold text-5xl sm:text-xl ">
+        <p className="font-black text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={25} duration={8} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -69,9 +69,9 @@ const FloatingBox = () => {
       <div className="flex flex-col items-center">
         <Image
           src={Doctor}
-          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-bold text-5xl sm:text-xl ">
+        <p className="font-black text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={15} duration={10} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -81,9 +81,9 @@ const FloatingBox = () => {
       <div className="flex flex-col items-center">
         <Image
           src={Miniglobal}
-          className="w-20 h-20 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-bold text-5xl sm:text-xl ">
+        <p className="font-black text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={7000} duration={5} /> +
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">

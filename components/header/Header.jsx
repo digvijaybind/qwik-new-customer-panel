@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Logo from '../../public/images/logo.svg';
+import Logo from '../../public/images/Logo.png';
 import Image from 'next/image';
 import styles from './Header.module.css';
 import Link from 'next/link';
@@ -78,7 +78,7 @@ const Header = () => {
 
         <div className={styles.logo}>
           <Link href="/">
-            <div className="relative h-[100px] w-[150px]">
+            <div className="relative h-[60px] w-[150px]">
               <Image src={Logo} layout="fill" objectFit="contain" />
             </div>
           </Link>

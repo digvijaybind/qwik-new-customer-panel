@@ -17,6 +17,8 @@ import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
+import { useCallback } from 'react';
+import Services from './services';
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
 );
@@ -67,11 +69,6 @@ const Home = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
- 
- 
-
-  
   //search for autoSuggestion
   useEffect(() => {
     const asyncTask = async () => {
@@ -81,36 +78,6 @@ const Home = () => {
 
     asyncTask();
   }, []);
-
-  // const searchCity = (text) => {
-  //   console.log('text', text);
-  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}all-airports?q=${text}`)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log('result55', result);
-  //       setCitymatch(result);
-  //     })
-  //     .catch((error) => console.log('error', error));
-  // };
-  console.log('cityMatch', cityMatch);
-  // useEffect(() => {
-  //   let interval = setTimeout(() => {
-  //     if (fromSearch || tosearch) {
-  //       searchCity(fieldType === 'From' ? fromSearch : tosearch);
-  //     }
-  //   }, 500);
-  //   return () => clearInterval(interval);
-  // }, [fromSearch, tosearch]);
-  // console.log('cityMatch', cityMatch);
-
-  // const handleInputChange = (field, e) => {
-  //   const { name, value } = e.target;
-  //   setformData((pre) => ({
-  //     ...pre,
-  //     [field]: value,
-  //   }));
-  // };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % homeServices.length);
@@ -130,6 +97,10 @@ const Home = () => {
   useEffect(() => {
     console.log('currentIndex changed:', currentIndex);
   }, [currentIndex]);
+
+  const stableSetFormData = useCallback((data) => {
+    setFormData(data);
+  }, []);
   const tasktab = [
     {
       img: Aeroplane1,
@@ -162,7 +133,7 @@ const Home = () => {
             <UpdateSearchNew
               className="relative bottom-[250px] sm:bottom-90"
               formData={formData}
-              setFormData={setFormData}
+              setFormData={stableSetFormData}
             />
           </div>
         ) : (
@@ -175,12 +146,13 @@ const Home = () => {
           <StyledSection className="relative bottom-[150px] sm:bottom-0">
             {/*About us section component */}
             <AboutAircraft />
+
             {/*Qwiklif Feautres Component  */}
             <QwiklifFeature />
           </StyledSection>
 
           {/* Roadmap */}
-          <StyledSection className="relative bottom-[145px] sm:bottom-0">
+          <StyledSection className="relative bottom-[140px] sm:bottom-0">
             <div className="py-5 sm:py-5">
               <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
                 How to Book Air Ambulance
@@ -205,13 +177,14 @@ const Home = () => {
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
             }}
-            className="px-10 py-5"
+            className="px-10 py-3"
           >
-            <FastestMedical />
+            <FastestMedical className="relative bottom-5" />
           </StyledSection>
+
           {/* Medical Care */}
           {/*News */}
-          <StyledSection className="relative top-10 sm:bottom-0">
+          <StyledSection className="relative top-20 sm:bottom-0 ">
             <LatestNew />
           </StyledSection>
 
@@ -220,8 +193,8 @@ const Home = () => {
           {/* <ReviewCarosel /> */}
 
           {/* Why Choose Our Services */}
-          <StyledSection className="relative top-10">
-            <div className="flex flex-col items-start px-36 sm:px-10 py-16">
+          <StyledSection className="relative top-20">
+            <div className="flex flex-col items-start px-15 sm:px-10 py-16">
               <div className="flex flex-col items-start w-full sm:items-center ">
                 <h1 className="font-sans font-extrabold text-3xl text-center mb-2">
                   Why you should choose our services
@@ -250,7 +223,7 @@ const Home = () => {
                       }}
                     >
                       <div
-                        className={`w-full flex-row justify-between rounded-md items-center h-[90px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
+                        className={`w-full flex-row justify-between rounded-md items-center h-[70px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
                           SelectedCollapseIndex != index
                             ? 'bg-[#F1F7FA]'
                             : 'bg-[#19c0f0] rounded-b-none'
@@ -261,7 +234,7 @@ const Home = () => {
                             SelectedCollapseIndex === index
                               ? 'text-[#FFFFFF]'
                               : ''
-                          }  font-sans font-extrabold text-lg sm:text-sm`}
+                          }  font-sans font-black text-lg sm:text-sm`}
                         >
                           {item.header}
                         </h4>
@@ -306,7 +279,7 @@ const Home = () => {
           {/* Why Choose Our Services */}
 
           {/* Reviews */}
-          <StyledSection className="relative bottom-4 mt-5">
+          <StyledSection className="relative bottom-4 mt-10">
             {/* <ReviewCarosel/> */}
 
             {/* <Googlereview /> */}
@@ -326,8 +299,8 @@ const Home = () => {
               <div className="text-[#a9b5bf] font-sans font-extrabold">
                 QwikLif Air Ambulance
               </div>
-              <div className="font-sans font-extrabold text-4xl text-white mt-1 mb-6">
-                Your Trusted Global Air Ambulance <br /> Provider
+              <div className="font-sans font-black text-2xl text-white mt-2 mb-6">
+                Your Trusted Global Air Ambulance Provider
               </div>
               {tasktab.map((data, index) => {
                 return (
