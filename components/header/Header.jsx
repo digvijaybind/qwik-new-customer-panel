@@ -48,22 +48,32 @@ const Header = () => {
 
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [scrollDirection, setScrollDirection] = useState('static');
   //Handle tab click
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
 
-  //Handle Scroll event to toggle background class
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
-  };
-
-  //Add scroll event listner on mount and clean up on unmount
-
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    let lastScrollY = window.scrollY;
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+        if (currentScrollY > lastScrollY) {
+          setScrollDirection('down');
+        } else {
+          setScrollDirection('up');
+        }
+      } else {
+        setIsScrolled(false);
+        setScrollDirection('static');
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -100,7 +110,14 @@ const Header = () => {
                     index === activeTab
                       ? 'border-[#000]  text-[#000]'
                       : 'border-transparent text-[#000]'
-                  }`}
+                  }
+${
+  scrollDirection === 'down'
+    ? styles.scrollDown
+    : scrollDirection === 'up'
+    ? styles.scrollUp
+    : ''
+}`}
                   onClick={() => handleTabClick(index)}
                 >
                   {tab.title}

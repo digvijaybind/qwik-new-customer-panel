@@ -107,6 +107,15 @@
   cursor: pointer;
 }
 
+.Tabli {
+  color: #000; /* Default color when static */
+  transition: color 0.3s ease;
+}
+
+.Tabli.c,
+.Tabli.scroll-down {
+  color: #fff; /* Color when scrolling up or down */
+}
 /* Media Queries */
 
 .MenuTabResposive .Tabli {
