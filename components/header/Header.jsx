@@ -104,20 +104,12 @@ const Header = () => {
               <Link href={tab.url} key={'menu-item' + index}>
                 <li
                   key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000] ${
-                    styles.Tabli
-                  } ${
+                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000]  ${
                     index === activeTab
                       ? 'border-[#000]  text-[#000]'
                       : 'border-transparent text-[#000]'
                   }
-${
-  scrollDirection === 'down'
-    ? styles.scrollDown
-    : scrollDirection === 'up'
-    ? styles.scrollUp
-    : ''
-}`}
+${isScrolled ? 'text-[#fff]' : 'text-[#000]'}`}
                   onClick={() => handleTabClick(index)}
                 >
                   {tab.title}
