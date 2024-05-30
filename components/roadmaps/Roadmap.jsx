@@ -6,7 +6,7 @@ const Roadmap = () => {
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
-    <div>
+    <div className="shadow-2xl shadow-cyan-300/50">
       <div
         className={` rounded h-[550px] sm:h-[250px] lg:h-[330px] xl:h-[460px] mt-[60px] font-sans border-2 border-gray-100`}
       >

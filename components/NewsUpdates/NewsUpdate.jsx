@@ -44,7 +44,7 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
               alt="rapid Time"
               layout="contain"
             />
-            <h3 className="text-[#6C6C6C] font-normal text-[16px] leading-[26px]">
+            <h3 className="text-[#6C6C6C] font-normal text-[16px] sm:text-[12px] leading-[26px]">
               admin
             </h3>
           </div>
@@ -57,7 +57,7 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
               alt="rapid Time"
               layout="contain"
             />
-            <h3 className="text-[#6C6C6C] font-normal font-sans text-[16px] leading-[26px]">
+            <h3 className="text-[#6C6C6C] font-normal font-sans text-[16px] sm:text-[12px] leading-[26px]">
               Comment: 1
             </h3>
           </div>

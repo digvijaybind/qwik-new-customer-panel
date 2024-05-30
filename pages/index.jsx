@@ -131,7 +131,7 @@ const Home = () => {
         {!isMobile ? (
           <div className="relative bottom-56 flex justify-center">
             <UpdateSearchNew
-              className="relative bottom-[250px] sm:bottom-90"
+              className="relative bottom-[3px] sm:bottom-90"
               formData={formData}
               setFormData={stableSetFormData}
             />
@@ -143,7 +143,7 @@ const Home = () => {
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative bottom-[150px] sm:bottom-0">
+          <StyledSection className="relative bottom-[140px] sm:bottom-0 ">
             {/*About us section component */}
             <AboutAircraft />
 
@@ -152,7 +152,7 @@ const Home = () => {
           </StyledSection>
 
           {/* Roadmap */}
-          <StyledSection className="relative bottom-[140px] sm:bottom-0">
+          <StyledSection className="relative  bottom-[60px] sm:bottom-0">
             <div className="py-5 sm:py-5">
               <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
                 How to Book Air Ambulance
@@ -223,14 +223,14 @@ const Home = () => {
                       }}
                     >
                       <div
-                        className={`w-full flex-row justify-between rounded-md items-center h-[70px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
+                        className={`w-full flex-row justify-between rounded-md items-center h-[70px] sm:h-[85px] sm:px-[5px] sm:py-[10px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
                           SelectedCollapseIndex != index
                             ? 'bg-[#F1F7FA]'
                             : 'bg-[#19c0f0] rounded-b-none'
                         }`}
                       >
                         <h4
-                          className={`ml-[30px] ${
+                          className={`ml-[30px] sm:ml-[10px] ${
                             SelectedCollapseIndex === index
                               ? 'text-[#FFFFFF]'
                               : ''
@@ -239,7 +239,7 @@ const Home = () => {
                           {item.header}
                         </h4>
                         <div
-                          className={`flex flex-row justify-start items-center mr-[30px]`}
+                          className={`flex flex-row justify-start items-center mr-[30px] sm:ml-[10px]`}
                         >
                           {SelectedCollapseIndex != index ? (
                             <button
