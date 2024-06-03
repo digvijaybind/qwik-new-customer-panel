@@ -49,6 +49,7 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('static');
+  
   //Handle tab click
   const handleTabClick = (index) => {
     setActiveTab(index);

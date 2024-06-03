@@ -14,6 +14,34 @@
   border: 1px solid #79747e;
   background-color: white;
 }
+.Searchbar {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+  z-index: 300;
+}
+
+.Searchbar2 {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 80px; 
+  transition: transform 0.6s ease;
+  animation: myanimation 0.6s;
+  z-index: 300;
+}
+@keyframes myanimation {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 
 .contactInfoBg {
@@ -31,8 +59,8 @@
 }
 #staticSection {
   position: sticky;
-  bottom: 56px; 
-  z-index: 1000; 
+  bottom: 56px;
+  z-index: 1000;
 }
 
 @media screen and (max-width: 639px) {

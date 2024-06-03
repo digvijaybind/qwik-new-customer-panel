@@ -51,7 +51,8 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('static');
   //handle resize function for mobiel view
   const [formData, setFormData] = useState({
     originLocationCode: '',
@@ -97,26 +98,29 @@ const Home = () => {
     setFormData(data);
   }, []);
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 200) {
-        // Scrolling down and past a certain point
-        setIsSticky(true);
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+        if (currentScrollY > lastScrollY) {
+          setScrollDirection('down');
+        } else {
+          setScrollDirection('up');
+        }
       } else {
-        // Scrolling up
-        setIsSticky(false);
+        setIsScrolled(false);
+        setScrollDirection('static');
       }
-
-      setLastScrollY(currentScrollY);
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   const tasktab = [
     {
@@ -150,11 +154,15 @@ const Home = () => {
             id="staticSection"
             className={`relative bottom-56 flex justify-center`}
           >
-            <UpdateSearchNew
-              className="relative bottom-[3px] sm:bottom-90"
-              formData={formData}
-              setFormData={stableSetFormData}
-            />
+            <div
+              className={`${isScrolled ? styles.Searchbar2 : styles.Searchbar}`}
+            >
+              <UpdateSearchNew
+                className="relative bottom-[3px] sm:bottom-90"
+                formData={formData}
+                setFormData={stableSetFormData}
+              />
+            </div>
           </div>
         ) : (
           <div className="relative bottom-15 flex justify-center px-5">
@@ -163,7 +171,7 @@ const Home = () => {
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative bottom-[110px] sm:bottom-0 ">
+          <StyledSection className="relative top-[80px] sm:bottom-0 ">
             {/*About us section component */}
             <AboutAircraft />
 
