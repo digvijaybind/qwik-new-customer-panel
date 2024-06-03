@@ -49,6 +49,8 @@ const Home = () => {
   const [fieldType, setFieldtype] = useState('');
   const { loading, startLoading, stopLoading, setApiData } = useData();
   const [isMobile, setIsMobile] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   //handle resize function for mobiel view
   const [formData, setFormData] = useState({
@@ -94,6 +96,28 @@ const Home = () => {
   const stableSetFormData = useCallback((data) => {
     setFormData(data);
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        // Scrolling down and past a certain point
+        setIsSticky(true);
+      } else {
+        // Scrolling up
+        setIsSticky(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   const tasktab = [
     {
       img: Aeroplane1,
@@ -124,7 +148,7 @@ const Home = () => {
         {!isMobile ? (
           <div
             id="staticSection"
-            className="relative bottom-56 flex justify-center"
+            className={`relative bottom-56 flex justify-center`}
           >
             <UpdateSearchNew
               className="relative bottom-[3px] sm:bottom-90"
@@ -277,6 +301,7 @@ const Home = () => {
             </div>
           </StyledSection>
           {/* Why Choose Our Services */}
+          <StyledSection></StyledSection>
           {/* <StyledSection>
             <AboutAmbulance setCurrentIndex={setCurrentIndex}/>
           </StyledSection> */}
