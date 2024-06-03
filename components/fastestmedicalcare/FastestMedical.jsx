@@ -12,7 +12,7 @@ const FastestMedical = React.memo(() => {
   const router = useRouter();
   return (
     <div
-      className={`font-sans w-full relative flex flex-col items-center mb-60 sm:mb-32 bg-cover bg-no-repeat`}
+      className={`font-sans w-full relative flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat `}
     >
       <div className="flex flex-col items-center w-full">
         <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">
@@ -33,7 +33,7 @@ const FastestMedical = React.memo(() => {
           </button>
         </Link>
       </div>
-      <FloatingBox />
+      <FloatingBox className="relative bottom-16" />
     </div>
   );
 });
@@ -43,7 +43,7 @@ export default FastestMedical;
 const FloatingBox = ({ className }) => {
   return (
     <div
-      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 rounded shadow-2xl  items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center cursor-pointer ${className}`}
+      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 rounded shadow-2xl  items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center cursor-pointer ${className} shadow-2xl shadow-cyan-300/50`}
     >
       <div className="flex flex-col items-center">
         <Image

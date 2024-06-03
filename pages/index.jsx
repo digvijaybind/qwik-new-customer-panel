@@ -19,6 +19,7 @@ import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 import { useCallback } from 'react';
 import Services from './services';
+import AboutAmbulance from '@/components/aboutAmbulance/AboutAmbulance';
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
 );
@@ -149,14 +150,18 @@ const Home = () => {
           {/* Roadmap */}
           <StyledSection className="relative  bottom-[60px] sm:bottom-0">
             <div className="py-5 sm:py-5">
-              <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
-                How to Book Air Ambulance
-              </h2>
-              <p className="text-[#413D3D] text-lg sm:text-sm font-sans font-normal text-center mt-4">
-                Here’s simple step to Book Air Ambulance.
-                <br /> Call now to our professional doctors to discuss patient
-                medical condition.
-              </p>
+              <div className="flex justify-center flex-col items-center">
+                <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
+                  How to Book Air Ambulance
+                </h2>
+
+                <p className="text-[#413D3D] text-lg sm:text-sm font-sans font-normal text-center mt-4">
+                  Here’s simple step to Book Air Ambulance.
+                  <br /> Call now to our professional doctors to discuss patient
+                  medical condition.
+                </p>
+                <hr class="bg-[#11B6E3] h-[4px] w-[65px] mt-2"></hr>
+              </div>
               <Roadmap />
             </div>
             <div>
@@ -168,13 +173,13 @@ const Home = () => {
           {/* Medical Care */}
           <StyledSection
             containerStyles={{
-              backgroundImage: "url('/images/lower_plane.png')",
+              backgroundImage: "url('/images/lower_plane.jpeg')",
               backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
+              backgroundSize: 'contain',
             }}
             className="px-10 py-3"
           >
-            <FastestMedical className="relative bottom-5" />
+            <FastestMedical className="relative bottom-16" />
           </StyledSection>
 
           {/* Medical Care */}
@@ -272,9 +277,11 @@ const Home = () => {
             </div>
           </StyledSection>
           {/* Why Choose Our Services */}
-          <StyledSection></StyledSection>
+          {/* <StyledSection>
+            <AboutAmbulance setCurrentIndex={setCurrentIndex}/>
+          </StyledSection> */}
           {/* Reviews */}
-          <StyledSection className="relative bottom-4 mt-10">
+          <StyledSection className=" mt-14">
             {/* <ReviewCarosel/> */}
 
             {/* <Googlereview /> */}

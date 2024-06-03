@@ -68,7 +68,8 @@ const UpdateSearch1 = ({
     setactiveInput(index);
   };
 
-  const searchCity = useCallback(
+  const searchCity = 
+  (
     _debounce((text) => {
       setSearchLoading(true);
       axios(`http://localhost:8000/all-airports`, {

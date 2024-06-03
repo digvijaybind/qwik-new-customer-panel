@@ -44,8 +44,11 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <div className="flex justify-center items-center  text-[25px] mb-10 font-black">
-        Testimonials
+      <div className="flex justify-center items-center flex-col  text-[25px] mb-10 font-black">
+        <div>Testimonials</div>
+        <span className=" text-[15px]  font-semibold">
+          Here's what our satisfied clients are saying
+        </span>
       </div>
       <div className="flex space-x-4 ">
         {Review.slice(startIdx, endIdx).map((data, index) => (

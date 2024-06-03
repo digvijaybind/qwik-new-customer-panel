@@ -4,7 +4,7 @@ import Image from 'next/image';
 const NewsUpdates = ({ title, description, imageUrl, index }) => {
   return (
     <div
-      className={`mx-[10px] flex flex-col items-center border shadow rounded-lg font-sans cursor-pointer`}
+      className={`mx-[10px] flex flex-col items-center border px-3 py-2 rounded-lg font-sans cursor-pointer shadow-md`}
     >
       <div className="w-full overflow-hidden rounded-t">
         <img
