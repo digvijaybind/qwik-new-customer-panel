@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { FaPlaneDeparture } from 'react-icons/fa6';
 import { RiFlightLandLine } from 'react-icons/ri';
 import LeftImage from '../../public/images/inputimages/Flight.svg';
+import { FaPlaneArrival } from 'react-icons/fa';
+import { GiAirplaneDeparture } from 'react-icons/gi';
 const UpdateInput = React.memo(
   ({
     LeftImage,
@@ -17,19 +19,24 @@ const UpdateInput = React.memo(
     value,
     onChange,
   }) => {
-  
     return (
       <div className={`${styles.Container} rounded-md`}>
         {/*Conditional rendering for left icon */}
 
         {LeftIcon && (
-          <Image src={LeftImage} alt="Left Icon" width={40} height={40} />
+          // <Image src={LeftImage} alt="Left Icon" width={40} height={40} />
+          // <FaPlaneArrival style={{ marginRight: '5px',height:'20px',width:'20px' }} />
+          <GiAirplaneDeparture
+            style={{ marginRight: '5px', height: '30px', width: '30px' }}
+          />
         )}
 
         {/*input type with props */}
         <input
           type={type}
-          className={`${styles.inputField}`}
+          className={` ${type === 'date' ? styles.customDateInput : ''} ${
+            styles.inputField
+          }  ${value !== '' ? styles.dateInput : ''}`}
           placeholder={placeholder}
           name={name}
           value={value}

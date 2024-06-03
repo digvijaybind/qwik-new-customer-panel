@@ -17,7 +17,7 @@ const Trusted = ({ img, title, descripation }) => {
           <div className="text-xl sm:text-xl text-[#fff] font-black">
             {title}
           </div>
-          <div className="text-[#a9b5bf] text-[15px] text-wrap sm:text-sm font-medium text-shadow">
+          <div className="text-[#d4d3d3] text-[15px] text-wrap sm:text-sm font-medium text-shadow">
             {descripation}
           </div>
         </div>

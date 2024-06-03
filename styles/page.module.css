@@ -28,6 +28,11 @@
   background-size: cover;
   background-position: center;
 }
+#staticSection {
+  position: sticky;
+  bottom: 56px; 
+  z-index: 1000; 
+}
 
 @media screen and (max-width: 639px) {
   .Top_container {

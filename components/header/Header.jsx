@@ -122,13 +122,14 @@ ${isScrolled ? 'text-[#fff]' : 'text-[#000]'}`}
 
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>
+              <BsTelephoneFill style={{ color: 'white' }} />
               <span
-                className={`${styles.telephoneText} text-[#fff] border-r-7 font-normal`}
+                className={`${styles.telephoneText} text-[#fff] border-r-7 font-900`}
               >
                 {' '}
                 +971 502 825 433
               </span>
-              <Image src={aeroplane} height={30} width={45} />
+              {/* <Image src={aeroplane} height={30} width={45} /> */}
             </div>
           </div>
         </div>

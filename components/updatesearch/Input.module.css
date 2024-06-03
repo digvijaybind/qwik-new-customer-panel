@@ -1,31 +1,68 @@
 /* this is input bar css and implemented */
 .inputContainer {
-  background-color: c;
   position: relative;
   width: 100%;
   max-width: 256px;
 }
+.customDateInput::-webkit-datetime-edit {
+  color: #a5a5a5;
+}
+
+.dateInput::-webkit-datetime-edit {
+  background-color: #eeeeee;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000 !important;
+}
+.customDateInput:focus {
+  border: none;
+  outline: none;
+}
+
+/* styles.module.css */
+.input {
+  border: none;
+  outline: none;
+  background-color: #eeeeee;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: #a5a5a5;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+}
+/* .customDateInput::placeholder {
+  color: #a5a5a5;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+} */
+
 /*input bar css*/
 .inputField {
   border: none;
-  outline: none; /* Remove the default focus outline */
+  outline: none;
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
   font-size: 14px;
 }
 .inputField::placeholder {
-  border: none;
-  outline: none;
-  color: #000;
+  color: #a5a5a5;
   min-width: 60px;
   font-weight: bold;
   font-size: 14px;
 }
 .inputField:focus {
   border: none;
-  outline: none; /* Remove the focus outline when the input is focused */
+  outline: none;
 }
+
 .inputIcon {
   position: absolute;
   top: 50%;

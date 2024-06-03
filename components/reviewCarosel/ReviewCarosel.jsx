@@ -59,7 +59,7 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center mt-10 text-center text-[18px] sm:text-[12px]">
+      <div className="flex justify-center items-center mt-10 text-center text-[18px] sm:text-[12px]  border-b-2 border-[#000] pb-2">
         <span className="font-black">Google&nbsp;</span> rating score: 4.9 of 5
         based on <span className="font-black">&nbsp;54 reviews</span>
       </div>

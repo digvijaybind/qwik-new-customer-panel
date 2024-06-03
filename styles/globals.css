@@ -19,6 +19,11 @@
     src: local('Arca Majora 3 Heavy'),
       url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
   }
+    @font-face {
+    font-family: 'Ed garamond';
+    src: local('Ed garamond'),
+      url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
+  }
 }
 
 :root {

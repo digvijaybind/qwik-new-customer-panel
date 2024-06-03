@@ -19,7 +19,7 @@ const AboutAircraft = React.memo(() => {
             <br className="sm:hidden" />
             Services
           </div>
-          <div className="text-[#7A7A7A] text-[16px] font-sans">
+          <div className="text-[#7A7A7A] text-[16px] font-sans text-justify">
             Qwiklif Air Ambulance Service is your trusted partner for urgent
             International Air Ambulance Transportation worldwide. With a
             dedicated team of skilled professionals and state-of-the-art

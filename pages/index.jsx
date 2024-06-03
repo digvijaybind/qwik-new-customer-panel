@@ -86,14 +86,6 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [homeServices]);
 
-  //handle submit form API calling
-
-  //tab array
-
-  // useEffect(() => {
-  //   console.log('FormData changed:', formData);
-  // }, [formData]);
-
   useEffect(() => {
     console.log('currentIndex changed:', currentIndex);
   }, [currentIndex]);
@@ -129,7 +121,10 @@ const Home = () => {
         <Navnew />
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
-          <div className="relative bottom-56 flex justify-center">
+          <div
+            id="staticSection"
+            className="relative bottom-56 flex justify-center"
+          >
             <UpdateSearchNew
               className="relative bottom-[3px] sm:bottom-90"
               formData={formData}
@@ -143,7 +138,7 @@ const Home = () => {
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative bottom-[140px] sm:bottom-0 ">
+          <StyledSection className="relative bottom-[110px] sm:bottom-0 ">
             {/*About us section component */}
             <AboutAircraft />
 
@@ -277,7 +272,7 @@ const Home = () => {
             </div>
           </StyledSection>
           {/* Why Choose Our Services */}
-
+          <StyledSection></StyledSection>
           {/* Reviews */}
           <StyledSection className="relative bottom-4 mt-10">
             {/* <ReviewCarosel/> */}
@@ -304,7 +299,7 @@ const Home = () => {
               </div>
               {tasktab.map((data, index) => {
                 return (
-                  <div key={'tasktab' + index} className="mb-3">
+                  <div key={'tasktab' + index} className="mb-6">
                     <Trusted
                       img={data.img}
                       title={data.title}
@@ -363,7 +358,7 @@ const Home = () => {
                   />
                   <div className="col-span-5">
                     <button
-                      className={`${styles.boxShado} w-full h-[50px] bg-[#19c0f0] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#19c0f0] shadow-lg shadow-[#19c0f0]`}
+                      className={`${styles.boxShado} w-full h-[50px] bg-[#19c0f0] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#19c0f0] shadow-lg shadow-[#85d2e7]`}
                     >
                       Get Quote
                     </button>

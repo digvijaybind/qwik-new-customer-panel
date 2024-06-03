@@ -6,8 +6,10 @@ import Miniaircraft from '../../public/images/counter/aeroplane2.png';
 import Doctor from '../../public/images/counter/doctor.png';
 import Miniglobal from '../../public/images/counter/global.png';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const FastestMedical = React.memo(() => {
+  const router = useRouter();
   return (
     <div
       className={`font-sans w-full relative flex flex-col items-center mb-60 sm:mb-32 bg-cover bg-no-repeat`}
@@ -22,8 +24,11 @@ const FastestMedical = React.memo(() => {
           to medical assistance. We pride ourselves on a lightning-quick
           response that bridges the gap between distress and relief.
         </p>
-        <Link href="/contact-us">
-          <button className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)">
+        <Link href="/contact">
+          <button
+            className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)"
+            onClick={() => router.push('/contact')}
+          >
             Make an Appointment
           </button>
         </Link>

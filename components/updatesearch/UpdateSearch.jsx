@@ -5,11 +5,14 @@ import RightImage from '../../public/images/inputimages/Dropdown.svg';
 import UpdateInput from './UpdateInput';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { useRouter } from 'next/router';
+import CountryFlag from 'react-country-flag';
+import Select from 'react-select';
 import PhoneInput, {
   getCountries,
   getCountryCallingCode,
 } from 'react-phone-number-input';
 import { useCallback } from 'react';
+import UpdateInputTo from './UpdateInputTo';
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -29,22 +32,56 @@ const CustomPhoneInput = React.forwardRef(
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
 
+  const options = countries
+    .map((country) => {
+      // const countryLabel = labels[country];
+      const callingCode = getCountryCallingCode(country);
+
+      if (!callingCode) {
+        return null; // Skip this option if the country code is not valid
+      }
+
+      return {
+        value: country,
+        label: (
+          <div className="flex items-center">
+            <div className="mr-2"> (+{callingCode})</div>
+            <CountryFlag
+              countryCode={country}
+              svg
+              style={{ width: '20px', height: '20px' }}
+            />
+          </div>
+        ),
+      };
+    })
+    .filter(Boolean); // Remove any null values from the options array
+
   return (
     <div className="flex items-center">
-      <select
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
+      <Select
         {...rest}
-        className="bg-[#eeee] px-1 py-1 rounded border-r-2 border-gray-400 mr-2"
-        style={{ height: '100%' }}
-      >
-        {countries.map((country) => (
-          <option key={country} value={country}>
-            +{getCountryCallingCode(country)}
-          </option>
-        ))}
-      </select>
-      <div className="h-full border-r border-gray-400"></div>
+        value={options.find((option) => option.value === value)}
+        onChange={(option) => onChange(option.value)}
+        options={options}
+        className=""
+        styles={{
+          // Custom styles for the select component
+          control: (provided) => ({
+            ...provided,
+            width: '8rem',
+            minHeight: '2.5rem',
+            backgroundColor: '#eeeee',
+            border: 'none',
+          }),
+          menu: (provided) => ({
+            ...provided,
+            backgroundColor: '#ffffff',
+            zIndex: 9999,
+          }),
+        }}
+      />
+      {/* <div className="h-full border-r border-gray-400"></div> */}
     </div>
   );
 };
@@ -97,7 +134,7 @@ const UpdateSearchNew = React.memo(
             {/*this is From city search Input */}
 
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-gray-400 text-[17px] mb-3">
+              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
                 From:
               </div>
               {/*input from city search bar */}
@@ -115,11 +152,11 @@ const UpdateSearchNew = React.memo(
             </div>
             {/* this is To or arrival location serach bar Input */}
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-gray-400 text-[17x] mb-3">
+              <div className="font-sans font-medium text-[#000] text-[17x] mb-3">
                 To:
               </div>
               {/*input from city search bar */}
-              <UpdateInput
+              <UpdateInputTo
                 type="text"
                 LeftImage={LeftImage}
                 RightImage={RightImage}
@@ -133,10 +170,10 @@ const UpdateSearchNew = React.memo(
             </div>
             {/*this is depature date  section */}
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-gray-400 text-[17px] mb-3">
+              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
                 Date:
               </div>
-              {/*input from city search bar */}
+              {/* input from city search bar */}
               <UpdateInput
                 type="date"
                 LeftImage={LeftImage}
@@ -149,7 +186,7 @@ const UpdateSearchNew = React.memo(
               />
             </div>
             <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
-              <div className="font-sans font-medium text-gray-400 text-[17px] mb-3">
+              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
                 Mobile Number:
               </div>
               {/*input from city search bar */}
