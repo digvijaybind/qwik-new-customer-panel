@@ -155,7 +155,7 @@ const Home = () => {
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-0">
+          <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
             <AboutAircraft />
 
