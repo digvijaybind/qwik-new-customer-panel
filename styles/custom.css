@@ -25,3 +25,18 @@
     box-sizing:border-box;
   }
 }
+
+
+@keyframes myanimation {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animated-slide-down {
+  animation: myanimation 0.6s ease;
+}
+

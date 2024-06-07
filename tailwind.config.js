@@ -34,7 +34,16 @@ module.exports = {
       // max-width
       maxWidth: {
         '8xl': '1440px',
-      }
+      },
+      keyframes: {
+        myanimation: {
+          '0%': { transform: 'translateY(-20%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'slide-down': 'myanimation 0.6s ease',
+      },
     },
     screens: {
       '3xl': { min: '1536px' },

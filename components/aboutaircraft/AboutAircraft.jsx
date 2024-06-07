@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AboutAircraftimage from '../../public/images/Homepage/about.png';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
 const AboutAircraft = React.memo(() => {
+  const [scrollDirection, setScrollDirection] = useState('down');
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollDirection(currentScrollY > lastScrollY ? 'down' : 'up');
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
@@ -19,7 +37,7 @@ const AboutAircraft = React.memo(() => {
             <br className="sm:hidden" />
             Services
           </div>
-          <hr class="bg-[#11B6E3] h-[4px] w-[75px]"></hr>
+          <hr class="bg-[#11B6E3] h-[4px] w-[75px] sm:after:mx-auto"></hr>
           <div className="text-[#7A7A7A] text-[16px] font-sans text-justify">
             Qwiklif Air Ambulance Service is your trusted partner for urgent
             International Air Ambulance Transportation worldwide. With a

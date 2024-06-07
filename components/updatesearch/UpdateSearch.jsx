@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './UpdateSearch.module.css';
 import LeftImage from '../../public/images/inputimages/Flight.svg';
 import RightImage from '../../public/images/inputimages/Dropdown.svg';
@@ -89,6 +89,8 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
 const UpdateSearchNew = React.memo(
   ({ className, onClick, setFormData, formData = {} }) => {
     const router = useRouter();
+    const [scrollDirection, setScrollDirection] = useState('static');
+    const [isScrolled, setIsScrolled] = useState(false);
     const handleChange = useCallback((e) => {
       const { name, value } = e.target;
       setFormData((formData) => ({
@@ -97,6 +99,30 @@ const UpdateSearchNew = React.memo(
       }));
     }, []);
 
+    useEffect(() => {
+      let lastScrollY = window.scrollY;
+
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 50) {
+          setIsScrolled(true);
+          if (currentScrollY > lastScrollY) {
+            setScrollDirection('down');
+          } else {
+            setScrollDirection('up');
+          }
+        } else {
+          setIsScrolled(false);
+          setScrollDirection('static');
+        }
+        lastScrollY = currentScrollY;
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
     const handlePhoneChange = useCallback((value) => {
       if (typeof value === 'string') {
         const phoneNumber = parsePhoneNumberFromString(value);
@@ -124,17 +150,33 @@ const UpdateSearchNew = React.memo(
       });
     };
 
-    console.log('formdata', formData);
     return (
       <div
-        className={`flex flex-col items-center ${className} py-[30px] px-[20px] bg-[#fff]  rounded min-w-min shadow-2xl shadow-cyan-300/50`}
+        className={`${
+          isScrolled && scrollDirection === 'up'
+            ? `sticky  top-10 w-full z-10 bg-white shadow-2xl rounded-md py-1P px-4 transition-transform duration-300 translate-y-0 ${styles.Searchbar2} w-[75%]`
+            : `bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300 ${styles.Searchbar} `
+        } ${className}`}
       >
-        <form onSubmit={handleSubmit} className="flex items-center flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className={`${
+            isScrolled
+              ? `flex items-center flex-row `
+              : `flex items-center flex-col`
+          }`}
+        >
           <div className={`${styles.container} px-[25px]  rounded-md`}>
             {/*this is From city search Input */}
 
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
+              <div
+                className={`${
+                  isScrolled
+                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
+                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                }`}
+              >
                 From:
               </div>
               {/*input from city search bar */}
@@ -148,11 +190,18 @@ const UpdateSearchNew = React.memo(
                 name="originLocationCode"
                 value={formData.originLocationCode}
                 onChange={handleChange}
+                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
             {/* this is To or arrival location serach bar Input */}
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-[#000] text-[17x] mb-3">
+              <div
+                className={`${
+                  isScrolled
+                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
+                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                }`}
+              >
                 To:
               </div>
               {/*input from city search bar */}
@@ -166,11 +215,18 @@ const UpdateSearchNew = React.memo(
                 name="destinationLocationCode"
                 value={formData.destinationLocationCode}
                 onChange={handleChange}
+                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
             {/*this is depature date  section */}
             <div className={`${styles.searchBarSection} mr-2`}>
-              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
+              <div
+                className={`${
+                  isScrolled
+                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
+                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                }`}
+              >
                 Date:
               </div>
               {/* input from city search bar */}
@@ -183,10 +239,17 @@ const UpdateSearchNew = React.memo(
                 name="departureDate"
                 value={formData.departureDate}
                 onChange={handleChange}
+                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
             <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
-              <div className="font-sans font-medium text-[#000] text-[17px] mb-3">
+              <div
+                className={`${
+                  isScrolled
+                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
+                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                }`}
+              >
                 Mobile Number:
               </div>
               {/*input from city search bar */}

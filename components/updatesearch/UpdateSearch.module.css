@@ -26,6 +26,27 @@
   border: none;
   outline: none; /* Remove the focus outline when the input is focused */
 }
+.Searchbar {
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+  z-index: 300;
+}
+
+.Searchbar2 {
+  position: sticky;
+  top: 80px;
+  transition: transform 0.6s ease;
+  animation: myanimation 0.6s;
+  z-index: 300;
+}
+@keyframes myanimation {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 .searchButton {
   background-color: #19c0f0;
@@ -44,7 +65,7 @@
 .customPhoneInput::placeholder {
   border: none;
   outline: none;
-   color: #a5a5a5;
+  color: #a5a5a5;
   min-width: 60px;
   font-weight: bold;
   font-size: 14px;

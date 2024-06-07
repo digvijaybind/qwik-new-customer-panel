@@ -18,10 +18,17 @@
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%
+  ;
   transform: translateY(0);
   transition: transform 0.6s ease;
   z-index: 300;
+}
+
+.Seach {
+  position: sticky;
+  top: 10px; /* Adjust this value as needed */
+  z-index: 10; /* Adjust the z-index if needed */
 }
 
 .Searchbar2 {
@@ -29,7 +36,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  top: 80px; 
+  top: 80px;
   transition: transform 0.6s ease;
   animation: myanimation 0.6s;
   z-index: 300;
@@ -42,7 +49,6 @@
     transform: translateY(0);
   }
 }
-
 
 .contactInfoBg {
   background-image: linear-gradient(173deg, #33383e 25%, #fff 25.5%);

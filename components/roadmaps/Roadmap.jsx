@@ -63,7 +63,7 @@ const Roadmap = () => {
         {SelectedIndex === 0 ? (
           <Image
             className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
-            src="/images/ablance.png"
+            src="/images/DedicatedAirline.gif"
             width={40}
             height={40}
             alt="rapid Time"
@@ -72,7 +72,7 @@ const Roadmap = () => {
         ) : (
           <Image
             className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
-            src="/images/commericial1.jpeg"
+            src="/images/CommericialAirline.gif"
             width={40}
             height={40}
             alt="Another Image"

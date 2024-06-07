@@ -18,10 +18,12 @@ import MobileSearch from '@/components/mobileSearch/MobileSearch';
 import { StyledSection } from '@/components/shared';
 import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 import { useCallback } from 'react';
-import Services from './services';
-import AboutAmbulance from '@/components/aboutAmbulance/AboutAmbulance';
+
 const AboutAircraft = dynamic(() =>
   import('@/components/aboutaircraft/AboutAircraft')
+);
+const ServicesSection = dynamic(() =>
+  import('@/components/Servicecard2/Servicecard2')
 );
 const QwiklifFeature = dynamic(() =>
   import('@/components/qwiklifFeatures/Qwikliffeature')
@@ -41,12 +43,8 @@ const Rotatemap = dynamic(() => import('@/components/rotateMap/Rotatemap'));
 const Home = () => {
   const router = useRouter();
   const [fromSearch, setfromSearch] = useState('');
-  const [tosearch, setTosearch] = useState('');
   const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
-  const [SelectedIndex, setSelectedIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cityMatch, setCitymatch] = useState([]);
-  const [fieldType, setFieldtype] = useState('');
   const { loading, startLoading, stopLoading, setApiData } = useData();
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -98,22 +96,9 @@ const Home = () => {
     setFormData(data);
   }, []);
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > 50) {
-        setIsScrolled(true);
-        if (currentScrollY > lastScrollY) {
-          setScrollDirection('down');
-        } else {
-          setScrollDirection('up');
-        }
-      } else {
-        setIsScrolled(false);
-        setScrollDirection('static');
-      }
-      lastScrollY = currentScrollY;
+      setLastScrollY(window.scrollY);
+      setIsSticky(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -150,37 +135,39 @@ const Home = () => {
         <Navnew />
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
-          <div
-            id="staticSection"
-            className={`relative bottom-56 flex justify-center`}
-          >
-            <div
-              className={`${isScrolled ? styles.Searchbar2 : styles.Searchbar}`}
-            >
+          <div id="staticSection" className={`relative bottom-40`}>
+            <div className="flex justify-center ">
               <UpdateSearchNew
-                className="relative bottom-[3px] sm:bottom-90"
+                className={`${
+                  isSticky
+                    ? `${styles.Searchbar2} flex justify-center items-center `
+                    : `${styles.Searchbar} flex justify-center items-center `
+                } `}
                 formData={formData}
                 setFormData={stableSetFormData}
               />
             </div>
           </div>
         ) : (
-          <div className="relative bottom-15 flex justify-center px-5">
+          <div className="relative top-5 flex justify-center px-5">
             <MobileSearch formData={formData} setfromSearch={setfromSearch} />
           </div>
         )}
 
         <Suspense fallback={<div>Loading...</div>}>
-          <StyledSection className="relative top-[80px] sm:bottom-0 ">
+          <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-0">
             {/*About us section component */}
             <AboutAircraft />
 
             {/*Qwiklif Feautres Component  */}
             <QwiklifFeature />
           </StyledSection>
+          <StyledSection>
+            <ServicesSection />
+          </StyledSection>
 
           {/* Roadmap */}
-          <StyledSection className="relative  bottom-[60px] sm:bottom-0">
+          <StyledSection className="relative  top-[60px] sm:bottom-0 mt-3">
             <div className="py-5 sm:py-5">
               <div className="flex justify-center flex-col items-center">
                 <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
@@ -209,9 +196,9 @@ const Home = () => {
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'contain',
             }}
-            className="px-10 py-3"
+            className="px-10 py-3 mt-10"
           >
-            <FastestMedical className="relative bottom-16" />
+            <FastestMedical className="relative bottom-0" />
           </StyledSection>
 
           {/* Medical Care */}

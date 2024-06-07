@@ -18,9 +18,10 @@ const UpdateInput = React.memo(
     name,
     value,
     onChange,
+    className,
   }) => {
     return (
-      <div className={`${styles.Container} rounded-md`}>
+      <div className={`${styles.Container} rounded-md ${className}`}>
         {/*Conditional rendering for left icon */}
 
         {LeftIcon && (
