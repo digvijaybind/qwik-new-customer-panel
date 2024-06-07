@@ -9,6 +9,9 @@ import CostEffective from '../../public/images/counter/CostEffective.png';
 import DoctorOnboard from '../../public/images/fleet_tabs/doctor_onboard.png';
 import GlobalCoverage from '../../public/images/fleet_tabs/global_coverage.png';
 import Biggest_fleet from '../../public/images/fleet_tabs/biggest_fleet.png';
+import { FaArrowRight } from 'react-icons/fa';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const faqs = [
   {
@@ -41,7 +44,7 @@ const ChooseQwiklif = React.memo(() => {
       <div className="">
         <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10 sm:mb-5 sm:py-2">
           <h2 className="font-sans font-extrabold text-2xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none pr-16 sm:pr-0 sm:mb-2 sm:w-full whitespace-nowrap ">
-            Why choose Qwiklif ?
+            Why Choose Qwiklif ?
             <hr class="bg-[#19c0f0] h-[3px] w-[100px] mt-2 sm:mx-auto sm:h-[3px]"></hr>
           </h2>
 
@@ -112,19 +115,26 @@ const ChooseQwiklifButton = ({
   title,
   icon,
 }) => {
+  const isActive = activeTab === tabIndex;
   return (
     <button
-      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#19c0f0] rounded sm:w-full hover:text-white transition-colors duration-300 ${
-        activeTab === tabIndex && '!bg-[#19c0f0] !text-white'
-      } font-sans`}
+      className={`h-[80px] px-4 bg-[#F0F4FF] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#19c0f0] rounded sm:w-full hover:text-white transition-colors duration-300  } font-sans`}
       onClick={() => setActiveTab(tabIndex)}
     >
       <div className="bg-[#19c0f0] rounded-full w-[55px] h-[55px] flex justify-center">
-        <Image src={icon} height={40} width={35} alt={title}  />
+        <Image src={icon} height={40} width={35} alt={title} />
       </div>
       <div className="font-sans font-extrabold text-xl sm:flex justify-end sm:text-base">
         {title}
       </div>
+      {isActive && (
+        <div className="ml-auto  flex items-center justify-center w-[50px] h-[50px]">
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            style={{ color: '#fff', height: '30px', width: '30px' }}
+          />
+        </div>
+      )}
     </button>
   );
 };

@@ -97,8 +97,8 @@ const MobileSearch = ({ onClick }) => {
   };
 
   return (
-    <div className="flex flex-col items-center font-sans  px-3 py-10 rounded-2xl sm:py-2">
-      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+    <div className="flex flex-col items-center font-sans  px-10 py-20  sm:py-2 bg-white borde-2 border-gray-700 shadow rounded relative bottom-20">
+      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
           LeftImage={LeftImage}
           RightImage={RightImage}
@@ -108,7 +108,7 @@ const MobileSearch = ({ onClick }) => {
           name="originLocationCode"
         />
       </div>
-      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         {/* <div className="text-[15px] font-extrabold">Dubai</div> */}
         <UpdateInputTo
           className="w-full"
@@ -120,7 +120,7 @@ const MobileSearch = ({ onClick }) => {
           name="destinationLocationCode"
         />
       </div>
-      <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+      <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
           type="date"
           className="w-full"
@@ -131,7 +131,7 @@ const MobileSearch = ({ onClick }) => {
         />
       </div>
 
-      <div className="w-[300px] h-[60px]  flex flex-row items-center  rounded-lg mb-3">
+      <div className="w-[300px] h-[60px]  flex flex-row items-center  rounded-lg mb-2">
         <div className="flex flex-col items-start">
           <PhoneInput
             defaultCountry="AE"

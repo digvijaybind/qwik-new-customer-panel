@@ -153,83 +153,81 @@ const UpdateSearchNew = React.memo(
     return (
       <div
         className={`${
-          isScrolled && scrollDirection === 'up' && scrollDirection === 'down'
-            ? `sticky  top-10 w-full z-10 bg-white shadow-2xl rounded-md py-1P px-4 transition-transform duration-300 translate-y-0 ${styles.Searchbar2} w-[75%]`
-            : `bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300 ${styles.Searchbar} `
+          isScrolled
+            ? scrollDirection === 'up'
+              ? 'sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]'
+              : scrollDirection === 'down'
+              ? 'sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]'
+              : ''
+            : 'bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300'
         } ${className}`}
       >
         <form
           onSubmit={handleSubmit}
           className={`${
             isScrolled
-              ? `flex items-center flex-row `
-              : `flex items-center flex-col`
+              ? 'flex items-center flex-row'
+              : 'flex items-center flex-col'
           }`}
         >
-          <div className={`${styles.container} px-[25px]  rounded-md`}>
-            {/*this is From city search Input */}
-
+          <div className={`${styles.container} px-[25px] rounded-md`}>
+            {/* "From" city search input */}
             <div className={`${styles.searchBarSection} mr-2`}>
               <div
                 className={`${
                   isScrolled
-                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
-                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
+                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
                 }`}
               >
                 From:
               </div>
-              {/*input from city search bar */}
               <UpdateInput
                 type="text"
                 LeftImage={LeftImage}
                 RightImage={RightImage}
-                RightIcon={true}
-                LeftIcon={true}
+                RightIcon
+                LeftIcon
                 placeholder="Enter City"
                 name="originLocationCode"
                 value={formData.originLocationCode}
                 onChange={handleChange}
-                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
-            {/* this is To or arrival location serach bar Input */}
+            {/* "To" city search input */}
             <div className={`${styles.searchBarSection} mr-2`}>
               <div
                 className={`${
                   isScrolled
-                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
-                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
+                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
                 }`}
               >
                 To:
               </div>
-              {/*input from city search bar */}
               <UpdateInputTo
                 type="text"
                 LeftImage={LeftImage}
                 RightImage={RightImage}
-                RightIcon={true}
-                LeftIcon={true}
+                RightIcon
+                LeftIcon
                 placeholder="Enter City"
                 name="destinationLocationCode"
                 value={formData.destinationLocationCode}
                 onChange={handleChange}
-                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
-            {/*this is depature date  section */}
+            {/* Departure date section */}
             <div className={`${styles.searchBarSection} mr-2`}>
               <div
                 className={`${
                   isScrolled
-                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
-                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
+                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
                 }`}
               >
                 Date:
               </div>
-              {/* input from city search bar */}
               <UpdateInput
                 type="date"
                 LeftImage={LeftImage}
@@ -239,21 +237,19 @@ const UpdateSearchNew = React.memo(
                 name="departureDate"
                 value={formData.departureDate}
                 onChange={handleChange}
-                className={` ${isScrolled ? `` : ``}`}
               />
             </div>
+            {/* Mobile number section */}
             <div className={`${styles.searchBarSection} mr-2 rounded-md`}>
               <div
                 className={`${
                   isScrolled
-                    ? `font-sans font-medium text-[#000] text-[14px] mb-1`
-                    : `font-sans font-medium text-[#000] text-[17px] mb-3`
+                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
+                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
                 }`}
               >
                 Mobile Number:
               </div>
-              {/*input from city search bar */}
-
               <div className="flex flex-row rounded-md">
                 <PhoneInput
                   defaultCountry="AE"
@@ -269,10 +265,9 @@ const UpdateSearchNew = React.memo(
             </div>
           </div>
           <button
-            className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-10 text-[#fff] `}
+            className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-10 text-[#fff]`}
             onClick={onClick}
           >
-            {' '}
             Search Now
           </button>
         </form>
