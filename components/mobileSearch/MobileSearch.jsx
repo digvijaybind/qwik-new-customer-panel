@@ -5,7 +5,32 @@ import Destination from '../../public/images/inputBox/Destination.svg';
 import Phone from '../../public/images/inputBox/Phone.svg';
 import Date from '../../public/images/inputBox/Date.svg';
 import countries from '../../db/country.json';
+import UpdateInputTo from '../updatesearch/UpdateInputTo';
+import LeftImage from '../../public/images/inputimages/Flight.svg';
+import RightImage from '../../public/images/inputimages/Dropdown.svg';
+import CountryFlag from 'react-country-flag';
+import UpdateInput from '../updatesearch/UpdateInput';
+import PhoneInput, {
+  getCountries,
+  getCountryCallingCode,
+} from 'react-phone-number-input';
+import styles from '../updatesearch/UpdateSearch.module.css';
+import Select from 'react-select';
 
+const CustomPhoneInput = React.forwardRef(
+  ({ value, onChange, ...rest }, ref) => {
+    return (
+      <input
+        ref={ref}
+        value={value}
+        onChange={onChange}
+        {...rest}
+        className={styles.customPhoneInput}
+        placeholder="Enter Number"
+      />
+    );
+  }
+);
 const MobileSearch = ({ onClick }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const handleSelectChange = (e) => {
@@ -14,61 +39,108 @@ const MobileSearch = ({ onClick }) => {
       countries.find((country) => country.code === countryCode)
     );
   };
+  const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
+    const countries = getCountries();
+
+    const options = countries
+      .map((country) => {
+        // const countryLabel = labels[country];
+        const callingCode = getCountryCallingCode(country);
+
+        if (!callingCode) {
+          return null; // Skip this option if the country code is not valid
+        }
+
+        return {
+          value: country,
+          label: (
+            <div className="flex items-center">
+              <div className="mr-2"> (+{callingCode})</div>
+              <CountryFlag
+                countryCode={country}
+                svg
+                style={{ width: '20px', height: '20px' }}
+              />
+            </div>
+          ),
+        };
+      })
+      .filter(Boolean); // Remove any null values from the options array
+
+    return (
+      <div className="flex items-center">
+        <Select
+          {...rest}
+          value={options.find((option) => option.value === value)}
+          onChange={(option) => onChange(option.value)}
+          options={options}
+          className=""
+          styles={{
+            // Custom styles for the select component
+            control: (provided) => ({
+              ...provided,
+              width: '8rem',
+              minHeight: '2.5rem',
+              backgroundColor: '#eeeee',
+              border: 'none',
+            }),
+            menu: (provided) => ({
+              ...provided,
+              backgroundColor: '#ffffff',
+              zIndex: 9999,
+            }),
+          }}
+        />
+        {/* <div className="h-full border-r border-gray-400"></div> */}
+      </div>
+    );
+  };
 
   return (
     <div className="flex flex-col items-center font-sans  px-3 py-10 rounded-2xl sm:py-2">
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
-        <Image src={Depature} width={44} height={24} />
-        <div className="flex flex-col items-start">
-          <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
-            FROM
-          </label>
-          {/* <div className="text-[15px] font-extrabold">Mumbai</div> */}
-          <input placeholder="Mumbai" className="text-[15px] font-extrabold" />
-          <p className="text-[7px]">
-            chhatrapati Shivaji International Airports ,T2
-          </p>
-        </div>
+      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+        <UpdateInput
+          LeftImage={LeftImage}
+          RightImage={RightImage}
+          RightIcon={false}
+          LeftIcon={true}
+          placeholder="Enter City"
+          name="originLocationCode"
+        />
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
-        <Image src={Destination} width={44} height={24} />
-        <div className="flex flex-col items-start">
-          <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
-            To
-          </label>
-          {/* <div className="text-[15px] font-extrabold">Dubai</div> */}
-          <input placeholder="Dubai" className="text-[15px] font-extrabold" />
-          <p className="text-[7px]">Dubai international Airport</p>
-        </div>
+      <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+        {/* <div className="text-[15px] font-extrabold">Dubai</div> */}
+        <UpdateInputTo
+          className="w-full"
+          LeftImage={LeftImage}
+          RightImage={RightImage}
+          RightIcon={false}
+          LeftIcon={true}
+          placeholder="Enter City"
+          name="destinationLocationCode"
+        />
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
-        <Image src={Date} width={44} height={24} />
-        <div className="flex flex-col items-start">
-          <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
-            Depature date
-          </label>
-          {/* <div className="text-[15px] font-extrabold">18 APR</div> */}
-          <input type="date" />
-          <p className="text-[7px]">thus 2024</p>
-        </div>
+      <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-3 cursor-pointer">
+        <UpdateInput
+          type="date"
+          className="w-full"
+          LeftImage={LeftImage}
+          RightImage={RightImage}
+          RightIcon={false}
+          LeftIcon={false}
+        />
       </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3 cursor-pointer">
-        <Image src={Date} width={44} height={24} />
+
+      <div className="w-[300px] h-[60px]  flex flex-row items-center  rounded-lg mb-3">
         <div className="flex flex-col items-start">
-          <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
-            Country Code
-          </label>
-          <div className="text-[15px] font-extrabold">+91</div>
-          <p className="text-[7px]">India</p>
-        </div>
-      </div>
-      <div className="w-[300px] h-[60px] px-[3px] py-[5px] flex flex-row items-center border-2 border-gray-500 rounded-lg mb-3">
-        <Image src={Phone} width={44} height={24} />
-        <div className="flex flex-col items-start">
-          <label className="font-bold text-[8px] text-[#000]  text-[10px]s">
-            Phone Number
-          </label>
-          <div className="text-[15px] font-extrabold">8788825286</div>
+          <PhoneInput
+            defaultCountry="AE"
+            className={`${styles.phoneInput} rounded-md h-[60px] font-bold text-[14px]`}
+            placeholder="Enter Number"
+            name="mobile"
+            countrySelectComponent={CustomCountrySelect}
+            inputComponent={CustomPhoneInput}
+          />
         </div>
       </div>
       <button

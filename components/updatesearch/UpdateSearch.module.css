@@ -77,6 +77,12 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .phoneInput {
+    max-width: 300px; /* For mobile devices */
+    height: 60px;
+  }
+}
 .phoneInput
   .PhoneInputCountry
   .PhoneInputCountryIcon

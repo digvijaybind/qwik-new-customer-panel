@@ -15,7 +15,7 @@ const Roadmap = () => {
             return (
               <button
                 key={index}
-                className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] ${
+                className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] px-3 ${
                   SelectedIndex === index ? 'bg-[#19c0f0]' : 'bg-[#F0F0F09C]'
                 }`}
                 onClick={(e) => {
@@ -23,7 +23,7 @@ const Roadmap = () => {
                   setSelectedIndex(index);
                 }}
               >
-                <div className="flex flex-row items-center justify-start gap-[10px] sm:flex-col">
+                <div className="flex flex-row items-center justify-start gap-[10px] sm:flex-col px-3">
                   {SelectedIndex === index ? (
                     <div>
                       <Image

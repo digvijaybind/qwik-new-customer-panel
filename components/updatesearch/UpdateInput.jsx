@@ -21,12 +21,10 @@ const UpdateInput = React.memo(
     className,
   }) => {
     return (
-      <div className={`${styles.Container} rounded-md ${className}`}>
+      <div className={`${styles.Container} rounded-md`}>
         {/*Conditional rendering for left icon */}
 
         {LeftIcon && (
-          // <Image src={LeftImage} alt="Left Icon" width={40} height={40} />
-          // <FaPlaneArrival style={{ marginRight: '5px',height:'20px',width:'20px' }} />
           <GiAirplaneDeparture
             style={{ marginRight: '5px', height: '30px', width: '30px' }}
           />
@@ -35,9 +33,9 @@ const UpdateInput = React.memo(
         {/*input type with props */}
         <input
           type={type}
-          className={` ${type === 'date' ? styles.customDateInput : ''} ${
-            styles.inputField
-          }  ${value !== '' ? styles.dateInput : ''}`}
+          className={`${className} ${
+            type === 'date' ? styles.customDateInput : ''
+          } ${styles.inputField}  ${value !== '' ? styles.dateInput : ''} `}
           placeholder={placeholder}
           name={name}
           value={value}

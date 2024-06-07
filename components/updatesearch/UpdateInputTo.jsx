@@ -16,9 +16,10 @@ const UpdateInputTo = ({
   name,
   value,
   onChange,
+  className,
 }) => {
   return (
-    <div className={`${styles.Container} rounded-md`}>
+    <div className={`${styles.Container} rounded-md sm:rounded`}>
       {/*Conditional rendering for left icon */}
 
       {LeftIcon && (
@@ -31,9 +32,9 @@ const UpdateInputTo = ({
       {/*input type with props */}
       <input
         type={type}
-        className={` ${type === 'date' ? styles.customDateInput : ''} ${
-          styles.inputField
-        }  ${value !== '' ? styles.dateInput : ''}`}
+        className={`${styles.className} ${
+          type === 'date' ? styles.customDateInput : ''
+        } ${styles.inputField}  ${value !== '' ? styles.dateInput : ''}`}
         placeholder={placeholder}
         name={name}
         value={value}
