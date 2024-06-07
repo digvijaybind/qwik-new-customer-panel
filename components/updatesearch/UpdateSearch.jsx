@@ -153,7 +153,7 @@ const UpdateSearchNew = React.memo(
     return (
       <div
         className={`${
-          isScrolled && scrollDirection === 'up'
+          isScrolled && scrollDirection === 'up' && scrollDirection === 'down'
             ? `sticky  top-10 w-full z-10 bg-white shadow-2xl rounded-md py-1P px-4 transition-transform duration-300 translate-y-0 ${styles.Searchbar2} w-[75%]`
             : `bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300 ${styles.Searchbar} `
         } ${className}`}
