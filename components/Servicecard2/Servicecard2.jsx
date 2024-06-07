@@ -4,7 +4,6 @@ import newsUpdates from '../../db/services.json';
 import NewsUpdates from '../NewsUpdates/NewsUpdate';
 import Servicenews from '../servicenews/Servicenews';
 
-
 const ExpandText = ({ children, descripationLength }) => {
   const fullText = children;
 
@@ -55,7 +54,7 @@ const Servicecard2 = React.memo(({ className }) => {
   };
   return (
     <div>
-      <div id="services" className="mt-10 sm:mt-0">
+      <div id="services" className="mt-10 sm:mt-6">
         <h2 className="font-sans font-extrabold text-3xl sm:text-xl text-center">
           Our Air Ambulance Services
         </h2>

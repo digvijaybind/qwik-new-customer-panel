@@ -39,9 +39,10 @@ const ChooseQwiklif = React.memo(() => {
   return (
     <div>
       <div className="">
-        <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10">
+        <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10 sm:mb-5 sm:py-2">
           <h2 className="font-sans font-extrabold text-2xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none pr-16 sm:pr-0 sm:mb-2 sm:w-full whitespace-nowrap ">
-            Why choose Qwiklif ?<hr class="bg-[#19c0f0] h-[3px] w-[100px] mt-2"></hr>
+            Why choose Qwiklif ?
+            <hr class="bg-[#19c0f0] h-[3px] w-[100px] mt-2 sm:mx-auto sm:h-[3px]"></hr>
           </h2>
 
           <div className="sm:pl-0 pl-2">
@@ -53,8 +54,8 @@ const ChooseQwiklif = React.memo(() => {
           </div>
         </div>
 
-        <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col">
-          <div className="col-span-4 sm:col-span-12 flex flex-col mb-5">
+        <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col mt-2 mb-8 sm:gap-4">
+          <div className="col-span-3 sm:col-span-12 flex flex-col mb-5">
             {faqs.map(({ icon, index, title }) => (
               <ChooseQwiklifButton
                 activeTab={activeTab}
@@ -119,7 +120,7 @@ const ChooseQwiklifButton = ({
       onClick={() => setActiveTab(tabIndex)}
     >
       <div className="bg-[#19c0f0] rounded-full w-[55px] h-[55px] flex justify-center">
-        <Image src={icon} height={40} width={35} alt={title} />
+        <Image src={icon} height={40} width={35} alt={title}  />
       </div>
       <div className="font-sans font-extrabold text-xl sm:flex justify-end sm:text-base">
         {title}

@@ -12,19 +12,24 @@ const FastestMedical = React.memo(() => {
   const router = useRouter();
   return (
     <div
-      className={`font-sans w-full relative flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat `}
+      className={`font-sans w-full  flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat h-full`}
+      style={{
+        backgroundImage: "url('/images/lower_plane.jpeg')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
     >
       <div className="flex flex-col items-center w-full">
-        <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px]">
+        <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px] md:text-xl sm:text-lg">
           Fastest and best medical care
         </h1>
-        <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px]">
+        <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
           Time is precious, especially during emergencies. Our air ambulances
           are not just vehicles. they are a beacon of hope on the fastest route
           to medical assistance. We pride ourselves on a lightning-quick
           response that bridges the gap between distress and relief.
         </p>
-        <Link href="/contact">
+        <Link href="/contact" className="sm:hidden md:hidden">
           <button
             className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)"
             onClick={() => router.push('/contact')}
@@ -33,7 +38,7 @@ const FastestMedical = React.memo(() => {
           </button>
         </Link>
       </div>
-      <FloatingBox className="relative bottom-16" />
+      <FloatingBox className="relative bottom-12 sm:bottom-44 md:bottom-24 sm:h-1/2" />
     </div>
   );
 });
@@ -43,7 +48,7 @@ export default FastestMedical;
 const FloatingBox = ({ className }) => {
   return (
     <div
-      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 rounded shadow-2xl  items-center flex justify-between gap-3 sm:gap-5 sm:flex-wrap sm:justify-center sm:items-center cursor-pointer ${className} shadow-2xl shadow-cyan-300/50`}
+      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 sm: md:px-5  rounded shadow-2xl   grid grid-cols-4 gap-3 sm:grid-cols-1 md:grid-cols-2 cursor-pointer ${className} shadow-2xl shadow-cyan-300/50`}
     >
       <div className="flex flex-col items-center">
         <Image
@@ -57,7 +62,6 @@ const FloatingBox = ({ className }) => {
           Air Transfer
         </p>
       </div>
-
       <div className="flex flex-col items-center">
         <Image
           src={Miniaircraft}
@@ -70,7 +74,6 @@ const FloatingBox = ({ className }) => {
           No of Fleet
         </p>
       </div>
-
       <div className="flex flex-col items-center">
         <Image
           src={Doctor}

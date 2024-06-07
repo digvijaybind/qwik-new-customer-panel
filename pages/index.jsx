@@ -135,7 +135,7 @@ const Home = () => {
         <Navnew />
         {/*conditional search bar component depend on view search bar will update */}
         {!isMobile ? (
-          <div id="staticSection" className={`relative bottom-40`}>
+          <div id="staticSection" className={`relative bottom-40 sm:hidden`}>
             <div className="flex justify-center ">
               <UpdateSearchNew
                 className={`${
@@ -162,7 +162,7 @@ const Home = () => {
             {/*Qwiklif Feautres Component  */}
             <QwiklifFeature />
           </StyledSection>
-          <StyledSection>
+          <StyledSection ClassName="sm:mt-4">
             <ServicesSection />
           </StyledSection>
 
@@ -183,21 +183,14 @@ const Home = () => {
               </div>
               <Roadmap />
             </div>
-            <div>
+            <div className="mt-5 mb-5 sm:mt-5 sm:mb-5 md:mt-3 md:mb-3">
               <ChooseQwiklif />
             </div>
           </StyledSection>
           {/* Roadmap */}
 
           {/* Medical Care */}
-          <StyledSection
-            containerStyles={{
-              backgroundImage: "url('/images/lower_plane.jpeg')",
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-            }}
-            className="px-10 py-3 mt-10"
-          >
+          <StyledSection className="px-10 py-3 mt-16 sm:mt-10 md:mt-8">
             <FastestMedical className="relative bottom-0" />
           </StyledSection>
 
