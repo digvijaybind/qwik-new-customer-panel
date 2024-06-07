@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './Roadmap.module.css';
 const Roadmap = () => {
-  const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
+  const bookTypes = ['Charter Ambulance', 'Commercial Ambulance'];
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
     <div className="shadow-2xl shadow-cyan-300/50">
