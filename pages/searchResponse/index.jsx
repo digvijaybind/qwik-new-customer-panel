@@ -32,26 +32,35 @@ const SearchResponse = ({ commericialTab }) => {
   const [aircraftData, setAircraftData] = useState({});
   const [selectedCurrency, setSelectedCurrency] = useState('AED');
   const [selectedOption, setSelectedOption] = useState('Commericial');
+  const [isSticky, setIsSticky] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
   const [formData, setFormData] = useState({
     originLocationCode: '',
     destinationLocationCode: '',
     departureDate: '',
     pax: 1,
-  countryCode: '',
+    countryCode: '',
     mobile: '',
     max: 5,
   });
 
-  //  const stableSetFormData = useCallback((data) => {
-  //    setFormData(data);
-  //  }, []);
-   
   const commericialflights = useSelector(
     (state) => state.commericial.commericialflights
   );
   const DedicatedFlights = useSelector(
     (state) => state.dedicated.dedicatedflights
   );
+  useEffect(() => {
+    const handleScroll = () => {
+      setLastScrollY(window.scrollY);
+      setIsSticky(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
@@ -99,13 +108,11 @@ const SearchResponse = ({ commericialTab }) => {
 
   // console.log('aircraftData line 125 ', aircraftData);
 
-
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
   console.log('aircraftData', aircraftData);
   // console.log('formData line 119', formData);
-
 
   return (
     <div>
@@ -117,16 +124,17 @@ const SearchResponse = ({ commericialTab }) => {
             ></div>
           ) : (
             <div className="mt-5 mb-5">
-              <MobileSearch
-                formData={formData}
-                handleSubmit={handleSubmit}
-              />
+              <MobileSearch formData={formData} handleSubmit={handleSubmit} />
             </div>
           )}
         </div>
         <div className="relative bottom-[20px] sm:hidden flex justify-center ">
           <UpdateSearchNew
-            className="relative bottom-[300px] min-w-min px-[10px] py-[10px]  "
+            className={`relative bottom-[300px] min-w-min px-[10px] py-[10px] ${
+              isSticky
+                ? `${styles.Searchbar2} flex justify-center items-center `
+                : `${styles.Searchbar} flex justify-center items-center `
+            } `}
             onClick={(e) => handleSubmit(e)}
           />
         </div>
@@ -231,7 +239,7 @@ const SearchResponse = ({ commericialTab }) => {
             </div>
           ) : (
             <div className="mt-5">
-              <Mobilecard selectedTab={selectedTab} />
+              <Mobilecard />
             </div>
           )}
         </div>

@@ -196,7 +196,7 @@ const Home = () => {
 
           {/* Medical Care */}
           {/*News */}
-          <StyledSection className="relative top-20 sm:bottom-0 ">
+          <StyledSection className="relative top-10 sm:bottom-0 ">
             <LatestNew />
           </StyledSection>
 

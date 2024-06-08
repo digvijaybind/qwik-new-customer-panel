@@ -2,7 +2,7 @@
   background-image: url('../../public/images/slider/1.png');
   background-size: cover;
   height: max-content;
-  min-height: 500px;
+  min-height: 600px;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -26,6 +26,31 @@
   }
   .Nav_container {
     justify-content: center;
+  }
+}
+.Searchbar {
+  position: absolute;
+  width: 80%;
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+  z-index: 300;
+}
+.Searchbar2 {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  top: 80px;
+  transition: transform 0.6s ease;
+  animation: myanimation 0.6s;
+  z-index: 300;
+}
+@keyframes myanimation {
+  from {
+    transform: translateY(-20%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 .Nav_first > p {

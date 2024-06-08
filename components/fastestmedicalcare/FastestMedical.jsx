@@ -38,7 +38,7 @@ const FastestMedical = React.memo(() => {
           </button>
         </Link>
       </div>
-      <FloatingBox className="relative bottom-12 sm:bottom-44 md:bottom-24 sm:h-1/2" />
+      <FloatingBox className="relative bottom-12 sm:bottom-10 md:bottom-24 sm:h-1/2" />
     </div>
   );
 });
@@ -48,12 +48,12 @@ export default FastestMedical;
 const FloatingBox = ({ className }) => {
   return (
     <div
-      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 sm:px-4 py-10 sm: md:px-5  rounded shadow-2xl   grid grid-cols-4 gap-3 sm:grid-cols-1 md:grid-cols-2 cursor-pointer ${className} shadow-2xl shadow-cyan-300/50`}
+      className={`bg-white translate-y-1/2 w-[1100px] sm:max-w-[66.666%] xs:max-w-[85%] px-20 py-3 sm:px-1 sm:py-4 sm: md:px-5  rounded shadow-2xl   grid grid-cols-4 gap-3 sm:grid-cols-2 sm:grid-rows-2 md:grid-cols-2 cursor-pointer ${className} shadow-2xl shadow-cyan-300/50`}
     >
       <div className="flex flex-col items-center">
         <Image
           src={MiniAeroplane}
-          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
+          className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5 "
         />
         <p className="font-black text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={450} duration={5} />+
