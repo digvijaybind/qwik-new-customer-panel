@@ -55,7 +55,7 @@
 }
 .customPhoneInput {
   border: none;
-  outline: none; /* Remove the default focus outline */
+  outline: none;
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
@@ -79,7 +79,7 @@
 
 @media (max-width: 768px) {
   .phoneInput {
-    max-width: 300px; /* For mobile devices */
+    max-width: 300px;
     height: 60px;
   }
 }
@@ -87,7 +87,7 @@
   .PhoneInputCountry
   .PhoneInputCountryIcon
   .PhoneInputCountryIconImg {
-  width: 24px !important; /* Adjust the flag width */
+  width: 24px !important; 
 }
 
 .phoneInput .PhoneInputCountry .PhoneInputCountrySelect {
@@ -97,34 +97,49 @@
   border-right: 3px solid black;
 }
 
-/* DateInput.css */
-.customDateInput {
+/* UpdateInput.css */
+/* .customDateInput {
   position: relative;
   display: flex;
   align-items: center;
 }
-
 .customDateInput input[type='date'] {
-  width: 100%;
+  flex: 1;
   height: 100%;
-  padding-right: 40px;
-  padding-left: 10px;
   border: none;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
   background-color: transparent;
+  padding-left: 30px;
 }
-
-.customDateInput::after {
+.customDateInput::before {
   content: '';
   position: absolute;
-  right: 10px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background: url('../../public/images/utils/date.svg') no-repeat center center;
   background-size: contain;
-  pointer-events: none;
+} */
+
+.customDateInput input[type='date']::placeholder {
+  color: gray;
 }
+
+
+@media (min-width: 1366px) {
+  /* Styles specific to Dell laptops */
+}
+
+
+@media (min-width: 1440px) {
+  /* Styles specific to MacBook Air */
+}
+
+@media (min-width: 1280px) {
+  /* Styles specific to HP laptops */
+}
+

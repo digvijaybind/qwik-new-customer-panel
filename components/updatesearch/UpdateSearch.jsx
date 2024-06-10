@@ -104,7 +104,7 @@ const UpdateSearchNew = React.memo(
 
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
-        if (currentScrollY > 100) {
+        if (currentScrollY > 0) {
           setIsScrolled(true);
           if (currentScrollY > lastScrollY) {
             setScrollDirection('down');

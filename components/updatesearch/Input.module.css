@@ -13,6 +13,9 @@
 .customDateInput::-webkit-datetime-edit {
   color: #a5a5a5;
 }
+.customDateInput input[type='date']::placeholder {
+  color: #a5a5a5;
+}
 
 .dateInput::-webkit-datetime-edit {
   background-color: #eeeeee;

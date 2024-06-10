@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Depature from '../../public/images/inputBox/Depature.svg';
-import Destination from '../../public/images/inputBox/Destination.svg';
-import Phone from '../../public/images/inputBox/Phone.svg';
-import Date from '../../public/images/inputBox/Date.svg';
 import countries from '../../db/country.json';
 import UpdateInputTo from '../updatesearch/UpdateInputTo';
 import LeftImage from '../../public/images/inputimages/Flight.svg';
@@ -44,11 +39,9 @@ const MobileSearch = ({ onClick }) => {
 
     const options = countries
       .map((country) => {
-        // const countryLabel = labels[country];
         const callingCode = getCountryCallingCode(country);
-
         if (!callingCode) {
-          return null; // Skip this option if the country code is not valid
+          return null;
         }
 
         return {
@@ -65,7 +58,7 @@ const MobileSearch = ({ onClick }) => {
           ),
         };
       })
-      .filter(Boolean); // Remove any null values from the options array
+      .filter(Boolean);
 
     return (
       <div className="flex items-center">
@@ -76,7 +69,6 @@ const MobileSearch = ({ onClick }) => {
           options={options}
           className=""
           styles={{
-            // Custom styles for the select component
             control: (provided) => ({
               ...provided,
               width: '8rem',
@@ -91,7 +83,6 @@ const MobileSearch = ({ onClick }) => {
             }),
           }}
         />
-        {/* <div className="h-full border-r border-gray-400"></div> */}
       </div>
     );
   };
@@ -109,7 +100,6 @@ const MobileSearch = ({ onClick }) => {
         />
       </div>
       <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-2 cursor-pointer">
-        {/* <div className="text-[15px] font-extrabold">Dubai</div> */}
         <UpdateInputTo
           className="w-full"
           LeftImage={LeftImage}
@@ -123,7 +113,7 @@ const MobileSearch = ({ onClick }) => {
       <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
           type="date"
-          className={`w-full `}
+          className={`w-full ${styles.customDateInput}`}
           LeftImage={LeftImage}
           RightImage={RightImage}
           RightIcon={false}
