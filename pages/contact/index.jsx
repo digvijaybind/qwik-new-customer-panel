@@ -9,15 +9,15 @@ const Contact = () => {
       <div
         className={`bg-black ${styles.Image}   bg-black h-[400px] w-full  mt-2 flex justify-center items-center`}
       >
-        <div className="font-sans font-black text-[35px] text-[#fff] z-[1000]">
+        <div className="font-sans font-bold text-[35px] text-[#fff] z-[1000] sm:font-bold">
           {' '}
           TALK TO THE <br />
           QWIKLIF TEAM
         </div>
       </div>
-      <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[0px] rounded-2xl">
+      <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
         <div className="flex flex-col justify-center shadow-2xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
-          <div className="font-sans  font-black text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px]">
+          <div className="font-sans  font-bold text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px] sm:px-[50px] sm:font-bold">
             Get Quote Now
             <div className="flex justify-center items-center">
               <hr class="bg-[#000] h-[3px] w-[120px]"></hr>
@@ -85,47 +85,47 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center mt-8">
-              <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-extrabold">
+            <div className="flex justify-center mt-8 sm:mt-4">
+              <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold">
                 Get Quote
               </button>
             </div>
           </form>
         </div>
         <div
-          className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md`}
+          className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md sm:py-[15px]`}
         >
-          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-black ">
+          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold">
             Our Address
             <div className="flex justify-center items-center">
               <hr class="bg-[#000] h-[3px] w-[150px]"></hr>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
               <FaLocationDot style={{ height: '30px', width: '30px' }} />
-              <div className="text-[13px] text-[#000] w-2/3">
+              <div className="text-[13px] text-[#000] w-2/3  sm:font-medium sm:text-base">
                 Qwiklif Air Ambulance ,Regus Dafza,8W Level 5,Dubai Airport
                 freezone, Dubai.
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
               <MdEmail style={{ height: '30px', width: '30px' }} />
-              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer">
+              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
               <IoLogoWhatsapp style={{ height: '30px', width: '30px' }} />
-              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer">
+              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="tel:+971552087745">+971 55 208 7745</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="our offices flex justify-center flex-col  bg-[#fff]  mb-5 relative bottom-[90px] sm:bottom-[0px] rounded-2xl">
-        <div className="font-sans flex justify-center items-center flex-col bg-[#fff] font-black text-[30px] text-[#262626] shadow-2xl px-[120px] sm:px-[50px] py-[15px] ">
+      <div className="our offices flex justify-center flex-col  bg-[#fff]  mb-5 relative bottom-[90px] sm:bottom-[30px] rounded-2xl">
+        <div className="font-sans flex justify-center items-center flex-col bg-[#fff] font-bold text-[30px] text-[#262626] shadow-2xl px-[120px] sm:px-[50px] py-[15px] sm:font-bold">
           Our Office
           <div className="flex justify-center items-center">
             <hr class="bg-[#000] h-[4px] w-[150px]"></hr>
