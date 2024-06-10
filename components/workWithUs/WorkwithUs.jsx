@@ -71,7 +71,7 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] py-[58px] sm:px-[25px] sm:py-[0px] flex-wrap ">
+        <div className="flex justify-between sm:items-center px-[86px] py-[5px] sm:px-[25px] sm:py-[5px] flex-wrap ">
           {service.map((data, i) => (
             <div
               className={`w-[30%] sm:w-[100%] mt-[20px] sm:mt-[0px]`}
