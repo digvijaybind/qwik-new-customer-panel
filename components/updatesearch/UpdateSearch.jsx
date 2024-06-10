@@ -170,7 +170,7 @@ const UpdateSearchNew = React.memo(
               : 'flex items-center flex-col'
           }`}
         >
-          <div className={`${styles.container} px-[25px] rounded-md`}>
+          <div className={`${styles.container} px-[25px] rounded-md sm:px-0`}>
             {/* "From" city search input */}
             <div className={`${styles.searchBarSection} mr-2`}>
               <div
@@ -265,7 +265,7 @@ const UpdateSearchNew = React.memo(
             </div>
           </div>
           <button
-            className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-10 text-[#fff]`}
+            className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-8 text-[#fff]  sm:py-0`}
             onClick={onClick}
           >
             Search Now
