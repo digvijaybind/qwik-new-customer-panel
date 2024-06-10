@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './workWithus.module.css';
-import ShadowCard from '@/components/shadowCard';
-import Careercard from '../careerCard/careerCard';
 import UpdatecareerCard from '../careerCard/UpdatecareerCard';
 
 const WorkwithUs = () => {
@@ -41,23 +39,23 @@ const WorkwithUs = () => {
     <div className="font-sans">
       <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
         <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-          <p className="text-[50px]  pt-[150px] sm:pt-[100px]">
+          <p className="text-[50px]  pt-[150px] sm:pt-[100px] font-bold font-sans">
             Partner with us{' '}
           </p>
           <div className="flex pt-[30px] text-[20px]">
-            <p className="text-[#C5D5FF] pr-[10px]">
+            <p className="text-[#C5D5FF] pr-[10px] ">
               {'Air Ambulance Services >'}
             </p>
-            <p> Partner with Us</p>
+            <p className="font-sans font-normal"> Partner with Us</p>
           </div>
         </div>
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
+          <h2 className="text-[25px]  text-[#111] font-sans font-bold">
             Partner with us
           </h2>
-          <p className="pt-[10px] font-sans font-medium">
+          <p className="pt-[10px] font-sans font-normal">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,
@@ -65,7 +63,7 @@ const WorkwithUs = () => {
             pilots to join us in our mission to provide the highest quality air
             ambulance services.
           </p>
-          <p className="pt-[10px] font-sans font-medium">
+          <p className="pt-[10px] font-sans font-normal">
             If you are committed to delivering exceptional care and service, and
             if you thrive in a dynamic and challenging environment, we want to
             hear from you. Join us at Qwiklif and be a part of a team that is
@@ -73,14 +71,17 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] py-[58px] sm:px-[25px] flex-wrap ">
+        <div className="flex justify-between sm:items-center px-[86px] py-[58px] sm:px-[25px] sm:py-[0px] flex-wrap ">
           {service.map((data, i) => (
-            <div className={`w-[30%] sm:w-[100%] mt-[20px] `} key={i}>
+            <div
+              className={`w-[30%] sm:w-[100%] mt-[20px] sm:mt-[0px]`}
+              key={i}
+            >
               <UpdatecareerCard
                 image={data.img}
                 headline={data.head}
                 descripation={data.text}
-                height={20}
+                height={18}
                 width={80}
               />
             </div>

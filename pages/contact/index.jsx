@@ -113,7 +113,7 @@ const Contact = () => {
               <MdEmail style={{ height: '30px', width: '30px' }} />
               <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
-              </div>
+            </div>
             </div>
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
               <IoLogoWhatsapp style={{ height: '30px', width: '30px' }} />
