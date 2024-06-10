@@ -22,7 +22,7 @@ const AboutAircraft = React.memo(() => {
 
   return (
     <div>
-      <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans sm:flex-col-reverse">
+      <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans sm:flex sm:flex-col-reverse ">
         <Image
           src={AboutAircraftimage}
           height={460}

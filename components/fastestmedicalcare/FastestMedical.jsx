@@ -58,7 +58,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={450} duration={5} />+
         </p>
-        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
           Air Transfer
         </p>
       </div>
@@ -67,10 +67,10 @@ const FloatingBox = ({ className }) => {
           src={Miniaircraft}
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-bold text-5xl sm:text-xl mb-4">
+        <p className="font-bold text-5xl sm:text-xl sm:font-bold mb-4">
           <CountUp start={1} end={25} duration={8} />+
         </p>
-        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
           No of Fleet
         </p>
       </div>
@@ -80,9 +80,9 @@ const FloatingBox = ({ className }) => {
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
         <p className="font-bold text-5xl sm:text-xl mb-4">
-          <CountUp start={1} end={15} duration={10} />+
+          <CountUp start={1} end={15} duration={10} />
         </p>
-        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
           Doctors
         </p>
       </div>
@@ -94,7 +94,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={7000} duration={5} /> +
         </p>
-        <p className="font-semibold sm:text-xs text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
           Global Affiliation
         </p>
       </div>

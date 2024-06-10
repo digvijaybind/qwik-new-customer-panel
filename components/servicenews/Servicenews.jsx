@@ -51,7 +51,7 @@ const Servicenews = ({ title, description, imageUrl, className }) => {
         <div className="font-sans font-extrabold text-center text-xl text-slate-800 max-w-[20rem]">
           {title}
         </div>
-        <div className="text-[#646464]  font-sans text-sm font-normal max-w-[26rem] text-center sm:font-normal">
+        <div className="text-[#646464]  font-sans text-sm font-normal max-w-[26rem] text-center sm:font-medium sm:text-base">
           <ExpandText descripationLength={200}>{description}</ExpandText>
         </div>
       </div>

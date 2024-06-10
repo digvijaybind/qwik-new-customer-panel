@@ -96,3 +96,35 @@
   font-size: 16px;
   border-right: 3px solid black;
 }
+
+/* DateInput.css */
+.customDateInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.customDateInput input[type='date'] {
+  width: 100%;
+  height: 100%;
+  padding-right: 40px;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+
+.customDateInput::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url('../../public/images/utils/date.svg') no-repeat center center;
+  background-size: contain;
+  pointer-events: none;
+}

@@ -123,7 +123,7 @@ const MobileSearch = ({ onClick }) => {
       <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
           type="date"
-          className="w-full"
+          className={`w-full `}
           LeftImage={LeftImage}
           RightImage={RightImage}
           RightIcon={false}

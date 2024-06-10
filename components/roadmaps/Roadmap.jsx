@@ -30,7 +30,7 @@ const Roadmap = () => {
                         className="w-[40px] h-[40px] sm:w-[20px] sm:h-[20px] block sm:hidden"
                         src="/images/small_plane.svg"
                         width={40}
-                        height={40}
+                        height={100}
                         alt="rapid Time"
                         layout="cover"
                       />
