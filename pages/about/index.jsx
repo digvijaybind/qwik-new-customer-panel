@@ -295,7 +295,7 @@ const About = () => {
 
         <div className="bg-white flex flex-col items-start shadow-2xl rounded-lg col-span-5 sm:col-span-1 py-10 sm:px-6 px-12">
           <div className="flex flex-col items-start sm:w-full sm:items-center ">
-            <h2 className="font-sans font-extrabold text-3xl sm:text-2xl text-center">
+            <h2 className="font-sans font-semibold text-3xl sm:text-2xl text-center">
               Get Quote Now
             </h2>
             <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />

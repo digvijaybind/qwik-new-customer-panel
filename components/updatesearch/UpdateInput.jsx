@@ -35,7 +35,7 @@ const UpdateInput = React.memo(
           type={type}
           className={`${className} ${
             type === 'date' ? styles.customDateInput : ''
-          } ${styles.inputField}  ${value !== '' ? styles.dateInput : ''} `}
+          } ${styles.inputField}  ${value !== '' ? styles.dateInput : ''}`}
           placeholder={placeholder}
           name={name}
           value={value}

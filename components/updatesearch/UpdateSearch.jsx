@@ -104,7 +104,7 @@ const UpdateSearchNew = React.memo(
 
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
-        if (currentScrollY > 50) {
+        if (currentScrollY > 100) {
           setIsScrolled(true);
           if (currentScrollY > lastScrollY) {
             setScrollDirection('down');
@@ -265,7 +265,7 @@ const UpdateSearchNew = React.memo(
             </div>
           </div>
           <button
-            className={`font-sans font-black text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-10 text-[#fff]`}
+            className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-10 text-[#fff]`}
             onClick={onClick}
           >
             Search Now

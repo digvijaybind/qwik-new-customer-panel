@@ -1,18 +1,15 @@
 import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoAirplaneSharp } from 'react-icons/io5';
-import { RiPriceTag3Line } from 'react-icons/ri';
 import { TiUserOutline } from 'react-icons/ti';
 import { Shadow } from '../Utils/utils';
-
 import Search from '../../public/images/search-white.svg';
 import countries from '../../db/country.json';
 import _debounce from 'lodash/debounce';
 import axios from 'axios';
-import { FaCross, FaX } from 'react-icons/fa6';
+import {  FaX } from 'react-icons/fa6';
 import Loader from '../Utils/Loader';
 import styles from './Searchbar.module.css';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Pax from '../../db/pax.json';
 

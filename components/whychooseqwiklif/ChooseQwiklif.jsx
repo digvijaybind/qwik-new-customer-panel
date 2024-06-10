@@ -43,12 +43,12 @@ const ChooseQwiklif = React.memo(() => {
     <div>
       <div className="">
         <div className="flex sm:w-full sm:flex-col mt-3 sm:mt-0 sm:pt-0 mb-10 py-10 sm:mb-5 sm:py-2">
-          <h2 className="font-sans font-extrabold text-2xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none pr-16 sm:pr-0 sm:mb-2 sm:w-full whitespace-nowrap ">
+          <h2 className="font-sans font-semibold text-2xl sm:text-2xl text-center border-r-2 border-[#19c0f0] sm:border-none pr-16 sm:pr-0 sm:mb-2 sm:w-full whitespace-nowrap ">
             Why Choose Qwiklif ?
-            <hr class="bg-[#19c0f0] h-[3px] w-[100px] mt-2 sm:mx-auto sm:h-[3px]"></hr>
+            <hr class="bg-[#19c0f0] h-[3px] w-[100px] mt-2 sm:mx-auto sm:h-[3px] sm:mt-2"></hr>
           </h2>
 
-          <div className="sm:pl-0 pl-2">
+          <div className="sm:pl-0 pl-2 sm:mt-2">
             <p className="text-[#646464] text-lg text-center leading-[32px] ml-[10px] lg:ml-0 font-sans font-medium sm:ml-3">
               Fly Fast and Safe with Qwiklif Air Ambulance We have access to
               global hospitals including finest medic and eminent surgeons
@@ -124,14 +124,14 @@ const ChooseQwiklifButton = ({
       <div className="bg-[#19c0f0] rounded-full w-[55px] h-[55px] flex justify-center">
         <Image src={icon} height={40} width={35} alt={title} />
       </div>
-      <div className="font-sans font-extrabold text-xl sm:flex justify-end sm:text-base">
+      <div className="font-sans font-semibold text-xl sm:flex justify-end sm:text-base">
         {title}
       </div>
       {isActive && (
         <div className="ml-auto  flex items-center justify-center w-[50px] h-[50px]">
           <FontAwesomeIcon
             icon={faArrowRight}
-            style={{ color: '#fff', height: '30px', width: '30px' }}
+            style={{ color: '#fff', height: '30px', width: '15px' }}
           />
         </div>
       )}

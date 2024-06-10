@@ -39,7 +39,7 @@
 .input::placeholder {
   color: #a5a5a5;
   min-width: 60px;
-  font-weight: bold;
+  font-weight: semibold;
   font-size: 14px;
 }
 /* .customDateInput::placeholder {
@@ -61,7 +61,7 @@
 .inputField::placeholder {
   color: #a5a5a5;
   min-width: 60px;
-  font-weight: bold;
+  font-weight: semibold;
   font-size: 14px;
 }
 .inputField:focus {

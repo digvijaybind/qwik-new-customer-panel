@@ -13,10 +13,10 @@ const QwiklifFeatureCard = ({ icon, title, description }) => {
       />
 
       <div className="w-full flex  flex-col items-start sm:gap-3">
-        <p className="text-xl font-sans font-extrabold text-slate-700">
+        <p className="text-xl font-sans font-semibold text-slate-700">
           {title}
         </p>
-        <p className="text-[#646464] font-sans leading-[26px] text-[16px] font-normal">
+        <p className="text-[#646464] font-sans leading-[26px] text-[16px]  font-normal sm:font-normal">
           {description[1]} <br className="hidden" /> {description[2]}{' '}
           <br className="hidden" />
           {description[3]}

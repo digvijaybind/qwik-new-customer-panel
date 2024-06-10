@@ -47,20 +47,18 @@ const Services = () => {
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[50%] sm:w-[80%] m-auto py-[30px]">
-          <h2 className="text-[25px]  text-[#111] font-sans font-extrabold">
+          <h2 className="text-[25px] text-[#111] font-sans font-extrabold relative inline-block">
             Our Services
+            <span className="block bg-[#11B6E3] h-[3px] w-[45px] mx-auto mt-1"></span>
           </h2>
-          <p className="pt-[10px] font-sans">
+          <p className="pt-[10px] font-sans font-medium">
             At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
             And Service When It Matters Most.
           </p>
         </div>
         <div className="flex justify-between sm:items-center px-[10%] flex-wrap mb-5">
           {service.map((data, i) => (
-            <div
-              className={`w-[47%] sm:w-[100%] mt-[20px]`}
-              key={i}
-            >
+            <div className={`w-[47%] sm:w-[100%] mt-[20px]`} key={i}>
               <ShadowCard
                 img={data.img}
                 head={data.head}

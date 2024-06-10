@@ -20,7 +20,7 @@ const FastestMedical = React.memo(() => {
       }}
     >
       <div className="flex flex-col items-center w-full">
-        <h1 className="font-sans font-extrabold text-4xl text-shadow-lg text-center text-white mt-[30px] md:text-xl sm:text-lg">
+        <h1 className="font-sans font-semibold text-4xl text-shadow-lg text-center text-white mt-[30px] md:text-xl sm:text-lg">
           Fastest and best medical care
         </h1>
         <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
@@ -55,7 +55,7 @@ const FloatingBox = ({ className }) => {
           src={MiniAeroplane}
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5 "
         />
-        <p className="font-black text-5xl sm:text-xl mb-4">
+        <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={450} duration={5} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -67,7 +67,7 @@ const FloatingBox = ({ className }) => {
           src={Miniaircraft}
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-black text-5xl sm:text-xl mb-4">
+        <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={25} duration={8} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -79,7 +79,7 @@ const FloatingBox = ({ className }) => {
           src={Doctor}
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-black text-5xl sm:text-xl mb-4">
+        <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={15} duration={10} />+
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">
@@ -91,7 +91,7 @@ const FloatingBox = ({ className }) => {
           src={Miniglobal}
           className="w-25 h-25 sm:w-12 sm:h-12 lg:w-14 lg:h-14 mb-5"
         />
-        <p className="font-black text-5xl sm:text-xl mb-4">
+        <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={7000} duration={5} /> +
         </p>
         <p className="font-semibold sm:text-xs text-gray-700 font-sans">

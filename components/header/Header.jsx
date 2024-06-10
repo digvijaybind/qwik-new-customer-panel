@@ -49,7 +49,7 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('static');
-  
+
   //Handle tab click
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -83,7 +83,7 @@ const Header = () => {
   return (
     <div className={`${isScrolled ? styles.header2 : styles.header}`}>
       <div
-        className={` ${styles.shadow}   px-[50px] font-sans flex justify-between items-center flex-row w-full`}
+        className={` ${styles.shadow}   px-[50px] font-sans font-normal flex justify-between items-center flex-row w-full`}
       >
         {/* Logo */}
 

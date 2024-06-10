@@ -15,7 +15,6 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           height={314}
           alt="rapid Time"
           layout="responsive"
-          
         />
         <Image
           className="max-w-[80px] max-h-[80px] absolute bottom-[-40px] left-[50px] border-r-[100%]"
@@ -27,7 +26,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
         />
       </div>
       <div className="flex flex-col items-start mt-[80px] gap-[30px]">
-        <p className="font-bold leading-[28px] text-[22px] max-w-[20rem] text-slate-800">
+        <p className="font-semibold leading-[28px] text-[22px] max-w-[20rem] text-slate-800">
           {title}
         </p>
         <p className="text-[#646464] leading-[28.8px] text-[16px] font-normal max-w-[26rem]">
@@ -37,7 +36,13 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
           <strong className="text-[#396CF0] text-[15px]  leading-[26px] flex flex-row  items-center font-semibold">
             READ MORE{' '}
             <span>
-              <Image src={ForwardSlash} height={7} width={7} className="ml-3" alt="" />
+              <Image
+                src={ForwardSlash}
+                height={7}
+                width={7}
+                className="ml-3"
+                alt=""
+              />
             </span>
           </strong>
         </button>

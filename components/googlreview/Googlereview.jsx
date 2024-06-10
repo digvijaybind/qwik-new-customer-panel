@@ -18,7 +18,7 @@ const ExpandText = ({ children, descripationLength }) => {
       {isExpanded ? fullText : `${fullText?.slice(0, descripationLength)}`}
       <span
         onClick={toggleText}
-        className="text-blue-500 font-normal text-[13px]"
+        className="text-blue-500 font-medium text-[13px]"
       >
         {isExpanded ? '' : 'show more '}
       </span>
@@ -33,7 +33,7 @@ const Googlereview = ({ Userimage, UserName, Date, description }) => {
           <div className="NameLogo flex flex-row">
             <img src={Userimage} height={25} width={35} />
             <div className="flex flex-col ml-3">
-              <span className="font-extrabold text-[13px] text-[#000] ">
+              <span className="font-semibold text-[13px] text-[#000] ">
                 {UserName}
               </span>
               <span className="font-medium text-[10px] ">{Date}</span>

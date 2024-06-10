@@ -79,7 +79,7 @@ const DedicatedCard = ({
     }
   }, [charteredData?.totalPriceWithAdminMargin, selectedCurrency]);
 
-  console.log('charteredData', charteredData);
+
 
   const TotalTime = () => {
     const time = moment(charteredData.totalTime).format('HH:mm');

@@ -162,28 +162,28 @@ const Home = () => {
             {/*Qwiklif Feautres Component  */}
             <QwiklifFeature />
           </StyledSection>
-          <StyledSection ClassName="sm:mt-4">
+          <StyledSection ClassName="sm:mt-25">
             <ServicesSection />
           </StyledSection>
 
           {/* Roadmap */}
-          <StyledSection className="relative  top-[60px] sm:bottom-0 mt-3">
+          <StyledSection className="relative  top-[60px] sm:top-[40px]  sm:bottom-0 mt-3">
             <div className="py-5 sm:py-5">
               <div className="flex justify-center flex-col items-center">
-                <h2 className="font-sans font-extrabold text-4xl sm:text-xl text-center">
+                <h2 className="font-sans font-semibold text-4xl sm:text-xl text-center">
                   How to Book Air Ambulance
                 </h2>
 
-                <p className="text-[#413D3D] text-lg sm:text-sm font-sans font-normal text-center mt-4">
+                <p className="text-[#413D3D] text-lg sm:text-base sm:font-normal font-sans font-medium text-center mt-4 sm:mt-3">
                   Here’s simple step to Book Air Ambulance.
                   <br /> Call now to our professional doctors to discuss patient
                   medical condition.
                 </p>
-                <hr class="bg-[#11B6E3] h-[4px] w-[65px] mt-2"></hr>
+                <hr class="bg-[#11B6E3] h-[4px] w-[65px] mt-2 sm:mt-3"></hr>
               </div>
               <Roadmap />
             </div>
-            <div className="mt-5 mb-5 sm:mt-5 sm:mb-5 md:mt-3 md:mb-3">
+            <div className="mt-5 mb-5 sm:mt-10 sm:mb-5 md:mt-3 md:mb-3">
               <ChooseQwiklif />
             </div>
           </StyledSection>
@@ -206,9 +206,9 @@ const Home = () => {
 
           {/* Why Choose Our Services */}
           <StyledSection className="relative top-20">
-            <div className="flex flex-col items-start px-15 sm:px-10 py-16">
+            <div className="flex flex-col items-start px-15 sm:px-5 py-16 sm:py-8">
               <div className="flex flex-col items-start w-full sm:items-center ">
-                <h1 className="font-sans font-extrabold text-3xl text-center mb-2">
+                <h1 className="font-sans font-semibold text-3xl text-center mb-2">
                   Why you should choose our services
                 </h1>
                 <h2 className="text-[#646464] font-sans font-medium text-[16px] leading-[26px] text-center sm:mx-[5%]">
@@ -246,7 +246,7 @@ const Home = () => {
                             SelectedCollapseIndex === index
                               ? 'text-[#FFFFFF]'
                               : ''
-                          }  font-sans font-black text-lg sm:text-sm`}
+                          }  font-sans font-semibold text-lg sm:text-sm`}
                         >
                           {item.header}
                         </h4>
@@ -277,7 +277,7 @@ const Home = () => {
 
                       {SelectedCollapseIndex === index ? (
                         <div className=" bg-[#FBFBFB] w-full py-6 rounded-b-md transition-all duration-300">
-                          <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] sm:text-sm sm:leading-6 font-normal font-sans leading-[26px] ">
+                          <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] sm:text-sm sm:leading-6 font-medium font-sans leading-[26px] ">
                             {item.description}
                           </p>
                         </div>
@@ -311,10 +311,10 @@ const Home = () => {
             className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
             <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
-              <div className="text-[#a9b5bf] font-sans font-extrabold">
+              <div className="text-[#a9b5bf] font-sans font-semibold">
                 QwikLif Air Ambulance
               </div>
-              <div className="font-sans font-black text-2xl text-white mt-2 mb-6">
+              <div className="font-sans font-semoibold text-2xl text-white mt-2 mb-6">
                 Your Trusted Global Air Ambulance Provider
               </div>
               {tasktab.map((data, index) => {

@@ -58,7 +58,7 @@ const Servicecard2 = React.memo(({ className }) => {
         <h2 className="font-sans font-extrabold text-3xl sm:text-xl text-center">
           Our Air Ambulance Services
         </h2>
-        <div className="flex justify-center items-center mt-[20px] mb-[30px]">
+        <div className="flex justify-center items-center mt-[20px] mb-[30px] sm:mb-[20px]">
           <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
         </div>
         <div className="w-full">
@@ -68,7 +68,7 @@ const Servicecard2 = React.memo(({ className }) => {
                 return (
                   <div
                     key={index}
-                    className="grid gap-4 grid-cols-3  px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 lg:grid-cols-2 sm:gap-4 sm:px-5"
+                    className="grid gap-4 grid-cols-3   px-[4px] mb-[30px] mt-[20px] sm:mt-[10px] sm:grid-cols-1 lg:grid-cols-2 sm:gap-2 sm:px-0"
                   >
                     <Servicenews
                       imageUrl={item.image}

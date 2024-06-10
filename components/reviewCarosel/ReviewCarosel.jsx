@@ -44,7 +44,7 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <div className="flex justify-center items-center flex-col  text-[25px] mb-10 font-black">
+      <div className="flex justify-center items-center flex-col  text-[25px] mb-10 font-semibold">
         <div>Testimonials</div>
         <hr class="bg-[#19c0f0] h-[3px] w-[55px] mt-2 sm:mx-auto mb-3"></hr>
         <span className=" text-[15px]  font-semibold">

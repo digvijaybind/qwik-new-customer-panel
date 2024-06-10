@@ -13,16 +13,16 @@ const SelectionComponent = ({ img, title, descripation }) => {
           alt={title}
         />
       </div>
-      <div className="mb-5">
+      <div className="mb-5 sm:mb-3">
         <p className="font-semibold text-2xl sm:text-lg text-[#111] ">
           {title}
         </p>
         <div className="flex justify-start  mb-[10px] sm:flex-row sm:w-full">
-          <hr className="bg-[#19c0f0] h-[3px] w-[100px]" />
+          <hr className="bg-[#19c0f0] h-[3px] w-[100px] sm:mt-2" />
         </div>
       </div>
 
-      <div className="font-sans text-gray-500 font-medium sm:text-sm text-lg">
+      <div className="font-sans text-gray-500 text-[16px]  font-normal">
         {descripation}
       </div>
     </div>

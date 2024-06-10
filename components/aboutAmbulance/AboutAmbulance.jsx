@@ -31,7 +31,7 @@ const AboutAmbulance = ({ setCurrentIndex }) => {
   return (
     <div>
       <div id="services" className="mt-[100px] font-sans ">
-        <h2 className="text-[#111111] font-arcaMajoraHeavy text-4xl leading-[34px] text-center">
+        <h2 className="text-[#111111] font-sans font-semibold text-4xl leading-[34px] text-center">
           Our Air Ambulance Services
         </h2>
         <div className="flex justify-center items-center mt-[20px] mb-[30px]">
@@ -44,7 +44,7 @@ const AboutAmbulance = ({ setCurrentIndex }) => {
                 return (
                   <div
                     key={index}
-                    className="grid grid-cols-3  gap-10 px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-4 sm:px-5"
+                    className="grid grid-cols-3  gap-10  px-[4px] mb-[30px] mt-[20px] sm:grid-cols-1 sm:gap-3 sm:px-2"
                   >
                     <Servicecard
                       title={item.title}

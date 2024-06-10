@@ -37,7 +37,7 @@ const ExpandText = ({ children, descripationLength }) => {
 const Servicenews = ({ title, description, imageUrl, className }) => {
   return (
     <div
-      className={`${className} mx-[10px] flex flex-col items-center border px-3 py-2 rounded-lg font-sans cursor-pointer shadow-md`}
+      className={`${className} mx-[10px] flex flex-col items-center border px-3 sm:px-0 py-2 rounded-lg font-sans cursor-pointer shadow-md`}
     >
       <div className="w-full overflow-hidden rounded-t">
         <img
@@ -51,7 +51,7 @@ const Servicenews = ({ title, description, imageUrl, className }) => {
         <div className="font-sans font-extrabold text-center text-xl text-slate-800 max-w-[20rem]">
           {title}
         </div>
-        <div className="text-[#646464]  font-sans text-sm font-normal max-w-[26rem] text-center">
+        <div className="text-[#646464]  font-sans text-sm font-normal max-w-[26rem] text-center sm:font-normal">
           <ExpandText descripationLength={200}>{description}</ExpandText>
         </div>
       </div>

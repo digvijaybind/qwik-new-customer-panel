@@ -22,7 +22,7 @@ const AboutAircraft = React.memo(() => {
 
   return (
     <div>
-      <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans">
+      <div className="xs:px-4 grid grid-cols-2 gap-10 sm:grid-cols-1 mb-16 font-sans sm:flex-col-reverse">
         <Image
           src={AboutAircraftimage}
           height={460}
@@ -31,14 +31,14 @@ const AboutAircraft = React.memo(() => {
         />
 
         <div className="flex flex-col gap-3">
-          <div className="font-sans text-4xl sm:text-2xl font-extrabold  text-wrap sm:px-4 sm:text-center ">
+          <div className="font-sans text-4xl sm:text-2xl font-semibold  text-wrap sm:px-4 sm:text-center ">
             Fastest{' '}
             <span className=" text-[#11B6E3] sm:mr-2">Air Ambulance</span>
             <br className="sm:hidden" />
             Services
           </div>
           <hr class="bg-[#11B6E3] h-[4px] w-[75px] sm:mx-auto"></hr>
-          <div className="text-[#7A7A7A] text-[16px] font-sans text-justify">
+          <div className="text-[#7A7A7A] text-[16px] font-sans font-normal text-justify sm:mt-2">
             Qwiklif Air Ambulance Service is your trusted partner for urgent
             International Air Ambulance Transportation worldwide. With a
             dedicated team of skilled professionals and state-of-the-art
@@ -49,7 +49,7 @@ const AboutAircraft = React.memo(() => {
             to you for quick response and affordable pricing, compare air
             ambulance prices from other air operators across the world.
           </div>
-          <div className="text-[#7A7A7A] text-[16px] font-sans">
+          <div className="text-[#7A7A7A] text-[16px] font-sans font-normal">
             We are a worldwide air ambulance company with emergency medical
             transport experience. Through our international air ambulance
             service, we can arrange quick, efficient medical evacuation flights

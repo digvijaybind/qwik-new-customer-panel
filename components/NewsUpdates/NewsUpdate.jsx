@@ -28,10 +28,10 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
             Nov 15, 2024
           </h3>
         </div>
-        <p className="font-sans font-extrabold text-center text-xl text-slate-800 max-w-[20rem]">
+        <p className="font-sans font-semibold text-center text-xl text-slate-800 max-w-[20rem]">
           {title}
         </p>
-        <p className="text-[#646464] text-center font-sans text-sm font-normal max-w-[26rem]">
+        <p className="text-[#646464] text-center font-sans text-sm font-medium max-w-[26rem]">
           {description}
         </p>
         <div className="flex flex-row items-center justify-between gap-[10px] w-full">
