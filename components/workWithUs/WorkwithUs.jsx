@@ -55,7 +55,8 @@ const WorkwithUs = () => {
           <h2 className="text-[25px]  text-[#111] font-sans font-bold">
             Partner with us
           </h2>
-          <p className="pt-[10px] font-sans font-normal">
+          <hr class="bg-[#11B6E3] h-[4px] w-[45px] sm:mx-auto"></hr>
+          <p className="pt-[10px]  text-[14px] font-sans font-normal">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,
@@ -63,7 +64,7 @@ const WorkwithUs = () => {
             pilots to join us in our mission to provide the highest quality air
             ambulance services.
           </p>
-          <p className="pt-[10px] font-sans font-normal">
+          <p className="pt-[10px] text-[14px] font-sans font-normal">
             If you are committed to delivering exceptional care and service, and
             if you thrive in a dynamic and challenging environment, we want to
             hear from you. Join us at Qwiklif and be a part of a team that is
