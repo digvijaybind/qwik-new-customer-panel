@@ -1,24 +1,22 @@
 //commericialAPi integration
 
+import apiClient from '@/api/apiClient';
+import Endpoint from '@/api/endpoint';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-const BASE_URL = process.env.REACT_API_BASE_URL;
 export const CommericialApi = createAsyncThunk(
-  'api1/commericialAPi',
-  async (payload) => {
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    const config = {
-      headers,
-    };
+  '/api/commericial',
+  async (data) => {
+    console.log('slices data', data);
+    const response = await apiClient.post(Endpoint.CommericialSearch, data);
+    return response.data;
+  }
+);
 
-    const response = await axios.post(
-      `http://localhost:8000/customer/commericialSearch`,
-      payload,
-      config
-    );
+export const CommericialSingleApi = createAsyncThunk(
+  `api/commericial/id`,
+  async () => {
+    const response = await apiClient.get(Endpoint.CommericialAircraftByid);
     return response.data;
   }
 );
@@ -34,14 +32,17 @@ const commericialSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(CommericialApi.pending, (state) => {
+        console.log('still loading');
         state.status = 'loading';
       })
       .addCase(CommericialApi.fulfilled, (state, action) => {
         state.status = 'succeeded';
+        console.log(action.payload);
         state.commericialflights = action.payload;
       })
       .addCase(CommericialApi.rejected, (state, action) => {
         state.status = 'failed';
+        console.log('error');
         state.error = action.error.message;
       });
   },
