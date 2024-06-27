@@ -51,7 +51,7 @@ const Services = () => {
             Our Services
             <span className="block bg-[#11B6E3] h-[3px] w-[45px] mx-auto mt-1"></span>
           </h2>
-          <p className="pt-[10px] font-sans font-medium">
+          <p className="pt-[10px] font-sans font-medium text-slate-700">
             At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
             And Service When It Matters Most.
           </p>
