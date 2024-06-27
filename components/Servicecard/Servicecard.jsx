@@ -29,7 +29,7 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
         <p className="font-semibold leading-[28px] text-[22px] max-w-[20rem] text-slate-800">
           {title}
         </p>
-        <p className="text-[#646464] leading-[28.8px] text-[16px] font-normal max-w-[26rem]">
+        <p className="text-[#646464] text-[10px] font-normal max-w-[26rem]">
           {description}
         </p>
         <button className="mb-[30px]">
