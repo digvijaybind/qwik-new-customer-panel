@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
@@ -8,12 +8,10 @@ import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
-import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 import { DedicatedApi } from '@/redux/slices/dedicatedSlice';
 import { CommericialApi } from '@/redux/slices/commericialSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CommericialContactCard from '@/components/commericialContactCard/CommericialContactCard';
-
 const SearchResponse = ({ commericialTab }) => {
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
@@ -128,7 +126,7 @@ const SearchResponse = ({ commericialTab }) => {
             </div>
           )}
         </div>
-        <div className="relative bottom-[20px] sm:hidden flex justify-center ">
+        {/* <div className="relative bottom-[20px] sm:hidden flex justify-center ">
           <UpdateSearchNew
             className={`relative bottom-[300px] min-w-min px-[10px] py-[10px] ${
               isSticky
@@ -137,7 +135,7 @@ const SearchResponse = ({ commericialTab }) => {
             } `}
             onClick={(e) => handleSubmit(e)}
           />
-        </div>
+        </div> */}
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] relative bottom-[300px] sm:hidden sm:bottom-[0px] ">
           {!isMobile ? (
             <div className="flex justify-around bg-[#a8e7f3] px-[30px] py-[25px] rounded-lg border-solid border-2 border-[#19c0f0]">
