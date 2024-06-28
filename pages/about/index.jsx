@@ -8,7 +8,9 @@ import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
 import Champion from '../../public/images/trusted_contact/champion.svg';
 import styles from '../../styles/page.module.css';
 import style from './About.module.css';
-
+import Companygoals from '../../db/about.json';
+import Aboutcard from '../../components/Utils/aboutcard/Aboutcard'; //Importing Aboutcard for company goals
+import FloatingBox from '@/components/Utils/floatingBox/FloatingBox ';
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [value, setValue] = useState('');
@@ -87,15 +89,15 @@ const About = () => {
             <p className="text-[#C5D5FF] pr-[10px]">
               {'Air Ambulance Services >'}
             </p>
-            <p className="font-sans font-extrabold">About us</p>
+            <p className="font-sans font-bold">About us</p>
           </div>
         </div>
       </div>
-      <div className="flex px-32 py-16 sm:px-5 sm:py-2 sm:flex-col">
+      <div className="flex px-32 py-10 sm:px-5 sm:py-2 sm:flex-col">
         <div className="w-1/4">
           <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
             <li
-              className={`px-5 text-sm py-4 border-b-2 cursor-pointer font-[700]  sm:px-2 sm:py-2  font-black ${
+              className={`px-5 text-sm py-4 border-b-2 cursor-pointer  sm:px-2 sm:py-2  font-bold ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(1)}
@@ -103,7 +105,7 @@ const About = () => {
               Company Profile
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2 ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold sm:px-2 sm:py-2 ${
                 activeTab === 2 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(2)}
@@ -111,7 +113,7 @@ const About = () => {
               Mission and Vision
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
                 activeTab === 3 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(3)}
@@ -119,7 +121,7 @@ const About = () => {
               Milestones
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-extrabold  sm:px-2 sm:py-2 ${
+              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
                 activeTab === 4 ? styles.aboutPageMenuActive : ''
               }`}
               onClick={() => setActiveTab(4)}
@@ -131,10 +133,10 @@ const About = () => {
         <div className="w-3/4 sm:pl-0 pl-12">
           {activeTab === 1 && (
             <div id="company_profile">
-              <h2 className="font-extrabold text-xl uppercase mb-4">
+              <h2 className="font-bold text-xl uppercase mb-4">
                 Company Profile
               </h2>
-              <p className="font-sans font-normal">
+              <p className="font-sans font-light">
                 About Qwiklif: An air ambulance company with give multiple
                 choices of air ambulance cost which is closest to you, Qwiklif
                 focuses on giving customer cost effective and safest patient
@@ -169,7 +171,7 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Mission and Vision
               </h2>
-              <p className="font-sans font-normal">
+              <p className="font-sans font-light">
                 Our mission at Qwiklif is simple: to connect people in need of
                 critical medical transportation with the best-equipped, fastest,
                 and most cost-effective air ambulance services. We are driven by
@@ -181,7 +183,7 @@ const About = () => {
           {activeTab === 3 && (
             <div id="mmilestone">
               <h2 className="font-bold text-xl uppercase mb-4">Milestones</h2>
-              <p className="font-sans font-normal">
+              <p className="font-sans font-light">
                 The Qwiklif Difference What sets Qwiklif apart from the rest?
                 It&apos;s <br />
                 our unwavering commitment to excellence, our extensive global
@@ -215,7 +217,7 @@ const About = () => {
           {activeTab === 4 && (
             <div id="policies">
               <h2 className="font-bold text-xl uppercase mb-4">Policies</h2>
-              <p className="font-sans font-normal">
+              <p className="font-sans font-light">
                 Qwiklif is founded on a set of core values that guide our every
                 action: - Compassion: We understand the stress and anxiety that
                 come with a medical emergency.
@@ -251,24 +253,32 @@ const About = () => {
           )}
         </div>
       </div>
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 sm:gap-6 md:grid-cols-2 md:gap-2 mt-0 mb-10 px-[5%] sm:px-[2%] md:px-[3%]">
+        {Companygoals.map((data) => {
+          return (
+            <Aboutcard title={data.title} descripation={data.descripation} />
+          );
+        })}
+      </div>
 
-      <div className="px-[5%] w-[100%] flex flex-wrap cursor-pointer">
+      <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer">
         {abouts.map((data, i) => (
-          <div
-            key={i}
-            className="w-[30%] mr-[3%]  mb-[30px]  overflow-y-hidden relative"
-          >
+          <div key={i} className="relative overflow-y-hidden">
             <img
-              className="rounded-[5px]"
+              className="rounded-[5px] w-full"
               src={`${data.img}`}
               alt="Description of the image content"
             />
             <div className={`${style.Slideover} px-[25px]`}>
-              <p className="text-[18px] font-semibold py-[25px]">{data.head}</p>
+              <p className="text-[18px] font-semibold py-[15px]">{data.head}</p>
               <p>{data.text}</p>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center relative top-5">
+        <FloatingBox className="shadow-cyan-400/100 shadow-2xl translate-y-0 transition duration-300 hover:scale-105 " />
       </div>
       <div
         className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full  sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
