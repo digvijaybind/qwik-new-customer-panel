@@ -261,7 +261,7 @@ const About = () => {
         })}
       </div>
 
-      <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer">
+      <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer mt-5 mb-5">
         {abouts.map((data, i) => (
           <div key={i} className="relative overflow-y-hidden">
             <img
