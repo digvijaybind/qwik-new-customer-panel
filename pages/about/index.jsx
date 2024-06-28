@@ -94,7 +94,7 @@ const About = () => {
         </div>
       </div>
       <div className="flex px-32 py-10 sm:px-5 sm:py-2 sm:flex-col">
-        <div className="w-1/4">
+        <div className="w-1/4 sm:w-fullc">
           <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
             <li
               className={`px-5 text-sm py-4 border-b-2 cursor-pointer  sm:px-2 sm:py-2  font-bold ${
