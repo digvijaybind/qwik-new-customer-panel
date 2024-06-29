@@ -1,11 +1,13 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "next/navigation";
+
 import { DedicatedApi } from "@/redux/slices/dedicatedSlice";
 import { CommericialApi } from "@/redux/slices/commericialSlice";
-import { useDispatch, useSelector } from "react-redux";
-import CommericialContactCard from "@/components/commericialContactCard/CommericialContactCard";
+
 import styles from "../../styles/page.module.css";
+
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import SearchResponseCard from "@/components/searchResponse/SearchResponseCard";
 
@@ -95,15 +97,15 @@ const SearchResponse = ({ commericialTab }) => {
 
   return (
     <div>
-      <div className="sm:px-[20px] sm:py-[20px] font-sans bg-white">
+      <div className="font-sans bg-white">
         <div className="flex flex-col items-center relative">
           <img
             src="/images/searchResponse/BannerImage.png"
             className="w-full object-cover mt-20"
             alt="banner"
           />
-          <div className="flex flex-col items-center relative px-[10%] w-full font-montserrat">
-            <UpdateSearchNew
+          <div className="flex flex-col items-center relative sm:px-7 px-[10%] w-full font-montserrat">
+            {/* <UpdateSearchNew
               className={`${
                 isSticky
                   ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
@@ -111,9 +113,9 @@ const SearchResponse = ({ commericialTab }) => {
               } `}
               formData={formData}
               setFormData={stableSetFormData}
-            />
+            /> */}
             <div
-              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] mt-8 font-medium rounded-[0.25rem] bg-primary"
+              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
             >
               <button
@@ -122,7 +124,7 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "commercial"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-2 text-sm rounded-[0.25rem]`}
+                } text-center px-5 py-3 text-sm rounded-[0.25rem]`}
               >
                 Commercial Flight
               </button>
@@ -132,14 +134,66 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "chartered"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-2 text-sm rounded-[0.25rem]`}
+                } text-center px-5 py-3 text-sm rounded-[0.25rem]`}
               >
                 Chartered Flight
               </button>
             </div>
-            <div className="w-full grid sm:grid-cols-1 grid-cols-2 gap-5 mt-5">
-              <div className="grid grid-cols-1">
-                <SearchResponseCard />
+            <div className="w-full grid sm:grid-cols-1 grid-cols-2 gap-7 mt-7 mb-14">
+              <div
+                className={`grid grid-cols-1 gap-12 ${
+                  !isMobile || activeTab === "commercial" ? "grid" : "hidden"
+                }`}
+              >
+                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                  (data, index) => {
+                    return (
+                      <SearchResponseCard
+                        key={index}
+                        isMobile={isMobile}
+                        aircraftData={data}
+                        availticket={data.ResponseData.TicketAvailability}
+                        selectedCurrency={selectedCurrency}
+                        handleCurrencyChange={handleCurrencyChange}
+                      />
+                    );
+                  }
+                )}
+                <SearchResponseCard type="commercial" />
+                <SearchResponseCard type="commercial" />
+                <SearchResponseCard type="commercial" />
+                <SearchResponseCard type="commercial" />
+                <SearchResponseCard type="commercial" />
+              </div>
+              <div
+                className={`grid grid-cols-1 gap-12 ${
+                  !isMobile || activeTab === "chartered" ? "grid" : "hidden"
+                }`}
+              >
+                {(!commericialflights?.ResponseData
+                  ?.AirCraftDatawithNotechStop ||
+                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop
+                    ?.length === 0) &&
+                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data) => {
+                      return (
+                        <SearchResponseCard
+                          type="commercial"
+                          key={index}
+                          isMobile={isMobile}
+                          aircraftData={data}
+                          availticket={data.ResponseData.TicketAvailability}
+                          selectedCurrency={selectedCurrency}
+                          handleCurrencyChange={handleCurrencyChange}
+                        />
+                      );
+                    }
+                  )}
+                <SearchResponseCard type="chartered" />
+                <SearchResponseCard type="chartered" />
+                <SearchResponseCard type="chartered" />
+                <SearchResponseCard type="chartered" />
+                <SearchResponseCard type="chartered" />
               </div>
             </div>
           </div>
