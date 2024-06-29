@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CommericialContactCard from "@/components/commericialContactCard/CommericialContactCard";
 import styles from "../../styles/page.module.css";
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
+import SearchResponseCard from "@/components/searchResponse/SearchResponseCard";
 
 const SearchResponse = ({ commericialTab }) => {
   const dispatch = useDispatch();
@@ -101,18 +102,18 @@ const SearchResponse = ({ commericialTab }) => {
             className="w-full object-cover mt-20"
             alt="banner"
           />
-          <div className="flex flex-col items-center relative px-[10%] w-full">
+          <div className="flex flex-col items-center relative px-[10%] w-full font-montserrat">
             <UpdateSearchNew
               className={`${
                 isSticky
                   ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
-                  : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24 mb-8`
+                  : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24`
               } `}
               formData={formData}
               setFormData={stableSetFormData}
             />
             <div
-              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] rounded-[0.25rem] bg-primary"
+              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] mt-8 font-medium rounded-[0.25rem] bg-primary"
               onClick={handleTabChange}
             >
               <button
@@ -121,7 +122,7 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "commercial"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-1.5 rounded-[0.25rem]`}
+                } text-center px-5 py-2 text-sm rounded-[0.25rem]`}
               >
                 Commercial Flight
               </button>
@@ -131,10 +132,15 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "chartered"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-1.5 rounded-[0.25rem]`}
+                } text-center px-5 py-2 text-sm rounded-[0.25rem]`}
               >
                 Chartered Flight
               </button>
+            </div>
+            <div className="w-full grid sm:grid-cols-1 grid-cols-2 gap-5 mt-5">
+              <div className="grid grid-cols-1">
+                <SearchResponseCard />
+              </div>
             </div>
           </div>
         </div>
