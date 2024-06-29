@@ -3,7 +3,7 @@ import styles from './contact.module.css';
 import { IoLogoWhatsapp } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
 import { FaLocationDot } from 'react-icons/fa6';
-const Contact = () => {
+const Contact = ({ mapInframeUrl }) => {
   return (
     <div className={`${styles.conatiner} bg-[#fff]`}>
       <div
@@ -113,7 +113,7 @@ const Contact = () => {
               <MdEmail style={{ height: '30px', width: '30px' }} />
               <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
-            </div>
+              </div>
             </div>
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
               <IoLogoWhatsapp style={{ height: '30px', width: '30px' }} />
@@ -133,7 +133,7 @@ const Contact = () => {
         </div>
         <div className="W-full flex justify-center bg-[#fff] px-[100px] sm:px-[10px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3162862458075!2d55.36916767461331!3d25.259943629157895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d6a4db55dc3%3A0x494a904da22a2746!2sRegus%20-%20Dubai%2C%20DAFZ%20Freezone!5e0!3m2!1sen!2sae!4v1716456003858!5m2!1sen!2sae"
+            src={mapInframeUrl}
             height="450"
             allowfullscreen=""
             loading="lazy"
@@ -144,6 +144,16 @@ const Contact = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const mapInframeUrl =
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3162862458075!2d55.36916767461331!3d25.259943629157895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d6a4db55dc3%3A0x494a904da22a2746!2sRegus%20-%20Dubai%2C%20DAFZ%20Freezone!5e0!3m2!1sen!2sae!4v1716456003858!5m2!1sen!2sae';
+  return {
+    props: {
+      mapInframeUrl,
+    },
+  };
 };
 
 export default Contact;
