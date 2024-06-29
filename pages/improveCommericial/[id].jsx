@@ -51,7 +51,40 @@ const TravelDuration = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#F2F2F2]"></div>
+      <div className="bg-[#F2F2F2] mx-4 flex flex-row py-4 px-6">
+        <div className="Timeline flex flex-col justify-between">
+          <div className="FromTime"> 06:10</div>
+          <div className="ToTime"> 09:10</div>
+        </div>
+        <div className="Line mx-4 self-center h-[100px] relative">
+          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-6 h-6">
+            {/* Inner circle with border */}
+            <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+          </div>
+          <div className="h-full w-1 mx-auto">
+            {/* Dotted line */}
+            <div className="h-full border-l border-gray-900 border-dotted"></div>
+          </div>
+          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-6 h-6">
+            {/* Inner circle with border */}
+            <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+          </div>
+        </div>
+        <div className="Location flex flex-col justify-between">
+          <div className="FromLocation flex justify-around flex-row">
+            <span className="FromLocationName">Mumbai</span>
+            <div className="AirportName">
+              Chhratrapati Shivaji International Airport,Terminal 2
+            </div>
+          </div>
+          <div className="Timeduration">3h 5m</div>
+          <div className="Tolocation flex justify-around flex-row">
+            <span>Abu dhabhi</span>
+            <div>Abudhabhi, Abu Dhabhi Int, terminal A</div>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-2 grid-rows-3 gap-4 px-[20px] sm:grid-cols-1 sm:grid-rows-5 sm:gap-6">
         <div className="flex flex-row">
           <div className="bg-[#daf7ff] w-[45px] h-[40px]  shadow-2xl text-center flex justify-center items-center ">
@@ -147,24 +180,24 @@ const TravelDuration = () => {
 };
 const TotalFare = () => {
   return (
-    <div className="bg-[#F8F9FA] px-5 py-10">
+    <div className="bg-[#F8F9FA] px-5 py-10 shadow-sm">
       <div className="flex flex-col justify-between">
-        <div className="text-[#171A1F] text-[20px] font-[900]">
+        <div className="text-[#171A1F] text-[20px] font-sans font-black mb-4">
           FARE SUMMARY
         </div>
-        <div className="BaseFare flex justify-between">
-          <div className="font-inter text-[18px]">Base Fare</div>
-          <div className="font-bold text-[18px]">$20,350</div>
+        <div className="BaseFare flex justify-between mb-4">
+          <div className="font-Inter text-[18px]">Base Fare</div>
+          <div className="font-Inter font-bold text-[16px]">$20,350</div>
         </div>
-        <hr className="h-1 border-none bg-[#BCC1CA] w-full " />
-        <div className="Taxes&surface flex justify-between">
-          <div className="font-inter text-[18px]">Taxes </div>
-          <div className="font-bold text-[18px]">$8,350</div>
+        <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full " />
+        <div className="Taxes&surface flex justify-between mt-6 mb-6">
+          <div className="font-Inter text-[18px]">Taxes </div>
+          <div className="font-Inter font-bold text-[16px]">$8,350</div>
         </div>
-        <hr className="h-[2px] border-none bg-[#BCC1CA] w-full " />
-        <div className="Totalamount flex justify-between items-center mt-10">
-          <div className="font-black text-[20px]">Total Amount</div>
-          <div className="bg-[#54CDEF] text-[#fff] text-[20px] flex justify-center items-center w-[134px] h-[52px] font-medium">
+        <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full mt-4 mb-4" />
+        <div className="Totalamount flex justify-between items-center mt-8 mb-4">
+          <div className="font-sans font-black text-[18px]">Total Amount</div>
+          <div className="bg-[#54CDEF] text-[#fff] text-[20px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-medium">
             $28,350{' '}
           </div>
         </div>
@@ -175,7 +208,7 @@ const TotalFare = () => {
 
 const PayConfirmation = () => {
   return (
-    <div className="bg-[#F8F9FA]">
+    <div className="bg-[#F8F9FA] shadow-sm">
       <div className="font-bold">Payment PayConfirmation</div>
     </div>
   );

@@ -18,10 +18,14 @@ module.exports = {
       roboto: ['Roboto', 'sans-serif'],
       arcaMajoraBold: ["'Arca Majora 3 Bold'"],
       arcaMajoraHeavy: ["'Arca Majora 3 Heavy'"],
-      sans: ['Montserrat-Regular', 'sans-serif'],
-      sansBold: ['Montserrat-bold', 'sans-serif'],
-      sansSemibold: ['Montserrat-SemiBold', 'sans-serif'],
-      sansMedium: ['Montserrat-Medium', 'sans-serif'],
+      sans: [
+        'Montserrat-Regular',
+        'Montserrat-bold',
+        'Montserrat-SemiBold',
+        'Montserrat-Medium',
+        'sans-serif',
+      ],
+      Inter: ['Inter-Regular', 'sans-serif'],
     },
     extend: {
       colors: {

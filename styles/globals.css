@@ -3,11 +3,22 @@
 @tailwind utilities;
 /* styles.css or index.css */
 @import './custom.css';
+/* font.css */
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 @import '../styles//PhoneInputCustom.css';
 
 @layer base {
+   @font-face {
+    font-family: 'Inter-Regular';
+    src: local('Inter-Regular'),
+      url('./fonts/Inter/Inter-Regular.otf') format('otf');
+  }
+     @font-face {
+    font-family: 'Inter-Bold';
+    src: local('Inter-Bold'),
+      url('./fonts/Inter/Inter-Bold.otf') format('otf');
+  }
   @font-face {
     font-family: 'Montserrat-Regular';
     src: local('Montserrat-Regular'),
