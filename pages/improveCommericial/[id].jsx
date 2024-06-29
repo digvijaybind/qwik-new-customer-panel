@@ -14,78 +14,92 @@ const TravelDuration = () => {
         <div className="flex flex-row justify-between sm:flex-col">
           <div className="flex justify-between items-center">
             <div className="font-black text-[20px] mr-4">Mumbai</div>
-            <TbArrowsExchange2
-              style={{ color: 'black', height: '25px', width: '25px' }}
-            />
+            <div className="bg-[#54CDEF] rounded-full px-2 py-2">
+              <TbArrowsExchange2
+                style={{ color: '#fff', height: '25px', width: '25px' }}
+              />
+            </div>
             <div className="font-black text-[20px] ml-4">Dubai</div>
           </div>
-          <div className="bg-[#0C7A31] px-2 py-2 text-[14px] font-extralight text-white text-center">
+          <div className="bg-[#0C7A31] px-2 py-2 text-[14px] font-extralight text-white text-center block sm:mt-4 sm:hidden">
             Your Booking on priority
           </div>
         </div>
-        <div className="font-medium text-black flex justify-between mt-4">
-          <div className="flex justify-between flex-row items-center">
-            <div className="bg-[#54CDEF] h-[32px] w-[134px] px-2 text-[12px] text-[#fff] flex justify-center items-center">
+        <div className="font-medium text-black flex justify-between mt-4 sm:items-center sm:mt-6">
+          <div className="flex justify-between flex-row items-center sm:justify-between">
+            <div className="bg-[#54CDEF] h-[32px] w-[134px] px-2 text-[12px] text-[#fff] flex justify-center items-center sm:text-[10px]">
               Saturday , April 27
             </div>
-            <div className="ml-5 font-sans text-[14px]">Non Stop 2h 10m</div>
+            <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
+              Non Stop 2h 10m
+            </div>
           </div>
-          <div className="font-medium text-[12px] text-[#171A1F]">
+          <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] block sm:whitespace-nowrap sm:hidden">
             Check Terms
           </div>
         </div>
-        <div className="font-medium text-black flex justify-between mt-4">
+        <div className="font-medium text-black flex justify-between mt-4 sm:items-center">
           <div className="flex justify-between flex-row items-center">
             <div className="">
               <Image src={Airline} width={44} height={42} />
             </div>
-            <div className="ml-2 font-sans text-[11px] text-[#9095A0]">
+            <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
               <span className="font-black text-[14px] text-[#171A1F]">
                 Vistara
               </span>{' '}
               UK 583 , UK 846{' '}
             </div>
           </div>
-          <div className="font-medium text-[12px] text-[#171A1F]">
+          <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
             Charter Plane
           </div>
         </div>
       </div>
-      <div className="bg-[#F2F2F2] mx-4 flex flex-row py-4 px-6">
+      <div className="bg-[#F2F2F2] mx-4 flex flex-row py-8 px-8 sm:mt-4 sm:mx-0">
         <div className="Timeline flex flex-col justify-between">
-          <div className="FromTime"> 06:10</div>
-          <div className="ToTime"> 09:10</div>
+          <div className="FromTime font-Inter font-bold"> 06:10</div>
+          <div className="ToTime font-Inter font-bold"> 09:10</div>
         </div>
-        <div className="Line mx-4 self-center h-[100px] relative">
-          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-6 h-6">
+        <div className="Line mx-4 self-center h-[95px] relative sm:h-[240px]">
+          {/* Top circle */}
+          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 mb-3">
             {/* Inner circle with border */}
             <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
           </div>
-          <div className="h-full w-1 mx-auto">
-            {/* Dotted line */}
+
+          {/* Dotted line */}
+          <div className="h-[65px] w-1  mt-4 sm:h-[200px]">
             <div className="h-full border-l border-gray-900 border-dotted"></div>
           </div>
-          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-6 h-6">
+
+          {/* Bottom circle */}
+          <div className="LineDot absolute bottom-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 ">
             {/* Inner circle with border */}
             <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
           </div>
         </div>
-        <div className="Location flex flex-col justify-between">
-          <div className="FromLocation flex justify-around flex-row">
-            <span className="FromLocationName">Mumbai</span>
-            <div className="AirportName">
+        <div className="Location flex flex-col justify-between sm:items-unset">
+          <div className="FromLocation flex justify-around items-baseline flex-row sm:flex-col">
+            <span className="FromLocationName font-Inter text-[14px] font-bold">
+              Mumbai
+            </span>
+            <div className="AirportName font-Inter text-[#898888] text-[11px] ml-4 sm:mt-2">
               Chhratrapati Shivaji International Airport,Terminal 2
             </div>
           </div>
-          <div className="Timeduration">3h 5m</div>
-          <div className="Tolocation flex justify-around flex-row">
-            <span>Abu dhabhi</span>
-            <div>Abudhabhi, Abu Dhabhi Int, terminal A</div>
+          <div className="Timeduration font-Inter  text-[14px] font-medium sm:ml-2 sm:font-semibold">
+            3h 5m
+          </div>
+          <div className="Tolocation flex  items-baseline flex-row sm:flex-col">
+            <span className="font-Inter text-[14px] font-bold">Abu dhabhi</span>
+            <div className="font-Inter text-[#898888]  text-[11px] ml-4 sm:mt-2">
+              Abudhabhi, Abu Dhabhi Int, terminal A
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 grid-rows-3 gap-4 px-[20px] sm:grid-cols-1 sm:grid-rows-5 sm:gap-6">
+      <div className="grid grid-cols-2 grid-rows-3 gap-4 px-[20px] sm:grid-cols-1 sm:grid-rows-5 sm:gap-6 mt-4 sm:mt-4">
         <div className="flex flex-row">
           <div className="bg-[#daf7ff] w-[45px] h-[40px]  shadow-2xl text-center flex justify-center items-center ">
             <Image
@@ -180,7 +194,7 @@ const TravelDuration = () => {
 };
 const TotalFare = () => {
   return (
-    <div className="bg-[#F8F9FA] px-5 py-10 shadow-sm">
+    <div className="bg-[#F8F9FA] px-5 py-6 shadow-sm">
       <div className="flex flex-col justify-between">
         <div className="text-[#171A1F] text-[20px] font-sans font-black mb-4">
           FARE SUMMARY
@@ -215,8 +229,8 @@ const PayConfirmation = () => {
 };
 const UpperSection = () => {
   return (
-    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-3 sm:gap-2">
-      <div className="col-span-6 px-[20px] py-[15px]  w-full   sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1 bg-[#F8F9FA]">
+    <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
+      <div className="col-span-6 px-[20px] py-[15px]  w-full   sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1 bg-[#F8F9FA] sm:px-0">
         <TravelDuration />
       </div>
       <div className="col-span-3 px-[15px] py-[10px]   flex flex-col justify-between sm:col-span-1 ">
