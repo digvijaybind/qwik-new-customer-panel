@@ -84,7 +84,7 @@ const Newfooter = () => {
           <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
             Fleet
           </div>
-          <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
+        <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {FleetData.map((data, index) => {
             return (
               <div
