@@ -10,6 +10,7 @@ import styles from "../../styles/page.module.css";
 
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import SearchResponseCard from "@/components/searchResponse/SearchResponseCard";
+import MobileSearch from "@/components/mobileSearch/MobileSearch";
 
 const SearchResponse = ({ commericialTab }) => {
   const dispatch = useDispatch();
@@ -101,21 +102,29 @@ const SearchResponse = ({ commericialTab }) => {
         <div className="flex flex-col items-center relative">
           <img
             src="/images/searchResponse/BannerImage.png"
-            className="w-full object-cover mt-20"
+            className="w-full object-cover sm:mt-0 mt-20"
             alt="banner"
           />
           <div className="flex flex-col items-center relative sm:px-7 px-[10%] w-full font-montserrat">
-            {/* <UpdateSearchNew
-              className={`${
-                isSticky
-                  ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
-                  : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24`
-              } `}
-              formData={formData}
-              setFormData={stableSetFormData}
-            /> */}
+            {isMobile ? (
+              <MobileSearch
+                formData={formData}
+                setfromSearch={() => {}}
+                className="!w-full !bottom-5"
+              />
+            ) : (
+              <UpdateSearchNew
+                className={`${
+                  isSticky
+                    ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
+                    : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24`
+                } `}
+                formData={formData}
+                setFormData={stableSetFormData}
+              />
+            )}
             <div
-              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] mt-8 font-medium rounded-[0.4rem] bg-primary"
+              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
             >
               <button
