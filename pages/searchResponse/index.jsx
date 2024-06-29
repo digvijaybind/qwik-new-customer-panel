@@ -124,7 +124,7 @@ const SearchResponse = ({ commericialTab }) => {
               />
             )}
             <div
-              className="w-full grid sm:grid-cols-1 grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
+              className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
             >
               <button
@@ -133,7 +133,7 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "commercial"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-3 text-sm rounded-[0.25rem]`}
+                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
               >
                 Commercial Flight
               </button>
@@ -143,7 +143,7 @@ const SearchResponse = ({ commericialTab }) => {
                   activeTab === "chartered"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
-                } text-center px-5 py-3 text-sm rounded-[0.25rem]`}
+                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
               >
                 Chartered Flight
               </button>
