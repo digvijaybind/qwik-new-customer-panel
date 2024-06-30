@@ -1,12 +1,24 @@
 import React from 'react';
-import styles from './improveCommericial.module.css';
-import { TbArrowsExchange2 } from 'react-icons/tb';
-import Airline from '../../public/images/commerialImages/Airline.svg';
+import styles from './improveCommericial.module.css'; //imported style css file
+import { TbArrowsExchange2 } from 'react-icons/tb'; // imported reverse icon
+import Airline from '../../public/images/commerialImages/Airline.svg'; //imported airline image
 import Image from 'next/image';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
+import Strectres from '../../public/images/bookingIcon/strectres.png'; //imported medical equiment icon
+import Oxygen from '../../public/images/bookingIcon/oxygen.svg'; //imported medical equiment icon
+import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png'; //imported medical equiment icon
+import Doctors from '../../public/images/bookingIcon/doctor.png'; //imported medical equiment icon
+import FinalImageCarosel from '@/components/Utils/ImagesCarosel/FinalImageCarosel';
+import Signature from '../../public/images/Signature.svg';
+import Important from '../../db/important.json';
+import Point from '../../public/images/PointIcon.svg';
+/*this component contain whole travel duration and descripation of flight and medical equiment */
+
+import Commerialtransfer from '../../public/images/commericial-transfer/Banner.svg';
+import Patience from '../../public/images/commericial-transfer/Patenice.svg';
+import airLift from '../../public/images/commericial-transfer/airLift.svg';
+import Transfer from '../../public/images/commericial-transfer/Transfer.svg';
+import Vistara from '../../public/images/commericial-transfer/aircraft.svg';
+const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 const TravelDuration = () => {
   return (
     <div className="">
@@ -30,7 +42,7 @@ const TravelDuration = () => {
             <div className="bg-[#54CDEF] h-[32px] w-[134px] px-2 text-[12px] text-[#fff] flex justify-center items-center sm:text-[10px]">
               Saturday , April 27
             </div>
-            <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
+            <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-16 sm:font-extrabold">
               Non Stop 2h 10m
             </div>
           </div>
@@ -55,6 +67,7 @@ const TravelDuration = () => {
           </div>
         </div>
       </div>
+      {/*Depature Time and arrival Time*/}
       <div className="bg-[#F2F2F2] mx-4 flex flex-row py-8 px-8 sm:mt-4 sm:mx-0">
         <div className="Timeline flex flex-col justify-between">
           <div className="FromTime font-Inter font-bold"> 06:10</div>
@@ -78,6 +91,7 @@ const TravelDuration = () => {
             <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
           </div>
         </div>
+        {/*depature location and arrival Location */}
         <div className="Location flex flex-col justify-between sm:items-unset">
           <div className="FromLocation flex justify-around items-baseline flex-row sm:flex-col">
             <span className="FromLocationName font-Inter text-[14px] font-bold">
@@ -111,7 +125,7 @@ const TravelDuration = () => {
           </div>
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-3">
             Stretcher :
-            <span className="text-[12px] text-[#000000] font-bold ">
+            <span className="text-[12px] text-[#323232] font-bold ">
               {' '}
               1 stretcher per patient
             </span>
@@ -188,10 +202,59 @@ const TravelDuration = () => {
           </div>
         </div>
       </div>
-      <div className="imagesCollapse"></div>
+      <div className="imagesCollapse mt-8">
+        <div className="grid grid-rows-2 gap-4 h-full">
+          {/* First row with one column */}
+          <div className="grid grid-cols-1">
+            <div className="w-full h-full">
+              <FinalImageCarosel images={images} />
+            </div>
+          </div>
+          {/* Second row with three columns */}
+          <div className="grid grid-cols-3 gap-4 h-1/2 relative bottom-5 ">
+            <div className="  h-full w-full cursor-pointer">
+              <Image src={Patience} />
+            </div>
+            <div className="h-full w-full cursor-pointer">
+              {' '}
+              <Image src={Vistara} />
+            </div>
+            <div className=" w-full h-full cursor-pointer flex justify-around flex-col">
+              <Image src={airLift} />
+              <Image src={Transfer} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
+//this compoenent related to Information
+const InfomationHead = ({ title, descripation }) => {
+  return (
+    <div className="grid grid-cols-12 gap-1 mt-5 sm:grid sm:grid-cols-1 sm:w-[320px]">
+      <div className="col-span-1 flex items-start justify-center  block sm:hidden">
+        <Image src={Point} width={26} height={26} />
+      </div>
+      <div className="col-span-8 sm:w-full">
+        <div
+          className="font-semibold text-[16px] font-Inter text-[
+#171A1F] sm:px-[5px] sm:flex sm:flex-row s"
+        >
+          <div className="col-span-1 hidden  sm:contents sm:block sm:flex sm:item-center ">
+            <Image src={Point} width={26} height={26} />
+          </div>
+          <span className="sm:ml-4">{title}</span>
+        </div>
+        <li className="text-[14px] font-normal   font-Inter mt-3 sm:min-w-[320px] sm:px-[5px] ">
+          {descripation}
+        </li>
+      </div>
+    </div>
+  );
+};
+/* in this component contain whole Totalfare and taxes */
 const TotalFare = () => {
   return (
     <div className="bg-[#F8F9FA] px-5 py-6 shadow-sm">
@@ -220,6 +283,7 @@ const TotalFare = () => {
   );
 };
 
+/* in this component contain payment information */
 const PayConfirmation = () => {
   return (
     <div className="bg-[#F8F9FA] shadow-sm">
@@ -227,11 +291,14 @@ const PayConfirmation = () => {
     </div>
   );
 };
+/* in this component contain top section of Final booking page */
 const UpperSection = () => {
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
       <div className="col-span-6 px-[20px] py-[15px]  w-full   sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1 bg-[#F8F9FA] sm:px-0">
         <TravelDuration />
+        {/* <ImportantInfo />
+        <Guarantee /> */}
       </div>
       <div className="col-span-3 px-[15px] py-[10px]   flex flex-col justify-between sm:col-span-1 ">
         <TotalFare />
@@ -240,6 +307,59 @@ const UpperSection = () => {
     </div>
   );
 };
+/* this is Gurratty component */
+const Guarantee = () => {
+  return (
+    <div
+      className="responsiveBoxSizing rounded-2xl border-2 border-gray-300 flex flex-col items-center sm:justify-center sm:items-center  py-5 
+          sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12  mt-8"
+    >
+      <div class=" font-bold text-[16px] font-Inter text-[#565E6C] sm:text-center">
+        OUR GUARANTEE
+      </div>
+      <hr class="bg-[#11B6E3] h-[3px] w-[40px] sm:mx-auto"></hr>
+      <div class=" font-normal text-[14px]  font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
+        We guarantee that when choosing Qwiklif, your loved ones shall be
+        treated with professional and compassionate care. We consider every
+        patient as family, we strive for perfection, and continuously monitor
+        our operations. When choosing a provider, remember that Qwiklif Air
+        Ambulance is the world&apos first air ambulance service provider giving
+        an instant quotation.
+      </div>
+      <div class="flex items-center flex-col justify-center mt-2">
+        <Image src={Signature} width={200} height={125} />
+        <div class="font-extrabold text-sm font-sans">CEO, QWIKLIF</div>
+      </div>
+    </div>
+  );
+};
+
+//this component realted to ImportedInfo
+const ImportantInfo = () => {
+  return (
+    <div className=" px-[30px] py-[30px] w-full border-2 border-gray-300   mt-2 sm:px-[10px] sm:py-[10px] sm:w-full  rounded-2xl sm:px-0">
+      <div className="grid grid-rows-auto grid-cols-1">
+        <div className="text-[20px] font-bold font-Inter text-[#565E6C] text-start sm:text-center">
+          Important Information
+        </div>
+
+        <div className="">
+          {Important.map((data, index) => {
+            return (
+              <div key={index} className="gap-4">
+                <InfomationHead
+                  title={data.title}
+                  descripation={data.descripation}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+/* main component*/
 const ImproveCommericial = () => {
   return (
     <div className={`${styles.Container}`}>
@@ -247,12 +367,12 @@ const ImproveCommericial = () => {
         <div className={`${styles.Section1_Container} w-full`}></div>
         <div className="relative bottom-[200px]">
           <UpperSection />
-
-          {/* <div className="grid grid-col-9   mt-3  rounded-md bg-[#fff]">
-            <div className="col-span-5  mb-5  shadow-2xl  px-10 py-10 sm:col-span-1 sm:mb-2 sm:px-3 sm:py-3 z-0">
-          
+          <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
+            <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">
+              <ImportantInfo />
+              <Guarantee />
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
