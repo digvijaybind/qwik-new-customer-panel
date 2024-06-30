@@ -239,7 +239,7 @@ const InfomationHead = ({ title, descripation }) => {
       </div>
       <div className="col-span-8 sm:w-full">
         <div
-          className="font-semibold text-[16px] font-Inter text-[
+          className="font-medium text-[16px] font-Inter text-[
 #171A1F] sm:px-[5px] sm:flex sm:flex-row s"
         >
           <div className="col-span-1 hidden  sm:contents sm:block sm:flex sm:item-center ">
@@ -259,22 +259,22 @@ const TotalFare = () => {
   return (
     <div className="bg-[#F8F9FA] px-5 py-6 shadow-sm">
       <div className="flex flex-col justify-between">
-        <div className="text-[#171A1F] text-[20px] font-sans font-black mb-4">
+        <div className="text-[#171A1F] text-[18px] font-Inter font-bold mb-4">
           FARE SUMMARY
         </div>
         <div className="BaseFare flex justify-between mb-4">
-          <div className="font-Inter text-[18px]">Base Fare</div>
+          <div className="font-Inter font-medium  text-[16px]">Base Fare</div>
           <div className="font-Inter font-bold text-[16px]">$20,350</div>
         </div>
         <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full " />
         <div className="Taxes&surface flex justify-between mt-6 mb-6">
-          <div className="font-Inter text-[18px]">Taxes </div>
+          <div className="font-Inter text-[16px]">Taxes </div>
           <div className="font-Inter font-bold text-[16px]">$8,350</div>
         </div>
         <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full mt-4 mb-4" />
         <div className="Totalamount flex justify-between items-center mt-8 mb-4">
-          <div className="font-sans font-black text-[18px]">Total Amount</div>
-          <div className="bg-[#54CDEF] text-[#fff] text-[20px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-medium">
+          <div className="font-sans font-black text-[16px]">Total Amount</div>
+          <div className="bg-[#54CDEF] text-[#fff] text-[18px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-semibold">
             $28,350{' '}
           </div>
         </div>
