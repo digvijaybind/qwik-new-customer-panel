@@ -5,6 +5,9 @@
   background-repeat: no-repeat;
 }
 
+.customInput {
+  font-size: 14px;
+}
 .customInput:focus {
   border: none;
   outline: none;

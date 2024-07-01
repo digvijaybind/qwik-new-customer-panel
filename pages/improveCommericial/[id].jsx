@@ -9,7 +9,7 @@ import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png
 import Doctors from '../../public/images/bookingIcon/doctor.png'; //imported medical equiment icon
 import FinalImageCarosel from '@/components/Utils/ImagesCarosel/FinalImageCarosel';
 import Signature from '../../public/images/Signature.svg';
-import Important from '../../db/important.json';
+import Important from '../../db/importantCommericial.json';
 import Point from '../../public/images/PointIcon.svg';
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
@@ -351,8 +351,8 @@ const Guarantee = () => {
       <div class=" font-bold text-[16px] font-Inter text-[#565E6C] sm:text-center">
         OUR GUARANTEE
       </div>
-      <hr class="bg-[#11B6E3] h-[3px] w-[40px] sm:mx-auto"></hr>
-      <div class=" font-normal text-[14px]  font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
+      <hr class="bg-[#11B6E3] h-[4px] w-[40px] sm:mx-auto"></hr>
+      <div class=" text-[14px] font-normal   font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
         patient as family, we strive for perfection, and continuously monitor
