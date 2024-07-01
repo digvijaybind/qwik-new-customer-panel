@@ -300,23 +300,21 @@ const PayConfirmation = () => {
             First Name
           </span>
           <input
-            className={`${
-              styles.InputBar
-            } min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
             placeholder="First Name"
           />
         </div>
         <div className="phone number flex flex-col text-[#424955] font-Inter font-medium  item-center">
           <span className="text-[#424955] font-Inter font-medium">Phone</span>
           <input
-            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
             placeholder="Enter a phone number "
           />
         </div>
         <div className="Email flex flex-col text-[#424955] font-Inter font-medium mt-2 item-center">
           <span className="text-[#424955] font-Inter font-medium">Email</span>
           <input
-            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
             placeholder="Enter your email address"
           />
         </div>
