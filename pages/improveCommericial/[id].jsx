@@ -301,7 +301,7 @@ const PayConfirmation = () => {
           </span>
           <input
             className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
-            placeholder="First Name"
+            placeholder="Enter a Name"
           />
         </div>
         <div className="phone number flex flex-col text-[#424955] font-Inter font-medium  item-center">

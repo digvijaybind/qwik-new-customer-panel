@@ -1,0 +1,11 @@
+.Section1_Container {
+  background-image: url('../../public//images/searchResponse/landing.svg');
+  min-height: 350px;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.customInput:focus {
+  border: none;
+  outline: none;
+}

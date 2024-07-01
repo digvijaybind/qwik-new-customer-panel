@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './improveCommericial.module.css'; //imported style css file
+import styles from './improvededicated.module.css'; //imported style css file
 import { TbArrowsExchange2 } from 'react-icons/tb'; // imported reverse icon
 import Airline from '../../public/images/commerialImages/Airline.svg'; //imported airline image
 import Image from 'next/image';
@@ -11,6 +11,7 @@ import FinalImageCarosel from '@/components/Utils/ImagesCarosel/FinalImageCarose
 import Signature from '../../public/images/Signature.svg';
 import Important from '../../db/important.json';
 import Point from '../../public/images/PointIcon.svg';
+import Bill from '../../public/images/utils/Billlogo.svg'; //imported bill logo
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
 import Commerialtransfer from '../../public/images/commericial-transfer/Banner.svg';
@@ -299,21 +300,21 @@ const PayConfirmation = () => {
             First Name
           </span>
           <input
-            className="min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none "
-            placeholder="First Name"
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
+            placeholder="Enter a Name"
           />
         </div>
         <div className="phone number flex flex-col text-[#424955] font-Inter font-medium  item-center">
           <span className="text-[#424955] font-Inter font-medium">Phone</span>
           <input
-            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
             placeholder="Enter a phone number "
           />
         </div>
         <div className="Email flex flex-col text-[#424955] font-Inter font-medium mt-2 item-center">
           <span className="text-[#424955] font-Inter font-medium">Email</span>
           <input
-            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
             placeholder="Enter your email address"
           />
         </div>
