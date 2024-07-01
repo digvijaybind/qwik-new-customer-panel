@@ -18,6 +18,7 @@ import Patience from '../../public/images/commericial-transfer/Patenice.svg';
 import airLift from '../../public/images/commericial-transfer/airLift.svg';
 import Transfer from '../../public/images/commericial-transfer/Transfer.svg';
 import Vistara from '../../public/images/commericial-transfer/aircraft.svg';
+import Bill from '../../public/images/utils/Billlogo.svg'; //imported bill logo
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 const TravelDuration = () => {
   return (
@@ -63,7 +64,7 @@ const TravelDuration = () => {
             </div>
           </div>
           <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
-            Charter Plane
+            Commericial Flight
           </div>
         </div>
       </div>
@@ -286,8 +287,43 @@ const TotalFare = () => {
 /* in this component contain payment information */
 const PayConfirmation = () => {
   return (
-    <div className="bg-[#F8F9FA] shadow-sm">
-      <div className="font-bold">Payment PayConfirmation</div>
+    <div className="bg-[#F8F9FA] shadow-sm px-10 py-10 flex flex-col items-center">
+      <div className="flex justify-between items-center">
+        <Image src={Bill} width={44} height={44} />
+        <div className="font-sans font-black text-[#323842] text-[16px]">
+          PAY 20% AND RESERVE YOUR SEAT
+        </div>
+      </div>
+      <div className="formdata grid grid-rows-3 gap-2 mt-4 mb-4 min-w-[280px]">
+        <div className="FirstName flex flex-col item-center ">
+          <span className="text-[#424955] font-Inter font-medium">
+            First Name
+          </span>
+          <input
+            className={`${
+              styles.InputBar
+            } min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
+            placeholder="First Name"
+          />
+        </div>
+        <div className="phone number flex flex-col text-[#424955] font-Inter font-medium  item-center">
+          <span className="text-[#424955] font-Inter font-medium">Phone</span>
+          <input
+            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            placeholder="Enter a phone number "
+          />
+        </div>
+        <div className="Email flex flex-col text-[#424955] font-Inter font-medium mt-2 item-center">
+          <span className="text-[#424955] font-Inter font-medium">Email</span>
+          <input
+            className="min-w-[300px] p-2 rounded-sm bg-[#fff]"
+            placeholder="Enter your email address"
+          />
+        </div>
+      </div>
+      <div className="button bg-[#54CDEF] h-[52px] w-[350px] text-[#fff] font-Inter flex justify-center items-center cursor-pointer">
+        PAY NOW
+      </div>
     </div>
   );
 };

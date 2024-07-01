@@ -4,3 +4,7 @@
   width: 100%;
   background-repeat: no-repeat;
 }
+
+.InputBar:hover {
+  border: none;
+}
