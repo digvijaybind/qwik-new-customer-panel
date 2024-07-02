@@ -23,7 +23,7 @@ const FastestMedical = React.memo(() => {
         <h1 className="font-sans font-semibold text-4xl text-shadow-lg text-center text-white mt-[30px] md:text-xl sm:text-lg">
           Fastest and best medical care
         </h1>
-        <p className="font-medium text-[18px] font-sans  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
+        <p className="font-medium text-[18px] font-Inter  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
           Time is precious, especially during emergencies. Our air ambulances
           are not just vehicles. they are a beacon of hope on the fastest route
           to medical assistance. We pride ourselves on a lightning-quick
@@ -31,7 +31,7 @@ const FastestMedical = React.memo(() => {
         </p>
         <Link href="/contact" className="sm:hidden md:hidden">
           <button
-            className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-sans leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)"
+            className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-Inter leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)"
             onClick={() => router.push('/contact')}
           >
             Make an Appointment
@@ -58,7 +58,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={450} duration={5} />+
         </p>
-        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-Inter">
           Air Transfer
         </p>
       </div>
@@ -70,7 +70,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl sm:font-bold mb-4">
           <CountUp start={1} end={25} duration={8} />+
         </p>
-        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-Inter">
           No of Fleet
         </p>
       </div>
@@ -82,7 +82,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={15} duration={10} />
         </p>
-        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-Inter">
           Doctors
         </p>
       </div>
@@ -94,7 +94,7 @@ const FloatingBox = ({ className }) => {
         <p className="font-bold text-5xl sm:text-xl mb-4">
           <CountUp start={1} end={7000} duration={5} /> +
         </p>
-        <p className="font-semibold sm:text-sm text-gray-700 font-sans">
+        <p className="font-semibold sm:text-sm text-gray-700 font-Inter">
           Global Affiliation
         </p>
       </div>

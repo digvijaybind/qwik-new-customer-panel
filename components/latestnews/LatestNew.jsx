@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import newsUpdates from '../../db/newsUpdates.json';
 import NewsUpdates from '../NewsUpdates/NewsUpdate';
-
+import { NextArrow, PrevArrow } from './CustomArrow';
 const LatestNew = React.memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const settings = {
@@ -28,6 +28,8 @@ const LatestNew = React.memo(() => {
         },
       },
     ],
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
   return (
     <div>
@@ -46,15 +48,14 @@ const LatestNew = React.memo(() => {
             <Slider {...settings}>
               {newsUpdates.map((item, index) => {
                 return (
-                  <div
-                    key={index}
-                    className=""
-                  >
+                  <div key={index} className="">
                     <NewsUpdates
                       title={item.title}
                       description={item.description}
                       imageUrl={item.image}
                       index={index}
+                      Date={item.Date}
+                      Role={item.Role}
                     />
                   </div>
                 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const NewsUpdates = ({ title, description, imageUrl, index }) => {
+const NewsUpdates = ({ title, description, imageUrl, index, Date, Role }) => {
   return (
     <div
       className={`mx-[10px] sm:mx-1 flex flex-col items-center border px-3 py-2 sm:px-1 sm:py-1 rounded-lg font-sans cursor-pointer shadow-md`}
@@ -25,14 +25,14 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
             layout="contain"
           />
           <h3 className="text-[#6C6C6C] font-sans text-center font-medium sm:font-medium text-[14px] leading-[26px]">
-            Nov 15, 2024
+            {Date}
           </h3>
         </div>
         <p className="font-sans font-semibold text-center text-xl text-slate-800    max-w-[20rem]">
           {title}
         </p>
         <p
-          className="text-[#646464] text-center font-sans text-sm font-medium  sm:text-base
+          className="text-[#646464] text-center font-Inter text-sm  font-medium  sm:text-base
          sm:font-medium  max-w-[26rem]"
         >
           {description}
@@ -47,8 +47,8 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
               alt="rapid Time"
               layout="contain"
             />
-            <h3 className="text-[#6C6C6C] font-normal text-[16px] sm:text-[16px]  leading-[26px]">
-              admin
+            <h3 className="text-[#6C6C6C] font-Inter font-normal text-[16px] sm:text-[16px]  leading-[26px]">
+              {Role}
             </h3>
           </div>
           <div className="flex flex-row items-center justify-start gap-[10px]">
@@ -60,7 +60,7 @@ const NewsUpdates = ({ title, description, imageUrl, index }) => {
               alt="rapid Time"
               layout="contain"
             />
-            <h3 className="text-[#6C6C6C] font-normal font-sans text-[16px] sm:text-[16px] leading-[26px]">
+            <h3 className="text-[#6C6C6C] font-normal font-Inter text-[16px] sm:text-[16px] leading-[26px]">
               Comment: 1
             </h3>
           </div>

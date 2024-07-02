@@ -174,7 +174,7 @@ const Home = () => {
                   How to Book Air Ambulance
                 </h2>
 
-                <p className="text-[#413D3D] text-lg sm:text-base sm:font-normal font-sans font-medium text-center mt-4 sm:mt-3">
+                <p className="text-[#413D3D] text-lg sm:text-base sm:font-normal font-Inter font-medium text-center mt-4 sm:mt-3">
                   Here’s simple step to Book Air Ambulance.
                   <br /> Call now to our professional doctors to discuss patient
                   medical condition.
@@ -277,7 +277,7 @@ const Home = () => {
 
                       {SelectedCollapseIndex === index ? (
                         <div className=" bg-[#FBFBFB] w-full py-6 rounded-b-md transition-all duration-300">
-                          <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] sm:text-sm sm:leading-6 font-medium font-sans leading-[26px] ">
+                          <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] sm:text-sm sm:leading-6 font-medium font-Inter leading-[26px] ">
                             {item.description}
                           </p>
                         </div>

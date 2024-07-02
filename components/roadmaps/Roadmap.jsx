@@ -48,7 +48,7 @@ const Roadmap = () => {
                     </div>
                   )}
                   <p
-                    className={`font-medium text-[16px] leading-[26px] ${
+                    className={`font-medium font-Inter text-[16px] leading-[26px] ${
                       SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
                     }`}
                   >

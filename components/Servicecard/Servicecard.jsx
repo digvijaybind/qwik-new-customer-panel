@@ -26,14 +26,14 @@ const Servicecard = ({ title, description, imageUrl, index }) => {
         />
       </div>
       <div className="flex flex-col items-start mt-[80px] gap-[30px]">
-        <p className="font-semibold leading-[28px] text-[20px] max-w-[20rem] text-slate-600">
+        <p className="font-semibold font-Inter leading-[28px] text-[20px] max-w-[20rem] text-slate-600">
           {title}
         </p>
-        <p className="text-[#646464] text-[10px] font-normal max-w-[26rem]">
+        <p className="text-[#646464] font-Inter text-[10px] font-normal max-w-[26rem]">
           {description}
         </p>
         <button className="mb-[30px]">
-          <strong className="text-[#396CF0] text-[15px]  leading-[26px] flex flex-row  items-center font-semibold">
+          <strong className="text-[#396CF0] text-[15px] font-Inter  leading-[26px] flex flex-row  items-center font-medium">
             READ MORE{' '}
             <span>
               <Image
