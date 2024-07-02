@@ -1,6 +1,7 @@
+import Image from "next/image";
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
-
-const SearchResponseCard = ({ data, type = "commercial" }) => {
+import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
+const DedicatedSearch = ({ data, type = "commercial" }) => {
   return (
     <div className="w-full flex flex-col gap-5">
       <button
@@ -25,11 +26,7 @@ const SearchResponseCard = ({ data, type = "commercial" }) => {
         <div className="flex flex-col gap-10 p-7 sm:px-5">
           <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
             <div className="flex items-center gap-3">
-              <img
-                src="/images/airline-mini-logo/learjet-405.svg"
-                alt="flight logo"
-                className="w-[21%]"
-              />
+              <Image src={Learjet} alt="flight logo" className="w-[21%]" />
               <div>
                 <p className="font-bold">Challenger 605</p>
                 <p className="text-[0.8rem] font-semibold text-black/50 mb-0">
@@ -96,4 +93,4 @@ const SearchResponseCard = ({ data, type = "commercial" }) => {
   );
 };
 
-export default SearchResponseCard;
+export default DedicatedSearch;

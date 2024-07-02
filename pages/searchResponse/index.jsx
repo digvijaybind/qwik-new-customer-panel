@@ -9,8 +9,9 @@ import { CommericialApi } from "@/redux/slices/commericialSlice";
 import styles from "../../styles/page.module.css";
 
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
-import SearchResponseCard from "@/components/searchResponse/SearchResponseCard";
 import MobileSearch from "@/components/mobileSearch/MobileSearch";
+import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
+import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 
 const SearchResponse = ({ commericialTab }) => {
   const dispatch = useDispatch();
@@ -157,7 +158,7 @@ const SearchResponse = ({ commericialTab }) => {
                 {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
                     return (
-                      <SearchResponseCard
+                      <CommericialSearch
                         key={index}
                         isMobile={isMobile}
                         aircraftData={data}
@@ -168,11 +169,11 @@ const SearchResponse = ({ commericialTab }) => {
                     );
                   }
                 )}
-                <SearchResponseCard type="commercial" />
-                <SearchResponseCard type="commercial" />
-                <SearchResponseCard type="commercial" />
-                <SearchResponseCard type="commercial" />
-                <SearchResponseCard type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
               </div>
               <div
                 className={`grid grid-cols-1 gap-12 ${
@@ -186,7 +187,7 @@ const SearchResponse = ({ commericialTab }) => {
                   commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
                     (data) => {
                       return (
-                        <SearchResponseCard
+                        <CommericialSearch
                           type="commercial"
                           key={index}
                           isMobile={isMobile}
@@ -198,11 +199,11 @@ const SearchResponse = ({ commericialTab }) => {
                       );
                     }
                   )}
-                <SearchResponseCard type="chartered" />
-                <SearchResponseCard type="chartered" />
-                <SearchResponseCard type="chartered" />
-                <SearchResponseCard type="chartered" />
-                <SearchResponseCard type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
               </div>
             </div>
           </div>
