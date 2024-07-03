@@ -8,8 +8,9 @@ import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
 import Selectionbutton from '@/components/selectionButton/Selectionbutton';
 import Mobilecard from '@/components/mobileCard/Mobilecard';
 import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
-import { DedicatedApi } from '@/redux/slices/dedicatedSlice';
+import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
 import { CommericialApi } from '@/redux/slices/commericialSlice';
+import { DedicatedApi } from '../../redux/slices/dedicatedSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CommericialContactCard from '@/components/commericialContactCard/CommericialContactCard';
 const SearchResponse = ({ commericialTab }) => {
@@ -31,16 +32,45 @@ const SearchResponse = ({ commericialTab }) => {
   const [selectedCurrency, setSelectedCurrency] = useState('AED');
   const [selectedOption, setSelectedOption] = useState('Commericial');
   const [isSticky, setIsSticky] = useState(false);
-    const [lastScrollY, setLastScrollY] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [formData, setFormData] = useState({
+    pax: 1,
     originLocationCode: '',
     destinationLocationCode: '',
-    departureDate: '',
-    pax: 1,
-    countryCode: '',
     mobile: '',
-    max: 5,
+    departureDate: '',
+    countryCode: '',
   });
+  // console.log(
+  //   'Line number 46 originLocationCode, destinationLocationCode,  departureDate, countryCode',
+  //   originLocationCode,
+  //   destinationLocationCode,
+  //   departureDate,
+  //   countryCode
+  // );
+  useEffect(() => {
+    if (
+      searchParams.has('originLocationCode') &&
+      searchParams.has('destinationLocationCode')
+    ) {
+      const formDetails = {
+        originLocationCode: searchParams.get('originLocationCode'),
+        destinationLocationCode: searchParams.get('destinationLocationCode'),
+        departureDate: searchParams.get('departureDate'),
+        pax: 1,
+        countryCode: searchParams.get('countryCode'),
+        mobile: searchParams.get('mobile'),
+        max: 5,
+      };
+      console.log(
+        'originLocationCode, destinationLocationCode,  departureDate, countryCode',
+        formDetails
+      );
+      setFormData(formDetails);
+    } else {
+      console.log('query params id mising ');
+    }
+  }, [searchParams]);
 
   const commericialflights = useSelector(
     (state) => state.commericial.commericialflights
@@ -70,33 +100,13 @@ const SearchResponse = ({ commericialTab }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  useEffect(() => {
-    if (
-      searchParams.has('originLocationCode') &&
-      searchParams.has('destinationLocationCode')
-    ) {
-      const formDetails = {
-        originLocationCode: searchParams.get('originLocationCode'),
-        destinationLocationCode: searchParams.get('destinationLocationCode'),
-        departureDate: searchParams.get('departureDate'),
-        pax: 1,
-        countryCode: searchParams.get('countryCode'),
-        mobile: searchParams.get('mobile'),
-        max: 5,
-      };
-      setFormData(formDetails);
-      // searchCity(formDetails);
-    } else {
-      console.log('query params id mising ');
-    }
-  }, [searchParams]);
 
   // console.log('formData', formData);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData) {
+    if (formData !== null) {
+      // dispatch(DedicatedApi(formData));
       dispatch(DedicatedApi(formData));
-      dispatch(CommericialApi(formData));
     }
   };
   // console.log('formData this is in searchResponse Page', formData);
@@ -126,16 +136,7 @@ const SearchResponse = ({ commericialTab }) => {
             </div>
           )}
         </div>
-        {/* <div className="relative bottom-[20px] sm:hidden flex justify-center ">
-          <UpdateSearchNew
-            className={`relative bottom-[300px] min-w-min px-[10px] py-[10px] ${
-              isSticky
-                ? `${styles.Searchbar2} flex justify-center items-center `
-                : `${styles.Searchbar} flex justify-center items-center `
-            } `}
-            onClick={(e) => handleSubmit(e)}
-          />
-        </div> */}
+     
         <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] relative bottom-[300px] sm:hidden sm:bottom-[0px] ">
           {!isMobile ? (
             <div className="flex justify-around bg-[#a8e7f3] px-[30px] py-[25px] rounded-lg border-solid border-2 border-[#19c0f0]">

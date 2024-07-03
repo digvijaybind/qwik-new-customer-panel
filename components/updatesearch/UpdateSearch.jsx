@@ -32,30 +32,27 @@ const CustomPhoneInput = React.forwardRef(
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
 
-  const options = countries
-    .map((country) => {
-      // const countryLabel = labels[country];
-      const callingCode = getCountryCallingCode(country);
+  const options = countries.map((country) => {
+    const callingCode = getCountryCallingCode(country);
 
-      if (!callingCode) {
-        return null; // Skip this option if the country code is not valid
-      }
+    if (!callingCode) {
+      return null; // Skip this option if the country code is not valid
+    }
 
-      return {
-        value: country,
-        label: (
-          <div className="flex items-center">
-            <div className="mr-2"> (+{callingCode})</div>
-            <CountryFlag
-              countryCode={country}
-              svg
-              style={{ width: '20px', height: '20px' }}
-            />
-          </div>
-        ),
-      };
-    })
-    .filter(Boolean); // Remove any null values from the options array
+    return {
+      value: country,
+      label: (
+        <div className="flex items-center">
+          <div className="mr-2"> (+{callingCode})</div>
+          <CountryFlag
+            countryCode={country}
+            svg
+            style={{ width: '20px', height: '20px' }}
+          />
+        </div>
+      ),
+    };
+  });
 
   return (
     <div className="flex items-center">
@@ -87,10 +84,11 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
 };
 
 const UpdateSearchNew = React.memo(
-  ({ className, onClick, setFormData, formData = {} }) => {
+  ({ className, handleSubmit, formData, setFormData }) => {
     const router = useRouter();
     const [scrollDirection, setScrollDirection] = useState('static');
     const [isScrolled, setIsScrolled] = useState(false);
+
     const handleChange = useCallback((e) => {
       const { name, value } = e.target;
       setFormData((formData) => ({
@@ -135,7 +133,7 @@ const UpdateSearchNew = React.memo(
       }
     }, []);
 
-    const handleSubmit = async (e) => {
+    const formSubmit = async (e) => {
       e.preventDefault();
       router.push({
         pathname: '/searchResponse',
@@ -163,7 +161,7 @@ const UpdateSearchNew = React.memo(
         } ${className}`}
       >
         <form
-          onSubmit={handleSubmit}
+          onSubmit={formSubmit}
           className={`${
             isScrolled
               ? 'flex items-center flex-row'
@@ -266,7 +264,7 @@ const UpdateSearchNew = React.memo(
           </div>
           <button
             className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-8 text-[#fff]  sm:py-0`}
-            onClick={onClick}
+            onClick={handleSubmit}
           >
             Search Now
           </button>

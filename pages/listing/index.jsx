@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Landing from '../../public/images/Searchlanding.svg';
 import axios from 'axios';
-import DedicatedCard from '@/components/dedicatedCard/DedicatedCard';
-import AircraftDetailsCard from '@/components/listing/AircraftDetailsCard';
 import Loader from '@/components/Utils/Loader';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import { useSearchParams } from 'next/navigation';

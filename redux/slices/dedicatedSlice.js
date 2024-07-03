@@ -1,24 +1,19 @@
 //dedicated Slice
 
+import apiClient from '@/api/apiClient';
+import Endpoint from '@/api/endpoint';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_API_BASE_URL;
-export const DedicatedApi = createAsyncThunk(
-  'api/deicatedairline',
-  async (payload) => {
-    console.log("payload in line 10",payload)
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    const config = {
-      headers,
-    };
-    const response = await axios.post(
-      `http://localhost:8000/customer/dedicatedSearch`,
-      payload,
-      config
-    );
+export const DedicatedApi = createAsyncThunk('/api/dedicated', async (data) => {
+  const response = apiClient.post(Endpoint.DedicatedSearch, data);
+  return response.data;
+});
+
+export const DedicatedSingleApi = createAsyncThunk(
+  `/api/dedicated`,
+  async () => {
+    const response = apiClient.get(Endpoint.DedicatedAircraftByid);
     return response.data;
   }
 );

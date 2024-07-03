@@ -19,6 +19,7 @@ const store = configureStore({
     hospital: hospitalSlice,
     payment: PaymentSlice,
   },
+  devTools: process.env.NODE_ENV !== 'production', // Enable DevTools only in development
 });
 
 export default store;

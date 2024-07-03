@@ -30,8 +30,7 @@ const SearchBar = ({
     useState('');
   const [searchLoading, setSearchLoading] = useState(false);
 
-  console.log('searchResults', searchResults);
-  console.log('originSearchSelected', originSearchSelected);
+
 
   const searchCity = useCallback(
     _debounce((text) => {
