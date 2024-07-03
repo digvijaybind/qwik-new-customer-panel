@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import React, { useState } from 'react';
-import StarRating from '../Utils/starIcon/StarRating';
-import Google from '../../public/images/googleIcon/GoogleIcon.svg';
-import GooglereviewData from '../../db/Googlereview.json';
-import Vijay from '../../public/images/googleReview/vijay.png';
+import Image from "next/image";
+import React, { useState } from "react";
+import StarRating from "../Utils/starIcon/StarRating";
+import Google from "../../public/images/googleIcon/GoogleIcon.svg";
+import GooglereviewData from "../../db/Googlereview.json";
+import Vijay from "../../public/images/googleReview/vijay.png";
 const ExpandText = ({ children, descripationLength }) => {
   const fullText = children;
 
@@ -14,13 +14,13 @@ const ExpandText = ({ children, descripationLength }) => {
   };
 
   return (
-    <div className="">
+    <div className="font-Inter font-normal">
       {isExpanded ? fullText : `${fullText?.slice(0, descripationLength)}`}
       <span
         onClick={toggleText}
         className="text-blue-500 font-medium text-[13px]"
       >
-        {isExpanded ? '' : 'show more '}
+        {isExpanded ? "" : "show more "}
       </span>
     </div>
   );

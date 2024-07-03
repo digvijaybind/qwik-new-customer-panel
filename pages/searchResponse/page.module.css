@@ -1,8 +1,10 @@
 .HeaderBanner {
-  background-image: url('../../public/images/slider/1.png');
+  background-image: url("../../public/images/searchResponse/BannerImage.png");
   background-size: cover;
+  background-position: top;
   height: max-content;
-  min-height: 600px;
+  margin-top: 10rem;
+  min-height: 200px;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -93,7 +95,7 @@
   font-weight: bold;
 }
 
-input[type='radio'].styledRadio {
+input[type="radio"].styledRadio {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -108,7 +110,7 @@ input[type='radio'].styledRadio {
   font-weight: bold;
 }
 
-input[type='radio'].styledRadio:checked {
+input[type="radio"].styledRadio:checked {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

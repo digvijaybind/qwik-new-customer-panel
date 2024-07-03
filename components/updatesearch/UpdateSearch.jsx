@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import styles from './UpdateSearch.module.css';
-import LeftImage from '../../public/images/inputimages/Flight.svg';
-import RightImage from '../../public/images/inputimages/Dropdown.svg';
-import UpdateInput from './UpdateInput';
-import { parsePhoneNumberFromString } from 'libphonenumber-js';
-import { useRouter } from 'next/router';
-import CountryFlag from 'react-country-flag';
-import Select from 'react-select';
+import React, { useEffect, useState } from "react";
+import styles from "./UpdateSearch.module.css";
+import LeftImage from "../../public/images/inputimages/Flight.svg";
+import RightImage from "../../public/images/inputimages/Dropdown.svg";
+import UpdateInput from "./UpdateInput";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { useRouter } from "next/router";
+import CountryFlag from "react-country-flag";
+import Select from "react-select";
 import PhoneInput, {
   getCountries,
   getCountryCallingCode,
-} from 'react-phone-number-input';
-import { useCallback } from 'react';
-import UpdateInputTo from './UpdateInputTo';
+} from "react-phone-number-input";
+import { useCallback } from "react";
+import UpdateInputTo from "./UpdateInputTo";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -39,20 +39,21 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
       return null; // Skip this option if the country code is not valid
     }
 
-    return {
-      value: country,
-      label: (
-        <div className="flex items-center">
-          <div className="mr-2"> (+{callingCode})</div>
-          <CountryFlag
-            countryCode={country}
-            svg
-            style={{ width: '20px', height: '20px' }}
-          />
-        </div>
-      ),
-    };
-  });
+      return {
+        value: country,
+        label: (
+          <div className="flex items-center">
+            <div className="mr-2"> (+{callingCode})</div>
+            <CountryFlag
+              countryCode={country}
+              svg
+              style={{ width: "20px", height: "20px" }}
+            />
+          </div>
+        ),
+      };
+    })
+    .filter(Boolean); // Remove any null values from the options array
 
   return (
     <div className="flex items-center">
@@ -66,14 +67,14 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
           // Custom styles for the select component
           control: (provided) => ({
             ...provided,
-            width: '8rem',
-            minHeight: '2.5rem',
-            backgroundColor: '#eeeee',
-            border: 'none',
+            width: "8rem",
+            minHeight: "2.5rem",
+            backgroundColor: "#eeeee",
+            border: "none",
           }),
           menu: (provided) => ({
             ...provided,
-            backgroundColor: '#ffffff',
+            backgroundColor: "#ffffff",
             zIndex: 9999,
           }),
         }}
@@ -84,9 +85,9 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
 };
 
 const UpdateSearchNew = React.memo(
-  ({ className, handleSubmit, formData, setFormData }) => {
+  ({ className, onClick, setFormData, formData = {}, btnClassName = "" }) => {
     const router = useRouter();
-    const [scrollDirection, setScrollDirection] = useState('static');
+    const [scrollDirection, setScrollDirection] = useState("static");
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleChange = useCallback((e) => {
@@ -105,26 +106,26 @@ const UpdateSearchNew = React.memo(
         if (currentScrollY > 0) {
           setIsScrolled(true);
           if (currentScrollY > lastScrollY) {
-            setScrollDirection('down');
+            setScrollDirection("down");
           } else {
-            setScrollDirection('up');
+            setScrollDirection("up");
           }
         } else {
           setIsScrolled(false);
-          setScrollDirection('static');
+          setScrollDirection("static");
         }
         lastScrollY = currentScrollY;
       };
 
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener("scroll", handleScroll);
       };
     }, []);
     const handlePhoneChange = useCallback((value) => {
-      if (typeof value === 'string') {
+      if (typeof value === "string") {
         const phoneNumber = parsePhoneNumberFromString(value);
-        const countryCode = phoneNumber ? phoneNumber.country : '';
+        const countryCode = phoneNumber ? phoneNumber.country : "";
         setFormData((formData) => ({
           ...formData,
           mobile: value,
@@ -136,7 +137,7 @@ const UpdateSearchNew = React.memo(
     const formSubmit = async (e) => {
       e.preventDefault();
       router.push({
-        pathname: '/searchResponse',
+        pathname: "/searchResponse",
         query: {
           pax: formData?.pax,
           originLocationCode: formData.originLocationCode,
@@ -152,20 +153,20 @@ const UpdateSearchNew = React.memo(
       <div
         className={`${
           isScrolled
-            ? scrollDirection === 'up'
-              ? 'sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]'
-              : scrollDirection === 'down'
-              ? 'sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]'
-              : ''
-            : 'bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300'
+            ? scrollDirection === "up"
+              ? "sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]"
+              : scrollDirection === "down"
+              ? "sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]"
+              : ""
+            : "bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300"
         } ${className}`}
       >
         <form
           onSubmit={formSubmit}
           className={`${
             isScrolled
-              ? 'flex items-center flex-row'
-              : 'flex items-center flex-col'
+              ? "flex items-center flex-row"
+              : "flex items-center flex-col"
           }`}
         >
           <div className={`${styles.container} px-[25px] rounded-md sm:px-0`}>
@@ -174,8 +175,8 @@ const UpdateSearchNew = React.memo(
               <div
                 className={`${
                   isScrolled
-                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
-                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
+                    ? "font-sans font-medium text-[#000] text-[14px] mb-1"
+                    : "font-sans font-medium text-[#000] text-[17px] mb-3"
                 }`}
               >
                 From:
@@ -197,8 +198,8 @@ const UpdateSearchNew = React.memo(
               <div
                 className={`${
                   isScrolled
-                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
-                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
+                    ? "font-sans font-medium text-[#000] text-[14px] mb-1"
+                    : "font-sans font-medium text-[#000] text-[17px] mb-3"
                 }`}
               >
                 To:
@@ -220,8 +221,8 @@ const UpdateSearchNew = React.memo(
               <div
                 className={`${
                   isScrolled
-                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
-                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
+                    ? "font-sans font-medium text-[#000] text-[14px] mb-1"
+                    : "font-sans font-medium text-[#000] text-[17px] mb-3"
                 }`}
               >
                 Date:
@@ -242,8 +243,8 @@ const UpdateSearchNew = React.memo(
               <div
                 className={`${
                   isScrolled
-                    ? 'font-sans font-medium text-[#000] text-[14px] mb-1'
-                    : 'font-sans font-medium text-[#000] text-[17px] mb-3'
+                    ? "font-sans font-medium text-[#000] text-[14px] mb-1"
+                    : "font-sans font-medium text-[#000] text-[17px] mb-3"
                 }`}
               >
                 Mobile Number:
@@ -263,8 +264,8 @@ const UpdateSearchNew = React.memo(
             </div>
           </div>
           <button
-            className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-8 text-[#fff]  sm:py-0`}
-            onClick={handleSubmit}
+            className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-8 text-[#fff]  sm:py-0 ${btnClassName}`}
+            onClick={onClick}
           >
             Search Now
           </button>

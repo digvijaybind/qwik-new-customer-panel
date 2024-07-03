@@ -1,76 +1,21 @@
-'use client';
-import React, {  useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import styles from './page.module.css';
-import UpdatedDedicated from '@/components/dedicatedCard/UpdatedDedicated';
-import MobileSearch from '@/components/mobileSearch/MobileSearch';
-import UpdateCommericial from '@/components/commercialCard/UpdateCommericial';
-import Selectionbutton from '@/components/selectionButton/Selectionbutton';
-import Mobilecard from '@/components/mobileCard/Mobilecard';
-import UpdateMobiletab from '@/components/selectionButton/UpdateMobiletab';
-import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
-import { CommericialApi } from '@/redux/slices/commericialSlice';
-import { DedicatedApi } from '../../redux/slices/dedicatedSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import CommericialContactCard from '@/components/commericialContactCard/CommericialContactCard';
+"use client";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "next/navigation";
+
+import { DedicatedApi } from "@/redux/slices/dedicatedSlice";
+import { CommericialApi } from "@/redux/slices/commericialSlice";
+
+import styles from "../../styles/page.module.css";
+
+import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
+import MobileSearch from "@/components/mobileSearch/MobileSearch";
+import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
+import CommericialSearch from "@/components/searchResponse/CommericialSearch";
+
 const SearchResponse = ({ commericialTab }) => {
-  const searchParams = useSearchParams();
   const dispatch = useDispatch();
-  const [isMobile, setIsMobile] = useState(false);
-  const [selectedTab, setSelectedTab] = useState('commercial');
-  const [airacraftData, setAircraftDataLoading] = useState(false);
-  const [aircraftCommercialDataLoading, setCommercialAircraftDataLoading] =
-    useState(false);
-  const [CharteredData, setcharteredData] = useState({});
-  const [Charteredepature, setcharteredDepature] = useState('BOM');
-  const [ChartereArrival, setchartereArrival] = useState('DXB');
-  const [ChartereId, setchartereId] = useState();
-  const [CommericialId, setCommericialId] = useState();
-  const [destinationLocation, setDestinationLocation] = useState();
-  const [departureLocation, setDepartureLocation] = useState();
-  const [aircraftData, setAircraftData] = useState({});
-  const [selectedCurrency, setSelectedCurrency] = useState('AED');
-  const [selectedOption, setSelectedOption] = useState('Commericial');
-  const [isSticky, setIsSticky] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [formData, setFormData] = useState({
-    pax: 1,
-    originLocationCode: '',
-    destinationLocationCode: '',
-    mobile: '',
-    departureDate: '',
-    countryCode: '',
-  });
-  // console.log(
-  //   'Line number 46 originLocationCode, destinationLocationCode,  departureDate, countryCode',
-  //   originLocationCode,
-  //   destinationLocationCode,
-  //   departureDate,
-  //   countryCode
-  // );
-  useEffect(() => {
-    if (
-      searchParams.has('originLocationCode') &&
-      searchParams.has('destinationLocationCode')
-    ) {
-      const formDetails = {
-        originLocationCode: searchParams.get('originLocationCode'),
-        destinationLocationCode: searchParams.get('destinationLocationCode'),
-        departureDate: searchParams.get('departureDate'),
-        pax: 1,
-        countryCode: searchParams.get('countryCode'),
-        mobile: searchParams.get('mobile'),
-        max: 5,
-      };
-      console.log(
-        'originLocationCode, destinationLocationCode,  departureDate, countryCode',
-        formDetails
-      );
-      setFormData(formDetails);
-    } else {
-      console.log('query params id mising ');
-    }
-  }, [searchParams]);
+  const searchParams = useSearchParams();
 
   const commericialflights = useSelector(
     (state) => state.commericial.commericialflights
@@ -78,30 +23,68 @@ const SearchResponse = ({ commericialTab }) => {
   const DedicatedFlights = useSelector(
     (state) => state.dedicated.dedicatedflights
   );
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [activeTab, setActiveTab] = useState("commercial");
+  const [formData, setFormData] = useState({
+    originLocationCode: "",
+    destinationLocationCode: "",
+    departureDate: "",
+    pax: 1,
+    countryCode: "",
+    mobile: "",
+    max: 5,
+  });
+
   useEffect(() => {
     const handleScroll = () => {
-      setLastScrollY(window.scrollY);
       setIsSticky(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // console.log('formData', formData);
+  useEffect(() => {
+    if (
+      searchParams.has("originLocationCode") &&
+      searchParams.has("destinationLocationCode")
+    ) {
+      const formDetails = {
+        originLocationCode: searchParams.get("originLocationCode"),
+        destinationLocationCode: searchParams.get("destinationLocationCode"),
+        departureDate: searchParams.get("departureDate"),
+        pax: 1,
+        countryCode: searchParams.get("countryCode"),
+        mobile: searchParams.get("mobile"),
+        max: 5,
+      };
+      setFormData(formDetails);
+      // searchCity(formDetails);
+    } else {
+      console.log("query params id mising ");
+    }
+  }, [searchParams]);
+
+  const stableSetFormData = useCallback((data) => {
+    setFormData(data);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData !== null) {
@@ -109,74 +92,103 @@ const SearchResponse = ({ commericialTab }) => {
       dispatch(DedicatedApi(formData));
     }
   };
-  // console.log('formData this is in searchResponse Page', formData);
 
-  console.log('commericialflights this is line 92', commericialflights);
-  console.log('DedicatedFlights this is line 768', DedicatedFlights);
-
-  // console.log('aircraftData line 125 ', aircraftData);
-
-  const handleTabChange = (tab) => {
-    setSelectedTab(tab);
+  const handleTabChange = (e) => {
+    setActiveTab(e.target.value);
   };
-  console.log('aircraftData', aircraftData);
-  // console.log('formData line 119', formData);
 
   return (
     <div>
-      <div className="sm:px-[20px] sm:py-[20px] font-sans bg-[#f4f4f4]">
-        <div className="flex justify-center items-center">
-          {!isMobile ? (
-            <div
-              className={`${styles.HeaderBanner} w-full flex justify-center `}
-            ></div>
-          ) : (
-            <div className="mt-5 mb-5">
-              <MobileSearch formData={formData} handleSubmit={handleSubmit} />
-            </div>
-          )}
-        </div>
-     
-        <div className="px-[55px] py-[20px] bg-[#f4f4f4] sm:bg-transparent sm:px-[10px] sm:py-[10px] relative bottom-[300px] sm:hidden sm:bottom-[0px] ">
-          {!isMobile ? (
-            <div className="flex justify-around bg-[#a8e7f3] px-[30px] py-[25px] rounded-lg border-solid border-2 border-[#19c0f0]">
-              {' '}
-              <Selectionbutton
-                selectedTab={selectedTab}
-                handleTabChange={handleTabChange}
+      <div className="font-sans bg-white">
+        <div className="flex flex-col items-center relative">
+          <img
+            src="/images/searchResponse/BannerImage.png"
+            className="w-full object-cover sm:mt-0 mt-20"
+            alt="banner"
+          />
+          <div className="flex flex-col items-center relative sm:px-7 px-[10%] w-full font-montserrat">
+            {isMobile ? (
+              <MobileSearch
+                formData={formData}
+                setfromSearch={() => {}}
+                className="!w-full !bottom-5"
               />
+            ) : (
+              <UpdateSearchNew
+                className={`${
+                  isSticky
+                    ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
+                    : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24`
+                } `}
+                formData={formData}
+                setFormData={stableSetFormData}
+              />
+            )}
+            <div
+              className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
+              onClick={handleTabChange}
+            >
+              <button
+                value="commercial"
+                className={`${
+                  activeTab === "commercial"
+                    ? "bg-white text-primary"
+                    : "bg-none text-white"
+                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
+              >
+                Commercial Flight
+              </button>
+              <button
+                value="chartered"
+                className={`${
+                  activeTab === "chartered"
+                    ? "bg-white text-primary"
+                    : "bg-none text-white"
+                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
+              >
+                Chartered Flight
+              </button>
             </div>
-          ) : (
-            <UpdateMobiletab
-              selectedTab={selectedTab}
-              handleTabChange={handleTabChange}
-            />
-          )}
-          {!isMobile ? (
-            <div className="grid grid-cols-2 gap-10 mt-[60px] mb-[30px] justify-between px-[10px] sm:px-[0px] ">
+            <div className="w-full grid sm:grid-cols-1 grid-cols-2 gap-7 mt-7 mb-14">
               <div
-                className={`commericial ${
-                  styles.CommericialCard
-                } shadow-2xl bg-[#fff] rounded-2xl  px-[20px] py-[50px] sm:px-[5px] sm:py-[10px] sm:max-w-4xl  border-2 border-solid border-[#eae8e8] ${
-                  selectedTab === 'commercial'
-                    ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300 sm:transition sm:ease-in-out sm:delay-150-translate-y-1 sm:scale-103  sm:duration-300'
-                    : ''
+                className={`grid grid-cols-1 gap-12 ${
+                  !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[20px] sm:w-[193px]   ${
-                    selectedTab === 'commercial'
-                      ? 'bg-[#dbebeb] text-[#12B5E4]'
-                      : 'bg-[#f5f5f5] text-[#D9D9D9]'
-                  }`}
-                >
-                  Commericial Flight
-                </div>
-                <div className="grid grid-cols-1 gap-5">
-                  {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                    (data, index) => {
+                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                  (data, index) => {
+                    return (
+                      <CommericialSearch
+                        key={index}
+                        isMobile={isMobile}
+                        aircraftData={data}
+                        availticket={data.ResponseData.TicketAvailability}
+                        selectedCurrency={selectedCurrency}
+                        handleCurrencyChange={handleCurrencyChange}
+                      />
+                    );
+                  }
+                )}
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" />
+              </div>
+              <div
+                className={`grid grid-cols-1 gap-12 ${
+                  !isMobile || activeTab === "chartered" ? "grid" : "hidden"
+                }`}
+              >
+                {(!commericialflights?.ResponseData
+                  ?.AirCraftDatawithNotechStop ||
+                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop
+                    ?.length === 0) &&
+                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data) => {
                       return (
-                        <UpdateCommericial
+                        <CommericialSearch
+                          type="commercial"
                           key={index}
                           isMobile={isMobile}
                           aircraftData={data}
@@ -187,60 +199,14 @@ const SearchResponse = ({ commericialTab }) => {
                       );
                     }
                   )}
-                  {(!commericialflights?.ResponseData
-                    ?.AirCraftDatawithNotechStop ||
-                    commericialflights?.ResponseData?.AirCraftDatawithNotechStop
-                      ?.length === 0) &&
-                    commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
-                      (data) => {
-                        return (
-                          <UpdateCommericial
-                            key={index}
-                            isMobile={isMobile}
-                            aircraftData={data}
-                            availticket={data.ResponseData.TicketAvailability}
-                            selectedCurrency={selectedCurrency}
-                            handleCurrencyChange={handleCurrencyChange}
-                          />
-                        );
-                      }
-                    )}
-                  {commericialflights?.ResponseData === 0 ||
-                  commericialflights?.ResponseData === undefined ? (
-                    <CommericialContactCard />
-                  ) : (
-                    ''
-                  )}
-                </div>
-              </div>
-              <div
-                className={`dedicated ${
-                  styles.DedicatedCard
-                } shadow-2xl bg-[#fff] rounded-2xl px-[20px] py-[50px] sm:px-[10px] sm:py-[10px] border-2 border-solid border-[#eae8e8] ${
-                  selectedTab === 'dedicated'
-                    ? 'transition ease-in-out delay-150 -translate-y-1 scale-105  duration-300'
-                    : ''
-                }`}
-              >
-                <div
-                  className={` h-[40px] w-[193px]  font-extrabold flex justify-center items-center rounded-md relative bottom-[50px] right-[20px]  ${
-                    selectedTab === 'dedicated'
-                      ? 'bg-[#dbebeb] text-[#12B5E4]'
-                      : 'bg-[#f5f5f5] text-[#D9D9D9]'
-                  }`}
-                >
-                  Charter Flight
-                </div>
-                <div className="grid grid-cols-1 gap-5">
-                  <UpdatedDedicated isMobile={isMobile} />
-                </div>
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" />
               </div>
             </div>
-          ) : (
-            <div className="mt-5">
-              <Mobilecard />
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

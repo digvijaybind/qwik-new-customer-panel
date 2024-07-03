@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import countries from '../../db/country.json';
-import UpdateInputTo from '../updatesearch/UpdateInputTo';
-import LeftImage from '../../public/images/inputimages/Flight.svg';
-import RightImage from '../../public/images/inputimages/Dropdown.svg';
-import CountryFlag from 'react-country-flag';
-import UpdateInput from '../updatesearch/UpdateInput';
+import React, { useState } from "react";
+import countries from "../../db/country.json";
+import UpdateInputTo from "../updatesearch/UpdateInputTo";
+import LeftImage from "../../public/images/inputimages/Flight.svg";
+import RightImage from "../../public/images/inputimages/Dropdown.svg";
+import CountryFlag from "react-country-flag";
+import UpdateInput from "../updatesearch/UpdateInput";
 import PhoneInput, {
   getCountries,
   getCountryCallingCode,
-} from 'react-phone-number-input';
-import styles from '../updatesearch/UpdateSearch.module.css';
-import Select from 'react-select';
+} from "react-phone-number-input";
+import styles from "../updatesearch/UpdateSearch.module.css";
+import Select from "react-select";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -26,7 +26,7 @@ const CustomPhoneInput = React.forwardRef(
     );
   }
 );
-const MobileSearch = ({ onClick }) => {
+const MobileSearch = ({ onClick, className = "" }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const handleSelectChange = (e) => {
     const countryCode = e.target.value;
@@ -52,7 +52,7 @@ const MobileSearch = ({ onClick }) => {
               <CountryFlag
                 countryCode={country}
                 svg
-                style={{ width: '20px', height: '20px' }}
+                style={{ width: "20px", height: "20px" }}
               />
             </div>
           ),
@@ -71,14 +71,14 @@ const MobileSearch = ({ onClick }) => {
           styles={{
             control: (provided) => ({
               ...provided,
-              width: '8rem',
-              minHeight: '2.5rem',
-              backgroundColor: '#eeeee',
-              border: 'none',
+              width: "8rem",
+              minHeight: "2.5rem",
+              backgroundColor: "#eeeee",
+              border: "none",
             }),
             menu: (provided) => ({
               ...provided,
-              backgroundColor: '#ffffff',
+              backgroundColor: "#ffffff",
               zIndex: 9999,
             }),
           }}
@@ -88,7 +88,9 @@ const MobileSearch = ({ onClick }) => {
   };
 
   return (
-    <div className="flex flex-col items-center font-sans  px-10 py-20  sm:py-2 bg-white borde-2 border-gray-700 shadow rounded relative bottom-20">
+    <div
+      className={`flex flex-col items-center font-sans  px-10 py-20  sm:py-2 bg-white borde-2 border-gray-700 shadow rounded relative bottom-20 ${className}`}
+    >
       <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
           LeftImage={LeftImage}

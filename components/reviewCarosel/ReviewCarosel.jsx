@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Review from '../../db/Googlereview.json';
-import Googlereview from '../googlreview/Googlereview';
+import React, { useEffect, useState } from "react";
+import Review from "../../db/Googlereview.json";
+import Googlereview from "../googlreview/Googlereview";
 
 const ReviewCarosel = React.memo(({ interval = 4000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,8 +31,8 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
 
     updateSlidesToShow();
 
-    window.addEventListener('resize', updateSlidesToShow);
-    return () => window.removeEventListener('resize', updateSlidesToShow);
+    window.addEventListener("resize", updateSlidesToShow);
+    return () => window.removeEventListener("resize", updateSlidesToShow);
   }, []);
 
   if (!isMounted) {
@@ -47,7 +47,7 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
       <div className="flex justify-center items-center flex-col  text-[25px] mb-10 font-semibold">
         <div>Testimonials</div>
         <hr class="bg-[#19c0f0] h-[3px] w-[55px] mt-2 sm:mx-auto mb-3"></hr>
-        <span className=" text-[15px]  font-semibold">
+        <span className=" text-[15px] Font-Inter font-semibold">
           Here's what our satisfied clients are saying
         </span>
       </div>
@@ -63,7 +63,7 @@ const ReviewCarosel = React.memo(({ interval = 4000 }) => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center mt-10 text-center text-[18px] sm:text-[12px]  border-b-2 border-[#000] pb-2 ">
+      <div className="flex justify-center items-center mt-10 text-center text-[18px] sm:text-[12px]  font-Inter border-b-2 border-[#000] pb-2 ">
         <span className="font-black">Google&nbsp;</span> rating score: 4.9 of 5
         based on <span className="font-black">&nbsp;54 reviews</span>
       </div>
