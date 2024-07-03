@@ -55,8 +55,8 @@ const WorkwithUs = () => {
           <h2 className="text-[25px]  text-[#111] font-sans font-bold">
             Partner with us
           </h2>
-          <hr class="bg-[#11B6E3] h-[4px] w-[45px] sm:mx-auto"></hr>
-          <p className="pt-[10px]  text-[14px] font-sans font-normal">
+          <hr class="bg-[#11B6E3] h-[4px] w-[45px] mx-auto sm:mx-auto"></hr>
+          <p className="pt-[10px]  text-[16px] font-sans font-normal">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,
@@ -64,7 +64,7 @@ const WorkwithUs = () => {
             pilots to join us in our mission to provide the highest quality air
             ambulance services.
           </p>
-          <p className="pt-[10px] text-[14px] font-sans font-normal">
+          <p className="pt-[10px] text-[16px] font-sans font-normal">
             If you are committed to delivering exceptional care and service, and
             if you thrive in a dynamic and challenging environment, we want to
             hear from you. Join us at Qwiklif and be a part of a team that is
@@ -72,10 +72,10 @@ const WorkwithUs = () => {
             time.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] py-[5px] sm:px-[25px] sm:py-[5px] flex-wrap ">
+        <div className="flex justify-between sm:items-center px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm: flex-wrap  ">
           {service.map((data, i) => (
             <div
-              className={`w-[30%] sm:w-[100%] mt-[20px] sm:mt-[0px]`}
+              className={`w-[30%] sm:w-[100%] mt-[20px] sm:mt-[15px]`}
               key={i}
             >
               <UpdatecareerCard
