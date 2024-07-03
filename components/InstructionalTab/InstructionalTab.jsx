@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './InstructionalTab.module.css'; // Import the CSS module
 import { useRouter } from 'next/router';
-import SearchResponse from '@/pages/searchResponse';
+import SearchResponse from '@/pages/SearchResultsPage';
 const instructions = [
   'In commericial Airline ,You are able to book commericial Airline stretcher with our paramedics and experience doctors',
   'In Dedicated Aircraft, You are able to book Chartered Aircraft with Our paramedics and experienced doctors ',

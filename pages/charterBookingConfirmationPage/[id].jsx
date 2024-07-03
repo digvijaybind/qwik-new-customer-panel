@@ -1,16 +1,17 @@
 import React from 'react';
-import styles from './improveCommericial.module.css'; //imported style css file
+import styles from './improvededicated.module.css'; //imported style css file
 import { TbArrowsExchange2 } from 'react-icons/tb'; // imported reverse icon
 import Airline from '../../public/images/commerialImages/Airline.svg'; //imported airline image
 import Image from 'next/image';
 import Strectres from '../../public/images/bookingIcon/strectres.png'; //imported medical equiment icon
 import Oxygen from '../../public/images/bookingIcon/oxygen.svg'; //imported medical equiment icon
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png'; //imported medical equiment icon
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.png";
 import Doctors from '../../public/images/bookingIcon/doctor.png'; //imported medical equiment icon
 import FinalImageCarosel from '@/components/Utils/ImagesCarosel/FinalImageCarosel';
 import Signature from '../../public/images/Signature.svg';
-import Important from '../../db/importantCommericial.json';
+import Important from '../../db/importantDedicated.json';
 import Point from '../../public/images/PointIcon.svg';
+import Bill from '../../public/images/utils/Billlogo.svg'; //imported bill logo
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
 import Commerialtransfer from '../../public/images/commericial-transfer/Banner.svg';
@@ -18,7 +19,6 @@ import Patience from '../../public/images/commericial-transfer/Patenice.svg';
 import airLift from '../../public/images/commericial-transfer/airLift.svg';
 import Transfer from '../../public/images/commericial-transfer/Transfer.svg';
 import Vistara from '../../public/images/commericial-transfer/aircraft.svg';
-import Bill from '../../public/images/utils/Billlogo.svg'; //imported bill logo
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 const TravelDuration = () => {
   return (
@@ -58,13 +58,13 @@ const TravelDuration = () => {
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
               <span className="font-black text-[14px] text-[#171A1F]">
-                Vistara
+                Learjet 45
               </span>{' '}
-              UK 583 , UK 846{' '}
+              {/* UK 583 , UK 846{' '} */}
             </div>
           </div>
           <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
-            Commericial Flight
+            Charter Flight
           </div>
         </div>
       </div>
@@ -352,7 +352,7 @@ const Guarantee = () => {
         OUR GUARANTEE
       </div>
       <hr class="bg-[#11B6E3] h-[4px] w-[40px] sm:mx-auto"></hr>
-      <div class=" text-[14px] font-normal   font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
+      <div class="text-[14px] font-normal   font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
         patient as family, we strive for perfection, and continuously monitor
@@ -394,7 +394,7 @@ const ImportantInfo = () => {
   );
 };
 /* main component*/
-const ImproveCommericial = () => {
+const charterBookingConfirmationPage = () => {
   return (
     <div className={`${styles.Container}`}>
       <div className="px-[15px] font-sans z-0">
@@ -413,4 +413,4 @@ const ImproveCommericial = () => {
   );
 };
 
-export default ImproveCommericial;
+export default charterBookingConfirmationPage;
