@@ -88,7 +88,7 @@ const Newfooter = () => {
           {FleetData.map((data, index) => {
             return (
               <div
-                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
+                className="text-[15px] text-[#fff] cursor-pointer font-Inter mb-1 mt-1 content-center hover:text-primary"
                 key={'fleetdata-' + index}
               >
                 {data}
@@ -97,14 +97,14 @@ const Newfooter = () => {
           })}
         </div>
         <div className="flex flex-col content-center">
-          <div className="text-white cursor-pointer  font-sans text-xl content-center font-medium">
+          <div className="text-white cursor-pointer  font-Inter text-xl content-center font-medium">
             Our Services
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
           {ServiceData.map((data, index) => {
             return (
               <div
-                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-primary"
+                className="text-[15px] text-[#fff] cursor-pointer Font-Inter mb-1 mt-1 content-center hover:text-primary"
                 key={'servicedata-' + index}
               >
                 {data}
@@ -120,7 +120,7 @@ const Newfooter = () => {
           {LocationData.map((data, index) => {
             return (
               <div
-                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
+                className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1  Font-Inter content-center hover:text-[#3788d8]"
                 key={'locationdata-' + index}
               >
                 {data}
@@ -133,21 +133,21 @@ const Newfooter = () => {
             Qwiklif Air Ambulance
           </div>
           <hr className="h-0.5 mt-2 mb-4 border-none bg-slate-600 w-12 rounded-md" />
-          <div className="text-[15px] text-[#fff]  cursor-pointer sm:ml-0 md:ml-0 mb-2">
+          <div className="text-[15px] text-[#fff] font-Inter cursor-pointer sm:ml-0 md:ml-0 mb-2">
             Qwiklif Air Ambulance, Warehouse No.3 - Al Qusais Industrial Area 3
             - Dubai
           </div>
           <div className="flex flex-row sm:flex sm:items-center sm:justify-center">
             <Image src={Phone} height={30} width={30} />
             <span className="text-[15px] text-[#fff] ml-4 cursor-pointer sm:ml-0 mb-2 hover:text-[#3788d8] sm:text-[15px] sm:mb-0 sm:ml-2">
-              <a href=" +971 50 282 5433 text-[20px] font-extrabold hover:text-[#3788d8]">
+              <a href=" +971 50 282 5433 text-[20px] font-extrabold hover:text-[#3788d8] font-Inter">
                 +971 50 282 5433
               </a>
             </span>
           </div>
           <div className=" flex flex-row">
             <Image src={Mail} height={30} width={30} />
-            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer hover:text-[#3788d8]">
+            <span className="text-[15px] text-[#fff] ml-4 cursor-pointer hover:text-[#3788d8] font-Inter">
               <a href="mailto:info@qwiklif.com">info@qwiklif.com</a>
             </span>
           </div>
@@ -156,7 +156,7 @@ const Newfooter = () => {
       {/*  */}
       <div className="flex justify-center flex-col items-center  font-sans pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
         <Image src={Logo} height={53} width={150} className="cursor-pointer" />
-        <div className="font-thin text-[14px] text-[#fff] mt-2 mb-2  font-sans hover:text-[#3788d8]">
+        <div className="font-thin text-[14px] text-[#fff] mt-2 mb-2  font-sans hover:text-[#3788d8] font-Inter">
           © 2024 Qwiklif. All rights reserved.{' '}
         </div>
         <div className="grid grid-cols-5 gap-5">

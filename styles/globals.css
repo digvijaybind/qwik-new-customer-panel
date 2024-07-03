@@ -3,27 +3,63 @@
 @tailwind utilities;
 /* styles.css or index.css */
 @import './custom.css';
+/* font.css */
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 @import '../styles//PhoneInputCustom.css';
 
 @layer base {
+   @font-face {
+    font-family: 'Inter-Regular';
+    src: local('Inter-Regular'),
+      url('./fonts/Inter/Inter-Regular.otf') format('otf');
+  }
+     @font-face {
+    font-family: 'Inter-Bold';
+    src: local('Inter-Bold'),
+      url('./fonts/Inter/Inter-Bold.otf') format('otf');
+  }
+  @font-face {
+    font-family: 'Montserrat-Regular';
+    src: local('Montserrat-Regular'),
+      url('./fonts/Montserrat/Montserrat-Regular.ttf') format('ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat-bold';
+    src: local('Montserrat-bold'),
+      url('./fonts/Montserrat/Montserrat-Bold.ttf') format('ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat-ExtraBold';
+    src: local('Montserrat-extrabold'),
+      url('./fonts/Montserrat/Montserrat-ExtraBold.ttf') format('ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat-Medium';
+    src: local('Montserrat-medium'),
+      url('./fonts/Montserrat/Montserrat-Medium.ttf') format('ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: local('Montserrat-bold'),
+      url('./fonts/Montserrat/Montserrat-SemiBold.ttf') format('ttf');
+  }
   @font-face {
     font-family: 'EBGaramond-Regular';
     src: local('EBGaramond-Regular'),
       url('./fonts/eb-garamond/EBGaramond-Regular.ttf') format('ttf');
   }
-    @font-face {
+  @font-face {
     font-family: 'EBGaramond-Bold';
     src: local('EBGaramond-Bold'),
       url('./fonts/eb-garamond/EBGaramond-Bold.ttf') format('ttf');
   }
-     @font-face {
+  @font-face {
     font-family: 'EBGaramond-SemiBold';
     src: local('EBGaramond-SemiBold'),
       url('./fonts/eb-garamond/EBGaramond-SemiBold.ttf') format('ttf');
   }
-       @font-face {
+  @font-face {
     font-family: 'EBGaramond-Medium';
     src: local('EBGaramond-Medium'),
       url('./fonts/eb-garamond/EBGaramond-Medium.ttf') format('ttf');
@@ -38,7 +74,7 @@
     src: local('Arca Majora 3 Heavy'),
       url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
   }
-    @font-face {
+  @font-face {
     font-family: 'Ed garamond';
     src: local('Ed garamond'),
       url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
