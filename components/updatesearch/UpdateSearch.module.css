@@ -11,6 +11,7 @@
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .inputField::placeholder {
@@ -19,6 +20,7 @@
   color: #000;
   min-width: 60px;
   font-weight: bold;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 
@@ -60,6 +62,7 @@
   min-width: 60px;
   font-weight: bold;
   font-size: 14px;
+  font-family: "Inter", sans-serif;
 }
 
 .customPhoneInput::placeholder {
@@ -69,6 +72,7 @@
   min-width: 60px;
   font-weight: bold;
   font-size: 14px;
+  font-family: "Inter", sans-serif;
 }
 
 /* PhoneInputCustom.module.css */
@@ -87,7 +91,7 @@
   .PhoneInputCountry
   .PhoneInputCountryIcon
   .PhoneInputCountryIconImg {
-  width: 24px !important; 
+  width: 24px !important;
 }
 
 .phoneInput .PhoneInputCountry .PhoneInputCountrySelect {
@@ -125,15 +129,13 @@
   background-size: contain;
 } */
 
-.customDateInput input[type='date']::placeholder {
+.customDateInput input[type="date"]::placeholder {
   color: gray;
 }
-
 
 @media (min-width: 1366px) {
   /* Styles specific to Dell laptops */
 }
-
 
 @media (min-width: 1440px) {
   /* Styles specific to MacBook Air */
@@ -142,4 +144,3 @@
 @media (min-width: 1280px) {
   /* Styles specific to HP laptops */
 }
-

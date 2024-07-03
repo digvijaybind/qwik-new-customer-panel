@@ -13,7 +13,7 @@
 .customDateInput::-webkit-datetime-edit {
   color: #a5a5a5;
 }
-.customDateInput input[type='date']::placeholder {
+.customDateInput input[type="date"]::placeholder {
   color: #a5a5a5;
 }
 
@@ -21,6 +21,7 @@
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #000 !important;
 }
@@ -35,6 +36,7 @@
   outline: none;
   background-color: #eeeeee;
   min-width: 60px;
+  font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 14px;
 }
@@ -43,6 +45,7 @@
   color: #a5a5a5;
   min-width: 60px;
   font-weight: semibold;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 /* .customDateInput::placeholder {
@@ -59,12 +62,14 @@
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
+    font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .inputField::placeholder {
   color: #a5a5a5;
   min-width: 60px;
   font-weight: semibold;
+    font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .inputField:focus {

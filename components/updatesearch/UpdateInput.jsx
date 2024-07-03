@@ -1,12 +1,12 @@
 //import libraries and components
-import React from 'react';
-import styles from './Input.module.css';
-import Image from 'next/image';
-import { FaPlaneDeparture } from 'react-icons/fa6';
-import { RiFlightLandLine } from 'react-icons/ri';
-import LeftImage from '../../public/images/inputimages/Flight.svg';
-import { FaPlaneArrival } from 'react-icons/fa';
-import { GiAirplaneDeparture } from 'react-icons/gi';
+import React from "react";
+import styles from "./Input.module.css";
+import Image from "next/image";
+import { FaPlaneDeparture } from "react-icons/fa6";
+import { RiFlightLandLine } from "react-icons/ri";
+import LeftImage from "../../public/images/inputimages/Flight.svg";
+import { FaPlaneArrival } from "react-icons/fa";
+import { GiAirplaneDeparture } from "react-icons/gi";
 const UpdateInput = React.memo(
   ({
     LeftImage,
@@ -26,16 +26,16 @@ const UpdateInput = React.memo(
 
         {LeftIcon && (
           <GiAirplaneDeparture
-            style={{ marginRight: '5px', height: '30px', width: '30px' }}
+            style={{ marginRight: "5px", height: "30px", width: "30px" }}
           />
         )}
 
         {/*input type with props */}
         <input
           type={type}
-          className={`${className} ${
-            type === 'date' ? styles.customDateInput : ''
-          } ${styles.inputField}  ${value !== '' ? styles.dateInput : ''}`}
+          className={`${className} font-Inter ${
+            type === "date" ? styles.customDateInput : ""
+          } ${styles.inputField}  ${value !== "" ? styles.dateInput : ""}`}
           placeholder={placeholder}
           name={name}
           value={value}
