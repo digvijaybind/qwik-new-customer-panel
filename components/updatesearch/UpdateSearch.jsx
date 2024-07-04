@@ -31,6 +31,7 @@ const CustomPhoneInput = React.forwardRef(
   }
 );
 
+CustomPhoneInput.displayName = "CustomPhoneInput";
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
 
@@ -330,4 +331,5 @@ const UpdateSearchNew = React.memo(
   }
 );
 
+UpdateSearchNew.displayName = "UpdateSearchNew";
 export default UpdateSearchNew;

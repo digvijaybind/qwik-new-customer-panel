@@ -1,13 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import styles from './Searchbar.module.css';
-import { FaSearch } from 'react-icons/fa';
-import DatePicker from 'react-datepicker';
-import countries from '../../db/country.json';
-import 'react-datepicker/dist/react-datepicker.css';
-import Loader from '../Utils/Loader';
-import _debounce from 'lodash/debounce';
-import axios from 'axios';
-import SearchButton from '../searchButton/SearchButton';
+import React, { useCallback, useEffect, useState } from "react";
+import styles from "./Searchbar.module.css";
+import { FaSearch } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import countries from "../../db/country.json";
+import "react-datepicker/dist/react-datepicker.css";
+import Loader from "../Utils/Loader";
+import _debounce from "lodash/debounce";
+import axios from "axios";
+import SearchButton from "../searchButton/SearchButton";
+import { FaX } from "react-icons/fa6";
 
 const InputSearch = (onChange, className, onBlur, value) => {
   return (
@@ -29,40 +30,40 @@ const InputSearch = (onChange, className, onBlur, value) => {
 
 const SampleInput = () => {};
 const suggestions = [
-  { name: 'New York' },
-  { name: 'Los Angeles' },
-  { name: 'Chicago' },
-  { name: 'Houston' },
-  { name: 'Phoenix' },
+  { name: "New York" },
+  { name: "Los Angeles" },
+  { name: "Chicago" },
+  { name: "Houston" },
+  { name: "Phoenix" },
 ];
 
-// const AutoSuggestInput = ({
-//   name,
-//   type,
-//   placeholder,
-//   onFocus,
-//   value,
-//   onChange,
-//   SearchButton,
-//   className,
-// }) => {
-//   return (
-//     <div className="flex justify-around items-center bg-[#fff]  px-2 py-1 h-[50px] w-[200px] rounded shadow-2xl  shadow-[#e2e0e0]">
-//       <div className={`pr-2 ${className} flex items-center`}>
-//         <FaSearch />
-//       </div>
-//       <input
-//         className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
-//         name={name}
-//         type={type}
-//         placeholder={placeholder}
-//         onFocus={onFocus}
-//         value={value}
-//         onChange={onChange}
-//       />
-//     </div>
-//   );
-// };
+const AutoSuggestInput = ({
+  name,
+  type,
+  placeholder,
+  onFocus,
+  value,
+  onChange,
+  SearchButton,
+  className,
+}) => {
+  return (
+    <div className="flex justify-around items-center bg-[#fff]  px-2 py-1 h-[50px] w-[200px] rounded shadow-2xl  shadow-[#e2e0e0]">
+      <div className={`pr-2 ${className} flex items-center`}>
+        <FaSearch />
+      </div>
+      <input
+        className={`bg-transparent py-3 focus:outline-none ${styles.InputText}`}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        onFocus={onFocus}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
+};
 
 const UpdateSearch = ({
   handleSubmit,
@@ -74,18 +75,18 @@ const UpdateSearch = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [activeInput, setactiveInput] = useState(null);
-  const [formattedDate, setFormattedDate] = useState('');
-  const [displayText, setDisplayText] = useState('Click here to enter text');
+  const [formattedDate, setFormattedDate] = useState("");
+  const [displayText, setDisplayText] = useState("Click here to enter text");
   const [searchResults, setSearchResults] = useState([]);
   const [originFocus, setOriginFocus] = useState(false);
   const [destinationFocus, setDestinationFocus] = useState(false);
-  const [originSearch, setOriginSearch] = useState('');
+  const [originSearch, setOriginSearch] = useState("");
   const [originSearchSelected, setoriginSearchSelected] = useState(null);
-  const [destinationSearch, setDestinationSearch] = useState('');
+  const [destinationSearch, setDestinationSearch] = useState("");
   const [destinationSearchSelected, setdestinationSearchSelected] =
-    useState('');
+    useState("");
   const [searchLoading, setSearchLoading] = useState(false);
   const handleDivClick = (index) => {
     setactiveInput(index);
@@ -95,7 +96,7 @@ const UpdateSearch = ({
     _debounce((text) => {
       setSearchLoading(true);
       axios(`http://localhost:8000/all-airports`, {
-        method: 'GET',
+        method: "GET",
         params: { q: text },
       })
         .then(({ data }) => {
@@ -132,13 +133,13 @@ const UpdateSearch = ({
 
   const handleClosePopup = () => {
     setIsOpen(false);
-    setValue('');
+    setValue("");
     setactiveInput(null);
   };
 
   const handleInputBlur = () => {
     setIsOpen(false);
-    setDisplayText(inputValue || 'Click here to enter text');
+    setDisplayText(inputValue || "Click here to enter text");
   };
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -157,10 +158,10 @@ const UpdateSearch = ({
   useEffect(() => {
     const eventHandler = (e) => {
       const originContainer = document.getElementById(
-        'originLocationContainer'
+        "originLocationContainer"
       );
       const destinationContainer = document.getElementById(
-        'destinationLocationContainer'
+        "destinationLocationContainer"
       );
       if (originContainer && !originContainer?.contains(e.target)) {
         setOriginFocus(false);
@@ -169,9 +170,9 @@ const UpdateSearch = ({
         setDestinationFocus(false);
       }
     };
-    document.addEventListener('mouseup', eventHandler);
+    document.addEventListener("mouseup", eventHandler);
 
-    return () => document.removeEventListener('mouseup', eventHandler);
+    return () => document.removeEventListener("mouseup", eventHandler);
   }, []);
 
   return (
@@ -206,14 +207,14 @@ const UpdateSearch = ({
                       value={formData.originLocationCode}
                       onChange={(e) => {
                         setOriginSearch(e.target.value);
-                        handleInputChange('originLocationCode', e);
+                        handleInputChange("originLocationCode", e);
                       }}
                     />
                   ) : (
                     <div>
                       <div className="flex-1 h-full py-2">
                         <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2 border-l-2 border-white px-5 ">
-                          {originSearchSelected?.city_name}{' '}
+                          {originSearchSelected?.city_name}{" "}
                           {originSearchSelected?.iata
                             ? `(${originSearchSelected?.iata})`
                             : null}
@@ -228,7 +229,7 @@ const UpdateSearch = ({
                 </div>
                 <ul
                   className={`w-full absolute bottom-0 translate-y-full bg-white shadow-md max-h-48 overflow-y-auto ${
-                    originFocus ? '' : 'hidden'
+                    originFocus ? "" : "hidden"
                   }`}
                 >
                   {searchLoading && (
@@ -241,13 +242,13 @@ const UpdateSearch = ({
                       return (
                         <li
                           className="w-full px-3 py-1.5 hover:bg-primary/5 cursor-pointer"
-                          key={'origin-search-result' + index}
+                          key={"origin-search-result" + index}
                           onClick={(e) => {
                             e.stopPropagation();
                             setOriginSearchSelected(location);
-                            handleInputChange('originLocationCode', {
+                            handleInputChange("originLocationCode", {
                               target: {
-                                name: 'originLocationCode',
+                                name: "originLocationCode",
                                 value: location?.iata ?? location?.city_name,
                               },
                             });
@@ -293,14 +294,14 @@ const UpdateSearch = ({
                         value={formData.destinationLocationCode}
                         onChange={(e) => {
                           setDestinationSearch(e.target.value);
-                          handleInputChange('destinationLocationCode', e);
+                          handleInputChange("destinationLocationCode", e);
                         }}
                       />
                     )}
                     {destinationSearchSelected?.city_name && (
                       <div className="flex-1 h-full py-2">
                         <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2">
-                          {destinationSearchSelected?.city_name}{' '}
+                          {destinationSearchSelected?.city_name}{" "}
                           {destinationSearchSelected?.iata
                             ? `(${destinationSearchSelected?.iata})`
                             : null}
@@ -314,7 +315,7 @@ const UpdateSearch = ({
                   </div>
                   <ul
                     className={`w-full absolute bottom-0 translate-y-full bg-white shadow-md max-h-48 overflow-y-auto ${
-                      destinationFocus ? '' : 'hidden'
+                      destinationFocus ? "" : "hidden"
                     }`}
                   >
                     {searchLoading && (
@@ -327,13 +328,13 @@ const UpdateSearch = ({
                         return (
                           <li
                             className="w-full px-3 py-1.5 hover:bg-primary/5 cursor-pointer border-l-2 border-white px-5"
-                            key={'destination-search-result' + index}
+                            key={"destination-search-result" + index}
                             onClick={(e) => {
                               e.stopPropagation();
                               setDestinationSearchSelected(location);
-                              handleInputChange('destinationLocationCode', {
+                              handleInputChange("destinationLocationCode", {
                                 target: {
-                                  name: 'destinationLocationCode',
+                                  name: "destinationLocationCode",
                                   value: location?.iata ?? location?.city_name,
                                 },
                               });
@@ -403,8 +404,8 @@ const UpdateSearch = ({
                       <FaX
                         className="mx-2 text-black text-xs cursor-pointer"
                         onClick={() =>
-                          handleInputChange('countryCode', {
-                            target: { name: 'countryCode', value: '' },
+                          handleInputChange("countryCode", {
+                            target: { name: "countryCode", value: "" },
                           })
                         }
                       />
@@ -419,7 +420,7 @@ const UpdateSearch = ({
                   <select
                     value={formData.countryCode}
                     name="countryCode"
-                    onChange={(e) => handleInputChange('countryCode', e)}
+                    onChange={(e) => handleInputChange("countryCode", e)}
                     className={`focus:outline-none bg-transparent border-none max-w-48 sm:max-w-80 ${styles.SelectText}`}
                   >
                     {countries.map((data) => (
@@ -442,7 +443,7 @@ const UpdateSearch = ({
               <div className={`  rounded-[5px]  px-[10px] py-[10px]`}>
                 <label for="mobile flex flex-col">
                   <span className="font-sans text-[15px] font-normal">
-                    {' '}
+                    {" "}
                     Mobile no.
                   </span>
                   {activeInput === 5 && !formData.mobile ? (
@@ -452,7 +453,7 @@ const UpdateSearch = ({
                       type="tel"
                       placeholder="Mobile"
                       value={formData.mobile}
-                      onChange={(e) => handleInputChange('mobile', e)}
+                      onChange={(e) => handleInputChange("mobile", e)}
                     />
                   ) : (
                     <div

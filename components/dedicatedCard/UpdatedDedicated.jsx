@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './DedicatedCard.module.css';
-import Learjet from '../../public/images/airline-mini-logo/learjet-405.svg';
-import Image from 'next/image';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
+import React from "react";
+import styles from "./DedicatedCard.module.css";
+import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
+import Image from "next/image";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import MedicalInstruments from "../medicalInstrument/MedicalInstrument";
 const UpdatedDedicated = ({}) => {
   return (
     <div

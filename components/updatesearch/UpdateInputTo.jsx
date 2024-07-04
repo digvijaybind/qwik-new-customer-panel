@@ -47,5 +47,6 @@ const UpdateInputTo = ({
     </div>
   );
 };
+UpdateInputTo.displayName = "UpdateInputTo";
 
 export default UpdateInputTo;

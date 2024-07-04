@@ -1,17 +1,18 @@
-import {BlogsCard} from "@/components/blog/BlogsCard";
+import { BlogsCard } from "@/components/blog/BlogsCard";
 import React from "react";
 
-const User = ({blogs}) => {
+const User = ({ blogs }) => {
   console.log("blogs", blogs);
   return (
     <div className="grid grid-cols-3 gap-4">
       {blogs &&
-        blogs.map((data) => (
-          <div key={data.id}>
+        blogs.map((data, index) => (
+          <div key={index}>
             {data.yoast_head_json.og_image &&
-              data.yoast_head_json.og_image.map((img) => {
+              data.yoast_head_json.og_image.map((img, index) => {
                 return (
                   <BlogsCard
+                    key={index}
                     src={data.yoast_head_json.og_image.img}
                     title={data.title.rendered}
                     date={data.date}

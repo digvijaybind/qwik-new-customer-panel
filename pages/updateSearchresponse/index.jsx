@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './updateSearchresponse.module.css';
 import MobileSearch from '@/components/mobileSearch/MobileSearch';
 
-const updateSearchresponse = () => {
+const UpdateSearchresponse = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -65,4 +65,4 @@ const updateSearchresponse = () => {
   );
 };
 
-export default updateSearchresponse;
+export default UpdateSearchresponse;

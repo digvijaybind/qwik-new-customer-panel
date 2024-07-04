@@ -1,58 +1,58 @@
-import React from 'react';
-import Phone from '../../public/images/Phone.svg';
-import Mail from '../../public/images/Mail.svg';
-import Image from 'next/image';
-import Logo from '../../public/images/logo.svg';
-import Linkedin from '../../public/images/socialmedia/linkedin.svg';
-import Insta from '../../public/images/socialmedia/Insta.svg';
-import Tiktok from '../../public/images/socialmedia/tiktok.svg';
-import Twitter from '../../public/images/socialmedia/Twitter.svg';
-import Facebook from '../../public/images/socialmedia/facebook.svg';
-import Link from 'next/link';
-import { StyledSection } from '../shared';
+import React from "react";
+import Phone from "../../public/images/Phone.svg";
+import Mail from "../../public/images/Mail.svg";
+import Image from "next/image";
+import Logo from "../../public/images/logo.svg";
+import Linkedin from "../../public/images/socialmedia/linkedin.svg";
+import Insta from "../../public/images/socialmedia/Insta.svg";
+import Tiktok from "../../public/images/socialmedia/tiktok.svg";
+import Twitter from "../../public/images/socialmedia/Twitter.svg";
+import Facebook from "../../public/images/socialmedia/facebook.svg";
+import Link from "next/link";
+import { StyledSection } from "../shared";
 
 const QwiklifData = [
-  { name: 'About us', link: '/about' },
-  { name: 'Media', link: '/media' },
-  { name: 'Services', link: '/services' },
-  { name: '', link: '/workWithus' },
-  { name: 'Our doctors', link: '/doctors' },
-  { name: 'Blog', link: '/blogs' },
-  { name: 'Our Location', link: '/location' },
-  { name: 'Contact us', link: '/contact-us' },
+  { name: "About us", link: "/about" },
+  { name: "Media", link: "/media" },
+  { name: "Services", link: "/services" },
+  { name: "", link: "/workWithus" },
+  { name: "Our doctors", link: "/doctors" },
+  { name: "Blog", link: "/blogs" },
+  { name: "Our Location", link: "/location" },
+  { name: "Contact us", link: "/contact-us" },
 ];
 
 const ServiceData = [
-  'Neonatal & Pediatric Air transfer',
-  'ECMO initiation and Air transfer Services',
-  'Commericial Airline Stretcher',
-  'International Patient Air Transfer',
-  'Dedicated Air Ambulance',
+  "Neonatal & Pediatric Air transfer",
+  "ECMO initiation and Air transfer Services",
+  "Commericial Airline Stretcher",
+  "International Patient Air Transfer",
+  "Dedicated Air Ambulance",
 ];
 const LocationData = [
-  'Middle East (MENA)',
-  'United States',
-  'Africa',
-  'Asia',
-  'Europe',
-  'North America',
-  'South America',
+  "Middle East (MENA)",
+  "United States",
+  "Africa",
+  "Asia",
+  "Europe",
+  "North America",
+  "South America",
 ];
 const WorkWithQwiklif = [
   {
     Name: "For Aviation firm's /Aircraft Operators",
-    Link: '',
+    Link: "",
   },
   {
     Name: "For Hospital's",
-    Link: '',
+    Link: "",
   },
   {
     Name: "For Hospital's",
-    Link: '',
+    Link: "",
   },
 ];
-const FleetData = ['Challenger 605', 'B200', 'Learjet 45'];
+const FleetData = ["Challenger 605", "B200", "Learjet 45"];
 
 const Newfooter = () => {
   return (
@@ -72,7 +72,7 @@ const Newfooter = () => {
               <Link href={data.link} key={index}>
                 <div
                   className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1 content-center hover:text-[#3788d8]"
-                  key={'qwiklif-' + index}
+                  key={"qwiklif-" + index}
                 >
                   {data.name}
                 </div>
@@ -89,7 +89,7 @@ const Newfooter = () => {
             return (
               <div
                 className="text-[15px] text-[#fff] cursor-pointer font-Inter mb-1 mt-1 content-center hover:text-primary"
-                key={'fleetdata-' + index}
+                key={"fleetdata-" + index}
               >
                 {data}
               </div>
@@ -105,7 +105,7 @@ const Newfooter = () => {
             return (
               <div
                 className="text-[15px] text-[#fff] cursor-pointer Font-Inter mb-1 mt-1 content-center hover:text-primary"
-                key={'servicedata-' + index}
+                key={"servicedata-" + index}
               >
                 {data}
               </div>
@@ -121,7 +121,7 @@ const Newfooter = () => {
             return (
               <div
                 className="text-[15px] text-[#fff] cursor-pointer mb-1 mt-1  Font-Inter content-center hover:text-[#3788d8]"
-                key={'locationdata-' + index}
+                key={"locationdata-" + index}
               >
                 {data}
               </div>
@@ -157,7 +157,7 @@ const Newfooter = () => {
       <div className="flex justify-center flex-col items-center  font-sans pt-8 pb-4 sm:pt-[20px] sm:pb-[20px]">
         <Image src={Logo} height={53} width={150} className="cursor-pointer" />
         <div className="font-thin text-[14px] text-[#fff] mt-2 mb-2  font-sans hover:text-[#3788d8] font-Inter">
-          © 2024 Qwiklif. All rights reserved.{' '}
+          © 2024 Qwiklif. All rights reserved.{" "}
         </div>
         <div className="grid grid-cols-5 gap-5">
           <Link

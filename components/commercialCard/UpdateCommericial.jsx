@@ -1,11 +1,11 @@
-import React from 'react';
-import Vistara from '../../public/images/airlines/vistara.svg';
-import Image from 'next/image';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
+import React from "react";
+import Vistara from "../../public/images/airlines/vistara.svg";
+import Image from "next/image";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import MedicalInstruments from "../medicalInstrument/MedicalInstrument";
 const UpdateCommericial = ({
   aircraftData,
   availticket,
@@ -13,7 +13,7 @@ const UpdateCommericial = ({
   handleCurrencyChange,
 }) => {
   console.log(
-    ' aircraftData,availticket,selectedCurrency',
+    " aircraftData,availticket,selectedCurrency",
     aircraftData,
     availticket,
     selectedCurrency

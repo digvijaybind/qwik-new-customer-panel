@@ -3,12 +3,13 @@ import styles from "./UpdatecareerCard.module.css";
 import Image from "next/image";
 const UpdatecareerCard = ({ image, height, width, headline, descripation }) => {
   return (
-    <div class="block rounded-lg bg-white shadow-2xl dark:bg-surface-dark cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-107  duration-30">
+    <div className="block rounded-lg bg-white shadow-2xl dark:bg-surface-dark cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-107  duration-30">
       <div className="px-[10px] py-[10px]">
         <Image
           src={image}
           height={height}
           width={width}
+          alt="Qwiklif Air Ambulance"
           className="w-full h-[200px]"
         />
       </div>

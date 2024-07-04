@@ -1,55 +1,55 @@
 //imported libarray and component
-import React, { useEffect, useState } from 'react';
-import styles from './updateCommericial.module.css';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Image from 'next/image';
-import Airline from '../../public/images/commerialImages/Airline.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Important from '../../db/important.json';
-import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
-import Signature from '../../public/images/Signature.svg';
-import Point from '../../public/images/PointIcon.svg';
-import Arrow from '../../public/images/commerialImages/arrow.svg';
-import scheduleFlight from '../../public/images/commerialImages/scheduledFlight.png';
-import Sarah from '../../public/images/ourstories/Sarah.jpg';
-import John from '../../public/images/ourstories/john.jpg';
-import Mircale from '../../public/images/ourstories/Miracle.jpg';
-import Olivia from '../../public/images/ourstories/olivia.jpg';
-import Emily from '../../public/images/ourstories/Emily.jpg';
+import React, { useEffect, useState } from "react";
+import styles from "./updateCommericial.module.css";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
+import Image from "next/image";
+import Airline from "../../public/images/commerialImages/Airline.svg";
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Important from "../../db/importantCommericial.json";
+import ImageCarosel from "@/components/Imagecarosel/ImageCarosel";
+import Signature from "../../public/images/Signature.svg";
+import Point from "../../public/images/PointIcon.svg";
+import Arrow from "../../public/images/commerialImages/arrow.svg";
+import scheduleFlight from "../../public/images/commerialImages/scheduledFlight.png";
+import Sarah from "../../public/images/ourstories/Sarah.jpg";
+import John from "../../public/images/ourstories/john.jpg";
+import Mircale from "../../public/images/ourstories/Miracle.jpg";
+import Olivia from "../../public/images/ourstories/olivia.jpg";
+import Emily from "../../public/images/ourstories/Emily.jpg";
 
 //this blogs json
 const blogs = [
   {
     image: Sarah,
-    title: 'Miracle in the Sky: Sarah',
+    title: "Miracle in the Sky: Sarah",
     description:
-      ' Sarah, a young mother, found herself in a life-threatening situation when she experienced sudden cardiac arrest while vacationing in a remote area. Thanks to the swift response of the Qwiklif Air Ambulance team, Sarah was airlifted to a top-tier medical facility within the golden hour. The flying doctors on board provided critical care that stabilized her condition during the flight. Today, Sarah is back with her family, cherishing every moment of her second chance at life',
+      " Sarah, a young mother, found herself in a life-threatening situation when she experienced sudden cardiac arrest while vacationing in a remote area. Thanks to the swift response of the Qwiklif Air Ambulance team, Sarah was airlifted to a top-tier medical facility within the golden hour. The flying doctors on board provided critical care that stabilized her condition during the flight. Today, Sarah is back with her family, cherishing every moment of her second chance at life",
   },
   {
     image: John,
-    title: ' Speeding Against Time: John Story of Survival',
+    title: " Speeding Against Time: John Story of Survival",
     description:
-      'When John, an adventurous hiker, suffered a severe fall in the mountains, his injuries were extensive and time was of the essence. The Qwiklif Air Ambulance paramedics arrived just in time, providing immediate care and rapid transport to a specialized trauma center. The team’s expertise and the aircraft advanced medical equipment played a crucial role in saving John life. Today, John is back on his feet, grateful for the heroes who rescued him.',
+      "When John, an adventurous hiker, suffered a severe fall in the mountains, his injuries were extensive and time was of the essence. The Qwiklif Air Ambulance paramedics arrived just in time, providing immediate care and rapid transport to a specialized trauma center. The team’s expertise and the aircraft advanced medical equipment played a crucial role in saving John life. Today, John is back on his feet, grateful for the heroes who rescued him.",
   },
   {
     image: Emily,
-    title: ' High-Altitude Heroics: Emily Emergency Airlift',
+    title: " High-Altitude Heroics: Emily Emergency Airlift",
     description:
-      'Emily, an avid traveler, faced a critical medical emergency while on a high-altitude trek. Struggling to breathe due to altitude sickness and a pre-existing condition, her situation was dire. Qwiklif Air Ambulance’s rapid response and skilled crew ensured Emily received the oxygen and medical attention she needed during the flight. The seamless coordination between the air and ground teams ensured Emily’s safe transfer to a hospital, where she made a full recovery',
+      "Emily, an avid traveler, faced a critical medical emergency while on a high-altitude trek. Struggling to breathe due to altitude sickness and a pre-existing condition, her situation was dire. Qwiklif Air Ambulance’s rapid response and skilled crew ensured Emily received the oxygen and medical attention she needed during the flight. The seamless coordination between the air and ground teams ensured Emily’s safe transfer to a hospital, where she made a full recovery",
   },
   {
     image: Mircale,
-    title: ' A Race Against the Clock: Saving Michael Life',
+    title: " A Race Against the Clock: Saving Michael Life",
     description:
-      'Michael story is a testament to the power of quick intervention. Suffering from a severe allergic reaction in a rural area, Michael’s condition deteriorated rapidly. Qwiklif Air Ambulance fast deployment and the flight paramedics quick actions kept Michael stable until they reached a well-equipped hospital. Their prompt response and expert care made all the difference, and Michael is now fully recovered and deeply thankful for the team life-saving efforts.',
+      "Michael story is a testament to the power of quick intervention. Suffering from a severe allergic reaction in a rural area, Michael’s condition deteriorated rapidly. Qwiklif Air Ambulance fast deployment and the flight paramedics quick actions kept Michael stable until they reached a well-equipped hospital. Their prompt response and expert care made all the difference, and Michael is now fully recovered and deeply thankful for the team life-saving efforts.",
   },
   {
     image: Olivia,
-    title: ' From Crisis to Care: Olivia Flight to Safety',
+    title: " From Crisis to Care: Olivia Flight to Safety",
     description:
-      'Olivia, a young child with a rare medical condition, needed urgent specialized care not available locally. The Qwiklif Air Ambulance team quickly mobilized to transfer her to a childre hospital equipped to handle her condition. Throughout the journey, the team provided constant monitoring and care, ensuring Olivia remained stable. Her family watched in awe as the team worked tirelessly, and today, Olivia is thriving, thanks to the timely intervention and exceptional care she received',
+      "Olivia, a young child with a rare medical condition, needed urgent specialized care not available locally. The Qwiklif Air Ambulance team quickly mobilized to transfer her to a childre hospital equipped to handle her condition. Throughout the journey, the team provided constant monitoring and care, ensuring Olivia remained stable. Her family watched in awe as the team worked tirelessly, and today, Olivia is thriving, thanks to the timely intervention and exceptional care she received",
   },
   // Add more blog objects as needed
 ];
@@ -81,7 +81,7 @@ const TravelDuration = () => {
         <div className="grid grid-cols-2 gap-5 px-[10px] py-[20px]">
           <div
             className={`${
-              value ? '' : 'bg-[#12B5E4] rounded-md'
+              value ? "" : "bg-[#12B5E4] rounded-md"
             }  px-[20px] py-[20px] text-[#fff]  cursor-pointer`}
             onClick={() => handleClick()}
           >
@@ -90,7 +90,7 @@ const TravelDuration = () => {
           </div>
           <div
             className={`cursor-pointer ${
-              value ? 'bg-[#12B5E4] rounded-md' : ''
+              value ? "bg-[#12B5E4] rounded-md" : ""
             }`}
             onClick={() => handleClick()}
           >
@@ -113,7 +113,7 @@ const TravelDuration = () => {
             <div className=" flex flex-col text-[19px] font-black ">
               Vistara
               <span className="text-[8px] text-[#323232] font-bold ">
-                {' '}
+                {" "}
                 UK 583, UK 848
               </span>
             </div>
@@ -139,7 +139,7 @@ const TravelDuration = () => {
               <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-3">
                 Stretcher :
                 <span className="text-[12px] text-[#000000] font-bold ">
-                  {' '}
+                  {" "}
                   1 stretcher per patient
                 </span>
               </div>
@@ -156,7 +156,7 @@ const TravelDuration = () => {
               <div className=" flex flex-col text-[10px] font-black  text-gray-400 ml-3">
                 Doctor onboard :
                 <span className="text-[12px] text-[#323232] font-bold ">
-                  {' '}
+                  {" "}
                   2 Doctors, 1 Head nurse, 1 Attendant
                 </span>
               </div>
@@ -174,7 +174,7 @@ const TravelDuration = () => {
               <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
                 Oxygen :
                 <span className="text-[12px] text-[#323232] font-bold  ">
-                  {' '}
+                  {" "}
                   Oxygen(4L/Min)
                 </span>
               </div>
@@ -192,7 +192,7 @@ const TravelDuration = () => {
               <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
                 Medical equipment :
                 <span className="text-[12px] text-[#323232] font-bold ">
-                  {' '}
+                  {" "}
                   Multiple medical aid equipment
                 </span>
               </div>
@@ -209,7 +209,7 @@ const TravelDuration = () => {
               <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
                 Medical equipment :
                 <span className="text-[12px] text-[#323232] font-bold ">
-                  {' '}
+                  {" "}
                   Multiple medical aid equipment
                 </span>
               </div>
@@ -393,10 +393,10 @@ const UpdateCommericial = () => {
     const handleResize = () => {
       setIsMobile(window.innerHeight <= 1000);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (

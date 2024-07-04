@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import FloatingBox from '../Utils/floatingBox/FloatingBox ';
+import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import FloatingBox from "../Utils/floatingBox/FloatingBox ";
 
 const FastestMedical = React.memo(() => {
   const router = useRouter();
@@ -10,8 +10,8 @@ const FastestMedical = React.memo(() => {
       className={`font-sans w-full  flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat h-full`}
       style={{
         backgroundImage: "url('/images/lower_plane.jpeg')",
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
       }}
     >
       <div className="flex flex-col items-center w-full">
@@ -27,7 +27,7 @@ const FastestMedical = React.memo(() => {
         <Link href="/contact" className="sm:hidden md:hidden">
           <button
             className="w-[300px] h-[60px]   bg-transparent border-solid border-[1px] border-[#FFFFFF] rounded-[4px] mt-[60px] sm:mt-[30px] text-center text-[16px] font-Inter leading-[26px] font-bold text-white  hover:bg-rgb(255 255 255)"
-            onClick={() => router.push('/contact')}
+            onClick={() => router.push("/contact")}
           >
             Make an Appointment
           </button>
@@ -38,4 +38,5 @@ const FastestMedical = React.memo(() => {
   );
 });
 
+FastestMedical.displayName = "FastestMedical";
 export default FastestMedical;

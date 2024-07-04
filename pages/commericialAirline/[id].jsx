@@ -1,21 +1,21 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
-import styles from './commericialAirline.module.css';
-import Strecter from '../../public/images/commerialImages/Strectres.jpg';
-import scheduledFlight from '../../public/images/commerialImages/scheduledFlight.png';
-import Signature from '../../public/images/Signature.svg';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import Airline from '../../public/images/airlines/indigo.jpg';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import Point from '../../public/images/PointIcon.svg';
-import Important from '../../db/important.json';
-import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
-import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import MedicalInstrumentPayMethod from "@/components/medicalInstrument/MedicalInstrumentPayMethod";
+import styles from "./commericialAirline.module.css";
+import Strecter from "../../public/images/commerialImages/Strectres.jpg";
+import scheduledFlight from "../../public/images/commerialImages/scheduledFlight.png";
+import Signature from "../../public/images/Signature.svg";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Airline from "../../public/images/airlines/indigo.jpg";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import Point from "../../public/images/PointIcon.svg";
+import Important from "../../db/importantCommericial.json";
+import AutoCarousel from "@/components/imagescarosel/AutoCarousel";
+import ImageCarosel from "@/components/Imagecarosel/ImageCarosel";
 
 const Images = [Strecter, scheduledFlight];
 
@@ -63,10 +63,10 @@ const AutoVideoSlider = ({ videos, interval, isMobile }) => {
             key={index}
             className={`slide cursor-pointer ${
               index >= currentSlide && index < currentSlide + (isMobile ? 1 : 3)
-                ? 'active'
-                : ''
+                ? "active"
+                : ""
             }`}
-            style={{ marginRight: '10px' }}
+            style={{ marginRight: "10px" }}
           >
             <video controls>
               <source src={video.url} type="video/mp4" />
@@ -100,7 +100,7 @@ const TravelDuration = () => {
         <div className={`flex justify-between mt-2 sm:flex-col sm:mt-3`}>
           <div className="flex justify-between items-center w-[240px] sm:flex-col sm:items-baseline">
             <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px]   font-extrabold flex justify-between items-center px-[10px] rounded-md">
-              {' '}
+              {" "}
               Saturday, Apr 27
             </div>
             <span className="font-medium text-[12px]">Non Stop - 2h 10m</span>
@@ -290,11 +290,11 @@ const CommericialAirline = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (

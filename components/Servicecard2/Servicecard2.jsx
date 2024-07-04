@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import newsUpdates from '../../db/services.json';
-import NewsUpdates from '../NewsUpdates/NewsUpdate';
-import Servicenews from '../servicenews/Servicenews';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import newsUpdates from "../../db/services.json";
+import NewsUpdates from "../NewsUpdates/NewsUpdate";
+import Servicenews from "../servicenews/Servicenews";
 
 const ExpandText = ({ children, descripationLength }) => {
   const fullText = children;
@@ -20,7 +20,7 @@ const ExpandText = ({ children, descripationLength }) => {
         onClick={toggleText}
         className="text-blue-500 font-normal text-[13px]"
       >
-        {isExpanded ? '' : 'show more '}
+        {isExpanded ? "" : "show more "}
       </span>
     </div>
   );
@@ -88,4 +88,5 @@ const Servicecard2 = React.memo(({ className }) => {
   );
 });
 
+Servicecard2.displayName = "Servicecard2";
 export default Servicecard2;

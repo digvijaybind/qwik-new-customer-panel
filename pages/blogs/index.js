@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-import ImageCarousel from '@/components/Imagecarousel/ImageCarousel';
-import Nav from '@/components/Nav/nav';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
-import styles from './Blogs.module.css';
-import axios from 'axios';
-import Link from 'next/link';
-import Blog from '@/components/blog/Blog';
-const Blogs = ({ data }) => {
-  const [allPosts, setAllPosts] = useState([]);
-
-  useEffect(() => {
-    axios({
-      url: 'https://dev.a2zqr.com/wp-json/wp/v2/posts',
-      method: 'GET',
-      params: {
-        _embed: 'true',
-        per_page: 100,
-      },
-    })
-      .then(({ data }) => {
-        console.log(data);
-        setAllPosts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-=======
 import ImageCarousel from "@/components/Imagecarousel/ImageCarousel";
 import Nav from "@/components/Nav/nav";
 import {BlogsCard} from "@/components/blog/BlogsCard";
@@ -37,7 +6,6 @@ import React from "react";
 import LandingImage from "../../public/images/qwiklif11.jpg";
 import Blog from "@/components/blog/Blog";
 const Blogs = ({data}) => {
->>>>>>> 52276b3068250cf77f1df4635ff9ca83d7eddcf4
   return (
     <div className="p-[50px]">
       {/* console.log("allPosts",allPosts) */}
@@ -53,13 +21,6 @@ const Blogs = ({data}) => {
             <p> Services</p>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-      <div className="px-5 font-lato">
-        <div className="grid grid-cols-3 gap-8 mb-3">
-          {allPosts?.length > 0 &&
-            allPosts?.map((item, index) => {
-=======
         <div className="justify-start">
           <div className="text-[48px]   text-{#000000} mb-3">Latest Post</div>
         </div>
@@ -68,7 +29,6 @@ const Blogs = ({data}) => {
           {/* <BlogsCard /> */}
           {/* {data.length > 0 &&
             data.map((item) => {
->>>>>>> 52276b3068250cf77f1df4635ff9ca83d7eddcf4
               return (
                 <div
                   key={'blog-post-' + index}
@@ -104,14 +64,10 @@ const Blogs = ({data}) => {
                   />
                 </div>
               );
-<<<<<<< HEAD
-            })}
-=======
             })} */}
           {/* <h1> this is blogs </h1> */}
           <Blog />
           {/* <BlogsCard /> */}
->>>>>>> 52276b3068250cf77f1df4635ff9ca83d7eddcf4
         </div>
       </div>
     </div>

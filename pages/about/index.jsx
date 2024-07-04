@@ -1,19 +1,19 @@
-'use client';
-import { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
-import Trusted from '@/components/trusted/Trusted';
-import CustomDatePicker from '@/components/date/CustomDatePicker';
-import Aeroplane1 from '../../public/images/trusted_contact/aeroplane1.svg';
-import DoctorIcon from '../../public/images/trusted_contact/doctor.svg';
-import Champion from '../../public/images/trusted_contact/champion.svg';
-import styles from '../../styles/page.module.css';
-import style from './About.module.css';
-import Companygoals from '../../db/about.json';
-import Aboutcard from '../../components/Utils/aboutcard/Aboutcard'; //Importing Aboutcard for company goals
-import FloatingBox from '@/components/Utils/floatingBox/FloatingBox ';
+"use client";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
+import Trusted from "@/components/trusted/Trusted";
+import CustomDatePicker from "@/components/date/CustomDatePicker";
+import Aeroplane1 from "../../public/images/trusted_contact/aeroplane1.svg";
+import DoctorIcon from "../../public/images/trusted_contact/doctor.svg";
+import Champion from "../../public/images/trusted_contact/champion.svg";
+import styles from "../../styles/page.module.css";
+import style from "./About.module.css";
+import Companygoals from "../../db/about.json";
+import Aboutcard from "../../components/Utils/aboutcard/Aboutcard"; //Importing Aboutcard for company goals
+import FloatingBox from "@/components/Utils/floatingBox/FloatingBox ";
 const About = () => {
   const [activeTab, setActiveTab] = useState(1);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   function Number({ n, className }) {
     const { number } = useSpring({
@@ -33,48 +33,48 @@ const About = () => {
   const tasktab = [
     {
       img: Aeroplane1,
-      title: 'Express Lane to Care',
+      title: "Express Lane to Care",
       description:
-        'Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief',
+        "Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief",
     },
     {
       img: DoctorIcon,
-      title: 'Innovation in Every Flight',
+      title: "Innovation in Every Flight",
       description:
         "QwikLif Air Ambulance embraces cutting-edge medical technology. Think of our ambulances as flying hospitals, complete with state-of-the-art equipment. We're not just transporting patients; we're bringing a mobile medical unit to ensure the best care possible.",
     },
     {
       img: Champion,
-      title: 'Angels in the Air:',
+      title: "Angels in the Air:",
       description:
         "Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.",
     },
   ];
   const abouts = [
     {
-      img: '/images/about1.jpg',
-      head: 'Affordability',
-      text: 'We understand the financial strain that medical emergencies can cause. Qwiklif is committed to offering the most competitive pricing in the industry. We believe that every individual should have access to premium air ambulance services without the burden of excessive costs.',
+      img: "/images/about1.jpg",
+      head: "Affordability",
+      text: "We understand the financial strain that medical emergencies can cause. Qwiklif is committed to offering the most competitive pricing in the industry. We believe that every individual should have access to premium air ambulance services without the burden of excessive costs.",
     },
     {
-      img: '/images/about2.png',
-      head: 'Cutting-Edge Aircraft',
-      text: 'Qwiklif only utilizes state-of-the-art aircraft equipped with the latest medical technology. We spare no expense in making sure that our patients receive the best care possible during their journey.',
+      img: "/images/about2.png",
+      head: "Cutting-Edge Aircraft",
+      text: "Qwiklif only utilizes state-of-the-art aircraft equipped with the latest medical technology. We spare no expense in making sure that our patients receive the best care possible during their journey.",
     },
     {
-      img: '/images/about3.png',
-      head: 'Largest Global Network',
-      text: 'We have the largest air ambulance provider with a vast network of aircraft spanning across the globe. Whether you’re in a bustling metropolis or a remote corner of the world, we can reach you and get you to where you need to be.',
+      img: "/images/about3.png",
+      head: "Largest Global Network",
+      text: "We have the largest air ambulance provider with a vast network of aircraft spanning across the globe. Whether you’re in a bustling metropolis or a remote corner of the world, we can reach you and get you to where you need to be.",
     },
     {
-      img: '/images/about4.jpg',
-      head: 'Swift Response',
-      text: 'Time is of the essence in critical medical situations. Our team is on standby 24/7, ready to respond to your call at a moment’s notice. We understand the urgency of your situation, and we act accordingly.',
+      img: "/images/about4.jpg",
+      head: "Swift Response",
+      text: "Time is of the essence in critical medical situations. Our team is on standby 24/7, ready to respond to your call at a moment’s notice. We understand the urgency of your situation, and we act accordingly.",
     },
     {
-      img: '/images/about5.png',
-      head: 'Top-Notch Medical Expertise',
-      text: 'Our medical teams consist of highly skilled professionals with vast experience in critical care. We provide comprehensive in-flight medical care to ensure the safety and well-being of our patients',
+      img: "/images/about5.png",
+      head: "Top-Notch Medical Expertise",
+      text: "Our medical teams consist of highly skilled professionals with vast experience in critical care. We provide comprehensive in-flight medical care to ensure the safety and well-being of our patients",
     },
   ];
   const handleChange = (e) => {
@@ -87,7 +87,7 @@ const About = () => {
           <p className="text-[50px]  pt-[150px] font-sans">About Us</p>
           <div className="flex pt-[30px] text-[20px]">
             <p className="text-[#C5D5FF] pr-[10px]">
-              {'Air Ambulance Services >'}
+              {"Air Ambulance Services >"}
             </p>
             <p className="font-sans font-bold">About us</p>
           </div>
@@ -98,7 +98,7 @@ const About = () => {
           <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
             <li
               className={`px-5 text-sm py-4 border-b-2 cursor-pointer  sm:px-2 sm:py-2  font-bold ${
-                activeTab === 1 ? styles.aboutPageMenuActive : ''
+                activeTab === 1 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(1)}
             >
@@ -106,7 +106,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold sm:px-2 sm:py-2 ${
-                activeTab === 2 ? styles.aboutPageMenuActive : ''
+                activeTab === 2 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(2)}
             >
@@ -114,7 +114,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
-                activeTab === 3 ? styles.aboutPageMenuActive : ''
+                activeTab === 3 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(3)}
             >
@@ -122,7 +122,7 @@ const About = () => {
             </li>
             <li
               className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
-                activeTab === 4 ? styles.aboutPageMenuActive : ''
+                activeTab === 4 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(4)}
             >
@@ -254,16 +254,20 @@ const About = () => {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 sm:gap-6 md:grid-cols-2 md:gap-2 mt-0 mb-10 px-[5%] sm:px-[2%] md:px-[3%]">
-        {Companygoals.map((data) => {
+        {Companygoals.map((data, index) => {
           return (
-            <Aboutcard title={data.title} descripation={data.descripation} />
+            <Aboutcard
+              title={data.title}
+              key={index}
+              descripation={data.descripation}
+            />
           );
         })}
       </div>
 
       <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer mt-10 mb-10">
-        {abouts.map((data, i) => (
-          <div key={i} className="relative overflow-y-hidden">
+        {abouts.map((data, index) => (
+          <div key={index} className="relative overflow-y-hidden">
             <img
               className="rounded-[5px] w-full"
               src={`${data.img}`}
@@ -292,7 +296,7 @@ const About = () => {
           </div>
           {tasktab.map((data, index) => {
             return (
-              <div key={'tasktab' + index} className="mb-3">
+              <div key={"tasktab" + index} className="mb-3">
                 <Trusted
                   img={data.img}
                   title={data.title}

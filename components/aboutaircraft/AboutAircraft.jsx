@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import AboutAircraftimage from '../../public/images/Homepage/about.png';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import AboutAircraftimage from "../../public/images/Homepage/about.png";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const AboutAircraft = React.memo(() => {
-  const [scrollDirection, setScrollDirection] = useState('down');
+  const [scrollDirection, setScrollDirection] = useState("down");
+
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setScrollDirection(currentScrollY > lastScrollY ? 'down' : 'up');
+      setScrollDirection(currentScrollY > lastScrollY ? "down" : "up");
       lastScrollY = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -28,11 +29,12 @@ const AboutAircraft = React.memo(() => {
           height={460}
           width={620}
           className="rounded-lg"
+          alt="About Aircraft"
         />
 
         <div className="flex flex-col gap-3">
           <div className="font-sans text-4xl sm:text-2xl font-semibold  text-wrap sm:px-4 sm:text-center ">
-            Fastest{' '}
+            Fastest{" "}
             <span className=" text-[#11B6E3] sm:mr-2">Air Ambulance</span>
             <br className="sm:hidden" />
             Services
@@ -60,5 +62,7 @@ const AboutAircraft = React.memo(() => {
     </div>
   );
 });
+
+AboutAircraft.displayName = "AboutAircraft";
 
 export default AboutAircraft;

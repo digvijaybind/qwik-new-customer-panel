@@ -1,22 +1,22 @@
-'use client';
-import React, { useEffect } from 'react';
-import styles from './dedicatedAirline.module.css';
-import Image from 'next/image';
-import Signature from '../../public/images/Signature.svg';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Point from '../../public/images/PointIcon.svg';
-import { useState } from 'react';
-import Important from '../../db/important.json';
-import Learjet from '../../public/images/airline-mini-logo/learjet-405.svg';
-import MedicalInstrumentPayMethod from '@/components/medicalInstrument/MedicalInstrumentPayMethod';
-import AutoCarousel from '@/components/imagescarosel/AutoCarousel';
-import ImageCarosel from '@/components/Imagecarosel/ImageCarosel';
-import Strecter from '../../public/images/commerialImages/Strectres.jpg';
-import scheduledFlight from '../../public/images/commerialImages/scheduledFlight.png';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
+"use client";
+import React, { useEffect } from "react";
+import styles from "./dedicatedAirline.module.css";
+import Image from "next/image";
+import Signature from "../../public/images/Signature.svg";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Point from "../../public/images/PointIcon.svg";
+import { useState } from "react";
+import Important from "../../db/importantDedicated.json";
+import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
+import MedicalInstrumentPayMethod from "@/components/medicalInstrument/MedicalInstrumentPayMethod";
+import AutoCarousel from "@/components/imagescarosel/AutoCarousel";
+import ImageCarosel from "@/components/Imagecarosel/ImageCarosel";
+import Strecter from "../../public/images/commerialImages/Strectres.jpg";
+import scheduledFlight from "../../public/images/commerialImages/scheduledFlight.png";
+import Strectres from "../../public/images/bookingIcon/strectres.png";
 
 const Images = [Strecter, scheduledFlight];
 
@@ -86,10 +86,10 @@ const AutoVideoSlider = ({ videos, interval, isMobile }) => {
             key={index}
             className={`slide cursor-pointer ${
               index >= currentSlide && index < currentSlide + (isMobile ? 1 : 3)
-                ? 'active'
-                : ''
+                ? "active"
+                : ""
             }`}
-            style={{ marginRight: '10px' }}
+            style={{ marginRight: "10px" }}
           >
             <video controls>
               <source src={video.url} type="video/mp4" />
@@ -123,7 +123,7 @@ const TravelDuration = () => {
         <div className={`flex justify-between mt-2 sm:flex-col sm:mt-3`}>
           <div className="flex justify-between items-center w-[240px] sm:flex-col sm:items-baseline">
             <div className="bg-[#FEE9C5] h-[26px] font-sans text-[12px]   font-extrabold flex justify-between items-center px-[10px] sm:mb-2 rounded-md">
-              {' '}
+              {" "}
               Saturday, Apr 27
             </div>
             <span className="font-medium text-[12px]">Non Stop - 2h 10m</span>
@@ -222,10 +222,10 @@ const OurStories = ({ isMobile }) => {
     arrows: false,
   };
   const videos = [
-    { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
-    { url: 'https://www.youtube.com/watch?v=Pup8Mjf86RA' },
-    { url: 'https://www.youtube.com/watch?v=qamsuZ25K0Q' },
-    { url: 'https://www.youtube.com/watch?v=2vCCs5pojYw' },
+    { url: "https://www.youtube.com/watch?v=2vCCs5pojYw" },
+    { url: "https://www.youtube.com/watch?v=Pup8Mjf86RA" },
+    { url: "https://www.youtube.com/watch?v=qamsuZ25K0Q" },
+    { url: "https://www.youtube.com/watch?v=2vCCs5pojYw" },
   ];
   return (
     <div className="border-2 border-[#D9D9D9] rounded-md w-[881px] shadow-md px-[30px] py-[30px] mt-5">
@@ -234,7 +234,7 @@ const OurStories = ({ isMobile }) => {
           Our Success Stories
         </div>
         <div className="h-8  flex flex-row items-center">
-          <Image src={Point} width={20} height={20} />{' '}
+          <Image src={Point} width={20} height={20} />{" "}
           <span className="ml-5 font-extrabold text-[12px] font-sans">
             Video
           </span>
@@ -359,11 +359,11 @@ const DedicatedAirline = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (

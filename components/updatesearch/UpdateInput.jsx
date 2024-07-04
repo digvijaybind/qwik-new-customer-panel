@@ -49,5 +49,5 @@ const UpdateInput = React.memo(
     );
   }
 );
-
+UpdateInput.displayName = "UpdateInput";
 export default UpdateInput;

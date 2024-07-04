@@ -26,6 +26,7 @@ const CustomPhoneInput = React.forwardRef(
     );
   }
 );
+CustomPhoneInput.displayName = "CustomPhoneInput";
 const MobileSearch = ({ onClick, className = "" }) => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const handleSelectChange = (e) => {
@@ -145,4 +146,5 @@ const MobileSearch = ({ onClick, className = "" }) => {
   );
 };
 
+MobileSearch.displayName = "MobileSearch";
 export default MobileSearch;

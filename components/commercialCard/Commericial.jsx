@@ -1,35 +1,35 @@
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import moment from 'moment';
-import Aircanada from '../../public/images/airlines/air-canada.jpg';
-import Airfrance from '../../public/images/airlines/air-france.jpg';
-import Airmauritius from '../../public/images/airlines/air-mauritius.jpg';
-import NipponAirline from '../../public/images/airlines/all-nippon-airways.jpg';
-import americanAirline from '../../public/images/airlines/american-airlines.jpg';
-import BritishAirways from '../../public/images/airlines/british-airways.jpg';
-import cathayAirline from '../../public/images/airlines/cathay-pacific.jpg';
-import DeltaAirline from '../../public/images/airlines/delta-airlines.jpg';
-import Emirates from '../../public/images/airlines/Emirates.jpg';
-import Ethiads from '../../public/images/airlines/etihad-airways.jpg';
-import Indigo from '../../public/images/airlines/indigo.jpg';
-import KLMAirline from '../../public/images/airlines/KLM-Royal-Dutch-Airlines.jpg';
-import Lufthansa from '../../public/images/airlines/Lufthansa.jpg';
-import malesiyaAirline from '../../public/images/airlines/malaysi-airlines.jpg';
-import PhillippinesAirlines from '../../public/images/airlines/philippine-airlines.jpg';
-import Quantas from '../../public/images/airlines/Qantas.jpg';
-import QatarAirway from '../../public/images/airlines/Qatar-airways.jpg';
-import SaudiAirline from '../../public/images/airlines/Saudia.jpg';
-import SingaporeAirline from '../../public/images/airlines/singapore-airlines.jpg';
-import SouthAfrican from '../../public/images/airlines/south-african-airways.jpg';
-import TurkishAirlineNew from '../../public/images/airlines/turkish-airlines.jpg';
-import TurkishAirline from '../../public/images/airlines/Turkish.jpg';
-import UnitedAirline from '../../public/images/airlines/united-airlines.jpg';
-import VirginAtlantic from '../../public/images/airlines/virgin-atlantic-new.jpg';
-import VirginAirline from '../../public/images/airlines/virgin-atlantic.jpg';
-import AirIndia from '../../public/images/updated-images/Air-India.svg';
-import OmanAirline from '../../public/images/airlines/Oman-airline.jpg';
-import Link from 'next/link';
-import { currencySymbols } from '../Utils/Constants';
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import moment from "moment";
+import Aircanada from "../../public/images/airlines/air-canada.jpg";
+import Airfrance from "../../public/images/airlines/air-france.jpg";
+import Airmauritius from "../../public/images/airlines/air-mauritius.jpg";
+import NipponAirline from "../../public/images/airlines/all-nippon-airways.jpg";
+import americanAirline from "../../public/images/airlines/american-airlines.jpg";
+import BritishAirways from "../../public/images/airlines/british-airways.jpg";
+import cathayAirline from "../../public/images/airlines/cathay-pacific.jpg";
+import DeltaAirline from "../../public/images/airlines/delta-airlines.jpg";
+import Emirates from "../../public/images/airlines/Emirates.jpg";
+import Ethiads from "../../public/images/airlines/etihad-airways.jpg";
+import Indigo from "../../public/images/airlines/indigo.jpg";
+import KLMAirline from "../../public/images/airlines/KLM-Royal-Dutch-Airlines.jpg";
+import Lufthansa from "../../public/images/airlines/Lufthansa.jpg";
+import malesiyaAirline from "../../public/images/airlines/malaysi-airlines.jpg";
+import PhillippinesAirlines from "../../public/images/airlines/philippine-airlines.jpg";
+import Quantas from "../../public/images/airlines/Qantas.jpg";
+import QatarAirway from "../../public/images/airlines/Qatar-airways.jpg";
+import SaudiAirline from "../../public/images/airlines/Saudia.jpg";
+import SingaporeAirline from "../../public/images/airlines/singapore-airlines.jpg";
+import SouthAfrican from "../../public/images/airlines/south-african-airways.jpg";
+import TurkishAirlineNew from "../../public/images/airlines/turkish-airlines.jpg";
+import TurkishAirline from "../../public/images/airlines/Turkish.jpg";
+import UnitedAirline from "../../public/images/airlines/united-airlines.jpg";
+import VirginAtlantic from "../../public/images/airlines/virgin-atlantic-new.jpg";
+import VirginAirline from "../../public/images/airlines/virgin-atlantic.jpg";
+import AirIndia from "../../public/images/updated-images/Air-India.svg";
+import OmanAirline from "../../public/images/airlines/Oman-airline.jpg";
+import Link from "next/link";
+import { currencySymbols } from "../Utils/Constants";
 
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -46,13 +46,13 @@ const AircraftDetailsCard = ({
     parseFloat((aircraftData?.price?.totalPrice).toFixed(2)) ?? 0
   );
   const [locationData, setLocationData] = useState({});
-  const [totalTravelDuration, setTotalTravelDuration] = useState('');
+  const [totalTravelDuration, setTotalTravelDuration] = useState("");
   const [techStops, setTechStops] = useState([]);
-  const [availableticket, setavailableticket] = useState('');
-  const [airlineName, setairlineName] = useState('');
-  const [airlineImage, setAirlineImage] = useState('');
-  console.log('collection id', CommericialId);
-  console.log('aircrfat id', aircraftData?.aircraft?.id);
+  const [availableticket, setavailableticket] = useState("");
+  const [airlineName, setairlineName] = useState("");
+  const [airlineImage, setAirlineImage] = useState("");
+  console.log("collection id", CommericialId);
+  console.log("aircrfat id", aircraftData?.aircraft?.id);
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -73,23 +73,23 @@ const AircraftDetailsCard = ({
     return PriceINR.toFixed(2);
   };
 
-  console.log('totalCost', totalCost);
+  console.log("totalCost", totalCost);
 
   useEffect(() => {
     const actualTotalPrice = parseFloat(
       (aircraftData?.price?.totalPrice).toFixed(2)
     );
     switch (selectedCurrency) {
-      case 'EUR':
+      case "EUR":
         setTotalCost(getEUR(actualTotalPrice));
         break;
-      case 'AED':
+      case "AED":
         setTotalCost(getAED(actualTotalPrice));
         break;
-      case 'USD':
+      case "USD":
         setTotalCost(getUSD(actualTotalPrice));
         break;
-      case 'INR':
+      case "INR":
         setTotalCost(getINR(actualTotalPrice));
         break;
       default:
@@ -98,38 +98,38 @@ const AircraftDetailsCard = ({
   }, [aircraftData?.price?.totalPrice, selectedCurrency]);
 
   const airlineNames = {
-    AC: 'Air Canada',
-    '6E': 'IndiGo',
-    AF: 'Air France',
-    AI: 'Air India',
-    AA: 'American Airlines',
-    BA: 'British Airways',
-    CX: 'Cathay Pacific',
-    DL: 'Delta Air Lines',
-    EK: 'Emirates',
-    EY: 'Etihad Airways',
-    KL: 'KLM Royal Dutch Airlines',
-    LH: 'Lufthansa',
-    QF: 'Qantas',
-    QR: 'Qatar Airways',
-    SQ: 'Singapore Airlines',
-    TK: 'Turkish Airlines',
-    UA: 'United Airlines',
-    VS: 'Virgin Atlantic',
-    THY: 'Turkish Airlines',
-    WY: 'Oman Air',
-    OMA: 'Oman Air',
-    SAA: 'South African Airways',
-    ANA: 'All Nippon Airways',
-    PAL: 'Philippine Airlines',
-    VIR: 'Virgin Atlantic',
-    MAU: 'Air Mauritius',
-    MH: 'Malaysia Airlines',
-    SV: 'Saudia',
+    AC: "Air Canada",
+    "6E": "IndiGo",
+    AF: "Air France",
+    AI: "Air India",
+    AA: "American Airlines",
+    BA: "British Airways",
+    CX: "Cathay Pacific",
+    DL: "Delta Air Lines",
+    EK: "Emirates",
+    EY: "Etihad Airways",
+    KL: "KLM Royal Dutch Airlines",
+    LH: "Lufthansa",
+    QF: "Qantas",
+    QR: "Qatar Airways",
+    SQ: "Singapore Airlines",
+    TK: "Turkish Airlines",
+    UA: "United Airlines",
+    VS: "Virgin Atlantic",
+    THY: "Turkish Airlines",
+    WY: "Oman Air",
+    OMA: "Oman Air",
+    SAA: "South African Airways",
+    ANA: "All Nippon Airways",
+    PAL: "Philippine Airlines",
+    VIR: "Virgin Atlantic",
+    MAU: "Air Mauritius",
+    MH: "Malaysia Airlines",
+    SV: "Saudia",
   };
   const AirlineImages = {
     AC: Aircanada,
-    '6E': Indigo,
+    "6E": Indigo,
     AF: Airfrance,
     AI: AirIndia,
     AA: americanAirline,
@@ -182,7 +182,7 @@ const AircraftDetailsCard = ({
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
     const matches = durationString.match(regex);
     if (!matches) {
-      throw new Error('Invalid ISO8601 duration format');
+      throw new Error("Invalid ISO8601 duration format");
     }
 
     const [, years, months, days, hours, minutes, seconds] =
@@ -205,25 +205,25 @@ const AircraftDetailsCard = ({
       totalMinutes,
       totalSeconds,
     });
-    console.log('TimeDuration line 196', TimeDuration);
+    console.log("TimeDuration line 196", TimeDuration);
     return TimeDuration;
   };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const month = date.toLocaleString('default', { month: 'long' });
+    const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
-    console.log('date month and year', `${date.getDate()} ${month} ${year}`);
+    console.log("date month and year", `${date.getDate()} ${month} ${year}`);
     return `${date.getDate()} ${month} ${year}`;
   };
   const TicketAvailable = () => {
     const ticketDate = availticket ?? [];
-    console.log(' ticketDate line 125', ticketDate);
+    console.log(" ticketDate line 125", ticketDate);
     setavailableticket(formatDate(ticketDate));
   };
 
   const renderAirlineName = (carrierCode) => {
-    return airlineNames[carrierCode] || 'Unknow Airline';
+    return airlineNames[carrierCode] || "Unknow Airline";
   };
 
   const AirlineImage = () => {
@@ -235,7 +235,7 @@ const AircraftDetailsCard = ({
   const AirlineName = () => {
     const airlineName =
       aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
-    console.log(' airlineName  line 125', airlineName);
+    console.log(" airlineName  line 125", airlineName);
     const airline = renderAirlineName(airlineName);
     setairlineName(airline);
   };
@@ -244,7 +244,7 @@ const AircraftDetailsCard = ({
     const timeduration = aircraftData?.aircraft?.itineraries[0]?.duration ?? [];
 
     let flyingTime = parseISO8601Duration(timeduration);
-    console.log('flyingTime  line 209', flyingTime);
+    console.log("flyingTime  line 209", flyingTime);
     setTotalTravelDuration(flyingTime);
   };
 
@@ -263,8 +263,8 @@ const AircraftDetailsCard = ({
 
   const formatTime = (date) => {
     return new Date(
-      (typeof date === 'string' ? new Date(date) : date).toLocaleString(
-        'en-US',
+      (typeof date === "string" ? new Date(date) : date).toLocaleString(
+        "en-US",
         { timeZone: currentTimeZone }
       )
     );
@@ -277,14 +277,21 @@ const AircraftDetailsCard = ({
     TicketAvailable();
     AirlineImage();
     AirlineName();
-  }, []);
+  }, [
+    getLocationData,
+    getTravelDuration,
+    getTechStops,
+    TicketAvailable,
+    AirlineImage,
+    AirlineName,
+  ]);
 
   return (
     <div
       className={`w-full h-fit px-6 py-6 bg-white rounded-2xl grid grid-cols-3 gap-5 items-center cursor-pointer transition-all duration-700 hover:scale-105 box-border font-sans`}
       style={{
         boxShadow:
-          'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+          "rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px",
       }}
     >
       <div className="sm:col-span-3 col-span-1 ">
@@ -301,9 +308,9 @@ const AircraftDetailsCard = ({
             <span className="font-semibold text-xl">
               {locationData?.departureTime
                 ? moment(formatTime(locationData?.departureTime)).format(
-                    'HH:mm'
+                    "HH:mm"
                   )
-                : '--:--'}
+                : "--:--"}
             </span>
             <br />
             <span className="text-[#111827]  font-semibold text-center text-sm">
@@ -321,8 +328,8 @@ const AircraftDetailsCard = ({
             <div className="bg-[#42D1E5] w-[40px] h-[3px]"></div>
             <div className="text-[red] text-xs">
               {techStops?.length > 0
-                ? `${techStops?.length} stop via ${techStops?.join(', ')}`
-                : 'Non-stop'}
+                ? `${techStops?.length} stop via ${techStops?.join(", ")}`
+                : "Non-stop"}
             </div>
           </div>
           <div className="flex flex-col items-end font-sans">
@@ -330,16 +337,16 @@ const AircraftDetailsCard = ({
               <span className="font-semibold text-xl">
                 {locationData?.destinationTime
                   ? moment(formatTime(locationData?.destinationTime)).format(
-                      'HH:mm'
+                      "HH:mm"
                     )
-                  : '--:--'}
+                  : "--:--"}
               </span>
-              {moment(locationData?.destinationTime).format('d') !==
-                moment(locationData?.departureTime).format('d') && (
+              {moment(locationData?.destinationTime).format("d") !==
+                moment(locationData?.departureTime).format("d") && (
                 <span className="text-[red] text-center text-xs font-medium leading-3 ml-1.5 font-sans">
-                  +{' '}
-                  {moment(locationData?.destinationTime).format('d') -
-                    moment(locationData?.departureTime).format('d')}{' '}
+                  +{" "}
+                  {moment(locationData?.destinationTime).format("d") -
+                    moment(locationData?.departureTime).format("d")}{" "}
                   <br />
                   DAY
                 </span>
@@ -370,7 +377,7 @@ text-[#4C5564] leading-tight mb-2 font-sans"
                     return (
                       <option
                         value={currency}
-                        key={'currency-item' + index}
+                        key={"currency-item" + index}
                         className="font-sans"
                       >
                         {currency}
@@ -382,7 +389,7 @@ text-[#4C5564] leading-tight mb-2 font-sans"
                 <div className="flex flex-row items-end text-[#101729] font-sans">
                   {currencySymbols[selectedCurrency]}
                   <div className=" font-extrabold text-[#101729] text-base font-sans">
-                    {' '}
+                    {" "}
                     {totalCost}
                   </div>
                 </div>
@@ -420,7 +427,7 @@ text-[#4C5564] leading-tight mb-2 font-sans"
         >
           <button
             className="rounded font-semibold text-Bluedark bg-[#11b6e3] py-1.5 text-[0.9rem] w-full text-center align-middle border cursor-pointer  hover:bg-[#5bc9e8] hover:text-white"
-            onClick={() => console.log('line 441', aircraftData.aircraft.id)}
+            onClick={() => console.log("line 441", aircraftData.aircraft.id)}
           >
             <div className="font-sans">View Details</div>
           </button>

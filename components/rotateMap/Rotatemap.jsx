@@ -1,6 +1,6 @@
-import React from 'react';
-import AirlineQwiklif from '../../public/images/Map/AirlineQwiklif.gif';
-import Image from 'next/image';
+import React from "react";
+import AirlineQwiklif from "../../public/images/Map/AirlineQwiklif.gif";
+import Image from "next/image";
 const Rotatemap = React.memo(() => {
   return (
     <div>
@@ -13,5 +13,7 @@ const Rotatemap = React.memo(() => {
     </div>
   );
 });
+
+Rotatemap.displayName = "Rotatemap";
 
 export default Rotatemap;

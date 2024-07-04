@@ -1,29 +1,29 @@
-'use client';
-import { FaUserNurse } from 'react-icons/fa6';
-import { BsSpeedometer } from 'react-icons/bs';
-import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
-import { GiWeight } from 'react-icons/gi';
-import { FaLocationDot } from 'react-icons/fa6';
-import { FaPersonMilitaryPointing } from 'react-icons/fa6';
-import { IoIosAirplane } from 'react-icons/io';
-import styles from './aviapage.module.css';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import axios from 'axios';
-import Signature from '../../public/images/dummy-sign.png';
+"use client";
+import { FaUserNurse } from "react-icons/fa6";
+import { BsSpeedometer } from "react-icons/bs";
+import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
+import { GiWeight } from "react-icons/gi";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPersonMilitaryPointing } from "react-icons/fa6";
+import { IoIosAirplane } from "react-icons/io";
+import styles from "./aviapage.module.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/router";
+import { useCallback, useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+import Signature from "../../public/images/dummy-sign.png";
 import {
   c90Slides,
   challenger605Slides,
   currencySymbols,
   learjet45Slides,
-} from '@/components/Utils/Constants';
-import LoadScript from '@/components/Utils/loadScript';
-import Layout from '@/components/layout/Layout';
-import Image from 'next/image';
+} from "@/components/Utils/Constants";
+import LoadScript from "@/components/Utils/loadScript";
+import Layout from "@/components/layout/Layout";
+import Image from "next/image";
 
 const DedicatedeHeader = () => {
   return (
@@ -49,14 +49,14 @@ const JourneyDetails = ({
       <p className="font-bold text-[0.85rem]">
         {data?.specificAircraft?.totalTime
           ? data?.specificAircraft?.totalTime?.toFixed(2)
-          : '-'}{' '}
+          : "-"}{" "}
         hrs
       </p>
       <p className="my-3">
-        1 Passengers |{' '}
+        1 Passengers |{" "}
         {aircraft?.specificAircraft?.operator?.date &&
           moment(aircraft?.specificAircraft?.operator?.date)?.format(
-            'DD MMM, YYYY'
+            "DD MMM, YYYY"
           )}
       </p>
       <div className="border-b border-t my-2">
@@ -79,7 +79,7 @@ const JourneyDetails = ({
           >
             {Object.keys(currencySymbols)?.map((currency, index) => {
               return (
-                <option value={currency} key={'currency-item' + index}>
+                <option value={currency} key={"currency-item" + index}>
                   {currency}
                 </option>
               );
@@ -94,7 +94,7 @@ const JourneyDetails = ({
       </div>
       <div className="rounded-md bg-gray-300 p-2 my-4">
         <span className="font-bold">Qwiklif</span> Air Ambulance Service Which
-        provide affordable air ambulance services to Patience{' '}
+        provide affordable air ambulance services to Patience{" "}
       </div>
       <div className="flex flex-col mt-5">
         <input
@@ -123,7 +123,7 @@ const WhyWithqwiklif = () => {
   return (
     <div
       className={`px-[18px] sm:px-[10px] w-[100%] my-[50px] sm:my-[25px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow} font-sans`}
-      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+      style={{ boxShadow: "#000 0px 0px 10px 0px" }}
     >
       <div className="flex flex-col px-[50px] sm:px-[13px] mb-10">
         <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
@@ -167,7 +167,7 @@ const WhyWithqwiklif = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             5. Compassionate Customer Service
           </h1>
           <p className="text-[15px] font-medium">
@@ -187,7 +187,7 @@ const WhyWithqwiklif = () => {
             specialized medical equipment or specific accommodations, we strive
             to accommodate your needs to the best of our abilities.
           </p>
-        </div>{' '}
+        </div>{" "}
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">7. Transparent Pricing</h1>
           <p className="text-[15px] font-medium">
@@ -223,7 +223,7 @@ const FlightImages = ({ aircraftType, slides }) => {
           {slides?.map((slideImg, index) => {
             return (
               <img
-                key={'slide-item' + index}
+                key={"slide-item" + index}
                 src={slideImg}
                 alt="img"
                 className="object-cover object-center sm:h-[20vh] h-[40dvh] w-full rounded-md overflow-hidden"
@@ -236,7 +236,7 @@ const FlightImages = ({ aircraftType, slides }) => {
         {slides?.map((slideImg, index) => {
           return (
             <img
-              key={'slide-preview-item' + index}
+              key={"slide-preview-item" + index}
               src={slideImg}
               alt="img"
               className="object-cover object-top h-[80%] w-full rounded-md overflow-hidden"
@@ -361,7 +361,7 @@ const FlightDetails = ({ data }) => {
   return (
     <div
       className="rounded-md p-5 text-[0.9rem] font-sans"
-      style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+      style={{ boxShadow: "#000 0px 0px 10px 0px" }}
     >
       <h2 className="text-base font-bold">Flight Details</h2>
       <div className="mt-2 mb-3 py-3  border-gray-100">
@@ -418,28 +418,28 @@ const FlightDetails = ({ data }) => {
 
 const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
   const amount = 500;
-  const currency = 'INR';
-  const receiptId = 'quickliftReceipt';
+  const currency = "INR";
+  const receiptId = "quickliftReceipt";
   const makePayment = async (e) => {
-    const response = await fetch('http://localhost:8000/rayzorpay/Order', {
-      method: 'POST',
+    const response = await fetch("http://localhost:8000/rayzorpay/Order", {
+      method: "POST",
       body: JSON.stringify({
         amount: amount,
         currency: currency,
         receipt: receiptId,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
     const order = await response.json();
     let options = {
-      key: 'rzp_test_dSGUgBKlIU2Ecm',
+      key: "rzp_test_dSGUgBKlIU2Ecm",
       amount: amount,
       currency: currency,
-      name: 'Qickly',
-      description: 'Test Transaction',
-      image: 'https://example.com/your_logo',
+      name: "Qickly",
+      description: "Test Transaction",
+      image: "https://example.com/your_logo",
       order_id: order.order.id,
       handler: async function (response) {
         const body = {
@@ -447,12 +447,12 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
         };
 
         const validateRes = await fetch(
-          'http://localhost:8000/rayzorpay/Order/verify',
+          "http://localhost:8000/rayzorpay/Order/verify",
           {
-            method: 'POST',
+            method: "POST",
             body: JSON.stringify(body),
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
         );
@@ -460,19 +460,19 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
         console.log(jsonRes);
       },
       prefill: {
-        name: 'Gaurav Kumar',
-        email: 'gaurav.kumar@example.com',
-        contact: '9000090000',
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "9000090000",
       },
       notes: {
-        address: 'Razorpay Corporate Office',
+        address: "Razorpay Corporate Office",
       },
       theme: {
-        color: '#3399cc',
+        color: "#3399cc",
       },
     };
     var rzp1 = new window.Razorpay(options);
-    rzp1.on('payment.failed', function (response) {
+    rzp1.on("payment.failed", function (response) {
       alert(response.error.code);
       alert(response.error.description);
       alert(response.error.source);
@@ -487,7 +487,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
 
   useEffect(() => {
     const loadRayzorPaymentScript = async () => {
-      await LoadScript('https://checkout.razorpay.com/v1/checkout.js');
+      await LoadScript("https://checkout.razorpay.com/v1/checkout.js");
     };
     loadRayzorPaymentScript();
   }, []);
@@ -495,7 +495,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
     <Layout>
       <div
         className={`flex flex-col rounded-md p-5 text-[0.9rem] shadow lg ${styles.Shadow} font-sans grid grid-cols-1`}
-        style={{ boxShadow: '#000 0px 0px 10px 0px' }}
+        style={{ boxShadow: "#000 0px 0px 10px 0px" }}
       >
         <div>
           <h2 className="text-base font-bold mb-4">Cost Details</h2>
@@ -519,7 +519,7 @@ const CostDetails = ({ selectedCurrency, handleCurrencyChange, totalCost }) => {
                 >
                   {Object.keys(currencySymbols)?.map((currency, index) => {
                     return (
-                      <option value={currency} key={'currency-item' + index}>
+                      <option value={currency} key={"currency-item" + index}>
                         {currency}
                       </option>
                     );
@@ -669,7 +669,7 @@ const Airtransfer = () => {
   return (
     <div
       className={`px-[18px] w-[100%] my-[50px] m-auto py-[50px] bg-white rounded-[8px] shadow-lg ${styles.Shadow} font-sans`}
-      style={{ boxShadow: '#000 0px 0px 10px 0px font-sans' }}
+      style={{ boxShadow: "#000 0px 0px 10px 0px font-sans" }}
     >
       <div className="flex flex-col px-[50px] mb-10">
         <h1 className="text-center font-bold pb-[30px] text-[black] text-[25px]">
@@ -677,7 +677,7 @@ const Airtransfer = () => {
         </h1>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step1 :-Assessment and Coordination
           </h1>
           <p className="text-[15px] font-medium">
@@ -691,7 +691,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 2 :- Dispatch and Arrival of Air Ambulance
           </h1>
           <p className="text-[15px] font-medium">
@@ -703,7 +703,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 3:- Dispatch and Arrival of Air Ambulance
           </h1>
           <p className="text-[15px] font-medium">
@@ -714,7 +714,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 3:- Transfer to the Air Ambulance
           </h1>
           <p className="text-[15px] font-medium">
@@ -725,7 +725,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 4:- In-flight Care
           </h1>
           <p className="text-[15px] font-medium">
@@ -736,7 +736,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 5:- Arrival at the Receiving Facility
           </h1>
           <p className="text-[15px] font-medium">
@@ -745,10 +745,10 @@ const Airtransfer = () => {
             staff. The receiving facility&apos;s medical staff assumes care of
             the patient and continues treatment as necessary.
           </p>
-        </div>{' '}
+        </div>{" "}
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 6:- Post-transfer Documentation
           </h1>
           <p className="text-[15px] font-medium">
@@ -760,7 +760,7 @@ const Airtransfer = () => {
         </div>
         <div className="rounded-lg  bg-[#11b6e3] p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl mb-10">
           <h1 className="text-[18px] font-semibold">
-            {' '}
+            {" "}
             Step 7:- Follow-up Care
           </h1>
           <p className="text-[15px] font-medium">
@@ -786,7 +786,7 @@ const AviapageDetails = () => {
   const [aircraftDataLoading, setAircraftDataLoading] = useState(false);
   const [aircraftData, setAircraftData] = useState({});
   const [data, setData] = useState({});
-  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [totalCost, setTotalCost] = useState(0);
 
   const getEUR = (price) => {
@@ -813,16 +813,16 @@ const AviapageDetails = () => {
       ? parseFloat((aircraftData?.totalPriceWithAdminMargin).toFixed(2))
       : 0;
     switch (selectedCurrency) {
-      case 'EUR':
+      case "EUR":
         setTotalCost(getEUR(actualTotalPrice));
         break;
-      case 'AED':
+      case "AED":
         setTotalCost(getAED(actualTotalPrice));
         break;
-      case 'USD':
+      case "USD":
         setTotalCost(getUSD(actualTotalPrice));
         break;
-      case 'INR':
+      case "INR":
         setTotalCost(getINR(actualTotalPrice));
         break;
       default:
@@ -834,7 +834,7 @@ const AviapageDetails = () => {
     setSelectedCurrency(event.target.value);
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setAircraftDataLoading(true);
       const response = await axios(
@@ -844,10 +844,10 @@ const AviapageDetails = () => {
       if (response) {
         setAircraftData(response?.data?.specificAircraft);
         setData(response?.data);
-        console.log('date', response?.data?.specificAircraft?.operator?.date);
+        console.log("date", response?.data?.specificAircraft?.operator?.date);
         const segments =
           response.data.specificAircraft?.aircraft?.itineraries[0]?.segments;
-        console.log('segment line 632', segments);
+        console.log("segment line 632", segments);
         locationData.push({
           departureLocation: segments[0]?.departure?.iataCode,
           departureTime: segments[0]?.departure?.at,
@@ -860,37 +860,41 @@ const AviapageDetails = () => {
         const airline = renderAirlineName(airlineName);
         setairlineName(airline);
       } else {
-        setError('error');
+        setError("error");
         setResults([]);
       }
     } catch (error) {
       console.error(error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const amount = totalCost;
   const currency = selectedCurrency;
-  const receiptId = 'quicklftReceipt';
+  const receiptId = "quicklftReceipt";
   const makePayment = async (e) => {
-    const response = await fetch('http://localhost:8000/rayzorpay/Order', {
-      method: 'POST',
+    const response = await fetch("http://localhost:8000/rayzorpay/Order", {
+      method: "POST",
       body: JSON.stringify({
         amount: amount,
         currency: currency,
         receipt: receiptId,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
     const order = await response.json();
     let options = {
-      key: 'rzp_test_dSGUgBKlIU2Ecm',
+      key: "rzp_test_dSGUgBKlIU2Ecm",
       amount: amount,
       currency: currency,
-      name: 'Qickly',
-      description: 'Test Transaction',
-      image: 'https://example.com/your_logo',
+      name: "Qickly",
+      description: "Test Transaction",
+      image: "https://example.com/your_logo",
       order_id: order.order.id,
       handler: async function (response) {
         const body = {
@@ -898,12 +902,12 @@ const AviapageDetails = () => {
         };
 
         const validateRes = await fetch(
-          'http://localhost:8000/rayzorpay/Order/verify',
+          "http://localhost:8000/rayzorpay/Order/verify",
           {
-            method: 'POST',
+            method: "POST",
             body: JSON.stringify(body),
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
         );
@@ -911,19 +915,19 @@ const AviapageDetails = () => {
         console.log(jsonRes);
       },
       prefill: {
-        name: 'Gaurav Kumar',
-        email: 'gaurav.kumar@example.com',
-        contact: '9000090000',
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "9000090000",
       },
       notes: {
-        address: 'Razorpay Corporate Office',
+        address: "Razorpay Corporate Office",
       },
       theme: {
-        color: '#3399cc',
+        color: "#3399cc",
       },
     };
     var rzp1 = new window.Razorpay(options);
-    rzp1.on('payment.failed', function (response) {
+    rzp1.on("payment.failed", function (response) {
       alert(response.error.code);
       alert(response.error.description);
       alert(response.error.source);
@@ -939,7 +943,7 @@ const AviapageDetails = () => {
     if (id) {
       fetchData();
       const loadRayzorPaymentScript = async () => {
-        await LoadScript('https://checkout.razorpay.com/v1/checkout.js');
+        await LoadScript("https://checkout.razorpay.com/v1/checkout.js");
       };
       loadRayzorPaymentScript();
     }
@@ -948,11 +952,11 @@ const AviapageDetails = () => {
   const [slides, setSlides] = useState([]);
   useEffect(() => {
     switch (aircraftData?.aviapagesResponse?.aircraft) {
-      case 'Challenger 605':
+      case "Challenger 605":
         setSlides(challenger605Slides);
-      case 'Learjet 45':
+      case "Learjet 45":
         setSlides(learjet45Slides);
-      case 'C-90':
+      case "C-90":
         setSlides(c90Slides);
       default:
         setSlides(challenger605Slides);

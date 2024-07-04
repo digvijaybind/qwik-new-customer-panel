@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import newsUpdates from '../../db/newsUpdates.json';
-import NewsUpdates from '../NewsUpdates/NewsUpdate';
-import { NextArrow, PrevArrow } from './CustomArrow';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import newsUpdates from "../../db/newsUpdates.json";
+import NewsUpdates from "../NewsUpdates/NewsUpdate";
+import { NextArrow, PrevArrow } from "./CustomArrow";
 const LatestNew = React.memo(() => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow:3,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -67,5 +67,7 @@ const LatestNew = React.memo(() => {
     </div>
   );
 });
+
+LatestNew.displayName = "LatestNew";
 
 export default LatestNew;

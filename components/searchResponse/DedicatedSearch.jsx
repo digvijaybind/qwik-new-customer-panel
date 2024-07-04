@@ -80,7 +80,7 @@ const DedicatedSearch = ({ data, type = "commercial" }) => {
             title="Oxygen"
           />
           <MedicalEquipmentCard
-            image="/images/bookingIcon/medicalEquipment.png"
+            image="/images/bookingIcon/medicalEquipment.svg"
             title="Medical Equipment"
           />
           <MedicalEquipmentCard

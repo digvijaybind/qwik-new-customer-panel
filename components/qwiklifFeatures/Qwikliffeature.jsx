@@ -1,27 +1,28 @@
-import React from 'react';
-import QwiklifFeatures from '@/data/QwiklifFeatures';
-import QwiklifFeatureCard from './QwiklifFeatureCard';
+import React from "react";
+import QwiklifFeatures from "@/data/QwiklifFeatures";
+import QwiklifFeatureCard from "./QwiklifFeatureCard";
 
 const QwiklifFeature = React.memo(() => {
   return (
-      <div className="w-fit grid grid-cols-2 font-sans  sm:grid-cols-1 gap-6 sm:gap-4  xs:px-4">
-        {QwiklifFeatures.map(({ icon, title, description }, key) =>
-          <QwiklifFeatureCard
-            key={title + key}
-            icon={icon}
-            title={title}
-            description={description}
-          />)}
-      </div>
+    <div className="w-fit grid grid-cols-2 font-sans  sm:grid-cols-1 gap-6 sm:gap-4  xs:px-4">
+      {QwiklifFeatures.map(({ icon, title, description }, key) => (
+        <QwiklifFeatureCard
+          key={title + key}
+          icon={icon}
+          title={title}
+          description={description}
+        />
+      ))}
+    </div>
   );
 });
 
+QwiklifFeature.displayName = "QwiklifFeature";
+
 export default QwiklifFeature;
 
-
-
-
-{/* <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
+{
+  /* <div className="w-full h-full flex gap-8 sm:py-4 p-8 hover:shadow-2xl rounded-lg">
 <Image
   className="max-w-[50px] max-h-[50px] sm:max-w-[40px] sm:max-h-[40px] object-contain"
   src="/images/rapid_time.png"
@@ -101,4 +102,5 @@ export default QwiklifFeature;
     <br /> families.
   </p>
 </div>
-</div> */}
+</div> */
+}

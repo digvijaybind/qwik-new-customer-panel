@@ -5,7 +5,7 @@ import Airline from "../../public/images/commerialImages/Airline.svg"; //importe
 import Image from "next/image";
 import Strectres from "../../public/images/bookingIcon/strectres.png"; //imported medical equiment icon
 import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; //imported medical equiment icon
-import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.png"; //imported medical equiment icon
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg"; //imported medical equiment icon
 import Doctors from "../../public/images/bookingIcon/doctor.png"; //imported medical equiment icon
 import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarosel";
 import Signature from "../../public/images/Signature.svg";

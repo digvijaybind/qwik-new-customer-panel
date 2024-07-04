@@ -106,6 +106,8 @@ const ChooseQwiklif = React.memo(() => {
   );
 });
 
+ChooseQwiklif.displayName = "ChooseQwiklif";
+
 export default ChooseQwiklif;
 
 const ChooseQwiklifButton = ({
