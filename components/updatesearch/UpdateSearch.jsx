@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styles from "./UpdateSearch.module.css";
 import LeftImage from "../../public/images/inputimages/Flight.svg";
 import RightImage from "../../public/images/inputimages/Dropdown.svg";
@@ -11,8 +11,10 @@ import PhoneInput, {
   getCountries,
   getCountryCallingCode,
 } from "react-phone-number-input";
-import { useCallback } from "react";
+import _debounce from "lodash/debounce";
 import UpdateInputTo from "./UpdateInputTo";
+import apiClient from "@/api/apiClient";
+import Endpoint from "@/api/endpoint";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -32,12 +34,13 @@ const CustomPhoneInput = React.forwardRef(
 const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
   const countries = getCountries();
 
-  const options = countries.map((country) => {
-    const callingCode = getCountryCallingCode(country);
+  const options = countries
+    .map((country) => {
+      const callingCode = getCountryCallingCode(country);
 
-    if (!callingCode) {
-      return null; // Skip this option if the country code is not valid
-    }
+      if (!callingCode) {
+        return null; // Skip this option if the country code is not valid
+      }
 
       return {
         value: country,
@@ -89,14 +92,66 @@ const UpdateSearchNew = React.memo(
     const router = useRouter();
     const [scrollDirection, setScrollDirection] = useState("static");
     const [isScrolled, setIsScrolled] = useState(false);
+    const [queryFrom, setQueryFrom] = useState("");
+    const [queryTo, setQueryTo] = useState("");
+    const [resultsFrom, setResultsFrom] = useState([]);
+    const [resultsTo, setResultsTo] = useState([]);
+    const [loadingFrom, setLoadingFrom] = useState(false);
+    const [loadingTo, setLoadingTo] = useState(false);
 
-    const handleChange = useCallback((e) => {
+    const search = async (searchTerm, name) => {
+      console.log("searchTerm", searchTerm);
+      if (name === "originLocationCode") {
+        setLoadingFrom(true);
+      } else if (name === "destinationLocationCode") {
+        setLoadingTo(true);
+      }
+
+      try {
+        const response = await apiClient.get(
+          `${Endpoint.Allairports}?q=${searchTerm}`
+        );
+
+        if (name === "originLocationCode") {
+          console.log(
+            "response data line 113 originLocationCode",
+            response.data
+          );
+          setResultsFrom(response.data);
+        } else if (name === "destinationLocationCode") {
+          console.log("response data line 116 destinationCode ", response.data);
+          setResultsTo(response.data);
+        }
+      } catch (error) {
+        console.log("Error Fetchiing data", error);
+      } finally {
+        if (name === "originLocationCode") {
+          setLoadingFrom(false);
+        } else if (name === "destinationLocationCode") {
+          setLoadingTo(false);
+        }
+      }
+    };
+
+    const debounceSearch = useCallback(
+      _debounce((SearchTerm, name) => {
+        search(SearchTerm, name);
+      }, 400),
+      []
+    );
+
+    const handleChange = (e) => {
       const { name, value } = e.target;
+      if (name === "originLocationCode") {
+        debounceSearch(value, "originLocationCode");
+      } else if (name === "destinationLocationCode") {
+        debounceSearch(value, "destinationLocationCode");
+      }
       setFormData((formData) => ({
         ...formData,
         [name]: value,
       }));
-    }, []);
+    };
 
     useEffect(() => {
       let lastScrollY = window.scrollY;
@@ -137,7 +192,7 @@ const UpdateSearchNew = React.memo(
     const formSubmit = async (e) => {
       e.preventDefault();
       router.push({
-        pathname: "/searchResponse",
+        pathname: "/SearchResultsPage",
         query: {
           pax: formData?.pax,
           originLocationCode: formData.originLocationCode,

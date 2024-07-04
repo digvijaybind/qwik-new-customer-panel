@@ -133,14 +133,14 @@
   color: gray;
 }
 
-@media (min-width: 1366px) {
-  /* Styles specific to Dell laptops */
+/* @media (min-width: 1366px) {
+  
 }
 
 @media (min-width: 1440px) {
-  /* Styles specific to MacBook Air */
+ 
 }
 
 @media (min-width: 1280px) {
-  /* Styles specific to HP laptops */
-}
+ 
+} */

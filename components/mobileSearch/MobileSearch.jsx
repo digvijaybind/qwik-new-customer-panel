@@ -89,7 +89,7 @@ const MobileSearch = ({ onClick, className = "" }) => {
 
   return (
     <div
-      className={`flex flex-col items-center font-sans  px-10 py-20  sm:py-2 bg-white borde-2 border-gray-700 shadow rounded relative bottom-20 ${className}`}
+      className={`flex flex-col  items-center font-Inter  px-10 py-20  sm:py-2 bg-white borde-2 border-gray-700 shadow rounded relative bottom-20 ${className}`}
     >
       <div className="w-[300px] h-[60px]  flex flex-row items-center rounded-lg mb-2 cursor-pointer">
         <UpdateInput
@@ -112,7 +112,7 @@ const MobileSearch = ({ onClick, className = "" }) => {
           name="destinationLocationCode"
         />
       </div>
-      <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg mb-2 cursor-pointer">
+      <div className="w-[300px] h-[60px] flex flex-row items-center rounded-lg font-Inter mb-2 cursor-pointer">
         <UpdateInput
           type="date"
           className={`w-full ${styles.customDateInput}`}
@@ -136,7 +136,7 @@ const MobileSearch = ({ onClick, className = "" }) => {
         </div>
       </div>
       <button
-        className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-extrabold hover:text-[#000]"
+        className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-Inter font-extrabold hover:text-[#000]"
         onClick={onClick}
       >
         Search
