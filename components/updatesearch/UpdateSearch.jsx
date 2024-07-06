@@ -15,6 +15,8 @@ import _debounce from "lodash/debounce";
 import UpdateInputTo from "./UpdateInputTo";
 import apiClient from "@/api/apiClient";
 import Endpoint from "@/api/endpoint";
+import Loader from "../Utils/Loader";
+import InputFrom from "./UpdateInput";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -154,6 +156,13 @@ const UpdateSearchNew = React.memo(
       }));
     };
 
+    const handleSelect = (name, value) => {
+      setFormData((formData) => ({
+        ...formData,
+        [name]: value,
+      }));
+    };
+
     useEffect(() => {
       let lastScrollY = window.scrollY;
 
@@ -237,18 +246,24 @@ const UpdateSearchNew = React.memo(
               >
                 From:
               </div>
-              <UpdateInput
-                type="text"
-                LeftImage={LeftImage}
-                RightImage={RightImage}
-                RightIcon
-                LeftIcon
-                placeholder="Enter City"
-                name="originLocationCode"
-                value={formData.originLocationCode}
-                onChange={handleChange}
-              />
+              <div>
+                <UpdateInput
+                  type="text"
+                  LeftImage={LeftImage}
+                  RightImage={RightImage}
+                  RightIcon
+                  LeftIcon
+                  placeholder="Enter City"
+                  name="originLocationCode"
+                  value={formData.originLocationCode}
+                  onChange={handleChange}
+                  results={resultsFrom}
+                  loading={loadingFrom}
+                  onSelect={handleSelect}
+                />
+              </div>
             </div>
+
             {/* "To" city search input */}
             <div className={`${styles.searchBarSection} mr-2`}>
               <div
@@ -260,7 +275,7 @@ const UpdateSearchNew = React.memo(
               >
                 To:
               </div>
-              <UpdateInputTo
+              <UpdateInput
                 type="text"
                 LeftImage={LeftImage}
                 RightImage={RightImage}
@@ -270,6 +285,10 @@ const UpdateSearchNew = React.memo(
                 name="destinationLocationCode"
                 value={formData.destinationLocationCode}
                 onChange={handleChange}
+                results={resultsTo}
+                loading={loadingTo}
+                setLoadingTo={setLoadingTo}
+                isArrival
               />
             </div>
             {/* Departure date section */}

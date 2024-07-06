@@ -62,14 +62,14 @@
   background-color: #eeeeee;
   min-width: 60px;
   font-weight: bold;
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .inputField::placeholder {
   color: #a5a5a5;
   min-width: 60px;
   font-weight: semibold;
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 .inputField:focus {
@@ -113,4 +113,83 @@
 .RightImage {
   height: 100px;
   width: 100px;
+}
+
+/* UpdateInput.module.css */
+.inputContainer {
+  position: relative;
+  width: 100%;
+  max-width: 256px;
+}
+
+.leftIcon,
+.rightIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leftIcon {
+  left: 10px;
+}
+
+.rightIcon {
+  right: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.resultsContainer {
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  top: calc(100% + 5px); /* Position below the input field */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resultItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.resultItem:hover {
+  background-color: #f0f0f0;
+}
+
+.resultTitle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.iataCode {
+  color: #555;
+  font-weight: bold;
+}
+
+.resultSubtitle {
+  font-size: 0.875rem;
+  color: #888;
 }

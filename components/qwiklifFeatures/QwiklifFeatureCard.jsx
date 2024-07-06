@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const QwiklifFeatureCard = ({ icon, title, description }) => {
   return (
@@ -16,8 +16,8 @@ const QwiklifFeatureCard = ({ icon, title, description }) => {
         <p className="text-xl font-Inter font-semibold text-slate-700">
           {title}
         </p>
-        <p className="text-[#646464] font-Inter leading-[26px] text-[16px]  font-normal sm:font-normal">
-          {description[1]} <br className="hidden" /> {description[2]}{' '}
+        <p className="text-[#646464] font-Inter  text-[14px]  font-normal sm:font-normal">
+          {description[1]} <br className="hidden" /> {description[2]}{" "}
           <br className="hidden" />
           {description[3]}
         </p>
