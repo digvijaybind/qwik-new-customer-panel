@@ -6,7 +6,7 @@ import { GiAirplaneDeparture } from "react-icons/gi";
 import Loader from "../Utils/Loader";
 import { useState } from "react";
 import { GiAirplaneArrival } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
+import { FaX } from "react-icons/fa6";
 const UpdateInput = React.memo(
   ({
     LeftImage,
@@ -64,11 +64,12 @@ const UpdateInput = React.memo(
             </div>
           )}
           {/*input type with props */}
+
           <input
             type={type}
             className={`${className} font-Inter ${
               type === "date" ? styles.customDateInput : ""
-            } ${styles.inputField}  ${value !== "" ? styles.dateInput : ""}`}
+            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""}`}
             placeholder={placeholder}
             name={name}
             value={value}
@@ -76,8 +77,19 @@ const UpdateInput = React.memo(
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
-          {selectedOption && <IoMdClose onClick={handleunSelect} />}
-          {/*Conditional rendering for Right icon */}
+
+          {selectedOption?.city_name && (
+            <div className="flex-1 h-full py-2">
+              <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2">
+                {selectedOption?.city_name}{" "}
+                {selectedOption?.iata ? `(${selectedOption?.iata})` : null}
+                <FaX
+                  className="mx-2 text-black text-xs cursor-pointer"
+                  onClick={handleunSelect}
+                />
+              </div>
+            </div>
+          )}
 
           {RightIcon && (
             <Image src={RightImage} alt="Right Icon" width={40} height={40} />
