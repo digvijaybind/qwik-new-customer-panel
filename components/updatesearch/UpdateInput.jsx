@@ -6,6 +6,7 @@ import { GiAirplaneDeparture } from "react-icons/gi";
 import Loader from "../Utils/Loader";
 import { useState } from "react";
 import { GiAirplaneArrival } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 const UpdateInput = React.memo(
   ({
     LeftImage,
@@ -24,6 +25,7 @@ const UpdateInput = React.memo(
     isArrival = false,
   }) => {
     const [showResults, setShowResults] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     const handleFocus = () => {
       setShowResults(true);
@@ -34,8 +36,14 @@ const UpdateInput = React.memo(
     };
     const handleSelect = (location) => {
       const selectedValue = location.city_name;
-      onSelect(name, selectedValue); 
-      setShowResults(false); 
+      onSelect(name, selectedValue);
+      setSelectedOption(location);
+      setShowResults(false);
+    };
+
+    const handleunSelect = () => {
+      onSelect(name, "");
+      setSelectedOption(null);
     };
     return (
       <div className="flex items-center flex-col">
@@ -68,6 +76,7 @@ const UpdateInput = React.memo(
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
+          {selectedOption && <IoMdClose onClick={handleunSelect} />}
           {/*Conditional rendering for Right icon */}
 
           {RightIcon && (
@@ -79,7 +88,11 @@ const UpdateInput = React.memo(
           <ul className="absolute w-[257px] mt-12 bg-white border border-gray-200 rounded  max-h-60 overflow-y-auto z-10">
             {results?.map((location, index) => (
               <li
-                className="w-full px-3 py-2 hover:bg-gray-200 cursor-pointer"
+                className={`w-full px-3 py-2 hover:bg-gray-200 cursor-pointer ${
+                  selectedOption?.city_name === location.city_name
+                    ? "bg-blue p-4"
+                    : ""
+                }`}
                 key={"origin-search-result" + index}
                 onMouseDown={() => handleSelect(location)}
               >

@@ -12,11 +12,8 @@ import PhoneInput, {
   getCountryCallingCode,
 } from "react-phone-number-input";
 import _debounce from "lodash/debounce";
-import UpdateInputTo from "./UpdateInputTo";
 import apiClient from "@/api/apiClient";
 import Endpoint from "@/api/endpoint";
-import Loader from "../Utils/Loader";
-import InputFrom from "./UpdateInput";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -288,7 +285,6 @@ const UpdateSearchNew = React.memo(
                 onChange={handleChange}
                 results={resultsTo}
                 loading={loadingTo && activeInput === "destinationLocationCode"}
-                setLoadingTo={setLoadingTo}
                 isArrival
               />
             </div>
