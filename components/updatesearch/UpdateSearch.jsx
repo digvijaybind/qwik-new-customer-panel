@@ -257,7 +257,9 @@ const UpdateSearchNew = React.memo(
                   onChange={handleChange}
                   results={resultsFrom}
                   loading={loadingFrom && activeInput === "originLocationCode"}
-                  onSelect={handleSelect}
+                  onSelect={(value) =>
+                    handleSelect("originLocationCode", value)
+                  }
                 />
               </div>
             </div>
@@ -286,6 +288,9 @@ const UpdateSearchNew = React.memo(
                 results={resultsTo}
                 loading={loadingTo && activeInput === "destinationLocationCode"}
                 isArrival
+                onSelect={(value) =>
+                  handleSelect("destinationLocationCode", value)
+                }
               />
             </div>
             {/* Departure date section */}
@@ -305,9 +310,9 @@ const UpdateSearchNew = React.memo(
                 RightImage={RightImage}
                 RightIcon={false}
                 LeftIcon={false}
+                onChange={handleChange}
                 name="departureDate"
                 value={formData.departureDate}
-                onChange={handleChange}
               />
             </div>
             {/* Mobile number section */}

@@ -94,7 +94,7 @@ const UpdateInput = React.memo(
                     : ""
                 }`}
                 key={"origin-search-result" + index}
-                onMouseDown={() => handleSelect(location)}
+                onClick={() => handleSelect(location)}
               >
                 <p className="flex justify-between">
                   <span>{location.city_name}</span>
