@@ -34,8 +34,8 @@ const UpdateInput = React.memo(
     };
     const handleSelect = (location) => {
       const selectedValue = location.city_name;
-      onSelect(name, selectedValue);
-      setShowResults(false);
+      onSelect(name, selectedValue); 
+      setShowResults(false); 
     };
     return (
       <div className="flex items-center flex-col">

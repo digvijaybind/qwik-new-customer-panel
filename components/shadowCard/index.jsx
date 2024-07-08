@@ -8,11 +8,11 @@ const ShadowCard = ({ img, head, text }) => {
         <p className="text-[19px] sm:text-center text-[#111] py-[5px] font-bold font-Inter">
           {head}
         </p>
-        <p className="text-[16px] sm:text-center opacity-[90%] font-[500] py-[10px] font-Inter">
+        <p className="text-[14px] sm:text-center opacity-[90%] font-[500] py-[10px] font-Inter">
           {text}
         </p>
         <button className="border-[#396CF0] mt-[20px] mb-[10px] sm:ml-[50%] sm:transform sm:translate-x-[-50%] border-[1px] px-[10px] py-[5px] rounded-[5px] font-Inter sm:px-[5px] sm:py-[5px]">
-          <p className="text-[#396CF0] font-[600] font-Inter sm:">{`See Details >`}</p>
+          <p className="text-[#396CF0] font-[500] font-Inter sm:">{`See Details >`}</p>
         </button>
       </div>
     </div>

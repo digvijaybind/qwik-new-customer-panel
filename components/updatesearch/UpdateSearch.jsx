@@ -101,8 +101,9 @@ const UpdateSearchNew = React.memo(
     const [resultsTo, setResultsTo] = useState([]);
     const [loadingFrom, setLoadingFrom] = useState(false);
     const [loadingTo, setLoadingTo] = useState(false);
-
+    const [activeInput, setActiveInput] = useState(null);
     const search = async (searchTerm, name) => {
+      setActiveInput(name);
       console.log("searchTerm", searchTerm);
       if (name === "originLocationCode") {
         setLoadingFrom(true);
@@ -258,7 +259,7 @@ const UpdateSearchNew = React.memo(
                   value={formData.originLocationCode}
                   onChange={handleChange}
                   results={resultsFrom}
-                  loading={loadingFrom}
+                  loading={loadingFrom && activeInput === "originLocationCode"}
                   onSelect={handleSelect}
                 />
               </div>
@@ -286,7 +287,7 @@ const UpdateSearchNew = React.memo(
                 value={formData.destinationLocationCode}
                 onChange={handleChange}
                 results={resultsTo}
-                loading={loadingTo}
+                loading={loadingTo && activeInput === "destinationLocationCode"}
                 setLoadingTo={setLoadingTo}
                 isArrival
               />

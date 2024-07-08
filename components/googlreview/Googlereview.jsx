@@ -18,7 +18,7 @@ const ExpandText = ({ children, descripationLength }) => {
       {isExpanded ? fullText : `${fullText?.slice(0, descripationLength)}`}
       <span
         onClick={toggleText}
-        className="text-blue-500 font-medium text-[13px]"
+        className="text-blue-500 font-medium text-[11px]"
       >
         {isExpanded ? "" : "show more "}
       </span>
