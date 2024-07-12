@@ -257,9 +257,7 @@ const UpdateSearchNew = React.memo(
                   onChange={handleChange}
                   results={resultsFrom}
                   loading={loadingFrom && activeInput === "originLocationCode"}
-                  onSelect={(value) =>
-                    handleSelect("originLocationCode", value)
-                  }
+                  onSelect={(value) => handleSelect(value)}
                 />
               </div>
             </div>
@@ -288,9 +286,7 @@ const UpdateSearchNew = React.memo(
                 results={resultsTo}
                 loading={loadingTo && activeInput === "destinationLocationCode"}
                 isArrival
-                onSelect={(value) =>
-                  handleSelect("destinationLocationCode", value)
-                }
+                onSelect={(value) => handleSelect(value)}
               />
             </div>
             {/* Departure date section */}

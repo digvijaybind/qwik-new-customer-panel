@@ -69,7 +69,7 @@ const UpdateInput = React.memo(
             type={type}
             className={`${className} font-Inter ${
               type === "date" ? styles.customDateInput : ""
-            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""}`}
+            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""} `}
             placeholder={placeholder}
             name={name}
             value={value}
@@ -78,9 +78,9 @@ const UpdateInput = React.memo(
             onBlur={handleBlur}
           />
 
-          {selectedOption?.city_name && (
+          {selectedOption?.location && showResults && (
             <div className="flex-1 h-full py-2">
-              <div className="h-full w-fit bg-white text-sm flex items-center py-0.5 pl-2">
+              <div className="h-full w-full bg-white text-sm flex items-center py-0.5 pl-2">
                 {selectedOption?.city_name}{" "}
                 {selectedOption?.iata ? `(${selectedOption?.iata})` : null}
                 <FaX
@@ -96,7 +96,7 @@ const UpdateInput = React.memo(
           )}
         </div>
         {loading && <Loader />}
-        {!loading && results?.length > 0 && (
+        {!loading && results?.length > 0 && showResults && (
           <ul className="absolute w-[257px] mt-12 bg-white border border-gray-200 rounded  max-h-60 overflow-y-auto z-10">
             {results?.map((location, index) => (
               <li
@@ -104,7 +104,7 @@ const UpdateInput = React.memo(
                   selectedOption?.city_name === location.city_name
                     ? "bg-blue p-4"
                     : ""
-                }`}
+                } `}
                 key={"origin-search-result" + index}
                 onClick={() => handleSelect(location)}
               >
