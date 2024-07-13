@@ -131,6 +131,7 @@
 
 .customDateInput input[type="date"]::placeholder {
   color: gray;
+
 }
 
 /* @media (min-width: 1366px) {

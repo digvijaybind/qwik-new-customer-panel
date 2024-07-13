@@ -90,20 +90,22 @@ const UpdateInput = React.memo(
           />
 
           {selectedOption && (
-            <div className="flex-1 h-full w-full py-2">
-              <div className="h-full w-full bg-white text-sm flex items-center py-0.5 pl-2">
-                {selectedOption.city_name}{" "}
+            <div className="flex-1 h-full w-full bg-white py-2 flex flex-row justify-between items-center">
+              <div className="h-full w-full  text-sm flex items-center py-0.5 pl-2 ">
+                <span className="font-bold text-[12px]">
+                  {" "}
+                  {selectedOption.city_name}{" "}
+                </span>
                 {selectedOption.iata ? `(${selectedOption.iata})` : ""}
               </div>
               <div>
                 <FaTimes
-                  className="text-gray-400 cursor-pointer"
+                  className="text-gray-400 cursor-pointer w-5 h-3"
                   onClick={handleunSelect}
                 />
               </div>
             </div>
           )}
-         
 
           {RightIcon && (
             <Image src={RightImage} alt="Right Icon" width={40} height={40} />
