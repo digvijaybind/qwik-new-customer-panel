@@ -41,6 +41,7 @@ const UpdateInput = React.memo(
     const handleunSelect = () => {
       onSelect(name, "");
       setSelectedOption(null);
+      setShowResults(false);
     };
     const handleFocus = () => {
       setShowResults(true);
@@ -76,14 +77,15 @@ const UpdateInput = React.memo(
             onChange={onChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
+            onMouseDown={() => handleSelect(location)}
           />
 
-          {selectedOption && showResults && (
+          {selectedOption && (
             <div className="absolute top-full left-0 right-0 z-10">
-              <div className="bg-white border border-gray-200 rounded shadow-md mt-2">
+              <div className="bg-red border border-gray-200 rounded shadow-md mt-2">
                 <div className="p-2">
                   <div className="flex items-center">
-                    <div className="flex-1">
+                    <div className="flex-1 text-black">
                       {selectedOption.city_name}{" "}
                       {selectedOption.iata ? `(${selectedOption.iata})` : ""}
                     </div>
