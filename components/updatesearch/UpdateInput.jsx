@@ -7,6 +7,7 @@ import Loader from "../Utils/Loader";
 import { useState } from "react";
 import { GiAirplaneArrival } from "react-icons/gi";
 import { FaX } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
 const UpdateInput = React.memo(
   ({
     LeftImage,
@@ -27,10 +28,6 @@ const UpdateInput = React.memo(
     const [showResults, setShowResults] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
 
-    const handleFocus = () => {
-      setShowResults(true);
-    };
-
     const handleBlur = () => {
       setTimeout(() => setShowResults(false), 200); // Delay to allow click event to register
     };
@@ -38,12 +35,15 @@ const UpdateInput = React.memo(
       const selectedValue = location.city_name;
       onSelect(name, selectedValue);
       setSelectedOption(location);
-      setShowResults(false);
+      setShowResults(true);
     };
 
     const handleunSelect = () => {
       onSelect(name, "");
       setSelectedOption(null);
+    };
+    const handleFocus = () => {
+      setShowResults(true);
     };
     return (
       <div className="flex items-center flex-col">
@@ -69,7 +69,7 @@ const UpdateInput = React.memo(
             type={type}
             className={`${className} font-Inter ${
               type === "date" ? styles.customDateInput : ""
-            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""} `}
+            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""}`}
             placeholder={placeholder}
             name={name}
             value={value}
@@ -78,15 +78,23 @@ const UpdateInput = React.memo(
             onBlur={handleBlur}
           />
 
-          {selectedOption?.location && showResults && (
-            <div className="flex-1 h-full py-2">
-              <div className="h-full w-full bg-white text-sm flex items-center py-0.5 pl-2">
-                {selectedOption?.city_name}{" "}
-                {selectedOption?.iata ? `(${selectedOption?.iata})` : null}
-                <FaX
-                  className="mx-2 text-black text-xs cursor-pointer"
-                  onClick={handleunSelect}
-                />
+          {selectedOption && showResults && (
+            <div className="absolute top-full left-0 right-0 z-10">
+              <div className="bg-white border border-gray-200 rounded shadow-md mt-2">
+                <div className="p-2">
+                  <div className="flex items-center">
+                    <div className="flex-1">
+                      {selectedOption.city_name}{" "}
+                      {selectedOption.iata ? `(${selectedOption.iata})` : ""}
+                    </div>
+                    <div>
+                      <FaTimes
+                        className="text-gray-400 cursor-pointer"
+                        onClick={handleunSelect}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
