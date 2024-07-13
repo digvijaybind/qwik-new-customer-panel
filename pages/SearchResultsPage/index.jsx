@@ -13,7 +13,7 @@ import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 
-const SearchResponse = ({ commericialTab }) => {
+const SearchResponse = () => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
 
@@ -65,15 +65,27 @@ const SearchResponse = ({ commericialTab }) => {
       searchParams.has("originLocationCode") &&
       searchParams.has("destinationLocationCode")
     ) {
+      // const formDetails = {
+      //   originLocationCode: searchParams.get("originLocationCode"),
+      //   destinationLocationCode: searchParams.get("destinationLocationCode"),
+      //   departureDate: searchParams.get("departureDate"),
+      //   pax: 1,
+      //   countryCode: searchParams.get("countryCode"),
+      //   mobile: searchParams.get("mobile"),
+      //   max: 5,
+      // };
+      console.log(" searchParams line 77", searchParams);
       const formDetails = {
-        originLocationCode: searchParams.get("originLocationCode"),
-        destinationLocationCode: searchParams.get("destinationLocationCode"),
-        departureDate: searchParams.get("departureDate"),
+        originLocationCode: "BOM",
+        destinationLocationCode: "DOH",
+        departureDate: "2024-03-30",
         pax: 1,
-        countryCode: searchParams.get("countryCode"),
-        mobile: searchParams.get("mobile"),
-        max: 5,
+        max: 10,
+        mobile: "878825286",
+        countryCode: "+91",
       };
+
+      console.log("FormDetails Line 85", formDetails);
       setFormData(formDetails);
       // searchCity(formDetails);
     } else {
@@ -85,13 +97,12 @@ const SearchResponse = ({ commericialTab }) => {
     setFormData(data);
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData !== null) {
-      // dispatch(DedicatedApi(formData));
-      dispatch(DedicatedApi(formData));
+  useEffect(() => {
+    if (formData.originLocationCode && formData.destinationLocationCode) {
+      dispatch(CommericialApi(formData));
+      // dispatch(fetchDedicatedFlights(formData));
     }
-  };
+  }, [formData, dispatch]);
 
   const handleTabChange = (e) => {
     setActiveTab(e.target.value);
@@ -157,48 +168,51 @@ const SearchResponse = ({ commericialTab }) => {
               >
                 {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
+                    console.log(
+                      "Available Ticket date line 171",
+                      commericialflights?.ResponseData?.TicketAvailability
+                    );
                     return (
                       <CommericialSearch
                         key={index}
                         isMobile={isMobile}
                         aircraftData={data}
-                        availticket={data.ResponseData.TicketAvailability}
-                        selectedCurrency={selectedCurrency}
-                        handleCurrencyChange={handleCurrencyChange}
+                        availticket={
+                          commericialflights?.ResponseData?.TicketAvailability
+                        }
                       />
                     );
                   }
                 )}
+                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                  (data, index) => {
+                    console.log(
+                      "Available Ticket date line 184",
+                      data.ResponseData?.TicketAvailability
+                    );
+                    return (
+                      <CommericialSearch
+                        key={index}
+                        isMobile={isMobile}
+                        aircraftData={data}
+                        availticket={
+                          commericialflights?.ResponseData?.TicketAvailability
+                        }
+                      />
+                    );
+                  }
+                )}
+                {/* <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" />
+                <CommericialSearch type="commercial" /> */}
               </div>
               <div
                 className={`grid grid-cols-1 gap-12 ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 }`}
               >
-                {(!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop ||
-                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop
-                    ?.length === 0) &&
-                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
-                    (data) => {
-                      return (
-                        <CommericialSearch
-                          type="commercial"
-                          key={index}
-                          isMobile={isMobile}
-                          aircraftData={data}
-                          availticket={data.ResponseData.TicketAvailability}
-                          selectedCurrency={selectedCurrency}
-                          handleCurrencyChange={handleCurrencyChange}
-                        />
-                      );
-                    }
-                  )}
                 <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
@@ -212,5 +226,16 @@ const SearchResponse = ({ commericialTab }) => {
     </div>
   );
 };
+
+// export async function getServerSideProps(context) {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+//   const post = await res.json();
+
+//   return {
+//     props: {
+//       post,
+//     },
+//   };
+// }
 
 export default SearchResponse;

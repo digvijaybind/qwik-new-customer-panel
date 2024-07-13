@@ -1,7 +1,14 @@
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import flightLogo from "../../public/images/airline-mini-logo/Indigo.png";
 import Image from "next/image";
-const CommericialSearch = ({ data, type = "commercial" }) => {
+const CommericialSearch = ({
+  data,
+  type = "commercial",
+  aircraftData,
+  availticket,
+}) => {
+  console.log(" aircraftData line 5", aircraftData);
+  console.log("aircraftData line 6", availticket);
   return (
     <div className="w-full flex flex-col gap-5">
       <button

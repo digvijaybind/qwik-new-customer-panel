@@ -28,19 +28,22 @@ const UpdateInput = React.memo(
     const [showResults, setShowResults] = useState(false);
     const [selectedOrigin, setSelectedOrigin] = useState(null);
     const [selectedDestination, setSelectedDestion] = useState(null);
-
+    const [selectedOption, setselectedOption] = useState(0);
     const handleBlur = () => {
       setTimeout(() => setShowResults(false), 200); // Delay to allow click event to register
     };
     const handleSelect = (location) => {
       const selectedValue = location.city_name;
+      setShowResults(true);
       onSelect(name, selectedValue);
       if (name == "originLocationCode") {
         setSelectedOrigin(location);
+        setselectedOption(selectedOption + 1);
       } else {
         setSelectedDestion(location);
+        setselectedOption(selectedOption + 1);
       }
-      setShowResults(true);
+      
     };
 
     const handleunSelect = () => {
@@ -56,8 +59,6 @@ const UpdateInput = React.memo(
       setShowResults(true);
     };
 
-    const selectedOption =
-      name === "originLocationCode" ? selectedOrigin : selectedDestination;
     return (
       <div className="flex items-center flex-col">
         <div className={`${styles.Container} rounded-md`}>
@@ -89,23 +90,24 @@ const UpdateInput = React.memo(
             onBlur={handleBlur}
           />
 
-          {selectedOption && (
-            <div className="flex-1 h-full w-full bg-white py-2 flex flex-row justify-between items-center">
-              <div className="h-full w-full  text-sm flex items-center py-0.5 pl-2 ">
-                <span className="font-bold text-[12px]">
-                  {" "}
-                  {selectedOption.city_name}{" "}
-                </span>
-                {selectedOption.iata ? `(${selectedOption.iata})` : ""}
+          {selectedOption.length > 2 &&
+            (selectedOrigin || selectedDestination) && (
+              <div className="flex-1 h-full w-full bg-white py-2 flex flex-row justify-between items-center">
+                <div className="h-full w-full  text-sm flex items-center py-0.5 pl-2 ">
+                  <span className="font-bold text-[12px]">
+                    {" "}
+                    {selectedOption.city_name}{" "}
+                  </span>
+                  {selectedOption.iata ? `(${selectedOption.iata})` : ""}
+                </div>
+                <div>
+                  <FaTimes
+                    className="text-gray-400 cursor-pointer w-5 h-3"
+                    onClick={handleunSelect}
+                  />
+                </div>
               </div>
-              <div>
-                <FaTimes
-                  className="text-gray-400 cursor-pointer w-5 h-3"
-                  onClick={handleunSelect}
-                />
-              </div>
-            </div>
-          )}
+            )}
 
           {RightIcon && (
             <Image src={RightImage} alt="Right Icon" width={40} height={40} />
