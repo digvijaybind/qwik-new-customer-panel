@@ -12,6 +12,7 @@ import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
+import CommericialLoader from "@/components/searchResponse/CommericialLoader";
 
 const SearchResponse = () => {
   const dispatch = useDispatch();
@@ -128,13 +129,14 @@ const SearchResponse = () => {
               <UpdateSearchNew
                 className={`${
                   isSticky
-                    ? `${styles.Searchbar2} flex justify-center items-center !w-[80%]`
+                    ? `${styles.Searchbar2} flex justify-center items-center w-full`
                     : `${styles.Searchbar} flex justify-center items-center !static !w-full !-mt-24`
                 } `}
                 formData={formData}
                 setFormData={stableSetFormData}
               />
             )}
+
             <div
               className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
