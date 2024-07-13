@@ -26,7 +26,8 @@ const UpdateInput = React.memo(
     isArrival = false,
   }) => {
     const [showResults, setShowResults] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOrigin, setSelectedOrigin] = useState(null);
+    const [selectedDestination, setSelectedDestion] = useState(null);
 
     const handleBlur = () => {
       setTimeout(() => setShowResults(false), 200); // Delay to allow click event to register
@@ -34,23 +35,33 @@ const UpdateInput = React.memo(
     const handleSelect = (location) => {
       const selectedValue = location.city_name;
       onSelect(name, selectedValue);
-      setSelectedOption(location);
+      if (name == "originLocationCode") {
+        setSelectedOrigin(location);
+      } else {
+        setSelectedDestion(location);
+      }
       setShowResults(true);
     };
 
     const handleunSelect = () => {
       onSelect(name, "");
-      setSelectedOption(null);
       setShowResults(false);
+      if (name == "originLocationCode") {
+        setSelectedOrigin(null);
+      } else {
+        setSelectedDestion(null);
+      }
     };
     const handleFocus = () => {
       setShowResults(true);
     };
+
+    const selectedOption =
+      name === "originLocationCode" ? selectedOrigin : selectedDestination;
     return (
       <div className="flex items-center flex-col">
         <div className={`${styles.Container} rounded-md`}>
           {/*Conditional rendering for left icon */}
-
           {LeftIcon && (
             <div style={{ marginRight: "5px", height: "30px", width: "30px" }}>
               {isArrival ? (
@@ -64,49 +75,42 @@ const UpdateInput = React.memo(
               )}
             </div>
           )}
-          {/*input type with props */}
 
           <input
             type={type}
             className={`${className} font-Inter ${
               type === "date" ? styles.customDateInput : ""
-            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""}`}
+            } ${styles.inputField} ${value !== "" ? styles.dateInput : ""} `}
             placeholder={placeholder}
             name={name}
-            value={value}
+            value={selectedOption ? selectedOption.city_name : value}
             onChange={onChange}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            onMouseDown={() => handleSelect(location)}
           />
 
           {selectedOption && (
-            <div className="absolute top-full left-0 right-0 z-10">
-              <div className="bg-red border border-gray-200 rounded shadow-md mt-2">
-                <div className="p-2">
-                  <div className="flex items-center">
-                    <div className="flex-1 text-black">
-                      {selectedOption.city_name}{" "}
-                      {selectedOption.iata ? `(${selectedOption.iata})` : ""}
-                    </div>
-                    <div>
-                      <FaTimes
-                        className="text-gray-400 cursor-pointer"
-                        onClick={handleunSelect}
-                      />
-                    </div>
-                  </div>
-                </div>
+            <div className="flex-1 h-full w-full py-2">
+              <div className="h-full w-full bg-white text-sm flex items-center py-0.5 pl-2">
+                {selectedOption.city_name}{" "}
+                {selectedOption.iata ? `(${selectedOption.iata})` : ""}
+              </div>
+              <div>
+                <FaTimes
+                  className="text-gray-400 cursor-pointer"
+                  onClick={handleunSelect}
+                />
               </div>
             </div>
           )}
+         
 
           {RightIcon && (
             <Image src={RightImage} alt="Right Icon" width={40} height={40} />
           )}
         </div>
         {loading && <Loader />}
-        {!loading && results?.length > 0 && showResults && (
+        {!loading && results?.length > 0 && showResults && !selectedOption && (
           <ul className="absolute w-[257px] mt-12 bg-white border border-gray-200 rounded  max-h-60 overflow-y-auto z-10">
             {results?.map((location, index) => (
               <li
