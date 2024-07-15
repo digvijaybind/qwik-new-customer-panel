@@ -6,6 +6,11 @@ const WorkwithUs = () => {
   const service = [
     {
       img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
+      head: "Medical Healthcare Insurance/Provider company",
+      text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely.Apply now",
+    },
+    {
+      img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
       head: "Flying doctor/ Airborne Medical Professionals",
       text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
     },
@@ -52,7 +57,7 @@ const WorkwithUs = () => {
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[25px]  text-[#111] font-sans font-bold">
+          <h2 className="text-[25px]  text-[#111] font-Inter font-bold">
             Partner with us
           </h2>
           <hr class="bg-[#11B6E3] h-[4px] w-[45px] mx-auto sm:mx-auto"></hr>
