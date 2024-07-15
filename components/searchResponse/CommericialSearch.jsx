@@ -186,6 +186,34 @@ console.log("line 12 commericial ticket date",availticket);
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
+                    <div className="flex justify-end gap-2">
+                <select
+                  id="currencySelector"
+                  value={selectedCurrency}
+                  onChange={handleCurrencyChange}
+                  className="border-solid border-2 border-black rounded-md text-xs  text-[#101729]"
+                >
+                  {Object.keys(currencySymbols)?.map((currency, index) => {
+                    return (
+                      <option
+                        value={currency}
+                        key={"currency-item" + index}
+                        className="font-sans"
+                      >
+                        {currency}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="flex flex-row items-end text-[#101729] font-sans">
+                  {currencySymbols[selectedCurrency]}
+                  <div className=" font-extrabold text-[#101729] text-base font-sans">
+                    {" "}
+                    {totalCost}
+                  </div>
+                </div>
+              </div>
               <p className="sm:text-2xl text-2xl sm:mb-1 mb-2 font-black">$ 22,723</p>
               <p className="sm:text-base text-[12px] text-black/50 text-center">
                 Flight / Patient
