@@ -19,8 +19,115 @@ const CommericialSearch = ({
   const [airlineName, setairlineName] = useState("");
   const [airlineImage, setAirlineImage] = useState("");
 
+console.log("locationData line 22",locationData);
+ const getEUR = (price) => {
+    const EuroPrice = price;
+    return EuroPrice;
+  };
+  const getAED = (price) => {
+    const PriceAED = price * 3.95;
+    return PriceAED.toFixed(2);
+  };
 
- 
+  const getUSD = (price) => {
+    const PriceUsd = price * 1.077;
+    return PriceUsd.toFixed(2);
+  };
+
+  const getINR = (price) => {
+    const PriceINR = price * 89.42;
+    return PriceINR.toFixed(2);
+  };
+
+
+
+  useEffect(() => {
+    const actualTotalPrice = parseFloat(
+      (aircraftData?.price?.totalPrice).toFixed(2)
+    );
+    switch (selectedCurrency) {
+      case "EUR":
+        setTotalCost(getEUR(actualTotalPrice));
+        break;
+      case "AED":
+        setTotalCost(getAED(actualTotalPrice));
+        break;
+      case "USD":
+        setTotalCost(getUSD(actualTotalPrice));
+        break;
+      case "INR":
+        setTotalCost(getINR(actualTotalPrice));
+        break;
+      default:
+        setTotalCost(0);
+    }
+  }, [aircraftData?.price?.totalPrice]);
+
+
+  //  const airlineNames = {
+  //   AC: "Air Canada",
+  //   "6E": "IndiGo",
+  //   AF: "Air France",
+  //   AI: "Air India",
+  //   AA: "American Airlines",
+  //   BA: "British Airways",
+  //   CX: "Cathay Pacific",
+  //   DL: "Delta Air Lines",
+  //   EK: "Emirates",
+  //   EY: "Etihad Airways",
+  //   KL: "KLM Royal Dutch Airlines",
+  //   LH: "Lufthansa",
+  //   QF: "Qantas",
+  //   QR: "Qatar Airways",
+  //   SQ: "Singapore Airlines",
+  //   TK: "Turkish Airlines",
+  //   UA: "United Airlines",
+  //   VS: "Virgin Atlantic",
+  //   THY: "Turkish Airlines",
+  //   WY: "Oman Air",
+  //   OMA: "Oman Air",
+  //   SAA: "South African Airways",
+  //   ANA: "All Nippon Airways",
+  //   PAL: "Philippine Airlines",
+  //   VIR: "Virgin Atlantic",
+  //   MAU: "Air Mauritius",
+  //   MH: "Malaysia Airlines",
+  //   SV: "Saudia",
+  // };
+
+  // const AirlineImages = {
+  //   AC: Aircanada,
+  //   "6E": Indigo,
+  //   AF: Airfrance,
+  //   AI: AirIndia,
+  //   AA: americanAirline,
+  //   BA: BritishAirways,
+  //   CX: cathayAirline,
+  //   DL: DeltaAirline,
+  //   EK: Emirates,
+  //   EY: Ethiads,
+  //   KL: KLMAirline,
+  //   LH: Lufthansa,
+  //   QF: Quantas,
+  //   QR: QatarAirway,
+  //   SQ: SingaporeAirline,
+  //   TK: TurkishAirline,
+  //   UA: UnitedAirline,
+  //   VS: VirginAtlantic,
+  //   THY: TurkishAirlineNew,
+  //   WY: OmanAirline,
+  //   OMA: OmanAirline,
+  //   SAA: SouthAfrican,
+  //   ANA: NipponAirline,
+  //   PAL: PhillippinesAirlines,
+  //   VIR: VirginAirline,
+  //   MAU: Airmauritius,
+  //   MH: malesiyaAirline,
+  //   SV: SaudiAirline,
+  // };
+
+
+
 
   const handleCurrencyChange=()=>{
 

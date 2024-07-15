@@ -165,6 +165,8 @@ const AircraftDetailsCard = ({
         departureTime: segments[0]?.departure?.at,
         destinationLocation: segments.at(-1)?.arrival?.iataCode,
         destinationTime: segments.at(-1)?.arrival?.at,
+        arrivalterminal:segments[0]?.departure?.terminal,
+        destinationterminal:segments.at(-1)?.arrival?.terminal
       });
     } else {
       setLocationData({
@@ -172,6 +174,8 @@ const AircraftDetailsCard = ({
         departureTime: segments[0]?.departure?.at,
         destinationLocation: segments[0]?.arrival?.iataCode,
         destinationTime: segments[0]?.arrival?.at,
+         arrivalterminal:segments[0]?.departure?.terminal,
+         destinationterminal:segments[0]?.arrival?.terminal,
       });
     }
   };
