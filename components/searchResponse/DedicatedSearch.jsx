@@ -26,7 +26,7 @@ const DedicatedSearch = ({ data, type = "commercial" }) => {
         <div className="flex flex-col gap-7 p-7 sm:px-5">
           <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
             <div className="flex items-center gap-3">
-              <Image src={Learjet} alt="flight logo" className="w-[21%]" />
+              <Image src={Learjet} alt="flight logo" className="w-[30%]" />
               <div>
                 <p className="font-bold">Challenger 605</p>
                 <p className="text-[0.8rem] font-semibold text-black/50 mb-0">
@@ -51,8 +51,8 @@ const DedicatedSearch = ({ data, type = "commercial" }) => {
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
-              <p className="sm:text-2xl text-3xl sm:mb-1 mb-2">$ 22,723</p>
-              <p className="sm:text-sm text-[0.9rem] text-black/50 text-center">
+              <p className="sm:text-2xl text-2xl sm:mb-1 mb-2 font-black">$ 22,723</p>
+              <p className="sm:text-sm text-[12px] text-black/50 text-center">
                 Flight / Patient
               </p>
             </div>

@@ -1,7 +1,7 @@
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import flightLogo from "../../public/images/airline-mini-logo/Indigo.png";
 import Image from "next/image";
-import React ,{useEffect} from 'react'
+import React ,{useEffect,useState} from 'react'
 const CommericialSearch = ({
   data,
   type = "commercial",
@@ -9,12 +9,25 @@ const CommericialSearch = ({
   availticket,
   activeTab
 }) => {
+   const [totalCost, setTotalCost] = useState(
+    parseFloat((aircraftData?.price?.totalPrice).toFixed(2)) ?? 0
+  );
+  const [locationData, setLocationData] = useState({});
+  const [totalTravelDuration, setTotalTravelDuration] = useState("");
+  const [techStops, setTechStops] = useState([]);
+  const [availableticket, setavailableticket] = useState("");
+  const [airlineName, setairlineName] = useState("");
+  const [airlineImage, setAirlineImage] = useState("");
+
+
+ 
 
   const handleCurrencyChange=()=>{
 
   }
 useEffect(()=>{
 console.log("line 11 commericial aircraft data", aircraftData);
+console.log("aircraftData?.price?.totalPrice",aircraftData?.price?.totalPrice)
 console.log("line 12 commericial ticket date",availticket);
 },[aircraftData,availticket])
   return (
@@ -41,7 +54,7 @@ console.log("line 12 commericial ticket date",availticket);
         <div className="flex flex-col gap-10 p-7 sm:px-5">
           <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
             <div className="flex items-center gap-3">
-              <Image src={flightLogo} alt="flight logo" className="w-[21%]" />
+              <Image src={flightLogo} alt="flight logo" className="w-[30%] h-[20%]" />
               <div>
                 <p className="font-bold">Indigo</p>
                 <p className="text-[0.8rem] font-semibold text-black/50 mb-0">
@@ -66,8 +79,8 @@ console.log("line 12 commericial ticket date",availticket);
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
-              <p className="sm:text-2xl text-3xl sm:mb-1 mb-2">$ 22,723</p>
-              <p className="sm:text-sm text-[0.9rem] text-black/50 text-center">
+              <p className="sm:text-2xl text-2xl sm:mb-1 mb-2 font-black">$ 22,723</p>
+              <p className="sm:text-base text-[12px] text-black/50 text-center">
                 Flight / Patient
               </p>
             </div>
