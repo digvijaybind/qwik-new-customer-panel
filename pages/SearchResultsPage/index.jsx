@@ -65,7 +65,7 @@ const SearchResponse = () => {
     ) {
 
       console.log("Data destination",searchParams.has("originLocationCode"))
-            console.log("Data originLocation",searchParams.has("destinationLocationCode"))
+      console.log("Data originLocation",searchParams.has("destinationLocationCode"))
       const formDetails = {
         originLocationCode: searchParams.get("originLocationCode"),
         destinationLocationCode: searchParams.get("destinationLocationCode"),
@@ -141,16 +141,7 @@ const SearchResponse = () => {
               className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
             >
-              <button
-                value="commercial"
-                className={`${
-                  activeTab === "commercial"
-                    ? "bg-white text-primary"
-                    : "bg-none text-white"
-                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
-              >
-                Commercial Flight
-              </button>
+             
               <button
                 value="chartered"
                 className={`${
@@ -164,17 +155,18 @@ const SearchResponse = () => {
             </div>
             <div className="w-full grid sm:grid-cols-1 grid-cols-2 gap-7 mt-7 mb-14">
               <div
-                className={`grid grid-cols-1 gap-12 ${
+                className={`grid grid-cols-1 gap-4 ${
                   !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                { commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
                     return (
                       <CommericialSearch
                         key={index}
                         isMobile={isMobile}
                         aircraftData={data}
+                        activeTab={activeTab}
                         availticket={
                           commericialflights?.ResponseData?.TicketAvailability
                         }
@@ -182,7 +174,7 @@ const SearchResponse = () => {
                     );
                   }
                 )}
-                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                { !commericialflights?.ResponseData?.AirCraftDatawithNotechStop && commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
                   (data, index) => {
                  
                     return (
@@ -197,6 +189,9 @@ const SearchResponse = () => {
                     );
                   }
                 )}
+                {!commericialflights?.ResponseData?.AirCraftDatawithNotechStop && !commericialflights?.ResponseData?.AirCraftDatawithNotechStop (
+                  <CommericialLoader/>
+                )}
                 {/* <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
@@ -204,15 +199,15 @@ const SearchResponse = () => {
                 <CommericialSearch type="commercial" /> */}
               </div>
               <div
-                className={`grid grid-cols-1 gap-12 ${
+                className={`grid grid-cols-1 gap-4 ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 }`}
               >
                 <DedicatedSearch type="chartered" />
+                {/* <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
-                <DedicatedSearch type="chartered" />
-                <DedicatedSearch type="chartered" />
+                <DedicatedSearch type="chartered" /> */}
               </div>
             </div>
           </div>

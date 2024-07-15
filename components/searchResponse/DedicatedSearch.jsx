@@ -3,7 +3,7 @@ import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
 const DedicatedSearch = ({ data, type = "commercial" }) => {
   return (
-    <div className="w-full flex flex-col gap-5">
+    <div className="w-full flex flex-col gap-4">
       <button
         className={`cursor-none flex w-fit gap-1.5 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
           type === "commercial"
@@ -23,7 +23,7 @@ const DedicatedSearch = ({ data, type = "commercial" }) => {
         {type} Flight
       </button>
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
-        <div className="flex flex-col gap-10 p-7 sm:px-5">
+        <div className="flex flex-col gap-7 p-7 sm:px-5">
           <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
             <div className="flex items-center gap-3">
               <Image src={Learjet} alt="flight logo" className="w-[21%]" />

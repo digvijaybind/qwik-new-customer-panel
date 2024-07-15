@@ -1,17 +1,26 @@
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import flightLogo from "../../public/images/airline-mini-logo/Indigo.png";
 import Image from "next/image";
+import React ,{useEffect} from 'react'
 const CommericialSearch = ({
   data,
   type = "commercial",
   aircraftData,
   availticket,
+  activeTab
 }) => {
 
+  const handleCurrencyChange=()=>{
+
+  }
+useEffect(()=>{
+console.log("line 11 commericial aircraft data", aircraftData);
+console.log("line 12 commericial ticket date",availticket);
+},[aircraftData,availticket])
   return (
-    <div className="w-full flex flex-col gap-5">
+    <div className="w-full flex flex-col gap-4">
       <button
-        className={`cursor-none flex w-fit gap-1.5 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
+        className={`cursor-none flex w-fit gap-1 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
           type === "commercial"
             ? "bg-[#EBFDFF] text-primary"
             : "bg-[#FEF6F1] text-[#ED7D2D]"
@@ -99,4 +108,7 @@ const CommericialSearch = ({
   );
 };
 
+export const getServerSideProps=()=>{
+
+}
 export default CommericialSearch;
