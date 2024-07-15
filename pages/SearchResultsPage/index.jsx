@@ -63,9 +63,11 @@ const SearchResponse = () => {
       searchParams.has("originLocationCode") &&
       searchParams.has("destinationLocationCode")
     ) {
-
-      console.log("Data destination",searchParams.has("originLocationCode"))
-      console.log("Data originLocation",searchParams.has("destinationLocationCode"))
+      console.log("Data destination", searchParams.has("originLocationCode"));
+      console.log(
+        "Data originLocation",
+        searchParams.has("destinationLocationCode")
+      );
       const formDetails = {
         originLocationCode: searchParams.get("originLocationCode"),
         destinationLocationCode: searchParams.get("destinationLocationCode"),
@@ -75,7 +77,7 @@ const SearchResponse = () => {
         mobile: searchParams.get("mobile"),
         max: 5,
       };
-   
+
       // const formDetails = {
       //   originLocationCode: "BOM",
       //   destinationLocationCode: "DOH",
@@ -141,7 +143,17 @@ const SearchResponse = () => {
               className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
               onClick={handleTabChange}
             >
-             
+              <button
+                value="commericial"
+                className={`${
+                  activeTab === "commericial"
+                    ? "bg-white text-primary"
+                    : "bg-none text-white"
+                } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
+              >
+                Commericial Flight
+              </button>
+
               <button
                 value="chartered"
                 className={`${
@@ -159,7 +171,7 @@ const SearchResponse = () => {
                   !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                { commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
                     return (
                       <CommericialSearch
@@ -174,24 +186,27 @@ const SearchResponse = () => {
                     );
                   }
                 )}
-                { !commericialflights?.ResponseData?.AirCraftDatawithNotechStop && commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
-                  (data, index) => {
-                 
-                    return (
-                      <CommericialSearch
-                        key={index}
-                        isMobile={isMobile}
-                        aircraftData={data}
-                        availticket={
-                          commericialflights?.ResponseData?.TicketAvailability
-                        }
-                      />
-                    );
-                  }
-                )}
-                {!commericialflights?.ResponseData?.AirCraftDatawithNotechStop && !commericialflights?.ResponseData?.AirCraftDatawithNotechStop (
-                  <CommericialLoader/>
-                )}
+                {!commericialflights?.ResponseData
+                  ?.AirCraftDatawithNotechStop &&
+                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data, index) => {
+                      return (
+                        <CommericialSearch
+                          key={index}
+                          isMobile={isMobile}
+                          aircraftData={data}
+                          availticket={
+                            commericialflights?.ResponseData?.TicketAvailability
+                          }
+                        />
+                      );
+                    }
+                  )}
+                {!commericialflights?.ResponseData
+                  ?.AirCraftDatawithNotechStop &&
+                  !commericialflights?.ResponseData?.AirCraftDatawithNotechStop(
+                    <CommericialLoader />
+                  )}
                 {/* <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
