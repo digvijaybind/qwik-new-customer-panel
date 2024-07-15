@@ -2,12 +2,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "next/navigation";
-
 import { DedicatedApi } from "@/redux/slices/dedicatedSlice";
 import { CommericialApi } from "@/redux/slices/commericialSlice";
-
 import styles from "../../styles/page.module.css";
-
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
@@ -66,25 +63,28 @@ const SearchResponse = () => {
       searchParams.has("originLocationCode") &&
       searchParams.has("destinationLocationCode")
     ) {
-      // const formDetails = {
-      //   originLocationCode: searchParams.get("originLocationCode"),
-      //   destinationLocationCode: searchParams.get("destinationLocationCode"),
-      //   departureDate: searchParams.get("departureDate"),
-      //   pax: 1,
-      //   countryCode: searchParams.get("countryCode"),
-      //   mobile: searchParams.get("mobile"),
-      //   max: 5,
-      // };
-      console.log(" searchParams line 77", searchParams);
+
+      console.log("Data destination",searchParams.has("originLocationCode"))
+            console.log("Data originLocation",searchParams.has("destinationLocationCode"))
       const formDetails = {
-        originLocationCode: "BOM",
-        destinationLocationCode: "DOH",
-        departureDate: "2024-03-30",
+        originLocationCode: searchParams.get("originLocationCode"),
+        destinationLocationCode: searchParams.get("destinationLocationCode"),
+        departureDate: searchParams.get("departureDate"),
         pax: 1,
-        max: 10,
-        mobile: "878825286",
-        countryCode: "+91",
+        countryCode: searchParams.get("countryCode"),
+        mobile: searchParams.get("mobile"),
+        max: 5,
       };
+   
+      // const formDetails = {
+      //   originLocationCode: "BOM",
+      //   destinationLocationCode: "DOH",
+      //   departureDate: "2024-03-30",
+      //   pax: 1,
+      //   max: 10,
+      //   mobile: "878825286",
+      //   countryCode: "+91",
+      // };
 
       console.log("FormDetails Line 85", formDetails);
       setFormData(formDetails);
@@ -170,10 +170,6 @@ const SearchResponse = () => {
               >
                 {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
-                    console.log(
-                      "Available Ticket date line 171",
-                      commericialflights?.ResponseData?.TicketAvailability
-                    );
                     return (
                       <CommericialSearch
                         key={index}
@@ -188,10 +184,7 @@ const SearchResponse = () => {
                 )}
                 {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
                   (data, index) => {
-                    console.log(
-                      "Available Ticket date line 184",
-                      data.ResponseData?.TicketAvailability
-                    );
+                 
                     return (
                       <CommericialSearch
                         key={index}

@@ -51,8 +51,7 @@ const AircraftDetailsCard = ({
   const [availableticket, setavailableticket] = useState("");
   const [airlineName, setairlineName] = useState("");
   const [airlineImage, setAirlineImage] = useState("");
-  console.log("collection id", CommericialId);
-  console.log("aircrfat id", aircraftData?.aircraft?.id);
+ 
 
   const getEUR = (price) => {
     const EuroPrice = price;
@@ -73,7 +72,7 @@ const AircraftDetailsCard = ({
     return PriceINR.toFixed(2);
   };
 
-  console.log("totalCost", totalCost);
+
 
   useEffect(() => {
     const actualTotalPrice = parseFloat(
@@ -205,7 +204,7 @@ const AircraftDetailsCard = ({
       totalMinutes,
       totalSeconds,
     });
-    console.log("TimeDuration line 196", TimeDuration);
+   
     return TimeDuration;
   };
 
@@ -213,12 +212,12 @@ const AircraftDetailsCard = ({
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
-    console.log("date month and year", `${date.getDate()} ${month} ${year}`);
+
     return `${date.getDate()} ${month} ${year}`;
   };
   const TicketAvailable = () => {
     const ticketDate = availticket ?? [];
-    console.log(" ticketDate line 125", ticketDate);
+
     setavailableticket(formatDate(ticketDate));
   };
 
@@ -235,7 +234,7 @@ const AircraftDetailsCard = ({
   const AirlineName = () => {
     const airlineName =
       aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
-    console.log(" airlineName  line 125", airlineName);
+
     const airline = renderAirlineName(airlineName);
     setairlineName(airline);
   };
@@ -244,7 +243,7 @@ const AircraftDetailsCard = ({
     const timeduration = aircraftData?.aircraft?.itineraries[0]?.duration ?? [];
 
     let flyingTime = parseISO8601Duration(timeduration);
-    console.log("flyingTime  line 209", flyingTime);
+
     setTotalTravelDuration(flyingTime);
   };
 

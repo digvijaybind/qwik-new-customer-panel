@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { BsTelephoneFill } from "react-icons/bs";
-import aeroplane from "../../public/images/header/aeroplane.svg";
+
 //Navigation Tabs
 const tabs = [
   {

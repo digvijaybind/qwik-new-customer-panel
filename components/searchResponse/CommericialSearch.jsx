@@ -7,8 +7,7 @@ const CommericialSearch = ({
   aircraftData,
   availticket,
 }) => {
-  console.log(" aircraftData line 5", aircraftData);
-  console.log("aircraftData line 6", availticket);
+
   return (
     <div className="w-full flex flex-col gap-5">
       <button

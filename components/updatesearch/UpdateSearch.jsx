@@ -101,7 +101,7 @@ const UpdateSearchNew = React.memo(
     const [activeInput, setActiveInput] = useState(null);
     const search = async (searchTerm, name) => {
       setActiveInput(name);
-      console.log("searchTerm", searchTerm);
+      
       if (name === "originLocationCode") {
         setLoadingFrom(true);
       } else if (name === "destinationLocationCode") {
@@ -114,13 +114,10 @@ const UpdateSearchNew = React.memo(
         );
 
         if (name === "originLocationCode") {
-          console.log(
-            "response data line 113 originLocationCode",
-            response.data
-          );
+         
           setResultsFrom(response.data);
         } else if (name === "destinationLocationCode") {
-          console.log("response data line 116 destinationCode ", response.data);
+        
           setResultsTo(response.data);
         }
       } catch (error) {
@@ -137,7 +134,7 @@ const UpdateSearchNew = React.memo(
     const debounceSearch = useCallback(
       _debounce((SearchTerm, name) => {
         search(SearchTerm, name);
-      }, 400),
+      }, 600),
       []
     );
 
@@ -256,6 +253,7 @@ const UpdateSearchNew = React.memo(
                   value={formData.originLocationCode}
                   onChange={handleChange}
                   results={resultsFrom}
+                  setFormData={setFormData}
                   loading={loadingFrom && activeInput === "originLocationCode"}
                   onSelect={(value) => handleSelect(value)}
                 />
@@ -284,6 +282,7 @@ const UpdateSearchNew = React.memo(
                 value={formData.destinationLocationCode}
                 onChange={handleChange}
                 results={resultsTo}
+                setFormData={setFormData}
                 loading={loadingTo && activeInput === "destinationLocationCode"}
                 isArrival
                 onSelect={(value) => handleSelect(value)}
