@@ -18,6 +18,10 @@ const CommericialSearch = ({
   const [availableticket, setavailableticket] = useState("");
   const [airlineName, setairlineName] = useState("");
   const [airlineImage, setAirlineImage] = useState("");
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR'); 
+  const handleCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value);
+  };
 
 console.log("locationData line 22",locationData);
  const getEUR = (price) => {
@@ -61,7 +65,7 @@ console.log("locationData line 22",locationData);
       default:
         setTotalCost(0);
     }
-  }, [aircraftData?.price?.totalPrice]);
+  }, [aircraftData?.price?.totalPrice,selectedCurrency]);
 
 
   //  const airlineNames = {
@@ -126,12 +130,6 @@ console.log("locationData line 22",locationData);
   //   SV: SaudiAirline,
   // };
 
-
-
-
-  const handleCurrencyChange=()=>{
-
-  }
 useEffect(()=>{
 console.log("line 11 commericial aircraft data", aircraftData);
 console.log("aircraftData?.price?.totalPrice",aircraftData?.price?.totalPrice)
@@ -202,7 +200,7 @@ console.log("line 12 commericial ticket date",availticket);
                       >
                         {currency}
                       </option>
-                    );
+                    )
                   })}
                 </select>
 
