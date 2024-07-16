@@ -284,7 +284,7 @@ const UpperSection = () => {
   );
 };
 
-const CommericialAirline = () => {
+const CommericialAirline = ({}) => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -316,3 +316,10 @@ const CommericialAirline = () => {
 };
 
 export default CommericialAirline;
+
+export const getServerSideProps = async ({ context }) => {
+  const { id } = context.query;
+  return {
+    props: {},
+  };
+};

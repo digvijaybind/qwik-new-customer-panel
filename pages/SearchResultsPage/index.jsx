@@ -11,7 +11,7 @@ import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 import CommericialLoader from "@/components/searchResponse/CommericialLoader";
 
-const SearchResponse = () => {
+const SearchResponse = ({ initialData }) => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
 
@@ -22,19 +22,14 @@ const SearchResponse = () => {
     (state) => state.dedicated.dedicatedflights
   );
 
+  console.log("line 26 commerialFlights", commericialflights);
+  console.log("line 27 DedicatedFlights", DedicatedFlights);
+
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("commercial");
-  const [formData, setFormData] = useState({
-    originLocationCode: "",
-    destinationLocationCode: "",
-    departureDate: "",
-    pax: 1,
-    countryCode: "",
-    mobile: "",
-    max: 5,
-  });
-
+  const [formData, setFormData] = useState(initialData);
+  const [charterData, setcharterData] = useState("");
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
@@ -87,8 +82,6 @@ const SearchResponse = () => {
       //   mobile: "878825286",
       //   countryCode: "+91",
       // };
-
-      console.log("FormDetails Line 85", formDetails);
       setFormData(formDetails);
       // searchCity(formDetails);
     } else {
@@ -101,9 +94,9 @@ const SearchResponse = () => {
   }, []);
 
   useEffect(() => {
-    if (formData.originLocationCode && formData.destinationLocationCode) {
+    if (formData?.originLocationCode && formData?.destinationLocationCode) {
       dispatch(CommericialApi(formData));
-      // dispatch(fetchDedicatedFlights(formData));
+      dispatch(DedicatedApi(formData));
     }
   }, [formData, dispatch]);
 
@@ -146,7 +139,7 @@ const SearchResponse = () => {
               <button
                 value="commericial"
                 className={`${
-                  activeTab === "commericial"
+                  activeTab === "commercial"
                     ? "bg-white text-primary"
                     : "bg-none text-white"
                 } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
@@ -202,11 +195,11 @@ const SearchResponse = () => {
                       );
                     }
                   )}
-                {!commericialflights?.ResponseData
+                {/* {!commericialflights?.ResponseData
                   ?.AirCraftDatawithNotechStop &&
                   !commericialflights?.ResponseData?.AirCraftDatawithNotechStop(
                     <CommericialLoader />
-                  )}
+                  )} */}
                 {/* <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
                 <CommericialSearch type="commercial" />
@@ -218,7 +211,16 @@ const SearchResponse = () => {
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 }`}
               >
-                <DedicatedSearch type="chartered" />
+                {DedicatedFlights.map((data, index) => {
+                  return (
+                    <DedicatedSearch
+                      type="chartered"
+                      key={index}
+                      charterdata={data}
+                    />
+                  );
+                })}
+
                 {/* <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
                 <DedicatedSearch type="chartered" />
@@ -232,15 +234,23 @@ const SearchResponse = () => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-//   const post = await res.json();
+export const getServerSideProps = async (context) => {
+  const searchParams = context.query;
+  console.log("searchparams query line 236", searchParams);
+  const initialData = {
+    originLocationCode: searchParams.originLocationCode || "",
+    destinationLocationCode: searchParams.destinationLocationCode || "",
+    departureDate: searchParams.departureDate || "",
+    pax: searchParams.pax || 1,
+    mobile: searchParams.mobile || "",
+    max: searchParams.max || 5,
+  };
 
-//   return {
-//     props: {
-//       post,
-//     },
-//   };
-// }
+  return {
+    props: {
+      initialData,
+    },
+  };
+};
 
 export default SearchResponse;

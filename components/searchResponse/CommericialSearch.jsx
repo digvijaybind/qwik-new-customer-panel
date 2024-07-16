@@ -48,8 +48,6 @@ const CommericialSearch = ({
   const [airlineName, setairlineName] = useState("");
   const [airlineImage, setAirlineImage] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
-  const [hour, setHours] = useState(0);
-  const [minute, setMinutes] = useState(0);
   const [availableticket, setavailableticket] = useState("");
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -396,7 +394,7 @@ const CommericialSearch = ({
                   </div>
                 </div>
               </div>
-              <p className="sm:text-sm text-[12px] text-black/50 text-end">
+              <p className="sm:text-sm text-[10px] text-black/50 text-end">
                 Flight / Patient
               </p>
             </div>

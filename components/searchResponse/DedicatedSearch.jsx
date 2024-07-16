@@ -1,7 +1,63 @@
 import Image from "next/image";
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
-const DedicatedSearch = ({ data, type = "commercial" }) => {
+import { useState, useEffect } from "react";
+import { currencySymbols } from "../Utils/Constants";
+
+const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
+
+  const handleCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value);
+  };
+  const getEUR = (price) => {
+    const EuroPrice = price;
+    return EuroPrice;
+  };
+  const getAED = (price) => {
+    const PriceAED = price * 3.95;
+    return PriceAED.toFixed(2);
+  };
+
+  const getUSD = (price) => {
+    const PriceUsd = price * 1.077;
+    return PriceUsd.toFixed(2);
+  };
+
+  const getINR = (price) => {
+    const PriceINR = price * 89.42;
+    return PriceINR.toFixed(2);
+  };
+
+  const AirlineImage = () => {
+    const airlineName =
+      aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+    const airlineImage = AirlineImages[airlineName];
+    setAirlineImage(airlineImage);
+  };
+
+  // useEffect(() => {
+  //   const actualTotalPrice = parseFloat(
+  //     (aircraftData?.price?.totalPrice).toFixed(2)
+  //   );
+  //   switch (selectedCurrency) {
+  //     case "EUR":
+  //       setTotalCost(getEUR(actualTotalPrice));
+  //       break;
+  //     case "AED":
+  //       setTotalCost(getAED(actualTotalPrice));
+  //       break;
+  //     case "USD":
+  //       setTotalCost(getUSD(actualTotalPrice));
+  //       break;
+  //     case "INR":
+  //       setTotalCost(getINR(actualTotalPrice));
+  //       break;
+  //     default:
+  //       setTotalCost(0);
+  //   }
+  // }, [aircraftData?.price?.totalPrice, selectedCurrency]);
+  console.log("charter data line 5", charterdata);
   return (
     <div className="w-full flex flex-col gap-4">
       <button
@@ -51,18 +107,45 @@ const DedicatedSearch = ({ data, type = "commercial" }) => {
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
-              <p className="sm:text-2xl text-2xl sm:mb-1 mb-2 font-black">$ 22,723</p>
-              <p className="sm:text-sm text-[12px] text-black/50 text-center">
+              <div className="flex justify-end gap-2 ">
+                <select
+                  id="currencySelector"
+                  value={selectedCurrency}
+                  onChange={handleCurrencyChange}
+                  className="border-solid border-2 border-black rounded-md text-xs h-8 text-[#101729]"
+                >
+                  {Object.keys(currencySymbols)?.map((currency, index) => {
+                    return (
+                      <option
+                        value={currency}
+                        key={"currency-item" + index}
+                        className="font-Inter"
+                      >
+                        {currency}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="flex flex-row items-center text-[#101729] font-sans">
+                  {currencySymbols[selectedCurrency]}
+                  <div className=" font-extrabold text-[#101729] text-[18px] font-Inter font-semibold ml-2">
+                    {" "}
+                    $22,4567
+                  </div>
+                </div>
+              </div>
+              <p className="sm:text-sm text-[10px] text-black/50 text-end">
                 Flight / Patient
               </p>
             </div>
+            <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end">
+              27 march 2027
+            </p>
             <div className="flex flex-col font-medium">
               <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm">
                 Book Now
               </button>
-              <p className="text-xs text-black/60 font-medium text-center">
-                View Flight Details
-              </p>
             </div>
           </div>
         </div>
