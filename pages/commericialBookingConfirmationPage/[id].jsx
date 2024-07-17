@@ -20,7 +20,7 @@ import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
 import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
 import Bill from "../../public/images/utils/Billlogo.svg"; //imported bill logo
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
 import { useState } from "react";
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
@@ -375,7 +375,7 @@ const Guarantee = () => {
 //this component realted to ImportedInfo
 const ImportantInfo = () => {
   return (
-    <div className=" px-[30px] py-[30px] w-full border-2 border-gray-300   mt-2 sm:px-[10px] sm:py-[10px] sm:w-full  rounded-2xl sm:px-0">
+    <div className=" px-[30px] py-[30px] w-full border-2 border-gray-300   mt-2 sm:px-[10px] sm:py-[10px] sm:w-full  rounded-2xl ">
       <div className="grid grid-rows-auto grid-cols-1">
         <div className="text-[20px] font-bold font-Inter text-[#565E6C] text-start sm:text-center">
           Important Information
@@ -398,7 +398,7 @@ const ImportantInfo = () => {
   );
 };
 /* main component*/
-const CommericialBookingConfirmationPage = () => {
+const CommericialBookingConfirmationPage = ({ initialData }) => {
   const router = useRouter();
   const [airlineName, setairlineName] = useState("");
   const { id } = router.query;
@@ -406,7 +406,9 @@ const CommericialBookingConfirmationPage = () => {
   useEffect(() => {
     dispatch(CommericialSingleApi(id));
   }, [id]);
+ const data = useSelector((state) => state.commericial.commericialflights);
 
+ console.log("data of commericial Flights", data);
   const airlineNames = {
     AC: "Air Canada",
     "6E": "IndiGo",
@@ -501,12 +503,6 @@ const CommericialBookingConfirmationPage = () => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const { id } = context.query;
-  console.log("id inside the server side", id);
-  return {
-    props: {},
-  };
-};
+
 
 export default CommericialBookingConfirmationPage;
