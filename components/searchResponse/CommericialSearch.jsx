@@ -197,6 +197,7 @@ const CommericialSearch = ({
     }
   };
   const parseISO8601Duration = (durationString) => {
+
     let TimeDuration = [];
     const regex =
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
@@ -250,10 +251,11 @@ const CommericialSearch = ({
   };
   const getTravelDuration = () => {
     const timeduration = aircraftData?.aircraft?.itineraries[0]?.duration ?? [];
-
+  console.log("Time duration Line 254", timeduration);
     let flyingTime = parseISO8601Duration(timeduration);
 
     setTotalTravelDuration(flyingTime);
+    console.log("totalTravelDuration line 258", totalTravelDuration);
     // setHours(totalTravelDuration[0].hour);
     // setMinutes(totalTravelDuration[0].minutes);
   };

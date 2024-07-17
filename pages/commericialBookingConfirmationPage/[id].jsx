@@ -11,6 +11,7 @@ import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarose
 import Signature from "../../public/images/Signature.svg";
 import Important from "../../db/importantCommericial.json";
 import Point from "../../public/images/PointIcon.svg";
+import { currencySymbols } from "../../components/Utils/Constants";
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
 import Commerialtransfer from "../../public/images/commericial-transfer/Banner.svg";
@@ -24,7 +25,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
 import { useState } from "react";
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
-const TravelDuration = ({ airlineName }) => {
+const TravelDuration = ({ airline, totalTravelDuration }) => {
+  console.log("totalTravelDuration line 29", totalTravelDuration);
   return (
     <div className="">
       <div className="flex flex-col bg-[#F8F9FA] px-[15px] py-[15px]">
@@ -48,7 +50,13 @@ const TravelDuration = ({ airlineName }) => {
               Saturday , April 27
             </div>
             <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-16 sm:font-extrabold">
-              Non Stop 2h 10m
+              Non Stop{" "}
+              {totalTravelDuration?.length > 0 &&
+                totalTravelDuration.map((data) => {
+                  return `${Math.floor(data.totalHours)}h ${Math.floor(
+                    data.totalMinutes
+                  )}m`;
+                })}
             </div>
           </div>
           <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] block sm:whitespace-nowrap sm:hidden">
@@ -61,10 +69,9 @@ const TravelDuration = ({ airlineName }) => {
               <Image src={Airline} width={44} height={42} />
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
-              <span className="font-black text-[16px] text-[#171A1F]">
-                {airlineName}
+              <span className="font-black text-[18px] text-[#171A1F]">
+                {airline}
               </span>{" "}
-              UK 583 , UK 846{" "}
             </div>
           </div>
           <div className="font-medium text-[12px] text-[#171A1F] sm:text-[10px] sm:whitespace-nowrap sm:ml-14 sm:font-extrabold">
@@ -107,7 +114,12 @@ const TravelDuration = ({ airlineName }) => {
             </div>
           </div>
           <div className="Timeduration font-Inter  text-[14px] font-medium sm:ml-2 sm:font-semibold">
-            3h 5m
+            {totalTravelDuration?.length > 0 &&
+              totalTravelDuration.map((data) => {
+                return `${Math.floor(data.totalHours)}h ${Math.floor(
+                  data.totalMinutes
+                )}m`;
+              })}
           </div>
           <div className="Tolocation flex  items-baseline flex-row sm:flex-col">
             <span className="font-Inter text-[14px] font-bold">Abu dhabhi</span>
@@ -260,7 +272,53 @@ const InfomationHead = ({ title, descripation }) => {
   );
 };
 /* in this component contain whole Totalfare and taxes */
-const TotalFare = () => {
+const TotalFare = ({ Totalprice }) => {
+  const [selectedCurrency, setSelectedCurrency] = useState("EUR");
+  const [totalCost, setTotalCost] = useState(
+    parseFloat(Totalprice?.totalPrice?.toFixed(2)) ?? 0
+  );
+  Totalprice = parseFloat(Totalprice?.totalPrice?.toFixed(2));
+  const handleCurrencyChange = (event) => {
+    setSelectedCurrency(event.target.value);
+  };
+  const getEUR = (Totalprice) => {
+    const EuroPrice = Totalprice;
+    return EuroPrice;
+  };
+  const getAED = (Totalprice) => {
+    const PriceAED = Totalprice * 3.95;
+    return PriceAED.toFixed(2);
+  };
+
+  const getUSD = (Totalprice) => {
+    const PriceUsd = Totalprice * 1.077;
+    return PriceUsd.toFixed(2);
+  };
+
+  const getINR = (Totalprice) => {
+    const PriceINR = Totalprice * 89.42;
+    return PriceINR.toFixed(2);
+  };
+  useEffect(() => {
+    const actualTotalPrice = parseFloat(Totalprice?.toFixed(2));
+    switch (selectedCurrency) {
+      case "EUR":
+        setTotalCost(getEUR(actualTotalPrice));
+        break;
+      case "AED":
+        setTotalCost(getAED(actualTotalPrice));
+        break;
+      case "USD":
+        setTotalCost(getUSD(actualTotalPrice));
+        break;
+      case "INR":
+        setTotalCost(getINR(actualTotalPrice));
+        break;
+      default:
+        setTotalCost(0);
+    }
+  }, [Totalprice, selectedCurrency]);
+  console.log("Total Price line 269", Totalprice);
   return (
     <div className="bg-[#F8F9FA] px-5 py-6 shadow-sm">
       <div className="flex flex-col justify-between">
@@ -269,18 +327,45 @@ const TotalFare = () => {
         </div>
         <div className="BaseFare flex justify-between mb-4">
           <div className="font-Inter font-medium  text-[16px]">Base Fare</div>
-          <div className="font-Inter font-bold text-[16px]">$20,350</div>
+          <div className="font-Inter font-semibold text-[16px] flex flex-row justify-between items-center">
+            {" "}
+            {currencySymbols[selectedCurrency]}
+            <div className=" font-semibold text-[#000] text-[18px] font-Inter  ml-2">
+              {" "}
+              {totalCost}
+            </div>
+          </div>
         </div>
         <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full " />
-        <div className="Taxes&surface flex justify-between mt-6 mb-6">
-          <div className="font-Inter text-[16px]">Taxes </div>
-          <div className="font-Inter font-bold text-[16px]">$8,350</div>
-        </div>
-        <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full mt-4 mb-4" />
         <div className="Totalamount flex justify-between items-center mt-8 mb-4">
           <div className="font-sans font-black text-[16px]">Total Amount</div>
+          <div className="flex justify-end gap-2 ">
+            <select
+              id="currencySelector"
+              value={selectedCurrency}
+              onChange={handleCurrencyChange}
+              style={{ height: "36px", width: "74px" }}
+              className="border-solid border-2 border-[#54CDEF] rounded-md text-xs h-12 W-52  text-[#101729] focus:border-[#54CDEF]"
+            >
+              {Object.keys(currencySymbols)?.map((currency, index) => {
+                return (
+                  <option
+                    value={currency}
+                    key={"currency-item" + index}
+                    className="font-Inter  border-solid border-2 border-[#54CDEF]"
+                  >
+                    {currency}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
           <div className="bg-[#54CDEF] text-[#fff] text-[18px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-semibold">
-            $28,350{" "}
+            {currencySymbols[selectedCurrency]}
+            <div className=" font-bold text-[#fff] text-[18px] font-Inter ml-2">
+              {" "}
+              {totalCost}
+            </div>
           </div>
         </div>
       </div>
@@ -330,16 +415,20 @@ const PayConfirmation = () => {
   );
 };
 /* in this component contain top section of Final booking page */
-const UpperSection = () => {
+const UpperSection = ({ Totalprice, airline, totalTravelDuration }) => {
+  console.log("Totalprice", Totalprice);
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
       <div className="col-span-6 px-[20px] py-[15px]  w-full   sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1 bg-[#F8F9FA] sm:px-0">
-        <TravelDuration />
+        <TravelDuration
+          airline={airline}
+          totalTravelDuration={totalTravelDuration}
+        />
         {/* <ImportantInfo />
         <Guarantee /> */}
       </div>
       <div className="col-span-3 px-[15px] py-[10px]   flex flex-col justify-between sm:col-span-1 ">
-        <TotalFare />
+        <TotalFare Totalprice={Totalprice} />
         <PayConfirmation />
       </div>
     </div>
@@ -401,14 +490,14 @@ const ImportantInfo = () => {
 const CommericialBookingConfirmationPage = ({ initialData }) => {
   const router = useRouter();
   const [airlineName, setairlineName] = useState("");
+  const [totalTravelDuration, setTotalTravelDuration] = useState({});
   const { id } = router.query;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(CommericialSingleApi(id));
   }, [id]);
- const data = useSelector((state) => state.commericial.commericialflights);
+  const data = useSelector((state) => state.commericial.commericialflights);
 
- console.log("data of commericial Flights", data);
   const airlineNames = {
     AC: "Air Canada",
     "6E": "IndiGo",
@@ -471,26 +560,100 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
   //   SV: SaudiAirline,
   // };
 
+  const parseISO8601Duration = (durationString) => {
+    let TimeDuration = [];
+    const regex =
+      /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
+    const matches = durationString?.match(regex);
+    if (!matches) {
+      throw new Error("Invalid ISO8601 duration format");
+    }
+
+    const [, years, months, days, hours, minutes, seconds] =
+      matches.map(Number);
+
+    const totalSeconds = seconds || 0;
+    const totalMinutes = totalSeconds / 60 + (minutes || 0);
+    const totalHours = totalMinutes / 60 + (hours || 0);
+    const totalDays = totalHours / 24 + (days || 0);
+
+    TimeDuration.push({
+      years: years || 0,
+      months: months || 0,
+      days: days || 0,
+      hours: hours || 0,
+      minutes: minutes || 0,
+      seconds: seconds || 0,
+      totalDays,
+      totalHours,
+      totalMinutes,
+      totalSeconds,
+    });
+
+    return TimeDuration;
+  };
+
+  const getTravelDuration = () => {
+    const timeduration =
+      data?.specificAircraft?.aircraft?.itineraries[0]?.duration ?? [];
+    console.log("timeduration line 583", timeduration);
+    let flyingTime = parseISO8601Duration(timeduration);
+
+    setTotalTravelDuration(flyingTime);
+    console.log("totalTravelDuration line 587", totalTravelDuration);
+    // setHours(totalTravelDuration[0].hour);
+    // setMinutes(totalTravelDuration[0].minutes);
+  };
   const renderAirlineName = (carrierCode) => {
     return airlineNames[carrierCode] || "Unknow Airline";
   };
 
   const AirlineName = () => {
-    const airlineName =
-      aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+    // const airlineName =
+    // ?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
 
-    const airline = renderAirlineName(airlineName);
+    const airlinesName =
+      data?.specificAircraft?.aircraft?.itineraries[0]?.segments[0]
+        ?.carrierCode;
+    const airline = renderAirlineName(airlinesName);
     setairlineName(airline);
+
+    console.log("airlines name line 562", airlineName);
+    // if (
+    //   data &&
+    //   data.specificAircraft &&
+    //   data.specificAircraft.itineraries &&
+    //   data.specificAircraft.itineraries[0] &&
+    //   data.specificAircraft.itineraries[0].segments &&
+    //   data.specificAircraft.itineraries[0].segments[0]
+    // ) {
+    //   const airlinesName =
+    //     data.specificAircraft.itineraries[0].segments[0].carrierCode ?? [];
+    //   console.log("airline line 57", airlinesName);
+    //   setAirlineName(airlinesName); // Assuming setAirlineName is correctly defined
+    // } else {
+    //   console.error("Error: Data structure is not as expected."); // Optional: Handle error or log it
+    // }
   };
 
-  console.log("Airlines name in last page", airlineName);
+  useEffect(() => {
+    AirlineName();
+    getTravelDuration();
+  }, []);
+
+  console.log("Airline name in line 561 ", airlineName);
 
   return (
     <div className={`${styles.Container}`}>
       <div className="px-[15px] font-sans z-0">
         <div className={`${styles.Section1_Container} w-full`}></div>
         <div className="relative bottom-[200px]">
-          <UpperSection airlineName={airlineName} />
+          <UpperSection
+            airlineName={airlineName}
+            Totalprice={data?.specificAircraft?.price}
+            airline={airlineName}
+            totalTravelDuration={totalTravelDuration}
+          />
           <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
             <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">
               <ImportantInfo />
@@ -502,7 +665,5 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
     </div>
   );
 };
-
-
 
 export default CommericialBookingConfirmationPage;
