@@ -31,12 +31,14 @@ import VirginAtlantic from "../../public/images/airlines/virgin-atlantic-new.jpg
 import VirginAirline from "../../public/images/airlines/virgin-atlantic.jpg";
 import AirIndia from "../../public/images/updated-images/Air-India.svg";
 import OmanAirline from "../../public/images/airlines/Oman-airline.jpg";
+import Link from "next/link";
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const CommericialSearch = ({
   data,
   type = "commercial",
   aircraftData,
   availticket,
+  aircraftId,
   activeTab,
 }) => {
   const [totalCost, setTotalCost] = useState(
@@ -403,7 +405,12 @@ const CommericialSearch = ({
             </p>
             <div className="flex flex-col font-medium">
               <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm">
-                Book Now
+                <Link
+                  href={`/commericialBookingConfirmationPage/${`${aircraftId}-${aircraftData?.aircraft?.id}`}`}
+                  className="block w-full"
+                >
+                  Book Now
+                </Link>
               </button>
             </div>
           </div>

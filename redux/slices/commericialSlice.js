@@ -16,8 +16,11 @@ export const CommericialApi = createAsyncThunk(
 
 export const CommericialSingleApi = createAsyncThunk(
   `api/commericial/id`,
-  async () => {
-    const response = await apiClient.get(Endpoint.CommericialAircraftByid);
+  async (id) => {
+    console.log("Id is coming to inside commericial", id);
+    const endpoint = Endpoint.CommericialAircraftByid.replace(":id", id);
+    const response = await apiClient.get(endpoint);
+    console.log("commericial data response line 22", response.data);
     return response.data;
   }
 );
@@ -47,6 +50,10 @@ const commericialSlice = createSlice({
         state.status = "failed";
         console.log("error");
         state.error = action.error.message;
+      })
+      .addCase(CommericialSingleApi.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.commericialflights = action.payload;
       });
   },
 });

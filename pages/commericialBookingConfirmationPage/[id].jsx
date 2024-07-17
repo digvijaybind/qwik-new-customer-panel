@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./improveCommericial.module.css"; //imported style css file
 import { TbArrowsExchange2 } from "react-icons/tb"; // imported reverse icon
 import Airline from "../../public/images/commerialImages/Airline.svg"; //imported airline image
@@ -19,8 +19,12 @@ import airLift from "../../public/images/commericial-transfer/airLift.svg";
 import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
 import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
 import Bill from "../../public/images/utils/Billlogo.svg"; //imported bill logo
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
+import { useState } from "react";
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
-const TravelDuration = () => {
+const TravelDuration = ({ airlineName }) => {
   return (
     <div className="">
       <div className="flex flex-col bg-[#F8F9FA] px-[15px] py-[15px]">
@@ -57,8 +61,8 @@ const TravelDuration = () => {
               <Image src={Airline} width={44} height={42} />
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
-              <span className="font-black text-[14px] text-[#171A1F]">
-                Vistara
+              <span className="font-black text-[16px] text-[#171A1F]">
+                {airlineName}
               </span>{" "}
               UK 583 , UK 846{" "}
             </div>
@@ -291,7 +295,7 @@ const PayConfirmation = () => {
       <div className="flex justify-between items-center">
         <Image src={Bill} width={44} height={44} />
         <div className="font-sans font-black text-[#323842] text-[16px]">
-          PAY 20% AND RESERVE YOUR SEAT
+          PAY 20% RESERVE YOUR SEAT
         </div>
       </div>
       <div className="formdata grid grid-rows-3 gap-2 mt-4 mb-4 min-w-[280px]">
@@ -395,12 +399,96 @@ const ImportantInfo = () => {
 };
 /* main component*/
 const CommericialBookingConfirmationPage = () => {
+  const router = useRouter();
+  const [airlineName, setairlineName] = useState("");
+  const { id } = router.query;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(CommericialSingleApi(id));
+  }, [id]);
+
+  const airlineNames = {
+    AC: "Air Canada",
+    "6E": "IndiGo",
+    AF: "Air France",
+    AI: "Air India",
+    AA: "American Airlines",
+    BA: "British Airways",
+    CX: "Cathay Pacific",
+    DL: "Delta Air Lines",
+    EK: "Emirates",
+    EY: "Etihad Airways",
+    KL: "KLM Royal Dutch Airlines",
+    LH: "Lufthansa",
+    QF: "Qantas",
+    QR: "Qatar Airways",
+    SQ: "Singapore Airlines",
+    TK: "Turkish Airlines",
+    UA: "United Airlines",
+    VS: "Virgin Atlantic",
+    THY: "Turkish Airlines",
+    WY: "Oman Air",
+    OMA: "Oman Air",
+    SAA: "South African Airways",
+    ANA: "All Nippon Airways",
+    PAL: "Philippine Airlines",
+    VIR: "Virgin Atlantic",
+    MAU: "Air Mauritius",
+    MH: "Malaysia Airlines",
+    SV: "Saudia",
+  };
+
+  // const AirlineImages = {
+  //   AC: Aircanada,
+  //   "6E": Indigo,
+  //   AF: Airfrance,
+  //   AI: AirIndia,
+  //   AA: americanAirline,
+  //   BA: BritishAirways,
+  //   CX: cathayAirline,
+  //   DL: DeltaAirline,
+  //   EK: Emirates,
+  //   EY: Ethiads,
+  //   KL: KLMAirline,
+  //   LH: Lufthansa,
+  //   QF: Quantas,
+  //   QR: QatarAirway,
+  //   SQ: SingaporeAirline,
+  //   TK: TurkishAirline,
+  //   UA: UnitedAirline,
+  //   VS: VirginAtlantic,
+  //   THY: TurkishAirlineNew,
+  //   WY: OmanAirline,
+  //   OMA: OmanAirline,
+  //   SAA: SouthAfrican,
+  //   ANA: NipponAirline,
+  //   PAL: PhillippinesAirlines,
+  //   VIR: VirginAirline,
+  //   MAU: Airmauritius,
+  //   MH: malesiyaAirline,
+  //   SV: SaudiAirline,
+  // };
+
+  const renderAirlineName = (carrierCode) => {
+    return airlineNames[carrierCode] || "Unknow Airline";
+  };
+
+  const AirlineName = () => {
+    const airlineName =
+      aircraftData?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
+
+    const airline = renderAirlineName(airlineName);
+    setairlineName(airline);
+  };
+
+  console.log("Airlines name in last page", airlineName);
+
   return (
     <div className={`${styles.Container}`}>
       <div className="px-[15px] font-sans z-0">
         <div className={`${styles.Section1_Container} w-full`}></div>
         <div className="relative bottom-[200px]">
-          <UpperSection />
+          <UpperSection airlineName={airlineName} />
           <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
             <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">
               <ImportantInfo />
@@ -411,6 +499,14 @@ const CommericialBookingConfirmationPage = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async (context) => {
+  const { id } = context.query;
+  console.log("id inside the server side", id);
+  return {
+    props: {},
+  };
 };
 
 export default CommericialBookingConfirmationPage;

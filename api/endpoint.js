@@ -1,9 +1,9 @@
 const Endpoint = {
   //All airports list api
-  Allairports:`/all-airports`,//all airports list api 
+  Allairports: `/all-airports`, //all airports list api
   //search endpoint for dedicated and commericial flights
   CommericialSearch: `/customer/commericialSearch`, //Endpoints for searching commericial flights
-  CommericialAircraftByid: `/customer/amadeus/aircraft/:concatenatedParam`, //Endpoints for searching commericial flights by id
+  CommericialAircraftByid:`/customer/amadeus/aircraft/:id `, //Endpoints for searching commericial flights by id
   DedicatedSearch: `/customer/dedicatedSearch`, //Endpoints for searching dedicated flights
   DedicatedAircraftByid: `/customer/avipage/aircraft/:concatenatedParam`, //Endpoints for searching dedicated flights by id
 

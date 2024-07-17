@@ -16,6 +16,7 @@ import Point from "../../public/images/PointIcon.svg";
 import Important from "../../db/importantCommericial.json";
 import AutoCarousel from "@/components/imagescarosel/AutoCarousel";
 import ImageCarosel from "@/components/Imagecarosel/ImageCarosel";
+import { useRouter } from "next/router";
 
 const Images = [Strecter, scheduledFlight];
 
@@ -286,6 +287,9 @@ const UpperSection = () => {
 
 const CommericialAirline = ({}) => {
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
+  const { id } = router.query;
+  console.log("Line 292 id", id);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
@@ -317,9 +321,9 @@ const CommericialAirline = ({}) => {
 
 export default CommericialAirline;
 
-export const getServerSideProps = async ({ context }) => {
-  const { id } = context.query;
-  return {
-    props: {},
-  };
-};
+// export const getServerSideProps = async ({ context }) => {
+//   const { id } = context.query;
+//   return {
+//     props: {},
+//   };
+// };

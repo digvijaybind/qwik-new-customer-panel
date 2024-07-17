@@ -96,7 +96,7 @@ const SearchResponse = ({ initialData }) => {
   useEffect(() => {
     if (formData?.originLocationCode && formData?.destinationLocationCode) {
       dispatch(CommericialApi(formData));
-      dispatch(DedicatedApi(formData));
+      // dispatch(DedicatedApi(formData));
     }
   }, [formData, dispatch]);
 
@@ -175,6 +175,7 @@ const SearchResponse = ({ initialData }) => {
                         availticket={
                           commericialflights?.ResponseData?.TicketAvailability
                         }
+                        aircraftId={commericialflights?.aircraftId}
                       />
                     );
                   }
@@ -191,6 +192,7 @@ const SearchResponse = ({ initialData }) => {
                           availticket={
                             commericialflights?.ResponseData?.TicketAvailability
                           }
+                          aircraftId={commericialflights?.aircraftId}
                         />
                       );
                     }
