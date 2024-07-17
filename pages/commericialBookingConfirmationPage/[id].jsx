@@ -24,9 +24,19 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
 import { useState } from "react";
+import moment from "moment";
+const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
-const TravelDuration = ({ airline, totalTravelDuration }) => {
+const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
   console.log("totalTravelDuration line 29", totalTravelDuration);
+  const formatTime = (date) => {
+    return new Date(
+      (typeof date === "string" ? new Date(date) : date).toLocaleString(
+        "en-US",
+        { timeZone: currentTimeZone }
+      )
+    );
+  };
   return (
     <div className="">
       <div className="flex flex-col bg-[#F8F9FA] px-[15px] py-[15px]">
@@ -82,8 +92,20 @@ const TravelDuration = ({ airline, totalTravelDuration }) => {
       {/*Depature Time and arrival Time*/}
       <div className="bg-[#F2F2F2] mx-4 flex flex-row py-8 px-8 sm:mt-4 sm:mx-0">
         <div className="Timeline flex flex-col justify-between">
-          <div className="FromTime font-Inter font-bold"> 06:10</div>
-          <div className="ToTime font-Inter font-bold"> 09:10</div>
+          <div className="FromTime font-Inter font-bold">
+            {" "}
+            {locationData?.departureTime
+              ? moment(formatTime(locationData?.departureTime)).format("HH:mm")
+              : "--:--"}
+          </div>
+          <div className="ToTime font-Inter font-bold">
+            {" "}
+            {locationData?.destinationTime
+              ? moment(formatTime(locationData?.destinationTime)).format(
+                  "HH:mm"
+                )
+              : "--:--"}
+          </div>
         </div>
         <div className="Line mx-4 self-center h-[95px] relative sm:h-[240px]">
           {/* Top circle */}
@@ -107,10 +129,10 @@ const TravelDuration = ({ airline, totalTravelDuration }) => {
         <div className="Location flex flex-col justify-between sm:items-unset">
           <div className="FromLocation flex justify-around items-baseline flex-row sm:flex-col">
             <span className="FromLocationName font-Inter text-[14px] font-bold">
-              Mumbai
+              {locationData?.departureLocation}
             </span>
             <div className="AirportName font-Inter text-[#898888] text-[11px] ml-4 sm:mt-2">
-              Chhratrapati Shivaji International Airport,Terminal 2
+              Terminal {locationData?.arrivalterminal}
             </div>
           </div>
           <div className="Timeduration font-Inter  text-[14px] font-medium sm:ml-2 sm:font-semibold">
@@ -122,9 +144,11 @@ const TravelDuration = ({ airline, totalTravelDuration }) => {
               })}
           </div>
           <div className="Tolocation flex  items-baseline flex-row sm:flex-col">
-            <span className="font-Inter text-[14px] font-bold">Abu dhabhi</span>
+            <span className="font-Inter text-[14px] font-bold">
+              {locationData?.destinationLocation}
+            </span>
             <div className="font-Inter text-[#898888]  text-[11px] ml-4 sm:mt-2">
-              Abudhabhi, Abu Dhabhi Int, terminal A
+              Terminal {locationData?.destinationterminal}
             </div>
           </div>
         </div>
@@ -277,6 +301,7 @@ const TotalFare = ({ Totalprice }) => {
   const [totalCost, setTotalCost] = useState(
     parseFloat(Totalprice?.totalPrice?.toFixed(2)) ?? 0
   );
+
   Totalprice = parseFloat(Totalprice?.totalPrice?.toFixed(2));
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
@@ -299,6 +324,7 @@ const TotalFare = ({ Totalprice }) => {
     const PriceINR = Totalprice * 89.42;
     return PriceINR.toFixed(2);
   };
+
   useEffect(() => {
     const actualTotalPrice = parseFloat(Totalprice?.toFixed(2));
     switch (selectedCurrency) {
@@ -415,7 +441,12 @@ const PayConfirmation = () => {
   );
 };
 /* in this component contain top section of Final booking page */
-const UpperSection = ({ Totalprice, airline, totalTravelDuration }) => {
+const UpperSection = ({
+  Totalprice,
+  airline,
+  totalTravelDuration,
+  locationData,
+}) => {
   console.log("Totalprice", Totalprice);
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
@@ -423,6 +454,7 @@ const UpperSection = ({ Totalprice, airline, totalTravelDuration }) => {
         <TravelDuration
           airline={airline}
           totalTravelDuration={totalTravelDuration}
+          locationData={locationData}
         />
         {/* <ImportantInfo />
         <Guarantee /> */}
@@ -491,6 +523,7 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
   const router = useRouter();
   const [airlineName, setairlineName] = useState("");
   const [totalTravelDuration, setTotalTravelDuration] = useState({});
+  const [locationData, setLocationData] = useState({});
   const { id } = router.query;
   const dispatch = useDispatch();
   useEffect(() => {
@@ -593,6 +626,31 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
     return TimeDuration;
   };
 
+  const getLocationData = () => {
+    const segments =
+      data?.specificAircraft?.aircraft?.itineraries[0]?.segments ?? [];
+    if (segments?.length > 1) {
+      setLocationData({
+        departureLocation: segments[0]?.departure?.iataCode,
+        departureTime: segments[0]?.departure?.at,
+        destinationLocation: segments.at(-1)?.arrival?.iataCode,
+        destinationTime: segments.at(-1)?.arrival?.at,
+        arrivalterminal: segments[0]?.departure?.terminal,
+        destinationterminal: segments.at(-1)?.arrival?.terminal,
+      });
+    } else {
+      setLocationData({
+        departureLocation: segments[0]?.departure?.iataCode,
+        departureTime: segments[0]?.departure?.at,
+        destinationLocation: segments[0]?.arrival?.iataCode,
+        destinationTime: segments[0]?.arrival?.at,
+        arrivalterminal: segments[0]?.departure?.terminal,
+        destinationterminal: segments[0]?.arrival?.terminal,
+      });
+    }
+  };
+
+  console.log("locationData line 625", locationData);
   const getTravelDuration = () => {
     const timeduration =
       data?.specificAircraft?.aircraft?.itineraries[0]?.duration ?? [];
@@ -639,6 +697,7 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
   useEffect(() => {
     AirlineName();
     getTravelDuration();
+    getLocationData();
   }, []);
 
   console.log("Airline name in line 561 ", airlineName);
@@ -653,6 +712,7 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
             Totalprice={data?.specificAircraft?.price}
             airline={airlineName}
             totalTravelDuration={totalTravelDuration}
+            locationData={locationData}
           />
           <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
             <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">
