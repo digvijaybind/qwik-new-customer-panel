@@ -1,5 +1,4 @@
 import MedicalEquipmentCard from "./MedicalEquipmentCard";
-import flightLogo from "../../public/images/airline-mini-logo/Indigo.png";
 import Image from "next/image";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
@@ -32,7 +31,9 @@ import VirginAirline from "../../public/images/airlines/virgin-atlantic.jpg";
 import AirIndia from "../../public/images/updated-images/Air-India.svg";
 import OmanAirline from "../../public/images/airlines/Oman-airline.jpg";
 import Link from "next/link";
+// Timezone conversion function
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+//Commericial card
 const CommericialSearch = ({
   data,
   type = "commercial",
@@ -51,6 +52,7 @@ const CommericialSearch = ({
   const [airlineImage, setAirlineImage] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [availableticket, setavailableticket] = useState("");
+  // handle currecy change
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
@@ -82,6 +84,7 @@ const CommericialSearch = ({
     setAirlineImage(airlineImage);
   };
 
+  // change currency
   useEffect(() => {
     const actualTotalPrice = parseFloat(
       (aircraftData?.price?.totalPrice).toFixed(2)
@@ -346,7 +349,7 @@ const CommericialSearch = ({
                 </p>
                 <p className="text-xs"> {locationData?.departureLocation}</p>
               </div>
-              <span className="bg-primary text-white rounded-md text-xs px-3 py-1.5">
+              <span className="bg-primary text-white rounded-md text-xs px-2 py-1">
                 {" "}
                 {totalTravelDuration?.length > 0 &&
                   totalTravelDuration.map((data) => {

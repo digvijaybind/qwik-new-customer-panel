@@ -95,7 +95,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
                 <p className="text-xl mb-1">17:00</p>
                 <p className="text-xs">Mumbai</p>
               </div>
-              <span className="bg-primary text-white rounded-md text-xs px-3 py-1.5">
+              <span className="bg-primary text-white rounded-md text-xs px-2 py-1">
                 {" "}
                 4:00hr
               </span>

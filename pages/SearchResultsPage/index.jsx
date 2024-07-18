@@ -96,7 +96,7 @@ const SearchResponse = ({ initialData }) => {
   useEffect(() => {
     if (formData?.originLocationCode && formData?.destinationLocationCode) {
       dispatch(CommericialApi(formData));
-      // dispatch(DedicatedApi(formData));
+      dispatch(DedicatedApi(formData));
     }
   }, [formData, dispatch]);
 

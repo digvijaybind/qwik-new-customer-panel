@@ -25,8 +25,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
 import { useState } from "react";
 import moment from "moment";
+//this Timezone is used for time
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
+//Time travel duration calculation
 const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
   console.log("totalTravelDuration line 29", totalTravelDuration);
   const formatTime = (date) => {
@@ -303,6 +305,7 @@ const TotalFare = ({ Totalprice }) => {
   );
 
   Totalprice = parseFloat(Totalprice?.totalPrice?.toFixed(2));
+  //handle currency change
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
