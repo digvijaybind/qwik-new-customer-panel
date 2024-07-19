@@ -324,8 +324,8 @@ const CommericialSearch = ({
         {type} Flight
       </button>
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
-        <div className="flex flex-col gap-10 p-7 sm:px-5">
-          <div className="flex justify-between sm:flex-col sm:gap-4   sm:px-4 sm:py-4   sm:justify-between">
+        <div className="flex flex-col gap-10 p-7 sm:px-3 sm:gap-5">
+          <div className="flex justify-between sm:flex-col sm:gap-6   sm:px-4 sm:py-4   sm:justify-between">
             <div className="flex justify-between gap-3">
               <Image
                 src={airlineImage}
@@ -333,7 +333,7 @@ const CommericialSearch = ({
                 className="w-[30%] h-[20%]"
               />
               <div>
-                <p className="font-black text-[16px] font-sans">
+                <p className="font-extrabold text-[18px] font-sans">
                   {airlineName}
                 </p>
               </div>
@@ -349,7 +349,7 @@ const CommericialSearch = ({
                 </p>
                 <p className="text-xs">{locationData?.departureLocation}</p>
               </div>
-              <span className="bg-primary text-white rounded-md text-xs px-2 py-1">
+              <span className="bg-primary text-white rounded-md text-xs px-2 py-1 sm:px-3 sm:py-2">
                 {totalTravelDuration?.length > 0 &&
                   totalTravelDuration.map((data) => {
                     return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -393,13 +393,13 @@ const CommericialSearch = ({
 
                 <div className="flex flex-row items-center text-[#101729] font-Inter">
                   {currencySymbols[selectedCurrency]}
-                  <div className=" font-extrabold text-[#101729] text-[18px] font-Inter ml-2">
+                  <div className=" font-bold text-[#101729] text-[17px] font-Inter ml-2">
                     {" "}
                     {totalCost}
                   </div>
                 </div>
               </div>
-              <p className="sm:text-sm text-[10px] text-black/50 text-end sm:text-[9px]">
+              <p className="sm:text-sm text-[10px] text-black/50 text-end sm:text-[8.5px]">
                 Flight / Patient
               </p>
             </div>
@@ -418,7 +418,7 @@ const CommericialSearch = ({
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-3 gap-4 text-center px-6 py-3.5 sm:px-1">
+        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-2 gap-4 text-center px-6 py-3.5 sm:px-1">
           <MedicalEquipmentCard
             image="/images/bookingIcon/strectres.png"
             title="Stretcher"

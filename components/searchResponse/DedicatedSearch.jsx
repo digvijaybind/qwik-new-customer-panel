@@ -95,7 +95,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
                 <p className="text-xl mb-1">17:00</p>
                 <p className="text-xs">Mumbai</p>
               </div>
-              <span className="bg-primary text-white rounded-md text-xs px-2 py-1">
+              <span className="bg-primary text-white rounded-md text-xs px-2 py-1 sm:px-3 sm:py-2">
                 {" "}
                 4:00hr
               </span>
@@ -149,7 +149,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-3 gap-4 text-center px-6 py-3.5 sm:px-1">
+        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-2 gap-4 text-center px-6 py-3.5 sm:px-1">
           <MedicalEquipmentCard
             image="/images/bookingIcon/strectres.png"
             title="Stretcher"
