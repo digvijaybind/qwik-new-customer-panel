@@ -306,7 +306,7 @@ const CommericialSearch = ({
   return (
     <div className="w-full flex flex-col gap-4">
       <button
-      
+
         className={`cursor-none flex w-fit gap-1 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
           type === "commercial"
             ? "bg-[#EBFDFF] text-primary"
@@ -334,7 +334,7 @@ const CommericialSearch = ({
                 className="w-[30%] h-[20%]"
               />
               <div>
-                <p className="font-extrabold text-[18px] font-sans">
+                <p className="font-extrabold text-[16px] font-sans whitespace-nowrap">
                   {airlineName}
                 </p>
               </div>
