@@ -15,9 +15,11 @@ const ExpandText = ({ children, descripationLength }) => {
 
   return (
     <div className="font-Inter font-normal">
-      {isExpanded
-        ? <div className=""> `${fullText}`</div>
-        : `${fullText?.slice(0, descripationLength)}`}
+      {isExpanded ? (
+        <div className="text-[12px]"> `${fullText}`</div>
+      ) : (
+        `${fullText?.slice(0, descripationLength)}`
+      )}
       <span
         onClick={toggleText}
         className="text-blue-500 font-medium text-[14px]"
@@ -29,7 +31,7 @@ const ExpandText = ({ children, descripationLength }) => {
 };
 const Googlereview = ({ Userimage, UserName, Date, description }) => {
   return (
-    <div className="flex flex-col px-[15px] py-[15px] w-[330px] bg-[#fff] rounded shadow-2xl cursor-pointer overflow-hidden transform transition-transform hover:scale-105 ">
+    <div className="flex flex-col px-[15px] py-[15px] w-[330px] bg-[#fff] rounded shadow-2xl cursor-pointer overflow-hidden transform transition-transform hover:scale-105 sm:px-[25px] sm:py-[20px] ">
       <div className="">
         <div className="flex justify-between items-center">
           <div className="NameLogo flex flex-row">

@@ -100,8 +100,8 @@ const SearchResponse = ({ initialData }) => {
     }
   }, [formData, dispatch]);
 
-  const handleTabChange = (e) => {
-    setActiveTab(e.target.value);
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
   };
 
   return (
@@ -132,12 +132,10 @@ const SearchResponse = ({ initialData }) => {
               />
             )}
 
-            <div
-              className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary"
-              onClick={handleTabChange}
-            >
+            <div className="w-full grid grid-cols-2 gap-2 p-[0.2rem] sm:mt-0 mt-8 font-medium rounded-[0.4rem] bg-primary">
               <button
-                value="commericial"
+                value="commercial"
+                onClick={() => handleTabChange("commercial")}
                 className={`${
                   activeTab === "commercial"
                     ? "bg-white text-primary"
@@ -149,6 +147,7 @@ const SearchResponse = ({ initialData }) => {
 
               <button
                 value="chartered"
+                onClick={() => handleTabChange("chartered")}
                 className={`${
                   activeTab === "chartered"
                     ? "bg-white text-primary"
@@ -211,7 +210,7 @@ const SearchResponse = ({ initialData }) => {
               <div
                 className={`grid grid-cols-1 gap-4 ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
-                }`}
+                } sm:`}
               >
                 {DedicatedFlights.map((data, index) => {
                   return (

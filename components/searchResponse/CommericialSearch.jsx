@@ -200,7 +200,6 @@ const CommericialSearch = ({
     }
   };
   const parseISO8601Duration = (durationString) => {
-
     let TimeDuration = [];
     const regex =
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
@@ -254,7 +253,7 @@ const CommericialSearch = ({
   };
   const getTravelDuration = () => {
     const timeduration = aircraftData?.aircraft?.itineraries[0]?.duration ?? [];
-  console.log("Time duration Line 254", timeduration);
+    console.log("Time duration Line 254", timeduration);
     let flyingTime = parseISO8601Duration(timeduration);
 
     setTotalTravelDuration(flyingTime);
@@ -326,31 +325,31 @@ const CommericialSearch = ({
       </button>
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
         <div className="flex flex-col gap-10 p-7 sm:px-5">
-          <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
-            <div className="flex items-center gap-3">
+          <div className="flex justify-between sm:flex-col sm:gap-4   sm:px-4 sm:py-4   sm:justify-between">
+            <div className="flex justify-between gap-3">
               <Image
                 src={airlineImage}
                 alt="flight logo"
                 className="w-[30%] h-[20%]"
               />
               <div>
-                <p className="font-black text-[16px]"> {airlineName}</p>
+                <p className="font-black text-[16px] font-sans">
+                  {airlineName}
+                </p>
               </div>
             </div>
-            <div className="flex items-center gap-5">
-              <div className="font-semibold flex flex-col items-center">
+            <div className="flex gap-5 sm:flex sm:justify-between sm:w-[100%] sm:items-start items-center">
+              <div className="font-semibold flex flex-col sm:items-start items-center">
                 <p className="text-xl mb-1">
-                  {" "}
                   {locationData?.departureTime
                     ? moment(formatTime(locationData?.departureTime)).format(
                         "HH:mm"
                       )
                     : "--:--"}
                 </p>
-                <p className="text-xs"> {locationData?.departureLocation}</p>
+                <p className="text-xs">{locationData?.departureLocation}</p>
               </div>
               <span className="bg-primary text-white rounded-md text-xs px-2 py-1">
-                {" "}
                 {totalTravelDuration?.length > 0 &&
                   totalTravelDuration.map((data) => {
                     return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -358,22 +357,21 @@ const CommericialSearch = ({
                     )}m`;
                   })}
               </span>
-              <div className="font-semibold flex flex-col items-center">
+              <div className="font-semibold flex flex-col sm:items-start items-center">
                 <p className="text-xl mb-1">
-                  {" "}
                   {locationData?.destinationTime
                     ? moment(formatTime(locationData?.destinationTime)).format(
                         "HH:mm"
                       )
                     : "--:--"}
                 </p>
-                <p className="text-xs"> {locationData?.destinationLocation}</p>
+                <p className="text-xs">{locationData?.destinationLocation}</p>
               </div>
             </div>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
-              <div className="flex justify-end gap-2 ">
+              <div className="flex justify-end gap-2  ">
                 <select
                   id="currencySelector"
                   value={selectedCurrency}
@@ -393,23 +391,23 @@ const CommericialSearch = ({
                   })}
                 </select>
 
-                <div className="flex flex-row items-center text-[#101729] font-sans">
+                <div className="flex flex-row items-center text-[#101729] font-Inter">
                   {currencySymbols[selectedCurrency]}
-                  <div className=" font-extrabold text-[#101729] text-[18px] font-Inter font-semibold ml-2">
+                  <div className=" font-extrabold text-[#101729] text-[18px] font-Inter ml-2">
                     {" "}
                     {totalCost}
                   </div>
                 </div>
               </div>
-              <p className="sm:text-sm text-[10px] text-black/50 text-end">
+              <p className="sm:text-sm text-[10px] text-black/50 text-end sm:text-[9px]">
                 Flight / Patient
               </p>
             </div>
-            <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end">
+            <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end sm:hidden">
               {availableticket}
             </p>
             <div className="flex flex-col font-medium">
-              <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm">
+              <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm sm:px-4">
                 <Link
                   href={`/commericialBookingConfirmationPage/${`${aircraftId}-${aircraftData?.aircraft?.id}`}`}
                   className="block w-full"

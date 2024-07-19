@@ -139,7 +139,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
                 Flight / Patient
               </p>
             </div>
-            <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end">
+            <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end sm:hidden">
               27 march 2027
             </p>
             <div className="flex flex-col font-medium">
