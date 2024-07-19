@@ -306,6 +306,7 @@ const CommericialSearch = ({
   return (
     <div className="w-full flex flex-col gap-4">
       <button
+      
         className={`cursor-none flex w-fit gap-1 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
           type === "commercial"
             ? "bg-[#EBFDFF] text-primary"

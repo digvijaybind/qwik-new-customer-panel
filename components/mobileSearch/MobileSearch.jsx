@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import countries from "../../db/country.json";
-import UpdateInputTo from "../updatesearch/UpdateInputTo";
+import React, { useState, useCallback, useEffect } from "react";
 import LeftImage from "../../public/images/inputimages/Flight.svg";
 import RightImage from "../../public/images/inputimages/Dropdown.svg";
 import CountryFlag from "react-country-flag";
@@ -12,8 +10,6 @@ import PhoneInput, {
 } from "react-phone-number-input";
 import styles from "../updatesearch/UpdateSearch.module.css";
 import Select from "react-select";
-import { useCallback } from "react";
-import { useEffect } from "react";
 
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
@@ -101,7 +97,6 @@ const MobileSearch = ({
       [name]: value,
     }));
   };
-
 
   const handlePhoneChange = useCallback((value) => {
     if (typeof value === "string") {
@@ -244,7 +239,7 @@ const MobileSearch = ({
         </div>
       </div>
       <button
-        className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-Inter font-extrabold hover:text-[#000]"
+        className="search bg-[#12B5E4] w-[300px] h-[41px] text-[#fff] text-center rounded-md font-Inter font-bold hover:text-[#000]"
         onClick={onClick}
       >
         Search

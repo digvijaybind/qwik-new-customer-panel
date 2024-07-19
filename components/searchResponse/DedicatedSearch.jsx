@@ -3,6 +3,7 @@ import MedicalEquipmentCard from "./MedicalEquipmentCard";
 import Learjet from "../../public/images/airline-mini-logo/learjet-405.svg";
 import { useState, useEffect } from "react";
 import { currencySymbols } from "../Utils/Constants";
+import Link from "next/link";
 
 const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
@@ -81,7 +82,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
         <div className="flex flex-col gap-7 p-7 sm:px-5">
           <div className="flex justify-between sm:flex-col sm:gap-8 items-center">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 sm:flex sm:justify-between sm:w-[100%]">
               <Image src={Learjet} alt="flight logo" className="w-[30%]" />
               <div>
                 <p className="font-bold">Challenger 605</p>
@@ -90,7 +91,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 sm:flex sm:justify-between sm:w-[100%]">
               <div className="font-semibold flex flex-col items-center">
                 <p className="text-xl mb-1">17:00</p>
                 <p className="text-xs">Mumbai</p>
@@ -107,7 +108,7 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
           </div>
           <div className="flex justify-between items-center">
             <div className="flex flex-col font-semibold">
-              <div className="flex justify-end gap-2 ">
+              <div className="flex justify-end gap-2  ">
                 <select
                   id="currencySelector"
                   value={selectedCurrency}
@@ -127,24 +128,26 @@ const DedicatedSearch = ({ data, type = "commercial" }, charterdata) => {
                   })}
                 </select>
 
-                <div className="flex flex-row items-center text-[#101729] font-sans">
+                <div className="flex flex-row items-center text-[#101729] font-Inter">
                   {currencySymbols[selectedCurrency]}
-                  <div className=" font-extrabold text-[#101729] text-[18px] font-Inter font-semibold ml-2">
+                  <div className=" font-bold text-[#101729] text-[17px] font-Inter ml-2">
                     {" "}
-                    $22,4567
+                    20,000
                   </div>
                 </div>
               </div>
-              <p className="sm:text-sm text-[10px] text-black/50 text-end">
+              <p className="sm:text-sm text-[10px] text-black/50 text-end sm:text-[8.5px]">
                 Flight / Patient
               </p>
             </div>
             <p className="sm:text-base text-[12px] text-black font-semibold text-center justify-end sm:hidden">
-              27 march 2027
+              24 july 2024
             </p>
             <div className="flex flex-col font-medium">
-              <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm">
-                Book Now
+              <button className="bg-primary text-white px-8 rounded-md py-2 mb-4 text-sm sm:px-4">
+                <Link href="" className="block w-full">
+                  Book Now
+                </Link>
               </button>
             </div>
           </div>
