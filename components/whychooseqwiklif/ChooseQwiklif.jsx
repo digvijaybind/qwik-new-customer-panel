@@ -129,14 +129,6 @@ const ChooseQwiklifButton = ({
       <div className="font-Inter font-semibold text-base sm:flex justify-end sm:text-base">
         {title}
       </div>
-      {isActive && (
-        <div className="ml-auto  flex items-center justify-center w-[50px] h-[50px]">
-          <FontAwesomeIcon
-            icon={faArrowRight}
-            style={{ color: "#fff", height: "30px", width: "15px" }}
-          />
-        </div>
-      )}
     </button>
   );
 };
