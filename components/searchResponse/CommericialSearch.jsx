@@ -418,7 +418,7 @@ const CommericialSearch = ({
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-3 gap-4 text-center px-6 py-3.5">
+        <div className="bg-gray-100 text-[0.65rem] font-medium flex items-start justify-around sm:gap-3 gap-4 text-center px-6 py-3.5 sm:px-1">
           <MedicalEquipmentCard
             image="/images/bookingIcon/strectres.png"
             title="Stretcher"
