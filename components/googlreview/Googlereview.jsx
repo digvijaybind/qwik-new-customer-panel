@@ -15,10 +15,12 @@ const ExpandText = ({ children, descripationLength }) => {
 
   return (
     <div className="font-Inter font-normal">
-      {isExpanded ? fullText : `${fullText?.slice(0, descripationLength)}`}
+      {isExpanded
+        ? <div className=""> `${fullText}`</div>
+        : `${fullText?.slice(0, descripationLength)}`}
       <span
         onClick={toggleText}
-        className="text-blue-500 font-medium text-[11px]"
+        className="text-blue-500 font-medium text-[14px]"
       >
         {isExpanded ? "" : "show more "}
       </span>
