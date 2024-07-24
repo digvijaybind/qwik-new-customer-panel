@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import React from 'react';
-import { useState } from 'react';
-import styles from './Roadmap.module.css';
+import Image from "next/image";
+import React from "react";
+import { useState } from "react";
+import styles from "./Roadmap.module.css";
 const Roadmap = () => {
-  const bookTypes = ['Charter Ambulance', 'Commercial Ambulance'];
+  const bookTypes = ["Charter Ambulance", "Commercial Ambulance"];
   const [SelectedIndex, setSelectedIndex] = useState(0);
   return (
     <div className="shadow-2xl shadow-cyan-300/50">
@@ -16,7 +16,7 @@ const Roadmap = () => {
               <button
                 key={index}
                 className={`w-[50%] sm:py-1 roun flex justify-center items-center h-full sm:w-[100%] md:w-[100%] px-3 ${
-                  SelectedIndex === index ? 'bg-[#19c0f0]' : 'bg-[#F0F0F09C]'
+                  SelectedIndex === index ? "bg-[#19c0f0]" : "bg-[#F0F0F09C]"
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -49,7 +49,7 @@ const Roadmap = () => {
                   )}
                   <p
                     className={`font-medium font-Inter text-[16px] leading-[26px] ${
-                      SelectedIndex === index ? 'text-[#fff]' : 'text-[#000]'
+                      SelectedIndex === index ? "text-[#fff]" : "text-[#000]"
                     }`}
                   >
                     {item}
@@ -63,7 +63,7 @@ const Roadmap = () => {
         {SelectedIndex === 0 ? (
           <Image
             className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
-            src="/images/DedicatedAirline.gif"
+            src="/images/DedicatedAirlineupdate.gif"
             width={40}
             height={40}
             alt="rapid Time"
@@ -72,7 +72,7 @@ const Roadmap = () => {
         ) : (
           <Image
             className="w-full max-h-[490px] sm:h-[240px] lg:h-[320px] xl:h-[400px]"
-            src="/images/CommericialAirline.gif"
+            src="/images/CommericialAirlineupdate.gif"
             width={40}
             height={40}
             alt="Another Image"
