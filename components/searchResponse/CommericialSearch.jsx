@@ -258,8 +258,7 @@ const CommericialSearch = ({
 
     setTotalTravelDuration(flyingTime);
     console.log("totalTravelDuration line 258", totalTravelDuration);
-    // setHours(totalTravelDuration[0].hour);
-    // setMinutes(totalTravelDuration[0].minutes);
+    
   };
   const TicketAvailable = () => {
     const ticketDate = availticket ?? [];
@@ -278,23 +277,6 @@ const CommericialSearch = ({
     }
     setTechStops(stops);
   };
-  console.log(
-    "line 257 in techStops , locationData,totalTravelDuration",
-    techStops,
-    locationData,
-    totalTravelDuration
-  );
-  console.log("line 263 in locationData,", locationData);
-
-  useEffect(() => {
-    console.log("line 11 commericial aircraft data", aircraftData);
-    console.log(
-      "aircraftData?.price?.totalPrice",
-      aircraftData?.price?.totalPrice
-    );
-    console.log("line 12 commericial ticket date", availticket);
-  }, [aircraftData, availticket]);
-
   useEffect(() => {
     getTravelDuration();
     getLocationData();

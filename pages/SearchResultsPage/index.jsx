@@ -9,7 +9,6 @@ import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
-import CommericialLoader from "@/components/searchResponse/CommericialLoader";
 
 const SearchResponse = ({ initialData }) => {
   const dispatch = useDispatch();
@@ -72,18 +71,7 @@ const SearchResponse = ({ initialData }) => {
         mobile: searchParams.get("mobile"),
         max: 5,
       };
-
-      // const formDetails = {
-      //   originLocationCode: "BOM",
-      //   destinationLocationCode: "DOH",
-      //   departureDate: "2024-03-30",
-      //   pax: 1,
-      //   max: 10,
-      //   mobile: "878825286",
-      //   countryCode: "+91",
-      // };
       setFormData(formDetails);
-      // searchCity(formDetails);
     } else {
       console.log("query params id mising ");
     }
@@ -196,23 +184,14 @@ const SearchResponse = ({ initialData }) => {
                       );
                     }
                   )}
-                {/* {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
-                  !commericialflights?.ResponseData?.AirCraftDatawithNotechStop(
-                    <CommericialLoader />
-                  )} */}
-                {/* <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" />
-                <CommericialSearch type="commercial" /> */}
               </div>
               <div
-                className={`grid grid-cols-1 gap-4 ${
+                className={`grid grid-cols-1 gap-4  ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 } sm:`}
               >
                 {DedicatedFlights.map((data, index) => {
+                  console.log("charter data in index page", data);
                   return (
                     <DedicatedSearch
                       type="chartered"
@@ -221,11 +200,6 @@ const SearchResponse = ({ initialData }) => {
                     />
                   );
                 })}
-
-                {/* <DedicatedSearch type="chartered" />
-                <DedicatedSearch type="chartered" />
-                <DedicatedSearch type="chartered" />
-                <DedicatedSearch type="chartered" /> */}
               </div>
             </div>
           </div>
