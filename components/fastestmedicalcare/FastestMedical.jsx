@@ -7,7 +7,7 @@ const FastestMedical = React.memo(() => {
   const router = useRouter();
   return (
     <div
-      className={`font-sans w-full  flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat h-full`}
+      className={`font-sans w-full  flex flex-col items-center mb-10 sm:mb-32 bg-cover bg-no-repeat h-full `}
       style={{
         backgroundImage: "url('/images/lower_plane.jpeg')",
         backgroundRepeat: "no-repeat",

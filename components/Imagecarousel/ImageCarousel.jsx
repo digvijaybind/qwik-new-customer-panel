@@ -1,8 +1,8 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Image from 'next/image';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const ImageCarousel = ({ images }) => {
   const settings = {
@@ -19,16 +19,17 @@ const ImageCarousel = ({ images }) => {
     <Slider {...settings}>
       {images?.map((imageUrl, index) => (
         <div key={index}>
-          <div className="w-full flex justify-center rounded-lg font-sans z-1 h-[550px] sm:h-full
-          ">
+          <div
+            className="w-full flex justify-center rounded-lg font-sans z-1 h-[550px] sm:h-full
+          "
+          >
             <Image
               src={imageUrl}
               alt={`Slide ${index + 1}`}
-              width={1900} // Set the desired width
-              height={1}
-              // objectFit="cover"
+              width={3000} // Set the desired width
+              height={100}
               style={{ zIndex: 1 }}
-              // style={{borderRadius: "60px"}}
+              style={{ width: "100%" }}
             />
           </div>
         </div>
