@@ -11,8 +11,7 @@ const Contact = ({ mapInframeUrl }) => {
       >
         <div className="font-sans font-bold text-[25px] text-[#fff] z-[1000] sm:font-bold sm:text-center">
           {" "}
-          TALK TO THE <br className="sm:block  lg:hidden md:hidden" /> QWIKLIF
-          TEAM
+          TALK TO THE QWIKLIF TEAM
         </div>
       </div>
       <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
