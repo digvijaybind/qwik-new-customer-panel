@@ -9,10 +9,10 @@ const Contact = ({ mapInframeUrl }) => {
       <div
         className={`bg-black ${styles.Image}   bg-black h-[400px] w-full  mt-2 flex justify-center items-center`}
       >
-        <div className="font-sans font-bold text-[35px] text-[#fff] z-[1000] sm:font-bold">
+        <div className="font-sans font-bold text-[25px] text-[#fff] z-[1000] sm:font-bold sm:text-center">
           {" "}
-          TALK TO THE <br />
-          QWIKLIF TEAM
+          TALK TO THE <br className="sm:block  lg:hidden md:hidden" /> QWIKLIF
+          TEAM
         </div>
       </div>
       <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
@@ -34,7 +34,7 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="From"
                   placeholder="From"
-                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc]"
+                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
               <div className="flex flex-col justify-start mr-3 sm:mr-0">
@@ -49,7 +49,7 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="From"
                   placeholder="To"
-                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc]"
+                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
             </div>
@@ -66,7 +66,7 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="Email Address"
                   placeholder="Email "
-                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc]"
+                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
               <div className="flex flex-col ">
@@ -81,7 +81,7 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="Phone Number"
                   placeholder="Phone Number"
-                  className="w-full  h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc]"
+                  className="w-full  h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
             </div>
