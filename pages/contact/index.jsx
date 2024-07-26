@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./contact.module.css";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 const Contact = ({ mapInframeUrl }) => {
+  const [formData, setFormData] = useState({
+    From: "",
+    To: "",
+    Phone: "",
+    Email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const Submit = () => {
+    console.log("formdata",formdata)
+  };
+
   return (
     <div className={`${styles.conatiner} bg-[#fff]`}>
       <div
@@ -33,6 +52,8 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="From"
                   placeholder="From"
+                  value={formData.From}
+                  onChange={handleChange}
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
@@ -46,8 +67,10 @@ const Contact = ({ mapInframeUrl }) => {
                 <input
                   type="text"
                   id="fname"
-                  name="From"
+                  name="To"
                   placeholder="To"
+                  value={formData.To}
+                  onChange={handleChange}
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
@@ -65,6 +88,8 @@ const Contact = ({ mapInframeUrl }) => {
                   id="fname"
                   name="Email Address"
                   placeholder="Email "
+                  value={formData.Email}
+                  onChange={handleChange}
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
@@ -78,14 +103,19 @@ const Contact = ({ mapInframeUrl }) => {
                 <input
                   type="text"
                   id="fname"
-                  name="Phone Number"
+                  name="Phone"
                   placeholder="Phone Number"
+                  value={formData.Phone}
+                  onChange={handleChange}
                   className="w-full  h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
             </div>
             <div className="flex justify-center mt-8 sm:mt-4">
-              <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold">
+              <button
+                className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold"
+                onClick={() => Submit()}
+              >
                 Get Quote
               </button>
             </div>
