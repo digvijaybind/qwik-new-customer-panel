@@ -1,74 +1,74 @@
 //Importing Required modules and component's
-import { FaMinus, FaPlus } from "react-icons/fa";
-import styles from "../styles/page.module.css";
-import { Suspense, useState } from "react";
-import { useEffect } from "react";
-import { useData } from "../context/DataContext";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-import Navnew from "@/components/Nav/Navnew";
-import CustomDatePicker from "@/components/date/CustomDatePicker";
-import Trusted from "@/components/trusted/Trusted";
-import Aeroplane1 from "../public/images/trusted_contact/aeroplane1.svg";
-import DoctorIcon from "../public/images/trusted_contact/doctor.svg";
-import Champion from "../public/images/trusted_contact/champion.svg";
-import Roadmap from "@/components/roadmaps/Roadmap";
-import { homeCollapsable, homeServices } from "@/components/Utils/Constants";
-import MobileSearch from "@/components/mobileSearch/MobileSearch";
-import { StyledSection } from "@/components/shared";
-import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
-import { useCallback } from "react";
+import { FaMinus, FaPlus } from 'react-icons/fa';
+import styles from '../styles/page.module.css';
+import { Suspense, useState } from 'react';
+import { useEffect } from 'react';
+import { useData } from '../context/DataContext';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import Navnew from '@/components/Nav/Navnew';
+import CustomDatePicker from '@/components/date/CustomDatePicker';
+import Trusted from '@/components/trusted/Trusted';
+import Aeroplane1 from '../public/images/trusted_contact/aeroplane1.svg';
+import DoctorIcon from '../public/images/trusted_contact/doctor.svg';
+import Champion from '../public/images/trusted_contact/champion.svg';
+import Roadmap from '@/components/roadmaps/Roadmap';
+import { homeCollapsable, homeServices } from '@/components/Utils/Constants';
+import MobileSearch from '@/components/mobileSearch/MobileSearch';
+import { StyledSection } from '@/components/shared';
+import UpdateSearchNew from '@/components/updatesearch/UpdateSearch';
+import { useCallback } from 'react';
 
 const AboutAircraft = dynamic(() =>
-  import("@/components/aboutaircraft/AboutAircraft")
+  import('@/components/aboutaircraft/AboutAircraft')
 );
 const ServicesSection = dynamic(() =>
-  import("@/components/Servicecard2/Servicecard2")
+  import('@/components/Servicecard2/Servicecard2')
 );
 const QwiklifFeature = dynamic(() =>
-  import("@/components/qwiklifFeatures/Qwikliffeature")
+  import('@/components/qwiklifFeatures/Qwikliffeature')
 );
 const ChooseQwiklif = dynamic(() =>
-  import("@/components/whychooseqwiklif/ChooseQwiklif")
+  import('@/components/whychooseqwiklif/ChooseQwiklif')
 );
 const FastestMedical = dynamic(() =>
-  import("@/components/fastestmedicalcare/FastestMedical")
+  import('@/components/fastestmedicalcare/FastestMedical')
 );
-const LatestNew = dynamic(() => import("@/components/latestnews/LatestNew"));
+const LatestNew = dynamic(() => import('@/components/latestnews/LatestNew'));
 const ReviewCarosel = dynamic(() =>
-  import("@/components/reviewCarosel/ReviewCarosel")
+  import('@/components/reviewCarosel/ReviewCarosel')
 );
-const Rotatemap = dynamic(() => import("@/components/rotateMap/Rotatemap"));
+const Rotatemap = dynamic(() => import('@/components/rotateMap/Rotatemap'));
 //Main component function
 const Home = () => {
   const router = useRouter();
-  const [fromSearch, setfromSearch] = useState("");
-  const bookTypes = ["Dedicated Air Ambulance", "Commercial stretcher"];
+  const [fromSearch, setfromSearch] = useState('');
+  const bookTypes = ['Dedicated Air Ambulance', 'Commercial stretcher'];
   const [currentIndex, setCurrentIndex] = useState(0);
   const { loading, startLoading, stopLoading, setApiData } = useData();
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState("static");
+  const [scrollDirection, setScrollDirection] = useState('static');
   //handle resize function for mobiel view
   const [formData, setFormData] = useState({
-    originLocationCode: "",
-    destinationLocationCode: "",
-    departureDate: "",
-    countryCode: "",
-    mobile: "",
+    originLocationCode: '',
+    destinationLocationCode: '',
+    departureDate: '',
+    countryCode: '',
+    mobile: '',
   });
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
   //search for autoSuggestion
@@ -89,7 +89,7 @@ const Home = () => {
   }, [homeServices]);
 
   useEffect(() => {
-    console.log("currentIndex changed:", currentIndex);
+    console.log('currentIndex changed:', currentIndex);
   }, [currentIndex]);
 
   const stableSetFormData = useCallback((data) => {
@@ -101,28 +101,28 @@ const Home = () => {
       setIsSticky(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const tasktab = [
     {
       img: Aeroplane1,
-      title: "Express Lane to Care",
+      title: 'Express Lane to Care',
       description:
-        "Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief",
+        'Time is precious, especially during emergencies. Our air ambulances are not just vehicles; they are a beacon of hope on the fastest route to medical assistance. We pride ourselves on a lightning-quick response that bridges the gap between distress and relief',
     },
     {
       img: DoctorIcon,
-      title: "Innovation in Every Flight",
+      title: 'Innovation in Every Flight',
       description:
         "QwikLif Air Ambulance embraces cutting-edge medical technology. Think of our ambulances as flying hospitals, complete with state-of-the-art equipment. We're not just transporting patients; we're bringing a mobile medical unit to ensure the best care possible.",
     },
     {
       img: Champion,
-      title: "Angels in the Air:",
+      title: 'Angels in the Air:',
       description:
         "Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.",
     },
@@ -225,7 +225,7 @@ const Home = () => {
                 {homeCollapsable.map((item, index) => {
                   return (
                     <div
-                      key={"choose-us-features" + index}
+                      key={'choose-us-features' + index}
                       className="relative flex-col items-start w-full h-auto cursor-pointer"
                       onClick={(e) => {
                         e.preventDefault();
@@ -237,15 +237,15 @@ const Home = () => {
                       <div
                         className={`w-full flex-row justify-between rounded-md items-center h-[70px] sm:h-[85px] sm:px-[5px] sm:py-[10px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
                           SelectedCollapseIndex != index
-                            ? "bg-[#F1F7FA]"
-                            : "bg-[#19c0f0] rounded-b-none"
+                            ? 'bg-[#F1F7FA]'
+                            : 'bg-[#19c0f0] rounded-b-none'
                         }`}
                       >
                         <h4
                           className={`ml-[30px] sm:ml-[10px] ${
                             SelectedCollapseIndex === index
-                              ? "text-[#FFFFFF]"
-                              : ""
+                              ? 'text-[#FFFFFF]'
+                              : ''
                           }  font-sans font-semibold text-lg sm:text-sm`}
                         >
                           {item.header}
@@ -319,7 +319,7 @@ const Home = () => {
               </div>
               {tasktab.map((data, index) => {
                 return (
-                  <div key={"tasktab" + index} className="mb-6">
+                  <div key={'tasktab' + index} className="mb-6">
                     <Trusted
                       img={data.img}
                       title={data.title}
@@ -366,6 +366,16 @@ const Home = () => {
                     className=" h-[50px]  col-span-3 sm:col-span-5 sm:w-full rounded-md  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                   />
 
+                  <CustomDatePicker
+                    containerClass="col-span-3 sm:col-span-5"
+                    ClassName="h-[50px] rounded-md  !border w-full !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
+                  <input
+                    type="text"
+                    value=""
+                    placeholder="Time*"
+                    className="h-[50px] col-span-2 sm:col-span-5 rounded-md !border !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                  />
                   <div className="col-span-5">
                     <button
                       className={`${styles.boxShado} w-full h-[50px] bg-[#19c0f0] rounded-[4px] mt-[25px] font-semibold text-[15px] leading-[22.5px] text-white hover:bg-[#19c0f0] shadow-lg shadow-[#85d2e7]`}
