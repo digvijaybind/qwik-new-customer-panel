@@ -1,6 +1,6 @@
 .Image {
   position: relative;
-  background-image: url('../../public/images/slider/1.png');
+  background-image: url("../../public/images/slider/1.png");
   background-color: black;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +8,7 @@
   z-index: 0;
 }
 .Image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -25,8 +25,8 @@
   height: 100%;
   width: 100%;
   max-width: 286px;
-  max-height: 67px;
-  padding: 20px;
+  max-height: 40px;
+  padding: 3px;
 }
 .PhoneInputInput {
   border: none;
@@ -63,11 +63,37 @@
 }
 
 .PhoneInputCountrySelect::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 1px;
   height: 100%;
   background-color: gray;
+}
+
+.customPhoneInput {
+  border: none;
+  outline: none;
+  background-color: #dcdcdc;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+.customPhoneInput::placeholder {
+  border: none;
+  outline: none;
+  color: #a5a5a5;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+}
+
+/* PhoneInputCustom.module.css */
+.phoneInput .PhoneInputCountry {
+  display: flex;
+  align-items: center;
 }

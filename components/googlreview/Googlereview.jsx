@@ -16,7 +16,7 @@ const ExpandText = ({ children, descripationLength }) => {
   return (
     <div className="font-Inter font-normal">
       {isExpanded ? (
-        <div className="text-[12px]"> `${fullText}`</div>
+        <div className="text-[8px]"> `${fullText}`</div>
       ) : (
         `${fullText?.slice(0, descripationLength)}`
       )}
@@ -37,7 +37,7 @@ const Googlereview = ({ Userimage, UserName, Date, description }) => {
           <div className="NameLogo flex flex-row">
             <img src={Userimage} height={25} width={35} />
             <div className="flex flex-col ml-3">
-              <span className="font-semibold text-[13px] text-[#000] ">
+              <span className="font-semibold text-[14px] text-[#000] ">
                 {UserName}
               </span>
               <span className="font-medium text-[10px] ">{Date}</span>
@@ -50,7 +50,7 @@ const Googlereview = ({ Userimage, UserName, Date, description }) => {
         <div className="Starlogo mt-3 mb-3">
           <StarRating rating={5} />
         </div>
-        <div className="descripation">
+        <div className="descripation text-[14px]">
           <ExpandText descripationLength={200}>{description}</ExpandText>
         </div>
       </div>

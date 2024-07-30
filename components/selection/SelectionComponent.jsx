@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const SelectionComponent = ({ img, title, descripation }) => {
   return (
@@ -17,8 +17,8 @@ const SelectionComponent = ({ img, title, descripation }) => {
         <p className="font-semibold text-2xl sm:text-lg text-[#111] ">
           {title}
         </p>
-        <div className="flex justify-start  mb-[10px] sm:flex-row sm:w-full">
-          <hr className="bg-[#19c0f0] h-[3px] w-[100px] sm:mt-2" />
+        <div className="flex justify-start  mb-[10px] sm:flex-row sm:w-full mt-3">
+          <hr className="bg-[#19c0f0] h-[3px] w-[80px] sm:mt-2" />
         </div>
       </div>
 

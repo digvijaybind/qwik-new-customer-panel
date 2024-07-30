@@ -184,22 +184,22 @@ const SearchResponse = ({ initialData }) => {
                       );
                     }
                   )}
-
-                <div
-                  className={`grid grid-cols-1 gap-4  ${
-                    !isMobile || activeTab === "chartered" ? "grid" : "hidden"
-                  } sm:`}
-                >
-                  {DedicatedFlights.map((data, index) => {
-                    return (
-                      <DedicatedSearch
-                        type="chartered"
-                        key={index}
-                        charterdata={data}
-                      />
-                    );
-                  })}
-                </div>
+              </div>
+              <div
+                className={`grid grid-cols-1 gap-4  ${
+                  !isMobile || activeTab === "chartered" ? "grid" : "hidden"
+                } sm:`}
+              >
+                {DedicatedFlights.map((data, index) => {
+                  console.log("charter data in index page", data);
+                  return (
+                    <DedicatedSearch
+                      type="chartered"
+                      key={index}
+                      charterdata={data}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>

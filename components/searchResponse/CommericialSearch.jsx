@@ -3,33 +3,33 @@ import Image from "next/image";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { currencySymbols } from "../Utils/Constants";
-import Aircanada from "../../public/images/airlines/air-canada.jpg";
-import Airfrance from "../../public/images/airlines/air-france.jpg";
-import Airmauritius from "../../public/images/airlines/air-mauritius.jpg";
-import NipponAirline from "../../public/images/airlines/all-nippon-airways.jpg";
-import americanAirline from "../../public/images/airlines/american-airlines.jpg";
-import BritishAirways from "../../public/images/airlines/british-airways.jpg";
-import cathayAirline from "../../public/images/airlines/cathay-pacific.jpg";
-import DeltaAirline from "../../public/images/airlines/delta-airlines.jpg";
-import Emirates from "../../public/images/airlines/Emirates.jpg";
-import Ethiads from "../../public/images/airlines/etihad-airways.jpg";
-import Indigo from "../../public/images/airlines/indigo.jpg";
-import KLMAirline from "../../public/images/airlines/KLM-Royal-Dutch-Airlines.jpg";
-import Lufthansa from "../../public/images/airlines/Lufthansa.jpg";
-import malesiyaAirline from "../../public/images/airlines/malaysi-airlines.jpg";
-import PhillippinesAirlines from "../../public/images/airlines/philippine-airlines.jpg";
-import Quantas from "../../public/images/airlines/Qantas.jpg";
-import QatarAirway from "../../public/images/airlines/Qatar-airways.jpg";
+import Aircanada from "../../public/images/airlineslogo/air-canada.png";
+import Airfrance from "../../public/images/airlineslogo/air-france.png";
+import Airmauritius from "../../public/images/airlineslogo/air-mauritius.png";
+import NipponAirline from "../../public/images/airlineslogo/all-nippon-airways.png";
+import americanAirline from "../../public/images/airlineslogo/american-airlines.png";
+import BritishAirways from "../../public/images/airlineslogo/british-airways.png";
+import cathayAirline from "../../public/images/airlineslogo/cathay-pacific-new.png";
+import DeltaAirline from "../../public/images/airlineslogo/delta-airlines.png";
+import Emirates from "../../public/images/airlineslogo/Emirates.png";
+import Ethiads from "../../public/images/airlineslogo/etihad-airways.png";
+import Indigo from "../../public/images/airlineslogo/indigo.png";
+import KLMAirline from "../../public/images/airlineslogo/KLM-Royal-Dutch-Airlines.png";
+import Lufthansa from "../../public/images/airlineslogo/Lufthansa.png";
+import malesiyaAirline from "../../public/images/airlineslogo/malaysi-airlines.png";
+import PhillippinesAirlines from "../../public/images/airlineslogo/PhilippineAirlines.png";
+import Quantas from "../../public/images/airlineslogo/Qantas.png";
+import QatarAirway from "../../public/images/airlineslogo/Qatar-airways.png";
 import SaudiAirline from "../../public/images/airlines/Saudia.jpg";
-import SingaporeAirline from "../../public/images/airlines/singapore-airlines.jpg";
-import SouthAfrican from "../../public/images/airlines/south-african-airways.jpg";
-import TurkishAirlineNew from "../../public/images/airlines/turkish-airlines.jpg";
+import SingaporeAirline from "../../public/images/airlineslogo/SingaporeAirlines.png";
+import SouthAfrican from "../../public/images/airlineslogo/southafrican.png";
+import TurkishAirlineNew from "../../public/images/airlineslogo/turkish-airlines-new.png";
 import TurkishAirline from "../../public/images/airlines/Turkish.jpg";
-import UnitedAirline from "../../public/images/airlines/united-airlines.jpg";
-import VirginAtlantic from "../../public/images/airlines/virgin-atlantic-new.jpg";
-import VirginAirline from "../../public/images/airlines/virgin-atlantic.jpg";
-import AirIndia from "../../public/images/updated-images/Air-India.svg";
-import OmanAirline from "../../public/images/airlines/Oman-airline.jpg";
+import UnitedAirline from "../../public/images/airlineslogo/united-airlines.png";
+import VirginAtlantic from "../../public/images/airlineslogo/virgin-atlantic.png";
+import VirginAirline from "../../public/images/airlineslogo/virgin-atlantic.png";
+import AirIndia from "../../public/images/airlineslogo/air-india.png";
+import OmanAirline from "../../public/images/airlineslogo/Oman-airline.png";
 import Link from "next/link";
 // Timezone conversion function
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -258,7 +258,6 @@ const CommericialSearch = ({
 
     setTotalTravelDuration(flyingTime);
     console.log("totalTravelDuration line 258", totalTravelDuration);
-    
   };
   const TicketAvailable = () => {
     const ticketDate = availticket ?? [];
@@ -288,7 +287,6 @@ const CommericialSearch = ({
   return (
     <div className="w-full flex flex-col gap-4">
       <button
-
         className={`cursor-none flex w-fit gap-1 capitalize items-center px-2.5 py-1 rounded-full text-xs ${
           type === "commercial"
             ? "bg-[#EBFDFF] text-primary"
@@ -307,13 +305,13 @@ const CommericialSearch = ({
         {type} Flight
       </button>
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
-        <div className="flex flex-col gap-10 p-7 sm:px-3 sm:gap-5">
+        <div className="flex flex-col gap-7 px-7 py-4 sm:px-3 sm:gap-5">
           <div className="flex justify-between sm:flex-col sm:gap-6   sm:px-4 sm:py-4   sm:justify-between">
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between items-center gap-3">
               <Image
                 src={airlineImage}
                 alt="flight logo"
-                className="w-[30%] h-[20%]"
+                className="w-[90%] h-[60%]"
               />
               <div>
                 <p className="font-extrabold text-[16px] font-sans whitespace-nowrap">

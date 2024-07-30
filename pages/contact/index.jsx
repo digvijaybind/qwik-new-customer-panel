@@ -1,8 +1,89 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./contact.module.css";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
+import { EquieryApi } from "@/redux/slices/equirySlice";
+import { useDispatch } from "react-redux";
+import PhoneInput, {
+  getCountries,
+  getCountryCallingCode,
+} from "react-phone-number-input";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
+import CountryFlag from "react-country-flag";
+import Select from "react-select";
+const CustomPhoneInput = React.forwardRef(
+  ({ value, onChange, ...rest }, ref) => {
+    return (
+      <input
+        ref={ref}
+        value={value}
+        onChange={onChange}
+        {...rest}
+        className={`${styles.customPhoneInput} bg-[#dcdcdc]`}
+        placeholder="Enter Number"
+      />
+    );
+  }
+);
+
+CustomPhoneInput.displayName = "CustomPhoneInput";
+const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
+  const countries = getCountries();
+
+  const options = countries
+    .map((country) => {
+      const callingCode = getCountryCallingCode(country);
+
+      if (!callingCode) {
+        return null; // Skip this option if the country code is not valid
+      }
+
+      return {
+        value: country,
+        label: (
+          <div className="flex items-start">
+            <div className="mr-2"> (+{callingCode})</div>
+            <CountryFlag
+              countryCode={country}
+              svg
+              style={{ width: "20px", height: "20px" }}
+            />
+          </div>
+        ),
+      };
+    })
+    .filter(Boolean); // Remove any null values from the options array
+
+  return (
+    <div className="flex items-center">
+      <Select
+        {...rest}
+        value={options.find((option) => option.value === value)}
+        onChange={(option) => onChange(option.value)}
+        options={options}
+        className=""
+        styles={{
+          // Custom styles for the select component
+          control: (provided) => ({
+            ...provided,
+            width: "8rem",
+            minHeight: "2.5rem",
+            backgroundColor: "#eeeee",
+            border: "none",
+          }),
+          menu: (provided) => ({
+            ...provided,
+            backgroundColor: "#ffffff",
+            zIndex: 9999,
+          }),
+        }}
+      />
+      {/* <div className="h-full border-r border-gray-400"></div> */}
+    </div>
+  );
+};
+
 const Contact = ({ mapInframeUrl }) => {
   const [formData, setFormData] = useState({
     From: "",
@@ -10,18 +91,45 @@ const Contact = ({ mapInframeUrl }) => {
     Phone: "",
     Email: "",
   });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log("name , and value", value);
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  const Submit = () => {
-    console.log("formdata",formdata)
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await dispatch(EquieryApi(formData));
+
+      if (EquieryApi.fulfilled.match(response)) {
+        const result = await response.data;
+        setFormData({ From: "", To: "", Phone: "", Email: "" });
+      } else {
+        console.error("Submission error:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+
+  const handlePhoneChange = useCallback((value) => {
+    if (typeof value === "string") {
+      const phoneNumber = parsePhoneNumberFromString(value);
+      const countryCode = phoneNumber ? phoneNumber.country : "";
+      setFormData((formData) => ({
+        ...formData,
+        mobile: value,
+        countryCode: countryCode,
+      }));
+    }
+  }, []);
 
   return (
     <div className={`${styles.conatiner} bg-[#fff]`}>
@@ -30,11 +138,10 @@ const Contact = ({ mapInframeUrl }) => {
       >
         <div className="font-sans font-bold text-[25px] text-[#fff] z-[1000] sm:font-bold sm:text-center">
           {" "}
-          TALK TO THE <br className="sm:block  lg:hidden md:hidden" /> QWIKLIF
-          TEAM
+          TALK TO THE QWIKLIF TEAM
         </div>
       </div>
-      <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10 flex justify-between w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
+      <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10  w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
         <div className="flex flex-col justify-center shadow-2xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
           <div className="font-sans  font-bold text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px] sm:px-[50px] sm:font-bold">
             Get Quote Now
@@ -42,7 +149,10 @@ const Contact = ({ mapInframeUrl }) => {
               <hr class="bg-[#19c0f0] h-[3px] w-[80px]"></hr>
             </div>
           </div>
-          <form className="flex flex-col justify-center  px-[30px] py-[20px] bg-[#fff]">
+          <form
+            className="flex flex-col justify-center  px-[30px] py-[20px] bg-[#fff]"
+            onSubmit={handlesubmit}
+          >
             <div className="flex justify-between sm:flex-col">
               <div className="flex flex-col justify-start mr-3 sm:mr-0">
                 <label className="font-bold text-[15px] bg-[#fff] mt-2 font-sans">
@@ -58,7 +168,7 @@ const Contact = ({ mapInframeUrl }) => {
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col justify-start mr-3 sm:mr-0">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -76,8 +186,8 @@ const Contact = ({ mapInframeUrl }) => {
                 />
               </div>
             </div>
-            <div className="flex justify-between sm:flex-col mr-3 sm:mr-0">
-              <div className="flex flex-col mr-3 sm:mr-0">
+            <div className="flex justify-between sm:flex-col">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -87,36 +197,35 @@ const Contact = ({ mapInframeUrl }) => {
                 <input
                   type="text"
                   id="fname"
-                  name="Email Address"
-                  placeholder="Email "
+                  name="Email"
+                  placeholder="Email"
                   value={formData.Email}
                   onChange={handleChange}
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col ">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
                 >
                   Phone Number :-
                 </label>
-                <input
-                  type="text"
-                  id="fname"
-                  name="Phone"
-                  placeholder="Phone Number"
-                  value={formData.Phone}
-                  onChange={handleChange}
-                  className="w-full  h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
+
+                <PhoneInput
+                  defaultCountry="AE"
+                  className={`${styles.phoneInput}  bg-[#dcdcdc]  rounded-md h-[40px] mt-2 font-bold text-[14px]`}
+                  placeholder="Enter Number"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handlePhoneChange}
+                  countrySelectComponent={CustomCountrySelect}
+                  inputComponent={CustomPhoneInput}
                 />
               </div>
             </div>
             <div className="flex justify-center mt-8 sm:mt-4">
-              <button
-                className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold"
-                onClick={() => Submit()}
-              >
+              <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold">
                 Get Quote
               </button>
             </div>
@@ -125,28 +234,36 @@ const Contact = ({ mapInframeUrl }) => {
         <div
           className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md sm:py-[15px]`}
         >
-          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold">
+          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold px-10">
             Our Address
             <div className="flex justify-center items-center">
               <hr class="bg-[#19c0f0] h-[3px] w-[60px]"></hr>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0">
               <FaLocationDot style={{ height: "30px", width: "30px" }} />
               <div className="text-[13px] text-[#000] w-2/3  sm:font-medium sm:text-base">
                 Qwiklif Air Ambulance ,Regus Dafza,8W Level 5,Dubai Airport
                 freezone, Dubai.
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
-              <MdEmail style={{ height: "30px", width: "30px" }} />
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
+              <a href="mailto:info@qwiklif.com">
+                <MdEmail style={{ height: "30px", width: "30px" }} />
+              </a>
               <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-1/2 sm:w-2/3">
-              <IoLogoWhatsapp style={{ height: "30px", width: "30px" }} />
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
+              <a
+                href="https://wa.me/971552087745"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IoLogoWhatsapp style={{ height: "30px", width: "30px" }} />
+              </a>
               <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="tel:+971552087745">+971 55 208 7745</a>
               </div>
