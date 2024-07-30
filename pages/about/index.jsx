@@ -136,7 +136,7 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Company Profile
               </h2>
-              <p className="font-sans font-light">
+              <p className="font-Poppins font-light">
                 About Qwiklif: An air ambulance company with give multiple
                 choices of air ambulance cost which is closest to you, Qwiklif
                 focuses on giving customer cost effective and safest patient
@@ -171,7 +171,7 @@ const About = () => {
               <h2 className="font-bold text-xl uppercase mb-4">
                 Mission and Vision
               </h2>
-              <p className="font-sans font-light">
+              <p className="font-Poppins font-light">
                 Our mission at Qwiklif is simple: to connect people in need of
                 critical medical transportation with the best-equipped, fastest,
                 and most cost-effective air ambulance services. We are driven by
@@ -183,7 +183,7 @@ const About = () => {
           {activeTab === 3 && (
             <div id="mmilestone">
               <h2 className="font-bold text-xl uppercase mb-4">Milestones</h2>
-              <p className="font-sans font-light">
+              <p className="font-Poppins font-light">
                 The Qwiklif Difference What sets Qwiklif apart from the rest?
                 It&apos;s <br />
                 our unwavering commitment to excellence, our extensive global
@@ -217,7 +217,7 @@ const About = () => {
           {activeTab === 4 && (
             <div id="policies">
               <h2 className="font-bold text-xl uppercase mb-4">Policies</h2>
-              <p className="font-sans font-light">
+              <p className="font-Poppins font-light">
                 Qwiklif is founded on a set of core values that guide our every
                 action: - Compassion: We understand the stress and anxiety that
                 come with a medical emergency.
@@ -253,7 +253,7 @@ const About = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 sm:grid-cols-1 sm:gap-6 md:grid-cols-2 md:gap-2 mt-0 mb-10 px-[5%] sm:px-[2%] md:px-[3%]">
+      <div className="grid grid-cols-3 gap-4 mt-5 sm:grid-cols-1 sm:gap-10 md:grid-cols-2 md:gap-2 mt-0 mb-10 px-[5%] sm:px-[2%] md:px-[3%]">
         {Companygoals.map((data, index) => {
           return (
             <Aboutcard
@@ -265,7 +265,7 @@ const About = () => {
         })}
       </div>
 
-      <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer mt-10 mb-10">
+      <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10  cursor-pointer mt-10 mb-10">
         {abouts.map((data, index) => (
           <div key={index} className="relative overflow-y-hidden">
             <img
@@ -274,7 +274,7 @@ const About = () => {
               alt="Description of the image content"
             />
             <div className={`${style.Slideover} px-[25px]`}>
-              <p className="text-[18px] font-semibold py-[15px]">{data.head}</p>
+              <p className="text-[18px] font-semibold py-[25px]">{data.head}</p>
               <p>{data.text}</p>
             </div>
           </div>

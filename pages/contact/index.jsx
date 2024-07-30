@@ -12,6 +12,8 @@ import PhoneInput, {
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import CountryFlag from "react-country-flag";
 import Select from "react-select";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 const CustomPhoneInput = React.forwardRef(
   ({ value, onChange, ...rest }, ref) => {
     return (
@@ -42,7 +44,7 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
       return {
         value: country,
         label: (
-          <div className="flex items-start">
+          <div className="flex items-center">
             <div className="mr-2"> (+{callingCode})</div>
             <CountryFlag
               countryCode={country}
@@ -109,6 +111,15 @@ const Contact = ({ mapInframeUrl }) => {
 
       if (EquieryApi.fulfilled.match(response)) {
         const result = await response.data;
+        Swal.fire({
+          title: "Thank you for contacting us!",
+          text: "Our Team will get back to you shortly",
+          icon: "success",
+          // confirmButtonText: "OK",
+          // customClass: {
+          //   confirmButton: "bg-blue-500 text-white",
+          // },
+        });
         setFormData({ From: "", To: "", Phone: "", Email: "" });
       } else {
         console.error("Submission error:", response.statusText);
@@ -136,14 +147,14 @@ const Contact = ({ mapInframeUrl }) => {
       <div
         className={`bg-black ${styles.Image}   bg-black h-[400px] w-full  mt-2 flex justify-center items-center`}
       >
-        <div className="font-sans font-bold text-[25px] text-[#fff] z-[1000] sm:font-bold sm:text-center">
+        <div className="font-Poppins font-bold text-[25px] text-[#fff] z-[1000] sm:font-bold sm:text-center">
           {" "}
           TALK TO THE QWIKLIF TEAM
         </div>
       </div>
       <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10  w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
         <div className="flex flex-col justify-center shadow-2xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
-          <div className="font-sans  font-bold text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px] sm:px-[50px] sm:font-bold">
+          <div className="font-Poppins  font-bold text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px] sm:px-[50px] sm:font-bold">
             Get Quote Now
             <div className="flex justify-center items-center">
               <hr class="bg-[#19c0f0] h-[3px] w-[80px]"></hr>
@@ -187,7 +198,7 @@ const Contact = ({ mapInframeUrl }) => {
               </div>
             </div>
             <div className="flex justify-between sm:flex-col">
-              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0  w-1/2 sm:w-full">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -204,7 +215,7 @@ const Contact = ({ mapInframeUrl }) => {
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0  w-1/2 sm:w-full">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -224,6 +235,7 @@ const Contact = ({ mapInframeUrl }) => {
                 />
               </div>
             </div>
+
             <div className="flex justify-center mt-8 sm:mt-4">
               <button className="font-sans bg-[#19C0F0] px-[20px] py-[20py] rounded-md mt-5 w-[150px] h-[40px] font-bold sm:font-bold">
                 Get Quote
@@ -234,7 +246,7 @@ const Contact = ({ mapInframeUrl }) => {
         <div
           className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md sm:py-[15px]`}
         >
-          <div className="text-[30px] font-sans flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold px-10">
+          <div className="text-[30px] font-Poppins flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold px-10">
             Our Address
             <div className="flex justify-center items-center">
               <hr class="bg-[#19c0f0] h-[3px] w-[60px]"></hr>
@@ -243,7 +255,7 @@ const Contact = ({ mapInframeUrl }) => {
           <div className="flex flex-col justify-center items-center">
             <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0">
               <FaLocationDot style={{ height: "30px", width: "30px" }} />
-              <div className="text-[13px] text-[#000] w-2/3  sm:font-medium sm:text-base">
+              <div className="text-[13px] text-[#000] w-2/3  font-Poppins sm:font-medium sm:text-base">
                 Qwiklif Air Ambulance ,Regus Dafza,8W Level 5,Dubai Airport
                 freezone, Dubai.
               </div>
@@ -252,7 +264,7 @@ const Contact = ({ mapInframeUrl }) => {
               <a href="mailto:info@qwiklif.com">
                 <MdEmail style={{ height: "30px", width: "30px" }} />
               </a>
-              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
+              <div className="text-[13px] font-Poppins text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
               </div>
             </div>
@@ -264,7 +276,7 @@ const Contact = ({ mapInframeUrl }) => {
               >
                 <IoLogoWhatsapp style={{ height: "30px", width: "30px" }} />
               </a>
-              <div className="text-[13px] text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
+              <div className="text-[13px] font-Poppins text-[#000] w-2/3 cursor-pointer sm:font-medium sm:text-base">
                 <a href="tel:+971552087745">+971 55 208 7745</a>
               </div>
             </div>
@@ -272,7 +284,7 @@ const Contact = ({ mapInframeUrl }) => {
         </div>
       </div>
       <div className="our offices flex justify-center flex-col  bg-[#fff]  mb-5 relative bottom-[90px] sm:bottom-[30px] rounded-2xl">
-        <div className="font-sans flex justify-center items-center flex-col bg-[#fff] font-bold text-[30px] text-[#262626] shadow-2xl px-[120px] sm:px-[50px] py-[15px] sm:font-bold">
+        <div className="font-Poppins flex justify-center items-center flex-col bg-[#fff] font-bold text-[30px] text-[#262626] shadow-2xl px-[120px] sm:px-[50px] py-[15px] sm:font-bold">
           Our Office
           <div className="flex justify-center items-center">
             <hr class="bg-[#19c0f0] h-[3px] w-[60px]"></hr>

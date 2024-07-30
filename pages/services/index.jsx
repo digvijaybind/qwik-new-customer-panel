@@ -1,6 +1,6 @@
 "use client";
 import styles from "./Services.module.css";
-import ShadowCard from "@/components/shadowCard";
+import Updatecard from "@/components/shadowCard";
 const Services = ({ service }) => {
   return (
     <div className="font-sans">
@@ -25,19 +25,19 @@ const Services = ({ service }) => {
             Our Services
             <span className="block bg-[#11B6E3] h-[3px] w-[45px] mx-auto mt-1"></span>
           </h2>
-          <p className="pt-[10px] font-Inter font-medium text-slate-700">
+          <p className="pt-[10px] font-Poppins font-medium text-slate-700">
             At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
             And Service When It Matters Most.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[10%] flex-wrap mb-5">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 px-[10%] sm:px-[5%] pb-10">
           {service.map((data, i) => (
-            <div className={`w-[47%] sm:w-[100%] mt-[20px]`} key={i}>
-              <ShadowCard
+            <div className={`w-[50%] sm:w-[100%] mt-[20px]`} key={i}>
+              <Updatecard
                 img={data.img}
                 head={data.head}
                 text={data.text}
-              ></ShadowCard>
+              ></Updatecard>
             </div>
           ))}
         </div>

@@ -24,6 +24,10 @@ export default function App({ Component, pageProps }) {
           <UpdateNavbar />
           <Component {...pageProps} />
           {/*WhatsApp floating Component */}
+          <script
+            src="//code.tidio.co/hqdw4onntafzn5ud1hi2mpgltmfxtith.js"
+            async
+          ></script>
           <FloatingWhatsApp
             accountName="Qwiklif Air Ambulance"
             allowEsc
