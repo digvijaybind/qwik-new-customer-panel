@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import styles from "./careermodal.module.css";
+import { ImCancelCircle } from "react-icons/im";
 
 const CustomModal = ({ isOpen, onRequestClose, payload, handleChange }) => {
   const renderFields = () => {
@@ -18,22 +19,31 @@ const CustomModal = ({ isOpen, onRequestClose, payload, handleChange }) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel="Custom Modal"
-      className={styles.modal}
-      overlayClassName={styles.overlay}
-    >
-      <div className={styles.header}>
-        <h2>Apply Now</h2>
-        <button onClick={onRequestClose} className={styles.closeButton}>
-          &times;
-        </button>
-      </div>
-      <div className={styles.content}>{renderFields()}</div>
-      <button className={styles.submitButton}>Submit</button>
-    </Modal>
+    <div>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={onRequestClose}
+        contentLabel="Custom Modal"
+        className={styles.modal}
+        overlayClassName={styles.overlay}
+        ariaHideApp={false}
+      >
+        <div className="flex justify-end">
+          <button onClick={onRequestClose} className={styles.closeButton}>
+            <ImCancelCircle />
+          </button>
+        </div>
+        <div className={`${styles.header} flex justify-center`}>
+          <h2 className="text-center font-black font-Inter text-[22px]">
+            Apply Now
+            <hr className="bg-[#11B6E3] h-[4px] w-[40px] mt-2 mx-auto sm:mx-auto"></hr>
+          </h2>
+        </div>
+
+        <div className={styles.content}>{renderFields()}</div>
+        <button className={styles.submitButton}>Submit</button>
+      </Modal>
+    </div>
   );
 };
 

@@ -8,6 +8,7 @@ import AircraftOperator from "../../public/images/career/AircraftOperator.jpg";
 import hospital from "../../public/images/career/hospitals.jpg";
 import Paramedics from "../../public/images/career/paramedics.jpg";
 import Modal from "react-modal";
+
 const WorkwithUs = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPayload, setCurrentPayload] = useState({});
@@ -16,13 +17,13 @@ const WorkwithUs = () => {
     {
       img: Insurancefirm,
       head: "Medical Healthcare Insurance/Provider company",
-      text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely.Apply now",
+      text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely. Apply now",
       payload: {
-        fullName: "",
-        country: "",
-        specialities: "",
-        location: "",
-        degrees: "",
+        "Company Name": "",
+        Email: "",
+        "Contact Number": "",
+        "Contact Person (with country code)": "",
+        "Contact Number (with country code)": "",
       },
     },
     {
@@ -30,24 +31,23 @@ const WorkwithUs = () => {
       head: "Hospital/healthcare center",
       text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today!",
       payload: {
-        fullName: "",
-        country: "",
-        specialities: "",
-        location: "",
-        degrees: "",
+        "Hospital Name": "",
+        Email: "",
+        "Contact Number (with country code)": "",
+        "Owners Name": "",
+        Location: "",
       },
     },
-
     {
       img: flyingDoctor,
       head: "Flying doctor/ Airborne Medical Professionals",
       text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
       payload: {
-        fullName: "",
-        country: "",
-        specialities: "",
-        location: "",
-        degrees: "",
+        "Full Name": "",
+        "Country  (with  country code)": "",
+        Specialities: "",
+        Location: "",
+        Degrees: "",
       },
     },
     {
@@ -55,11 +55,11 @@ const WorkwithUs = () => {
       head: "Paramedics/Flight Paramedics",
       text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now!",
       payload: {
-        FullName: "",
+        "Full Name": "",
         Email: "",
-        country: "",
-        degrees: "",
-        contact: "",
+        Country: "",
+        Degrees: "",
+        "Contact (with country code) ": "",
       },
     },
     {
@@ -67,11 +67,11 @@ const WorkwithUs = () => {
       head: "Aircraft Operator",
       text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
       payload: {
-        companyName: "",
-        contactDetails: "",
-        numberOfCountriesOperating: "",
-        location: "",
-        email: "",
+        "Company Name": "",
+        Email: "",
+        "Contact (with country code)": "",
+        "Number of Countries presence": "",
+        Location: "",
       },
     },
   ];
@@ -150,7 +150,6 @@ const WorkwithUs = () => {
             onRequestClose={closeModal}
             payload={currentPayload}
             handleChange={handleChange}
-
           />
         )}
       </div>
