@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import HamburgerMenu from "./HamburgerMenu";
-import Updatehamburger from "./Updatehamburger";
+import UpdateHamburgerMenu from "./UpdateHamburgerMenu";
 
 const Navbar = () => {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
     };
   }, []);
 
-  return <div>{isMobileOrTablet ? <Updatehamburger /> : <Header />}</div>;
+  return <div>{isMobileOrTablet ? <UpdateHamburgerMenu /> : <Header />}</div>;
 };
 
 export default Navbar;
