@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { IoIosArrowForward } from 'react-icons/io';
+import React, { useState } from "react";
+import Image from "next/image";
+import { IoIosArrowForward } from "react-icons/io";
 
 const ReadMore = () => {
   return (
     <div className="flex justify-start font-bold mt-4 text-[#19c0f0] items-center">
-      Read More{' '}
+      Read More{" "}
       <span>
-        <IoIosArrowForward style={{ color: '#19c0f0' }} />
+        <IoIosArrowForward style={{ color: "#19c0f0" }} />
       </span>
     </div>
   );
@@ -26,9 +26,9 @@ const ExpandText = ({ children, descripationLength }) => {
       {isExpanded ? fullText : `${fullText?.slice(0, descripationLength)}`}
       <span
         onClick={toggleText}
-        className="text-blue-500 font-normal text-[13px]"
+        className="text-blue-500 font-poppins font-normal text-[13px]"
       >
-        {isExpanded ? '' : <ReadMore />}
+        {isExpanded ? "" : <ReadMore />}
       </span>
     </div>
   );
@@ -48,10 +48,10 @@ const Servicenews = ({ title, description, imageUrl, className }) => {
         />
       </div>
       <div className="flex flex-col  p-4 items-center mt-2.5 gap-3">
-        <div className="font-sans font-extrabold text-center text-xl text-slate-800 max-w-[20rem]">
+        <div className="font-sans font-extrabold text-center text-xl text-slate-800 max-w-[30rem]">
           {title}
         </div>
-        <div className="text-[#646464]  font-sans text-sm font-normal max-w-[26rem] text-center sm:font-medium sm:text-base">
+        <div className="text-[#646464]  font-Inter text-sm font-normal max-w-[26rem] text-center sm:font-medium sm:text-base">
           <ExpandText descripationLength={200}>{description}</ExpandText>
         </div>
       </div>

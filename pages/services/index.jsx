@@ -30,7 +30,7 @@ const Services = ({ service }) => {
             And Service When It Matters Most.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 px-[10%] sm:px-[5%] pb-10">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 px-[10%] sm:px-[2%]  pb-10">
           {service.map((data, i) => (
             <div className={`w-[50%] sm:w-[100%] mt-[20px]`} key={i}>
               <Updatecard

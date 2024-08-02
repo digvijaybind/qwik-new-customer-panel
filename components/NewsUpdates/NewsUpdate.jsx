@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const NewsUpdates = ({ title, description, imageUrl, index, Date, Role }) => {
   return (
@@ -28,11 +28,11 @@ const NewsUpdates = ({ title, description, imageUrl, index, Date, Role }) => {
             {Date}
           </h3>
         </div>
-        <p className="font-sans font-semibold text-center text-xl text-slate-800    max-w-[20rem]">
+        <p className="font-sans font-semibold text-center text-xl text-slate-800    max-w-[30rem]">
           {title}
         </p>
         <p
-          className="text-[#646464] text-center font-Inter text-sm  font-medium  sm:text-base
+          className="text-[#646464] text-center font-poppins  text-sm  font-medium  sm:text-base
          sm:font-medium  max-w-[26rem]"
         >
           {description}

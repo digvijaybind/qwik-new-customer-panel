@@ -18,7 +18,7 @@ const FastestMedical = React.memo(() => {
         <h1 className="font-sans font-semibold text-4xl text-shadow-lg text-center text-white mt-[30px] md:text-xl sm:text-lg">
           Fastest and best medical care
         </h1>
-        <p className="font-medium text-[18px] font-Inter  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
+        <p className="font-medium text-[18px] font-poppins  text-center text-white mt-[30px] sm:px-[10px] md:text-xl sm:text-lg">
           Time is precious, especially during emergencies. Our air ambulances
           are not just vehicles. they are a beacon of hope on the fastest route
           to medical assistance. We pride ourselves on a lightning-quick

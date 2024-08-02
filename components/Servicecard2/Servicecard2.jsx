@@ -58,7 +58,7 @@ const Servicecard2 = React.memo(({ className }) => {
         <h2 className="font-sans font-extrabold text-3xl sm:text-xl text-center">
           Our Air Ambulance Services
         </h2>
-        <div className="flex justify-center items-center mt-[20px] mb-[30px] sm:mb-[20px]">
+        <div className="flex justify-center items-center mt-[10px] mb-[30px] sm:mb-[20px]">
           <hr className="bg-[#11B6E3] h-[4px] w-[45px]" />
         </div>
         <div className="w-full">

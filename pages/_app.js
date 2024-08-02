@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Provider } from "react-redux";
 import { store, persistor } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+
 export default function App({ Component, pageProps }) {
   const phoneNumber = "+971502825433";
 

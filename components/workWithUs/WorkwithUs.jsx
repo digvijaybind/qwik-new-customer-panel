@@ -1,49 +1,112 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./workWithus.module.css";
 import UpdatecareerCard from "../careerCard/UpdatecareerCard";
-
+import CustomModal from "../careermodal";
+import flyingDoctor from "../../public/images/career/flyingDoctor.jpg";
+import Insurancefirm from "../../public/images/career/AirAmbulanceInsurance.jpg";
+import AircraftOperator from "../../public/images/career/AircraftOperator.jpg";
+import hospital from "../../public/images/career/hospitals.jpg";
+import Paramedics from "../../public/images/career/paramedics.jpg";
+import Modal from "react-modal";
 const WorkwithUs = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [currentPayload, setCurrentPayload] = useState({});
+
   const service = [
     {
-      img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
+      img: Insurancefirm,
       head: "Medical Healthcare Insurance/Provider company",
       text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely.Apply now",
+      payload: {
+        fullName: "",
+        country: "",
+        specialities: "",
+        location: "",
+        degrees: "",
+      },
     },
     {
-      img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
-      head: "Flying doctor/ Airborne Medical Professionals",
-      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2024/01/5-230x230.png",
-      head: "Paramedics/Flight Paramedics",
-      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now!",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/challenger-605_1-re-230x230.jpg",
-      head: "Aircraft Operator",
-      text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-2-230x230.png",
+      img: hospital,
       head: "Hospital/healthcare center",
       text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today!",
+      payload: {
+        fullName: "",
+        country: "",
+        specialities: "",
+        location: "",
+        degrees: "",
+      },
+    },
+
+    {
+      img: flyingDoctor,
+      head: "Flying doctor/ Airborne Medical Professionals",
+      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
+      payload: {
+        fullName: "",
+        country: "",
+        specialities: "",
+        location: "",
+        degrees: "",
+      },
     },
     {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png",
-      head: "Private Aircraft Owner",
-      text: "Own a private aircraft? Partner with Qwiklif Air Ambulance and help us provide life-saving medical transportation. Make a difference with your aircraft. Partner with us today!",
+      img: Paramedics,
+      head: "Paramedics/Flight Paramedics",
+      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now!",
+      payload: {
+        FullName: "",
+        Email: "",
+        country: "",
+        degrees: "",
+        contact: "",
+      },
+    },
+    {
+      img: AircraftOperator,
+      head: "Aircraft Operator",
+      text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
+      payload: {
+        companyName: "",
+        contactDetails: "",
+        numberOfCountriesOperating: "",
+        location: "",
+        email: "",
+      },
     },
   ];
+
+  const openModal = (payload) => {
+    if (payload) {
+      setCurrentPayload(payload);
+      setModalIsOpen(true);
+    }
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const handleChange = (field, value) => {
+    setCurrentPayload((prevState) => ({
+      ...prevState,
+      [field]: value,
+    }));
+  };
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+
   return (
     <div className="font-sans">
-      <div className={`bg-black ${styles.Image}   bg-black h-[400px] w-full`}>
-        <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-          <p className="text-[50px]  pt-[150px] sm:pt-[100px] font-bold font-poppins">
+      <div className={`bg-black ${styles.Image} bg-black h-[400px] w-full`}>
+        <div className="font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative text-white">
+          <p className="text-[50px] pt-[150px] sm:pt-[100px] font-bold font-poppins">
             Partner with us{" "}
           </p>
           <div className="flex pt-[30px] text-[20px]">
-            <p className="text-[#C5D5FF] pr-[10px] ">
+            <p className="text-[#C5D5FF] pr-[10px]">
               {"Air Ambulance Services >"}
             </p>
             <p className="font-poppins font-normal"> Partner with Us</p>
@@ -52,11 +115,11 @@ const WorkwithUs = () => {
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[18px]  text-[#111] font-poppins font-semibold">
+          <h2 className="text-[20px] text-[#111] font-poppins font-semibold">
             Partner with us
           </h2>
-          <hr class="bg-[#11B6E3] h-[3px] w-[50px] mx-auto sm:mx-auto"></hr>
-          <p className="pt-[8px]  text-[16px] font-poppins font-normal">
+          <hr className="bg-[#11B6E3] h-[3px] w-[50px] mx-auto sm:mx-auto"></hr>
+          <p className="pt-[8px] text-[16px] font-poppins font-normal">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,
@@ -65,22 +128,31 @@ const WorkwithUs = () => {
             ambulance services.
           </p>
         </div>
-        <div className="flex justify-between sm:items-center px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm: flex-wrap  ">
-          {service.map((data, i) => (
-            <div
-              className={`w-[30%] sm:w-[100%] mt-[20px] sm:mt-[15px]`}
-              key={i}
-            >
-              <UpdatecareerCard
-                image={data.img}
-                headline={data.head}
-                descripation={data.text}
-                height={18}
-                width={80}
-              />
-            </div>
-          ))}
+        <div id="root">
+          <div className="grid grid-cols-3  gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1">
+            {service.map((data, i) => (
+              <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
+                <UpdatecareerCard
+                  image={data.img}
+                  headline={data.head}
+                  descripation={data.text}
+                  height={18}
+                  width={80}
+                  onClick={() => openModal(data.payload)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+        {modalIsOpen && (
+          <CustomModal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            payload={currentPayload}
+            handleChange={handleChange}
+
+          />
+        )}
       </div>
     </div>
   );
