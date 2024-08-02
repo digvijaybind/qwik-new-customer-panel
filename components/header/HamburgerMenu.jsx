@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import React, { useState, useEffect, useRef } from 'react';
-import Logo from '../../public/images/logo.svg';
-import styles from './Header.module.css';
-import Telephone from '../../public/images/telephone.svg';
-import { useRouter } from 'next/router';
-import { MdCancel } from 'react-icons/md';
+import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
+import Logo from "../../public/images/logo.svg";
+import styles from "./Header.module.css";
+import Telephone from "../../public/images/telephone.svg";
+import { useRouter } from "next/router";
+import { MdCancel } from "react-icons/md";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,9 @@ const HamburgerMenu = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -51,7 +51,7 @@ const HamburgerMenu = () => {
               <span
                 className={`${styles.telephoneText} text-[#fff] border-r-7 `}
               >
-                {' '}
+                {" "}
                 +971 502 825 433
               </span>
             </div>
@@ -63,11 +63,11 @@ const HamburgerMenu = () => {
               className="absolute top-5 right-2 p-2 text-gray-800 focus:outline-none"
               onClick={toggleMenu}
             >
-              <MdCancel style={{ fontSize: '1.5rem' }} />
+              <MdCancel style={{ fontSize: "1.5rem" }} />
             </button>
           ) : (
             <button className="hamburger-button" onClick={toggleMenu}>
-              ☰ {/* Hamburger icon */}
+              ☰
             </button>
           )}
         </div>
@@ -82,7 +82,7 @@ const HamburgerMenu = () => {
             <ul className="text-center mt-10">
               <li
                 onClick={() => {
-                  router.push('/');
+                  router.push("/");
                   toggleMenu();
                 }}
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
@@ -91,7 +91,7 @@ const HamburgerMenu = () => {
               </li>
               <li
                 onClick={() => {
-                  router.push('/services');
+                  router.push("/services");
                   toggleMenu();
                 }}
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
@@ -100,7 +100,7 @@ const HamburgerMenu = () => {
               </li>
               <li
                 onClick={() => {
-                  router.push('/workwithus');
+                  router.push("/workwithus");
                   toggleMenu();
                 }}
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
@@ -110,7 +110,7 @@ const HamburgerMenu = () => {
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
                 onClick={() => {
-                  router.push('/location');
+                  router.push("/location");
                   toggleMenu();
                 }}
               >
@@ -119,7 +119,7 @@ const HamburgerMenu = () => {
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
                 onClick={() => {
-                  router.push('/about');
+                  router.push("/about");
                   toggleMenu();
                 }}
               >
@@ -128,7 +128,7 @@ const HamburgerMenu = () => {
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
                 onClick={() => {
-                  router.push('/contact-us');
+                  router.push("/contact-us");
                   toggleMenu();
                 }}
               >
