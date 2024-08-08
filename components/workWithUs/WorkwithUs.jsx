@@ -2,83 +2,105 @@ import React, { useEffect, useState } from "react";
 import styles from "./workWithus.module.css";
 import UpdatecareerCard from "../careerCard/UpdatecareerCard";
 import CustomModal from "../careermodal";
-import flyingDoctor from "../../public/images/career/flyingDoctor.jpg";
-import Insurancefirm from "../../public/images/career/AirAmbulanceInsurance.jpg";
-import AircraftOperator from "../../public/images/career/AircraftOperator.jpg";
-import hospital from "../../public/images/career/hospitals.jpg";
+import flyingDoctor from "../../public/images/career/ProfessionalDoctor.jpg";
+import Insurancefirm from "../../public/images/career/Insurance.jpg";
+import AircraftOperator from "../../public/images/career/aircraftOperator.jpg";
+import hospital from "../../public/images/career/Hospital.jpg";
 import Paramedics from "../../public/images/career/paramedics.jpg";
 import Modal from "react-modal";
+import { fetchInsuranceData } from "@/redux/slices/career/InsuranceSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { hospitalApi } from "@/redux/slices/career/hospitalSlice";
+import { ParamedicsApi } from "@/redux/slices/career/paramedicSlice";
+import { DoctorApi } from "@/redux/slices/career/doctorSlice";
+import { aircraftOperator } from "@/redux/slices/career/aircraftoperatorSlice";
+import Swal from "sweetalert2";
+const actionMap = {
+  insurance: fetchInsuranceData,
+  hospital: hospitalApi,
+  paramedics: ParamedicsApi,
+  airoperator: aircraftOperator,
+  doctor: DoctorApi,
+};
 
 const WorkwithUs = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPayload, setCurrentPayload] = useState({});
+  const dispatch = useDispatch();
+  const { status, error } = useSelector((state) => state.insurance); // Adjust based on actual state structure
 
   const service = [
     {
       img: Insurancefirm,
-      head: "Medical Healthcare Insurance/Provider company",
-      text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely. Apply now",
+      head: "Medical Healthcare Insurance/Provider Company",
+      text: "Partner with Qwiklif Air Ambulance to offer reliable medical insurance. Ensure patient safety and quality transfers. Apply now to join us.",
       payload: {
-        "Company Name": "",
-        Email: "",
-        "Contact Number": "",
-        "Contact Person (with country code)": "",
-        "Contact Number (with country code)": "",
+        type: "insurance",
+        companyName: "",
+        email: "",
+        companyContactNumber: "",
+        contactPerson: "",
+        personContact: "",
       },
     },
     {
       img: hospital,
-      head: "Hospital/healthcare center",
-      text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today!",
+      head: "Hospital/Healthcare Center",
+      text: "Join Qwiklif Air Ambulance for fast, reliable patient transfers. Support life-saving missions with us. Connect today and make a difference.",
       payload: {
-        "Hospital Name": "",
-        Email: "",
-        "Contact Number (with country code)": "",
-        "Owners Name": "",
-        Location: "",
+        type: "hospital",
+        hospitalName: "",
+        email: "",
+        contactNumberWithCountryCode: "",
+        ownerName: "",
+        location: "",
       },
     },
     {
       img: flyingDoctor,
-      head: "Flying doctor/ Airborne Medical Professionals",
-      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
+      head: "Flying Doctor/Airborne Medical Professionals",
+      text: "Become a Flying Doctor with Qwiklif. Provide critical care in challenging environments. Apply now and make a significant impact.",
       payload: {
-        "Full Name": "",
-        "Country  (with  country code)": "",
-        Specialities: "",
-        Location: "",
-        Degrees: "",
+        type: "doctor",
+        fullName: "",
+        specialities: "",
+        degrees: "",
+        location: "",
+        contactNumberWithCountryCode: "",
       },
     },
     {
       img: Paramedics,
       head: "Paramedics/Flight Paramedics",
-      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now!",
+      text: "Join our team as a Paramedic or Flight Paramedic. Save lives and provide essential care during flights. Apply now to get involved.",
       payload: {
-        "Full Name": "",
-        Email: "",
-        Country: "",
-        Degrees: "",
-        "Contact (with country code) ": "",
+        type: "paramedics",
+        fullName: "",
+        email: "",
+        country: "",
+        degrees: "",
+        contactNumberWithCountryCode: "",
       },
     },
     {
       img: AircraftOperator,
       head: "Aircraft Operator",
-      text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
+      text: "Partner with Qwiklif Air Ambulance for critical air ambulance services. Join us to make a real difference. Apply today to collaborate.",
       payload: {
-        "Company Name": "",
-        Email: "",
-        "Contact (with country code)": "",
-        "Number of Countries presence": "",
-        Location: "",
+        type: "airoperator",
+        companyName: "",
+        email: "",
+        contactWithCountryCode: "",
+        numberOfCountriesPresence: "",
+        location: "",
       },
     },
   ];
 
   const openModal = (payload) => {
     if (payload) {
-      setCurrentPayload(payload);
+      // Only include relevant fields in currentPayload
+      setCurrentPayload({ ...payload });
       setModalIsOpen(true);
     }
   };
@@ -94,13 +116,53 @@ const WorkwithUs = () => {
     }));
   };
 
+  const handleSubmit = async () => {
+    const { type, ...formData } = currentPayload;
+    const action = actionMap[type];
+    if (action) {
+      try {
+        const result = await dispatch(action(formData));
+        if (result.meta.requestStatus === "fulfilled") {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Your application has been submitted successfully.",
+            confirmButtonText: "OK",
+          });
+          closeModal();
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: "There was an error submitting your application. Please try again.",
+            confirmButtonText: "OK",
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "There was an error submitting your application. Please try again.",
+          confirmButtonText: "OK",
+        });
+      }
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Unknown service type. Please try again.",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
   return (
     <div className="font-sans">
-      <div className={`bg-black ${styles.Image} bg-black h-[400px] w-full`}>
+      <div className={`bg-black ${styles.Image} h-[400px] w-full`}>
         <div className="font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative text-white">
           <p className="text-[50px] pt-[150px] sm:pt-[100px] font-bold font-poppins">
             Partner with us{" "}
@@ -114,24 +176,26 @@ const WorkwithUs = () => {
         </div>
       </div>
       <div className="bg-[#efefef]">
-        <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[20px] text-[#111] font-poppins font-semibold">
-            Partner with us
+        <div className="text-center w-[90%] sm:w-[95%] mx-auto py-[40px] ">
+          <h2 className="text-[22px] text-[#1a202c] font-poppins font-bold mb-[10px]">
+            Partner with Us
           </h2>
-          <hr className="bg-[#11B6E3] h-[3px] w-[50px] mx-auto sm:mx-auto"></hr>
-          <p className="pt-[8px] text-[16px] font-poppins font-normal">
+          <hr className="bg-[#11B6E3] h-[4px] w-[50px] mx-auto mb-[20px]"></hr>
+          <p className="text-[17px] text-[#333] font-poppins font-medium leading-relaxed">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
-            passion for excellence and innovation. We invite flying doctors,
-            paramedics, hospitals, aircraft operators, private jet owners, and
-            pilots to join us in our mission to provide the highest quality air
-            ambulance services.
+            passion for excellence and innovation. We invite medical healthcare
+            insurance or provider companies, hospitals and healthcare centers,
+            flying doctors and airborne medical professionals, paramedics and
+            flight paramedics, and aircraft operators to join us in our mission
+            to provide the highest quality air ambulance services.
           </p>
         </div>
+
         <div id="root">
-          <div className="grid grid-cols-3  gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1">
+          <div className="grid grid-cols-3 gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1">
             {service.map((data, i) => (
-              <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
+              <div className={`sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
                 <UpdatecareerCard
                   image={data.img}
                   headline={data.head}
@@ -150,6 +214,7 @@ const WorkwithUs = () => {
             onRequestClose={closeModal}
             payload={currentPayload}
             handleChange={handleChange}
+            handleSubmit={handleSubmit}
           />
         )}
       </div>

@@ -21,14 +21,11 @@ const SearchResponse = ({ initialData }) => {
     (state) => state.dedicated.dedicatedflights
   );
 
-  console.log("line 26 commerialFlights", commericialflights);
-  console.log("line 27 DedicatedFlights", DedicatedFlights);
-
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("commercial");
   const [formData, setFormData] = useState(initialData);
-  const [charterData, setcharterData] = useState("");
+
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
@@ -57,11 +54,6 @@ const SearchResponse = ({ initialData }) => {
       searchParams.has("originLocationCode") &&
       searchParams.has("destinationLocationCode")
     ) {
-      console.log("Data destination", searchParams.has("originLocationCode"));
-      console.log(
-        "Data originLocation",
-        searchParams.has("destinationLocationCode")
-      );
       const formDetails = {
         originLocationCode: searchParams.get("originLocationCode"),
         destinationLocationCode: searchParams.get("destinationLocationCode"),
@@ -72,10 +64,13 @@ const SearchResponse = ({ initialData }) => {
         max: 5,
       };
       setFormData(formDetails);
+      // Fetch new data whenever formData is updated
+      dispatch(CommericialApi(formDetails));
+      dispatch(DedicatedApi(formDetails));
     } else {
-      console.log("query params id mising ");
+      console.error("Query parameters missing");
     }
-  }, [searchParams]);
+  }, [searchParams, dispatch]);
 
   const stableSetFormData = useCallback((data) => {
     setFormData(data);
@@ -130,7 +125,7 @@ const SearchResponse = ({ initialData }) => {
                     : "bg-none text-white"
                 } text-center sm:px-2 px-5 sm:py-2.5 py-3 text-sm rounded-[0.25rem]`}
               >
-                Commericial Flight
+                Commercial Flight
               </button>
 
               <button
@@ -152,37 +147,33 @@ const SearchResponse = ({ initialData }) => {
                 }`}
               >
                 {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                  (data, index) => {
-                    return (
+                  (data, index) => (
+                    <CommericialSearch
+                      key={index}
+                      isMobile={isMobile}
+                      aircraftData={data}
+                      activeTab={activeTab}
+                      availticket={
+                        commericialflights?.ResponseData?.TicketAvailability
+                      }
+                      aircraftId={commericialflights?.aircraftId}
+                    />
+                  )
+                )}
+                {!commericialflights?.ResponseData
+                  ?.AirCraftDatawithNotechStop &&
+                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
+                    (data, index) => (
                       <CommericialSearch
                         key={index}
                         isMobile={isMobile}
                         aircraftData={data}
-                        activeTab={activeTab}
                         availticket={
                           commericialflights?.ResponseData?.TicketAvailability
                         }
                         aircraftId={commericialflights?.aircraftId}
                       />
-                    );
-                  }
-                )}
-                {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
-                  commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
-                    (data, index) => {
-                      return (
-                        <CommericialSearch
-                          key={index}
-                          isMobile={isMobile}
-                          aircraftData={data}
-                          availticket={
-                            commericialflights?.ResponseData?.TicketAvailability
-                          }
-                          aircraftId={commericialflights?.aircraftId}
-                        />
-                      );
-                    }
+                    )
                   )}
               </div>
               <div
@@ -190,16 +181,13 @@ const SearchResponse = ({ initialData }) => {
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 } sm:`}
               >
-                {DedicatedFlights.map((data, index) => {
-                  console.log("charter data in index page", data);
-                  return (
-                    <DedicatedSearch
-                      type="chartered"
-                      key={index}
-                      charterdata={data}
-                    />
-                  );
-                })}
+                {DedicatedFlights.map((data, index) => (
+                  <DedicatedSearch
+                    type="chartered"
+                    key={index}
+                    charterdata={data}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -211,7 +199,6 @@ const SearchResponse = ({ initialData }) => {
 
 export const getServerSideProps = async (context) => {
   const searchParams = context.query;
-  console.log("searchparams query line 236", searchParams);
   const initialData = {
     originLocationCode: searchParams.originLocationCode || "",
     destinationLocationCode: searchParams.destinationLocationCode || "",

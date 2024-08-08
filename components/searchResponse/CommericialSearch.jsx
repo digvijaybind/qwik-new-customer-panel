@@ -305,7 +305,7 @@ const CommericialSearch = ({
         {type} Flight
       </button>
       <div className="w-full flex flex-col rounded-md drop-shadow-md bg-white border border-gray-100">
-        <div className="flex flex-col gap-7 px-7 py-4 sm:px-3 sm:gap-5">
+        <div className="flex flex-col gap-3 px-7 py-4 sm:px-3 sm:gap-5 ">
           <div className="flex justify-between sm:flex-col sm:gap-6   sm:px-4 sm:py-4   sm:justify-between">
             <div className="flex justify-between items-center gap-3">
               <Image
@@ -314,7 +314,7 @@ const CommericialSearch = ({
                 className="w-[90%] h-[60%]"
               />
               <div>
-                <p className="font-extrabold text-[16px] font-sans whitespace-nowrap">
+                <p className="font-extrabold text-[16px] font-emoji whitespace-nowrap">
                   {airlineName}
                 </p>
               </div>

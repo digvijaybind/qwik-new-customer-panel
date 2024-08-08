@@ -100,7 +100,7 @@ const HamburgerMenu = () => {
               </li>
               <li
                 onClick={() => {
-                  router.push("/workwithus");
+                  router.push("/about");
                   toggleMenu();
                 }}
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
@@ -119,11 +119,11 @@ const HamburgerMenu = () => {
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"
                 onClick={() => {
-                  router.push("/about");
+                  router.push("/workwithus");
                   toggleMenu();
                 }}
               >
-                About
+                Partner with Us
               </li>
               <li
                 className="font-semibold text-[16px] p-2 hover:gray cursor-pointer"

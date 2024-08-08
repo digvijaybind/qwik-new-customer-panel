@@ -9,40 +9,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @layer base {
-   @font-face {
-    font-family: 'Inter-Regular';
-    src: local('Inter-Regular'),
-      url('./fonts/Inter/Inter-Regular.otf') format('otf');
-  }
-     @font-face {
-    font-family: 'Inter-Bold';
-    src: local('Inter-Bold'),
-      url('./fonts/Inter/Inter-Bold.otf') format('otf');
+  @font-face {
+    font-family: "Inter-Regular";
+    src: local("Inter-Regular"),
+      url("./fonts/Inter/Inter-Regular.otf") format("otf");
   }
   @font-face {
-    font-family: 'Montserrat-Regular';
-    src: local('Montserrat-Regular'),
-      url('./fonts/Montserrat/Montserrat-Regular.ttf') format('ttf');
+    font-family: "Inter-Bold";
+    src: local("Inter-Bold"), url("./fonts/Inter/Inter-Bold.otf") format("otf");
   }
   @font-face {
-    font-family: 'Montserrat-bold';
-    src: local('Montserrat-bold'),
-      url('./fonts/Montserrat/Montserrat-Bold.ttf') format('ttf');
+    font-family: "Montserrat-Regular";
+    src: local("Montserrat-Regular"),
+      url("./fonts/Montserrat/Montserrat-Regular.ttf") format("ttf");
   }
   @font-face {
-    font-family: 'Montserrat-ExtraBold';
-    src: local('Montserrat-extrabold'),
-      url('./fonts/Montserrat/Montserrat-ExtraBold.ttf') format('ttf');
+    font-family: "Montserrat-bold";
+    src: local("Montserrat-bold"),
+      url("./fonts/Montserrat/Montserrat-Bold.ttf") format("ttf");
   }
   @font-face {
-    font-family: 'Montserrat-Medium';
-    src: local('Montserrat-medium'),
-      url('./fonts/Montserrat/Montserrat-Medium.ttf') format('ttf');
+    font-family: "Montserrat-ExtraBold";
+    src: local("Montserrat-extrabold"),
+      url("./fonts/Montserrat/Montserrat-ExtraBold.ttf") format("ttf");
   }
   @font-face {
-    font-family: 'Montserrat-SemiBold';
-    src: local('Montserrat-bold'),
-      url('./fonts/Montserrat/Montserrat-SemiBold.ttf') format('ttf');
+    font-family: "Montserrat-Medium";
+    src: local("Montserrat-medium"),
+      url("./fonts/Montserrat/Montserrat-Medium.ttf") format("ttf");
+  }
+  @font-face {
+    font-family: "Montserrat-SemiBold";
+    src: local("Montserrat-bold"),
+      url("./fonts/Montserrat/Montserrat-SemiBold.ttf") format("ttf");
   }
   @font-face {
     font-family: "EBGaramond-Regular";
@@ -247,4 +246,12 @@ a {
 
 .flag-wrapper:hover .flag-card.back {
   transform: rotateY(0deg);
+}
+
+.tidio-chat {
+  position: fixed !important;
+  left: 10px !important;
+  bottom: 10px !important;
+  right: auto !important;
+  z-index: 1000;
 }

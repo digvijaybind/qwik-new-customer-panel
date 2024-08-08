@@ -597,36 +597,41 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
   // };
 
   const parseISO8601Duration = (durationString) => {
-    let TimeDuration = [];
+    // Regular expression for ISO 8601 duration format
     const regex =
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
+
+    // Match the duration string against the regex
     const matches = durationString?.match(regex);
+
+    // If no matches found, throw an error
     if (!matches) {
       throw new Error("Invalid ISO8601 duration format");
     }
 
+    // Extract matched groups and convert to numbers
     const [, years, months, days, hours, minutes, seconds] =
       matches.map(Number);
 
+    // Calculate total seconds, minutes, hours, and days
     const totalSeconds = seconds || 0;
     const totalMinutes = totalSeconds / 60 + (minutes || 0);
     const totalHours = totalMinutes / 60 + (hours || 0);
     const totalDays = totalHours / 24 + (days || 0);
 
-    TimeDuration.push({
+    // Return an object with the duration details
+    return {
       years: years || 0,
       months: months || 0,
       days: days || 0,
       hours: hours || 0,
       minutes: minutes || 0,
       seconds: seconds || 0,
-      totalDays,
-      totalHours,
-      totalMinutes,
-      totalSeconds,
-    });
-
-    return TimeDuration;
+      totalDays: Number(totalDays.toFixed(6)), // Round to a fixed precision
+      totalHours: Number(totalHours.toFixed(6)), // Round to a fixed precision
+      totalMinutes: Number(totalMinutes.toFixed(6)), // Round to a fixed precision
+      totalSeconds: Number(totalSeconds.toFixed(6)), // Round to a fixed precision
+    };
   };
 
   const getLocationData = () => {

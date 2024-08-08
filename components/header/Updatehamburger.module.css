@@ -1,121 +1,99 @@
-body {
-  background: #336193;
-  color: #6ecddd;
-  font-family: 'Bebas';
-  text-align: center;
-  max-width: 100%;
-  overflow-x: hidden;
-  padding: 0;
-  margin: 0;
-}
-
-h1 {
-  text-align: center;
-  letter-spacing: 1px;
-  word-spacing: 0.15em;
-  font-size: 3em;
-  line-height: 1.2;
-  transform: translateY(52%);
-}
-
-#toggle {
-  display: none;
-}
-
-/* Hamburger */
-.hamburger {
-  position: absolute;
-  top: 5em;
-  right: 5%;
-  width: 2em;
-  height: 45px;
-  z-index: 5;
-  cursor: pointer;
-}
-
-.hamburger div {
+/* Container for the hamburger menu */
+.container {
   position: relative;
-  width: 3em;
-  height: 7px;
-  border-radius: 3px;
-  background-color: #f8982b;
-  margin-top: 8px;
-  transition: all 0.3s ease-in-out;
+  font-family: sans-serif; /* Ensure consistent font across elements */
 }
 
-/* Nav Styles */
+/* Top banner */
+.banner {
+  background-color: #12B5E4;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.75rem; /* Adjusted for better readability */
+  font-weight: bold;
+}
+
+/* Header container */
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Added padding for better spacing */
+  background-color: #fff; /* White background for the header */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Added shadow for separation */
+}
+
+/* Button to toggle the menu */
+.toggleButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* Ensure the button is above the menu */
+}
+
+/* Icon styles */
+.hamburgerIcon {
+  font-size: 2rem; /* Size of the hamburger icon */
+}
+
+.cancelIcon {
+  font-size: 1.5rem; /* Size of the cancel icon */
+  color: #333; /* Color of the cancel icon */
+}
+
+/* Navigation styles */
 .nav {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #090e6b;
-  top: -100%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  transform: scale(0);
+  background-color: #090e6b; /* Dark blue background for the menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000; /* Ensure the menu is above other content */
+  padding-top: 3rem; /* Space for the logo */
+  overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
-.nav-wrapper {
-  position: relative;
-  overflow: hidden;
-  overflow-y: auto;
-  height: 100%;
+/* Navigation wrapper styles */
+.navWrapper {
+  text-align: center;
+  width: 100%;
 }
 
-nav {
-  text-align: left;
-  margin-left: 25%;
+/* Logo container styles */
+.logoContainer {
+  margin-bottom: 2rem; /* Space between logo and menu items */
 }
 
-nav a {
-  position: relative;
+/* Logo styles */
+.logo {
+  width: 150px; /* Adjust as needed */
+  height: auto;
+}
+
+/* Navigation links styles */
+.nav a {
+  color: #6ecddd; /* Light blue for navigation links */
+  font-size: 1.5rem; /* Adjusted font size */
   text-decoration: none;
-  color: #6ecddd;
-  font-size: 2em;
-  display: inline-block;
-  margin-top: 1.25em;
+  margin: 1em 0;
+  display: block;
   transition: color 0.2s ease-in-out;
-  letter-spacing: 1px;
 }
 
-nav a:before {
-  content: '';
-  height: 0;
-  position: absolute;
-  width: 0.25em;
-  background-color: white;
-  left: -0.5em;
-  transition: all 0.2s ease-in-out;
-}
-
-nav a:hover {
-  color: white;
-}
-
-nav a:hover:before {
-  height: 100%;
-}
-
-/* Animations */
-#toggle:checked + .hamburger .top-bun {
-  transform: rotate(-45deg);
-  margin-top: 25px;
-}
-
-#toggle:checked + .hamburger .bottom-bun {
-  opacity: 0;
-  transform: rotate(45deg);
-}
-
-#toggle:checked + .hamburger .meat {
-  transform: rotate(45deg);
-  margin-top: -7px;
-}
-
-#toggle:checked + .hamburger + .nav {
-  top: 0;
-  transform: scale(1);
+/* Hover effect for navigation links */
+.nav a:hover {
+  color: white; /* White color on hover */
 }

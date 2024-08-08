@@ -3,7 +3,7 @@ const Endpoint = {
   Allairports: `/all-airports`, //all airports list api
   //search endpoint for dedicated and commericial flights
   CommericialSearch: `/customer/commericialSearch`, //Endpoints for searching commericial flights
-  CommericialAircraftByid:`/customer/amadeus/aircraft/:id `, //Endpoints for searching commericial flights by id
+  CommericialAircraftByid: `/customer/amadeus/aircraft/:id `, //Endpoints for searching commericial flights by id
   DedicatedSearch: `/customer/dedicatedSearch`, //Endpoints for searching dedicated flights
   DedicatedAircraftByid: `/customer/avipage/aircraft/:concatenatedParam`, //Endpoints for searching dedicated flights by id
 
@@ -13,10 +13,11 @@ const Endpoint = {
   PaymentMethod: `/payment/paymentCapture`, //Endpoints for retriving payment method
 
   //career api for professionals
-  DoctorCarrer: `/formData/register/doctor`, //Endpoints for doctor application
-  ParamedicCareer: `/formData/register/paramedics`, //Endpoints for paramedic application
-  AircraftOperatorcareer: `/formData/register/aircraft-Operator`, //Endpoints for aircraft operator application
-  HospitalCareer: `/formData/register/hospital`, //Endpoints for hospital application
+  Insurancefirm: `/career/InsuranceRegister`,
+  DoctorCarrer: `career/register/doctor`, //Endpoints for doctor application
+  ParamedicCareer: `career/register/paramedics`, //Endpoints for paramedic application
+  AircraftOperatorcareer: `career/register/aircraft-Operator`, //Endpoints for aircraft operator application
+  HospitalCareer: `career/register/hospital`, //Endpoints for hospital application
   ConfirmEquiry: `/equiry/confirmEquiry`, //Endpoints for confirm enquiry
   PrivateJetCareer: `/formData/register/private-Jet`, //Ednpoints for Private Jet application
 };

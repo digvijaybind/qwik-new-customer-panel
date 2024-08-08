@@ -99,14 +99,14 @@ const DedicatedSearch = ({ data, type = "commercial", charterdata }) => {
 
   const charterImages = () => {
     const airlineName = charterdata?.operator?.Aircraft_type ?? [];
-    const airlineImage =charterNames[airlineName];
+    const airlineImage = charterNames[airlineName];
     setaircraftImage(airlineImage);
   };
   const parseISO8601Duration = (durationString) => {
     let TimeDuration = [];
     const regex =
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
-    const matches = durationString?.match(regex);
+    const matches = durationString.match(regex);
     if (!matches) {
       throw new Error("Invalid ISO8601 duration format");
     }

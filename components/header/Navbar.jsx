@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import HamburgerMenu from "./HamburgerMenu";
-import UpdateHamburgerMenu from "./UpdateHamburgerMenu";
+import Updatehamburger from "./Updatehamburger";
 
 const Navbar = () => {
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(
+    window.innerWidth <= 1024
+  );
 
-  // event listner for mobile and Tablet view
   useEffect(() => {
     const handleResize = () => {
       setIsMobileOrTablet(window.innerWidth <= 1024);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <div>{isMobileOrTablet ? <UpdateHamburgerMenu /> : <Header />}</div>;
+  return <div>{isMobileOrTablet ? <Updatehamburger /> : <Header />}</div>;
 };
 
 export default Navbar;

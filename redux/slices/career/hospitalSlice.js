@@ -1,41 +1,35 @@
-//hospital data
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import apiClient from "@/api/apiClient";
+import Endpoint from "@/api/endpoint";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const BASE_URL = process.env.REACT_API_BASE_URL;
-export const hospitalApi = createAsyncThunk(
-  'api/hoispital',
-  async (payload) => {
-    const response = await axios.post(
-      `${BASE_URL}/formData/register/hospital`,
-      payload
-    );
-    return response.data;
-  }
-);
+
+export const hospitalApi = createAsyncThunk(`api/hospital`, async (data) => {
+  const response = apiClient.post(Endpoint.HospitalCareer, data);
+  return response.data;
+});
 
 const hospitalSlice = createSlice({
-  name: 'hospital',
+  name: "hospital",
   initialState: {
-    data: [],
-    status: 'idle',
+    hospitalData: [],
+    status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(hospitalApi.pending, (state) => {
-        state.status = 'loading';
+        state.status = "pending";
+        state.error = null;
       })
       .addCase(hospitalApi.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.data = action.payload;
+        state.status = "succeded";
+        state.hospitalData = action.payload;
+      })
+      .addCase(hospitalApi.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
-    addCase(hospitalApi.rejected, (state, action) => {
-      state.status = 'failed';
-      state.error = action.error.message;
-    });
   },
 });
-
-export default hospitalSlice;
+export default hospitalSlice.reducer;

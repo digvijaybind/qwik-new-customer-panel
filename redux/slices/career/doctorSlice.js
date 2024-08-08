@@ -1,39 +1,35 @@
-//doctorslice integration
+import apiClient from "@/api/apiClient";
+import Endpoint from "@/api/endpoint";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const BASE_URL = process.env.REACT_API_BASE_URL;
-export const DoctorApi = createAsyncThunk('api/doctor', async (payload) => {
-  const response = await axios.post(
-    `${BASE_URL}/formData/register/doctor`,
-    payload
-  );
+export const DoctorApi = createAsyncThunk(`api/doctorapi`, async (data) => {
+  const response = await apiClient.post(Endpoint.DoctorCarrer,data);
   return response.data;
 });
 
 const DoctorSlice = createSlice({
-  name: 'doctor',
+  name: "doctor",
   initialState: {
-    data: [],
-    status: 'idle',
+    doctordata: [],
+    status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(DoctorApi.pending, (state) => {
-        state.status = 'loading';
+        state.status = "pending";
       })
       .addCase(DoctorApi.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.data = action.payload;
+        state.status = "succeded";
+        state.doctordata = action.payload;
       })
       .addCase(DoctorApi.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
 });
 
-export default DoctorSlice;
+export default DoctorSlice.reducer;

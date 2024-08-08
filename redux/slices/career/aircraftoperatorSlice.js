@@ -1,41 +1,37 @@
-//aircraftoperator form integration
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import apiClient from "@/api/apiClient";
+import Endpoint from "@/api/endpoint";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const BASE_URL = process.env.REACT_API_BASE_URL;
-export const Aircraftoperator = createAsyncThunk(
-  'api/aircraftform',
-  async (payload) => {
-    const response = await axios.post(
-      `${BASE_URL}/formData/register/aircraft-Operator`,
-      payload
-    );
+export const aircraftOperator = createAsyncThunk(
+  `api/aircraftoperator`,
+  async (data) => {
+    const response = apiClient.post(Endpoint.AircraftOperatorcareer, data);
     return response.data;
   }
 );
 
-const aircraftoperatorSlice= createSlice({
-  name: 'aircraftoperator',
+const aircraftOperatorSlice = createSlice({
+  name: "aircraftoperator",
   initialState: {
     data: [],
-    status: 'idle',
+    status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(Aircraftoperator.pending, (state) => {
-        state.status = 'loading';
+      .addCase(aircraftOperator.pending, (state) => {
+        state.status = "pending";
       })
-      .addCase(Aircraftoperator.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+      .addCase(aircraftOperator.fulfilled, (state, action) => {
+        state.status = "succecded";
         state.data = action.payload;
       })
-      .addCase(Aircraftoperator.rejected, (state, action) => {
-        state.status = 'failed';
+      .addCase(aircraftOperator.rejected, (state, action) => {
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
 });
 
-export default aircraftoperatorSlice;
+export default aircraftOperatorSlice.reducer;

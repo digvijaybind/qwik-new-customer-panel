@@ -1,4 +1,4 @@
-import { BlogsCard } from "@/components/blog/BlogsCard";
+import { BlogsCard } from "@/components/blog";
 import React from "react";
 
 const User = ({ blogs }) => {
