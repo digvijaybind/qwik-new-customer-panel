@@ -18,6 +18,8 @@ import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import { StyledSection } from "@/components/shared";
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import { useCallback } from "react";
+import * as Sentry from "@sentry/react";
+import { Integrations } from "@sentry/tracing";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -117,17 +119,17 @@ const Home = () => {
     };
   }, []);
 
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // or return server-rendered fallback
-  }
-
-  return <div>Client-side content</div>;
+  Sentry.init({
+    dsn: "YOUR_SENTRY_DSN",
+    integrations: [
+      new Integrations.BrowserTracing({
+        tracePropagationTargets: ["localhost"],
+      }),
+    ],
+    tracesSampleRate: 1.0,
+    release: "my-project-name@2.3.0", 
+    environment: "development", 
+  });
 
   const tasktab = [
     {
