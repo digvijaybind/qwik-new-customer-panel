@@ -7,7 +7,7 @@ const Planedesc = ({price, name, time, speed, from, to}) => {
         <img
           className="mr-[10px] sm:w-full sm:mb-[20px]"
           src="/images/desc1.png"
-          alt=""
+          
         />
         <div className="w-full pr-4">
           <div className="flex justify-between items-center">

@@ -34,6 +34,7 @@ const Updatehamburger = () => {
               height={26}
               alt="Telephone"
               className={styles.ImageSvg}
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -55,7 +56,12 @@ const Updatehamburger = () => {
         <div className={styles.nav}>
           <div className={styles.navWrapper}>
             <div className={`${styles.logoContainer} flex justify-center`}>
-              <Image src={Logo} alt="Logo" className={styles.logo} />
+              <Image
+                src={Logo}
+                alt="Logo"
+                className={styles.logo}
+                fetchPriority="high"
+              />
             </div>
             <nav className="text-[14px] font-Inter">
               <a

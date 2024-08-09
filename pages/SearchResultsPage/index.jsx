@@ -9,6 +9,7 @@ import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
+import Image from "next/image";
 
 const SearchResponse = ({ initialData }) => {
   const dispatch = useDispatch();
@@ -91,10 +92,9 @@ const SearchResponse = ({ initialData }) => {
     <div>
       <div className="font-sans bg-white">
         <div className="flex flex-col items-center relative">
-          <img
+          <Image
             src="/images/searchResponse/BannerImage.png"
             className="w-full object-cover sm:mt-0 mt-20"
-            alt="banner"
           />
           <div className="flex flex-col items-center relative sm:px-7 px-[10%] w-full font-montserrat">
             {isMobile ? (

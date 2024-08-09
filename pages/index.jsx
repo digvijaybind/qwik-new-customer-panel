@@ -19,26 +19,36 @@ import { StyledSection } from "@/components/shared";
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import { useCallback } from "react";
 
-const AboutAircraft = dynamic(() =>
-  import("@/components/aboutaircraft/AboutAircraft")
+const AboutAircraft = dynamic(
+  () => import("@/components/aboutaircraft/AboutAircraft"),
+  { ssr: false }
 );
-const ServicesSection = dynamic(() =>
-  import("@/components/Servicecard2/Servicecard2")
+const ServicesSection = dynamic(
+  () => import("@/components/Servicecard2/Servicecard2"),
+  { ssr: false }
 );
-const QwiklifFeature = dynamic(() =>
-  import("@/components/qwiklifFeatures/Qwikliffeature")
+const QwiklifFeature = dynamic(
+  () => import("@/components/qwiklifFeatures/Qwikliffeature"),
+  { ssr: false }
 );
-const ChooseQwiklif = dynamic(() =>
-  import("@/components/whychooseqwiklif/ChooseQwiklif")
+const ChooseQwiklif = dynamic(
+  () => import("@/components/whychooseqwiklif/ChooseQwiklif"),
+  { ssr: false }
 );
-const FastestMedical = dynamic(() =>
-  import("@/components/fastestmedicalcare/FastestMedical")
+const FastestMedical = dynamic(
+  () => import("@/components/fastestmedicalcare/FastestMedical"),
+  { ssr: false }
 );
-const LatestNew = dynamic(() => import("@/components/latestnews/LatestNew"));
-const ReviewCarosel = dynamic(() =>
-  import("@/components/reviewCarosel/ReviewCarosel")
+const LatestNew = dynamic(() => import("@/components/latestnews/LatestNew"), {
+  ssr: false,
+});
+const ReviewCarosel = dynamic(
+  () => import("@/components/reviewCarosel/ReviewCarosel"),
+  { ssr: false }
 );
-const Rotatemap = dynamic(() => import("@/components/rotateMap/Rotatemap"));
+const Rotatemap = dynamic(() => import("@/components/rotateMap/Rotatemap"), {
+  ssr: false,
+});
 //Main component function
 const Home = () => {
   const router = useRouter();
@@ -106,6 +116,18 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // or return server-rendered fallback
+  }
+
+  return <div>Client-side content</div>;
 
   const tasktab = [
     {

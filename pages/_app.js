@@ -6,7 +6,8 @@ import UpdateNavbar from "@/components/header/UpdateNavbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Provider } from "react-redux";
-import { store, persistor } from "../redux/store";
+import { store } from "../redux/store";
+import "../sentry.server.config";
 
 export default function App({ Component, pageProps }) {
   const phoneNumber = "+971502825433";
@@ -21,13 +22,6 @@ export default function App({ Component, pageProps }) {
       <DataProvider>
         <UpdateNavbar />
 
-        {/* Tidio chat widget */}
-        <script
-          src="//code.tidio.co/hqdw4onntafzn5ud1hi2mpgltmfxtith.js"
-          async
-        ></script>
-
-        {/* Your main content */}
         <Component {...pageProps} />
 
         {/* WhatsApp floating component */}

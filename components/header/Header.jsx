@@ -90,7 +90,12 @@ const Header = () => {
         <div className={styles.logo}>
           <Link href="/">
             <div className="relative h-[60px] w-[150px]">
-              <Image src={Logo} layout="fill" objectFit="contain" />
+              <Image
+                src={Logo}
+                layout="fill"
+                objectFit="contain"
+                fetchPriority="high"
+              />
             </div>
           </Link>
         </div>
@@ -98,7 +103,7 @@ const Header = () => {
         {/* Navigation Tabs */}
 
         <div
-          className={`flex flex-row items-center ${styles.MenuTabResposive}`}
+          className={`flex flex-row items-center ${styles.MenuTabResposive} cursor-pointer`}
         >
           <ul className={`flex flex-row`}>
             {tabs.map((tab, index) => (

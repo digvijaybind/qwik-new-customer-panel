@@ -70,7 +70,7 @@ const TravelDuration = () => {
             <span className="font-sans text-[14px] font-normal">india</span>
           </div>
           <div className="arrow">
-            <Image src={Arrow} height={18} width={38} className="" />
+            <Image src={Arrow} height={18} width={38}  />
           </div>
           <div className="arrival depature font-sans text-[24px] font-black text-[#fff]">
             Dubai

@@ -11,7 +11,7 @@ const NewsUpdates = ({ title, description, imageUrl, index, Date, Role }) => {
           className="w-full aspect-[16/13] object-cover object-center"
           src={imageUrl}
           alt={title}
-          layout="responsive"
+          
         />
       </div>
       <div className="flex flex-col  p-4 items-center mt-2.5 gap-3">

@@ -1,4 +1,4 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   webpack: (config, { isServer }) => {
@@ -10,6 +10,7 @@ module.exports = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['qwiklif.com'],
+    domains: ["qwiklif.com"],
   },
+  productionBrowserSourceMaps: true,
 };
