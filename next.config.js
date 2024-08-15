@@ -13,4 +13,5 @@ module.exports = {
     domains: ["qwiklif.com"],
   },
   productionBrowserSourceMaps: true,
+
 };
