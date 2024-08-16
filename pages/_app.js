@@ -6,8 +6,7 @@ import UpdateNavbar from "@/components/header/UpdateNavbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Provider } from "react-redux";
-import { store, persistor } from "../redux/store";
-import { PersistGate } from "redux-persist/integration/react";
+import { store } from "../redux/store"; 
 
 export default function App({ Component, pageProps }) {
   const phoneNumber = "+971502825433";
@@ -19,27 +18,19 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <DataProvider>
-          {/* <Navbar /> */}
-          <UpdateNavbar />
-          <Component {...pageProps} />
-          {/*WhatsApp floating Component */}
-          <script
-            src="//code.tidio.co/hqdw4onntafzn5ud1hi2mpgltmfxtith.js"
-            async
-          ></script>
-          <FloatingWhatsApp
-            accountName="Qwiklif Air Ambulance"
-            allowEsc
-            allowClickAway
-            notification
-            notificationSound
-            onClick={handleOpen}
-          />
-          <Newfooter />
-        </DataProvider>
-      </PersistGate>
+      <DataProvider>
+        <UpdateNavbar />
+        <Component {...pageProps} />
+        <FloatingWhatsApp
+          accountName="Qwiklif Air Ambulance"
+          allowEsc
+          allowClickAway
+          notification
+          notificationSound
+          onClick={handleOpen}
+        />
+        <Newfooter />
+      </DataProvider>
     </Provider>
   );
 }
