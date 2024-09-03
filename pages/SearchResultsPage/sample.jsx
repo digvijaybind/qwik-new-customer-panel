@@ -10,8 +10,7 @@ import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 import CommericialContactCard from "@/components/commericialContactCard/CommericialContactCard";
-import CommericialLoader from "@/components/commericialContactCard/CommericialLoader";
-import DedicatedLoader from "@/components/dedicatedContactCard/DedicatedLoader";
+import DedicatedContactCard from "@/components/dedicatedContactCard/DedicatedContactCard"; // Make sure to import this
 
 const SearchResponse = ({ initialData }) => {
   const dispatch = useDispatch();
@@ -24,14 +23,12 @@ const SearchResponse = ({ initialData }) => {
     (state) => state.dedicated.dedicatedflights
   );
 
-
-
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("commercial");
   const [formData, setFormData] = useState(initialData);
-  const [charterData, setcharterData] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Add loading state
+
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
@@ -60,11 +57,6 @@ const SearchResponse = ({ initialData }) => {
       searchParams.has("originLocationCode") &&
       searchParams.has("destinationLocationCode")
     ) {
-      console.log("Data destination", searchParams.has("originLocationCode"));
-      console.log(
-        "Data originLocation",
-        searchParams.has("destinationLocationCode")
-      );
       const formDetails = {
         originLocationCode: searchParams.get("originLocationCode"),
         destinationLocationCode: searchParams.get("destinationLocationCode"),
@@ -75,8 +67,6 @@ const SearchResponse = ({ initialData }) => {
         max: 5,
       };
       setFormData(formDetails);
-    } else {
-      console.log("query params id mising ");
     }
   }, [searchParams]);
 
@@ -86,17 +76,19 @@ const SearchResponse = ({ initialData }) => {
 
   useEffect(() => {
     if (formData?.originLocationCode && formData?.destinationLocationCode) {
-      setLoading(true);
-      Promise.all([
-        dispatch(CommericialApi(formData)),
-        dispatch(DedicatedApi(formData)),
-      ]).finally(() => setLoading(false));
+      setLoading(true); // Set loading to true when API calls start
+      dispatch(CommericialApi(formData)).finally(() => setLoading(false)); // Set loading to false after API call
+      dispatch(DedicatedApi(formData)).finally(() => setLoading(false)); // Set loading to false after API call
     }
   }, [formData, dispatch]);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // You can replace this with a loader component
+  }
 
   return (
     <div>
@@ -157,25 +149,26 @@ const SearchResponse = ({ initialData }) => {
                   !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                  (data, index) => {
-                    return (
-                      <CommericialSearch
-                        key={index}
-                        isMobile={isMobile}
-                        aircraftData={data}
-                        activeTab={activeTab}
-                        availticket={
-                          commericialflights?.ResponseData?.TicketAvailability
-                        }
-                        aircraftId={commericialflights?.aircraftId}
-                      />
-                    );
-                  }
-                )}
-
-                {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
+                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop
+                  ?.length > 0 ? (
+                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                    (data, index) => {
+                      return (
+                        <CommericialSearch
+                          key={index}
+                          isMobile={isMobile}
+                          aircraftData={data}
+                          activeTab={activeTab}
+                          availticket={
+                            commericialflights?.ResponseData?.TicketAvailability
+                          }
+                          aircraftId={commericialflights?.aircraftId}
+                        />
+                      );
+                    }
+                  )
+                ) : commericialflights?.ResponseData?.AirCraftDatawithtechStop
+                    ?.length > 0 ? (
                   commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
                     (data, index) => {
                       return (
@@ -190,30 +183,29 @@ const SearchResponse = ({ initialData }) => {
                         />
                       );
                     }
-                  )}
-                {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
-                  !commericialflights?.ResponseData?.AirCraftDatawithtechStop(
-                    <CommericialContactCard />
-                  )}
+                  )
+                ) : (
+                  <CommericialContactCard />
+                )}
               </div>
               <div
                 className={`grid grid-cols-1 gap-4  ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 } sm:`}
               >
-                {DedicatedFlights.map((data, index) => {
-                  console.log("charter data in index page", data);
-                  return (
-                    <DedicatedSearch
-                      type="chartered"
-                      key={index}
-                      charterdata={data}
-                    />
-                  );
-                })}
-                {!DedicatedFlights && <DedicatedContactCard />}
-                {/* {!loading } */}
+                {DedicatedFlights.length > 0 ? (
+                  DedicatedFlights.map((data, index) => {
+                    return (
+                      <DedicatedSearch
+                        type="chartered"
+                        key={index}
+                        charterdata={data}
+                      />
+                    );
+                  })
+                ) : (
+                  <DedicatedContactCard />
+                )}
               </div>
             </div>
           </div>
@@ -225,7 +217,6 @@ const SearchResponse = ({ initialData }) => {
 
 export const getServerSideProps = async (context) => {
   const searchParams = context.query;
-  console.log("searchparams query line 236", searchParams);
   const initialData = {
     originLocationCode: searchParams.originLocationCode || "",
     destinationLocationCode: searchParams.destinationLocationCode || "",

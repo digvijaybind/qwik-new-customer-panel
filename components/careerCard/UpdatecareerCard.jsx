@@ -11,20 +11,21 @@ const UpdatecareerCard = ({
 }) => {
   return (
     <div
-      className="block rounded-lg bg-white shadow-sm dark:bg-surface-dark cursor-pointer transition ease-in-out font-poppins"
+      className="block rounded-lg bg-white shadow-sm dark:bg-surface-dark cursor-pointer transition ease-in-out font-poppins "
       onClick={onClick}
     >
       <div className="px-[10px] py-[10px]">
         <Image
           src={image}
-          height={height}
-          width={width}
+          height={200}
+          width={300}
           alt="Qwiklif Air Ambulance"
-          className="w-full h-[200px]"
+          layout="responsive"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       <div className="p-6 text-surface text-center dark:text-white">
-        <h5 className="mb-2 text-lg text-center font-sans font-black">
+        <h5 className="mb-2 text-lg text-center font-sans font-black whitespace-nowrap overflow-hidden text-ellipsis">
           {headline}
         </h5>
         <p className="mb-4 text-[16px] font-Inter text-sm">{descripation}</p>

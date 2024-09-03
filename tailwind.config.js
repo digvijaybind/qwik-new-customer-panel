@@ -31,7 +31,21 @@ module.exports = {
       colors: {
         Bluedark: "#15264C",
         primary: "#11B6E3",
+        blue: {
+          pb50: "#F0FAFF",
+          pb100: "#E0F5FE",
+          pb200: "#BAECFD",
+          pb300: "#7EDEFB",
+          pb400: "#3ACEF8",
+          pb500: "#1BC0F0",
+          pb600: "#0495C6",
+          pb700: "#0777A0",
+          pb800: "#076484",
+          pb900: "#0D526D",
+          pb950: "#093549",
+        },
       },
+
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
         DEFAULT: "0 2px 4px var(--tw-shadow-color)",

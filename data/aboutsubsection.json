@@ -1,0 +1,23 @@
+{
+  "main": {
+    "title": "About Us",
+    "description": "Learn more about our mission, vision, and values.",
+    "bannerImage": "/images/about-banner.jpg",
+    "content": "<p>We are a company committed to excellence...</p>"
+  },
+  "sections": [
+    {
+      "title": "Neonatal & Pediatric Air Transfer",
+      "slug": "neonatal-pediatric-air-transfer",
+      "bannerImage": "/images/neonatal-pediatric-air-transfer-banner.jpg",
+      "content": "<p>Our specialized medical teams are experts in neonatal and pediatric air transfers...</p>"
+    },
+    {
+      "title": "Cutting-Edge Aircraft",
+      "slug": "cutting-edge-aircraft",
+      "bannerImage": "/images/cutting-edge-aircraft-banner.jpg",
+      "content": "<p>Qwiklif only utilizes state-of-the-art aircraft...</p>"
+    }
+   
+  ]
+}

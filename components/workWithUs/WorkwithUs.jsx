@@ -16,8 +16,8 @@ const WorkwithUs = () => {
   const service = [
     {
       img: Insurancefirm,
-      head: "Medical Healthcare Insurance/Provider company",
-      text: "Are you looking for medical healthcare insurance or a provider company? Partner with qwiklif air ambulance to transfer your patience safely. Apply now",
+      head: "Medical Healthcare Insurance",
+      text: "Are you looking for medical healthcare insurance or a provider company? Partner with Qwiklif Air Ambulance to transfer your patients safely. Apply now and be a part of our mission to save lives together.",
       payload: {
         "Company Name": "",
         Email: "",
@@ -29,7 +29,7 @@ const WorkwithUs = () => {
     {
       img: hospital,
       head: "Hospital/healthcare center",
-      text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today!",
+      text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today to create real impact.",
       payload: {
         "Hospital Name": "",
         Email: "",
@@ -40,8 +40,8 @@ const WorkwithUs = () => {
     },
     {
       img: flyingDoctor,
-      head: "Flying doctor/ Airborne Medical Professionals",
-      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now!",
+      head: "Flying doctor",
+      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now and become a crucial part of our life-saving mission today.",
       payload: {
         "Full Name": "",
         "Country  (with  country code)": "",
@@ -53,7 +53,7 @@ const WorkwithUs = () => {
     {
       img: Paramedics,
       head: "Paramedics/Flight Paramedics",
-      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now!",
+      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now and be a part of our life-saving mission!",
       payload: {
         "Full Name": "",
         Email: "",
@@ -129,14 +129,14 @@ const WorkwithUs = () => {
           </p>
         </div>
         <div id="root">
-          <div className="grid grid-cols-3  gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1">
+          <div className="grid grid-cols-3  gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
             {service.map((data, i) => (
               <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
                 <UpdatecareerCard
                   image={data.img}
                   headline={data.head}
                   descripation={data.text}
-                  height={18}
+                  height={20}
                   width={80}
                   onClick={() => openModal(data.payload)}
                 />

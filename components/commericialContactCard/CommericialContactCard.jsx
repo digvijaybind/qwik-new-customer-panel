@@ -1,12 +1,5 @@
 'use client';
 import React from 'react';
-import Vistara from '../../public/images/airlines/vistara.svg';
-import Image from 'next/image';
-import Doctors from '../../public/images/bookingIcon/doctor.png';
-import Medicalequiment from '../../public/images/bookingIcon/medicalEquiment.png';
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg';
-import Strectres from '../../public/images/bookingIcon/strectres.png';
-import MedicalInstruments from '../medicalInstrument/MedicalInstrument';
 import { useRouter } from 'next/router';
 const CommericialContactCard = ({}) => {
   const router = useRouter();
