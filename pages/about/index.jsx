@@ -11,7 +11,11 @@ import style from "./About.module.css";
 import Companygoals from "../../db/about.json";
 import Aboutcard from "../../components/Utils/aboutcard/Aboutcard"; //Importing Aboutcard for company goals
 import FloatingBox from "@/components/Utils/floatingBox/FloatingBox ";
+import { aboutsList } from "@/utils/contants";
+import { useRouter } from "next/router";
 const About = () => {
+  const router = useRouter();
+
   const [activeTab, setActiveTab] = useState(1);
   const [value, setValue] = useState("");
 
@@ -50,36 +54,15 @@ const About = () => {
         "Behind the wings of our aircraft are skilled and compassionate medical professionals. Our team is not just here to transport; they're here to comfort. From experienced paramedics to caring nurses, our crew turns a challenging journey into a voyage of support and expertise.",
     },
   ];
-  const abouts = [
-    {
-      img: "/images/about1.jpg",
-      head: "Affordability",
-      text: "We understand the financial strain that medical emergencies can cause. Qwiklif is committed to offering the most competitive pricing in the industry. We believe that every individual should have access to premium air ambulance services without the burden of excessive costs.",
-    },
-    {
-      img: "/images/about2.png",
-      head: "Cutting-Edge Aircraft",
-      text: "Qwiklif only utilizes state-of-the-art aircraft equipped with the latest medical technology. We spare no expense in making sure that our patients receive the best care possible during their journey.",
-    },
-    {
-      img: "/images/about3.png",
-      head: "Largest Global Network",
-      text: "We have the largest air ambulance provider with a vast network of aircraft spanning across the globe. Whether you’re in a bustling metropolis or a remote corner of the world, we can reach you and get you to where you need to be.",
-    },
-    {
-      img: "/images/about4.jpg",
-      head: "Swift Response",
-      text: "Time is of the essence in critical medical situations. Our team is on standby 24/7, ready to respond to your call at a moment’s notice. We understand the urgency of your situation, and we act accordingly.",
-    },
-    {
-      img: "/images/about5.png",
-      head: "Top-Notch Medical Expertise",
-      text: "Our medical teams consist of highly skilled professionals with vast experience in critical care. We provide comprehensive in-flight medical care to ensure the safety and well-being of our patients",
-    },
-  ];
+
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+
+  const handleSlideNavigation = (slug) => {
+    router.push(`/about/${slug}`);
+  };
+
   return (
     <div className="font-sans">
       <div className={`bg-black ${style.Image}   bg-black h-[400px] w-full`}>
@@ -266,16 +249,22 @@ const About = () => {
       </div>
 
       <div className="px-[5%] w-full grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10  cursor-pointer mt-10 mb-10">
-        {abouts.map((data, index) => (
-          <div key={index} className="relative overflow-y-hidden">
+        {aboutsList.map((data, index) => (
+          <div
+            key={index}
+            className={`${style.SlideoverContainer} relative overflow-y-hidden`}
+          >
             <img
               className="rounded-[5px] w-full"
               src={`${data.img}`}
               alt="Description of the image content"
             />
-            <div className={`${style.Slideover} px-[25px]`}>
+            <div
+              className={`${style.Slideover} px-[25px]`}
+              onClick={() => handleSlideNavigation(data?.slug)}
+            >
               <p className="text-[18px] font-semibold py-[25px]">{data.head}</p>
-              <p>{data.text}</p>
+              <p class={style.description}>{data.text}</p>
             </div>
           </div>
         ))}
