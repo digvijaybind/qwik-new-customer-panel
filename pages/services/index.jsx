@@ -1,7 +1,11 @@
 "use client";
 import styles from "./Services.module.css";
 import Updatecard from "@/components/shadowCard";
-const Services = ({ service }) => {
+import services from "../../data/subservices.js";
+
+
+
+const Services = ({ services }) => {
   return (
     <div className="font-sans">
       <div
@@ -30,13 +34,14 @@ const Services = ({ service }) => {
             And Service When It Matters Most.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 px-[10%] sm:px-[2%]  pb-10">
-          {service.map((data, i) => (
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 md:grid-cols-1 px-[10%] sm:px-[2%]  pb-10">
+          {services?.map((data, i) => (
             <div className={`w-[50%] sm:w-[100%] mt-[20px]`} key={i}>
               <Updatecard
                 img={data.img}
                 head={data.head}
                 text={data.text}
+                slug={data.slug}
               ></Updatecard>
             </div>
           ))}
@@ -48,39 +53,10 @@ const Services = ({ service }) => {
 
 export async function getServerSideProps(context) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  //static data
-  const service = [
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
-      head: "Neonatal and Pediatric Air Transfer Services",
-      text: "Expert Transport for Neonates and Pediatric Patients QwikLif Air Ambulance specializes in safe and expert…",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2024/01/5-230x230.png",
-      head: "ECMO Initiation and Air Transfer Services",
-      text: "Expert ECMO Assistance with Global Air Ambulance Solutions QwikLif Air Ambulance specializes in expert ECMO…",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/challenger-605_1-re-230x230.jpg",
-      head: "Dedicated Air Ambulance",
-      text: "Swift and Expert Medical Transport Anywhere, Anytime QwikLif Air Ambulance offers unparalleled specialized air ambulance…",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-2-230x230.png",
-      head: "International Patient Transfer",
-      text: "Cost-Effective Air Ambulance Solutions Worldwide QwikLif Air Ambulance specializes in providing cost-effective and reliable international…",
-    },
-    {
-      img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png",
-      head: "Commercial Stretcher Transfer",
-      text: "Efficient Patient Transport via Commercial Airlines with Stretcher Configurations QwikLif Air Ambulance offers reliable and…",
-    },
-  ];
 
-  //pass data to component
   return {
     props: {
-      service,
+      services,
     },
   };
 }

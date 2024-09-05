@@ -153,7 +153,7 @@ const Contact = ({ mapInframeUrl }) => {
         </div>
       </div>
       <div className="flex justify-between relative bottom-[140px] px-[100px] sm:px-[20px] mt-10  w-full z-100 sm:flex-col sm:bottom-[60px] rounded-2xl">
-        <div className="flex flex-col justify-center shadow-2xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
+        <div className="flex flex-col justify-center shadow-xl rounded-2xl border-1 bg-[#fff] border-[#000] w-1/2 sm:w-full">
           <div className="font-Poppins  font-bold text-[30px] flex justify-center items-center flex-col text-[#262626] shadow-2xl px-[120px] py-[15px] sm:px-[50px] sm:font-bold">
             Get Quote Now
             <div className="flex justify-center items-center">
@@ -244,7 +244,7 @@ const Contact = ({ mapInframeUrl }) => {
           </form>
         </div>
         <div
-          className={`${styles.GetQuote} flex flex-col justify-center shadow-2xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md sm:py-[15px]`}
+          className={`${styles.GetQuote} flex flex-col justify-center shadow-xl w-1/3 sm:w-full sm:mt-5 bg-[#fff] rounded-md sm:py-[15px]`}
         >
           <div className="text-[30px] font-Poppins flex justify-center items-center flex-col text-center text-[#000] font-bold sm:font-bold px-10">
             Our Address
