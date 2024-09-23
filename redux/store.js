@@ -1,15 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage"; 
 
 import commericialSlice from "./slices/commericialSlice";
 import dedicatedSlice from "./slices/dedicatedSlice";
@@ -19,16 +8,12 @@ import aircraftOperatorSlice from "./slices/career/aircraftoperatorSlice";
 import doctorSlice from "./slices/career/doctorSlice";
 import hospitalSlice from "./slices/career/hospitalSlice";
 import paymentSlice from "./slices/paymentSlice";
+import commericialdetailSlice from "./slices/commericialdetailSlice";
 
-
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["commericial", "dedicated", "payment"], 
-};
-
+// Combine all slices into a root reducer
 const rootReducer = combineReducers({
   commericial: commericialSlice,
+  commericialdetails: commericialdetailSlice,
   dedicated: dedicatedSlice,
   aircraftOperator: aircraftOperatorSlice,
   doctor: doctorSlice,
@@ -37,19 +22,8 @@ const rootReducer = combineReducers({
   hospital: hospitalSlice,
   payment: paymentSlice,
 });
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-
+console.log("commericialdetails store",commericialdetailSlice)
+// Configure store using the root reducer without persisting
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  reducer: rootReducer,
 });
-
-
-export const persistor = persistStore(store);

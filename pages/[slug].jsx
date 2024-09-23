@@ -1,103 +1,74 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import servicesData from "@/data/subservices";
 import Image from "next/image";
-import servicesData from "../data/subservices.js";
-import styles from "./common.module.css";
-
-const SubServicePage = ({ service }) => {
+import style from "./common.module.css";
+export default function DynamicPage({ service }) {
   const router = useRouter();
-  const { slug } = router.query;
 
-  console.log("slug into line 10 ", slug);
-  const [currentService, setCurrentService] = useState(service);
-
-  useEffect(() => {
-    if (slug && !currentService) {
-      console.log("slug line 17", slug);
-      const foundService = servicesData.find((item) => item.slug === slug);
-      setCurrentService(foundService || null);
-    }
-  }, [slug, currentService]);
-
-  if (router.isFallback || !currentService) {
+  console.log("images in servics", service.bannerImage);
+  if (router.isFallback) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="subservice-page">
+    <div className="font-Inter">
       <div
-        className={`bg-black ${styles.Image}   bg-black h-[400px] w-full  mt-2`}
+        className={`${style.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-start items-center pt-[220px] pb-32 flex-col`}
       >
-        <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-          <p className="text-[50px]  pt-[150px] sm:pt-[100px] font-sans">
-            Services{" "}
-          </p>
-          <div className="flex pt-[30px] text-[20px]">
-            <p className="text-[#C5D5FF] pr-[10px]">
-              {"Air Ambulance Services >"}
-            </p>
-            <p> {currentService.head}</p>
+        <div className="flex flex-col justify-start">
+          <div className="font-extrabold text-5xl text-[#fff] mb-5">
+            {service.title}
+          </div>
+          <div className="whitespace-nowrap overflow-hidden font-medium text-[#c5d5ff]">
+            Qwiklif Air Ambulance | Air Ambulance Service in Dubai|
+            International Air Ambulance |{" "}
+            <span className="text-[#fff]">{service.title}</span>
           </div>
         </div>
       </div>
-      <div className="px-20 mb-10">
-        <header className="subservice-header ">
-          <Image
-            src={currentService.bannerImage}
-            alt={currentService.head}
-            width={1200}
-            height={500}
-            priority
-            className="banner-image"
+
+      <div className="py-10 px-20 flex items-center flex-col justify-center">
+        <div className="w-8/12">
+          <img
+            src={service?.bannerImage}
+            alt="Banner"
+            className="w-full mb-6"
           />
-        </header>
-
-        <section className="subservice-description">
-          <p>{currentService.description}</p>
-        </section>
-
-        <section className="subservice-details">
-          <h2>Our Services</h2>
-          <ul className="service-list">
-            {currentService.services.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="why-choose-us">
-          <h2>Why Choose Us</h2>
-          <ul className="why-choose-list">
-            {currentService.whyChooseUs.map((reason, index) => (
-              <li key={index}>{reason}</li>
-            ))}
-          </ul>
-        </section>
-
-        <footer className="contact-cta">
-          <p>{currentService.contactCTA}</p>
-        </footer>
+          <h2 className="font-arcaMajoraHeavy font-semibold text-2xl">
+            {service?.head}
+          </h2>
+          <hr className="bg-primary rounded-full h-[4px] w-16 mb-5 mt-3" />
+          <p className="mb-10 text-opacity-10 font-medium">{service?.text}</p>
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export async function getStaticPaths() {
   const paths = servicesData.map((service) => ({
     params: { slug: service.slug },
   }));
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-  const service = servicesData.find((item) => item.slug === params.slug);
-
+  console.log("path of services", paths);
   return {
-    props: {
-      service: service || null,
-    },
+    paths,
+    fallback: false,
   };
 }
 
-export default SubServicePage;
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  const service = servicesData.find((service) => service.slug === slug);
+
+  if (!service) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      service,
+    },
+  };
+}

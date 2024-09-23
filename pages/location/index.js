@@ -1,7 +1,7 @@
-'use client';
-import { locationCountries } from '@/components/Utils/Constants';
-import Link from 'next/link';
-import React from 'react';
+"use client";
+import { locationCountries } from "@/components/Utils/Constants";
+import Link from "next/link";
+import React from "react";
 
 const LocationHeader = () => {
   return (
@@ -18,7 +18,7 @@ const LocationHeader = () => {
       <p className="font-medium text-xl">
         <span className="text-primary/80">
           Air Ambulance Services &nbsp;&nbsp;&gt;&nbsp;&nbsp;
-        </span>{' '}
+        </span>{" "}
         Our location
       </p>
     </div>
@@ -35,7 +35,7 @@ const Location = () => {
             return (
               <div
                 className="p-2.5 aspect-[16/12] shadow-md rounded-md font-sans"
-                style={{ boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px' }}
+                style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 key={d?.country}
               >
                 <div className="w-full h-full relative flag-wrapper">
@@ -49,7 +49,7 @@ const Location = () => {
                       Air Ambulance in {d?.country}
                     </p>
                   </div>
-                  <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3">
+                  <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3 sm:h-full">
                     <p className="font-semibold uppercase text-black">
                       Air Ambulance in {d?.country}
                     </p>
@@ -59,7 +59,7 @@ const Location = () => {
                       ..
                     </p>
                     <Link
-                      className="mt-3 px-5 py-2 border border-white rounded-md text-sm"
+                      className="mt-3 px-5 py-2 border border-white rounded-md text-sm sm:mt-1"
                       href="/country"
                     >
                       Read More

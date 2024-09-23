@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import styles from "./improveCommericial.module.css"; //imported style css file
-import { TbArrowsExchange2 } from "react-icons/tb"; // imported reverse icon
-import Airline from "../../public/images/commerialImages/Airline.svg"; //imported airline image
+import styles from "./improveCommericial.module.css"; 
+import { TbArrowsExchange2 } from "react-icons/tb"; 
+import Airline from "../../public/images/commerialImages/Airline.svg"; 
 import Image from "next/image";
-import Strectres from "../../public/images/bookingIcon/strectres.png"; //imported medical equiment icon
-import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; //imported medical equiment icon
-import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg"; //imported medical equiment icon
-import Doctors from "../../public/images/bookingIcon/doctor.png"; //imported medical equiment icon
+import Strectres from "../../public/images/bookingIcon/strectres.png"; 
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; 
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg"; 
+import Doctors from "../../public/images/bookingIcon/doctor.png"; 
 import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarosel";
 import Signature from "../../public/images/Signature.svg";
 import Important from "../../db/importantCommericial.json";
@@ -15,28 +15,37 @@ import { currencySymbols } from "../../components/Utils/Constants";
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
 import Commerialtransfer from "../../public/images/commericial-transfer/Banner.svg";
+import commericialTransferOne from "../../public/images/commericial-transfer/commericailTransfer1.jpg";
+import commericialTransferTwo from "../../public/images/commericial-transfer/commericialTransfer2.jpeg";
+import commericialTransferThree from "../../public/images/commericial-transfer/commericialTransfer3.jpeg";
 import Patience from "../../public/images/commericial-transfer/Patenice.svg";
 import airLift from "../../public/images/commericial-transfer/airLift.svg";
 import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
 import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
-import Bill from "../../public/images/utils/Billlogo.svg"; //imported bill logo
+import Bill from "../../public/images/utils/Billlogo.svg"; 
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { CommericialSingleApi } from "@/redux/slices/commericialSlice";
+
 import { useState } from "react";
 import moment from "moment";
+import { CommericialSingleApi } from "@/redux/slices/commericialdetailSlice";
 //this Timezone is used for time
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 //Time travel duration calculation
-const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
+const TravelDuration = ({
+  airline,
+  totalTravelDuration,
+  locationData,
+  Ticketdate,
+}) => {
   console.log("totalTravelDuration line 29", totalTravelDuration);
   const formatTime = (date) => {
     return new Date(
       (typeof date === "string" ? new Date(date) : date).toLocaleString(
         "en-US",
-        { timeZone: currentTimeZone }
-      )
+        { timeZone: currentTimeZone },
+      ),
     );
   };
   return (
@@ -44,13 +53,19 @@ const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
       <div className="flex flex-col bg-[#F8F9FA] px-[15px] py-[15px]">
         <div className="flex flex-row justify-between sm:flex-col">
           <div className="flex justify-between items-center">
-            <div className="font-black text-[20px] mr-4">Mumbai</div>
+            <div className="font-black text-[20px] mr-4">
+              {" "}
+              {locationData?.departureLocation}
+            </div>
             <div className="bg-[#54CDEF] rounded-full px-2 py-2">
               <TbArrowsExchange2
                 style={{ color: "#fff", height: "25px", width: "25px" }}
               />
             </div>
-            <div className="font-black text-[20px] ml-4">Dubai</div>
+            <div className="font-black text-[20px] ml-4">
+              {" "}
+              {locationData?.destinationLocation}
+            </div>
           </div>
           <div className="bg-[#0C7A31] px-2 py-2 text-[14px] font-extralight text-white text-center block sm:mt-4 sm:hidden">
             Your Booking on priority
@@ -59,14 +74,14 @@ const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
         <div className="font-medium text-black flex justify-between mt-4 sm:items-center sm:mt-6">
           <div className="flex justify-between flex-row items-center sm:justify-between">
             <div className="bg-[#54CDEF] h-[32px] w-[134px] px-2 text-[12px] text-[#fff] flex justify-center items-center sm:text-[10px]">
-              Saturday , April 27
+              {Ticketdate}
             </div>
             <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-16 sm:font-extrabold">
               Non Stop{" "}
               {totalTravelDuration?.length > 0 &&
                 totalTravelDuration.map((data) => {
                   return `${Math.floor(data.totalHours)}h ${Math.floor(
-                    data.totalMinutes
+                    data.totalMinutes,
                   )}m`;
                 })}
             </div>
@@ -104,7 +119,7 @@ const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
             {" "}
             {locationData?.destinationTime
               ? moment(formatTime(locationData?.destinationTime)).format(
-                  "HH:mm"
+                  "HH:mm",
                 )
               : "--:--"}
           </div>
@@ -141,7 +156,7 @@ const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
             {totalTravelDuration?.length > 0 &&
               totalTravelDuration.map((data) => {
                 return `${Math.floor(data.totalHours)}h ${Math.floor(
-                  data.totalMinutes
+                  data.totalMinutes,
                 )}m`;
               })}
           </div>
@@ -276,23 +291,26 @@ const TravelDuration = ({ airline, totalTravelDuration, locationData }) => {
 //this compoenent related to Information
 const InfomationHead = ({ title, descripation }) => {
   return (
-    <div className="grid grid-cols-12 gap-1 mt-5 sm:grid sm:grid-cols-1 sm:w-[320px]">
-      <div className="col-span-1 flex items-start justify-center  block sm:hidden">
-        <Image src={Point} width={26} height={26} />
+    <div className="grid grid-cols-12 gap-3 mt-5 sm:grid-cols-1 sm:w-[320px]">
+      {/* Icon for larger screens */}
+      <div className="col-span-1 flex items-start justify-center sm:hidden">
+        <Image src={Point} width={24} height={24} alt="Point Icon" />
       </div>
-      <div className="col-span-8 sm:w-full">
-        <div
-          className="font-medium text-[16px] font-Inter text-[
-#171A1F] sm:px-[5px] sm:flex sm:flex-row s"
-        >
-          <div className="col-span-1 hidden  sm:contents sm:block sm:flex sm:item-center ">
-            <Image src={Point} width={26} height={26} />
+
+      {/* Text content */}
+      <div className="col-span-11 sm:col-span-12">
+        <div className="flex items-start sm:items-center font-medium text-[16px] text-gray-800 sm:px-2">
+          {/* Icon for smaller screens */}
+          <div className="hidden sm:block sm:mr-2">
+            <Image src={Point} width={24} height={24} alt="Point Icon" />
           </div>
-          <span className="sm:ml-4">{title}</span>
+          <span>{title}</span>
         </div>
-        <li className="text-[14px] font-normal   font-Inter mt-3 sm:min-w-[320px] sm:px-[5px] ">
+
+        {/* Description content */}
+        <p className="text-[14px] font-normal text-gray-600 mt-2 sm:min-w-[320px] sm:px-2">
           {descripation}
-        </li>
+        </p>
       </div>
     </div>
   );
@@ -301,99 +319,67 @@ const InfomationHead = ({ title, descripation }) => {
 const TotalFare = ({ Totalprice }) => {
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [totalCost, setTotalCost] = useState(
-    parseFloat(Totalprice?.totalPrice?.toFixed(2)) ?? 0
+    parseFloat(Totalprice?.totalPrice?.toFixed(2)) ?? 0,
   );
 
-  Totalprice = parseFloat(Totalprice?.totalPrice?.toFixed(2));
-  //handle currency change
+  Totalprice = parseFloat(Totalprice?.toFixed(2));
+
+  // Handle currency change
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
-  const getEUR = (Totalprice) => {
-    const EuroPrice = Totalprice;
-    return EuroPrice;
-  };
-  const getAED = (Totalprice) => {
-    const PriceAED = Totalprice * 3.95;
-    return PriceAED.toFixed(2);
-  };
 
-  const getUSD = (Totalprice) => {
-    const PriceUsd = Totalprice * 1.077;
-    return PriceUsd.toFixed(2);
-  };
-
-  const getINR = (Totalprice) => {
-    const PriceINR = Totalprice * 89.42;
-    return PriceINR.toFixed(2);
+  const getPriceInCurrency = (price, currency) => {
+    const conversionRates = {
+      EUR: 1,
+      AED: 3.95,
+      USD: 1.077,
+      INR: 89.42,
+    };
+    return (price * conversionRates[currency]).toFixed(2);
   };
 
   useEffect(() => {
     const actualTotalPrice = parseFloat(Totalprice?.toFixed(2));
-    switch (selectedCurrency) {
-      case "EUR":
-        setTotalCost(getEUR(actualTotalPrice));
-        break;
-      case "AED":
-        setTotalCost(getAED(actualTotalPrice));
-        break;
-      case "USD":
-        setTotalCost(getUSD(actualTotalPrice));
-        break;
-      case "INR":
-        setTotalCost(getINR(actualTotalPrice));
-        break;
-      default:
-        setTotalCost(0);
-    }
+    setTotalCost(getPriceInCurrency(actualTotalPrice, selectedCurrency));
   }, [Totalprice, selectedCurrency]);
-  console.log("Total Price line 269", Totalprice);
+
   return (
-    <div className="bg-[#F8F9FA] px-5 py-6 shadow-sm">
-      <div className="flex flex-col justify-between">
-        <div className="text-[#171A1F] text-[18px] font-Inter font-bold mb-4">
+    <div className="bg-[#F8F9FA] px-5 py-6 shadow-md rounded-lg">
+      <div className="flex flex-col">
+        <div className="text-[#171A1F] text-[18px] font-semibold mb-4">
           FARE SUMMARY
         </div>
-        <div className="BaseFare flex justify-between mb-4">
-          <div className="font-Inter font-medium  text-[16px]">Base Fare</div>
-          <div className="font-Inter font-semibold text-[16px] flex flex-row justify-between items-center">
-            {" "}
-            {currencySymbols[selectedCurrency]}
-            <div className=" font-semibold text-[#000] text-[18px] font-Inter  ml-2">
-              {" "}
+        <div className="flex justify-between mb-4">
+          <span className="font-medium text-[16px]">Base Fare</span>
+          <div className="flex items-center">
+            <span className="text-[#54CDEF] text-[16px]">
+              {currencySymbols[selectedCurrency]}
+            </span>
+            <span className="font-semibold text-[#000] text-[18px] ml-2">
               {totalCost}
-            </div>
+            </span>
           </div>
         </div>
-        <hr className="h-[0.5px] border-none bg-[#BCC1CA] w-full " />
-        <div className="Totalamount flex justify-between items-center mt-8 mb-4">
-          <div className="font-sans font-black text-[16px]">Total Amount</div>
-          <div className="flex justify-end gap-2 ">
+        <hr className="border-[#BCC1CA] my-4" />
+        <div className="flex justify-between items-center mb-4">
+          <span className="font-bold text-[16px]">Total Amount</span>
+          <div className="flex items-center gap-2">
             <select
               id="currencySelector"
               value={selectedCurrency}
               onChange={handleCurrencyChange}
-              style={{ height: "36px", width: "74px" }}
-              className="border-solid border-2 border-[#54CDEF] rounded-md text-xs h-12 W-52  text-[#101729] focus:border-[#54CDEF]"
+              className="border border-[#54CDEF] rounded-md text-xs px-2 py-1"
             >
-              {Object.keys(currencySymbols)?.map((currency, index) => {
-                return (
-                  <option
-                    value={currency}
-                    key={"currency-item" + index}
-                    className="font-Inter  border-solid border-2 border-[#54CDEF]"
-                  >
-                    {currency}
-                  </option>
-                );
-              })}
+              {Object.keys(currencySymbols).map((currency, index) => (
+                <option value={currency} key={index}>
+                  {currency}
+                </option>
+              ))}
             </select>
-          </div>
-          <div className="bg-[#54CDEF] text-[#fff] text-[18px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-semibold">
-            {currencySymbols[selectedCurrency]}
-            <div className=" font-bold text-[#fff] text-[18px] font-Inter ml-2">
-              {" "}
-              {totalCost}
+            <div className="bg-[#54CDEF] text-[#fff] text-[18px] font-semibold flex items-center px-4 py-2 rounded-md">
+              {currencySymbols[selectedCurrency]}
+              <span className="font-bold ml-2">{totalCost}</span>
             </div>
           </div>
         </div>
@@ -405,41 +391,48 @@ const TotalFare = ({ Totalprice }) => {
 /* in this component contain payment information */
 const PayConfirmation = () => {
   return (
-    <div className="bg-[#F8F9FA] shadow-sm px-10 py-10 flex flex-col items-center">
-      <div className="flex justify-between items-center">
-        <Image src={Bill} width={44} height={44} />
-        <div className="font-sans font-black text-[#323842] text-[16px]">
-          PAY 20% RESERVE YOUR SEAT
+    <div className="bg-[#F8F9FA] shadow-md px-8 py-8 flex flex-col items-center rounded-lg mx-auto max-w-sm">
+      <div className="flex items-center mb-6">
+        <Image src={Bill} width={44} height={44} alt="Bill Icon" />
+        <div className="ml-4 font-sans font-semibold text-[#323842] text-[16px]">
+          PAY 20% TO RESERVE YOUR SEAT
         </div>
       </div>
-      <div className="formdata grid grid-rows-3 gap-2 mt-4 mb-4 min-w-[280px]">
-        <div className="FirstName flex flex-col item-center ">
-          <span className="text-[#424955] font-Inter font-medium">
+      <div className="formdata grid grid-rows-3 gap-4 w-full">
+        <div className="flex flex-col">
+          <label className="text-[#424955] font-Inter font-medium mb-1">
             First Name
-          </span>
+          </label>
           <input
-            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
-            placeholder="Enter a Name"
+            className={`${styles.customInput} w-full p-2 rounded-md border border-[#d0d5db] focus:border-[#54CDEF] transition duration-150 ease-in-out`}
+            placeholder="Enter your name"
+            type="text"
           />
         </div>
-        <div className="phone number flex flex-col text-[#424955] font-Inter font-medium  item-center">
-          <span className="text-[#424955] font-Inter font-medium">Phone</span>
+        <div className="flex flex-col">
+          <label className="text-[#424955] font-Inter font-medium mb-1">
+            Phone
+          </label>
           <input
-            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
-            placeholder="Enter a phone number "
+            className={`${styles.customInput} w-full p-2 rounded-md border border-[#d0d5db] focus:border-[#54CDEF] transition duration-150 ease-in-out`}
+            placeholder="Enter your phone number"
+            type="tel"
           />
         </div>
-        <div className="Email flex flex-col text-[#424955] font-Inter font-medium mt-2 item-center">
-          <span className="text-[#424955] font-Inter font-medium">Email</span>
+        <div className="flex flex-col">
+          <label className="text-[#424955] font-Inter font-medium mb-1">
+            Email
+          </label>
           <input
-            className={`${styles.customInput} min-w-[300px] p-2 rounded-sm bg-[#fff] hover:border-none `}
+            className={`${styles.customInput} w-full p-2 rounded-md border border-[#d0d5db] focus:border-[#54CDEF] transition duration-150 ease-in-out`}
             placeholder="Enter your email address"
+            type="email"
           />
         </div>
       </div>
-      <div className="button bg-[#54CDEF] h-[52px] w-[350px] text-[#fff] font-Inter flex justify-center items-center cursor-pointer">
+      <button className="bg-[#54CDEF] hover:bg-[#42a6d3] h-[52px] w-full text-[#fff] font-Inter font-semibold flex justify-center items-center mt-4 rounded-md transition duration-150 ease-in-out">
         PAY NOW
-      </div>
+      </button>
     </div>
   );
 };
@@ -449,8 +442,8 @@ const UpperSection = ({
   airline,
   totalTravelDuration,
   locationData,
+  Ticketdate,
 }) => {
-  console.log("Totalprice", Totalprice);
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
       <div className="col-span-6 px-[20px] py-[15px]  w-full   sm:border-0 sm:border-none sm:bg-transparent sm:col-span-1 bg-[#F8F9FA] sm:px-0">
@@ -458,6 +451,7 @@ const UpperSection = ({
           airline={airline}
           totalTravelDuration={totalTravelDuration}
           locationData={locationData}
+          Ticketdate={Ticketdate}
         />
         {/* <ImportantInfo />
         <Guarantee /> */}
@@ -470,69 +464,88 @@ const UpperSection = ({
   );
 };
 /* this is Gurratty component */
+
 const Guarantee = () => {
   return (
-    <div
-      className="responsiveBoxSizing rounded-2xl border-2 border-gray-300 flex flex-col items-center sm:justify-center sm:items-center  py-5 
-          sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12  mt-8"
-    >
-      <div class=" font-bold text-[16px] font-Inter text-[#565E6C] sm:text-center">
+    <div className="responsiveBoxSizing rounded-2xl border-2 border-gray-300 flex flex-col items-center py-6 px-5 sm:w-full md:w-3/4 lg:w-11/12 xl:w-11/12 mt-8 shadow-lg bg-white">
+      <div className="font-bold text-[18px] sm:text-[20px] font-Inter text-gray-800 text-center mb-3">
         OUR GUARANTEE
       </div>
-      <hr class="bg-[#11B6E3] h-[4px] w-[40px] sm:mx-auto"></hr>
-      <div class=" text-[14px] font-normal   font-Inter mt-3  px-4 sm:w-80 sm:px-4 ">
+      <hr className="bg-[#11B6E3] h-[4px] w-[50px] mx-auto mb-4"></hr>
+      <div className="text-[15px] font-normal font-Inter text-gray-600 leading-relaxed text-center px-6 sm:px-8">
         We guarantee that when choosing Qwiklif, your loved ones shall be
         treated with professional and compassionate care. We consider every
         patient as family, we strive for perfection, and continuously monitor
         our operations. When choosing a provider, remember that Qwiklif Air
-        Ambulance is the world&apos first air ambulance service provider giving
-        an instant quotation.
+        Ambulance is the world&apos;s first air ambulance service provider
+        giving an instant quotation.
       </div>
-      <div class="flex items-center flex-col justify-center mt-2">
-        <Image src={Signature} width={200} height={125} />
-        <div class="font-extrabold text-sm font-sans">CEO, QWIKLIF</div>
+      <div className="flex flex-col items-center justify-center mt-4">
+        <Image src={Signature} width={150} height={75} alt="CEO Signature" />
+        <div className="font-extrabold text-sm font-sans text-gray-700 mt-2">
+          CEO, QWIKLIF
+        </div>
       </div>
     </div>
   );
 };
-
 //this component realted to ImportedInfo
 const ImportantInfo = () => {
   return (
-    <div className=" px-[30px] py-[30px] w-full border-2 border-gray-300   mt-2 sm:px-[10px] sm:py-[10px] sm:w-full  rounded-2xl ">
-      <div className="grid grid-rows-auto grid-cols-1">
-        <div className="text-[20px] font-bold font-Inter text-[#565E6C] text-start sm:text-center">
+    <div className="px-8 py-6 w-full border border-gray-300 mt-4 rounded-2xl bg-white shadow-md sm:px-4 sm:py-4">
+      <div className="flex flex-col items-start sm:items-center">
+        <div className="text-2xl font-bold font-Inter text-gray-700 mb-4 text-start sm:text-center">
           Important Information
         </div>
 
-        <div className="">
-          {Important.map((data, index) => {
-            return (
-              <div key={index} className="gap-4">
-                <InfomationHead
-                  title={data.title}
-                  descripation={data.descripation}
-                />
-              </div>
-            );
-          })}
+        <div className="w-full space-y-4">
+          {Important.map((data, index) => (
+            <div key={index} className="gap-6">
+              <InfomationHead
+                title={data.title}
+                descripation={data.descripation}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
+
+//this is date to month and date and year formatter
+const formatDate = (inputDate) => {
+  const date = new Date(inputDate);
+
+  const day = String(date.getDate()).padStart(2, "0");
+  const monthName = date.toLocaleString("default", { month: "long" });
+  const year = date.getFullYear();
+
+  return `${day} ${monthName} ${year}`;
+};
+
 /* main component*/
-const CommericialBookingConfirmationPage = ({ initialData }) => {
+const CommericialBookingConfirmationPage = () => {
   const router = useRouter();
+  const { id } = router.query;
+  const dispatch = useDispatch();
+
+  const data = useSelector(
+    (state) => state.commericialdetails.commerialflightdetails,
+  );
+
+  console.log("this is commerialflightdetails", data);
+  console.log("total price", data?.specificAircraft?.price?.totalPrice);
+  useEffect(() => {
+    if (id) {
+      dispatch(CommericialSingleApi(id));
+    }
+  }, [id, dispatch]);
+
   const [airlineName, setairlineName] = useState("");
   const [totalTravelDuration, setTotalTravelDuration] = useState({});
   const [locationData, setLocationData] = useState({});
-  const { id } = router.query;
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(CommericialSingleApi(id));
-  }, [id]);
-  const data = useSelector((state) => state.commericial.commericialflights);
+  const [Ticketdate, setTikcetdate] = useState("");
 
   const airlineNames = {
     AC: "Air Canada",
@@ -565,41 +578,11 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
     SV: "Saudia",
   };
 
-  // const AirlineImages = {
-  //   AC: Aircanada,
-  //   "6E": Indigo,
-  //   AF: Airfrance,
-  //   AI: AirIndia,
-  //   AA: americanAirline,
-  //   BA: BritishAirways,
-  //   CX: cathayAirline,
-  //   DL: DeltaAirline,
-  //   EK: Emirates,
-  //   EY: Ethiads,
-  //   KL: KLMAirline,
-  //   LH: Lufthansa,
-  //   QF: Quantas,
-  //   QR: QatarAirway,
-  //   SQ: SingaporeAirline,
-  //   TK: TurkishAirline,
-  //   UA: UnitedAirline,
-  //   VS: VirginAtlantic,
-  //   THY: TurkishAirlineNew,
-  //   WY: OmanAirline,
-  //   OMA: OmanAirline,
-  //   SAA: SouthAfrican,
-  //   ANA: NipponAirline,
-  //   PAL: PhillippinesAirlines,
-  //   VIR: VirginAirline,
-  //   MAU: Airmauritius,
-  //   MH: malesiyaAirline,
-  //   SV: SaudiAirline,
-  // };
-
   const parseISO8601Duration = (durationString) => {
     let TimeDuration = [];
     const regex =
       /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
+    console.log("durationstring", durationString);
     const matches = durationString?.match(regex);
     if (!matches) {
       throw new Error("Invalid ISO8601 duration format");
@@ -632,6 +615,7 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
   const getLocationData = () => {
     const segments =
       data?.specificAircraft?.aircraft?.itineraries[0]?.segments ?? [];
+
     if (segments?.length > 1) {
       setLocationData({
         departureLocation: segments[0]?.departure?.iataCode,
@@ -653,26 +637,21 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
     }
   };
 
-  console.log("locationData line 625", locationData);
   const getTravelDuration = () => {
     const timeduration =
-      data?.specificAircraft?.aircraft?.itineraries[0]?.duration ?? [];
-    console.log("timeduration line 583", timeduration);
-    let flyingTime = parseISO8601Duration(timeduration);
+      data?.specificAircraft?.aircraft?.itineraries[0]?.duration;
 
+    let flyingTime = parseISO8601Duration(timeduration);
     setTotalTravelDuration(flyingTime);
-    console.log("totalTravelDuration line 587", totalTravelDuration);
-    // setHours(totalTravelDuration[0].hour);
-    // setMinutes(totalTravelDuration[0].minutes);
+    const Flyingdate = data?.specificAircraft?.aircraft?.lastTicketingDateTime;
+    const formatedate = formatDate(Flyingdate);
+    setTikcetdate(formatedate);
   };
   const renderAirlineName = (carrierCode) => {
     return airlineNames[carrierCode] || "Unknow Airline";
   };
 
   const AirlineName = () => {
-    // const airlineName =
-    // ?.aircraft?.itineraries[0]?.segments[0]?.carrierCode ?? [];
-
     const airlinesName =
       data?.specificAircraft?.aircraft?.itineraries[0]?.segments[0]
         ?.carrierCode;
@@ -680,31 +659,24 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
     setairlineName(airline);
 
     console.log("airlines name line 562", airlineName);
-    // if (
-    //   data &&
-    //   data.specificAircraft &&
-    //   data.specificAircraft.itineraries &&
-    //   data.specificAircraft.itineraries[0] &&
-    //   data.specificAircraft.itineraries[0].segments &&
-    //   data.specificAircraft.itineraries[0].segments[0]
-    // ) {
-    //   const airlinesName =
-    //     data.specificAircraft.itineraries[0].segments[0].carrierCode ?? [];
-    //   console.log("airline line 57", airlinesName);
-    //   setAirlineName(airlinesName); // Assuming setAirlineName is correctly defined
-    // } else {
-    //   console.error("Error: Data structure is not as expected."); // Optional: Handle error or log it
-    // }
   };
 
   useEffect(() => {
-    AirlineName();
-    getTravelDuration();
-    getLocationData();
-  }, []);
+    if (data) {
+      AirlineName();
+      getTravelDuration();
+      getLocationData();
+    }
+  }, [data]);
 
-  console.log("Airline name in line 561 ", airlineName);
+  console.log("totalprice in main component", data);
+  console.log("totalTravelDuration in main compoennt", totalTravelDuration);
+  console.log("locationData in main component", locationData);
+  
 
+  if (!data) {
+    return <p>No data available</p>;
+  }
   return (
     <div className={`${styles.Container}`}>
       <div className="px-[15px] font-sans z-0">
@@ -712,10 +684,11 @@ const CommericialBookingConfirmationPage = ({ initialData }) => {
         <div className="relative bottom-[200px]">
           <UpperSection
             airlineName={airlineName}
-            Totalprice={data?.specificAircraft?.price}
+            Totalprice={data?.specificAircraft?.price?.totalPrice}
             airline={airlineName}
             totalTravelDuration={totalTravelDuration}
             locationData={locationData}
+            Ticketdate={Ticketdate}
           />
           <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
             <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">

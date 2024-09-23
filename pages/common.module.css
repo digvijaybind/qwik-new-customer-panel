@@ -15,3 +15,44 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); 
 }
+.Image {
+  position: relative;
+  background-image: url("../public/images/slider/1.png");
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Image::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Position the pseudo-element */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire element */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+}
+
+.aboutSlugHeader {
+  background: linear-gradient(#1a384191, #1a384191),
+    url("/images/about-slug-header.jpg");
+  background-position: center;
+}
+
+.Aboutdown {
+  position: relative;
+  background-image: url("https://qwiklif.com/wp-content/uploads/2024/01/FBqX_ZJXsAAMNcj-scaled.jpg");
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Aboutdown::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Position the pseudo-element */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire element */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+}

@@ -24,7 +24,7 @@ import SaudiAirline from "../../public/images/airlines/Saudia.jpg";
 import SingaporeAirline from "../../public/images/airlineslogo/SingaporeAirlines.png";
 import SouthAfrican from "../../public/images/airlineslogo/southafrican.png";
 import TurkishAirlineNew from "../../public/images/airlineslogo/turkish-airlines-new.png";
-import TurkishAirline from "../../public/images/airlines/Turkish.jpg";
+import TurkishAirline from "../../public/images/airlineslogo/turkish-airlines-new.png";
 import UnitedAirline from "../../public/images/airlineslogo/united-airlines.png";
 import VirginAtlantic from "../../public/images/airlineslogo/virgin-atlantic.png";
 import VirginAirline from "../../public/images/airlineslogo/virgin-atlantic.png";
@@ -57,7 +57,7 @@ const CommericialSearch = ({
     setSelectedCurrency(event.target.value);
   };
 
-  console.log("locationData line 22", locationData);
+  
   const getEUR = (price) => {
     const EuroPrice = price;
     return EuroPrice;

@@ -11,17 +11,19 @@ const About = () => {
 
   useEffect(() => {
     const articleDetails = aboutsList?.find(
-      (d) => d?.slug === router.query.slug
+      (d) => d?.slug === router.query.slug,
     );
     setDetails(articleDetails);
   }, [router?.query?.slug]);
 
   return (
-    <div className="font-sans">
+    <div className="font-Inter">
       <div
         className={`${style.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-center items-center pt-[220px] pb-32`}
       >
-        <p className="text-white text-5xl font-bold font-arcaMajoraHeavy">{details?.head}</p>
+        <p className="text-white text-5xl font-bold font-arcaMajoraHeavy">
+          {details?.head}
+        </p>
       </div>
       <div className="py-10 px-20 flex items-center flex-col justify-center">
         <div className="w-8/12">

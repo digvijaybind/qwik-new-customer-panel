@@ -1,12 +1,9 @@
-import React from 'react'
-
+import React from "react";
 
 const Loader = ({ className }) => {
   return (
     <svg
-      className={`animate-spin -ml-1 mr-3 h-5 w-5 text-black ${
-        className ?? ""
-      }`}
+      className={`animate-spin h-12 w-12 text-[#55CDF1] ${className ?? ""}`} // Increased size and changed color
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -17,7 +14,7 @@ const Loader = ({ className }) => {
         cy="12"
         r="10"
         stroke="currentColor"
-        stroke-width="4"
+        strokeWidth="4" // Fixed the `stroke-width` typo to `strokeWidth`
       ></circle>
       <path
         className="opacity-75"
@@ -27,15 +24,15 @@ const Loader = ({ className }) => {
     </svg>
   );
 };
-
 const DedicatedLoader = () => {
   return (
     <div
-      className={`w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-lg  cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 flex flex-col px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px]`}
+      className={`w-[590px] h-[210px] border-solid border-[1.5px] border-[#cdcdcd] rounded-lg cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-103 
+      flex justify-center items-center px-[25px] py-[10px] sm:w-[330px] sm:h-[250px] sm:px-[10px] sm:py-[10px]`}
     >
       <Loader />
     </div>
   );
-}
+};
 
-export default DedicatedLoader
+export default DedicatedLoader;

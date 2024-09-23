@@ -2,7 +2,7 @@ const servicesData = [
   {
     slug: "neonatal-and-pediatric",
     title: "Neonatal and Pediatric Air Transfer Services",
-    bannerImage: "/images/Neonatal-and-Pediatric.png",
+    bannerImage: "/images/services/Neonatal-and-Pediatric.png",
     img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
     head: "Neonatal and Pediatric Air Transfer Services",
     text: "Expert Transport for Neonates and Pediatric Patients QwikLif Air Ambulance specializes in safe and expert…",
@@ -26,7 +26,7 @@ const servicesData = [
   {
     slug: "ecmo-initiation",
     title: "ECMO Initiation and Air Transfer Services",
-    bannerImage: "/images/ECMO-Initiation.png",
+    bannerImage: "/images/services/ECMO-Initiation.png",
     img: "https://qwiklif.com/wp-content/uploads/2024/01/5-230x230.png",
     head: "ECMO Initiation and Air Transfer Services",
     text: "Expert ECMO Assistance with Global Air Ambulance Solutions QwikLif Air Ambulance specializes in expert ECMO…",
@@ -50,7 +50,7 @@ const servicesData = [
   {
     slug: "dedicated-air",
     title: "Dedicated Air Ambulance",
-    bannerImage: "/images/Dedicated-Air-Ambulance.jpg",
+    bannerImage: "/images/services/Dedicated-Air-Ambulance.jpg",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/challenger-605_1-re-230x230.jpg",
     head: "Dedicated Air Ambulance",
     text: "Swift and Expert Medical Transport Anywhere, Anytime QwikLif Air Ambulance offers unparalleled specialized air ambulance…",
@@ -74,7 +74,7 @@ const servicesData = [
   {
     slug: "international",
     title: "International Patient Transfer",
-    bannerImage: "/images/International-Patient.png",
+    bannerImage: "/images/services/International-Patient.png",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-2-230x230.png",
     head: "International Patient Transfer",
     text: "Cost-Effective Air Ambulance Solutions Worldwide QwikLif Air Ambulance specializes in providing cost-effective and reliable international…",
@@ -98,7 +98,7 @@ const servicesData = [
   {
     slug: "commercial",
     title: "Commercial Stretcher Transfer",
-    bannerImage: "/images/Commercial-Stretcher-Transfer.png",
+    bannerImage: "/images/services/Commercial-Stretcher-Transfer.png",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png",
     head: "Commercial Stretcher Transfer",
     text: "Efficient Patient Transport via Commercial Airlines with Stretcher Configurations QwikLif Air Ambulance offers reliable and…",

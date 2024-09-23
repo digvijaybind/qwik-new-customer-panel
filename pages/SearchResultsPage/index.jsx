@@ -12,19 +12,18 @@ import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 import CommericialContactCard from "@/components/commericialContactCard/CommericialContactCard";
 import CommericialLoader from "@/components/commericialContactCard/CommericialLoader";
 import DedicatedLoader from "@/components/dedicatedContactCard/DedicatedLoader";
+import DedicatedContactCard from "@/components/dedicatedContactCard/DedicatedContactCard";
 
 const SearchResponse = ({ initialData }) => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
 
-  const commericialflights = useSelector(
-    (state) => state.commericial.commericialflights
+  const { commericialflights, loadingFlights, errorFlights } = useSelector(
+    (state) => state.commericial,
   );
-  const DedicatedFlights = useSelector(
-    (state) => state.dedicated.dedicatedflights
+  const { DedicatedFlights, status, error } = useSelector(
+    (state) => state.dedicated,
   );
-
-
 
   const [isMobile, setIsMobile] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -63,7 +62,7 @@ const SearchResponse = ({ initialData }) => {
       console.log("Data destination", searchParams.has("originLocationCode"));
       console.log(
         "Data originLocation",
-        searchParams.has("destinationLocationCode")
+        searchParams.has("destinationLocationCode"),
       );
       const formDetails = {
         originLocationCode: searchParams.get("originLocationCode"),
@@ -157,25 +156,31 @@ const SearchResponse = ({ initialData }) => {
                   !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                {commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                  (data, index) => {
-                    return (
-                      <CommericialSearch
-                        key={index}
-                        isMobile={isMobile}
-                        aircraftData={data}
-                        activeTab={activeTab}
-                        availticket={
-                          commericialflights?.ResponseData?.TicketAvailability
-                        }
-                        aircraftId={commericialflights?.aircraftId}
-                      />
-                    );
-                  }
-                )}
+                {loadingFlights && !errorFlights && (<div  className="mt-[40px]"><DedicatedLoader /> </div>) }
+               
+                {!loadingFlights &&
+                  !errorFlights &&
+                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
+                    (data, index) => {
+                      return (
+                        <CommericialSearch
+                          key={index}
+                          isMobile={isMobile}
+                          aircraftData={data}
+                          activeTab={activeTab}
+                          availticket={
+                            commericialflights?.ResponseData?.TicketAvailability
+                          }
+                          aircraftId={commericialflights?.aircraftId}
+                        />
+                      );
+                    },
+                  )}
 
-                {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
+                {!loadingFlights &&
+                  !errorFlights &&
+                  !commericialflights?.ResponseData
+                    ?.AirCraftDatawithNotechStop &&
                   commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
                     (data, index) => {
                       return (
@@ -189,30 +194,39 @@ const SearchResponse = ({ initialData }) => {
                           aircraftId={commericialflights?.aircraftId}
                         />
                       );
-                    }
+                    },
                   )}
-                {!commericialflights?.ResponseData
-                  ?.AirCraftDatawithNotechStop &&
-                  !commericialflights?.ResponseData?.AirCraftDatawithtechStop(
-                    <CommericialContactCard />
-                  )}
+                   {errorFlights && !loadingFlights && (
+                  <div className="mt-[40px]">
+                    {" "}
+                    <CommericialContactCard />{" "}
+                  </div>
+                )}
               </div>
               <div
                 className={`grid grid-cols-1 gap-4  ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"
                 } sm:`}
               >
-                {DedicatedFlights.map((data, index) => {
-                  console.log("charter data in index page", data);
-                  return (
-                    <DedicatedSearch
-                      type="chartered"
-                      key={index}
-                      charterdata={data}
-                    />
-                  );
-                })}
-                {!DedicatedFlights && <DedicatedContactCard />}
+                {status === "pending" && !DedicatedFlights && (
+                  <DedicatedLoader />
+                )}
+                {status === "succeeded" &&
+                  DedicatedFlights.map((data, index) => {
+                    console.log("charter data in index page", data);
+                    return (
+                      <DedicatedSearch
+                        type="chartered"
+                        key={index}
+                        charterdata={data}
+                      />
+                    );
+                  })}
+                {status === "failed" && !DedicatedFlights && (
+                  <div className="mt-[40px]">
+                    <DedicatedContactCard />
+                  </div>
+                )}
                 {/* {!loading } */}
               </div>
             </div>

@@ -9,52 +9,44 @@ export const CommericialApi = createAsyncThunk(
   async (data) => {
     console.log("slices data", data);
     const response = await apiClient.post(Endpoint.CommericialSearch, data);
-    console.log("commericial data line 12", response.data);
     return response.data;
-  }
+  },
 );
 
-export const CommericialSingleApi = createAsyncThunk(
-  `api/commericial/id`,
-  async (id) => {
-    console.log("Id is coming to inside commericial", id);
-    const endpoint = Endpoint.CommericialAircraftByid.replace(":id", id);
-    const response = await apiClient.get(endpoint);
-    console.log("commericial data response line 22", response.data);
-    return response.data;
-  }
-);
+// export const CommericialSingleApi = createAsyncThunk(
+//   `api/commericial/id`,
+//   async (id) => {
+//     console.log("Id is coming to inside commericial", id);
+//     const endpoint = Endpoint.CommericialAircraftByid.replace(":id", id);
+//     const response = await apiClient.get(endpoint);
+//     console.log("single flights details", response.data);
+//     return response.data;
+//   },
+// );
 
 const commericialSlice = createSlice({
   name: "commericial",
   initialState: {
     commericialflights: [],
-    status: "idle",
-    error: null,
+    loadingFlights: false, 
+    errorFlights: null, 
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(CommericialApi.pending, (state) => {
-        console.log("still loading");
-        state.status = "loading";
+        state.loadingFlights = true;
+        state.errorFlights=null;
       })
       .addCase(CommericialApi.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        console.log("data line line 41", state.status);
-        console.log("commricial data line 42", action.payload);
-
+        state.loadingFlights = false;
         state.commericialflights = action.payload;
       })
       .addCase(CommericialApi.rejected, (state, action) => {
-        state.status = "failed";
-        console.log("error");
-        state.error = action.error.message;
+        state.loadingFlights = false;
+        state.errorFlights = action.error.message;
       })
-      .addCase(CommericialSingleApi.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.commericialflights = action.payload;
-      });
+   
   },
 });
 
