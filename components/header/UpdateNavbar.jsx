@@ -3,6 +3,7 @@ import HamburgerMenu from './HamburgerMenu';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Header from './Header';
+import Headernew from './Headernew';
 const UpdateNavbar = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -19,7 +20,7 @@ const UpdateNavbar = () => {
   }, []);
 
   return (
-    <div className="navbar">{isMobile ? <HamburgerMenu /> : <Header />}</div>
+    <div className="navbar">{isMobile ? <HamburgerMenu /> : <Headernew />}</div>
   );
 };
 

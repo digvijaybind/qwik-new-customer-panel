@@ -26,6 +26,9 @@ module.exports = {
         "sans-serif",
       ],
       Inter: ["Inter-Regular", "sans-serif"],
+      barlowRegular: ["Barlow-regular", "sans-serif"],
+      barlowBold: ["Barlow-bold", "sans-serif"], 
+      barlowSemiBold: ["Barlow-SemiBold", "sans-serif"], 
     },
     extend: {
       colors: {
@@ -91,7 +94,7 @@ module.exports = {
             textShadow: value,
           }),
         },
-        { values: theme("textShadow") }
+        { values: theme("textShadow") },
       );
     }),
   ],

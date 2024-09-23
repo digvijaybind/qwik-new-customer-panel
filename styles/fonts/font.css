@@ -67,3 +67,18 @@
   src: local('Ed garamond'),
     url('./fonts/ArcaMajora3-Heavy.woff') format('woff');
 }
+@font-face {
+  font-family: 'Barlow-regular';
+  src: local('Barlow'),
+    url('./barlow/Barlow-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Barlow-bold';
+  src: local('Barlow'),
+    url('./barlow/Barlow-Bold.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Barlow-SemiBold';
+  src: local('Barlow'),
+    url('./barlow/Barlow-SemiBold.ttf') format('ttf');
+}
