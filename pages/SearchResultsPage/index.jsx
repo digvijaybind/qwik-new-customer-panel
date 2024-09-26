@@ -10,7 +10,6 @@ import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import DedicatedSearch from "@/components/searchResponse/DedicatedSearch";
 import CommericialSearch from "@/components/searchResponse/CommericialSearch";
 import CommericialContactCard from "@/components/commericialContactCard/CommericialContactCard";
-import CommericialLoader from "@/components/commericialContactCard/CommericialLoader";
 import DedicatedLoader from "@/components/dedicatedContactCard/DedicatedLoader";
 import DedicatedContactCard from "@/components/dedicatedContactCard/DedicatedContactCard";
 
@@ -29,7 +28,6 @@ const SearchResponse = ({ initialData }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("commercial");
   const [formData, setFormData] = useState(initialData);
-  const [charterData, setcharterData] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
@@ -196,7 +194,7 @@ const SearchResponse = ({ initialData }) => {
                       );
                     },
                   )}
-                   {errorFlights && !loadingFlights && (
+                   {errorFlights  && (
                   <div className="mt-[40px]">
                     {" "}
                     <CommericialContactCard />{" "}

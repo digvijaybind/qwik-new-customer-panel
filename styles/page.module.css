@@ -2,6 +2,13 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.LandingImage {
+ background-image: url("/images/Homepage/HeroImg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(1.1); /* Adjust this value to increase brightness */
+}
 .Top_container {
   width: 80%;
   margin: auto;
@@ -18,8 +25,7 @@
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 80%
-  ;
+  width: 80%;
   transform: translateY(0);
   transition: transform 0.6s ease;
   z-index: 300;
@@ -59,7 +65,7 @@
   font-weight: 600;
 }
 .popularFleetBg {
-  background-image: url('/images/cloud-bg.jpg');
+  background-image: url("/images/cloud-bg.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -82,7 +88,7 @@
   box-shadow: 0px 10px 55px 5px #89adff33;
 }
 .lower_plane {
-  background-image: url('/images/lower_plane.png');
+  background-image: url("/images/lower_plane.png");
   background-size: cover;
   background-position: center;
 
@@ -94,7 +100,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
-    url('/images/gray_plane.jpeg');
+    url("/images/gray_plane.jpeg");
 }
 
 .form input ::placeholder {

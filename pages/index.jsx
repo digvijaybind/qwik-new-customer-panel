@@ -18,25 +18,26 @@ import MobileSearch from "@/components/mobileSearch/MobileSearch";
 import { StyledSection } from "@/components/shared";
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import { useCallback } from "react";
+import AboutAircraftUpdate from "@/components/aboutaircraft/AboutAircraftUpdate";
 
-const AboutAircraft = dynamic(() =>
-  import("@/components/aboutaircraft/AboutAircraft")
+const AboutAircraft = dynamic(
+  () => import("@/components/aboutaircraft/AboutAircraft"),
 );
-const ServicesSection = dynamic(() =>
-  import("@/components/Servicecard2/Servicecard2")
+const ServicesSection = dynamic(
+  () => import("@/components/Servicecard2/Servicecard2"),
 );
-const QwiklifFeature = dynamic(() =>
-  import("@/components/qwiklifFeatures/Qwikliffeature")
+const QwiklifFeature = dynamic(
+  () => import("@/components/qwiklifFeatures/Qwikliffeature"),
 );
-const ChooseQwiklif = dynamic(() =>
-  import("@/components/whychooseqwiklif/ChooseQwiklif")
+const ChooseQwiklif = dynamic(
+  () => import("@/components/whychooseqwiklif/ChooseQwiklif"),
 );
-const FastestMedical = dynamic(() =>
-  import("@/components/fastestmedicalcare/FastestMedical")
+const FastestMedical = dynamic(
+  () => import("@/components/fastestmedicalcare/FastestMedical"),
 );
 const LatestNew = dynamic(() => import("@/components/latestnews/LatestNew"));
-const ReviewCarosel = dynamic(() =>
-  import("@/components/reviewCarosel/ReviewCarosel")
+const ReviewCarosel = dynamic(
+  () => import("@/components/reviewCarosel/ReviewCarosel"),
 );
 const Rotatemap = dynamic(() => import("@/components/rotateMap/Rotatemap"));
 //Main component function
@@ -134,7 +135,7 @@ const Home = () => {
         {/*Navbar */}
         <Navnew />
         {/*conditional search bar component depend on view search bar will update */}
-        {!isMobile ? (
+        {/* {!isMobile ? (
           <div id="staticSection" className={`relative bottom-40 sm:hidden`}>
             <div className="flex justify-center ">
               <UpdateSearchNew
@@ -152,12 +153,71 @@ const Home = () => {
           <div className="relative top-5 flex justify-center px-5">
             <MobileSearch formData={formData} setfromSearch={setfromSearch} />
           </div>
-        )}
+        )} */}
+
+        <div
+          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20`}
+        >
+          <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] space-y-4 sm:justify-center">
+            {/* Headline */}
+            <h1 className="text-[#0E98BE] font-barlowBold text-[54px] leading-tight sm:text-[34px]">
+              LOREM IPSUM DOLOR SIT A MET CONNECTER.
+            </h1>
+
+            {/* Subheadline */}
+            <p className=" text-lg leading-relaxed font-barlowRegular text-[#1E1E1E]">
+              Lorem ipsum dolor sit amet consectetur. Condimentum accumsan
+              tellus eget quisque ut vitae. Vivamus quam tellus risus malesuada.
+            </p>
+
+            {/* Services Section - Add content here if needed */}
+            <div className="grid grid-cols-4 gap-x-4 mt-20 mb-20">
+              <div className="flex items-center space-x-2">
+                {/* Colored Dot */}
+                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#00FF00]"></div>
+
+                {/* Text */}
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold inline-block">
+                  24/7 Support
+                </span>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                {/* Colored Dot */}
+                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#FB8500]"></div>
+
+                {/* Text */}
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold inline-block">
+                  Expert Doctor
+                </span>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                {/* Colored Dot */}
+                <div className="h-3 w-3  sm:h-4 sm:w-6 rounded-full bg-[#FF0000]"></div>
+
+                {/* Text */}
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold  inline-block">
+                  Critical Care
+                </span>
+              </div>
+            </div>
+
+            {/* Call to Action Button */}
+            <button className="h-[60px] w-[350px] bg-[#0E98BE] rounded-md flex justify-center items-center text-white font-semibold cursor-pointer mt-20 sm:mt-10">
+              Book An Air Ambulance Now
+            </button>
+          </div>
+        </div>
+        {/*this is updated about us  */}
+        <div>
+          <AboutAircraftUpdate />
+        </div>
 
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
-            <AboutAircraft />
+            {/* <AboutAircraft /> */}
 
             {/*Qwiklif Feautres Component  */}
             <QwiklifFeature />
@@ -230,7 +290,7 @@ const Home = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         setSelectedCollapseIndex(
-                          SelectedCollapseIndex != index ? index : -1
+                          SelectedCollapseIndex != index ? index : -1,
                         );
                       }}
                     >

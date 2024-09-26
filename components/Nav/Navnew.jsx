@@ -40,7 +40,7 @@ const Navnew = ({ isMobile }) => {
   ];
   return (
     <div className="z-0">
-      <ImageCarousel images={images} />
+      {/* <ImageCarousel images={images} /> */}
     </div>
   );
 };
