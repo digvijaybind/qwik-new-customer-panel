@@ -83,7 +83,7 @@ const SearchResponse = ({ initialData }) => {
     setFormData(data);
   }, []);
 
-  useEffect(() => {
+  const handleApicall = () => {
     if (formData?.originLocationCode && formData?.destinationLocationCode) {
       setLoading(true);
       Promise.all([
@@ -91,7 +91,8 @@ const SearchResponse = ({ initialData }) => {
         dispatch(DedicatedApi(formData)),
       ]).finally(() => setLoading(false));
     }
-  }, [formData, dispatch]);
+  };
+ 
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -122,6 +123,7 @@ const SearchResponse = ({ initialData }) => {
                 } `}
                 formData={formData}
                 setFormData={stableSetFormData}
+                onSearch={handleApicall}
               />
             )}
 
@@ -156,53 +158,65 @@ const SearchResponse = ({ initialData }) => {
                   !isMobile || activeTab === "commercial" ? "grid" : "hidden"
                 }`}
               >
-                {loadingFlights && !errorFlights && (<div  className="mt-[40px]"><DedicatedLoader /> </div>) }
-               
+                {/* Show the loader when data is being fetched */}
+                {loadingFlights && (
+                  <div className="mt-[40px]">
+                    <DedicatedLoader />
+                  </div>
+                )}
+
+                {/* Render the flight data when loading is complete, there are no errors, and data is available */}
                 {!loadingFlights &&
                   !errorFlights &&
-                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop?.map(
-                    (data, index) => {
-                      return (
-                        <CommericialSearch
-                          key={index}
-                          isMobile={isMobile}
-                          aircraftData={data}
-                          activeTab={activeTab}
-                          availticket={
-                            commericialflights?.ResponseData?.TicketAvailability
-                          }
-                          aircraftId={commericialflights?.aircraftId}
-                        />
-                      );
-                    },
+                  commericialflights?.ResponseData?.AirCraftDatawithNotechStop
+                    ?.length > 0 &&
+                  commericialflights.ResponseData.AirCraftDatawithNotechStop.map(
+                    (data, index) => (
+                      <CommericialSearch
+                        key={index}
+                        isMobile={isMobile}
+                        aircraftData={data}
+                        activeTab={activeTab}
+                        availticket={
+                          commericialflights?.ResponseData?.TicketAvailability
+                        }
+                        aircraftId={commericialflights?.aircraftId}
+                      />
+                    ),
                   )}
 
+                {/* Render flights with a technical stop if no flights without a technical stop exist */}
                 {!loadingFlights &&
                   !errorFlights &&
                   !commericialflights?.ResponseData
                     ?.AirCraftDatawithNotechStop &&
                   commericialflights?.ResponseData?.AirCraftDatawithtechStop?.map(
-                    (data, index) => {
-                      return (
-                        <CommericialSearch
-                          key={index}
-                          isMobile={isMobile}
-                          aircraftData={data}
-                          availticket={
-                            commericialflights?.ResponseData?.TicketAvailability
-                          }
-                          aircraftId={commericialflights?.aircraftId}
-                        />
-                      );
-                    },
+                    (data, index) => (
+                      <CommericialSearch
+                        key={index}
+                        isMobile={isMobile}
+                        aircraftData={data}
+                        availticket={
+                          commericialflights?.ResponseData?.TicketAvailability
+                        }
+                        aircraftId={commericialflights?.aircraftId}
+                      />
+                    ),
                   )}
-                   {errorFlights && !loadingFlights && (
-                  <div className="mt-[40px]">
-                    {" "}
-                    <CommericialContactCard />{" "}
-                  </div>
-                )}
+
+                {/* Render the contact card if there's an error or if no data is found */}
+                {!loadingFlights &&
+                  (errorFlights ||
+                    (!commericialflights?.ResponseData
+                      ?.AirCraftDatawithNotechStop &&
+                      !commericialflights?.ResponseData
+                        ?.AirCraftDatawithtechStop)) && (
+                    <div className="mt-[40px]">
+                      <CommericialContactCard />
+                    </div>
+                  )}
               </div>
+
               <div
                 className={`grid grid-cols-1 gap-4  ${
                   !isMobile || activeTab === "chartered" ? "grid" : "hidden"

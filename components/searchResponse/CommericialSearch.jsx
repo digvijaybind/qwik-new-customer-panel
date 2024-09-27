@@ -16,7 +16,7 @@ import Ethiads from "../../public/images/airlineslogo/etihad-airways.png";
 import Indigo from "../../public/images/airlineslogo/indigo.png";
 import KLMAirline from "../../public/images/airlineslogo/KLM-Royal-Dutch-Airlines.png";
 import Lufthansa from "../../public/images/airlineslogo/Lufthansa.png";
-import malesiyaAirline from "../../public/images/airlineslogo/malaysi-airlines.png";
+import malesiyaAirline from "../../public/images/airlineslogo/Malaysia Airlines.png";
 import PhillippinesAirlines from "../../public/images/airlineslogo/PhilippineAirlines.png";
 import Quantas from "../../public/images/airlineslogo/Qantas.png";
 import QatarAirway from "../../public/images/airlineslogo/Qatar-airways.png";

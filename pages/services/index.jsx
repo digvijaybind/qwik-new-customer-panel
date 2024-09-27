@@ -40,6 +40,10 @@ const Services = ({ services }) => {
                 head={data.head}
                 text={data.text}
                 slug={data.slug}
+                description={data.description} y
+                services={data.services}
+                whyChooseUs={data.whyChooseUs}
+                contactCTA={data.contactCTA}
               ></Updatecard>
             </div>
           ))}

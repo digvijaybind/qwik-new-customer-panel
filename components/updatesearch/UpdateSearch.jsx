@@ -88,7 +88,7 @@ const CustomCountrySelect = ({ value, onChange, labels, ...rest }) => {
 };
 
 const UpdateSearchNew = React.memo(
-  ({ className, onClick, setFormData, formData = {}, btnClassName = "" }) => {
+  ({ className, onSearch, setFormData, formData = {}, btnClassName = "" }) => {
     const router = useRouter();
     const [scrollDirection, setScrollDirection] = useState("static");
     const [isScrolled, setIsScrolled] = useState(false);
@@ -101,7 +101,7 @@ const UpdateSearchNew = React.memo(
     const [activeInput, setActiveInput] = useState(null);
     const search = async (searchTerm, name) => {
       setActiveInput(name);
-      
+
       if (name === "originLocationCode") {
         setLoadingFrom(true);
       } else if (name === "destinationLocationCode") {
@@ -110,14 +110,12 @@ const UpdateSearchNew = React.memo(
 
       try {
         const response = await apiClient.get(
-          `${Endpoint.Allairports}?q=${searchTerm}`
+          `${Endpoint.Allairports}?q=${searchTerm}`,
         );
 
         if (name === "originLocationCode") {
-         
           setResultsFrom(response.data);
         } else if (name === "destinationLocationCode") {
-        
           setResultsTo(response.data);
         }
       } catch (error) {
@@ -135,7 +133,7 @@ const UpdateSearchNew = React.memo(
       _debounce((SearchTerm, name) => {
         search(SearchTerm, name);
       }, 600),
-      []
+      [],
     );
 
     const handleChange = (e) => {
@@ -157,6 +155,12 @@ const UpdateSearchNew = React.memo(
         [name]: value,
       }));
     };
+
+    const handleSearch=()=>{
+      if(onSearch){
+        onSearch(formData)
+      }
+    }
 
     useEffect(() => {
       let lastScrollY = window.scrollY;
@@ -216,8 +220,8 @@ const UpdateSearchNew = React.memo(
             ? scrollDirection === "up"
               ? "sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]"
               : scrollDirection === "down"
-              ? "sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]"
-              : ""
+                ? "sticky top-10 z-10 bg-white shadow-2xl rounded-md py-3 px-4 transition-transform duration-300 translate-y-0 w-[75%]"
+                : ""
             : "bg-white rounded-md shadow-2xl py-3 px-5 transition-transform duration-300"
         } ${className}`}
       >
@@ -337,14 +341,14 @@ const UpdateSearchNew = React.memo(
           </div>
           <button
             className={`font-sans font-bold text-[18px] ${styles.searchButton} px-[20px] py-[20px] rounded-full flex justify-center items-center mt-8 text-[#fff]  sm:py-0 ${btnClassName}`}
-            onClick={onClick}
+            onClick={()=>handleSearch()}
           >
             Search Now
           </button>
         </form>
       </div>
     );
-  }
+  },
 );
 
 UpdateSearchNew.displayName = "UpdateSearchNew";
