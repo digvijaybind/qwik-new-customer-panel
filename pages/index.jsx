@@ -161,13 +161,14 @@ const Home = () => {
           <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] space-y-4 sm:justify-center">
             {/* Headline */}
             <h1 className="text-[#0E98BE] font-barlowBold text-[54px] leading-tight sm:text-[34px]">
-              LOREM IPSUM DOLOR SIT A MET CONNECTER.
+              Fast, Trusted <br />
+              Air Ambulance Care.
             </h1>
 
             {/* Subheadline */}
             <p className=" text-lg leading-relaxed font-barlowRegular text-[#1E1E1E]">
-              Lorem ipsum dolor sit amet consectetur. Condimentum accumsan
-              tellus eget quisque ut vitae. Vivamus quam tellus risus malesuada.
+              Expert air medical transport ensuring critical care and rapid
+              response, tailored to meet urgent needs across the globe.
             </p>
 
             {/* Services Section - Add content here if needed */}

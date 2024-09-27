@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "/images/Homepage/aboutsSection/Patient.png",
+    "text": "450+",
+    "title": "Patient Transferred "
+  },
+  {
+    "icon": "/images/Homepage/aboutsSection/doctor.png",
+    "text": "15+",
+    "title": "Expert Doctor"
+  },
+  {
+    "icon": "/images/Homepage/aboutsSection/Global.png",
+    "text": "7000+",
+    "title": "Global Affiliation"
+  },
+  {
+    "icon": "/images/Homepage/aboutsSection/fleet.png",
+    "text": "25+",
+    "title": "Fleet Network"
+  }
+]

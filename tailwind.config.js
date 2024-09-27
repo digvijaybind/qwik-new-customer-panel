@@ -27,8 +27,9 @@ module.exports = {
       ],
       Inter: ["Inter-Regular", "sans-serif"],
       barlowRegular: ["Barlow-regular", "sans-serif"],
-      barlowBold: ["Barlow-bold", "sans-serif"], 
-      barlowSemiBold: ["Barlow-SemiBold", "sans-serif"], 
+      barlowBold: ["Barlow-bold", "sans-serif"],
+      barlowSemiBold: ["Barlow-SemiBold", "sans-serif"],
+      BarlowExtraBold: ["Barlow-extraBold", "sans-serif"]
     },
     extend: {
       colors: {

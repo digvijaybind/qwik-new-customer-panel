@@ -82,3 +82,8 @@
   src: local('Barlow'),
     url('./barlow/Barlow-SemiBold.ttf') format('ttf');
 }
+@font-face {
+  font-family: 'Barlow-extraBold';
+  src: local('Barlow'),
+    url('./barlow/Barlow-ExtraBold.ttf') format('ttf');
+}
