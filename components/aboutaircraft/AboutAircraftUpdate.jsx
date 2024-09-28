@@ -1,14 +1,20 @@
 import React from "react";
 import AboutData from "../../data/updateAboutUsSection.json";
 import Image from "next/image";
+import styles from "./AboutAircraftupdate.module.css";
 
 const IconWithTitle = ({ icon, text, title }) => {
   return (
-    <div className="flex items-center justify-between gap-4 p-4 border-2 border-[#11B6E3] opacity-50 rounded-lg shadow-md">
-      <div className="flex items-center justify-center h-[100px] w-[100px]">
+    <div
+      className={`${styles.iconContainer} flex items-center justify-between gap-4 p-4 rounded-lg`} 
+    >
+      {/* Icon Container */}
+      <div className="flex items-center justify-center h-24 w-24">
         <Image src={icon} alt={text} width={80} height={50} />
       </div>
-      <div className="flex flex-col items-center">
+
+      {/* Text Content */}
+      <div className="flex flex-col items-center text-center">
         <span className="font-barlowSemiBold text-4xl">{text}</span>
         <span className="font-barlowRegular text-xl text-gray-600">
           {title}
@@ -64,7 +70,7 @@ const AboutAircraftUpdate = () => {
           })}
         </div>
         {/*right Section and */}
-        <div className="h-[70px] w-[240px] font-barlowSemiBold text-[28px] text-[#fff] bg-gradient-to-r from-[#0E98BE] to-[#11B6E3] rounded-lg text-center flex justify-center items-center cursor-pointer mt-5">
+        <div className="h-[70px] w-[240px] font-barlowSemiBold text-[28px] text-[#fff] bg-gradient-to-r from-[#0E98BE] to-[#11B6E3] rounded-lg text-center flex justify-center items-center cursor-pointer mt-10">
           Learn More
         </div>
       </div>

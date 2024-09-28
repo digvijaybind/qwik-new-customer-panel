@@ -1,0 +1,12 @@
+/* styles.css or global.css */
+.iconContainer {
+  border: 2px solid transparent;
+  border-image-source: linear-gradient(
+    98.01deg,
+    rgba(17, 182, 227, 0.5) -9.12%,
+    rgba(17, 182, 227, 0.1) 100%
+  );
+  border-image-slice: 1;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
