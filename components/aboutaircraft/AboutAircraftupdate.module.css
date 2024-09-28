@@ -10,3 +10,10 @@
   border-radius: 20px !important;
   overflow: hidden;
 }
+
+.ImagesContainer {
+  position: relative;
+  left: 230px;
+  bottom: 105px;
+  width: 396px;
+}

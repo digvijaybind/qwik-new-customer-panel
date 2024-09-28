@@ -19,6 +19,8 @@ import { StyledSection } from "@/components/shared";
 import UpdateSearchNew from "@/components/updatesearch/UpdateSearch";
 import { useCallback } from "react";
 import AboutAircraftUpdate from "@/components/aboutaircraft/AboutAircraftUpdate";
+import ServicesHight from "@/components/serviceshight/ServicesHight";
+import ServiceUpdate from "@/components/Servicecard2/ServiceUpdate";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -160,68 +162,72 @@ const Home = () => {
         >
           <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] space-y-4 sm:justify-center">
             {/* Headline */}
-            <h1 className="text-[#0E98BE] font-barlowBold text-[54px] leading-tight sm:text-[34px]">
+            <h1 className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight sm:text-[34px]">
               Fast, Trusted <br />
               Air Ambulance Care.
             </h1>
 
             {/* Subheadline */}
-            <p className=" text-lg leading-relaxed font-barlowRegular text-[#1E1E1E]">
+            <p className="text-lg leading-relaxed font-barlow font-regular text-[#1E1E1E]">
               Expert air medical transport ensuring critical care and rapid
               response, tailored to meet urgent needs across the globe.
             </p>
 
-            {/* Services Section - Add content here if needed */}
+            {/* Services Section */}
             <div className="grid grid-cols-4 gap-x-4 mt-20 mb-20">
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
                 <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#00FF00]"></div>
-
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
                   24/7 Support
                 </span>
               </div>
-
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
                 <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#FB8500]"></div>
-
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
                   Expert Doctor
                 </span>
               </div>
-
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
-                <div className="h-3 w-3  sm:h-4 sm:w-6 rounded-full bg-[#FF0000]"></div>
-
+                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#FF0000]"></div>
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlowBold  inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
                   Critical Care
                 </span>
               </div>
             </div>
 
             {/* Call to Action Button */}
-            <button className="h-[60px] w-[350px] bg-[#0E98BE] rounded-md flex justify-center items-center text-white font-semibold cursor-pointer mt-20 sm:mt-10">
+            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-20 sm:mt-10">
               Book An Air Ambulance Now
             </button>
           </div>
         </div>
+
         {/*this is updated about us  */}
         <div>
           <AboutAircraftUpdate />
         </div>
 
+        {/*Services hightlight */}
+        <div>
+          <ServicesHight />
+        </div>
+
+        <div className="mt-10">
+          <ServiceUpdate />
+        </div>
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
             {/* <AboutAircraft /> */}
 
             {/*Qwiklif Feautres Component  */}
-            <QwiklifFeature />
+            {/* <QwiklifFeature /> */}
           </StyledSection>
           <StyledSection ClassName="sm:mt-25">
             <ServicesSection />
