@@ -14,20 +14,7 @@ const Updatecard = ({
 }) => {
   const router = useRouter();
   const handlenavigate = (slug) => {
-    console.log("slug from cards", `/${slug}`);
-    router.push({
-      pathName: `/${slug}`,
-      query: {
-        img,
-        head,
-        text,
-        slug,
-        description,
-        services,
-        whyChooseUs,
-        contactCTA,
-      },
-    });
+    router.push(`services/${slug}`);
   };
   return (
     <div className="flex justify-between sm:justify-stretch flex-row sm:flex-col sm:flex-wrap items-start shadow-md bg-white rounded-[10px] p-[15px] cursor-pointer font-sans transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-[500px] sm:w-[400px] h-[300px] sm:h-[500px]">
@@ -41,7 +28,7 @@ const Updatecard = ({
         <p className="text-[14px] text-center opacity-[90%] font-medium py-[10px] font-Poppins mb-3 sm:mb-2">
           {text}
         </p>
-      
+
         <button
           className="border-[#396CF0] mt-[10px] mb-[10px] border-[1px] px-[15px] py-[7px] rounded-[5px] font-Poppins font-semibold mx-auto"
           onClick={() => handlenavigate(slug)}

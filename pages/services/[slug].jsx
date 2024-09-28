@@ -1,13 +1,12 @@
 "use client";
-import style from "./About.module.css";
+import style from "./Services.module.css";
 import { aboutsList } from "@/utils/contants";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Services = () => {
   const router = useRouter();
- const { img, head, text, description, services, whyChooseUs, contactCTA } =
-   router.query;
+
   const [details, setDetails] = useState({});
 
   useEffect(() => {
@@ -17,6 +16,7 @@ const Services = () => {
     setDetails(articleDetails);
   }, [router?.query?.slug]);
 
+  console.log("details  line 19 ", details);
   return (
     <div className="font-Inter">
       <div

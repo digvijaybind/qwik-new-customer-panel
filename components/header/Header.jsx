@@ -5,8 +5,9 @@ import styles from "./Header.module.css";
 import Link from "next/link";
 import { useState } from "react";
 import { BsTelephoneFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
-//Navigation Tabs
+// Navigation Tabs
 const tabs = [
   {
     title: "Home",
@@ -34,9 +35,8 @@ const tabs = [
   },
   {
     title: "Blog",
-    url: "/blogs",
+    url: "https://qwiklif.com/blog/",
   },
-
   {
     title: "Contact",
     url: "/contact",
@@ -44,15 +44,15 @@ const tabs = [
 ];
 
 const Header = () => {
-  //state for active and scroll position
-
+  const router = useRouter(); // Access the Next.js router
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("static");
 
-  //Handle tab click
-  const handleTabClick = (index) => {
+  // Handle tab click
+  const handleTabClick = (index, url) => {
     setActiveTab(index);
+    router.push(url);
   };
 
   useEffect(() => {
@@ -83,10 +83,9 @@ const Header = () => {
   return (
     <div className={`${isScrolled ? styles.header2 : styles.header}`}>
       <div
-        className={` ${styles.shadow}   px-[50px] font-sans font-normal flex justify-between items-center flex-row w-full`}
+        className={` ${styles.shadow} px-[50px] font-sans font-normal flex justify-between items-center flex-row w-full`}
       >
         {/* Logo */}
-
         <div className={styles.logo}>
           <Link href="/">
             <div className="relative h-[60px] w-[150px]">
@@ -96,31 +95,26 @@ const Header = () => {
         </div>
 
         {/* Navigation Tabs */}
-
         <div
-          className={`flex flex-row items-center ${styles.MenuTabResposive}`}
+          className={`flex flex-row items-center ${styles.MenuTabResponsive}`}
         >
           <ul className={`flex flex-row`}>
             {tabs.map((tab, index) => (
-              <Link href={tab.url} key={"menu-item" + index}>
-                <li
-                  key={index}
-                  className={`cursor-pointer py-5 px-5  border-b-2 text-[16px]  font-[500] font-sans text-[#000]  ${
-                    index === activeTab
-                      ? "border-[#000]  text-[#000]"
-                      : "border-transparent text-[#000]"
-                  }
-${isScrolled ? "text-[#fff]" : "text-[#000]"}`}
-                  onClick={() => handleTabClick(index)}
-                >
-                  {tab.title}
-                </li>
-              </Link>
+              <li
+                key={index}
+                className={`cursor-pointer py-5 px-5 border-b-2 text-[16px] font-[500] font-sans text-[#000] ${
+                  index === activeTab
+                    ? "border-[#000] text-[#000]"
+                    : "border-transparent text-[#000]"
+                } ${isScrolled ? "text-[#fff]" : "text-[#000]"}`}
+                onClick={() => handleTabClick(index, tab.url)} // Pass the tab URL
+              >
+                {tab.title}
+              </li>
             ))}
           </ul>
 
-          {/* Telephone  Section */}
-
+          {/* Telephone Section */}
           <div className={styles.telephone}>
             <div className={styles.Innertelephone}>
               <BsTelephoneFill style={{ color: "white" }} />

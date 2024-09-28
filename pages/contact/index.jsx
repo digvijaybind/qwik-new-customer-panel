@@ -26,7 +26,7 @@ const CustomPhoneInput = React.forwardRef(
         placeholder="Enter Number"
       />
     );
-  }
+  },
 );
 
 CustomPhoneInput.displayName = "CustomPhoneInput";
@@ -198,7 +198,7 @@ const Contact = ({ mapInframeUrl }) => {
               </div>
             </div>
             <div className="flex justify-between sm:flex-col">
-              <div className="flex flex-col justify-start mr-3 sm:mr-0  w-1/2 sm:w-full">
+              <div className="flex flex-col justify-start mr-3 sm:mr-0   sm:w-full">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -215,9 +215,9 @@ const Contact = ({ mapInframeUrl }) => {
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col justify-start mr-3 sm:mr-0  w-1/2 sm:w-full">
+              <div className="flex flex-col justify-items-end  sm:mr-0 w-1/2 sm:w-full f">
                 <label
-                  for="fname"
+                  htmlFor="phone"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
                 >
                   Phone Number :-
@@ -225,7 +225,7 @@ const Contact = ({ mapInframeUrl }) => {
 
                 <PhoneInput
                   defaultCountry="AE"
-                  className={`${styles.phoneInput}  bg-[#dcdcdc]  rounded-md h-[40px] mt-2 font-bold text-[14px]`}
+                  className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[10px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none font-bold text-[14px]"
                   placeholder="Enter Number"
                   name="mobile"
                   value={formData.mobile}

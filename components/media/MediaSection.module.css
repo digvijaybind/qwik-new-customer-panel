@@ -1,14 +1,45 @@
-/* styles/ImageComponent.module.css */
-
-.imageContainer {
-  position: relative;
-  overflow: hidden;
+/* MediaSection.module.css */
+.card {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  border-radius: 10px;
+  width: 100%; /* Ensures card takes full available width */
+  max-width: 350px; /* Set a maximum width for each card */
+  margin: 0 auto; /* Centers the card within the grid column */
+  background-color: #fff;
 }
 
-.image {
-  transition: transform 0.3s ease-in-out;
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
-.image:hover {
-  transform: scale(1.1); /* You can adjust the scale factor for your desired effect */
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.3s ease;
+  width: 100%; /* Ensures image takes full card width */
+  height: 200px; /* Set a fixed height for images */
+  object-fit: cover; /* Ensures the image covers the space properly */
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 16px; /* Adds padding around the card content */
+  text-align: center; /* Centers the text within the card */
+}
+
+.card-content h3 {
+  font-size: 1.25rem; /* Adjusts the font size for the title */
+  margin-bottom: 8px; /* Adds space below the title */
+  color: #333;
+}
+
+.card-content p {
+  font-size: 0.9rem; /* Adjusts the font size for the description */
+  color: #666;
 }
