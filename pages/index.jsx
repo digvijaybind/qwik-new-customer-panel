@@ -21,6 +21,8 @@ import { useCallback } from "react";
 import AboutAircraftUpdate from "@/components/aboutaircraft/AboutAircraftUpdate";
 import ServicesHight from "@/components/serviceshight/ServicesHight";
 import ServiceUpdate from "@/components/Servicecard2/ServiceUpdate";
+import Bookambulance from "@/components/bookambulance/Bookambulance";
+import WhychooseQwiklif from "@/components/whychooseqwiklif/WhychooseQwiklif";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -218,9 +220,26 @@ const Home = () => {
           <ServicesHight />
         </div>
 
+        {/*Our services*/}
         <div className="mt-10">
           <ServiceUpdate />
         </div>
+
+        {/*How to book air ambulance */}
+        <div>
+          <Bookambulance />
+        </div>
+
+        {/*Why to choose qwiklif */}
+        <div className="">
+          
+        </div>
+
+        {/*Why to trust on Qwiklif? */}
+        <div className="">
+          <WhychooseQwiklif />
+        </div>
+
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
