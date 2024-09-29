@@ -164,8 +164,8 @@ const Contact = ({ mapInframeUrl }) => {
             className="flex flex-col justify-center  px-[30px] py-[20px] bg-[#fff]"
             onSubmit={handlesubmit}
           >
-            <div className="flex justify-between sm:flex-col">
-              <div className="flex flex-col justify-start mr-3 sm:mr-0">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex flex-col justify-start">
                 <label className="font-bold text-[15px] bg-[#fff] mt-2 font-sans">
                   From : -
                 </label>
@@ -179,7 +179,7 @@ const Contact = ({ mapInframeUrl }) => {
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col justify-start mr-3 sm:mr-0 ">
+              <div className="flex flex-col justify-start">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -197,8 +197,8 @@ const Contact = ({ mapInframeUrl }) => {
                 />
               </div>
             </div>
-            <div className="flex justify-between sm:flex-col">
-              <div className="flex flex-col justify-start mr-3 sm:mr-0   sm:w-full">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex flex-col justify-start">
                 <label
                   for="fname"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -215,7 +215,7 @@ const Contact = ({ mapInframeUrl }) => {
                   className="w-full h-[40px] border-2 border-gray-200 rounded-md px-[40px] mt-2 bg-[#dcdcdc] focus:border-transparent focus:outline-none"
                 />
               </div>
-              <div className="flex flex-col justify-items-end  sm:mr-0 w-1/2 sm:w-full f">
+              <div className="flex flex-col justify-items-end">
                 <label
                   htmlFor="phone"
                   className="font-bold text-[15px] bg-[#fff] mt-2 font-sans"
@@ -253,14 +253,14 @@ const Contact = ({ mapInframeUrl }) => {
             </div>
           </div>
           <div className="flex flex-col justify-center items-center">
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-center gap-5 flex-row items-center w-full sm:w-2/3 px-10 sm:px-0">
               <FaLocationDot style={{ height: "30px", width: "30px" }} />
               <div className="text-[13px] text-[#000] w-2/3  font-Poppins sm:font-medium sm:text-base">
                 Qwiklif Air Ambulance ,Regus Dafza,8W Level 5,Dubai Airport
                 freezone, Dubai.
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-center gap-5 flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
               <a href="mailto:info@qwiklif.com">
                 <MdEmail style={{ height: "30px", width: "30px" }} />
               </a>
@@ -268,7 +268,7 @@ const Contact = ({ mapInframeUrl }) => {
                 <a href="mailto:info@qwiklif.com"> info@qwiklif.com</a>
               </div>
             </div>
-            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-between flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
+            <div className="text-[10px] font-sans mt-5 text-[#000] font-black flex justify-center gap-5 flex-row items-center w-full sm:w-2/3 px-10 sm:px-0 cursor-pointer">
               <a
                 href="https://wa.me/971552087745"
                 target="_blank"

@@ -72,7 +72,7 @@ const servicesData = [
       "For emergency medical evacuation or inquiries regarding our specialized air ambulance services, trust QwikLif Air Ambulance. Your health and safety are our top priorities.",
   },
   {
-    slug: "neonatal-and-pediatric-air-transfer-services",
+    slug: "international-patient-transfer",
     title: "International Patient Transfer",
     bannerImage: "/images/services/International-Patient.png",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-2-230x230.png",

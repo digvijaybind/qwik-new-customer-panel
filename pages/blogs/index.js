@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export async function getStaticProps() {
-  const res = await fetch("");
+  const res = await fetch("https://qwiklif.com/wp-json/wp/v2/posts");
   const blogs = await res.json();
   return {
     props: {
@@ -34,15 +34,33 @@ const BlogHeader = () => {
 };
 
 const Bloglist = ({ blogs }) => {
+  console.log("blogs", blogs);
   return (
     <div className="">
       <BlogHeader />
-      <div>
-        {blogs.map((blog) => (
-          <div key={blog.id}>
-            <h2> {blog.title.rendered}</h2>
-            <p>{blog.excerpt.rendered}</p>
-            <Link href={`/blog/${blog.slug}`}>Read More</Link>
+      <div className="grid grid-cols-3 gap-8   px-28 py-20">
+        {blogs?.map((blog) => (
+          <div key={blog?.id} className="bg-white drop-shadow-xl">
+            <img
+              src={blog?.yoast_head_json?.og_image?.[0]?.url}
+              alt={blog?.title?.rendered}
+              className="w-full aspect-[16/11] object-cover object-top"
+            />
+            <div className="w-full p-8">
+              <h2 className="text-2xl font-semibold">
+                {blog?.title?.rendered}
+              </h2>
+              <p
+                dangerouslySetInnerHTML={{ __html: blog?.excerpt?.rendered }}
+                className="mt-4 mb-6 text-base line-clamp-3"
+              ></p>
+              <Link
+                href={`/blog/${blog?.slug}`}
+                className="bg-primary text-white px-3 py-2 rounded-sm"
+              >
+                Read More
+              </Link>
+            </div>
           </div>
         ))}
         ``

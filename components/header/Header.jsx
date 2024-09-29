@@ -35,7 +35,7 @@ const tabs = [
   },
   {
     title: "Blog",
-    url: "",
+    url: "/blogs",
   },
   {
     title: "Contact",

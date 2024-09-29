@@ -31,7 +31,7 @@ const Services = () => {
   return (
     <div className="font-Inter">
       <div
-        className={`${style.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-center items-center pt-[220px] pb-32`}
+        className={`${style.servicesSlugHeader} bg-opacity-10 bg-center bg-no-repeat !bg-cover flex justify-center items-center pt-[220px] pb-32`}
       >
         <p className="text-white text-5xl font-bold font-arcaMajoraHeavy">
           {details?.head}
@@ -39,12 +39,12 @@ const Services = () => {
       </div>
       <div className="py-10 px-20 flex items-center flex-col justify-center">
         <div className="w-8/12">
-          <img src={details?.img} alt="Banner" className="w-full mb-6" />
+          <img src={details?.img} alt="Banner" className="w-full mb-6 h-[500px] object-cover object-top" />
           <h2 className="font-arcaMajoraHeavy font-semibold text-2xl">
             {details?.head}
           </h2>
           <hr className="bg-primary rounded-full h-[4px] w-16 mb-5 mt-3" />
-          <p className="mb-10 text-opacity-10 font-medium">{details?.text}</p>
+          <p className="mb-10 text-opacity-10 font-medium">{details?.description}</p>
         </div>
       </div>
     </div>

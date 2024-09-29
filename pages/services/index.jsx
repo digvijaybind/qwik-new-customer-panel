@@ -21,26 +21,27 @@ const Services = ({ services }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#efefef]">
+      <div className="bg-[#F5F8FF]">
         <div className="text-center w-[50%] sm:w-[80%] m-auto py-[30px]">
-          <h2 className="text-[25px] text-[#111]  font-extrabold relative inline-block font-sans">
+          <h2 className="text-3xl text-[#111]  font-extrabold relative inline-block font-sans">
             Our Services
-            <span className="block bg-[#11B6E3] h-[3px] w-[45px] mx-auto mt-1"></span>
+            <span className="block bg-[#11B6E3] h-[4px] w-12 rounded-full mx-auto mt-1"></span>
           </h2>
-          <p className="pt-[10px] font-Poppins font-medium text-slate-700">
+          <p className="pt-[10px] font-Poppins font-medium text-slate-700 px-36">
             At Qwiklif, We Are Dedicated To Providing The Highest Level Of Care
             And Service When It Matters Most.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 md:grid-cols-1 px-[10%] sm:px-[5px]  pb-10">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-1 md:grid-cols-1 px-[12%] sm:px-[5px]  pb-10">
           {services?.map((data, i) => (
-            <div className={`w-[50%] sm:w-[100%] mt-[20px]`} key={i}>
+            <div className={`w-full`} key={i}>
               <Updatecard
                 img={data.img}
                 head={data.head}
                 text={data.text}
                 slug={data.slug}
-                description={data.description} y
+                description={data.description}
+                y
                 services={data.services}
                 whyChooseUs={data.whyChooseUs}
                 contactCTA={data.contactCTA}
