@@ -14,7 +14,20 @@ const Updatecard = ({
 }) => {
   const router = useRouter();
   const handlenavigate = (slug) => {
-    router.push(`services/${slug}`);
+    // router.push(`services/${slug}`);
+    router.push({
+      pathname: `/${slug}`,
+      query: {
+        img,
+        head,
+        text,
+        slug,
+        description,
+        services,
+        whyChooseUs,
+        contactCTA,
+      },
+    });
   };
   return (
     <div className="flex justify-between sm:justify-stretch flex-row sm:flex-col sm:flex-wrap items-start shadow-md bg-white rounded-[10px] p-[15px] cursor-pointer font-sans transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-[500px] sm:w-[400px] h-[300px] sm:h-[500px]">

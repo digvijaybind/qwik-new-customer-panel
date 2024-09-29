@@ -35,7 +35,7 @@ const tabs = [
   },
   {
     title: "Blog",
-    url: "https://qwiklif.com/blog/",
+    url: "",
   },
   {
     title: "Contact",

@@ -1,22 +1,33 @@
 "use client";
 import style from "./Services.module.css";
-import { aboutsList } from "@/utils/contants";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import servicesData from "@/data/subservices";
 
 const Services = () => {
   const router = useRouter();
+  const {
+    img,
+    head,
+    text,
+    slug,
+    description,
+    services,
+    whyChooseUs,
+    contactCTA,
+  } = router.query;
+  console.log("data of services ", router.query);
 
   const [details, setDetails] = useState({});
-
+  console.log("deatils slugs", details);
   useEffect(() => {
-    const articleDetails = aboutsList?.find(
+    const articleDetails = servicesData?.find(
       (d) => d?.slug === router.query.slug,
     );
     setDetails(articleDetails);
   }, [router?.query?.slug]);
 
-  console.log("details  line 19 ", details);
+  
   return (
     <div className="font-Inter">
       <div

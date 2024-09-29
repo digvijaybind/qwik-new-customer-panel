@@ -1,26 +1,31 @@
 [
   {
     "title": "International Patient Transfer",
+    "slug": "neonatal-and-pediatric-air-transfer-services",
     "description": "Cost-Effective Air Ambulance Solutions Worldwide QwikLif Air Ambulance specializes in providing cost-effective and reliable international…",
     "image": "/images/services/1.png"
   },
   {
     "title": "Commercial Stretcher Transfer",
+    "slug":"commercial-stretcher-transfer",
     "description": "Efficient Patient Transport via Commercial Airlines with Stretcher Configurations QwikLif Air Ambulance offers reliable and…",
     "image": "/images/services/2-1.png"
   },
   {
     "title": "Neonatal and Pediatric Air Transfer Services",
+    "slug": "neonatal-and-pediatric-air-transfer-services",
     "description": "Expert Transport for Neonates and Pediatric Patients QwikLif Air Ambulance specializes in safe and expert…",
     "image": "/images/services/5.png"
   },
   {
     "title": "ECMO Initiation and Air Transfer Services",
+    "slug": "ecmo-initiation-and-air-transfer-services",
     "description": "Expert ECMO Assistance with Global Air Ambulance Solutions QwikLif Air Ambulance specializes in expert ECMO…",
     "image": "/images/services/Untitled-design-2.png"
   },
   {
     "title": "Dedicated Air Ambulance",
+    "slug":"dedicated-air-ambulance",
     "description": "Swift and Expert Medical Transport Anywhere, Anytime QwikLif Air Ambulance offers unparalleled specialized air ambulance…",
     "image": "/images/services/challenger-605-1.jpg"
   }

@@ -1,6 +1,6 @@
 const servicesData = [
   {
-    slug: "neonatal-and-pediatric",
+    slug: "neonatal-and-pediatric-air-transfer-services",
     title: "Neonatal and Pediatric Air Transfer Services",
     bannerImage: "/images/services/Neonatal-and-Pediatric.png",
     img: "https://qwiklif.com/wp-content/uploads/2024/01/1-230x230.png",
@@ -24,7 +24,7 @@ const servicesData = [
       "For inquiries or bookings related to Neonatal and Pediatric air transfers, connect with QwikLif Air Ambulance. We prioritize safe and expert medical transport for infants and children worldwide.",
   },
   {
-    slug: "ecmo-initiation",
+    slug: "ecmo-initiation-and-air-transfer-services",
     title: "ECMO Initiation and Air Transfer Services",
     bannerImage: "/images/services/ECMO-Initiation.png",
     img: "https://qwiklif.com/wp-content/uploads/2024/01/5-230x230.png",
@@ -48,7 +48,7 @@ const servicesData = [
       "Connect with QwikLif Air Ambulance for inquiries or bookings related to ECMO initiation and air transfers. We’re committed to providing expert medical transport solutions worldwide.",
   },
   {
-    slug: "dedicated-air",
+    slug: "dedicated-air-ambulance",
     title: "Dedicated Air Ambulance",
     bannerImage: "/images/services/Dedicated-Air-Ambulance.jpg",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/challenger-605_1-re-230x230.jpg",
@@ -72,7 +72,7 @@ const servicesData = [
       "For emergency medical evacuation or inquiries regarding our specialized air ambulance services, trust QwikLif Air Ambulance. Your health and safety are our top priorities.",
   },
   {
-    slug: "international",
+    slug: "neonatal-and-pediatric-air-transfer-services",
     title: "International Patient Transfer",
     bannerImage: "/images/services/International-Patient.png",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-2-230x230.png",
@@ -96,7 +96,7 @@ const servicesData = [
       "For inquiries or bookings regarding international patient transfers, connect with QwikLif Air Ambulance. We’re committed to efficient and affordable medical transport for patients worldwide.",
   },
   {
-    slug: "commercial",
+    slug: "commercial-stretcher-transfer",
     title: "Commercial Stretcher Transfer",
     bannerImage: "/images/services/Commercial-Stretcher-Transfer.png",
     img: "https://qwiklif.com/wp-content/uploads/2019/01/Untitled-design-3-230x230.png",
