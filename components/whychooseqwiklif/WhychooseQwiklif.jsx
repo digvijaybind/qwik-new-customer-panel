@@ -53,13 +53,28 @@ const WhychooseQwiklif = () => {
   return (
     <div className="flex flex-col items-center justify-center  py-10 px-4">
       {/* Video Carousel */}
-      <Slider {...settings} className="w-full max-w-4xl">
-        {videos.map((video) => (
-          <div key={video.id} className="grid grid-cols-3 gap-4">
-            <VideoCard video={video} />
-          </div>
-        ))}
-      </Slider>
+
+      <div className="flex justify-center items-center flex-col p-8">
+        {/* Heading Section */}
+
+        <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+          Why people trust Qwiklif?
+        </div>
+        {/* Card Slider */}
+        <div className="w-full max-w-7xl px-4">
+          <Slider {...settings} className="w-full max-w-4xl">
+            {videos.map((video) => (
+              <div key={video.id} className="grid grid-cols-3 gap-4">
+                <VideoCard video={video} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        {/* See More Button */}
+        <div className="w-[240px] h-[70px] bg-button-gradient  mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+          See More
+        </div>
+      </div>
     </div>
   );
 };

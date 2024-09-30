@@ -24,6 +24,8 @@ import ServiceUpdate from "@/components/Servicecard2/ServiceUpdate";
 import Bookambulance from "@/components/bookambulance/Bookambulance";
 import WhychooseQwiklif from "@/components/whychooseqwiklif/WhychooseQwiklif";
 import NewsUpdate2 from "@/components/NewsUpdates/NewsUpdate2";
+import Reviewupdate from "@/components/Review/Reviewupdate";
+import LoactionUpdate from "@/components/locationupdate/LoactionUpdate";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -212,12 +214,12 @@ const Home = () => {
         </div>
 
         {/*this is updated about us  */}
-        <div>
+        <div ClassName="mt-10">
           <AboutAircraftUpdate />
         </div>
 
         {/*Services hightlight */}
-        <div>
+        <div ClassName="mt-10">
           <ServicesHight />
         </div>
 
@@ -227,26 +229,38 @@ const Home = () => {
         </div>
 
         {/*How to book air ambulance */}
-        <div>
+        <div className="mt-10">
           <Bookambulance />
         </div>
 
         {/*Why to choose qwiklif */}
-        <div className="">
-          
-        </div>
+        <div className="mt-10"></div>
 
         {/*Why to trust on Qwiklif? */}
-        <div className="">
+        <div className="mt-10">
           <WhychooseQwiklif />
         </div>
 
         {/* News and update*/}
 
-       <div>
-        <NewsUpdate2/>
+        <div className="mt-10">
+          <NewsUpdate2 />
         </div>
 
+        {/* review */}
+
+        <div className="mt-10">
+          <Reviewupdate />
+        </div>
+
+        {/* get in touch */}
+        <div></div>
+
+        {/* location */}
+
+        <div>
+          <LoactionUpdate />
+        </div>
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
