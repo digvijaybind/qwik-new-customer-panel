@@ -8,13 +8,11 @@ import ServicesData from "../../db/services.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ServiceCard = ({
-  img,
-  headline = "Default Headline",
-  description = "Default description",
-}) => {
+const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-start border px-3 sm:px-0  rounded-lg font-sans cursor-pointer shadow-md py-5">
+    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-md py-5 h-[460px]">
+      {" "}
+      {/* Set a fixed height */}
       {/* Image Section */}
       <div className="w-full mb-4">
         <Image
@@ -26,19 +24,16 @@ const ServiceCard = ({
           layout="responsive"
         />
       </div>
-
       {/* Headline */}
       <div className="font-barlow font-bold text-[24px] mb-2 text-gray-900">
         {headline}
       </div>
-
       {/* Description */}
       <div className="font-barlow font-normal text-[16px] text-gray-600 mb-6 leading-relaxed line-clamp-4">
         {description}
       </div>
-
       {/* Read More Button */}
-      <button className="mt-auto  text-[#1E1E1E] text-[20px]  rounded-md  self-start  font-barlow font-bold  text-sm">
+      <button className="mt-auto text-[#1E1E1E] text-[20px] rounded-md self-start font-barlow font-bold text-sm">
         Read More
       </button>
     </div>
@@ -98,7 +93,7 @@ const ServiceUpdate = () => {
               {/* Added padding here to create a gap */}
               <ServiceCard
                 img={data.image}
-                headline={data.headline}
+                headline={data.title}
                 description={data.description}
               />
             </div>
