@@ -1,33 +1,41 @@
-import React from "react";
-import { useState } from "react";
+// NewsUpdate2.js
+import Link from "next/link";
+import React, { useState } from "react";
 import Slider from "react-slick";
 
+// BlogCard Component: Displays individual blog post details
 const BlogCard = ({ image, title, description, link }) => {
   return (
-    <div className="bg-white drop-shadow-xl">
-      <img
-        src={image}
-        alt={title}
-        className="w-full aspect-[16/11] object-cover object-top"
-      />
-      <div className="w-full p-8">
-        <h2 className="text-2xl font-semibold">{title}</h2>
+    <div className="bg-white drop-shadow-xl p-4 rounded-md">
+      {/* Blog Image */}
+      {image ? (
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-[200px] object-cover object-top rounded-md"
+        />
+      ) : (
+        <div className="w-full h-[200px] bg-gray-200 rounded-md"></div> // Placeholder if no image
+      )}
+      {/* Blog Content */}
+      <div className="w-full p-4">
+        <h2 className="text-xl font-semibold mb-2">{title}</h2>
         <p
           dangerouslySetInnerHTML={{ __html: description }}
-          className="mt-4 mb-6 text-base line-clamp-3"
+          className="mt-2 mb-4 text-base line-clamp-3"
         ></p>
-        <Link
-          href={link}
-          className="bg-primary text-white px-3 py-2 rounded-sm"
-        >
-          Read More
+        <Link href={link}>
+          <div className="bg-primary text-white px-4 py-2 rounded-sm inline-block hover:bg-primary-dark transition-colors">
+            Read More
+          </div>
         </Link>
       </div>
     </div>
   );
 };
 
-const NewsUpdate2 = () => {
+// Main Component: Renders the blog carousel with heading and button
+const NewsUpdate2 = ({ blogs = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Slider settings
@@ -54,9 +62,8 @@ const NewsUpdate2 = () => {
         },
       },
     ],
-    // Added margin between slides
     centerMode: true,
-    centerPadding: "40px", // Adjust this to control the spacing between slides
+    centerPadding: "40px",
   };
 
   return (
@@ -66,33 +73,71 @@ const NewsUpdate2 = () => {
         News & Update
       </div>
       <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
-        Insights & Updates from Qwiklif.
-      </div>
-      {/* Card Slider */}
-      <div className="w-full max-w-7xl px-4">
-        <Slider {...settings}>
-          {/* {ServicesData.map((data, index) => (
-            <div
-              key={index}
-              className="grid gap-4 grid-cols-3   px-[4px] mb-[30px] mt-[20px] sm:mt-[10px] sm:grid-cols-1 lg:grid-cols-2 sm:gap-2 sm:px-0"
-            >
-            
-              <BlogCard
-                image={data.image}
-                title={data.title}
-                description={data.description}
-              />
-            </div>
-          ))} */}
-        </Slider>
+        Insights & Updates from Qwiklif
       </div>
 
-      {/* See More Button */}
-      <div className="w-[240px] h-[70px] bg-button-gradient  mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-        Read More
+      {/* Card Slider */}
+      <div className="w-full max-w-7xl px-4">
+        {blogs.length > 0 ? (
+          <Slider {...settings}>
+            {blogs.map((blog) => (
+              <div key={blog.id} className="p-4">
+                <BlogCard
+                  image={blog.yoast_head_json?.og_image?.[0]?.url || ""}
+                  title={blog.title?.rendered || "No Title"}
+                  description={blog.excerpt?.rendered || "No Description"}
+                  link={`/blog/${blog.slug}`}
+                />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className="text-center text-gray-500">No News available</div>
+        )}
       </div>
+
+      {/* "Read More" Button */}
+      <Link href="/blogs">
+        <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+          Read More
+        </div>
+      </Link>
     </div>
   );
 };
+
+// Fetch data using getStaticProps
+export async function getStaticProps() {
+  try {
+    const res = await fetch("https://qwiklif.com/wp-json/wp/v2/posts");
+
+    if (!res.ok) {
+      console.error(`Error fetching blogs: ${res.status}`);
+      return { props: { blogs: [] } };
+    }
+
+    const blogs = await res.json();
+
+    // Validate response structure
+    if (!Array.isArray(blogs)) {
+      console.error("Invalid response structure: Blogs is not an array");
+      return { props: { blogs: [] } };
+    }
+
+    return {
+      props: {
+        blogs,
+      },
+      revalidate: 60, // Revalidate every 60 seconds
+    };
+  } catch (error) {
+    console.error("Failed to fetch blogs:", error.message);
+    return {
+      props: {
+        blogs: [],
+      },
+    };
+  }
+}
 
 export default NewsUpdate2;

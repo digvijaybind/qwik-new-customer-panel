@@ -244,6 +244,8 @@ const Home = () => {
         {/* News and update*/}
 
         <div className="mt-10">
+
+          
           <NewsUpdate2 />
         </div>
 
@@ -269,12 +271,12 @@ const Home = () => {
             {/*Qwiklif Feautres Component  */}
             {/* <QwiklifFeature /> */}
           </StyledSection>
-          <StyledSection ClassName="sm:mt-25">
+          {/* <StyledSection ClassName="sm:mt-25">
             <ServicesSection />
-          </StyledSection>
+          </StyledSection> */}
 
           {/* Roadmap */}
-          <StyledSection className="relative  top-[60px] sm:top-[40px]  sm:bottom-0 mt-3">
+          {/* <StyledSection className="relative  top-[60px] sm:top-[40px]  sm:bottom-0 mt-3">
             <div className="py-5 sm:py-5">
               <div className="flex justify-center flex-col items-center">
                 <h2 className="font-sans font-semibold text-4xl sm:text-xl text-center">
@@ -293,7 +295,7 @@ const Home = () => {
             <div className="mt-5 mb-5 sm:mt-10 sm:mb-5 md:mt-3 md:mb-3">
               <ChooseQwiklif />
             </div>
-          </StyledSection>
+          </StyledSection> */}
           {/* Roadmap */}
 
           {/* Medical Care */}
@@ -401,12 +403,10 @@ const Home = () => {
             <AboutAmbulance setCurrentIndex={setCurrentIndex}/>
           </StyledSection> */}
           {/* Reviews */}
-          <StyledSection className=" mt-14">
-            {/* <ReviewCarosel/> */}
-
-            {/* <Googlereview /> */}
+          {/* <StyledSection className=" mt-14">
+          
             <ReviewCarosel />
-          </StyledSection>
+          </StyledSection> */}
           {/* Reviews */}
 
           {/* <div className="flex justify-center mt-8">
