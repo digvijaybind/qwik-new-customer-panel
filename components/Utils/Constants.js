@@ -119,6 +119,17 @@ export const locationCountries = [
   { country: 'Cambodia', flagImage: 'Cambodia.png' },
 ];
 
+export const locationCountriesUpdate = [
+  { country: "India", flagImage: "India.jpg" },
+  { country: "Egypt", flagImage: "egypt.png" },
+  { country: "Iraq", flagImage: "Iraq.jpg" },
+  { country: "Israel", flagImage: "Israel.jpg" },
+  { country: "Jordan", flagImage: "Jordan.jpg" },
+  { country: "Kuwait", flagImage: "Kuwait.jpg" },
+  { country: "Oman", flagImage: "Oman.jpg" },
+  { country: "Qatar", flagImage: "Qatar.jpg" },
+  
+];
 export const currencySymbols = {
   EUR: '€',
   AED: 'AED',
