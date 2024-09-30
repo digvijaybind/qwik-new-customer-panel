@@ -23,6 +23,7 @@ import ServicesHight from "@/components/serviceshight/ServicesHight";
 import ServiceUpdate from "@/components/Servicecard2/ServiceUpdate";
 import Bookambulance from "@/components/bookambulance/Bookambulance";
 import WhychooseQwiklif from "@/components/whychooseqwiklif/WhychooseQwiklif";
+import NewsUpdate2 from "@/components/NewsUpdates/NewsUpdate2";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -240,6 +241,12 @@ const Home = () => {
           <WhychooseQwiklif />
         </div>
 
+        {/* News and update*/}
+
+       <div>
+        <NewsUpdate2/>
+        </div>
+
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
@@ -276,22 +283,22 @@ const Home = () => {
           {/* Roadmap */}
 
           {/* Medical Care */}
-          <StyledSection className="px-10 py-3 mt-16 sm:mt-10 md:mt-8">
+          {/* <StyledSection className="px-10 py-3 mt-16 sm:mt-10 md:mt-8">
             <FastestMedical className="relative bottom-0" />
-          </StyledSection>
+          </StyledSection> */}
 
           {/* Medical Care */}
           {/*News */}
-          <StyledSection className="relative top-10 sm:bottom-0 ">
+          {/* <StyledSection className="relative top-10 sm:bottom-0 ">
             <LatestNew />
-          </StyledSection>
+          </StyledSection> */}
 
           {/*News */}
 
           {/* <ReviewCarosel /> */}
 
           {/* Why Choose Our Services */}
-          <StyledSection className="relative top-20">
+          {/* <StyledSection className="relative top-20">
             <div className="flex flex-col items-start px-15 sm:px-5 py-16 sm:py-8">
               <div className="flex flex-col items-start w-full sm:items-center ">
                 <h1 className="font-sans font-semibold text-3xl text-center mb-2">
@@ -373,7 +380,7 @@ const Home = () => {
                 })}
               </div>
             </div>
-          </StyledSection>
+          </StyledSection> */}
           {/* Why Choose Our Services */}
           <StyledSection></StyledSection>
           {/* <StyledSection>
