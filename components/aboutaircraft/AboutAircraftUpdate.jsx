@@ -4,19 +4,23 @@ import Image from "next/image";
 import styles from "./AboutAircraftupdate.module.css";
 import Abouthero from "../../public/images/Homepage/aboutsSection/leftImages/about_hero_image.png";
 import AboutTransfer from "../../public/images/Homepage/aboutsSection/leftImages/about_hero_transfer.png";
-const IconWithTitle = ({ icon, text, title }) => {
+import Link from "next/link";
+const IconWithTitle = ({ icon, text, title, textColor }) => {
   return (
     <div
-      className={`${styles.iconContainer} border-2 border-transparent bg-clip-padding flex items-center justify-between gap-4 p-4 rounded-lg`}
+      className={`${styles.iconContainer} border-2 border-transparent bg-clip-padding flex items-center justify-between gap-4 p-4 rounded-xl `} // Add shadow if needed for better visibility
     >
       {/* Icon Container */}
-      <div className="flex items-center justify-center h-24 w-24">
-        <Image src={icon} alt={text} width={80} height={50} />
+      <div className="flex items-center justify-center h-24 w-24 bg-[#f1fbfe] rounded-md px-2 py-2">
+        <Image src={icon} alt={text} width={80} height={60} />{" "}
+        {/* Updated height for better scaling */}
       </div>
 
       {/* Text Content */}
       <div className="flex flex-col items-center text-center">
-        <span className="font-barlow font-semibold text-4xl">{text}</span>
+        <span className={`font-barlow font-semibold text-4xl ${textColor}`}>
+          {text}
+        </span>
         <span className="font-barlow font-normal text-xl text-gray-600">
           {title}
         </span>
@@ -27,32 +31,40 @@ const IconWithTitle = ({ icon, text, title }) => {
 
 const AboutAircraftUpdate = () => {
   return (
-    <div className="grid grid-cols-2 sm:grid-col-1 px-20 py-20">
-      {/* Left Section and images  */}
-      <div className="flex  flex-col">
-        <div>
-          <div className="">
-            <Image src={AboutTransfer} width={600} height={1300} />
-          </div>
-          <div className="">
+    <div className="grid grid-cols-2 sm:grid-cols-1 px-20 py-10 sm:px-10 sm:py-10">
+      {/* Left Section and images */}
+      <div className="flex flex-col items-center sm:items-start">
+        <div className="flex flex-col space-y-4">
+          <div className="w-full">
             <Image
               src={Abouthero}
-              width={250}
-              height={800}
-              className={styles.ImagesContainer}
+              width={600}
+              height={1800}
+              className="object-cover rounded-lg" // Adjust object-fit for better responsiveness
+              alt="About Transfer"
+            />
+          </div>
+          <div className="w-full">
+            <Image
+              src={AboutTransfer}
+              width={300}
+              height={1400}
+              className={`${styles.ImagesContainer} object-cover rounded-lg`} // Add object-cover for better scaling
+              alt="About Hero"
             />
           </div>
         </div>
       </div>
-      {/*Right section and images  */}
+
+      {/* Right section and images */}
       <div className="Rightsection flex justify-start flex-col">
         <div className="font-barlow font-semibold text-[20px]">
           About qwiklif
         </div>
         <div className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px]">
-          Fastest Air Ambulance Services.{" "}
+          Fastest Air Ambulance Services.
         </div>
-        <div className="font-barlow font-normal text-[20px]  leading-[44px] text-left text-[#1E1E1E]">
+        <div className="font-barlow font-normal text-[20px] leading-[44px] text-left text-[#1E1E1E]">
           Qwiklif Air Ambulance Service is your trusted partner for urgent
           International Air Ambulance service. With a dedicated team of skilled
           professionals and state-of-the-art aircraft, we specialize in swift
@@ -71,21 +83,28 @@ const AboutAircraftUpdate = () => {
           </span>
         </div>
 
-        {/*this is table section */}
+        {/* Table section */}
         <div className="grid grid-cols-2 grid-rows-2 gap-5 sm:grid-cols-1 mt-16 sm:mt-15">
-          {AboutData.map((data) => {
+          {AboutData.map((data, index) => {
             return (
-              <IconWithTitle
-                icon={data.icon}
-                text={data.text}
-                title={data.title}
-              />
+              <div
+                className={`flex flex-col ${index < 2 ? "justify-start" : "justify-end"} h-full`}
+                key={index} // Unique key for each item
+              >
+                <IconWithTitle
+                  icon={data.icon}
+                  text={data.text}
+                  title={data.title}
+                  textColor={data.textColor} // Passing the textColor prop
+                />
+              </div>
             );
           })}
         </div>
-        {/*right Section and */}
+
+        {/* Right Section button */}
         <div className="h-[70px] w-[240px] font-barlow font-semibold text-[28px] text-[#fff] bg-button-gradient rounded-lg text-center flex justify-center items-center cursor-pointer mt-10">
-          Learn More
+          <Link href="/about">Learn More</Link>
         </div>
       </div>
     </div>

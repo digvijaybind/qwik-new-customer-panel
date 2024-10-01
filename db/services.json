@@ -1,27 +1,27 @@
 [
   {
-    "title": "International Patient Transfer",
-    "description": "Cost-Effective Air Ambulance Solutions Worldwide QwikLif Air Ambulance specializes in providing cost-effective and reliable international…",
-    "image": "/images/services/1.png"
+    "title": "Dedicated Air Ambulance",
+    "description": "A meticulously planned long-distance or bed-to-bed transfer for advanced treatments and specialized surgeries, ensuring safety throughout the journey",
+    "image": "/images/servicesUpdated/Dedicated.png"
   },
   {
     "title": "Commercial Stretcher Transfer",
-    "description": "Efficient Patient Transport via Commercial Airlines with Stretcher Configurations QwikLif Air Ambulance offers reliable and…",
-    "image": "/images/services/2-1.png"
+    "description": "Qwiklif Air Ambulance offers reliable andcost-effective commercial airline stretcher transfer services",
+    "image": "/images/servicesUpdated/Commercial.png"
   },
   {
-    "title": "Neonatal and Pediatric Air Transfer Services",
-    "description": "Expert Transport for Neonates and Pediatric Patients QwikLif Air Ambulance specializes in safe and expert…",
-    "image": "/images/services/5.png"
+    "title": "Business Class",
+    "description": "Qwiklif Air Ambulance specializes in providing cost-effective and reliable international patient transfer services. ",
+    "image": "/images/servicesUpdated/BusinessClass.png"
   },
   {
     "title": "ECMO Initiation and Air Transfer Services",
     "description": "Expert ECMO Assistance with Global Air Ambulance Solutions QwikLif Air Ambulance specializes in expert ECMO…",
-    "image": "/images/services/Untitled-design-2.png"
+    "image": "/images/servicesUpdated/Ecmo.png"
   },
   {
-    "title": "Dedicated Air Ambulance",
-    "description": "Swift and Expert Medical Transport Anywhere, Anytime QwikLif Air Ambulance offers unparalleled specialized air ambulance…",
-    "image": "/images/services/challenger-605-1.jpg"
+    "title": "Neonatal and Pediatric Air Transfer Services",
+    "description": "Expert Transport for Neonates and Pediatric Patients QwikLif Air Ambulance specializes in safe and expert…",
+    "image": "/images/servicesUpdated/NeoNatal.png"
   }
 ]

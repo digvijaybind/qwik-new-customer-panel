@@ -7,14 +7,15 @@ import ServicesData from "../../db/services.json";
 // Import Slick Carousel styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-md py-5 h-[460px]">
+    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[460px]">
       {" "}
       {/* Set a fixed height */}
       {/* Image Section */}
-      <div className="w-full mb-4">
+      <div className="w-full mb-0">
         <Image
           src={img}
           alt={headline}
@@ -25,17 +26,19 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
         />
       </div>
       {/* Headline */}
-      <div className="font-barlow font-bold text-[24px] mb-2 text-gray-900">
-        {headline}
+      <div className="sm:px-5">
+        <div className="font-barlow font-bold text-[24px] mb-2 text-gray-900">
+          {headline}
+        </div>
+        {/* Description */}
+        <div className="font-barlow font-normal text-[16px] text-gray-600 mb-2 leading-relaxed ">
+          {description}
+        </div>
+        {/* Read More Button */}
+        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-extrabold text-[20px]">
+          Read More
+        </button>
       </div>
-      {/* Description */}
-      <div className="font-barlow font-normal text-[16px] text-gray-600 mb-6 leading-relaxed line-clamp-4">
-        {description}
-      </div>
-      {/* Read More Button */}
-      <button className="mt-auto text-[#1E1E1E] text-[20px] rounded-md self-start font-barlow font-bold text-sm">
-        Read More
-      </button>
     </div>
   );
 };
@@ -49,32 +52,37 @@ const ServiceUpdate = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Default for larger screens
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     beforeChange: (current, next) => setCurrentIndex(next),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // For medium screens
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2, // Show two cards for medium screens
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 768, // For mobile screens
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1, // Show only one card on mobile
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+          centerMode: false, // Disable center mode for better layout on mobile
+          centerPadding: "0px", // Remove padding to ensure full width
         },
       },
     ],
-    // Added margin between slides
-    centerMode: true,
-    centerPadding: "40px", // Adjust this to control the spacing between slides
   };
 
   return (
-    <div className="flex justify-center items-center flex-col p-8">
+    <div className="flex justify-center items-center flex-col px-8 sm:px-4">
       {/* Heading Section */}
       <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
         Our Services
@@ -88,9 +96,8 @@ const ServiceUpdate = () => {
           {ServicesData.map((data, index) => (
             <div
               key={index}
-              className="grid gap-4 grid-cols-3   px-[4px] mb-[30px] mt-[20px] sm:mt-[10px] sm:grid-cols-1 lg:grid-cols-2 sm:gap-2 sm:px-0"
+              className="flex justify-center" // Center the card
             >
-              {/* Added padding here to create a gap */}
               <ServiceCard
                 img={data.image}
                 headline={data.title}
@@ -101,8 +108,8 @@ const ServiceUpdate = () => {
         </Slider>
       </div>
       {/* See More Button */}
-      <div className="w-[240px] h-[70px] bg-button-gradient  mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-        See More
+      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <Link href="/services">See More</Link>
       </div>
     </div>
   );

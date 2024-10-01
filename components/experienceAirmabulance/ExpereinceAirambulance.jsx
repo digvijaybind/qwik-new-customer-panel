@@ -1,0 +1,188 @@
+import React from "react";
+import ExpertDoctor from "../../public/images/experience/ExpertDoctor.png";
+import FleetNetwork from "../../public/images/experience/FleetNetork.png";
+import Global from "../../public/images/experience/Global.png";
+import Patient from "../../public/images/experience/PatientTransfer.png";
+import aeroIcon from "../../public/images/aeroplaneicon.svg";
+import DoctorIcon from "../../public/images/trusted_contact/doctor.svg";
+import GlobalIcon from "../../public/images/counter/globalIcon.svg";
+import CostEffectIcon from "../../public/images/counter/CostEffective.svg";
+import CostEffective from "../../public/images/counter/CostEffective.png";
+import DoctorOnboard from "../../public/images/fleet_tabs/doctor_onboard.png";
+import GlobalCoverage from "../../public/images/fleet_tabs/global_coverage.png";
+import Biggest_fleet from "../../public/images/fleet_tabs/biggest_fleet.png";
+import SelectionComponent from "@/components/selection/SelectionComponent";
+import { useState } from "react";
+import Image from "next/image";
+const ServicesCard = [
+  { img: Patient.src, title: "450+", description: "Patient Transferred" },
+  { img: FleetNetwork.src, title: "25+", description: "Fleet Network" },
+  { img: ExpertDoctor.src, title: "15+", description: "Expert Doctor" },
+  { img: Global.src, title: "7000+", description: "Global Affiliation" },
+];
+
+const ExperienceCard = ({ headline, description, backgroundImage }) => {
+  return (
+    <div
+      className="flex justify-center items-center flex-col p-8 rounded-lg"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%", // Adjust width
+        height: "300px", // Adjust height as needed
+        color: "#1E1E1E",
+      }}
+    >
+      <div className="font-barlow font-semibold text-[64px] text-[#1E1E1E]">
+        {headline}
+      </div>
+      <div className="font-barlow font-normal text-[30px] text-[#1E1E1E]">
+        {description}
+      </div>
+    </div>
+  );
+};
+const faqs = [
+  {
+    index: 1,
+    title: "Bed to Bed Patient Transfer",
+    icon: aeroIcon,
+  },
+  {
+    index: 2,
+    title: "Biggest Fleet Network",
+    icon: aeroIcon,
+  },
+  {
+    index: 3,
+    title: "24x7 Doctors On Board",
+    icon: DoctorIcon,
+  },
+  {
+    index: 4,
+    title: "Global Coverage",
+    icon: GlobalIcon,
+  },
+
+  {
+    index: 5,
+    title: "Cost-Effective Solution",
+    icon: CostEffectIcon,
+  },
+];
+const ChooseQwiklifButton = ({
+  activeTab,
+  setActiveTab,
+  tabIndex,
+  title,
+  icon,
+}) => {
+  const isActive = activeTab === tabIndex;
+
+  return (
+    <button
+      className={`h-[80px] px-4 bg-[#F7F7F7] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#19c0f0] rounded sm:w-full hover:text-white transition-colors duration-300 font-sans ${
+        isActive ? "bg-[#19c0f0] text-white" : "text-[#1E1E1E]"
+      }`}
+      onClick={() => setActiveTab(tabIndex)}
+    >
+      <div className="bg-white rounded-full w-[55px] h-[55px] p-2 flex justify-center items-center">
+        {/* Apply 'invert' and 'mix-blend-mode' to ensure icon color is #1E1E1E */}
+        <Image
+          src={icon}
+          height={35}
+          width={35}
+          alt={title}
+          className="filter"
+          style={{
+            filter:
+              "invert(1) sepia(1) saturate(10000%) hue-rotate(180deg) brightness(0.3)",
+          }}
+        />
+      </div>
+      <div className="font-barlow  font-semibold text-[24px] sm:flex justify-end sm:text-base">
+        {title}
+      </div>
+    </button>
+  );
+};
+
+const ExpereinceAirambulance = () => {
+  const [activeTab, setActiveTab] = useState(1);
+  return (
+    <div className="flex justify-center items-center flex-col px-20 py-10 sm:px-10">
+      <div className="flex justify-center items-center flex-col px-20 sm:px-10">
+        <div className="font-barlow font-normal text-[24px]">
+          Why Choose Qwiklif
+        </div>
+        <div className="font-barlow font-bold text-[54px] bg-headline-gradient text-transparent bg-clip-text">
+          Experience Exceptional Air Ambulance Services.
+        </div>
+        <div className="font-barlow font-normal text-[24px] px-10 sm:px-0 text-[#1E1E1E] mt-5">
+          Fly Fast and Safe with Qwiklif Air Ambulance. We have access to global
+          hospitals, including the best medical team and state-of-the-art
+          medical equipment across the globe.
+        </div>
+      </div>
+      <div>
+        <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col mt-20 sm:gap-4">
+          <div className="col-span-3 sm:col-span-12 flex flex-col mb-5">
+            {faqs.map(({ icon, index, title }) => (
+              <ChooseQwiklifButton
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                icon={icon}
+                tabIndex={index}
+                title={title}
+                key={title + index}
+              />
+            ))}
+          </div>
+          <div className="col-span-6 sm:col-span-12 sm:mb-10">
+            {activeTab === 1 && (
+              <SelectionComponent
+                img={Biggest_fleet}
+                title="Bed to Bed Patient Transfer"
+                descripation="Qwiklif Air Ambulance offers Bed to Bed Patient Transfer service From the initial hospital bed to the destination facility, our expert team handles every detail, providing safe and efficient transportation. Trust us to manage every step, so your loved one receives uninterrupted medical care throughout the entire transfer process."
+              />
+            )}
+            {activeTab === 2 && (
+              <SelectionComponent
+                img={DoctorOnboard}
+                title="24x7 Doctors on Board"
+                descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
+              />
+            )}
+            {activeTab === 3 && (
+              <SelectionComponent
+                img={GlobalCoverage}
+                title="Global Coverage"
+                descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.Whether you're in a bustling city or a remote area, our reach extends to every corner, making quality healthcare accessible wherever you are."
+              />
+            )}
+            {activeTab === 4 && (
+              <SelectionComponent
+                img={CostEffective}
+                title="Cost-Effective Solutions"
+                descripation="We are committed to providing cost-effective air ambulance solutions without compromising on the standard of care. We suggest different modes of transfers like commercial stretchers and other customised transfer plans for making your medical flight cost effective."
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+        {ServicesCard.map((data, index) => (
+          <ExperienceCard
+            key={index}
+            headline={data.title}
+            description={data.description}
+            backgroundImage={data.img}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ExpereinceAirambulance;

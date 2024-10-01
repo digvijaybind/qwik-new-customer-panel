@@ -19,7 +19,6 @@ const LoactionUpdate = () => {
             return (
               <div
                 className="p-2.5 aspect-[16/12] shadow-md rounded-md font-sans"
-              
                 key={d?.country}
               >
                 <div className="w-full h-full relative flag-wrapper">
@@ -60,7 +59,7 @@ const LoactionUpdate = () => {
         </div>
         {/* See More Button */}
         <div className="w-[240px] h-[70px] bg-button-gradient  mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-          See All
+          <Link href="/location">See All</Link>
         </div>
       </div>
     </div>

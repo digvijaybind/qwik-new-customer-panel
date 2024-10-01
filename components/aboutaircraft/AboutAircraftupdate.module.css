@@ -7,7 +7,7 @@
     rgba(17, 182, 227, 0.1) 100%
   );
   border-image-slice: 1;
-  border-radius: 20px !important;
+ 
   overflow: hidden;
 }
 

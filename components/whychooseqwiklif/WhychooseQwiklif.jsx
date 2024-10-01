@@ -37,13 +37,12 @@ const videos = [
 ];
 
 // VideoCard Component: Renders individual video cards
-const VideoCard = ({ video }) => {
+const VideoPlayer = ({ video }) => {
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-white shadow-lg rounded-md transition-transform duration-300 hover:scale-105">
-      {/* Video Frame */}
+    <div className="w-full h-auto flex justify-center items-center">
       <iframe
-        width="100%"
-        height="200"
+        width="100%" // Ensure the video takes full width
+        height="450" // Adjust the height as per your design requirements
         src={video.src}
         title={video.title}
         frameBorder="0"
@@ -51,10 +50,6 @@ const VideoCard = ({ video }) => {
         allowFullScreen
         className="rounded-md"
       ></iframe>
-      {/* Video Title */}
-      <div className="mt-2 text-lg font-bold text-center text-gray-800">
-        {video.title}
-      </div>
     </div>
   );
 };
@@ -66,7 +61,7 @@ const WhychooseQwiklif = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show 3 videos per slide
+    slidesToShow: 3, // Show 3 videos per slide on larger screens
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -87,25 +82,28 @@ const WhychooseQwiklif = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 px-4">
+    <div className="flex flex-col items-center justify-center bg-[#f5fdff] py-6 px-5 sm:py-8 sm:px-20 lg:py-12">
       {/* Video Carousel Container */}
-      <div className="flex justify-center items-center flex-col p-8">
+      <div className="flex justify-center items-center flex-col p-4 sm:p-6 lg:p-8">
         {/* Heading Section */}
-        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[36px] md:text-[48px] lg:text-[54px] font-barlow font-bold text-center mb-4 sm:mb-6 lg:mb-8 sm:px-10">
           Why people trust Qwiklif?
         </h2>
         {/* Card Slider */}
-        <div className="w-full max-w-7xl px-4">
+        <div className="w-full max-w-7xl px-2 sm:px-4">
           <Slider {...settings} className="w-full">
             {videos.map((video) => (
-              <div key={video.id} className="flex flex-col items-center">
-                <VideoCard video={video} />
+              <div
+                key={video.id}
+                className="flex flex-col items-center p-2 sm:p-3"
+              >
+                <VideoPlayer video={video} />
               </div>
             ))}
           </Slider>
         </div>
         {/* "See More" Button */}
-        <button className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <button className="w-[200px] sm:w-[220px] lg:w-[240px] h-[50px] sm:h-[60px] lg:h-[70px] bg-button-gradient mt-6 sm:mt-8 font-barlow font-semibold text-white flex justify-center items-center rounded-md text-[16px] sm:text-[20px] lg:text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
           See More
         </button>
       </div>

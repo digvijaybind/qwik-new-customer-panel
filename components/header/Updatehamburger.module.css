@@ -1,4 +1,4 @@
-body {
+.body {
   background: #336193;
   color: #6ecddd;
   font-family: 'Bebas';
@@ -8,8 +8,13 @@ body {
   padding: 0;
   margin: 0;
 }
+.navbar {
+  width: 100%;
+  position: relative; /* Ensure it's positioned relative */
+  z-index: 5;        /* Lower z-index than TopBanner if needed */
+}
 
-h1 {
+.h1 {
   text-align: center;
   letter-spacing: 1px;
   word-spacing: 0.15em;
@@ -65,12 +70,12 @@ h1 {
   height: 100%;
 }
 
-nav {
+.nav {
   text-align: left;
   margin-left: 25%;
 }
 
-nav a {
+.nav a {
   position: relative;
   text-decoration: none;
   color: #6ecddd;
@@ -81,7 +86,7 @@ nav a {
   letter-spacing: 1px;
 }
 
-nav a:before {
+.nav a:before {
   content: '';
   height: 0;
   position: absolute;
@@ -91,11 +96,11 @@ nav a:before {
   transition: all 0.2s ease-in-out;
 }
 
-nav a:hover {
+.nav a:hover {
   color: white;
 }
 
-nav a:hover:before {
+.nav a:hover:before {
   height: 100%;
 }
 

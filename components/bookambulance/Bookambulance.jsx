@@ -13,7 +13,7 @@ const bookProcess = [
     title: "Contact Us",
     description: "Reach out to our team for initial inquiries and assistance.",
     bgColor: "bg-[#11B6E3]",
-    textColor: "text-[#11B6E3]"
+    textColor: "text-[#11B6E3]",
   },
   {
     img: MedicalReport,
@@ -68,13 +68,13 @@ const ServiceCard = ({
 
       {/* Headline */}
       <h3
-        className={`font-barlow font-bold text-xl mb-2 text-gray-900 ${textColor}`}
+        className={`font-barlow font-bold text-[26px] mb-2 text-gray-900 ${textColor}`}
       >
         {title}
       </h3>
 
       {/* Description */}
-      <p className="font-barlow font-normal text-base text-gray-600 mb-6 leading-relaxed">
+      <p className="font-barlow font-normal text-[20px] text-gray-600 mb-6 leading-relaxed">
         {description}
       </p>
 
@@ -96,14 +96,14 @@ const ServiceCard = ({
 // Main Bookambulance Component
 const Bookambulance = () => {
   return (
-    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-20 py-10">
+    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-20 py-10 sm:px-10 sm:py-5">
       <h2 className="font-barlow font-semibold text-[24px] mt-5">
         How To Book Air Ambulance
       </h2>
-      <h1 className="font-barlow font-bold bg-headline-gradient text-transparent bg-clip-text text-[54px]">
+      <h1 className="font-barlow font-bold bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[34px]">
         Here’s a Simple Step To Book an Air Ambulance
       </h1>
-      <div className="grid grid-cols-4 md:grid-cols-2 gap-x-5 lg:grid-cols-4 gap-6 mt-10">
+      <div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 sm:grid-rows-4 gap-6 mt-10">
         {bookProcess.map((step, index) => {
           return (
             <ServiceCard

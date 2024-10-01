@@ -99,7 +99,7 @@ const NewsUpdate2 = ({ blogs = [] }) => {
       {/* "Read More" Button */}
       <Link href="/blogs">
         <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-          Read More
+          <Link href="/blogs">Read More</Link>
         </div>
       </Link>
     </div>

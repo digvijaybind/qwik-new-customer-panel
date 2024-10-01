@@ -30,9 +30,7 @@ const HamburgerMenu = () => {
 
   return (
     <div className="flex flex-col font-sans relative">
-      <div className="text-center flex items-center justify-center bg-[#12B5E4] w-full h-[24px] text-[8px] font-bold text-[#fff] font-sans">
-        AVAILABLE 24/7 FOR INTERNATIONAL AND DOMESTIC FLIGHTS
-      </div>
+   
       <div className="flex flex-row justify-between items-center px-[10px] py-[10px] font-sans">
         <div className="flex flex-row justify-between">
           <div className="">

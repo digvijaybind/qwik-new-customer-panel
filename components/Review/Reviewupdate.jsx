@@ -6,7 +6,7 @@ import StarRating from "../Utils/starIcon/StarRating"; // Import the star rating
 
 const GoogleReviewCard = ({ img, Name, date, decripation }) => {
   return (
-    <div className="flex flex-col items-center bg-white shadow-lg p-4 rounded-md h-[550px]">
+    <div className="flex flex-col items-center bg-white p-4 w-[482px] h-[558px] shadow-[8px_8px_100px_0px_rgba(0,0,0,0.04)] rounded-[8px_0px_0px_0px] opacity-100">
       {/* User Image */}
       <div className="mb-4">
         {img ? (
@@ -30,11 +30,11 @@ const GoogleReviewCard = ({ img, Name, date, decripation }) => {
 
       {/* Star Rating */}
       <div className="mb-2">
-       <StarRating/>
+        <StarRating />
       </div>
 
       {/* Review Description */}
-      <div className="font-barlow font-normal text-center mb-4">
+      <div className="font-barlow font-normal text-center mb-4 px-4">
         {decripation}
       </div>
 

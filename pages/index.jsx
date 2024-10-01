@@ -26,6 +26,8 @@ import WhychooseQwiklif from "@/components/whychooseqwiklif/WhychooseQwiklif";
 import NewsUpdate2 from "@/components/NewsUpdates/NewsUpdate2";
 import Reviewupdate from "@/components/Review/Reviewupdate";
 import LoactionUpdate from "@/components/locationupdate/LoactionUpdate";
+import Link from "next/link";
+import ExpereinceAirambulance from "@/components/experienceAirmabulance/ExpereinceAirambulance";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -163,13 +165,13 @@ const Home = () => {
         )} */}
 
         <div
-          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20`}
+          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-10 `}
         >
-          <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] space-y-4 sm:justify-center">
+          <div className="flex flex-col justify-start max-w-[630px] max-h-[480px]sm:max-h-[550px] space-y-4 sm:justify-center">
             {/* Headline */}
             <h1 className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight sm:text-[34px]">
-              Fast, Trusted <br />
-              Air Ambulance Care.
+              FAST, TRUSTED <br />
+              AIR AMBULANCE CARE.
             </h1>
 
             {/* Subheadline */}
@@ -179,7 +181,7 @@ const Home = () => {
             </p>
 
             {/* Services Section */}
-            <div className="grid grid-cols-4 gap-x-4 mt-20 mb-20">
+            <div className="grid grid-cols-4 gap-x-4 mt-20 mb-20 sm:gap-x-2">
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
                 <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#00FF00]"></div>
@@ -207,8 +209,8 @@ const Home = () => {
             </div>
 
             {/* Call to Action Button */}
-            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-20 sm:mt-10">
-              Book An Air Ambulance Now
+            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-30 sm:mt-10">
+              <Link href="/contact">Book An Air Ambulance Now</Link>
             </button>
           </div>
         </div>
@@ -219,33 +221,33 @@ const Home = () => {
         </div>
 
         {/*Services hightlight */}
-        <div ClassName="mt-10">
+        <div ClassName="sm:mt-5">
           <ServicesHight />
         </div>
 
         {/*Our services*/}
-        <div className="mt-10">
+        <div className="mt-5">
           <ServiceUpdate />
         </div>
 
         {/*How to book air ambulance */}
-        <div className="mt-10">
+        <div className="mt-5">
           <Bookambulance />
         </div>
 
         {/*Why to choose qwiklif */}
-        <div className="mt-10"></div>
+        <div className="mt-5">
+          <ExpereinceAirambulance />
+        </div>
 
         {/*Why to trust on Qwiklif? */}
-        <div className="mt-10">
+        <div className="mt5">
           <WhychooseQwiklif />
         </div>
 
         {/* News and update*/}
 
         <div className="mt-10">
-
-          
           <NewsUpdate2 />
         </div>
 
@@ -270,6 +272,9 @@ const Home = () => {
 
             {/*Qwiklif Feautres Component  */}
             {/* <QwiklifFeature /> */}
+            {/* <div className="mt-5 mb-5 sm:mt-10 sm:mb-5 md:mt-3 md:mb-3">
+              <ChooseQwiklif />
+            </div> */}
           </StyledSection>
           {/* <StyledSection ClassName="sm:mt-25">
             <ServicesSection />
@@ -292,9 +297,7 @@ const Home = () => {
               </div>
               <Roadmap />
             </div>
-            <div className="mt-5 mb-5 sm:mt-10 sm:mb-5 md:mt-3 md:mb-3">
-              <ChooseQwiklif />
-            </div>
+           
           </StyledSection> */}
           {/* Roadmap */}
 
