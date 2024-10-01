@@ -28,6 +28,7 @@ import Reviewupdate from "@/components/Review/Reviewupdate";
 import LoactionUpdate from "@/components/locationupdate/LoactionUpdate";
 import Link from "next/link";
 import ExpereinceAirambulance from "@/components/experienceAirmabulance/ExpereinceAirambulance";
+import Faq from "@/components/faq/Faq";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -250,6 +251,9 @@ const Home = () => {
         <div className="mt-10">
           <NewsUpdate2 />
         </div>
+
+        {/* Qwikif faq*/}
+        <Faq />
 
         {/* review */}
 
