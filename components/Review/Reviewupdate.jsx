@@ -3,6 +3,7 @@ import Image from "next/image"; // Import Image from "next/image"
 import Review from "../../db/Googlereview.json"; // JSON data for reviews
 import google from "../../public/images/review/logos_google.svg"; // Google logo image
 import StarRating from "../Utils/starIcon/StarRating"; // Import the star rating component
+import Link from "next/link";
 
 const GoogleReviewCard = ({ img, Name, date, decripation }) => {
   return (
@@ -96,9 +97,22 @@ const Reviewupdate = ({ interval = 4000 }) => {
       <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
         Our Google Reviews.
       </div>
+      <div className="flex justify-around items-center">
+        <div className="">
+          <StarRating />
+        </div>
+        <div className="font-barlow font-normal ml-2">
+          <span className="font-semibold">5.0 Rating</span> Of 26 Reviews
+        </div>
+      </div>
+      <Link href="https://www.google.com/search?q=qwiklif+air+ambulance+&sca_esv=4997d9601951f80e&sca_upv=1&rlz=1C1YTUH_enAE1129AE1129&sxsrf=ADLYWILF3mzJaKA0rvTdngLkJjMuePe6wg%3A1727854021125&ei=xfX8Zr6mB6OOxc8PkcOoiAQ&ved=0ahUKEwj-nJzple-IAxUjR_EDHZEhCkEQ4dUDCA8&uact=5&oq=qwiklif+air+ambulance+&gs_lp=Egxnd3Mtd2l6LXNlcnAiFnF3aWtsaWYgYWlyIGFtYnVsYW5jZSAyBxAjGLACGCcyAhAmMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESLcFUPwCWPwCcAF4AJABAJgBkAKgAfEDqgEDMi0yuAEDyAEA-AEBmAICoAKaAsICDhAAGIAEGLADGIYDGIoFwgILEAAYgAQYsAMYogSYAwDiAwUSATEgQIgGAZAGCJIHBTEuMC4xoAe0Dg&sclient=gws-wiz-serp#lrd=0x3e5f5d76430409d1:0x95cb63a0cc42243b,3,,,,">
+        <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300 mb-5">
+          Write A Review
+        </div>
+      </Link>
 
       {/* Review Cards Slider */}
-      <div className="w-full max-w-7xl px-4 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="w-full max-w-7xl px-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {Review.slice(startIdx, endIdx).map((data, index) => (
           <div key={index} className="flex justify-center">
             <GoogleReviewCard

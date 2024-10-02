@@ -1,5 +1,5 @@
 import React from "react";
-import { locationCountries, locationCountriesUpdate } from "../Utils/Constants";
+import {  locationCountriesUpdate } from "../Utils/Constants";
 import Link from "next/link";
 
 const LoactionUpdate = () => {
@@ -14,11 +14,11 @@ const LoactionUpdate = () => {
           Where We Operate: Your Trusted Partner Worldwide
         </div>
         {/* Card Slider */}
-        <div className="w-full max-w-7xl px-4 grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-4">
+        <div className="w-full max-w-7xl px-4 grid grid-cols-4 grid-rows-2  sm:grid-col-1 gap-x-4 gap-y-4">
           {locationCountriesUpdate?.map((d) => {
             return (
               <div
-                className="p-2.5 aspect-[16/12] shadow-md rounded-md font-sans"
+                className=" aspect-[16/12] shadow-md rounded-md font-sans"
                 key={d?.country}
               >
                 <div className="w-full h-full relative flag-wrapper">
@@ -28,7 +28,7 @@ const LoactionUpdate = () => {
                       backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/country_flags/${d?.flagImage}')`,
                     }}
                   >
-                    <p className="font-semibold uppercase">
+                    <p className="font-barlow font-semibold flex items-center uppercase">
                       Air Ambulance in <br />
                       <span className="font-barlow font-extrabold">
                         {" "}

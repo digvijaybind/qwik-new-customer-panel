@@ -29,6 +29,7 @@ import LoactionUpdate from "@/components/locationupdate/LoactionUpdate";
 import Link from "next/link";
 import ExpereinceAirambulance from "@/components/experienceAirmabulance/ExpereinceAirambulance";
 import Faq from "@/components/faq/Faq";
+import GetTouch from "@/components/getTouch/GetTouch";
 
 const AboutAircraft = dynamic(
   () => import("@/components/aboutaircraft/AboutAircraft"),
@@ -262,13 +263,16 @@ const Home = () => {
         </div>
 
         {/* get in touch */}
-        <div></div>
+        <div>
+          <GetTouch />
+        </div>
 
         {/* location */}
 
         <div>
           <LoactionUpdate />
         </div>
+
         <Suspense fallback={<div>Loading...</div>}>
           <StyledSection className="relative bottom-[5px] sm:bottom-0 mt-20 sm:mt-8">
             {/*About us section component */}
@@ -337,72 +341,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="flex-col items-start w-full mt-[40px] flex gap-[10px]">
-                {homeCollapsable.map((item, index) => {
-                  return (
-                    <div
-                      key={"choose-us-features" + index}
-                      className="relative flex-col items-start w-full h-auto cursor-pointer"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setSelectedCollapseIndex(
-                          SelectedCollapseIndex != index ? index : -1,
-                        );
-                      }}
-                    >
-                      <div
-                        className={`w-full flex-row justify-between rounded-md items-center h-[70px] sm:h-[85px] sm:px-[5px] sm:py-[10px] flex hover:bg-[#19c0f0] hover:!text-white transition-all duration-300 ${
-                          SelectedCollapseIndex != index
-                            ? "bg-[#F1F7FA]"
-                            : "bg-[#19c0f0] rounded-b-none"
-                        }`}
-                      >
-                        <h4
-                          className={`ml-[30px] sm:ml-[10px] ${
-                            SelectedCollapseIndex === index
-                              ? "text-[#FFFFFF]"
-                              : ""
-                          }  font-sans font-semibold text-base sm:text-sm`}
-                        >
-                          {item.header}
-                        </h4>
-                        <div
-                          className={`flex flex-row justify-start items-center mr-[30px] sm:ml-[10px]`}
-                        >
-                          {SelectedCollapseIndex != index ? (
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setSelectedCollapseIndex(index);
-                              }}
-                            >
-                              <FaPlus className="text-2xl" />
-                            </button>
-                          ) : (
-                            <button
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setSelectedCollapseIndex(-1);
-                              }}
-                            >
-                              <FaMinus className="text-2xl text-white" />
-                            </button>
-                          )}
-                        </div>
-                      </div>
-
-                      {SelectedCollapseIndex === index ? (
-                        <div className=" bg-[#FBFBFB] w-full py-6 rounded-b-md transition-all duration-300">
-                          <p className="w-[90%] mx-[5%] text-[#7A7A7A] text-[16px] sm:text-sm sm:leading-6 font-medium font-Inter leading-[26px] ">
-                            {item.description}
-                          </p>
-                        </div>
-                      ) : null}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            
           </StyledSection> */}
           {/* Why Choose Our Services */}
           <StyledSection></StyledSection>

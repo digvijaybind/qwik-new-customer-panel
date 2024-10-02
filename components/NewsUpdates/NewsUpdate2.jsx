@@ -109,21 +109,25 @@ const NewsUpdate2 = ({ blogs = [] }) => {
 // Fetch data using getStaticProps
 export async function getStaticProps() {
   try {
+    // Fetch data from the WordPress API
     const res = await fetch("https://qwiklif.com/wp-json/wp/v2/posts");
 
+    // Check if the response is okay
     if (!res.ok) {
       console.error(`Error fetching blogs: ${res.status}`);
       return { props: { blogs: [] } };
     }
 
+    // Parse the JSON response
     const blogs = await res.json();
 
-    // Validate response structure
+    // Validate if the response is an array
     if (!Array.isArray(blogs)) {
       console.error("Invalid response structure: Blogs is not an array");
       return { props: { blogs: [] } };
     }
 
+    // Return the blogs data as props
     return {
       props: {
         blogs,

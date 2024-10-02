@@ -51,11 +51,10 @@ const ServiceCard = ({
 }) => {
   return (
     <div
-      className="relative w-[480px] h-auto flex flex-col justify-start items-start p-6 shadow-lg bg-white mx-2 overflow-hidden rounded-[12px] max-w-[320px] cursor-pointer
-    "
+      className={`relative w-[480px] h-auto flex flex-col justify-start items-start p-6 shadow-lg bg-white mx-2 overflow-hidden rounded-tl-lg rounded-br-lg rounded-tr-none rounded-bl-none max-w-[320px] cursor-pointer`}
     >
       {/* Image Section */}
-      <div className="w-fu flex justify-start mt-10 mb-10">
+      <div className="w-full flex justify-start mt-10 mb-10">
         <Image
           src={img}
           alt={title}
@@ -92,6 +91,7 @@ const ServiceCard = ({
     </div>
   );
 };
+
 
 // Main Bookambulance Component
 const Bookambulance = () => {
