@@ -360,7 +360,7 @@ const Home = () => {
           </div> */}
 
           {/* Air Ambulance */}
-          <div
+          {/* <div
             className={`${styles.gray_plane} py-12 sm:px-3 px-36 w-full mt-[90px] sm:flex-col items-center grid grid-cols-12 gap-10 sm:grid-cols-1 `}
           >
             <div className="flex items-start flex-col col-span-7 sm:col-span-1  sm:px-7">
@@ -390,7 +390,7 @@ const Home = () => {
                 </h2>
                 <hr className="bg-[#11B6E3] h-[4px] w-[45px] mt-[20px]" />
               </div>
-              {/* this is form of landing page */}
+              
               <form className={`mt-[30px] w-full ${styles.form}`}>
                 <div className="grid grid-cols-5 gap-3">
                   <input
@@ -439,7 +439,7 @@ const Home = () => {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
         </Suspense>
         {/* Air Ambulance */}
       </div>

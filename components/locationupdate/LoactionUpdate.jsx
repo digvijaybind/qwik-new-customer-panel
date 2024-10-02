@@ -1,10 +1,10 @@
 import React from "react";
-import {  locationCountriesUpdate } from "../Utils/Constants";
+import locationCountriesUpdate from "../../data/locationCountriesUpdate.json";
 import Link from "next/link";
 
 const LoactionUpdate = () => {
   return (
-    <div className="mx-20 py-20">
+    <div className="mx-20  sm:px-10 sm:mx-0">
       <div className="flex justify-center items-center flex-col p-8">
         {/* Heading Section */}
         <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
@@ -14,30 +14,31 @@ const LoactionUpdate = () => {
           Where We Operate: Your Trusted Partner Worldwide
         </div>
         {/* Card Slider */}
-        <div className="w-full max-w-7xl px-4 grid grid-cols-4 grid-rows-2  sm:grid-col-1 gap-x-4 gap-y-4">
+        <div className="w-full max-w-7xl px-4 grid grid-cols-4 sm:grid-cols-1 lg:grid-cols-3 gap-4">
           {locationCountriesUpdate?.map((d) => {
             return (
               <div
-                className=" aspect-[16/12] shadow-md rounded-md font-sans"
+                className="aspect-[16/12] shadow-md rounded-md font-sans transition-transform duration-300 transform hover:scale-105"
                 key={d?.country}
               >
                 <div className="w-full h-full relative flag-wrapper">
                   <div
-                    className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front"
+                    className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg"
                     style={{
-                      backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/country_flags/${d?.flagImage}')`,
+                      backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/${d?.flagImage}')`,
                     }}
                   >
-                    <p className="font-barlow font-semibold flex items-center uppercase">
-                      Air Ambulance in <br />
+                    <div className="flex flex-col justify-center items-center uppercase text-center">
+                      <div className="font-barlow font-semibold">
+                        Air Ambulance in
+                      </div>
                       <span className="font-barlow font-extrabold">
-                        {" "}
                         {d?.country}
                       </span>
-                    </p>
+                    </div>
                   </div>
                   <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3 sm:h-full">
-                    <p className="font-semibold uppercase text-black">
+                    <p className="font-semibold uppercase text-black text-center">
                       Air Ambulance in {d?.country}
                     </p>
                     <p className="text-center text-sm">
@@ -57,8 +58,9 @@ const LoactionUpdate = () => {
             );
           })}
         </div>
+
         {/* See More Button */}
-        <div className="w-[240px] h-[70px] bg-button-gradient  mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
           <Link href="/location">See All</Link>
         </div>
       </div>

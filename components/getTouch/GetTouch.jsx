@@ -17,7 +17,7 @@ const socialMediaLinks = [
 
 // Contact Info Component
 const ContactInfo = ({ icon, label, value }) => (
-  <div className="flex items-center mt-5">
+  <div className="flex items-center sm:items-start mt-5 ">
     <Image src={icon} alt={label} height={40} width={40} />
     <div className="ml-5">
       <span className="font-barlow font-normal text-[18px]">{label}</span>
@@ -31,7 +31,7 @@ const ContactInfo = ({ icon, label, value }) => (
 
 // Social Media Component
 const SocialMedia = ({ links }) => (
-  <div className="mt-10">
+  <div className="mt-10 ">
     <h3 className="font-barlow font-bold text-[28px] mb-3">
       Follow Us On Social Media
     </h3>
@@ -69,9 +69,9 @@ const GoogleMap = ({ iframeUrl }) => (
 // Main Component
 const GetTouch = ({ mapIframeUrl }) => {
   return (
-    <div className="grid grid-cols-12  sm:grid-cols-1 gap-8 bg-[#f5fdff] px-20 sm:px-5 py-20">
+    <div className="grid grid-cols-12  sm:grid-cols-1 gap-8 bg-[#f5fdff] px-20 sm:px-5 py-20 sm:items-center">
       {/* Get in touch content */}
-      <div className="col-span-5 sm:col-span-1 flex flex-col justify-between items-start max-w-[575px]">
+      <div className="col-span-5 sm:col-span-1 flex flex-col justify-between items-start sm:items-center max-w-[575px]">
         <h1 className="font-barlow font-semibold text-[24px] text-[#1E1E1E]">
           Get In Touch With Qwiklif
         </h1>
