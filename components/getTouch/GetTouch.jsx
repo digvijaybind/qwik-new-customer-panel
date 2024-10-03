@@ -6,6 +6,7 @@ import InstagramIcon from "../../public/images/gettouch/Instagram.svg";
 import LinkedinIcon from "../../public/images/gettouch/linkedin.svg";
 import TelephoneIcon from "../../public/images/gettouch/telephone.svg";
 import TwitterIcon from "../../public/images/gettouch/x.svg";
+import Map from "../../public/images/gettouch/Map.png";
 
 // Social media links array
 const socialMediaLinks = [
@@ -51,18 +52,18 @@ const SocialMedia = ({ links }) => (
 );
 
 // Google Map Component
-const GoogleMap = ({ iframeUrl }) => (
-  <div className="w-full h-[400px] mt-10 lg:mt-0">
-    <iframe
-      src={iframeUrl}
-      width="100%"
-      height="100%"
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      className="rounded-lg shadow-lg"
-      style={{ border: 0 }} // Ensure border is properly set
-    />
+const GoogleMap = ({ mapImage, mapLink }) => (
+  <div className="w-full h-[400px] sm:h-auto mt-10 lg:mt-0">
+    <a href={mapLink} target="_blank" rel="noopener noreferrer">
+      <Image
+        src={mapImage} // Use the image prop for the Google Map image
+        alt="Google Map"
+        layout="responsive"
+        width={1000} // Adjust as needed for responsiveness
+        height={500} // Adjust for the image aspect ratio
+        className="rounded-lg shadow-lg object-cover" // Styling for the image
+      />
+    </a>
   </div>
 );
 
@@ -102,22 +103,12 @@ const GetTouch = ({ mapIframeUrl }) => {
 
       {/* Google Map */}
       <div className="col-span-7 sm:col-span-1">
-        <GoogleMap iframeUrl={mapIframeUrl} />
+        <GoogleMap  mapImage={Map} mapLink="" />
       </div>
     </div>
   );
 };
 
 // Server-side function to get the map URL
-export const getServerSideProps = async () => {
-  const mapIframeUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3162862458075!2d55.36916767461331!3d25.259943629157895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d6a4db55dc3%3A0x494a904da22a2746!2sRegus%20-%20Dubai%2C%20DAFZ%20Freezone!5e0!3m2!1sen!2sae!4v1716456003858!5m2!1sen!2sae";
-
-  return {
-    props: {
-      mapIframeUrl,
-    },
-  };
-};
 
 export default GetTouch;

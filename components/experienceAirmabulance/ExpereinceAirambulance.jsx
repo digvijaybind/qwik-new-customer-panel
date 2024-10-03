@@ -12,6 +12,16 @@ import DoctorOnboard from "../../public/images/fleet_tabs/doctor_onboard.png";
 import GlobalCoverage from "../../public/images/fleet_tabs/global_coverage.png";
 import Biggest_fleet from "../../public/images/fleet_tabs/biggest_fleet.png";
 import SelectionComponent from "@/components/selection/SelectionComponent";
+import twentyIcon from "../../public/images/Homepage/experience/icon/24.png";
+import BedIcon from "../../public/images/Homepage/experience/icon/bed.png";
+import MoneyIcon from "../../public/images/Homepage/experience/icon/money.png";
+import PlaneIcon from "../../public/images/Homepage/experience/icon/plane.png";
+import WorldIcon from "../../public/images/Homepage/experience/icon/world.png";
+import twentyFour from "../../public/images/Homepage/experience/Experience/24hour.png";
+import Bedtobed from "../../public/images/Homepage/experience/Experience/Bedtobed.png";
+import costEffective from "../../public/images/Homepage/experience/Experience/costEffective.png";
+import fleetnetwork from "../../public/images/Homepage/experience/Experience/fleetnetwork.png";
+import GlobalNetwork from "../../public/images/Homepage/experience/Experience/Global.png";
 import { useState } from "react";
 import Image from "next/image";
 const ServicesCard = [
@@ -30,7 +40,7 @@ const ExperienceCard = ({ headline, description, backgroundImage }) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%", // Adjust width
-        height: "300px", // Adjust height as needed
+        height: "250px", // Adjust height as needed
         color: "#1E1E1E",
       }}
     >
@@ -47,28 +57,28 @@ const faqs = [
   {
     index: 1,
     title: "Bed to Bed Patient Transfer",
-    icon: aeroIcon,
+    icon: BedIcon,
   },
   {
     index: 2,
     title: "Biggest Fleet Network",
-    icon: aeroIcon,
+    icon: PlaneIcon,
   },
   {
     index: 3,
     title: "24x7 Doctors On Board",
-    icon: DoctorIcon,
+    icon: twentyIcon,
   },
   {
     index: 4,
     title: "Global Coverage",
-    icon: GlobalIcon,
+    icon: WorldIcon,
   },
 
   {
     index: 5,
     title: "Cost-Effective Solution",
-    icon: CostEffectIcon,
+    icon: MoneyIcon,
   },
 ];
 const ChooseQwiklifButton = ({
@@ -119,10 +129,12 @@ const ExpereinceAirambulance = () => {
         <div className="font-barlow font-bold text-[54px] bg-headline-gradient text-transparent bg-clip-text">
           Experience Exceptional Air Ambulance Services.
         </div>
-        <div className="font-barlow font-normal text-[24px] px-10 sm:px-0 text-[#1E1E1E] mt-5">
-          Fly Fast and Safe with Qwiklif Air Ambulance. We have access to global
-          hospitals, including the best medical team and state-of-the-art
-          medical equipment across the globe.
+        <div className="flex justify-center items-center px-10">
+          <div className="font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5  px-20 sm:px-5">
+            Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
+            global hospitals, including the best medical team and
+            state-of-the-art medical equipment across the globe.
+          </div>
         </div>
       </div>
       <div>
@@ -142,30 +154,49 @@ const ExpereinceAirambulance = () => {
           <div className="col-span-6 sm:col-span-12 sm:mb-10">
             {activeTab === 1 && (
               <SelectionComponent
-                img={Biggest_fleet}
+                img={Bedtobed}
                 title="Bed to Bed Patient Transfer"
-                descripation="Qwiklif Air Ambulance offers Bed to Bed Patient Transfer service From the initial hospital bed to the destination facility, our expert team handles every detail, providing safe and efficient transportation. Trust us to manage every step, so your loved one receives uninterrupted medical care throughout the entire transfer process."
+                descripation="Qwiklif Air Ambulance offers Bed to Bed Patient Transfer service From the initial hospital bed to
+the destination facility, our expert team handles every detail, providing safe and efficient
+transportation. Trust us to manage every step, so your loved one receives uninterrupted medical
+care throughout the entire transfer process."
               />
             )}
             {activeTab === 2 && (
               <SelectionComponent
-                img={DoctorOnboard}
-                title="24x7 Doctors on Board"
-                descripation="Skilled doctors accompany every flight, providing real-time medical support throughout the journey. Immediate access to medical expertise ensures optimal care, enhancing the chances of a positive outcome."
+                img={fleetnetwork}
+                title="Biggest Fleet Network"
+                descripation="With the largest fleet, Qwiklif can respond to emergencies quickly. Multiple aircraft options are
+available to meet various medical requirements, providing an ideal option for all situations.
+"
               />
             )}
             {activeTab === 3 && (
               <SelectionComponent
-                img={GlobalCoverage}
-                title="Global Coverage"
-                descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.Whether you're in a bustling city or a remote area, our reach extends to every corner, making quality healthcare accessible wherever you are."
+                img={twentyFour}
+                title="24x7 Doctors on Board"
+                descripation="We offer 24x7 Doctors on Call for immediate access to medical expertise. Our experienced
+doctors are always available to provide critical advice, support, and care whenever needed.
+Whether it’s a medical emergency or urgent guidance, our team is just a call away"
               />
             )}
             {activeTab === 4 && (
               <SelectionComponent
-                img={CostEffective}
+                img={GlobalNetwork}
+                title="Global Coverage"
+                descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.
+Whether you're in a bustling city or a remote area, our reach extends to every corner, making
+quality healthcare accessible wherever you are"
+              />
+            )}
+            {activeTab === 5 && (
+              <SelectionComponent
+                img={costEffective}
                 title="Cost-Effective Solutions"
-                descripation="We are committed to providing cost-effective air ambulance solutions without compromising on the standard of care. We suggest different modes of transfers like commercial stretchers and other customised transfer plans for making your medical flight cost effective."
+                descripation="We are committed to providing cost-effective air ambulance solutions without compromising on
+the standard of care. We suggest different modes of transfer like commercial stretchers and
+other customized transfer plans for making your medical flight cost-effective.
+"
               />
             )}
           </div>

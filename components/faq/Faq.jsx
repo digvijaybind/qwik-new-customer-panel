@@ -17,7 +17,7 @@ const FAQSection = ({ title, description }) => {
       {/* FAQ header */}
       <div
         className={`flex justify-between items-center px-6 py-4 cursor-pointer ${
-          isExpanded ? "bg-[#19c0f0] text-white" : "bg-[#F1F7FA] text-black"
+          isExpanded ? " text-black" : "bg-[#F1F7FA] text-black"
         } transition-all duration-300 rounded-t-md`}
         onClick={handleToggle}
       >

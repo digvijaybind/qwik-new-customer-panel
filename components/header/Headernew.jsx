@@ -104,7 +104,7 @@ const Headernew = () => {
           {/* Logo */}
           <div className={styles.logo}>
             <Link href="/">
-              <div className="relative h-[60px] w-[150px]">
+              <div className="relative h-[70px] w-[150px]">
                 <Image src={Logo} layout="fill" objectFit="contain" />
               </div>
             </Link>
@@ -157,7 +157,7 @@ const Headernew = () => {
           </div>
 
           {/* Get Quote Button */}
-          <div className="w-[152px] h-[60px] bg-button-gradient text-white font-barlowSemiBold flex justify-center items-center text-[24px] rounded-[5px]">
+          <div className="w-[152px] h-[50px] bg-button-gradient text-white font-barlow font-semibold flex justify-center items-center text-[24px] rounded-[5px]">
             <Link href="/contact">Get Quote</Link>
           </div>
         </div>

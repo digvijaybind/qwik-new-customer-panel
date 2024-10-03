@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-
 const SelectionComponent = ({ img, title, descripation }) => {
   return (
     <div className="grid grid-cols-12 sm:grid-cols-1 gap-x-8">
@@ -11,7 +10,7 @@ const SelectionComponent = ({ img, title, descripation }) => {
           src={img}
           height={400}
           width={500}
-          className="object-cover sm:w-full"
+          className="object-cover h-[390px] w-full sm:w-full"
           alt={title}
         />
       </div>

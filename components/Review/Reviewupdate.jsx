@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const GoogleReviewCard = ({ img, Name, date, decripation }) => {
   return (
-    <div className="flex flex-col items-center bg-white p-4 w-[482px] h-[558px] shadow-[8px_8px_100px_0px_rgba(0,0,0,0.04)] rounded-[8px_0px_0px_0px] opacity-100">
+    <div className="flex flex-col items-center bg-white p-4 w-[482px] h-[450px] shadow-[8px_8px_100px_0px_rgba(0,0,0,0.04)] rounded-[8px_0px_0px_0px] opacity-100">
       {/* User Image */}
       <div className="mb-4">
         {img ? (
@@ -91,10 +91,10 @@ const Reviewupdate = ({ interval = 4000 }) => {
   return (
     <div className="flex justify-center items-center flex-col p-8">
       {/* Heading Section */}
-      <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
+      <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E]">
         Testimonial’s
       </div>
-      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-4">
         Our Google Reviews.
       </div>
       <div className="flex justify-around items-center">

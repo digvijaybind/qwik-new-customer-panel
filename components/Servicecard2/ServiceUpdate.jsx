@@ -11,11 +11,11 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[460px]">
+    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[450px]">
       {" "}
       {/* Set a fixed height */}
       {/* Image Section */}
-      <div className="w-full mb-0">
+      <div className="w-full ">
         <Image
           src={img}
           alt={headline}
@@ -31,11 +31,11 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
           {headline}
         </div>
         {/* Description */}
-        <div className="font-barlow font-normal text-[16px] text-gray-600 mb-2 leading-relaxed ">
+        <div className="font-barlow font-normal text-[16px] text-gray-600 mb-4 leading-relaxed ">
           {description}
         </div>
         {/* Read More Button */}
-        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-extrabold text-[20px]">
+        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-extrabold text-[20px] mb-2">
           Read More
         </button>
       </div>
@@ -84,7 +84,7 @@ const ServiceUpdate = () => {
   return (
     <div className="flex justify-center items-center flex-col px-8 sm:px-4">
       {/* Heading Section */}
-      <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
+      <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] ">
         Our Services
       </div>
       <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">

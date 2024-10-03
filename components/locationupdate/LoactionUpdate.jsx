@@ -25,7 +25,7 @@ const LoactionUpdate = () => {
                   <div
                     className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg"
                     style={{
-                      backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/${d?.flagImage}')`,
+                      backgroundImage: `url('/${d?.flagImage}')`,
                     }}
                   >
                     <div className="flex flex-col justify-center items-center uppercase text-center">

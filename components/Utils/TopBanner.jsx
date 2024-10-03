@@ -25,12 +25,7 @@ const TopBanner = () => {
       <div className="flex flex-wrap items-center space-x-6 sm:justify-center">
         {/* Address Section */}
         <div className="flex items-center cursor-pointer">
-          <Image
-            src={LocationIcon}
-            height={10}
-            width={20}
-            alt="Location Icon"
-          />
+          <Image src={LocationIcon} height={5} width={20} alt="Location Icon" />
           <span className="font-barlow font-normal text-[20px] md:text-base text-white ml-2">
             dubai,uae
           </span>
@@ -49,7 +44,7 @@ const TopBanner = () => {
       </div>
 
       {/* Social Media Links Section */}
-      <div className="flex space-x-4 mt-3 md:mt-0">
+      <div className="flex space-x-4 items-center flex-row mt-3 md:mt-0">
         {socialMediaLinks.map(({ href, src, alt }) => (
           <Link key={alt} href={href} passHref legacyBehavior>
             <a
