@@ -1,28 +1,54 @@
 import React, { useEffect } from "react";
-import styles from "./improveCommericial.module.css"; 
-import { TbArrowsExchange2 } from "react-icons/tb"; 
-import Airline from "../../public/images/commerialImages/Airline.svg"; 
+import styles from "./improveCommericial.module.css";
+import { TbArrowsExchange2 } from "react-icons/tb";
+import Airline from "../../public/images/commerialImages/Airline.svg";
 import Image from "next/image";
-import Strectres from "../../public/images/bookingIcon/strectres.png"; 
-import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; 
-import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg"; 
-import Doctors from "../../public/images/bookingIcon/doctor.png"; 
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
 import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarosel";
 import Signature from "../../public/images/Signature.svg";
 import Important from "../../db/importantCommericial.json";
 import Point from "../../public/images/PointIcon.svg";
 import { currencySymbols } from "../../components/Utils/Constants";
 /*this component contain whole travel duration and descripation of flight and medical equiment */
-
 import Commerialtransfer from "../../public/images/commericial-transfer/Banner.svg";
-import commericialTransferOne from "../../public/images/commericial-transfer/commericailTransfer1.jpg";
-import commericialTransferTwo from "../../public/images/commericial-transfer/commericialTransfer2.jpeg";
-import commericialTransferThree from "../../public/images/commericial-transfer/commericialTransfer3.jpeg";
 import Patience from "../../public/images/commericial-transfer/Patenice.svg";
 import airLift from "../../public/images/commericial-transfer/airLift.svg";
 import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
 import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
-import Bill from "../../public/images/utils/Billlogo.svg"; 
+import Aircanada from "../../public/images/airlineslogo/air-canada.png";
+import Airfrance from "../../public/images/airlineslogo/air-france.png";
+import Airmauritius from "../../public/images/airlineslogo/air-mauritius.png";
+import NipponAirline from "../../public/images/airlineslogo/all-nippon-airways.png";
+import americanAirline from "../../public/images/airlineslogo/american-airlines.png";
+import BritishAirways from "../../public/images/airlineslogo/british-airways.png";
+import cathayAirline from "../../public/images/airlineslogo/cathay-pacific-new.png";
+import DeltaAirline from "../../public/images/airlineslogo/delta-airlines.png";
+import Emirates from "../../public/images/airlineslogo/Emirates.png";
+import Ethiads from "../../public/images/airlineslogo/etihad-airways.png";
+import Indigo from "../../public/images/airlineslogo/indigo.png";
+import KLMAirline from "../../public/images/airlineslogo/KLM-Royal-Dutch-Airlines.png";
+import Lufthansa from "../../public/images/airlineslogo/Lufthansa.png";
+import malesiyaAirline from "../../public/images/airlineslogo/Malaysia Airlines.png";
+import PhillippinesAirlines from "../../public/images/airlineslogo/PhilippineAirlines.png";
+import Quantas from "../../public/images/airlineslogo/Qantas.png";
+import QatarAirway from "../../public/images/airlineslogo/Qatar-airways.png";
+import SaudiAirline from "../../public/images/airlines/Saudia.jpg";
+import SingaporeAirline from "../../public/images/airlineslogo/SingaporeAirlines.png";
+import SouthAfrican from "../../public/images/airlineslogo/southafrican.png";
+import TurkishAirlineNew from "../../public/images/airlineslogo/turkish-airlines-new.png";
+import TurkishAirline from "../../public/images/airlineslogo/turkish-airlines-new.png";
+import UnitedAirline from "../../public/images/airlineslogo/united-airlines.png";
+import VirginAtlantic from "../../public/images/airlineslogo/virgin-atlantic.png";
+import VirginAirline from "../../public/images/airlineslogo/virgin-atlantic.png";
+import AirIndia from "../../public/images/airlineslogo/air-india.png";
+import OmanAirline from "../../public/images/airlineslogo/Oman-airline.png";
+import commericialtransfer from "../../public/images/Homepage/sliderimages/2.png";
+import Bill from "../../public/images/utils/Billlogo.svg";
+import airportName from "../../db/airportMapping.json";
+import cityName from "../../db/citymapping.json";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -33,16 +59,25 @@ import { CommericialSingleApi } from "@/redux/slices/commericialdetailSlice";
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 //Time travel duration calculation
+
+const snipText = (text, maxWords) => {
+  if (!text) return "";
+  const words = text.split(" ");
+  return words.length > maxWords
+    ? words.slice(0, maxWords).join(" ") + "..."
+    : text;
+};
 const TravelDuration = ({
   airline,
   totalTravelDuration,
   locationData,
   Ticketdate,
+  airlineImage,
 }) => {
   console.log("totalTravelDuration line 29", totalTravelDuration);
   const formatTime = (date) => {
     return new Date(
-      (typeof date === "string" ? new Date(date) : date).toLocaleString(
+      (typeof date === "string" ? new Date(date) : date)?.toLocaleString(
         "en-US",
         { timeZone: currentTimeZone },
       ),
@@ -56,6 +91,7 @@ const TravelDuration = ({
             <div className="font-black text-[20px] mr-4">
               {" "}
               {locationData?.departureLocation}
+              {}
             </div>
             <div className="bg-[#54CDEF] rounded-full px-2 py-2">
               <TbArrowsExchange2
@@ -77,7 +113,14 @@ const TravelDuration = ({
               {Ticketdate}
             </div>
             <div className="ml-5 font-sans text-[14px] sm:text-[10px] sm:whitespace-nowrap sm:ml-16 sm:font-extrabold">
-              Non Stop{" "}
+              {locationData.departureLocationwithtechstop ? (
+                <strong className="mr-2">
+                  {locationData.techstopCityname}
+                </strong>
+              ) : (
+                <strong className="mr-2">Non-stop</strong>
+              )}
+
               {totalTravelDuration?.length > 0 &&
                 totalTravelDuration.map((data) => {
                   return `${Math.floor(data.totalHours)}h ${Math.floor(
@@ -93,7 +136,7 @@ const TravelDuration = ({
         <div className="font-medium text-black flex justify-between mt-4 sm:items-center">
           <div className="flex justify-between flex-row items-center">
             <div className="">
-              <Image src={Airline} width={44} height={42} />
+              <Image src={airlineImage} width={44} height={42} />
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
               <span className="font-black text-[18px] text-[#171A1F]">
@@ -108,67 +151,176 @@ const TravelDuration = ({
       </div>
       {/*Depature Time and arrival Time*/}
       <div className="bg-[#F2F2F2] mx-4 flex flex-row py-8 px-8 sm:mt-4 sm:mx-0">
-        <div className="Timeline flex flex-col justify-between">
-          <div className="FromTime font-Inter font-bold">
-            {" "}
-            {locationData?.departureTime
-              ? moment(formatTime(locationData?.departureTime)).format("HH:mm")
-              : "--:--"}
-          </div>
-          <div className="ToTime font-Inter font-bold">
-            {" "}
-            {locationData?.destinationTime
-              ? moment(formatTime(locationData?.destinationTime)).format(
-                  "HH:mm",
-                )
-              : "--:--"}
-          </div>
-        </div>
-        <div className="Line mx-4 self-center h-[95px] relative sm:h-[240px]">
-          {/* Top circle */}
-          <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 mb-3">
-            {/* Inner circle with border */}
-            <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
-          </div>
+        {locationData.techstopAirportname && (
+          <div className="Timeline flex flex-col justify-between">
+            <div className="FromTime font-Inter font-bold">
+              {" "}
+              {locationData?.departureTime
+                ? moment(formatTime(locationData?.departureTime)).format(
+                    "HH:mm",
+                  )
+                : "--:--"}
+            </div>
+            <div className="FromTime font-Inter font-bold">
+              {" "}
+              {locationData?.departureTime
+                ? moment(
+                    formatTime(locationData?.depatureLocationtechstopTime),
+                  ).format("HH:mm")
+                : "--:--"}
+            </div>
 
-          {/* Dotted line */}
-          <div className="h-[65px] w-1  mt-4 sm:h-[200px]">
-            <div className="h-full border-l border-gray-900 border-dotted"></div>
+            <div className="ToTime font-Inter font-bold">
+              {" "}
+              {locationData?.destinationTime
+                ? moment(formatTime(locationData?.destinationTime)).format(
+                    "HH:mm",
+                  )
+                : "--:--"}
+            </div>
           </div>
+        )}
+        {!locationData.techstopAirportname && (
+          <div>
+            <div className="Timeline flex flex-col justify-between">
+              <div className="Timeline flex flex-col justify-between">
+                <div className="FromTime font-Inter font-bold">
+                  {" "}
+                  {locationData?.departureTime
+                    ? moment(formatTime(locationData?.departureTime)).format(
+                        "HH:mm",
+                      )
+                    : "--:--"}
+                </div>
+              </div>
+            </div>
+            <div className="Line mx-4 self-center h-[95px] relative sm:h-[240px]">
+              {/* Top circle */}
+              <div className="LineDot absolute top-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 mb-3">
+                <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+              </div>
 
-          {/* Bottom circle */}
-          <div className="LineDot absolute bottom-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 ">
-            {/* Inner circle with border */}
-            <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+              <div className="h-[65px] w-1  mt-4 sm:h-[200px]">
+                <div className="h-full border-l border-gray-900 border-dotted"></div>
+              </div>
+
+              <div className="LineDot absolute bottom-0 left-1/2 transform -translate-x-1/2 rounded-full w-3 h-3 ">
+                <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+              </div>
+            </div>
+            <div className="ToTime font-Inter font-bold">
+              {" "}
+              {locationData?.destinationTime
+                ? moment(formatTime(locationData?.destinationTime)).format(
+                    "HH:mm",
+                  )
+                : "--:--"}
+            </div>
           </div>
-        </div>
+        )}
         {/*depature location and arrival Location */}
-        <div className="Location flex flex-col justify-between sm:items-unset">
-          <div className="FromLocation flex justify-around items-baseline flex-row sm:flex-col">
-            <span className="FromLocationName font-Inter text-[14px] font-bold">
-              {locationData?.departureLocation}
-            </span>
-            <div className="AirportName font-Inter text-[#898888] text-[11px] ml-4 sm:mt-2">
-              Terminal {locationData?.arrivalterminal}
+        {locationData.techstopAirportname && (
+          <div className="Location flex flex-col items-start relative">
+            {/* Departure Location */}
+            <div className="FromSection flex flex-col items-start mb-4">
+              <div className="FromLocation flex justify-start items-baseline flex-row text-left sm:flex-col">
+                <span className="FromLocationName font-barlow text-[14px] font-bold ml-2">
+                  {locationData?.depatureCityName}
+                </span>
+                <span className="FromLocationName font-barlow ml-2 text-[10px] font-semibold">
+                  {snipText(locationData?.depatureAirportname, 20)}
+                </span>
+                <div className="AirportName font-Inter text-[#898888] ml-2 text-[11px]">
+                  Terminal {locationData?.arrivalterminal}
+                </div>
+              </div>
+            </div>
+
+            {/* First Vertical Line with Circle */}
+            <div className="LineDot flex flex-col justify-start items-center mx-2 relative">
+              <div className="border-l-2 border-[#9095A0] h-24"></div>
+              <div className="rounded-full w-3 h-3 bg-white absolute top-0 left-1/2 transform -translate-x-1/2 mb-1 z-10">
+                <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+                <div class="rounded-full w-3 h-3 bg-white absolute top-0 left-1/2 transform -translate-x-1/2 mb-1 z-10">
+                  <div class="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tech Stop Section */}
+            <div className="TechStopSection flex flex-col items-start mb-4">
+              <div className="Tolocation flex justify-start items-baseline flex-row text-left sm:flex-col">
+                <span className="font-barlow text-[14px] font-bold ml-2">
+                  {locationData?.techstopCityname}
+                </span>
+                <span className="font-barlow text-[10px] ml-2  font-semibold">
+                  {snipText(locationData?.techstopAirportname, 20)}
+                </span>
+                <div className="font-Inter text-[#898888] ml-2 text-[11px]">
+                  Terminal {locationData?.destinationterminal}
+                </div>
+              </div>
+            </div>
+
+            {/* Second Vertical Line with Circle */}
+            <div className="LineDot flex flex-col justify-start items-center mx-2 relative">
+              <div className="border-l-2 border-[#9095A0] h-24"></div>
+              <div className="rounded-full w-3 h-3 bg-white absolute top-0 left-1/2 transform -translate-x-1/2 mb-1 z-10">
+                <div className="absolute inset-0 bg-transparent border-2 border-[#9095A0] rounded-full"></div>
+              </div>
+            </div>
+
+            {/* Destination Section */}
+            <div className="ToSection flex flex-col items-start">
+              <div className="Tolocation flex justify-start items-baseline flex-row text-left sm:flex-col">
+                <span className="font-barlow text-[14px] font-bold ml-2">
+                  {locationData?.destinationCityName}
+                </span>
+                <span className="font-barlow text-[10px] ml-2 font-semibold">
+                  {snipText(locationData?.destinationAirportname, 20)}
+                </span>
+                <div className="font-Inter text-[#898888] ml-2 text-[11px]">
+                  Terminal {locationData?.destinationterminal}
+                </div>
+              </div>
             </div>
           </div>
-          <div className="Timeduration font-Inter  text-[14px] font-medium sm:ml-2 sm:font-semibold">
-            {totalTravelDuration?.length > 0 &&
-              totalTravelDuration.map((data) => {
-                return `${Math.floor(data.totalHours)}h ${Math.floor(
-                  data.totalMinutes,
-                )}m`;
-              })}
-          </div>
-          <div className="Tolocation flex  items-baseline flex-row sm:flex-col">
-            <span className="font-Inter text-[14px] font-bold">
-              {locationData?.destinationLocation}
-            </span>
-            <div className="font-Inter text-[#898888]  text-[11px] ml-4 sm:mt-2">
-              Terminal {locationData?.destinationterminal}
+        )}
+
+        {!locationData.techstopAirportname && (
+          <div className="Location flex flex-col justify-between sm:items-unset">
+            <div className="FromLocation flex justify-around items-baseline flex-row sm:flex-col">
+              <span className="FromLocationName font-barlow text-[14px] font-bold">
+                {locationData?.depatureCityName}
+              </span>
+              <span className="FromLocationName font-barlow text-[10px] ml-4 font-semibold">
+                {snipText(locationData?.depatureAirportname, 20)}
+              </span>
+              <div className="AirportName font-Inter text-[#898888] text-[11px] ml-2 sm:mt-2">
+                Terminal {locationData?.arrivalterminal}
+              </div>
+            </div>
+            <div className="Timeduration font-Inter  text-[14px] font-medium sm:ml-2 sm:font-semibold">
+              {totalTravelDuration?.length > 0 &&
+                totalTravelDuration.map((data) => {
+                  return `${Math.floor(data.totalHours)}h ${Math.floor(
+                    data.totalMinutes,
+                  )}m`;
+                })}
+            </div>
+            <div className="Tolocation flex justify-around items-baseline flex-row sm:flex-col  ml-2">
+              <span className="font-barlow text-[14px] font-bold">
+                {locationData?.destinationCityName}
+              </span>
+              <span className="font-barlow text-[10px] ml-4 font-semibold">
+                {snipText(locationData?.destinationAirportname, 20)}
+              </span>
+              <div className="font-Inter text-[#898888]  text-[11px] ml-4 sm:mt-2">
+                Terminal {locationData?.destinationterminal}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="grid grid-cols-2 grid-rows-3 gap-4 px-[20px] sm:grid-cols-1 sm:grid-rows-5 sm:gap-6 mt-4 sm:mt-4">
@@ -275,7 +427,7 @@ const TravelDuration = ({
             </div>
             <div className="h-full w-full cursor-pointer">
               {" "}
-              <Image src={Vistara} />
+              <Image src={commericialtransfer} />
             </div>
             <div className=" w-full h-full cursor-pointer flex justify-around flex-col">
               <Image src={airLift} />
@@ -443,6 +595,7 @@ const UpperSection = ({
   totalTravelDuration,
   locationData,
   Ticketdate,
+  airlineImage,
 }) => {
   return (
     <div className="grid grid-cols-9 gap-5 px-10 sm:grid-cols-1 sm:px-2 sm:gap-2">
@@ -452,6 +605,7 @@ const UpperSection = ({
           totalTravelDuration={totalTravelDuration}
           locationData={locationData}
           Ticketdate={Ticketdate}
+          airlineImage={airlineImage}
         />
         {/* <ImportantInfo />
         <Guarantee /> */}
@@ -546,7 +700,7 @@ const CommericialBookingConfirmationPage = () => {
   const [totalTravelDuration, setTotalTravelDuration] = useState({});
   const [locationData, setLocationData] = useState({});
   const [Ticketdate, setTikcetdate] = useState("");
-
+  const [airlineImage, setAirlineImage] = useState("");
   const airlineNames = {
     AC: "Air Canada",
     "6E": "IndiGo",
@@ -576,6 +730,37 @@ const CommericialBookingConfirmationPage = () => {
     MAU: "Air Mauritius",
     MH: "Malaysia Airlines",
     SV: "Saudia",
+  };
+
+  const AirlineImages = {
+    AC: Aircanada,
+    "6E": Indigo,
+    AF: Airfrance,
+    AI: AirIndia,
+    AA: americanAirline,
+    BA: BritishAirways,
+    CX: cathayAirline,
+    DL: DeltaAirline,
+    EK: Emirates,
+    EY: Ethiads,
+    KL: KLMAirline,
+    LH: Lufthansa,
+    QF: Quantas,
+    QR: QatarAirway,
+    SQ: SingaporeAirline,
+    TK: TurkishAirline,
+    UA: UnitedAirline,
+    VS: VirginAtlantic,
+    THY: TurkishAirlineNew,
+    WY: OmanAirline,
+    OMA: OmanAirline,
+    SAA: SouthAfrican,
+    ANA: NipponAirline,
+    PAL: PhillippinesAirlines,
+    VIR: VirginAirline,
+    MAU: Airmauritius,
+    MH: malesiyaAirline,
+    SV: SaudiAirline,
   };
 
   const parseISO8601Duration = (durationString) => {
@@ -615,27 +800,74 @@ const CommericialBookingConfirmationPage = () => {
   const getLocationData = () => {
     const segments =
       data?.specificAircraft?.aircraft?.itineraries[0]?.segments ?? [];
-
+    console.log("segment", segments);
     if (segments?.length > 1) {
       setLocationData({
+        // First segment's departure information
         departureLocation: segments[0]?.departure?.iataCode,
         departureTime: segments[0]?.departure?.at,
+        arrivalterminal: segments[0]?.departure?.terminal,
+
+        // Last segment's arrival information
         destinationLocation: segments.at(-1)?.arrival?.iataCode,
         destinationTime: segments.at(-1)?.arrival?.at,
-        arrivalterminal: segments[0]?.departure?.terminal,
         destinationterminal: segments.at(-1)?.arrival?.terminal,
+
+        // First segment's arrival as tech stop
+        departureLocationwithtechstop: segments[0]?.arrival?.iataCode, // First segment arrival (RUH)
+        depatureLocationtechstopTime: segments[0]?.arrival?.at,
+        // Second segment's departure as next tech stop
+        destinationLocationwithtechstop: segments[1]?.departure?.iataCode, // Second segment departure (RUH)
+
+        // City and airport names using the respective IATA codes
+        depatureCityName: cityName[segments[0]?.departure?.iataCode],
+        destinationCityName: cityName[segments.at(-1)?.arrival?.iataCode],
+        depatureAirportname: airportName[segments[0]?.departure?.iataCode],
+        destinationAirportname: airportName[segments.at(-1)?.arrival?.iataCode],
+        techstopCityname: cityName[segments[1]?.departure?.iataCode],
+
+        techstopAirportname: airportName[segments[0]?.arrival?.iataCode],
       });
     } else {
       setLocationData({
+        // Single segment case
         departureLocation: segments[0]?.departure?.iataCode,
         departureTime: segments[0]?.departure?.at,
         destinationLocation: segments[0]?.arrival?.iataCode,
         destinationTime: segments[0]?.arrival?.at,
         arrivalterminal: segments[0]?.departure?.terminal,
         destinationterminal: segments[0]?.arrival?.terminal,
+        depatureCityName: cityName[segments[0]?.departure?.iataCode],
+        destinationCityName: cityName[segments[0]?.arrival?.iataCode],
+        depatureAirportname: airportName[segments[0]?.departure?.iataCode],
+        destinationAirportname: airportName[segments[0]?.arrival?.iataCode],
       });
     }
   };
+
+  console.log("departureLocation", locationData.departureLocation);
+  console.log(" departureTime", locationData.departureTime);
+  console.log("arrivaltime", locationData.destinationTime);
+  console.log("techstoptime", locationData.depatureLocationtechstopTime);
+  // After setting the location data, access it like this:
+  console.log(
+    "Tech Stop (First Segment Arrival): ",
+    locationData.departureLocationwithtechstop,
+  );
+  console.log(
+    "depature location tech stop time",
+    locationData.depatureLocationtechstopTime,
+  );
+  console.log(
+    "Tech Stop (Second Segment Departure): ",
+    locationData.destinationLocationwithtechstop,
+  );
+  console.log("tech stop city name", locationData.techstopCityname);
+  console.log("tech stop airport name", locationData.techstopAirportname);
+  console.log(" destinationLocation", locationData.destinationLocation);
+  console.log(" arrivalterminal", locationData.arrivalterminal);
+  console.log("destinationterminal", locationData.destinationterminal);
+  console.log(" depatureAirportname", locationData.depatureAirportname);
 
   const getTravelDuration = () => {
     const timeduration =
@@ -660,19 +892,25 @@ const CommericialBookingConfirmationPage = () => {
 
     console.log("airlines name line 562", airlineName);
   };
-
+  const AirlineImage = () => {
+    const airlineName =
+      data?.specificAircraft?.aircraft?.itineraries[0]?.segments[0]
+        ?.carrierCode ?? [];
+    const airlineImage = AirlineImages[airlineName];
+    setAirlineImage(airlineImage);
+  };
   useEffect(() => {
     if (data) {
       AirlineName();
       getTravelDuration();
       getLocationData();
+      AirlineImage();
     }
   }, [data]);
 
   console.log("totalprice in main component", data);
   console.log("totalTravelDuration in main compoennt", totalTravelDuration);
   console.log("locationData in main component", locationData);
-  
 
   if (!data) {
     return <p>No data available</p>;
@@ -689,6 +927,7 @@ const CommericialBookingConfirmationPage = () => {
             totalTravelDuration={totalTravelDuration}
             locationData={locationData}
             Ticketdate={Ticketdate}
+            airlineImage={airlineImage}
           />
           <div className="grid grid-cols-9 mx-10 sm:grid-cols-1 sm:mx-0">
             <div className="col-span-6 bg-[#F8F9FA] px-10 sm:px-0">

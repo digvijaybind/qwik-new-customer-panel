@@ -30,6 +30,7 @@ import VirginAtlantic from "../../public/images/airlineslogo/virgin-atlantic.png
 import VirginAirline from "../../public/images/airlineslogo/virgin-atlantic.png";
 import AirIndia from "../../public/images/airlineslogo/air-india.png";
 import OmanAirline from "../../public/images/airlineslogo/Oman-airline.png";
+import CityName from "../../db/citymapping.json";
 import Link from "next/link";
 // Timezone conversion function
 const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -43,7 +44,7 @@ const CommericialSearch = ({
   activeTab,
 }) => {
   const [totalCost, setTotalCost] = useState(
-    parseFloat((aircraftData?.price?.totalPrice).toFixed(2)) ?? 0
+    parseFloat((aircraftData?.price?.totalPrice).toFixed(2)) ?? 0,
   );
   const [locationData, setLocationData] = useState({});
   const [totalTravelDuration, setTotalTravelDuration] = useState({});
@@ -52,12 +53,13 @@ const CommericialSearch = ({
   const [airlineImage, setAirlineImage] = useState("");
   const [selectedCurrency, setSelectedCurrency] = useState("EUR");
   const [availableticket, setavailableticket] = useState("");
+  const [fromcityName, setFromCity] = useState("");
+  const [tocityName, setTocity] = useState("");
   // handle currecy change
   const handleCurrencyChange = (event) => {
     setSelectedCurrency(event.target.value);
   };
 
-  
   const getEUR = (price) => {
     const EuroPrice = price;
     return EuroPrice;
@@ -87,7 +89,7 @@ const CommericialSearch = ({
   // change currency
   useEffect(() => {
     const actualTotalPrice = parseFloat(
-      (aircraftData?.price?.totalPrice).toFixed(2)
+      (aircraftData?.price?.totalPrice).toFixed(2),
     );
     switch (selectedCurrency) {
       case "EUR":
@@ -173,8 +175,8 @@ const CommericialSearch = ({
     return new Date(
       (typeof date === "string" ? new Date(date) : date).toLocaleString(
         "en-US",
-        { timeZone: currentTimeZone }
-      )
+        { timeZone: currentTimeZone },
+      ),
     );
   };
   const getLocationData = () => {
@@ -187,6 +189,9 @@ const CommericialSearch = ({
         destinationTime: segments.at(-1)?.arrival?.at,
         arrivalterminal: segments[0]?.departure?.terminal,
         destinationterminal: segments.at(-1)?.arrival?.terminal,
+        departureLocationwithtechstop: segments[1]?.departure?.iataCode,
+        destinationLocationwithtechstop: segments[1]?.arrival?.iataCode,
+     
       });
     } else {
       setLocationData({
@@ -196,6 +201,7 @@ const CommericialSearch = ({
         destinationTime: segments[0]?.arrival?.at,
         arrivalterminal: segments[0]?.departure?.terminal,
         destinationterminal: segments[0]?.arrival?.terminal,
+        
       });
     }
   };
@@ -276,6 +282,14 @@ const CommericialSearch = ({
     }
     setTechStops(stops);
   };
+
+  const AirportCity = () => {
+    const fromcityName1 =
+      CityName[locationData?.departureLocation] || "Unknow Airline";
+    const Tocityname1 = CityName[locationData?.destinationLocation];
+    setFromCity[fromcityName1];
+    setTocity[Tocityname1];
+  };
   useEffect(() => {
     getTravelDuration();
     getLocationData();
@@ -283,6 +297,7 @@ const CommericialSearch = ({
     AirlineName();
     TicketAvailable();
     AirlineImage();
+    AirportCity();
   }, []);
   return (
     <div className="w-full flex flex-col gap-4">
@@ -324,17 +339,22 @@ const CommericialSearch = ({
                 <p className="text-xl mb-1">
                   {locationData?.departureTime
                     ? moment(formatTime(locationData?.departureTime)).format(
-                        "HH:mm"
+                        "HH:mm",
                       )
                     : "--:--"}
                 </p>
-                <p className="text-xs">{locationData?.departureLocation}</p>
+                <div className="flex flex-col">
+                  <p className="text-xs font-barlow font-semibold">
+                    {fromcityName}
+                  </p>
+                  <p className="text-xs">{locationData?.departureLocation}</p>
+                </div>
               </div>
               <span className="bg-primary text-white rounded-md text-xs px-2 py-1 sm:px-3 sm:py-2">
                 {totalTravelDuration?.length > 0 &&
                   totalTravelDuration.map((data) => {
                     return `${Math.floor(data.totalHours)}h ${Math.floor(
-                      data.totalMinutes
+                      data.totalMinutes,
                     )}m`;
                   })}
               </span>
@@ -342,11 +362,16 @@ const CommericialSearch = ({
                 <p className="text-xl mb-1">
                   {locationData?.destinationTime
                     ? moment(formatTime(locationData?.destinationTime)).format(
-                        "HH:mm"
+                        "HH:mm",
                       )
                     : "--:--"}
                 </p>
-                <p className="text-xs">{locationData?.destinationLocation}</p>
+                <div className="flex flex-col">
+                  <p className="text-xs font-barlow font-semibold">
+                    {tocityName}
+                  </p>
+                  <p className="text-xs">{locationData?.destinationLocation}</p>
+                </div>
               </div>
             </div>
           </div>

@@ -56,7 +56,7 @@ const Bloglist = ({ blogs }) => {
               ></p>
               <Link
                 href={`/blog/${blog?.slug}`}
-                className="bg-primary text-white px-3 py-2 rounded-sm"
+                className="bg-[#19c0f0] text-white px-3 py-4 rounded-md"
               >
                 Read More
               </Link>

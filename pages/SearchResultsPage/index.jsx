@@ -223,7 +223,9 @@ const SearchResponse = ({ initialData }) => {
                 } sm:`}
               >
                 {status === "pending" && !DedicatedFlights && (
+                  <div className="mt-[40px]">
                   <DedicatedLoader />
+                  </div>
                 )}
                 {status === "succeeded" &&
                   DedicatedFlights.map((data, index) => {
