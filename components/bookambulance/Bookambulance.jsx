@@ -46,13 +46,13 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`relative p-6 bg-white shadow-md cursor-pointer w-[352px] h-[350px] 
-        rounded-[60px] rounded-bl-[10px] rounded-tr-[10px] opacity-100 transition-all duration-300`}
+        className={`relative p-6 bg-white shadow-md cursor-pointer w-full h-[350px] 
+        rounded-[30px] opacity-100 transition-all duration-300 max-w-[350px]`} // Use max-width for consistent sizing
       >
         {/* Icon, Title, and Description Section */}
         <div className="flex flex-col justify-start items-start h-full text-left">
           {/* Icon */}
-          <div className="w-full flex justify-start mt-6 mb-6">
+          <div className="w-full flex justify-start mt-6 mb-4">
             <Image
               src={img}
               alt={title}
@@ -64,12 +64,12 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
           </div>
 
           {/* Title */}
-          <h3 className={`font-barlow font-bold text-[26px] mb-2 ${textColor}`}>
+          <h3 className={`font-barlow font-bold text-[22px] mb-2 ${textColor}`}>
             {title}
           </h3>
 
           {/* Description */}
-          <p className="font-barlow font-normal text-[20px] text-gray-600 mb-6 leading-relaxed">
+          <p className="font-barlow font-normal text-[16px] text-gray-600 mb-6 leading-relaxed">
             {description}
           </p>
         </div>
@@ -78,11 +78,11 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
         <div className="absolute w-full h-full top-0 left-0">
           {/* Top Left Corner */}
           <div
-            className={`absolute top-0 left-0 h-[45px] w-[45px] border-t-4 border-l-4 ${bgColor} rounded-tl-[60px]`}
+            className={`absolute top-0 left-0 h-[45px] w-[45px] border-t-4 border-l-4 ${bgColor} rounded-tl-[30px]`}
           ></div>
           {/* Bottom Right Corner */}
           <div
-            className={`absolute bottom-0 right-0 h-[45px] w-[45px] border-b-4 border-r-4 ${bgColor} rounded-br-[60px]`}
+            className={`absolute bottom-0 right-0 h-[45px] w-[45px] border-b-4 border-r-4 ${bgColor} rounded-br-[30px]`}
           ></div>
         </div>
       </div>
@@ -93,12 +93,12 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
 // Main Bookambulance Component
 const Bookambulance = () => {
   return (
-    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-20 py-10 sm:px-10 sm:py-5">
+    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-8 py-10 sm:px-4 sm:py-5">
       {/* Title */}
       <h2 className="font-barlow font-semibold text-[24px] mt-5 text-center">
         How To Book Air Ambulance
       </h2>
-      <h1 className="font-barlow font-bold bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[34px] text-center">
+      <h1 className="font-barlow font-bold bg-headline-gradient text-transparent bg-clip-text text-[36px] sm:text-[28px] text-center">
         Here’s a Simple Step To Book an Air Ambulance
       </h1>
 

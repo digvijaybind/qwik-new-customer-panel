@@ -21,12 +21,14 @@ const NewsUpdate2 = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          centerPadding: "20px", // Adjust padding for tablet screens
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          centerPadding: "20px", // Adjust padding for mobile devices
         },
       },
     ],
@@ -37,7 +39,7 @@ const NewsUpdate2 = () => {
   // BlogCard component for displaying individual cards
   const BlogCard = ({ image, title, description }) => {
     return (
-      <div className="bg-white drop-shadow-xl p-4 rounded-md w-[450px] h-[550px]">
+      <div className="bg-white drop-shadow-xl p-4 rounded-md h-[550px] flex flex-col">
         {/* Blog Image */}
         {image ? (
           <img
@@ -49,7 +51,7 @@ const NewsUpdate2 = () => {
           <div className="w-full h-[200px] bg-gray-200 rounded-md"></div>
         )}
         {/* Blog Content */}
-        <div className="w-full p-4 flex flex-col items-start">
+        <div className="flex-grow p-4 flex flex-col">
           <h2 className="text-[28px] font-barlow font-semibold mb-2 text-[#1E1E1E] max-h-[140px]">
             {title}
           </h2>
@@ -58,7 +60,7 @@ const NewsUpdate2 = () => {
           </p>
 
           {/* Read More Button */}
-          <div className="text-[#1E1E1E] py-2 rounded-sm inline-block hover:bg-primary-dark transition-colors font-barlow font-semibold text-[20px]">
+          <div className="text-[#1E1E1E] py-2 rounded-sm inline-block hover:bg-primary-dark transition-colors font-barlow font-semibold text-[20px] cursor-pointer">
             Read More
           </div>
         </div>
@@ -77,11 +79,14 @@ const NewsUpdate2 = () => {
       </div>
 
       {/* Card Slider */}
-      <div className="w-full  px-4">
+      <div className="w-full px-4">
         {News.length > 0 ? (
           <Slider {...settings}>
             {News.map((blog) => (
-              <div key={blog.id} className="p-4 grid grid-cols-3 ">
+              <div
+                key={blog.id}
+                className="flex justify-center" // Center align cards
+              >
                 <BlogCard
                   image={blog.image}
                   title={blog.title}
@@ -98,7 +103,7 @@ const NewsUpdate2 = () => {
       {/* "Read More" Button */}
       <Link href="/blogs">
         <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-          <Link href="/blogs">Read More</Link>
+          Read More
         </div>
       </Link>
     </div>

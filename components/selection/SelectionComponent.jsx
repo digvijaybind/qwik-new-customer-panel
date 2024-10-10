@@ -8,9 +8,9 @@ const SelectionComponent = ({ img, title, descripation }) => {
       <div className="col-span-5 sm:col-span-1">
         <Image
           src={img}
-          height={400}
+          height={590}
           width={500}
-          className="object-cover h-[390px] w-full sm:w-full"
+          className="object-cover h-[450px] w-full sm:w-full"
           alt={title}
         />
       </div>

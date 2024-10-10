@@ -121,8 +121,8 @@ const ChooseQwiklifButton = ({
 const ExpereinceAirambulance = () => {
   const [activeTab, setActiveTab] = useState(1);
   return (
-    <div className="flex justify-center items-center flex-col px-20 py-10 sm:px-10">
-      <div className="flex justify-center items-center flex-col px-20 sm:px-10">
+    <div className="flex justify-center items-center flex-col px-20 py-10 md:px-10 sm:px-10">
+      <div className="flex justify-center items-center flex-col px-20 md:px-10 sm:px-10">
         <div className="font-barlow font-normal text-[24px]">
           Why Choose Qwiklif
         </div>
@@ -130,7 +130,7 @@ const ExpereinceAirambulance = () => {
           Experience Exceptional Air Ambulance Services.
         </div>
         <div className="flex justify-center items-center px-10">
-          <div className="font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5  px-20 sm:px-5">
+          <div className="font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5  px-20 md:px-10 sm:px-5">
             Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
             global hospitals, including the best medical team and
             state-of-the-art medical equipment across the globe.

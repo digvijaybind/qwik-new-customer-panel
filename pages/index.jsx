@@ -167,51 +167,51 @@ const Home = () => {
         )} */}
 
         <div
-          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-10 `}
+          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-10 lg:h-[500px] xl:h-[700px]`}
         >
-          <div className="flex flex-col justify-start max-w-[630px] max-h-[480px]sm:max-h-[550px] space-y-4 sm:justify-center">
+          <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] sm:max-h-[550px] lg:max-w-[550px] xl:max-w-[600px] space-y-4 sm:justify-center">
             {/* Headline */}
-            <h1 className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight sm:text-[34px]">
+            <h1 className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight sm:text-[34px] md:text-[44px] lg:text-[48px] xl:text-[54px]">
               FAST, TRUSTED <br />
               AIR AMBULANCE CARE.
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg leading-relaxed font-barlow font-regular text-[#1E1E1E]">
+            <p className="text-lg leading-relaxed font-barlow font-regular text-[#1E1E1E] sm:text-base md:text-lg lg:text-xl xl:text-lg">
               Expert air medical transport ensuring critical care and rapid
               response, tailored to meet urgent needs across the globe.
             </p>
 
             {/* Services Section */}
-            <div className="grid grid-cols-4 gap-x-4 mt-20 mb-20 sm:gap-x-2">
+            <div className="grid grid-cols-3 gap-x-4 mt-10 mb-10 sm:grid-cols-2 md:gap-x-2 lg:gap-x-3">
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
-                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#00FF00]"></div>
+                <div className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 rounded-full bg-[#00FF00]"></div>
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] md:text-[18px] lg:text-[20px] font-barlow font-semibold">
                   24/7 Support
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
-                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#FB8500]"></div>
+                <div className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 rounded-full bg-[#FB8500]"></div>
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] md:text-[18px] lg:text-[20px] font-barlow font-semibold">
                   Expert Doctor
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
-                <div className="h-3 w-3 sm:h-4 sm:w-6 rounded-full bg-[#FF0000]"></div>
+                <div className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 rounded-full bg-[#FF0000]"></div>
                 {/* Text */}
-                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] font-barlow font-semibold inline-block">
+                <span className="text-[#1E1E1E] text-[20px] sm:text-[15px] md:text-[18px] lg:text-[20px] font-barlow font-semibold">
                   Critical Care
                 </span>
               </div>
             </div>
 
             {/* Call to Action Button */}
-            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-30 sm:mt-10">
+            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10">
               <Link href="/contact">Book An Air Ambulance Now</Link>
             </button>
           </div>
@@ -249,7 +249,7 @@ const Home = () => {
 
         {/* News and update*/}
 
-        <div className="mt-10">
+        <div className="">
           <NewsUpdate2 />
         </div>
 
@@ -258,7 +258,7 @@ const Home = () => {
 
         {/* review */}
 
-        <div className="mt-10">
+        <div className="mt-5">
           <Reviewupdate />
         </div>
 
@@ -269,7 +269,7 @@ const Home = () => {
 
         {/* location */}
 
-        <div>
+        <div className="mt-10">
           <LoactionUpdate />
         </div>
 

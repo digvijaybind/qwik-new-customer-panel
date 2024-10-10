@@ -49,8 +49,9 @@ const ServicesHight = () => {
       </div>
 
       {/* Horizontal Line between Row 1 and Row 2 */}
+      {/* Horizontal Line between Row 1 and Row 2 */}
       <div
-        className="absolute left-0 top-1/2 w-full h-px sm:hidden"
+        className="absolute left-0 top-1/2 w-full h-px t   sm:hidden"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #11B6E3 0%, rgba(17, 182, 227, 0) 100%)",

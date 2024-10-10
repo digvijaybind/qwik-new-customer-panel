@@ -47,7 +47,7 @@ const LoactionUpdate = () => {
                       ..
                     </p>
                     <Link
-                      className="mt-3 px-5 py-2 border border-white rounded-md text-sm sm:mt-1"
+                      className="mt-2 px-5 py-2 border border-white rounded-md text-sm sm:mt-1"
                       href="/country"
                     >
                       Read More

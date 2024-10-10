@@ -112,7 +112,7 @@ const Reviewupdate = ({ interval = 4000 }) => {
       </Link>
 
       {/* Review Cards Slider */}
-      <div className="w-full max-w-7xl px-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="w-full max-w-7xl px-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-3">
         {Review.slice(startIdx, endIdx).map((data, index) => (
           <div key={index} className="flex justify-center">
             <GoogleReviewCard

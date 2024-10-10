@@ -29,7 +29,7 @@ const HamburgerMenu = () => {
   }, []);
 
   return (
-    <div className="flex flex-col font-sans relative">
+    <div className="flex flex-col font-sans relative px-10">
    
       <div className="flex flex-row justify-between items-center px-[10px] py-[10px] font-sans">
         <div className="flex flex-row justify-between">
@@ -64,7 +64,7 @@ const HamburgerMenu = () => {
               <MdCancel style={{ fontSize: "1.5rem" }} />
             </button>
           ) : (
-            <button className="hamburger-button" onClick={toggleMenu}>
+            <button className="hamburger-button " onClick={toggleMenu}>
               ☰
             </button>
           )}

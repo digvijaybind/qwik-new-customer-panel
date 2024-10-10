@@ -99,7 +99,7 @@ const Header = () => {
 
         <div
           className={`flex flex-row items-center ${styles.MenuTabResposive}`}
-        >
+      >
           <ul className={`flex flex-row`}>
             {tabs.map((tab, index) => (
               <Link href={tab.url} key={"menu-item" + index}>

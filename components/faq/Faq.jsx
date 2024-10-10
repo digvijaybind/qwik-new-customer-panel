@@ -54,7 +54,7 @@ const Faq = () => {
   return (
     <div className="flex flex-col items-center bg-[#f5fdff] px-8 py-20">
       {/* FAQ Section Title */}
-      <div className="font-barlow text-2xl mb-4">
+      <div className="font-barlow text-4xl mb-4">
         Frequently Asked Questions
       </div>
 
@@ -64,7 +64,7 @@ const Faq = () => {
       </div>
 
       {/* FAQ list container */}
-      <div className="w-full max-w-4xl space-y-6 sm:space-y-4">
+      <div className="w-full max-w-4xl space-y-8 sm:space-y-4">
         {homeCollapsable.map((item, index) => (
           <FAQSection
             key={index}

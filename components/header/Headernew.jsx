@@ -9,18 +9,15 @@ import TopBanner from "../Utils/TopBanner";
 
 //Navigation Tabs
 const tabs = [
-  {
-    title: "Home",
-    url: "/",
-  },
-  {
-    title: "About",
-    url: "/about",
-  },
+  { title: "Home", url: "/" },
+  { title: "About", url: "/about" },
   {
     title: "Services",
     url: "/services",
     subMenu: [
+      { title: "Dedicated Air Ambulance", url: "/services/digital-marketing" },
+      { title: "International Patient Transfer", url: "/services/seo" },
+      { title: "Commercial Stretcher Transfer", url: "/services/seo" },
       {
         title: "Neonatal and Pediatric Air Transfer Services",
         url: "/services/web-development",
@@ -29,42 +26,27 @@ const tabs = [
         title: "ECMO Initiation and Air Transfer Services",
         url: "/services/mobile-app-development",
       },
-      { title: "Dedicated Air Ambulance", url: "/services/digital-marketing" },
-      { title: "International Patient Transfer", url: "/services/seo" },
-      { title: "Commercial Stretcher Transfer", url: "/services/seo" },
     ],
   },
   {
-    title: "Our Location",
+    title: "Locations", // Renamed
     url: "/location",
   },
+  { title: "Media", url: "/media" },
   {
-    title: "Media",
-    url: "/media",
-  },
-  {
-    title: "Partner with us",
+    title: "Partnership", // Renamed
     url: "/workwithus",
   },
-  {
-    title: "Blog",
-    url: "/blogs",
-  },
-  {
-    title: "Contact",
-    url: "/contact",
-  },
+  { title: "Blog", url: "/blogs" },
+  { title: "Contact", url: "/contact" },
 ];
 
 const Headernew = () => {
-  //state for active and scroll position
-
   const [activeTab, setActiveTab] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("static");
   const [activeDropdown, setActiveDropdown] = useState();
 
-  //Handle tab click
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
@@ -118,8 +100,8 @@ const Headernew = () => {
                   key={"menu-item" + index}
                   className={`relative cursor-pointer py-8 px-5 border-b-2 ${
                     index === activeTab
-                      ? "border-[#11B6E3] text-[#11B6E3] font-barlowBold text-[20px]"
-                      : "border-transparent text-[#9E9E9E] font-barlowRegular text-[16px]"
+                      ? "border-[#11B6E3] text-[#11B6E3] font-barlowBold text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem]" // Responsive font sizes
+                      : "border-transparent text-[#9E9E9E] font-barlowRegular text-[1rem] md:text-[1.25rem] lg:text-[1.5rem]" // Responsive inactive font size
                   } ${isScrolled && index !== activeTab ? "text-white" : ""}`}
                   onClick={() => handleTabClick(index)}
                   onMouseEnter={() => setActiveDropdown(index)}
@@ -143,7 +125,7 @@ const Headernew = () => {
                           className="px-4 py-2 text-[#1E1E1E] font-medium transition-all duration-300 ease-in-out rounded-md cursor-pointer hover:bg-white hover:text-black"
                         >
                           <Link href={subItem.url}>
-                            <span className="block text-[14px]">
+                            <span className="block text-[0.875rem] md:text-[1rem] lg:text-[1.125rem]">
                               {subItem.title}
                             </span>
                           </Link>
@@ -157,7 +139,7 @@ const Headernew = () => {
           </div>
 
           {/* Get Quote Button */}
-          <div className="w-[152px] h-[50px] bg-button-gradient text-white font-barlow font-semibold flex justify-center items-center text-[24px] rounded-[5px]">
+          <div className="w-[152px] h-[50px] bg-button-gradient text-white font-barlow font-semibold flex justify-center items-center text-[1.25rem] md:text-[1.5rem] lg:text-[1.75rem] rounded-[5px]">
             <Link href="/contact">Get Quote</Link>
           </div>
         </div>

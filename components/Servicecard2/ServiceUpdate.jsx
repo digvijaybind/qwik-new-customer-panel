@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[450px]">
+    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[500px]">
       {" "}
       {/* Set a fixed height */}
       {/* Image Section */}
@@ -91,7 +91,7 @@ const ServiceUpdate = () => {
         Specialized Air Medical Services
       </div>
       {/* Card Slider */}
-      <div className="w-full max-w-7xl px-4">
+      <div className="w-full ">
         <Slider {...settings}>
           {ServicesData.map((data, index) => (
             <div
