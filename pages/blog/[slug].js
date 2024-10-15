@@ -1,8 +1,8 @@
-'use client';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import styles from './Blogs.module.css';
+"use client";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import styles from "./Blogs.module.css";
 
 const BlogsDetails = () => {
   const router = useRouter();
@@ -13,18 +13,19 @@ const BlogsDetails = () => {
       try {
         if (router.query?.slug) {
           const { data } = await axios.get(
-            'https://dev.a2zqr.com/wp-json/wp/v2/posts',
+            "https://dev.a2zqr.com/wp-json/wp/v2/posts",
             {
               params: {
-                _embed: 'true',
+                _embed: "true",
                 slug: router.query?.slug,
               },
-            }
+            },
           );
+          console.log("Fetched Data:", data); // Debugging step
           setPostDetails(data?.length > 0 ? data[0] : {});
         }
       } catch (error) {
-        console.error('Failed to fetch post details:', error);
+        console.error("Failed to fetch post details:", error);
       }
     };
 
@@ -32,34 +33,48 @@ const BlogsDetails = () => {
   }, [router.query.slug]);
 
   return (
-    <div className="mt-50px font-sans">
-      <div className={`bg-black ${styles.Image} bg-black h-400px w-full`}>
-        <div className="font-700 z-100px pl-40px sm:pl-10px relative text-white">
-          <p className="text-30px sm:text-30px pt-150px sm:pt-50px font-sans">
-            {postDetails?.title?.rendered}
-          </p>
-          <div className="flex pt-30px text-20px">
-            <p className="text-#C5D5FF pr-10px font-sans">
-              {'Air Ambulance Services >'}
-            </p>
-            <p className="font-sans"> blog</p>
-          </div>
+    <div className="mt-[50px] font-sans">
+      {/* Header Section */}
+      <div
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url('/images/location/Hero.svg')",
+        }}
+      >
+        <div className="flex flex-col items-center">
+          <div className="font-barlow font-bold text-[64px]">Blog</div>
+          <div className="font-barlow font-normal text-[24px]">Home - Blog</div>
         </div>
       </div>
-      <div className="flex justify-center mt-30px rounded-5px">
+
+      {/* Blog Image */}
+      <div className="flex justify-center mt-[30px] rounded-[5px]">
         {postDetails?._embedded &&
-          postDetails?._embedded['wp:featuredmedia']?.length > 0 && (
-            <img
-              src={postDetails?._embedded['wp:featuredmedia'][0]?.source_url}
-              className="w-90% sm:h-300px h-500px rounded-5px"
-              alt="blog descripation"
-            />
-          )}
+        postDetails?._embedded["wp:featuredmedia"]?.length > 0 ? (
+          <img
+            src={
+              postDetails._embedded["wp:featuredmedia"][0]?.source_url ||
+              "/images/fallback-image.jpg"
+            }
+            className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
+            alt={postDetails?.title?.rendered || "Blog description"}
+          />
+        ) : (
+          <img
+            src="/images/fallback-image.jpg" // Fallback image
+            className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
+            alt="No image available"
+          />
+        )}
       </div>
+
+      {/* Blog Content */}
       <div
-        className="px-5% mt-5px py-20px font-sans"
+        className="px-[5%] mt-[5px] py-[20px] font-sans"
         dangerouslySetInnerHTML={{
-          __html: postDetails?.excerpt?.rendered || '',
+          __html:
+            postDetails?.content?.rendered || "<p>No content available</p>",
         }}
       ></div>
     </div>
