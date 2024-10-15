@@ -39,7 +39,7 @@ const NewsUpdate2 = () => {
   // BlogCard component for displaying individual cards
   const BlogCard = ({ image, title, description }) => {
     return (
-      <div className="bg-white drop-shadow-xl p-4 rounded-md h-[550px] flex flex-col">
+      <div className="bg-white drop-shadow-xl p-4 rounded-md h-[550px] flex flex-col cursor-pointer">
         {/* Blog Image */}
         {image ? (
           <img
