@@ -18,7 +18,7 @@ import malesiyaAirline from "../../public/images/airlines/malaysi-airlines.jpg";
 import PhillippinesAirlines from "../../public/images/airlines/philippine-airlines.jpg";
 import Quantas from "../../public/images/airlines/Qantas.jpg";
 import QatarAirway from "../../public/images/airlines/Qatar-airways.jpg";
-import SaudiAirline from "../../public/images/airlines/Saudia.jpg";
+import SaudiAirline from "../../public/images/airlines/Saudia.png";
 import SingaporeAirline from "../../public/images/airlines/singapore-airlines.jpg";
 import SouthAfrican from "../../public/images/airlines/south-african-airways.jpg";
 import TurkishAirlineNew from "../../public/images/airlines/turkish-airlines.jpg";

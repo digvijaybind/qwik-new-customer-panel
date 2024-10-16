@@ -149,6 +149,14 @@
   }
 }
 
+
+.ActiveTab {
+clip-path: polygon(0 0, 100% 0, 71% 100%, 25% 100%);
+
+  background: linear-gradient(180deg, rgba(17, 182, 227, 0) 11.88%, #95e4fa 200.63%);
+}
+
+
 /* Media Queries for Responsiveness */
 
 /* @media (max-width: 1024px) {
