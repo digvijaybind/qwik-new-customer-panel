@@ -38,7 +38,12 @@ const Guarantee = () => {
         an instant quotation.
       </div>
       <div class="flex items-center flex-col justify-center mt-5">
-        <Image src={Signature} width={200} height={125} />
+        <Image
+          src={Signature}
+          width={200}
+          height={125}
+          alt="Qwiklif Air Ambulance"
+        />
         <div class="font-extrabold text-sm font-sans">CEO, QWIKLIF</div>
       </div>
     </div>
@@ -320,5 +325,3 @@ const CommericialAirline = ({}) => {
 };
 
 export default CommericialAirline;
-
-

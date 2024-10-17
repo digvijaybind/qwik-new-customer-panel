@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[500px]">
+    <div className="mx-[10px] flex flex-col items-start justify-between border border-2-[#fff] px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[500px]">
       {" "}
       {/* Set a fixed height */}
       {/* Image Section */}
@@ -35,7 +35,7 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
           {description}
         </div>
         {/* Read More Button */}
-        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-extrabold text-[20px] mb-2">
+        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-bold text-[20px] mb-2">
           Read More
         </button>
       </div>
@@ -108,7 +108,7 @@ const ServiceUpdate = () => {
         </Slider>
       </div>
       {/* See More Button */}
-      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-[600] text-white flex justify-center items-center text-center rounded-md text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
         <Link href="/services">See More</Link>
       </div>
     </div>

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import styles from "./improveCommericial.module.css"; 
-import { TbArrowsExchange2 } from "react-icons/tb"; 
-import Airline from "../../public/images/commerialImages/Airline.svg"; 
+import styles from "./improveCommericial.module.css";
+import { TbArrowsExchange2 } from "react-icons/tb";
+import Airline from "../../public/images/commerialImages/Airline.svg";
 import Image from "next/image";
-import Strectres from "../../public/images/bookingIcon/strectres.png"; 
-import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; 
-import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg"; 
-import Doctors from "../../public/images/bookingIcon/doctor.png"; 
+import Strectres from "../../public/images/bookingIcon/strectres.png";
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg";
+import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
+import Doctors from "../../public/images/bookingIcon/doctor.png";
 import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarosel";
 import Signature from "../../public/images/Signature.svg";
 import Important from "../../db/importantCommericial.json";
@@ -22,7 +22,7 @@ import Patience from "../../public/images/commericial-transfer/Patenice.svg";
 import airLift from "../../public/images/commericial-transfer/airLift.svg";
 import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
 import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
-import Bill from "../../public/images/utils/Billlogo.svg"; 
+import Bill from "../../public/images/utils/Billlogo.svg";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -93,7 +93,12 @@ const TravelDuration = ({
         <div className="font-medium text-black flex justify-between mt-4 sm:items-center">
           <div className="flex justify-between flex-row items-center">
             <div className="">
-              <Image src={Airline} width={44} height={42} />
+              <Image
+                src={Airline}
+                width={44}
+                height={42}
+                alt="Qwiklif Air Ambulance"
+              />
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
               <span className="font-black text-[18px] text-[#171A1F]">
@@ -179,6 +184,7 @@ const TravelDuration = ({
               width={25}
               height={15}
               className="rounded-full "
+              alt="Qwiklif Air Ambulance"
             />
           </div>
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-3">
@@ -196,6 +202,7 @@ const TravelDuration = ({
               width={25}
               height={15}
               className="rounded-full "
+              alt="Qwiklif Air Ambulance"
             />
           </div>
           <div className=" flex flex-col text-[10px] font-black  text-gray-400 ml-3">
@@ -214,6 +221,7 @@ const TravelDuration = ({
               width={25}
               height={15}
               className="rounded-full "
+              alt="Qwiklif Air Ambulance"
             />
           </div>
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
@@ -232,6 +240,7 @@ const TravelDuration = ({
               width={25}
               height={15}
               className="rounded-full "
+              alt="Qwiklif Air Ambulance"
             />
           </div>
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
@@ -249,6 +258,7 @@ const TravelDuration = ({
               width={25}
               height={15}
               className="rounded-full "
+              alt="Qwiklif Air Ambulance"
             />
           </div>
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
@@ -271,15 +281,15 @@ const TravelDuration = ({
           {/* Second row with three columns */}
           <div className="grid grid-cols-3 gap-4 h-1/2 relative bottom-5 ">
             <div className="  h-full w-full cursor-pointer">
-              <Image src={Patience} />
+              <Image src={Patience} alt="Qwiklif Air Ambulance" />
             </div>
             <div className="h-full w-full cursor-pointer">
               {" "}
-              <Image src={Vistara} />
+              <Image src={Vistara} alt="Qwiklif Air Ambulance" />
             </div>
             <div className=" w-full h-full cursor-pointer flex justify-around flex-col">
-              <Image src={airLift} />
-              <Image src={Transfer} />
+              <Image src={airLift} alt="Qwiklif Air Ambulance" />
+              <Image src={Transfer} alt="Qwiklif Air Ambulance" />
             </div>
           </div>
         </div>
@@ -294,7 +304,7 @@ const InfomationHead = ({ title, descripation }) => {
     <div className="grid grid-cols-12 gap-3 mt-5 sm:grid-cols-1 sm:w-[320px]">
       {/* Icon for larger screens */}
       <div className="col-span-1 flex items-start justify-center sm:hidden">
-        <Image src={Point} width={24} height={24} alt="Point Icon" />
+        <Image src={Point} width={24} height={24} alt="Qwiklif Air Ambulance" />
       </div>
 
       {/* Text content */}
@@ -302,7 +312,12 @@ const InfomationHead = ({ title, descripation }) => {
         <div className="flex items-start sm:items-center font-medium text-[16px] text-gray-800 sm:px-2">
           {/* Icon for smaller screens */}
           <div className="hidden sm:block sm:mr-2">
-            <Image src={Point} width={24} height={24} alt="Point Icon" />
+            <Image
+              src={Point}
+              width={24}
+              height={24}
+              alt="Qwiklif Air Ambulance"
+            />
           </div>
           <span>{title}</span>
         </div>
@@ -672,7 +687,6 @@ const CommericialBookingConfirmationPage = () => {
   console.log("totalprice in main component", data);
   console.log("totalTravelDuration in main compoennt", totalTravelDuration);
   console.log("locationData in main component", locationData);
-  
 
   if (!data) {
     return <p>No data available</p>;

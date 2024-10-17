@@ -211,7 +211,7 @@ const Home = () => {
             </div>
 
             {/* Call to Action Button */}
-            <button className="h-[60px] w-[350px] bg-button-gradient text-white font-semibold rounded-md flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10">
+            <button className="h-[60px] w-[350px] bg-button-gradient text-white  rounded-md flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10 font-barlow font-normal text-[24px]">
               <Link href="/contact">Book An Air Ambulance Now</Link>
             </button>
           </div>
@@ -228,17 +228,17 @@ const Home = () => {
         </div>
 
         {/*Our services*/}
-        <div className="mt-5">
+        <div className="mt-10">
           <ServiceUpdate />
         </div>
 
         {/*How to book air ambulance */}
-        <div className="mt-5">
+        <div className="mt-10">
           <Bookambulance />
         </div>
 
         {/*Why to choose qwiklif */}
-        <div className="mt-5">
+        <div className="mt-10">
           <ExpereinceAirambulance />
         </div>
 

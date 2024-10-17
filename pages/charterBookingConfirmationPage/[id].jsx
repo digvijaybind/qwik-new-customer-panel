@@ -1,24 +1,24 @@
-import React from 'react';
-import styles from './improvededicated.module.css'; //imported style css file
-import { TbArrowsExchange2 } from 'react-icons/tb'; // imported reverse icon
-import Airline from '../../public/images/commerialImages/Airline.svg'; //imported airline image
-import Image from 'next/image';
-import Strectres from '../../public/images/bookingIcon/strectres.png'; //imported medical equiment icon
-import Oxygen from '../../public/images/bookingIcon/oxygen.svg'; //imported medical equiment icon
+import React from "react";
+import styles from "./improvededicated.module.css"; //imported style css file
+import { TbArrowsExchange2 } from "react-icons/tb"; // imported reverse icon
+import Airline from "../../public/images/commerialImages/Airline.svg"; //imported airline image
+import Image from "next/image";
+import Strectres from "../../public/images/bookingIcon/strectres.png"; //imported medical equiment icon
+import Oxygen from "../../public/images/bookingIcon/oxygen.svg"; //imported medical equiment icon
 import Medicalequiment from "../../public/images/bookingIcon/medicalEquipment.svg";
-import Doctors from '../../public/images/bookingIcon/doctor.png'; //imported medical equiment icon
-import FinalImageCarosel from '@/components/Utils/ImagesCarosel/FinalImageCarosel';
-import Signature from '../../public/images/Signature.svg';
-import Important from '../../db/importantDedicated.json';
-import Point from '../../public/images/PointIcon.svg';
-import Bill from '../../public/images/utils/Billlogo.svg'; //imported bill logo
+import Doctors from "../../public/images/bookingIcon/doctor.png"; //imported medical equiment icon
+import FinalImageCarosel from "@/components/Utils/ImagesCarosel/FinalImageCarosel";
+import Signature from "../../public/images/Signature.svg";
+import Important from "../../db/importantDedicated.json";
+import Point from "../../public/images/PointIcon.svg";
+import Bill from "../../public/images/utils/Billlogo.svg"; //imported bill logo
 /*this component contain whole travel duration and descripation of flight and medical equiment */
 
-import Commerialtransfer from '../../public/images/commericial-transfer/Banner.svg';
-import Patience from '../../public/images/commericial-transfer/Patenice.svg';
-import airLift from '../../public/images/commericial-transfer/airLift.svg';
-import Transfer from '../../public/images/commericial-transfer/Transfer.svg';
-import Vistara from '../../public/images/commericial-transfer/aircraft.svg';
+import Commerialtransfer from "../../public/images/commericial-transfer/Banner.svg";
+import Patience from "../../public/images/commericial-transfer/Patenice.svg";
+import airLift from "../../public/images/commericial-transfer/airLift.svg";
+import Transfer from "../../public/images/commericial-transfer/Transfer.svg";
+import Vistara from "../../public/images/commericial-transfer/aircraft.svg";
 const images = [Commerialtransfer, Commerialtransfer, Commerialtransfer];
 const TravelDuration = () => {
   return (
@@ -29,7 +29,7 @@ const TravelDuration = () => {
             <div className="font-black text-[20px] mr-4">Mumbai</div>
             <div className="bg-[#54CDEF] rounded-full px-2 py-2">
               <TbArrowsExchange2
-                style={{ color: '#fff', height: '25px', width: '25px' }}
+                style={{ color: "#fff", height: "25px", width: "25px" }}
               />
             </div>
             <div className="font-black text-[20px] ml-4">Dubai</div>
@@ -54,12 +54,17 @@ const TravelDuration = () => {
         <div className="font-medium text-black flex justify-between mt-4 sm:items-center">
           <div className="flex justify-between flex-row items-center">
             <div className="">
-              <Image src={Airline} width={44} height={42} />
+              <Image
+                src={Airline}
+                width={44}
+                height={42}
+                alt="Qwiklif Air ambulance"
+              />
             </div>
             <div className="ml-2 font-sans text-[11px] text-[#9095A0] sm:flex sm:flex-col">
               <span className="font-black text-[14px] text-[#171A1F]">
                 Learjet 45
-              </span>{' '}
+              </span>{" "}
               {/* UK 583 , UK 846{' '} */}
             </div>
           </div>
@@ -127,7 +132,7 @@ const TravelDuration = () => {
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-3">
             Stretcher :
             <span className="text-[12px] text-[#323232] font-bold ">
-              {' '}
+              {" "}
               1 stretcher per patient
             </span>
           </div>
@@ -144,7 +149,7 @@ const TravelDuration = () => {
           <div className=" flex flex-col text-[10px] font-black  text-gray-400 ml-3">
             Doctor onboard :
             <span className="text-[12px] text-[#323232] font-bold ">
-              {' '}
+              {" "}
               2 Doctors, 1 Head nurse, 1 Attendant
             </span>
           </div>
@@ -162,7 +167,7 @@ const TravelDuration = () => {
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
             Oxygen :
             <span className="text-[12px] text-[#323232] font-bold  ">
-              {' '}
+              {" "}
               Oxygen(4L/Min)
             </span>
           </div>
@@ -180,7 +185,7 @@ const TravelDuration = () => {
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
             Medical equipment :
             <span className="text-[12px] text-[#323232] font-bold ">
-              {' '}
+              {" "}
               Multiple medical aid equipment
             </span>
           </div>
@@ -197,7 +202,7 @@ const TravelDuration = () => {
           <div className=" flex flex-col text-[10px] font-black text-gray-400 ml-2">
             Medical equipment :
             <span className="text-[12px] text-[#323232] font-bold ">
-              {' '}
+              {" "}
               Multiple medical aid equipment
             </span>
           </div>
@@ -217,7 +222,7 @@ const TravelDuration = () => {
               <Image src={Patience} />
             </div>
             <div className="h-full w-full cursor-pointer">
-              {' '}
+              {" "}
               <Image src={Vistara} />
             </div>
             <div className=" w-full h-full cursor-pointer flex justify-around flex-col">
@@ -276,7 +281,7 @@ const TotalFare = () => {
         <div className="Totalamount flex justify-between items-center mt-8 mb-4">
           <div className="font-sans font-black text-[16px]">Total Amount</div>
           <div className="bg-[#54CDEF] text-[#fff] text-[18px] flex justify-center items-center w-[134px] h-[52px] font-Inter font-semibold">
-            $28,350{' '}
+            $28,350{" "}
           </div>
         </div>
       </div>

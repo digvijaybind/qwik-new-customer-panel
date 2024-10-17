@@ -8,10 +8,10 @@ import Image from "next/image";
 
 const IconWithTitle = ({ icon, text, title, color }) => {
   return (
-    <div className="border-2 border-transparent bg-clip-padding flex items-center justify-between gap-8 p-4 rounded-lg">
+    <div className="border-2 border-transparent bg-clip-padding flex items-center justify-between gap-8 px-10 py-10 sm:px-0 sm:py-0 rounded-lg">
       {/* Icon Container */}
       <div className="flex items-start justify-center h-24 w-24">
-        <Image src={icon} alt={text} width={120} height={120} />
+        <Image src={icon} alt={text} className="h-[90px] w-[150px]" />
       </div>
 
       {/* Text Content */}
@@ -29,7 +29,7 @@ const IconWithTitle = ({ icon, text, title, color }) => {
 
 const ServicesHight = () => {
   return (
-    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-20 py-10 sm:px-10 sm:py-5">
+    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-30 py-10 sm:px-10 sm:py-5 opacity-4">
       {/* Row 1 - Aligned to the top */}
       <div className="flex flex-col justify-start">
         <IconWithTitle

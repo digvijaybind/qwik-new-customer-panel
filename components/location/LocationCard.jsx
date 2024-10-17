@@ -1,4 +1,4 @@
-import styles from "./Location.module.css"
+import styles from "./Location.module.css";
 const AirAmbulanceCard = ({ city }) => (
   <div className={styles.card}>
     <h2>QwikLif Air Ambulance Services in {city}</h2>
@@ -23,7 +23,7 @@ const AirAmbulanceCard = ({ city }) => (
         Air Ambulance Services to India and Beyond: We understand the importance
         of timely medical care, especially during international emergencies.
         Qwiklif Air Ambulance offers dedicated services from {city} to India and
-        a multitude of other countries worldwide. Whether it's transporting
+        a multitude of other countries worldwide. Whether it&apos;s transporting
         patients to major Indian cities like Mumbai, Delhi, or Chennai or
         facilitating transfers to various global destinations, our team ensures
         a swift and safe journey.

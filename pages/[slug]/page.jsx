@@ -1,51 +1,37 @@
-import { useRouter } from "next/router";
-import servicesData from "@/data/subservices";
+// /app/[slug]/page.jsx
 
-export default function DynamicPage({ service }) {
-  const router = useRouter();
+import { servicesData } from "../../data/subservices"; // Import your services data
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
+const ServicePage = ({ service }) => {
+  if (!service) {
+    return <div>Service not found</div>; // Handle the case where the service does not exist
   }
 
   return (
     <div>
       <h1>{service.title}</h1>
-      <img src={service.bannerImage} alt={service.title} />
       <p>{service.description}</p>
-      <ul>
-        {service.services.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
+      {/* Render other service details here */}
     </div>
   );
-}
+};
 
-export async function getStaticPaths() {
-  const paths = servicesData.map((service) => ({
-    params: { slug: service.slug },
+// This function will generate the static parameters for the dynamic route
+export async function generateStaticParams() {
+  return servicesData.map((service) => ({
+    slug: service.slug,
   }));
-  console.log("path of services", paths);
-  return {
-    paths,
-    fallback: false,
-  };
 }
 
-export async function getStaticProps({ params }) {
+// Fetch service data based on the slug
+export async function getServiceBySlug(slug) {
+  return servicesData.find((service) => service.slug === slug);
+}
+
+// Fetch the service data on the server side
+export default async function Page({ params }) {
   const { slug } = params;
-  const service = servicesData.find((service) => service.slug === slug);
+  const service = await getServiceBySlug(slug);
 
-  if (!service) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      service,
-    },
-  };
+  return <ServicePage service={service} />;
 }

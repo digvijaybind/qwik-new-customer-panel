@@ -1,19 +1,21 @@
 import React from "react";
-import Image from "next/image"; // Ensure Image is imported
+import Image from "next/image"; // Import Image from Next.js
+
+// Importing images
 import ConfirmPlane from "../../public/images/Homepage/our_work/transportUpdate.png";
 import MedicalReport from "../../public/images/Homepage/our_work/medical-reportUpdate.png";
 import Phone from "../../public/images/Homepage/our_work/phonecallUpdate.png";
 import Transfer from "../../public/images/Homepage/our_work/GroupNew.png";
 
-// Book process steps with titles and descriptions
+// Book process steps with icons, titles, descriptions, and styling
 const bookProcess = [
   {
     img: Phone,
     title: "Discuss Medical Condition and Transfer Options.",
     description:
       "Contact us to review the patient's condition and determine the best transfer solution.",
-    bgColor: "border-[#11B6E3]", // border color
-    textColor: "text-[#11B6E3]", // text color
+    bgColor: "border-[#11B6E3]", // Border color
+    textColor: "text-[#11B6E3]", // Text color
   },
   {
     img: MedicalReport,
@@ -41,35 +43,36 @@ const bookProcess = [
   },
 ];
 
-// ServiceCard Component to display each step
+// ServiceCard Component for individual steps
 const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`relative p-6 bg-white shadow-md cursor-pointer w-full h-[350px] 
-        rounded-[30px] opacity-100 transition-all duration-300 max-w-[350px]`} // Use max-width for consistent sizing
+        className={`relative p-6 bg-white shadow-md cursor-pointer w-full h-[350px] rounded-[30px] opacity-100 transition-all duration-300 max-w-[350px]`}
       >
-        {/* Icon, Title, and Description Section */}
+        {/* Icon, Title, and Description */}
         <div className="flex flex-col justify-start items-start h-full text-left">
-          {/* Icon */}
+          {/* Icon Section */}
           <div className="w-full flex justify-start mt-6 mb-4">
-            <Image
-              src={img}
-              alt={title}
-              height={60}
-              width={60}
-              className="object-cover"
-              layout="fixed"
-            />
+            <div className="h-[60px] w-[60px]">
+              <Image
+                src={img}
+                alt={title}
+                layout="intrinsic" // Ensure the image maintains aspect ratio
+                height={60}
+                width={60}
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Title */}
-          <h3 className={`font-barlow font-bold text-[22px] mb-2 ${textColor}`}>
+          <h3 className={`font-barlow font-bold text-[26px] mb-2 ${textColor}`}>
             {title}
           </h3>
 
           {/* Description */}
-          <p className="font-barlow font-normal text-[16px] text-gray-600 mb-6 leading-relaxed">
+          <p className="font-barlow font-normal text-[20px] text-gray-600 mb-6 leading-relaxed">
             {description}
           </p>
         </div>
@@ -90,19 +93,21 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
   );
 };
 
-// Main Bookambulance Component
+// Main Bookambulance Component to render all the steps
 const Bookambulance = () => {
   return (
     <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-8 py-10 sm:px-4 sm:py-5">
-      {/* Title */}
+      {/* Main Title */}
       <h2 className="font-barlow font-semibold text-[24px] mt-5 text-center">
         How To Book Air Ambulance
       </h2>
+
+      {/* Subtitle */}
       <h1 className="font-barlow font-bold bg-headline-gradient text-transparent bg-clip-text text-[36px] sm:text-[28px] text-center">
         Here’s a Simple Step To Book an Air Ambulance
       </h1>
 
-      {/* Steps in a grid */}
+      {/* Steps Displayed in a Grid */}
       <div className="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 mt-10">
         {bookProcess.map((step, index) => (
           <ServiceCard2
@@ -111,7 +116,7 @@ const Bookambulance = () => {
             title={step.title}
             bgColor={step.bgColor}
             description={step.description}
-            textColor={step.textColor} // Ensure textColor is passed here
+            textColor={step.textColor}
           />
         ))}
       </div>

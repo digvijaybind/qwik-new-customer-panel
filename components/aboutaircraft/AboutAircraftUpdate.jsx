@@ -9,16 +9,20 @@ import Link from "next/link";
 // Reusable IconWithTitle component
 const IconWithTitle = ({ icon, text, title, textColor }) => (
   <div
-    className={`${styles.iconContainer} flex items-center justify-around gap-2 rounded-xl border-2 border-transparent bg-clip-padding `} // Add shadow if needed for better visibility
+    className={`${styles.iconContainer} flex items-center justify-around gap-2 border-2 border-transparent bg-clip-padding`}
   >
     {/* Icon Container */}
-    <div className="flex items-center justify-center h-24 w-24 bg-[#f1fbfe] rounded-md px-4 py-4">
+    <div className="flex items-center justify-center h-24 w-24 bg-[#f1fbfe] rounded-[10px] px-4 py-4">
+      {" "}
+      {/* Updated for border radius */}
       <Image src={icon} alt={text} width={80} height={60} />
     </div>
 
     {/* Text Content */}
     <div className="flex flex-col items-center text-center">
-      <span className={`font-barlow font-semibold text-4xl ${textColor}`}>
+      <span
+        className={`font-barlow font-semibold text-4xl text-[#1E1E1E] ${textColor}`}
+      >
         {text}
       </span>
       <span className="font-barlow font-normal text-xl text-gray-600">
@@ -46,8 +50,8 @@ const AboutAircraftUpdate = () => {
           <Image
             src={AboutTransfer}
             width={600}
-            height={2000}
-            className="object-cover h-full rounded-lg"
+            height={1000}
+            className="object-cover relative left-[140px] bottom-[60px] h-full rounded-lg"
             alt="About Transfer"
           />
         </div>
@@ -96,7 +100,7 @@ const AboutAircraftUpdate = () => {
         <div className="mt-10">
           <Link
             href="/about"
-            className="h-[60px] w-[200px] sm:w-full font-barlow font-semibold text-2xl text-white bg-button-gradient rounded-lg flex justify-center items-center hover:shadow-lg transition duration-300 ease-in-out"
+            className="h-[60px] w-[200px] sm:w-full font-barlow font-[600] text-2xl text-white bg-button-gradient rounded-lg flex justify-center items-center hover:shadow-lg transition duration-300 ease-in-out"
           >
             Learn More
           </Link>

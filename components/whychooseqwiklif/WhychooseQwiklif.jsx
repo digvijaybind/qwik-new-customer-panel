@@ -82,11 +82,11 @@ const WhychooseQwiklif = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#f5fdff] py-6 px-5 sm:py-8 sm:px-20 lg:py-12">
+    <div className="flex flex-col items-center justify-center bg-[#f5fdff] py-6 px-5 sm:py-8 sm:px-20 lg:py-12 opacity-4">
       {/* Video Carousel Container */}
       <div className="flex justify-center items-center flex-col p-4 sm:p-6 lg:p-8">
         {/* Heading Section */}
-        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[36px] md:text-[48px] lg:text-[54px] font-barlow font-bold text-center mb-4 sm:mb-6 lg:mb-8 sm:px-10">
+        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[36px] md:text-[48px] lg:text-[54px] font-barlow font-bold text-center mb-6 sm:mb-6 lg:mb-8 sm:px-10">
           Why people trust Qwiklif?
         </h2>
         {/* Card Slider */}
@@ -103,8 +103,8 @@ const WhychooseQwiklif = () => {
           </Slider>
         </div>
         {/* "See More" Button */}
-        <button className="w-[200px] sm:w-[220px] lg:w-[240px] h-[50px] sm:h-[60px] lg:h-[70px] bg-button-gradient mt-6 sm:mt-8 font-barlow font-semibold text-white flex justify-center items-center rounded-md text-[16px] sm:text-[20px] lg:text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-          See More
+        <button className="w-[200px] sm:w-[220px] lg:w-[240px] h-[50px] sm:h-[60px] lg:h-[70px] bg-button-gradient mt-6 sm:mt-8  text-white flex justify-center items-center rounded-md text-[22px] sm:text-[20px] lg:text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300 font-barlow font-semibold">
+          View More
         </button>
       </div>
     </div>

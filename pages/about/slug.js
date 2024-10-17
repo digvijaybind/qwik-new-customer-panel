@@ -1,7 +1,6 @@
-import { aboutContent } from "../../data/aboutContent"; 
+import { aboutContent } from "../../data/aboutsubsection.json";
 import Image from "next/image";
 import { useRouter } from "next/router";
-
 
 const SectionPage = ({ section }) => {
   if (!section) {

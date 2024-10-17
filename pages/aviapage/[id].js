@@ -866,7 +866,7 @@ const AviapageDetails = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  });
 
   useEffect(() => {
     fetchData();

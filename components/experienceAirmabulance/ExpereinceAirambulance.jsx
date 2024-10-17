@@ -34,7 +34,7 @@ const ServicesCard = [
 const ExperienceCard = ({ headline, description, backgroundImage }) => {
   return (
     <div
-      className="flex justify-center items-center flex-col p-8 rounded-lg"
+      className="flex justify-center items-center flex-col p-8 rounded-lg cursor-pointer"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -120,6 +120,7 @@ const ChooseQwiklifButton = ({
 
 const ExpereinceAirambulance = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const [hoveredTab, setHoveredTab] = useState(null);
   return (
     <div className="flex justify-center items-center flex-col px-20 py-10 md:px-10 sm:px-10">
       <div className="flex justify-center items-center flex-col px-20 md:px-10 sm:px-10">
@@ -139,18 +140,24 @@ const ExpereinceAirambulance = () => {
       </div>
       <div>
         <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col mt-20 sm:gap-4">
+          {/* Sidebar with tabs */}
           <div className="col-span-3 sm:col-span-12 flex flex-col mb-5">
             {faqs.map(({ icon, index, title }) => (
               <ChooseQwiklifButton
+                key={title + index}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
                 icon={icon}
                 tabIndex={index}
                 title={title}
-                key={title + index}
+                onMouseEnter={() => setHoveredTab(index)} // Track hover on tab
+                onMouseLeave={() => setHoveredTab(null)} // Reset hover when cursor leaves
+                isHovered={hoveredTab === index} // Check if the tab is currently hovered
               />
             ))}
           </div>
+
+          {/* Content based on activeTab */}
           <div className="col-span-6 sm:col-span-12 sm:mb-10">
             {activeTab === 1 && (
               <SelectionComponent
@@ -167,8 +174,7 @@ care throughout the entire transfer process."
                 img={fleetnetwork}
                 title="Biggest Fleet Network"
                 descripation="With the largest fleet, Qwiklif can respond to emergencies quickly. Multiple aircraft options are
-available to meet various medical requirements, providing an ideal option for all situations.
-"
+available to meet various medical requirements, providing an ideal option for all situations."
               />
             )}
             {activeTab === 3 && (
@@ -177,7 +183,7 @@ available to meet various medical requirements, providing an ideal option for al
                 title="24x7 Doctors on Board"
                 descripation="We offer 24x7 Doctors on Call for immediate access to medical expertise. Our experienced
 doctors are always available to provide critical advice, support, and care whenever needed.
-Whether it’s a medical emergency or urgent guidance, our team is just a call away"
+Whether it’s a medical emergency or urgent guidance, our team is just a call away."
               />
             )}
             {activeTab === 4 && (
@@ -186,7 +192,7 @@ Whether it’s a medical emergency or urgent guidance, our team is just a call a
                 title="Global Coverage"
                 descripation="We provide seamless global coverage, connecting you to the best medical facilities worldwide.
 Whether you're in a bustling city or a remote area, our reach extends to every corner, making
-quality healthcare accessible wherever you are"
+quality healthcare accessible wherever you are."
               />
             )}
             {activeTab === 5 && (
@@ -195,8 +201,7 @@ quality healthcare accessible wherever you are"
                 title="Cost-Effective Solutions"
                 descripation="We are committed to providing cost-effective air ambulance solutions without compromising on
 the standard of care. We suggest different modes of transfer like commercial stretchers and
-other customized transfer plans for making your medical flight cost-effective.
-"
+other customized transfer plans for making your medical flight cost-effective."
               />
             )}
           </div>

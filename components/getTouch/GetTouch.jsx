@@ -10,10 +10,22 @@ import Map from "../../public/images/gettouch/Map.png";
 
 // Social media links array
 const socialMediaLinks = [
-  { img: FacebookIcon, alt: "Facebook", url: "https://www.facebook.com" },
-  { img: LinkedinIcon, alt: "LinkedIn", url: "https://www.linkedin.com" },
+  {
+    img: FacebookIcon,
+    alt: "Facebook",
+    url: "https://www.facebook.com/p/Qwiklif-Air-Ambulance-61554682497465/?_rdr",
+  },
+  {
+    img: LinkedinIcon,
+    alt: "LinkedIn",
+    url: "https://ae.linkedin.com/company/qwiklif-air-ambulance-service",
+  },
   { img: TwitterIcon, alt: "Twitter", url: "https://www.twitter.com" },
-  { img: InstagramIcon, alt: "Instagram", url: "https://www.instagram.com" },
+  {
+    img: InstagramIcon,
+    alt: "Instagram",
+    url: "https://www.instagram.com/qwiklif/",
+  },
 ];
 
 // Contact Info Component
@@ -103,7 +115,7 @@ const GetTouch = ({ mapIframeUrl }) => {
 
       {/* Google Map */}
       <div className="col-span-7 sm:col-span-1">
-        <GoogleMap  mapImage={Map} mapLink="" />
+        <GoogleMap mapImage={Map} mapLink="" />
       </div>
     </div>
   );
