@@ -1,21 +1,7 @@
-"use client";
 import style from "./About.module.css";
-import { aboutsList } from "@/utils/contants";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { aboutsList } from "../../utils/contants"; 
 
-const About = () => {
-  const router = useRouter();
-
-  const [details, setDetails] = useState({});
-
-  useEffect(() => {
-    const articleDetails = aboutsList?.find(
-      (d) => d?.slug === router.query.slug,
-    );
-    setDetails(articleDetails);
-  }, [router?.query?.slug]);
-
+const About = ({ details }) => {
   return (
     <div className="font-Inter">
       <div
@@ -38,5 +24,32 @@ const About = () => {
     </div>
   );
 };
+
+export async function getStaticPaths() {
+  const paths = aboutsList.map((about) => ({
+    params: { slug: about.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const articleDetails = aboutsList.find((d) => d.slug === params.slug);
+
+  if (!articleDetails) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      details: articleDetails,
+    },
+  };
+}
 
 export default About;

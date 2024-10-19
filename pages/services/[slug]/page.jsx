@@ -1,6 +1,6 @@
 // /app/[slug]/page.jsx
 
-import { servicesData } from "../../data/subservices"; // Import your services data
+import { servicesData } from "../../../data/subservices"; // Import your services data
 
 const ServicePage = ({ service }) => {
   if (!service) {

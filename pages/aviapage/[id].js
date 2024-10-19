@@ -779,7 +779,7 @@ const Airtransfer = () => {
   );
 };
 
-const AviapageDetails = () => {
+const Aviapage = () => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -1005,4 +1005,4 @@ const AviapageDetails = () => {
     </div>
   );
 };
-export default AviapageDetails;
+export default Aviapage;

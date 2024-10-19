@@ -1,4 +1,4 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   webpack: (config, { isServer }) => {
@@ -35,5 +35,9 @@ module.exports = {
         destination: "/subservices/commercial-stretcher-transfer",
       },
     ];
+  },
+  trailingSlash: true,
+  exportPathMap: async function (defaultPathMap) {
+    return defaultPathMap;
   },
 };

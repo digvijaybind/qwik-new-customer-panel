@@ -34,15 +34,20 @@ const IconWithTitle = ({ icon, text, title, textColor }) => (
 
 const AboutAircraftUpdate = () => {
   return (
-    <div className="container mx-auto px-20 py-10 grid grid-cols-2 gap-8 sm:grid-cols-1 sm:px-10 sm:py-8">
+    <div className="container mx-auto px-10 py-10 lg:px-20 grid grid-cols-2 gap-8 md:grid-cols-1 md:px-12 sm:px-8">
       {/* Left Section with Images */}
       <div className="flex flex-col items-start space-y-4">
         <div className="w-full">
           <Image
             src={Abouthero}
             width={600}
-            height={2000}
-            className="object-cover h-full rounded-lg"
+            height={600}
+            className="object-cover rounded-lg
+              lg:h-[400px] lg:w-full     
+              xl:h-[450px] xl:w-[90%]       
+              2xl:h-[700px] 2xl:w-[90%]    
+              3xl:h-[650px] 3xl:w-[85%]    
+              md:h-[350px] sm:h-[300px]"
             alt="About Hero"
           />
         </div>
@@ -50,8 +55,13 @@ const AboutAircraftUpdate = () => {
           <Image
             src={AboutTransfer}
             width={600}
-            height={1000}
-            className="object-cover relative left-[140px] bottom-[60px] h-full rounded-lg"
+            height={600}
+            className="object-cover rounded-lg 
+              lg:h-[400px] lg:w-full     
+              xl:h-[450px] xl:w-[90%]       
+              2xl:h-[650px] 2xl:w-[90%] 2xl:relative 2xl:left-[50px] 2xl:bottom-[170px]  
+              3xl:h-[600px] 3xl:w-[85%] 3xl:relative 3xl:left-[80px] 3xl:bottom-[190px]  
+              md:h-[350px] sm:h-[300px]"
             alt="About Transfer"
           />
         </div>
@@ -60,11 +70,13 @@ const AboutAircraftUpdate = () => {
       {/* Right Section with Content */}
       <div className="flex flex-col justify-start">
         {/* Heading Section */}
-        <div className="font-barlow font-semibold text-2xl">About Qwiklif</div>
-        <div className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight sm:text-[40px]">
+        <div className="font-barlow font-semibold text-2xl lg:text-xl">
+          About Qwiklif
+        </div>
+        <div className="bg-headline-gradient text-transparent bg-clip-text font-barlow font-bold text-[54px] leading-tight lg:text-[44px] md:text-[40px] sm:text-[36px]">
           Fastest Air Ambulance Services.
         </div>
-        <div className="font-barlow font-normal text-[20px] leading-[44px] text-[#1E1E1E]">
+        <div className="font-barlow font-normal text-[20px] leading-[44px] lg:text-[18px] lg:leading-[36px] text-[#1E1E1E]">
           Qwiklif Air Ambulance Service is your trusted partner for urgent
           International Air Ambulance service. With a dedicated team of skilled
           professionals and state-of-the-art aircraft, we specialize in swift
@@ -84,7 +96,7 @@ const AboutAircraftUpdate = () => {
         </div>
 
         {/* Grid with Icon and Text (Data-driven) */}
-        <div className="grid grid-cols-2 gap-5 mt-16 sm:grid-cols-1 sm:mt-10">
+        <div className="grid grid-cols-2 gap-5 mt-16 lg:grid-cols-1 md:grid-cols-2 sm:grid-cols-1 sm:mt-10">
           {AboutData.map((data, index) => (
             <IconWithTitle
               key={index}

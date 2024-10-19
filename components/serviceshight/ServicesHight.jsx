@@ -10,8 +10,12 @@ const IconWithTitle = ({ icon, text, title, color }) => {
   return (
     <div className="border-2 border-transparent bg-clip-padding flex items-center justify-between gap-8 px-10 py-10 sm:px-0 sm:py-0 rounded-lg">
       {/* Icon Container */}
-      <div className="flex items-start justify-center h-24 w-24">
-        <Image src={icon} alt={text} className="h-[90px] w-[150px]" />
+      <div className="flex items-start justify-center h-24 w-24 2xl:h-28 2xl:w-32">
+        <Image
+          src={icon}
+          alt={text}
+          className="h-[90px] w-[150px] 2xl:h-[100px] 2xl:w-[200px]"
+        />
       </div>
 
       {/* Text Content */}
@@ -51,7 +55,7 @@ const ServicesHight = () => {
       {/* Horizontal Line between Row 1 and Row 2 */}
       {/* Horizontal Line between Row 1 and Row 2 */}
       <div
-        className="absolute left-0 top-1/2 w-full h-px t   sm:hidden"
+        className="absolute left-0 top-1/2 w-full h-px 2xl:h-4px t   sm:hidden"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #11B6E3 0%, rgba(17, 182, 227, 0) 100%)",
@@ -78,7 +82,7 @@ const ServicesHight = () => {
 
       {/* Vertical Line between Column 1 and Column 2 */}
       <div
-        className="absolute top-0 left-1/2 w-px h-full sm:hidden"
+        className="absolute top-0 left-1/2 w-px 2xl:w-4px h-full  t sm:hidden"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #11B6E3 0%, rgba(17, 182, 227, 0) 100%)",
