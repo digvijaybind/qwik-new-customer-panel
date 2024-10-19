@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const IconWithTitle = ({ icon, text, title, color }) => {
   return (
-    <div className="border-2 border-transparent bg-clip-padding flex items-center justify-between gap-8 px-10 py-10 sm:px-0 sm:py-0 rounded-lg">
+    <div className="border-2 border-transparent bg-clip-padding flex items-center justify-between gap-8 px-10 py-10 2xl:px-6 2xl:py-6 sm:px-0 sm:py-0 rounded-lg">
       {/* Icon Container */}
       <div className="flex items-start justify-center h-24 w-24 2xl:h-28 2xl:w-32">
         <Image

@@ -48,7 +48,7 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
   return (
     <div className="w-full flex justify-center items-center">
       <div
-        className={`relative p-6 bg-white shadow-md cursor-pointer w-full h-[350px] rounded-[30px] opacity-100 transition-all duration-300 max-w-[350px]`}
+        className={`relative p-6 bg-white shadow-md cursor-pointer w-full h-[350px] 2xl:h-[400px] rounded-[30px] opacity-100 transition-all duration-300 max-w-[350px] 2xl:max-w-[400px]`}
       >
         {/* Icon, Title, and Description */}
         <div className="flex flex-col justify-start items-start h-full text-left">

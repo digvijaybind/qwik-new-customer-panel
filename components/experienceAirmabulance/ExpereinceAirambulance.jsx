@@ -5,7 +5,7 @@ import Global from "../../public/images/experience/Global.png";
 import Patient from "../../public/images/experience/PatientTransfer.png";
 import SelectionComponent from "@/components/selection/SelectionComponent";
 import twentyIcon from "../../public/images/Homepage/experience/icon/24.png";
-import BedIcon from "../../public/images/Homepage/experience/icon/bed.png";
+import BedIcon from "../../public/images/Homepage/experience/icon/Bed.svg";
 import MoneyIcon from "../../public/images/Homepage/experience/icon/money.png";
 import PlaneIcon from "../../public/images/Homepage/experience/icon/plane.png";
 import WorldIcon from "../../public/images/Homepage/experience/icon/world.png";
@@ -85,11 +85,11 @@ const ChooseQwiklifButton = ({
   return (
     <button
       className={`h-[80px] px-4 bg-[#F7F7F7] mb-5 cursor-pointer flex items-center gap-8 sm:gap-4 hover:bg-[#19c0f0] rounded sm:w-full hover:text-white transition-colors duration-300 font-sans ${
-        isActive ? "bg-[#19c0f0] text-white" : "text-[#1E1E1E]"
+        isActive ? "bg-[#19c0f0] text-white " : "text-[#1E1E1E]"
       }`}
       onClick={() => setActiveTab(tabIndex)}
     >
-      <div className="bg-white rounded-full w-[55px] h-[55px] p-2 flex justify-center items-center">
+      <div className="bg-white rounded-full w-[55px] h-[55px] p-2 flex justify-center items-center ">
         {/* Apply 'invert' and 'mix-blend-mode' to ensure icon color is #1E1E1E */}
         <Image
           src={icon}
@@ -103,7 +103,7 @@ const ChooseQwiklifButton = ({
           }}
         />
       </div>
-      <div className="font-barlow  font-semibold text-[24px] sm:flex justify-end sm:text-base">
+      <div className="font-barlow  font-semibold text-[20px] sm:flex justify-end text-[#bbb8b8]  hover:text-[#fff] sm:text-base">
         {title}
       </div>
     </button>
@@ -115,15 +115,17 @@ const ExpereinceAirambulance = () => {
   const [hoveredTab, setHoveredTab] = useState(null);
   return (
     <div className="flex justify-center items-center flex-col px-20 py-10 md:px-10 sm:px-10">
-      <div className="flex justify-center items-center flex-col px-20 md:px-10 sm:px-10">
+      <div className="flex justify-center items-center flex-col px-20 2xl:px-20 md:px-10 sm:px-10">
         <div className="font-barlow font-normal text-[24px]">
           Why Choose Qwiklif
         </div>
-        <div className="font-barlow font-bold text-[54px] bg-headline-gradient text-transparent bg-clip-text">
+        <div className="font-barlow font-bold text-[54px] bg-headline-gradient 2xl:whitespace-nowrap xl:overflow-hidden  text-transparent bg-clip-text">
           Experience Exceptional Air Ambulance Services.
         </div>
-        <div className="flex justify-center items-center px-10">
-          <div className="font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5  px-20 md:px-10 sm:px-5">
+        <div className="flex justify-center items-center px-10 2xl:px-0 ">
+          {" "}
+          {/* Adjust height as needed */}
+          <div className="flex flex-col justify-center font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5 px-20 2xl:px-10 md:px-10 sm:px-5 text-center">
             Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
             global hospitals, including the best medical team and
             state-of-the-art medical equipment across the globe.
