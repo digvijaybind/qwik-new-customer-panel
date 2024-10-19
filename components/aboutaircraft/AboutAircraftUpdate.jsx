@@ -34,7 +34,7 @@ const IconWithTitle = ({ icon, text, title, textColor }) => (
 
 const AboutAircraftUpdate = () => {
   return (
-    <div className="container mx-auto px-10 py-10 lg:px-20 grid grid-cols-2 gap-8 md:grid-cols-1 md:px-12 sm:px-8">
+    <div className="container mx-auto px-10 pt-10 lg:px-20 grid grid-cols-2 gap-8 md:grid-cols-1 md:px-12 sm:px-8">
       {/* Left Section with Images */}
       <div className="flex flex-col items-start space-y-4">
         <div className="w-full">

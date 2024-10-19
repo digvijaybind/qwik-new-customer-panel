@@ -96,7 +96,7 @@ const ServiceCard2 = ({ img, title, description, textColor, bgColor }) => {
 // Main Bookambulance Component to render all the steps
 const Bookambulance = () => {
   return (
-    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-8 py-10 sm:px-4 sm:py-5">
+    <div className="bg-[#f5fdff] flex justify-center items-center flex-col px-8 py-10 sm:px-4 sm:py-5 opacity-4">
       {/* Main Title */}
       <h2 className="font-barlow font-semibold text-[24px] mt-5 text-center">
         How To Book Air Ambulance

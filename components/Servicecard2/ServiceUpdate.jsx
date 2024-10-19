@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border border-2-[#fff] px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[500px]">
+    <div className="mx-[10px] flex flex-col items-start justify-between border border-1-[#fff] px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[480px]">
       {" "}
       {/* Set a fixed height */}
       {/* Image Section */}

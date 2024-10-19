@@ -41,3 +41,8 @@ module.exports = {
     return defaultPathMap;
   },
 };
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({});

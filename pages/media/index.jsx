@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Airtransfer from "../../public/images/media/airtransfer.jpg";
 import Ambulance from "../../public/images/media/ambulance.jpg";

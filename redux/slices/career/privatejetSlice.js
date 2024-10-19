@@ -1,39 +1,39 @@
 //private jet form api integration in front end
 
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const BASE_URL = process.env.REACT_API_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const PrivatejetApi = createAsyncThunk(
-  'api/privatejet',
+  "api/privatejet",
   async (payload) => {
     const response = await axios.post(
       `${BASE_URL}/formData/register/private-Jet`,
-      payload
+      payload,
     );
     return response.data;
-  }
+  },
 );
 
 const PrivatejetSlice = createSlice({
-  name: 'privatejet',
+  name: "privatejet",
   initialState: {
     data: [],
-    status: 'idle',
+    status: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(PrivatejetApi.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(PrivatejetApi.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.data = action.payload;
       })
       .addCase(PrivatejetApi.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },

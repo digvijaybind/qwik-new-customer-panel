@@ -1,24 +1,31 @@
 import style from "./About.module.css";
-import { aboutsList } from "../../utils/contants"; 
+import { aboutsList } from "../../utils/contants";
+import Image from "next/image";
 
-const About = ({ details }) => {
+const About = ({ details = {} }) => {
   return (
     <div className="font-Inter">
       <div
         className={`${style.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-center items-center pt-[220px] pb-32`}
       >
         <p className="text-white text-5xl font-bold font-arcaMajoraHeavy">
-          {details?.head}
+          {details?.head || "Default HeadLine"}
         </p>
       </div>
       <div className="py-10 px-20 flex items-center flex-col justify-center">
         <div className="w-8/12">
-          <img src={details?.img} alt="Banner" className="w-full mb-6" />
+          <Image
+            src={details?.img || "/default-image.jpg"}
+            alt="Banner"
+            className="w-full mb-6"
+          />
           <h2 className="font-arcaMajoraHeavy font-semibold text-2xl">
-            {details?.head}
+            {details?.head || "Default Headline"}
           </h2>
           <hr className="bg-primary rounded-full h-[4px] w-16 mb-5 mt-3" />
-          <p className="mb-10 text-opacity-10 font-medium">{details?.text}</p>
+          <p className="mb-10 text-opacity-10 font-medium">
+            {details?.text || "default Text"}
+          </p>
         </div>
       </div>
     </div>
@@ -32,7 +39,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }
 

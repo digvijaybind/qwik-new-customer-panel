@@ -33,7 +33,7 @@ const IconWithTitle = ({ icon, text, title, color }) => {
 
 const ServicesHight = () => {
   return (
-    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-30 py-10 sm:px-10 sm:py-5 opacity-4">
+    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-16 py-6 sm:px-10 sm:py-5 opacity-4">
       {/* Row 1 - Aligned to the top */}
       <div className="flex flex-col justify-start">
         <IconWithTitle
@@ -53,9 +53,8 @@ const ServicesHight = () => {
       </div>
 
       {/* Horizontal Line between Row 1 and Row 2 */}
-      {/* Horizontal Line between Row 1 and Row 2 */}
       <div
-        className="absolute left-0 top-1/2 w-full h-px 2xl:h-4px t   sm:hidden"
+        className="absolute left-0 top-1/2 w-full h-px 2xl:h-[2px] md:h-[2px] sm:hidden"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #11B6E3 0%, rgba(17, 182, 227, 0) 100%)",
@@ -82,7 +81,7 @@ const ServicesHight = () => {
 
       {/* Vertical Line between Column 1 and Column 2 */}
       <div
-        className="absolute top-0 left-1/2 w-px 2xl:w-4px h-full  t sm:hidden"
+        className="absolute top-0 left-1/2 w-px 2xl:w-[2px] sm:w-[2px] h-full sm:hidden"
         style={{
           background:
             "radial-gradient(50% 50% at 50% 50%, #11B6E3 0%, rgba(17, 182, 227, 0) 100%)",

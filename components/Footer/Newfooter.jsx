@@ -133,7 +133,7 @@ const Newfooter = () => {
             <span className="text-[15px] text-[#fff] ml-4 cursor-pointer text-center sm:ml-0 mb-2 hover:text-[#3788d8] sm:text-[15px] sm:mb-0 sm:ml-2">
               <a
                 href="tel:+971552087745"
-                className="text-[20px] font-extrabold hover:text-[#3788d8] font-Inter"
+                className="text-[20px] 2xl:text-[16px] font-extrabold hover:text-[#3788d8] font-barlow "
               >
                 +971 50 282 5433
               </a>

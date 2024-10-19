@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import Trusted from "@/components/trusted/Trusted";
