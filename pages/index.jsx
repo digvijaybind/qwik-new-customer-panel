@@ -223,33 +223,33 @@ const Home = () => {
         </div>
 
         {/*Services hightlight */}
-        <div ClassName="sm:mt-5">
+        <div className="sm:mt-5 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <ServicesHight />
         </div>
 
         {/*Our services*/}
-        <div className="mt-10">
+        <div className="mt-10 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <ServiceUpdate />
         </div>
 
         {/*How to book air ambulance */}
-        <div className="mt-10">
+        <div className="mt-10 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <Bookambulance />
         </div>
 
         {/*Why to choose qwiklif */}
-        <div className="mt-10">
+        <div className="mt-10 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <ExpereinceAirambulance />
         </div>
 
         {/*Why to trust on Qwiklif? */}
-        <div className="mt5">
+        <div className="mt5 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <WhychooseQwiklif />
         </div>
 
         {/* News and update*/}
 
-        <div className="">
+        <div className="relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
           <NewsUpdate2 />
         </div>
 
@@ -258,18 +258,18 @@ const Home = () => {
 
         {/* review */}
 
-        <div className="mt-5">
+        <div className="mt-5 ">
           <Reviewupdate />
         </div>
 
         {/* get in touch */}
-        <div>
+        <div className="relative ">
           <GetTouch />
         </div>
 
         {/* location */}
 
-        <div className="mt-10">
+        <div className="mt-10 ">
           <LoactionUpdate />
         </div>
 

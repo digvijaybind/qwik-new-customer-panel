@@ -52,12 +52,12 @@ const FAQSection = ({ title, description }) => {
 // Main Faq Component
 const Faq = () => {
   return (
-    <div className="flex flex-col items-center bg-[#f5fdff] px-8 py-20">
+    <div className="flex flex-col items-center bg-[#f5fdff] px-8 py-12 opacity-4">
       {/* FAQ Section Title */}
       <div className="font-barlow text-4xl mb-4">FaQ</div>
 
       {/* Section Subheading */}
-      <div className="text-4xl sm:text-3xl font-barlow font-bold text-center mb-8 bg-headline-gradient text-transparent bg-clip-text">
+      <div className="text-[54px] sm:text-3xl font-barlow font-bold text-center mb-8 bg-headline-gradient text-transparent bg-clip-text">
         Why You Should Choose Our Services
       </div>
 

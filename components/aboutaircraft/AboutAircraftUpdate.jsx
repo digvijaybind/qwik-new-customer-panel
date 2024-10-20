@@ -60,7 +60,7 @@ const AboutAircraftUpdate = () => {
               lg:h-[400px] lg:w-full     
               xl:h-[450px] xl:w-[90%]       
               2xl:h-[650px] 2xl:w-[90%] 2xl:relative 2xl:left-[50px] 2xl:bottom-[170px]  
-              3xl:h-[600px] 3xl:w-[85%] 3xl:relative 3xl:left-[80px] 3xl:bottom-[190px]  
+              3xl:h-[550px] 3xl:w-[85%] 3xl:relative 3xl:left-[80px] 3xl:bottom-[190px]  
               md:h-[350px] sm:h-[300px]"
             alt="About Transfer"
           />
