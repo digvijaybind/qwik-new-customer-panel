@@ -54,9 +54,7 @@ const Faq = () => {
   return (
     <div className="flex flex-col items-center bg-[#f5fdff] px-8 py-20">
       {/* FAQ Section Title */}
-      <div className="font-barlow text-4xl mb-4">
-        Frequently Asked Questions
-      </div>
+      <div className="font-barlow text-4xl mb-4">FaQ</div>
 
       {/* Section Subheading */}
       <div className="text-4xl sm:text-3xl font-barlow font-bold text-center mb-8 bg-headline-gradient text-transparent bg-clip-text">

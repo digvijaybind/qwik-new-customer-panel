@@ -79,13 +79,13 @@ const NewsUpdate2 = () => {
       </div>
 
       {/* Card Slider */}
-      <div className="w-full px-4">
+      <div className="w-full px-4 space-x-4">
         {News.length > 0 ? (
           <Slider {...settings}>
             {News.map((blog) => (
               <div
                 key={blog.id}
-                className="flex justify-center" // Center align cards
+                className="flex justify-center " // Center align cards
               >
                 <BlogCard
                   image={blog.image}

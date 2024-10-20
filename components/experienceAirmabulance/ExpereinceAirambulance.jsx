@@ -125,7 +125,7 @@ const ExpereinceAirambulance = () => {
         <div className="flex justify-center items-center px-10 2xl:px-0 ">
           {" "}
           {/* Adjust height as needed */}
-          <div className="flex flex-col justify-center font-barlow font-normal text-[24px] text-[#1E1E1E] mt-5 px-20 2xl:px-10 md:px-10 sm:px-5 text-center">
+          <div className="flex flex-col justify-center font-barlow font-normal text-[24px] text-[#1E1E1E] mt-4 px-20 2xl:px-10 md:px-10 sm:px-5 text-center">
             Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
             global hospitals, including the best medical team and
             state-of-the-art medical equipment across the globe.
@@ -133,7 +133,7 @@ const ExpereinceAirambulance = () => {
         </div>
       </div>
       <div>
-        <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col mt-20 sm:gap-4">
+        <div className="grid grid-cols-10 gap-12 sm:grid-cols-1 items-start sm:items-center sm:flex justify-center sm:flex-col mt-16 sm:gap-4">
           {/* Sidebar with tabs */}
           <div className="col-span-3 sm:col-span-12 flex flex-col mb-5">
             {faqs.map(({ icon, index, title }) => (
