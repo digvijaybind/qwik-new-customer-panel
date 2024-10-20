@@ -48,7 +48,7 @@ const SocialMedia = ({ links }) => (
     <h3 className="font-barlow font-bold text-[28px] mb-3">
       Follow Us On Social Media
     </h3>
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 sm:flex sm:justify-between sm:space-x-4">
       {links.map((link, index) => (
         <a
           key={index}
@@ -65,15 +65,15 @@ const SocialMedia = ({ links }) => (
 
 // Google Map Component
 const GoogleMap = ({ mapImage, mapLink }) => (
-  <div className="w-full h-[400px] sm:h-auto mt-10 lg:mt-0">
+  <div className="w-full h-[400px] 2xl:h-full sm:h-auto mt-10 lg:mt-0">
     <a href={mapLink} target="_blank" rel="noopener noreferrer">
       <Image
-        src={mapImage} // Use the image prop for the Google Map image
+        src={mapImage}
         alt="Google Map"
         layout="responsive"
-        width={1000} // Adjust as needed for responsiveness
-        height={500} // Adjust for the image aspect ratio
-        className="rounded-lg shadow-lg object-cover" // Styling for the image
+        width={1000}
+        height={500}
+        className="rounded-lg shadow-lg object-cover 2xl:h-full"
       />
     </a>
   </div>
@@ -88,7 +88,7 @@ const GetTouch = ({ mapIframeUrl }) => {
         <h1 className="font-barlow font-semibold text-[24px] text-[#1E1E1E]">
           Get In Touch With Qwiklif
         </h1>
-        <h2 className="font-barlow font-bold text-[54px] bg-headline-gradient text-transparent bg-clip-text leading-tight">
+        <h2 className="font-barlow font-bold text-[54px] sm:text-[34px] bg-headline-gradient sm:text-center text-transparent bg-clip-text leading-tight">
           Your Trusted Global Air Ambulance Provider.
         </h2>
         <p className="font-barlow font-normal text-[18px] text-[#1E1E1E] mt-4">
@@ -114,7 +114,7 @@ const GetTouch = ({ mapIframeUrl }) => {
       </div>
 
       {/* Google Map */}
-      <div className="col-span-7 sm:col-span-1">
+      <div className="col-span-7  sm:col-span-1 2xl:h-full">
         <GoogleMap mapImage={Map} mapLink="" />
       </div>
     </div>

@@ -86,7 +86,7 @@ const WhychooseQwiklif = () => {
       {/* Video Carousel Container */}
       <div className="flex justify-center items-center flex-col p-4 sm:p-6 lg:p-8">
         {/* Heading Section */}
-        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[36px] md:text-[48px] lg:text-[54px] font-barlow font-bold text-center mb-6 sm:mb-6 lg:mb-8 sm:px-10">
+        <h2 className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[24px] md:text-[48px] lg:text-[54px] font-barlow font-bold text-center mb-6 sm:mb-6 lg:mb-8 sm:px-10">
           Why people trust Qwiklif?
         </h2>
         {/* Card Slider */}
@@ -95,7 +95,7 @@ const WhychooseQwiklif = () => {
             {videos.map((video) => (
               <div
                 key={video.id}
-                className="flex flex-col items-center p-2 sm:p-3"
+                className="flex flex-col items-center p-2 sm:px-6"
               >
                 <VideoPlayer video={video} />
               </div>

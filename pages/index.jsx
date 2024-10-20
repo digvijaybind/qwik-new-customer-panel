@@ -145,29 +145,10 @@ const Home = () => {
       <div className="font-sans z-0">
         {/*Navbar */}
         <Navnew />
-        {/*conditional search bar component depend on view search bar will update */}
-        {/* {!isMobile ? (
-          <div id="staticSection" className={`relative bottom-40 sm:hidden`}>
-            <div className="flex justify-center ">
-              <UpdateSearchNew
-                className={`${
-                  isSticky
-                    ? `${styles.Searchbar2} flex justify-center items-center `
-                    : `${styles.Searchbar} flex justify-center items-center `
-                } `}
-                formData={formData}
-                setFormData={stableSetFormData}
-              />
-            </div>
-          </div>
-        ) : (
-          <div className="relative top-5 flex justify-center px-5">
-            <MobileSearch formData={formData} setfromSearch={setfromSearch} />
-          </div>
-        )} */}
+       
 
         <div
-          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-10 lg:h-[500px] xl:h-[700px]`}
+          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20 lg:h-[500px] xl:h-[700px]`}
         >
           <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] sm:max-h-[550px] lg:max-w-[550px] xl:max-w-[600px] space-y-4 sm:justify-center">
             {/* Headline */}
@@ -223,7 +204,7 @@ const Home = () => {
         </div>
 
         {/*Services hightlight */}
-        <div className="sm:mt-5 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
+        <div className="sm:mt-5 relative 2xl:bottom-[100px] 3xl:bottom-[130px] ">
           <ServicesHight />
         </div>
 
@@ -254,8 +235,9 @@ const Home = () => {
         </div>
 
         {/* Qwikif faq*/}
-        <Faq />
-
+        <div className="relative 2xl:bottom-[50px] 3xl:bottom-[80px]">
+          <Faq />
+        </div>
         {/* review */}
 
         <div className="mt-5 ">

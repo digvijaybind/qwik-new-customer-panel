@@ -31,7 +31,6 @@ const IconWithTitle = ({ icon, text, title, textColor }) => (
   </div>
 );
 
-
 const AboutAircraftUpdate = () => {
   return (
     <div className="container mx-auto px-10 pt-10 lg:px-20 grid grid-cols-2 gap-8 md:grid-cols-1 md:px-12 sm:px-8">
@@ -61,14 +60,15 @@ const AboutAircraftUpdate = () => {
               xl:h-[450px] xl:w-[90%]       
               2xl:h-[650px] 2xl:w-[90%] 2xl:relative 2xl:left-[50px] 2xl:bottom-[170px]  
               3xl:h-[550px] 3xl:w-[85%] 3xl:relative 3xl:left-[80px] 3xl:bottom-[190px]  
-              md:h-[350px] sm:h-[300px]"
+              md:h-[350px]
+              sm:h-[350px] sm:w-[50%} smrelative sm:left[0px] sm:botttom-[0px]"
             alt="About Transfer"
           />
         </div>
       </div>
 
       {/* Right Section with Content */}
-      <div className="flex flex-col justify-start">
+      <div className="flex flex-col justify-start sm:relative sm:bottom-[130px]">
         {/* Heading Section */}
         <div className="font-barlow font-semibold text-2xl lg:text-xl">
           About Qwiklif

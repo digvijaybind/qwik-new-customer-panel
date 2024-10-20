@@ -76,10 +76,10 @@ const About = () => {
         </div>
       </div>
       <div className="flex px-32 py-10 sm:px-5 sm:py-2 sm:flex-col">
-        <div className="w-1/4 sm:w-fullc">
-          <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl ">
+        <div className="w-1/4 sm:w-full sm:overflow-x-auto">
+          <ul className="w-full flex flex-col drop-shadow-xl bg-white sm:flex-row sm:items-center sm:h-[90px] sm:drop-shadow-2xl sm:overflow-x-auto sm:items-baseline">
             <li
-              className={`px-5 text-sm py-4 border-b-2 cursor-pointer  sm:px-2 sm:py-2  font-bold ${
+              className={`px-5 text-sm py-4 border-b-2 h-[80px] cursor-pointer sm:px-2 sm:py-2 font-bold hover:text-[#fff] sm: ${
                 activeTab === 1 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(1)}
@@ -87,7 +87,7 @@ const About = () => {
               Company Profile
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold sm:px-2 sm:py-2 ${
+              className={`px-5 text-sm py-4 border-b-2 h-[80px] cursor-pointer sm:px-2 sm:py-2 font-bold hover:text-[#fff]  ${
                 activeTab === 2 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(2)}
@@ -95,7 +95,7 @@ const About = () => {
               Mission and Vision
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
+              className={`px-5 text-sm py-4 border-b-2 h-[80px] cursor-pointer sm:px-2 sm:py-2 font-bold hover:text-[#fff]  ${
                 activeTab === 3 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(3)}
@@ -103,7 +103,7 @@ const About = () => {
               Milestones
             </li>
             <li
-              className={`px-5 text-sm  py-4 border-b-2 cursor-pointer font-bold  sm:px-2 sm:py-2 ${
+              className={`px-5 text-sm py-4 border-b-2 h-[80px] cursor-pointer sm:px-2 sm:py-2 font-bold hover:text-[#fff]  ${
                 activeTab === 4 ? styles.aboutPageMenuActive : ""
               }`}
               onClick={() => setActiveTab(4)}
@@ -112,6 +112,7 @@ const About = () => {
             </li>
           </ul>
         </div>
+
         <div className="w-3/4 sm:pl-0 pl-12">
           {activeTab === 1 && (
             <div id="company_profile">

@@ -11,11 +11,9 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] flex flex-col items-start justify-between border border-1-[#fff] px-3 sm:px-0 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[480px]">
-      {" "}
-      {/* Set a fixed height */}
+    <div className="mx-[10px] sm:mx-[15px] lg:mx-[20px] flex flex-col items-start justify-between border border-gray-200 px-3 sm:px-5 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[480px] sm:h-auto">
       {/* Image Section */}
-      <div className="w-full ">
+      <div className="w-full">
         <Image
           src={img}
           alt={headline}
@@ -25,23 +23,23 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
           layout="responsive"
         />
       </div>
-      {/* Headline */}
+      {/* Headline and Description */}
       <div className="sm:px-5">
-        <div className="font-barlow font-bold text-[24px] mb-2 text-gray-900">
+        <div className="font-barlow font-bold text-[20px] sm:text-[24px] mb-2 text-gray-900">
           {headline}
         </div>
-        {/* Description */}
-        <div className="font-barlow font-normal text-[16px] text-gray-600 mb-4 leading-relaxed ">
+        <div className="font-barlow font-normal text-[14px] sm:text-[16px] text-gray-600 mb-4 leading-relaxed">
           {description}
         </div>
         {/* Read More Button */}
-        <button className="mt-auto text-[#1E1E1E]  rounded-md self-start font-barlow font-bold text-[20px] mb-2">
+        <button className="mt-auto  text-[#1E1E1E]  px-4 py-2 rounded-md self-start font-barlow font-bold text-[16px] sm:text-[20px] mb-2 transition-all duration-300">
           Read More
         </button>
       </div>
     </div>
   );
 };
+
 
 // ServiceUpdate Component
 const ServiceUpdate = () => {
@@ -87,7 +85,7 @@ const ServiceUpdate = () => {
       <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] ">
         Our Services
       </div>
-      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[34px] font-barlow font-bold text-center mb-8">
         Specialized Air Medical Services
       </div>
       {/* Card Slider */}

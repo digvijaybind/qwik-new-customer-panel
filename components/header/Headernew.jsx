@@ -81,13 +81,13 @@ const Headernew = () => {
       <div
         className={`${
           isScrolled ? styles.header2 : styles.header
-        } font-barlowBold pb-8 pt-8 bg-white font-barlow`}
+        } font-barlowBold pb-8 pt-8 sm:pb-10 sm:pt-10 bg-white font-barlow`}
       >
         <div className="shadow-md px-[60px] font-sans font-normal flex justify-between items-center w-full">
           {/* Logo */}
           <div className={styles.logo}>
             <Link href="/">
-              <div className="relative h-[80px] w-[160px]">
+              <div className="relative h-[80px] w-[160px] sm:h-[100px] sm:w-[150px]">
                 <Image src={Logo} layout="fill" objectFit="contain" />
               </div>
             </Link>

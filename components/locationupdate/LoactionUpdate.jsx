@@ -4,13 +4,13 @@ import Link from "next/link";
 
 const LoactionUpdate = () => {
   return (
-    <div className="mx-20  sm:px-10 sm:mx-0">
-      <div className="flex justify-center items-center flex-col p-8">
+    <div className="mx-20 sm:mx-5  sm:px-0 ">
+      <div className="flex justify-center items-center flex-col p-8 sm:p-2">
         {/* Heading Section */}
         <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
           Our Locations
         </div>
-        <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+        <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[34px] font-barlow font-bold text-center mb-8">
           Where We Operate: Your Trusted Partner Worldwide
         </div>
         {/* Card Slider */}

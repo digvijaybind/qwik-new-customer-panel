@@ -52,7 +52,7 @@ const NewsUpdate2 = () => {
         )}
         {/* Blog Content */}
         <div className="flex-grow p-4 flex flex-col">
-          <h2 className="text-[28px] font-barlow font-semibold mb-2 text-[#1E1E1E] max-h-[140px]">
+          <h2 className="text-[28px] font-barlow font-semibold mb-3 sm:mb-3 text-[#1E1E1E] max-h-[140px] ">
             {title}
           </h2>
           <p className="mt-2 mb-4 text-[20px] font-normal font-barlow line-clamp-3 max-h-[105px]">
@@ -69,23 +69,23 @@ const NewsUpdate2 = () => {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col p-8">
+    <div className="flex justify-center items-center flex-col p-8 sm:p-2">
       {/* Heading Section */}
       <div className="font-barlow font-semibold text-[24px] text-[#1E1E1E] mb-2">
         News & Update
       </div>
-      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] font-barlow font-bold text-center mb-8">
+      <div className="bg-headline-gradient text-transparent bg-clip-text text-[54px] sm:text-[34px] font-barlow font-bold text-center mb-8">
         Insights & Updates from Qwiklif
       </div>
 
       {/* Card Slider */}
-      <div className="w-full px-4 space-x-4">
+      <div className="w-full px-4  sm:px-0 space-x-4">
         {News.length > 0 ? (
           <Slider {...settings}>
             {News.map((blog) => (
               <div
                 key={blog.id}
-                className="flex justify-center " // Center align cards
+                className="grid grid-cols-3 gap-4 sm:grid-cols-1" // Center align cards
               >
                 <BlogCard
                   image={blog.image}

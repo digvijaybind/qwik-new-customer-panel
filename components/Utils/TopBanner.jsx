@@ -32,7 +32,7 @@ const socialMediaLinks = [
 
 const TopBanner = () => {
   return (
-    <div className="w-full h-auto bg-button-gradient flex flex-wrap justify-between items-center px-20 py-2 sm:px-10 md:px-20 md:py-4 sm:flex sm:items-center sm:justify-center">
+    <div className="w-full h-auto bg-button-gradient flex flex-wrap justify-between items-center px-20 py-2 sm:px-0 sm:py-0 md:px-20 md:py-4 sm:flex sm:items-center sm:justify-center">
       {/* Contact Information Section */}
       <div className="flex flex-wrap items-center space-x-6 sm:justify-center">
         {/* Address Section */}
@@ -56,7 +56,7 @@ const TopBanner = () => {
       </div>
 
       {/* Social Media Links Section */}
-      <div className="flex space-x-4 items-center flex-row mt-3 md:mt-0">
+      <div className="flex space-x-4 items-center flex-row mt-1 md:mt-0">
         {socialMediaLinks.map(({ href, src, alt }) => (
           <Link key={alt} href={href} passHref legacyBehavior>
             <a

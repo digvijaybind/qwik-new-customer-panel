@@ -29,12 +29,11 @@ const HamburgerMenu = () => {
   }, []);
 
   return (
-    <div className="flex flex-col font-sans relative px-10">
-   
-      <div className="flex flex-row justify-between items-center px-[10px] py-[10px] font-sans">
+    <div className="flex flex-col font-sans relative px-5">
+      <div className="flex flex-row justify-between items-center px-[5px] py-[16px]  font-sans">
         <div className="flex flex-row justify-between">
           <div className="">
-            <Image src={Logo} width={95} height={90} />
+            <Image src={Logo} width={150} height={200} />
           </div>
         </div>
         <div className="font-semibold text-[10px]">

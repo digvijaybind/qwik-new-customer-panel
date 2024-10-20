@@ -14,7 +14,7 @@ const IconWithTitle = ({ icon, text, title, color }) => {
         <Image
           src={icon}
           alt={text}
-          className="h-[90px] w-[150px] 2xl:h-[100px] 2xl:w-[200px]"
+          className="h-[90px] w-[150px] sm:h-[60px] sm:w-[250px] 2xl:h-[100px] 2xl:w-[200px]"
         />
       </div>
 
@@ -33,7 +33,7 @@ const IconWithTitle = ({ icon, text, title, color }) => {
 
 const ServicesHight = () => {
   return (
-    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-16 py-6 sm:px-10 sm:py-5 opacity-4">
+    <div className="relative grid grid-cols-2 gap-4 p-10 bg-[#f5fdff] sm:grid-cols-1 px-16 py-6 sm:px-5 sm:py-5 opacity-4">
       {/* Row 1 - Aligned to the top */}
       <div className="flex flex-col justify-start">
         <IconWithTitle

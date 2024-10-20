@@ -115,20 +115,23 @@ const ExpereinceAirambulance = () => {
   const [hoveredTab, setHoveredTab] = useState(null);
   return (
     <div className="flex justify-center items-center flex-col px-20 py-10 md:px-10 sm:px-10">
-      <div className="flex justify-center items-center flex-col px-20 2xl:px-20 md:px-10 sm:px-10">
+      <div className="flex justify-center items-center flex-col px-20 2xl:px-20 md:px-10 sm:px-0">
         <div className="font-barlow font-normal text-[24px]">
           Why Choose Qwiklif
         </div>
-        <div className="font-barlow font-bold text-[54px] bg-headline-gradient 2xl:whitespace-nowrap xl:overflow-hidden  text-transparent bg-clip-text">
-          Experience Exceptional Air Ambulance Services.
-        </div>
-        <div className="flex justify-center items-center px-10 2xl:px-0 ">
-          {" "}
-          {/* Adjust height as needed */}
-          <div className="flex flex-col justify-center font-barlow font-normal text-[24px] text-[#1E1E1E] mt-4 px-20 2xl:px-10 md:px-10 sm:px-5 text-center">
-            Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
-            global hospitals, including the best medical team and
-            state-of-the-art medical equipment across the globe.
+        <div>
+          {/* Headline */}
+          <div className="font-barlow font-bold text-[54px] sm:text-[22px] md:text-[36px] lg:text-[44px] 2xl:text-[54px] bg-headline-gradient text-center text-transparent bg-clip-text">
+            Experience Exceptional Air Ambulance Services.
+          </div>
+
+          {/* Subheadline */}
+          <div className="flex justify-center items-center px-4 sm:px-5 md:px-10 lg:px-20 2xl:px-0">
+            <div className="flex flex-col justify-center font-barlow font-normal text-[14px] sm:text-[18px] md:text-[18px] lg:text-[22px] 2xl:text-[24px] text-[#1E1E1E] mt-4 text-center">
+              Fly Fast and Safe with Qwiklif Air Ambulance. We have access to
+              global hospitals, including the best medical team and
+              state-of-the-art medical equipment across the globe.
+            </div>
           </div>
         </div>
       </div>
