@@ -1,4 +1,5 @@
 //aircraftoperator form integration
+import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -7,7 +8,7 @@ export const Aircraftoperator = createAsyncThunk(
   "api/aircraftform",
   async (payload) => {
     const response = await axios.post(
-      `${BASE_URL}/formData/register/aircraft-Operator`,
+      `${BASE_URL} ${Endpoint.AircraftOperatorcareer}`,
       payload,
     );
     return response.data;

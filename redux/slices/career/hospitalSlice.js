@@ -1,4 +1,5 @@
 //hospital data
+import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -7,7 +8,7 @@ export const hospitalApi = createAsyncThunk(
   "api/hoispital",
   async (payload) => {
     const response = await axios.post(
-      `${BASE_URL}/formData/register/hospital`,
+      `${BASE_URL} ${Endpoint.HospitalCareer}`,
       payload,
     );
     return response.data;

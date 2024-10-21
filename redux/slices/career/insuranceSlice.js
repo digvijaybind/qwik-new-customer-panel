@@ -1,23 +1,25 @@
-//paramedics form
+// slices/InsuranceSlice.js
 import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const ParamedicsApi = createAsyncThunk(
-  "api/paramedics",
+// Async thunk for insurance data submission
+export const insuranceApi = createAsyncThunk(
+  "api/insurance",
   async (payload) => {
     const response = await axios.post(
-      `${BASE_URL} ${Endpoint.ParamedicCareer}`,
+      `${BASE_URL} ${Endpoint.Insurance}`, // Adjust the endpoint as needed
       payload,
     );
     return response.data;
   },
 );
 
-const ParamedicSlice = createSlice({
-  name: "paramedic",
+// Create insurance slice
+const insuranceSlice = createSlice({
+  name: "insurance",
   initialState: {
     data: [],
     status: "idle",
@@ -26,17 +28,18 @@ const ParamedicSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(ParamedicsApi.pending, (state) => {
+      .addCase(insuranceApi.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(ParamedicsApi.fulfilled, (state, action) => {
+      .addCase(insuranceApi.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.data = action.payload;
+        state.data.push(action.payload); // Push new insurance data into the existing array
       })
-      .addCase(ParamedicsApi.rejected, (state, action) => {
+      .addCase(insuranceApi.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
   },
 });
-export default ParamedicSlice;
+
+export default insuranceSlice.reducer; // Export the reducer

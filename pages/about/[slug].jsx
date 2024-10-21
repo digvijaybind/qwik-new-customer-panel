@@ -1,8 +1,6 @@
 import style from "./About.module.css";
 import { aboutsList } from "../../utils/contants";
 import Image from "next/image";
-
-import Image from "next/image";
 import styles from "./About.module.css"; // Adjust the path if necessary
 
 const About = ({ details = {} }) => {

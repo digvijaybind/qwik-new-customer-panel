@@ -3,7 +3,13 @@ import Modal from "react-modal";
 import styles from "./careermodal.module.css";
 import { ImCancelCircle } from "react-icons/im";
 
-const CustomModal = ({ isOpen, onRequestClose, payload, handleChange }) => {
+const CustomModal = ({
+  isOpen,
+  onRequestClose,
+  payload,
+  handleChange,
+  handleSubmit,
+}) => {
   const renderFields = () => {
     return Object.keys(payload).map((key) => (
       <div className={styles.formGroup} key={key}>
@@ -41,7 +47,11 @@ const CustomModal = ({ isOpen, onRequestClose, payload, handleChange }) => {
         </div>
 
         <div className={styles.content}>{renderFields()}</div>
-        <button className={`${styles.submitButton} font-barlow`}>Submit</button>
+        <button
+          className={`${styles.submitButton} font-barlow`}
+          onClick={handleSubmit()}>
+          Submit
+        </button>
       </Modal>
     </div>
   );

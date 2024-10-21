@@ -11,7 +11,7 @@ const UpdatecareerCard = ({
 }) => {
   return (
     <div
-      className="block rounded-lg bg-white shadow-sm dark:bg-surface-dark cursor-pointer transition ease-in-out font-poppins h-[480px] "
+      className="block rounded-lg bg-white shadow-sm dark:bg-surface-dark cursor-pointer transition ease-in-out font-poppins h-[480px] 3xl:h-[520px] 2xl:h-[500px] "
       onClick={onClick}
     >
       <div className="px-[10px] py-[10px]">

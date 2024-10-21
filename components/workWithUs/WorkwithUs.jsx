@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { DoctorApi } from "../../redux/slices/career/doctorSlice";
+import { hospitalApi } from "../../redux/slices/career/hospitalSlice";
+import { ParamedicApi } from "../../redux/slices/career/paramedicSlice";
+import { AircraftOperatorApi } from "../../redux/slices/career/aircraftoperatorSlice";
+import { InsuranceApi } from "../../redux/slices/career/insuranceSlice";
 import styles from "./workWithus.module.css";
 import UpdatecareerCard from "../careerCard/UpdatecareerCard";
 import CustomModal from "../careermodal";
@@ -10,10 +16,11 @@ import Paramedics from "../../public/images/career/paramedics.jpg";
 import Modal from "react-modal";
 
 const WorkwithUs = () => {
+  const dispatch = useDispatch(); // Initialize dispatch
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPayload, setCurrentPayload] = useState({});
 
-  const service = [
+  const services = [
     {
       img: Insurancefirm,
       head: "Medical Healthcare Insurance",
@@ -44,7 +51,7 @@ const WorkwithUs = () => {
       text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now and become a crucial part of our life-saving mission today.",
       payload: {
         "Full Name": "",
-        "Country  (with  country code)": "",
+        "Country (with country code)": "",
         Specialities: "",
         Location: "",
         Degrees: "",
@@ -59,7 +66,7 @@ const WorkwithUs = () => {
         Email: "",
         Country: "",
         Degrees: "",
-        "Contact (with country code) ": "",
+        "Contact (with country code)": "",
       },
     },
     {
@@ -76,17 +83,18 @@ const WorkwithUs = () => {
     },
   ];
 
+  // Function to open the modal and set the current payload
   const openModal = (payload) => {
-    if (payload) {
-      setCurrentPayload(payload);
-      setModalIsOpen(true);
-    }
+    setCurrentPayload(payload);
+    setModalIsOpen(true);
   };
 
+  // Function to close the modal
   const closeModal = () => {
     setModalIsOpen(false);
   };
 
+  // Function to handle input changes in the modal
   const handleChange = (field, value) => {
     setCurrentPayload((prevState) => ({
       ...prevState,
@@ -94,19 +102,47 @@ const WorkwithUs = () => {
     }));
   };
 
+  // Handle form submission
+  const handleSubmit = (e) => {
+    // Dispatch the appropriate action based on the selected service
+    switch (currentPayload.head) {
+      case "Flying_doctor":
+        dispatch(DoctorApi(currentPayload));
+        break;
+      case "Hospital/healthcare_center":
+        dispatch(hospitalApi(currentPayload));
+        break;
+      case "Paramedics/Flight_Paramedics":
+        dispatch(ParamedicApi(currentPayload));
+        break;
+      case "Aircraft_Operator":
+        dispatch(AircraftOperatorApi(currentPayload));
+        break;
+      case "Medical_Healthcare_Insurance":
+        dispatch(InsuranceApi(currentPayload));
+        break;
+      default:
+        console.log("Please select a valid option.");
+        break;
+    }
+
+    closeModal(); // Close the modal after submission
+  };
+
+  // Set the app element for accessibility
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
   return (
     <div className="font-sans">
-      <div className={`bg-black ${styles.Image} bg-black h-[400px] w-full`}>
+      <div className={`bg-black ${styles.Image} h-[400px] w-full`}>
         <div className="font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative text-white">
           <p className="text-[50px] pt-[150px] sm:pt-[100px] font-extrabold font-barlow">
-            Partner with us{" "}
+            Partner with us
           </p>
           <div className="flex pt-[30px] text-[20px] sm:text-[16px] sm:text-nowrap">
-            <p className="text-[#C5D5FF] pr-[10px] sm:pr-[5px] ">
+            <p className="text-[#C5D5FF] pr-[10px] sm:pr-[5px]">
               {"Air Ambulance Services >"}
             </p>
             <p className="font-barlow font-semibold"> Partner with Us</p>
@@ -129,16 +165,16 @@ const WorkwithUs = () => {
           </p>
         </div>
         <div id="root">
-          <div className="grid grid-cols-3  gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
-            {service.map((data, i) => (
-              <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
+          <div className="grid grid-cols-3 gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
+            {services.map((data, i) => (
+              <div className={`sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
                 <UpdatecareerCard
                   image={data.img}
                   headline={data.head}
                   descripation={data.text}
                   height={20}
                   width={80}
-                  onClick={() => openModal(data.payload)}
+                  onClick={() => openModal(data.payload)} 
                 />
               </div>
             ))}
@@ -150,6 +186,7 @@ const WorkwithUs = () => {
             onRequestClose={closeModal}
             payload={currentPayload}
             handleChange={handleChange}
+            handleSubmit={handleSubmit} 
           />
         )}
       </div>
