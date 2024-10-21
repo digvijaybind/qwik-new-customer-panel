@@ -105,8 +105,8 @@ const WorkwithUs = () => {
           <p className="text-[50px] pt-[150px] sm:pt-[100px] font-extrabold font-barlow">
             Partner with us{" "}
           </p>
-          <div className="flex pt-[30px] text-[20px]">
-            <p className="text-[#C5D5FF] pr-[10px]">
+          <div className="flex pt-[30px] text-[20px] sm:text-[16px] sm:text-nowrap">
+            <p className="text-[#C5D5FF] pr-[10px] sm:pr-[5px] ">
               {"Air Ambulance Services >"}
             </p>
             <p className="font-barlow font-semibold"> Partner with Us</p>
