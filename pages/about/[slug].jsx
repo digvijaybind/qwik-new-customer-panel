@@ -2,11 +2,14 @@ import style from "./About.module.css";
 import { aboutsList } from "../../utils/contants";
 import Image from "next/image";
 
+import Image from "next/image";
+import styles from "./About.module.css"; // Adjust the path if necessary
+
 const About = ({ details = {} }) => {
   return (
     <div className="font-Inter">
       <div
-        className={`${style.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-center items-center pt-[220px] pb-32`}
+        className={`${styles.aboutSlugHeader} bg-opacity-10 bg-center bg-no-repeat bg-cover flex justify-center items-center pt-[220px] pb-32`}
       >
         <p className="text-white text-5xl font-bold font-arcaMajoraHeavy">
           {details?.head || "Default HeadLine"}
@@ -15,9 +18,11 @@ const About = ({ details = {} }) => {
       <div className="py-10 px-20 flex items-center flex-col justify-center">
         <div className="w-8/12">
           <Image
-            src={details?.img || "/default-image.jpg"}
+            src={details?.img}
             alt="Banner"
             className="w-full mb-6"
+            width={800} // Set the width of the image
+            height={400} // Set the height of the image
           />
           <h2 className="font-arcaMajoraHeavy font-semibold text-2xl">
             {details?.head || "Default Headline"}
@@ -31,6 +36,10 @@ const About = ({ details = {} }) => {
     </div>
   );
 };
+
+
+
+
 
 export async function getStaticPaths() {
   const paths = aboutsList.map((about) => ({

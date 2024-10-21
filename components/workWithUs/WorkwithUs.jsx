@@ -102,24 +102,24 @@ const WorkwithUs = () => {
     <div className="font-sans">
       <div className={`bg-black ${styles.Image} bg-black h-[400px] w-full`}>
         <div className="font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative text-white">
-          <p className="text-[50px] pt-[150px] sm:pt-[100px] font-bold font-poppins">
+          <p className="text-[50px] pt-[150px] sm:pt-[100px] font-extrabold font-barlow">
             Partner with us{" "}
           </p>
           <div className="flex pt-[30px] text-[20px]">
             <p className="text-[#C5D5FF] pr-[10px]">
               {"Air Ambulance Services >"}
             </p>
-            <p className="font-poppins font-normal"> Partner with Us</p>
+            <p className="font-barlow font-semibold"> Partner with Us</p>
           </div>
         </div>
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[20px] text-[#111] font-poppins font-semibold">
+          <h2 className="text-[20px] text-[#111] font-barlow font-semibold">
             Partner with us
           </h2>
           <hr className="bg-[#11B6E3] h-[3px] w-[50px] mx-auto sm:mx-auto"></hr>
-          <p className="pt-[8px] text-[16px] font-poppins font-normal">
+          <p className="pt-[8px] text-[16px] font-barlow font-normal">
             At Qwiklif, we are dedicated to revolutionizing the air ambulance
             business, and we are always looking for professionals who share our
             passion for excellence and innovation. We invite flying doctors,

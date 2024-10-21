@@ -1,38 +1,73 @@
 import Link from "next/link";
 import locationCountriesUpdate from "../../data/locationCountriesUpdate.json";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({}) => {
   return (
     <div className="flex justify-center mt-10">
       <input
         type="text"
         placeholder="Enter text here"
-        className="w-full  h-[80px] rounded-l-md border border-gray-300 bg-[#F7F7F7] rounded-md p-4 text-lg focus:outline-none focus:ring-2 transition duration-300 px-5 py-5"
+        className="w-full  sm:w-[300px] h-[80px] rounded-l-md border border-gray-300 bg-[#F7F7F7] rounded-md p-4 text-lg focus:outline-none focus:ring-2 transition duration-300 px-5 py-5"
       />
     </div>
   );
 };
 const Locationupdate = () => {
+
+const [cities, setcities] = useState([]);
+const [citySuggestions, setCitySuggestions] = useState([]);
+
+
+
+const handleSearch = async (e) => {
+  e.preventDefault();
+
+  const response = await fetch(
+    `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${city}&meta_compare=LIKE&meta_key=country&meta_value=${country}&meta_compare=LIKE`,
+  );
+  const data = await response.json();
+  setcities(data);
+};
+
+const fetchCitySuggestions = async (searchText) => {
+  if (searchText.length < 2) return; 
+  const response = await fetch(
+    `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${searchText}&meta_compare=LIKE`,
+  );
+  const data = await response.json();
+  const cities = [...new Set(data.map((post) => post.city))]; 
+  setCitySuggestions(cities);
+};
+
+
+
+
+
+
+
   return (
     <div>
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60vh] sm:px-10 px-4 sm:py-32"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url('/images/location/Hero.svg')",
         }}
       >
-        <div className="flex flex-col items-center">
-          <div className="font-barlow font-bold text-[64px]">Our Locations</div>
-          <div className="font-barlow font-normal text-[24px]">
+        <div className="flex flex-col items-center text-center">
+          <div className="font-barlow font-bold text-[32px] sm:text-[64px] leading-tight">
+            Our Locations
+          </div>
+          <div className="font-barlow font-normal text-[16px] sm:text-[24px] mt-2">
             Home - Our Locations
           </div>
         </div>
       </div>
-      <div className="px-20 py-10 flex flex-col">
+
+      <div className="px-20 sm:px-5 sm:py2-2 py-10 flex flex-col sm:items-center">
         <div className="flex justify-center">
-          <div className="font-barlow text-[54px] font-bold bg-headline-gradient text-transparent bg-clip-text mb-2">
+          <div className="font-barlow text-[54px] font-bold 2xl:text-nowrap  2xl:text-[34px] 3xl:text-nowrap sm:text-[34px] sm:text-pretty bg-headline-gradient text-transparent bg-clip-text mb-2 sm:text-center">
             Find Out If Our Services Are Accessible in Your Location.
           </div>
         </div>
@@ -48,14 +83,14 @@ const Locationupdate = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-4 gap-x-8 gap-y-8 mb-5 mt-5">
+        <div className="grid grid-cols-4 grid-rows-4 sm:grid-cols-1 2xl:gap-x-4 2xl:gap-y-4 sm:items-center gap-x-8 gap-y-8 mb-5 mt-5">
           {locationCountriesUpdate?.map((d) => {
             return (
               <div
-                className=" font-sans transition-transform duration-300 transform hover:scale-105"
+                className=" font-sans transition-transform duration-300 transform hover:scale-105 sm:items-center"
                 key={d?.country}
               >
-                <div className="w-[350px] h-[200px] relative flag-wrapper">
+                <div className="w-[300px] h-[200px]  2xl:w-[250px] 2xl:h-[250px] relative flag-wrapper">
                   <div
                     className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg"
                     style={{
@@ -66,13 +101,13 @@ const Locationupdate = () => {
                       <div className="font-barlow font-semibold">
                         Air Ambulance in
                       </div>
-                      <span className="font-barlow font-extrabold">
+                      <span className="font-barlow font-extrabold ">
                         {d?.country}
                       </span>
                     </div>
                   </div>
                   <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3 sm:h-full">
-                    <p className="font-semibold uppercase text-black text-center">
+                    <p className="font-semibold uppercase text-black text-center text-nowrap  2xl:text-[12px]">
                       Air Ambulance in {d?.country}
                     </p>
                     <p className="text-center text-sm">

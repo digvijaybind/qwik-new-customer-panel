@@ -34,14 +34,14 @@ const CustomModal = ({ isOpen, onRequestClose, payload, handleChange }) => {
           </button>
         </div>
         <div className={`${styles.header} flex justify-center`}>
-          <h2 className="text-center font-black font-Inter text-[22px]">
+          <h2 className="text-center font-black font-barlow text-[22px]">
             Apply Now
             <hr className="bg-[#11B6E3] h-[4px] w-[40px] mt-2 mx-auto sm:mx-auto"></hr>
           </h2>
         </div>
 
         <div className={styles.content}>{renderFields()}</div>
-        <button className={styles.submitButton}>Submit</button>
+        <button className={`${styles.submitButton} font-barlow`}>Submit</button>
       </Modal>
     </div>
   );

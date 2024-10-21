@@ -9,7 +9,7 @@ const Updatecard = ({ img, head, text, slug }) => {
     router.push(`/${slug}`);
   };
   return (
-    <div className="flex justify-between sm:justify-stretch flex-row sm:flex-col sm:flex-wrap items-start shadow-md bg-white rounded-[10px] p-[15px] cursor-pointer font-sans transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-[500px] sm:w-[400px] h-[300px] sm:h-[500px]">
+    <div className="flex justify-between sm:justify-stretch flex-row sm:flex-col sm:flex-wrap items-start shadow-md bg-white rounded-[10px] p-[15px] cursor-pointer font-sans transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-[500px] h-[300px] sm:h-[500px] sm:w-[380px]">
       <div className="w-full h-[100%] sm:h-[50%] overflow-hidden pb-5 rounded-sm sm:pb-2">
         <img src={img} className="w-full h-full object-cover" alt="" />
       </div>

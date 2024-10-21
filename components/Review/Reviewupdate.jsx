@@ -126,7 +126,7 @@ const Reviewupdate = ({ interval = 4000 }) => {
       </div>
 
       {/* See More Button */}
-      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 sm:mt-16 font-barlow font-semibold text-white flex justify-center items-center text-center rounded-md text-[24px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
         See More
       </div>
     </div>

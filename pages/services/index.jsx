@@ -32,7 +32,7 @@ const Services = ({ services }) => {
             And Service When It Matters Most.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 md:grid-cols-1 px-[10%] sm:px-[5px]  pb-10">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-1 md:grid-cols-1 px-[10%] sm:px-[5px]  pb-10 ">
           {services?.map((data, i) => (
             <div className={`w-[50%] sm:w-[100%] mt-[20px]`} key={i}>
               <Updatecard
