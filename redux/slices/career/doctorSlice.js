@@ -1,18 +1,36 @@
-//doctorslice integration
-
-import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import apiClient from "@/api/apiClient";
+import Endpoint from "@/api/endpoint";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-export const DoctorApi = createAsyncThunk("api/doctor", async (payload) => {
-  const response = await axios.post(
-    `${BASE_URL} ${Endpoint.DoctorCarrer}`,
-    payload,
-  );
-  return response.data;
-});
+// Create an async thunk for calling the Doctor API
+export const DoctorApi = createAsyncThunk(
+  "api/doctor",
+  async (payload, { rejectWithValue }) => {
+    try {
+      // Log to ensure payload is correct
+      console.log("Payload for Doctor API line 11", payload);
 
+      // Post the data to the API endpoint
+      const response = await apiClient.post(Endpoint.DoctorCareer, payload);
+
+      // Log the successful response
+      console.log("Doctor API response line 17", response.data);
+
+      // Return the response data
+      return response.data;
+    } catch (error) {
+      console.error("Error from Doctor API:", error.response || error.message);
+
+      // Return a rejected value based on error response
+      if (error.response && error.response.data) {
+        return rejectWithValue(error.response.data.message);
+      }
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+// Create the slice for handling doctor data in Redux state
 const DoctorSlice = createSlice({
   name: "doctor",
   initialState: {
@@ -28,12 +46,15 @@ const DoctorSlice = createSlice({
       })
       .addCase(DoctorApi.fulfilled, (state, action) => {
         state.status = "succeeded";
+        // Log and assign the response data to state
+        console.log("Doctor data received:", action.payload);
         state.data = action.payload;
-        console.log("doctor data", state.data);
       })
       .addCase(DoctorApi.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message;
+        // Log the error to better understand the issue
+        console.error("Doctor API error:", state.error);
       });
   },
 });

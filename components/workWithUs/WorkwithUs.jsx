@@ -19,11 +19,11 @@ const WorkwithUs = () => {
   const dispatch = useDispatch(); // Initialize dispatch
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPayload, setCurrentPayload] = useState({});
-
-  const services = [
+  const [selectedHead, setSelectedHead] = useState("");
+  const service = [
     {
       img: Insurancefirm,
-      head: "Medical Healthcare Insurance",
+      head: "Medical_Healthcare_Insurance",
       text: "Are you looking for medical healthcare insurance or a provider company? Partner with Qwiklif Air Ambulance to transfer your patients safely. Apply now and be a part of our mission to save lives together.",
       payload: {
         "Company Name": "",
@@ -35,7 +35,7 @@ const WorkwithUs = () => {
     },
     {
       img: hospital,
-      head: "Hospital/healthcare center",
+      head: "Hospital/healthcare_center",
       text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today to create real impact.",
       payload: {
         "Hospital Name": "",
@@ -47,11 +47,11 @@ const WorkwithUs = () => {
     },
     {
       img: flyingDoctor,
-      head: "Flying doctor",
+      head: "Flying_doctor",
       text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now and become a crucial part of our life-saving mission today.",
       payload: {
-        "Full Name": "",
-        "Country (with country code)": "",
+        fullName: "",
+        contactNumberWithCountryCode: "",
         Specialities: "",
         Location: "",
         Degrees: "",
@@ -59,7 +59,7 @@ const WorkwithUs = () => {
     },
     {
       img: Paramedics,
-      head: "Paramedics/Flight Paramedics",
+      head: "Paramedics/Flight_Paramedics",
       text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now and be a part of our life-saving mission!",
       payload: {
         "Full Name": "",
@@ -71,7 +71,7 @@ const WorkwithUs = () => {
     },
     {
       img: AircraftOperator,
-      head: "Aircraft Operator",
+      head: "Aircraft_Operator",
       text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
       payload: {
         "Company Name": "",
@@ -83,18 +83,19 @@ const WorkwithUs = () => {
     },
   ];
 
-  // Function to open the modal and set the current payload
-  const openModal = (payload) => {
-    setCurrentPayload(payload);
-    setModalIsOpen(true);
+  const openModal = (data) => {
+    if (data.payload) {
+      setCurrentPayload(data.payload);
+      setSelectedHead(data.head);
+      setModalIsOpen(true);
+    }
   };
 
-  // Function to close the modal
   const closeModal = () => {
     setModalIsOpen(false);
+    setSelectedHead("");
   };
 
-  // Function to handle input changes in the modal
   const handleChange = (field, value) => {
     setCurrentPayload((prevState) => ({
       ...prevState,
@@ -104,10 +105,11 @@ const WorkwithUs = () => {
 
   // Handle form submission
   const handleSubmit = (e) => {
-    // Dispatch the appropriate action based on the selected service
-    switch (currentPayload.head) {
+    switch (selectedHead) {
       case "Flying_doctor":
+        console.log("payload data line 111", currentPayload);
         dispatch(DoctorApi(currentPayload));
+
         break;
       case "Hospital/healthcare_center":
         dispatch(hospitalApi(currentPayload));
@@ -125,24 +127,22 @@ const WorkwithUs = () => {
         console.log("Please select a valid option.");
         break;
     }
-
     closeModal(); // Close the modal after submission
   };
 
-  // Set the app element for accessibility
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
 
   return (
     <div className="font-sans">
-      <div className={`bg-black ${styles.Image} h-[400px] w-full`}>
+      <div className={`bg-black ${styles.Image} bg-black h-[400px] w-full`}>
         <div className="font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative text-white">
           <p className="text-[50px] pt-[150px] sm:pt-[100px] font-extrabold font-barlow">
-            Partner with us
+            Partner with us{" "}
           </p>
           <div className="flex pt-[30px] text-[20px] sm:text-[16px] sm:text-nowrap">
-            <p className="text-[#C5D5FF] pr-[10px] sm:pr-[5px]">
+            <p className="text-[#C5D5FF] pr-[10px] sm:pr-[5px] ">
               {"Air Ambulance Services >"}
             </p>
             <p className="font-barlow font-semibold"> Partner with Us</p>
@@ -166,15 +166,15 @@ const WorkwithUs = () => {
         </div>
         <div id="root">
           <div className="grid grid-cols-3 gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
-            {services.map((data, i) => (
-              <div className={`sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
+            {service.map((data, i) => (
+              <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
                 <UpdatecareerCard
                   image={data.img}
                   headline={data.head}
                   descripation={data.text}
                   height={20}
                   width={80}
-                  onClick={() => openModal(data.payload)} 
+                  onClick={() => openModal(data)}
                 />
               </div>
             ))}
@@ -186,7 +186,7 @@ const WorkwithUs = () => {
             onRequestClose={closeModal}
             payload={currentPayload}
             handleChange={handleChange}
-            handleSubmit={handleSubmit} 
+            handleSubmit={handleSubmit}
           />
         )}
       </div>
