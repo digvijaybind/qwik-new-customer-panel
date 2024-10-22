@@ -101,7 +101,7 @@ const Headernew = () => {
                   key={"menu-item" + index}
                   className={`relative cursor-pointer py-8 px-5 border-b-2 2xl:py-8 2xl:px-4 ${
                     index === activeTab
-                      ? `border-[#11B6E3] text-[#11B6E3] font-barlow font-bold text-[24px] 3xl:text-[24px]  2xl:text-[16px] md:text-[1.5rem] lg:text-[1.75rem]
+                      ? `border-[#11B6E3] text-[#11B6E3] font-barlow font-bold text-[24px] 3xl:text-[18px]  2xl:text-[16px] md:text-[1.5rem] lg:text-[1.75rem]
                          ${styles.ActiveTab}`
                       : "border-transparent text-[#9E9E9E] font-barlow font-normal text-[20px] 2xl:text-[16px] md:text-[1.25rem] lg:text-[1.5rem]"
                   } ${isScrolled && index !== activeTab ? "text-white" : ""}`}

@@ -1,17 +1,26 @@
 //aircraftoperator form integration
+import apiClient from "@/api/apiClient";
 import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 export const Aircraftoperator = createAsyncThunk(
   "api/aircraftform",
-  async (payload) => {
-    const response = await axios.post(
-      `${BASE_URL} ${Endpoint.AircraftOperatorcareer}`,
-      payload,
-    );
-    return response.data;
+  async (payload, { rejectWithValue }) => {
+    try {
+      console.log("Payload being sent to Doctor API:", payload);
+      const response = await apiClient.post(Endpoint.AircraftOperatorcareer,payload);
+      console.log("Doctor API response:", response.data);
+      return response.data;
+    } catch (error) {
+      if (error.response) {
+        console.error("Error from Doctor API:", error.response.data);
+        return rejectWithValue(error.response.data.message || "Error occurred");
+      } else {
+        console.error("Network or other error:", error.message);
+        return rejectWithValue(error.message);
+      }
+    }
   },
 );
 

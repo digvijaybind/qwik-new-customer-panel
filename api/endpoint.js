@@ -13,12 +13,12 @@ const Endpoint = {
   PaymentMethod: `/payment/paymentCapture`, //Endpoints for retriving payment method
 
   //career api for professionals
-  DoctorCareer: `/career/register/doctor`, 
-  ParamedicCareer: `/career/register/paramedics`, 
-  AircraftOperatorcareer: `career/register/aircraft-Operator`, 
-  HospitalCareer: `/career/register/hospital`, 
+  DoctorCareer: `/career/register/doctor`,
+  ParamedicCareer: `/career/register/paramedics`,
+  AircraftOperatorcareer: `career/register/aircraft-Operator`,
+  HospitalCareer: `/career/register/hospital`,
   ConfirmEquiry: `/equiry/confirmEquiry`,
-  PrivateJetCareer: `/formData/register/private-Jet`, 
+  PrivateJetCareer: `/formData/register/private-Jet`,
   Insurance: `/career/InsuranceRegister`,
 };
 

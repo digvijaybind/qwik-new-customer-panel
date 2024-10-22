@@ -1,21 +1,23 @@
-//paramedics form
-import Endpoint from "@/api/endpoint";
+// paramedicSlice.js
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import apiClient from "@/api/apiClient"; // Ensure the correct import path
+import Endpoint from "@/api/endpoint";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
+// Define the async thunk for the paramedics form
 export const ParamedicsApi = createAsyncThunk(
   "api/paramedics",
-  async (payload) => {
-    const response = await axios.post(
-      `${BASE_URL} ${Endpoint.ParamedicCareer}`,
-      payload,
-    );
-    return response.data;
+  async (payload, { rejectWithValue }) => {
+    try {
+      debugger;
+      const response = await apiClient.post(Endpoint.ParamedicCareer, payload);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
   },
 );
 
+// paramedicSlice.js
 const ParamedicSlice = createSlice({
   name: "paramedic",
   initialState: {
@@ -31,12 +33,14 @@ const ParamedicSlice = createSlice({
       })
       .addCase(ParamedicsApi.fulfilled, (state, action) => {
         state.status = "succeeded";
+        debugger;
         state.data = action.payload;
       })
       .addCase(ParamedicsApi.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.payload; // Adjust to show custom error message
       });
   },
 });
-export default ParamedicSlice;
+
+export default ParamedicSlice.reducer;
