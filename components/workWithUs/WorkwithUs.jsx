@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { DoctorApi } from "../../redux/slices/career/doctorSlice";
 import { ParamedicsApi } from "../../redux/slices/career/paramedicSlice";
-import { Aircraftoperator, AircraftOperatorApi } from "../../redux/slices/career/aircraftoperatorSlice";
+import {
+  Aircraftoperator,
+  AircraftOperatorApi,
+} from "../../redux/slices/career/aircraftoperatorSlice";
 import { hospitalApi } from "@/redux/slices/career/hospitalSlice";
 import { insuranceApi } from "@/redux/slices/career/insuranceSlice";
 import styles from "./workWithus.module.css";
@@ -14,76 +17,75 @@ import AircraftOperator from "../../public/images/career/AircraftOperator.jpg";
 import hospital from "../../public/images/career/hospitals.jpg";
 import Paramedics from "../../public/images/career/paramedics.jpg";
 import Modal from "react-modal";
-
+import Swal from "sweetalert2";
 
 const WorkwithUs = () => {
   const dispatch = useDispatch(); // Initialize dispatch
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentPayload, setCurrentPayload] = useState({});
   const [selectedHead, setSelectedHead] = useState("");
-const service = [
-  {
-    img: Insurancefirm,
-    head: "MEDICAL_HEALTHCARE_INSURANCE",
-    text: "Are you looking for medical healthcare insurance or a provider company? Partner with Qwiklif Air Ambulance to transfer your patients safely. Apply now and be a part of our mission to save lives together.",
-    payload: {
-      COMPANY_NAME: "",
-      COMPANY_EMAIL: "",
-      COMPANY_CONTACT_NUMBER: "",
-      CONTACT_PERSON_NAME: "",
-      CONTACT_PERSON_NUMBER: "",
+  const service = [
+    {
+      img: Insurancefirm,
+      head: "MEDICAL_HEALTHCARE_INSURANCE",
+      text: "Are you looking for medical healthcare insurance or a provider company? Partner with Qwiklif Air Ambulance to transfer your patients safely. Apply now and be a part of our mission to save lives together.",
+      payload: {
+        COMPANY_NAME: "",
+        COMPANY_EMAIL: "",
+        COMPANY_CONTACT_NUMBER: "",
+        CONTACT_PERSON_NAME: "",
+        CONTACT_PERSON_NUMBER: "",
+      },
     },
-  },
-  {
-    img: hospital,
-    head: "HOSPITAL/HEALTHCARE_CENTER",
-    text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today to create real impact.",
-    payload: {
-      HOSPITAL_NAME: "",
-      HOSPITAL_EMAIL: "",
-      HOSPITAL_CONTACT_NUMBER: "",
-      HOSPITAL_OWNER_NAME: "",
-      HOSPITAL_LOCATION: "",
+    {
+      img: hospital,
+      head: "HOSPITAL/HEALTHCARE_CENTER",
+      text: "Partner with Qwiklif Air Ambulance and provide your patients with rapid and reliable medical transportation. Join us in our mission to save lives and make a difference. Partner with us today to create real impact.",
+      payload: {
+        HOSPITAL_NAME: "",
+        HOSPITAL_EMAIL: "",
+        HOSPITAL_CONTACT_NUMBER: "",
+        HOSPITAL_OWNER_NAME: "",
+        HOSPITAL_LOCATION: "",
+      },
     },
-  },
-  {
-    img: flyingDoctor,
-    head: "FLYING_DOCTOR",
-    text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now and become a crucial part of our life-saving mission today.",
-    payload: {
-      DOCTOR_FULL_NAME: "",
-      DOCTOR_CONTACT_NUMBER: "",
-      DOCTOR_SPECIALITIES: "",
-      DOCTOR_LOCATION: "",
-      DOCTOR_DEGREES: "",
+    {
+      img: flyingDoctor,
+      head: "FLYING_DOCTOR",
+      text: "Are you a high-pressure decision-maker? Join Qwiklif Air Ambulance as a Flying Doctor! Provide life-saving care in challenging environments. Apply now and become a crucial part of our life-saving mission today.",
+      payload: {
+        DOCTOR_FULL_NAME: "",
+        DOCTOR_CONTACT_NUMBER: "",
+        DOCTOR_SPECIALITIES: "",
+        DOCTOR_LOCATION: "",
+        DOCTOR_DEGREES: "",
+      },
     },
-  },
-  {
-    img: Paramedics,
-    head: "PARAMEDICS_FLIGHT_PARAMEDICS",
-    text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now and be a part of our life-saving mission!",
-    payload: {
-      FULL_NAME: "",
-      EMAIL_ADDRESS: "",
-      COUNTRY_OF_RESIDENCE: "",
-      EDUCATION_DEGREES: "",
-      CONTACT_NUMBER_WITH_COUNTRY_CODE: "",
+    {
+      img: Paramedics,
+      head: "PARAMEDICS_FLIGHT_PARAMEDICS",
+      text: "Join our team of Paramedics/Flight Paramedics at Qwiklif Air Ambulance! Make a real difference with your life-saving skills in a dynamic and rewarding environment. Apply now and be a part of our life-saving mission!",
+      payload: {
+        FULL_NAME: "",
+        EMAIL_ADDRESS: "",
+        COUNTRY_OF_RESIDENCE: "",
+        EDUCATION_DEGREES: "",
+        CONTACT_NUMBER_WITH_COUNTRY_CODE: "",
+      },
     },
-  },
-  {
-    img: AircraftOperator,
-    head: "AIRCRAFT_OPERATOR",
-    text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
-    payload: {
-      COMPANY_NAME: "", 
-      COMPANY_CONTACT_NUMBER: "", 
-      NUMBER_OF_COUNTRIES_PRESENCE: "", 
-      COMPANY_LOCATION: "", 
-      COMPANY_EMAIL: "", 
+    {
+      img: AircraftOperator,
+      head: "AIRCRAFT_OPERATOR",
+      text: "Join Qwiklif Air Ambulance and be a part of our life-saving mission! We are looking for aircraft operators to partner with us and provide critical air ambulance services. Together, we can make a real difference. Join us today!",
+      payload: {
+        COMPANY_NAME: "",
+        COMPANY_CONTACT_NUMBER: "",
+        NUMBER_OF_COUNTRIES_PRESENCE: "",
+        COMPANY_LOCATION: "",
+        COMPANY_EMAIL: "",
+      },
     },
-  },
-];
-
+  ];
 
   const openModal = (data) => {
     if (data.payload) {
@@ -106,50 +108,157 @@ const service = [
   };
 
   // Handle form submission
-const handleSubmit = (e) => {
-  switch (selectedHead) {
-    case "FLYING_DOCTOR":
-      console.log("Submitting payload for Flying Doctor", currentPayload);
-      dispatch(DoctorApi(currentPayload));
-      break;
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
 
-    case "HOSPITAL/HEALTHCARE_CENTER":
-      console.log(
-        "Submitting payload for Hospital/Healthcare Center",
-        currentPayload,
-      );
-      dispatch(hospitalApi(currentPayload));
-      break;
+    try {
+      let response;
 
-    case "PARAMEDICS_FLIGHT_PARAMEDICS":
-      console.log(
-        "Submitting payload for Paramedics/Flight Paramedics",
-        currentPayload,
-      );
-      dispatch(ParamedicsApi(currentPayload));
-      break;
+      switch (selectedHead) {
+        case "FLYING_DOCTOR":
+          console.log("Submitting payload for Flying Doctor", currentPayload);
+          response = await dispatch(DoctorApi(currentPayload));
+          Swal.fire({
+            icon: "success",
+            title: "<strong>Success!</strong>", // Use strong tags for a bold title
+            html: "<p>Your request has been processed successfully.</p>",
+            toast: true,
+            position: "center",
+            showConfirmButton: false,
+            timer: 4000, // Keeps it visible for 4 seconds
+            timerProgressBar: true,
+            background: "#f0f9f5", // Softer green tint to match the success theme
+            iconColor: "#28a745", // Bright green for success
+            customClass: {
+              popup: "shadow-lg rounded-lg p-6", // Increased padding for a bigger popup
+              title: "text-2xl font-bold", // Large title font size
+              htmlContainer: "text-lg", // Large font for the content
+            },
+            showClass: {
+              popup: "animate__animated animate__fadeInRight",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutRight",
+            },
+            width: "400px", // Increase width to make the toast more noticeable
+          });
 
-    case "AIRCRAFT_OPERATOR":
-      console.log("Submitting payload for Aircraft Operator", currentPayload);
-      dispatch(Aircraftoperator(currentPayload));
-      break;
+          break;
 
-    case "MEDICAL_HEALTHCARE_INSURANCE":
-      console.log(
-        "Submitting payload for Medical Healthcare Insurance",
-        currentPayload,
-      );
-      dispatch(insuranceApi(currentPayload));
-      break;
+        case "HOSPITAL/HEALTHCARE_CENTER":
+          console.log(
+            "Submitting payload for Hospital/Healthcare Center",
+            currentPayload,
+          );
+          response = await dispatch(hospitalApi(currentPayload));
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for registering!",
+            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
+            background: "#f5f7fa",
+            iconColor: "#4CAF50",
+            showConfirmButton: false,
+            timer: 6000,
+            toast: true,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+          break;
 
-    default:
-      console.log("Please select a valid option.");
-      break;
-  }
+        case "PARAMEDICS_FLIGHT_PARAMEDICS":
+          console.log(
+            "Submitting payload for Paramedics/Flight Paramedics",
+            currentPayload,
+          );
+          response = await dispatch(ParamedicsApi(currentPayload));
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for registering!",
+            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
+            background: "#f5f7fa",
+            iconColor: "#4CAF50",
+            showConfirmButton: false,
+            timer: 6000,
+            toast: true,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+          break;
 
-  closeModal(); // Close the modal after submission
-};
+        case "AIRCRAFT_OPERATOR":
+          console.log(
+            "Submitting payload for Aircraft Operator",
+            currentPayload,
+          );
+          response = await dispatch(Aircraftoperator(currentPayload));
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for registering!",
+            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
+            background: "#f5f7fa",
+            iconColor: "#4CAF50",
+            showConfirmButton: false,
+            timer: 6000,
+            toast: true,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+          break;
 
+        case "MEDICAL_HEALTHCARE_INSURANCE":
+          console.log(
+            "Submitting payload for Medical Healthcare Insurance",
+            currentPayload,
+          );
+          response = await dispatch(insuranceApi(currentPayload));
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Thank you for registering!",
+            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
+            background: "#f5f7fa",
+            iconColor: "#4CAF50",
+            showConfirmButton: false,
+            timer: 6000,
+            toast: true,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+          break;
+
+        default:
+          console.log("Please select a valid option.");
+          return;
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: error.message || "Something went wrong!",
+      });
+    } finally {
+      closeModal(); // Close the modal after submission
+    }
+  };
 
   useEffect(() => {
     Modal.setAppElement("#root");

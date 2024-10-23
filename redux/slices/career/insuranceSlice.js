@@ -2,10 +2,7 @@
 import apiClient from "@/api/apiClient";
 import Endpoint from "@/api/endpoint";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
+import Swal from "sweetalert2";
 // Async thunk for insurance data submission
 export const insuranceApi = createAsyncThunk(
   "api/insurance",
@@ -43,7 +40,24 @@ const insuranceSlice = createSlice({
       })
       .addCase(insuranceApi.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.data.push(action.payload); // Push new insurance data into the existing array
+        state.data.push(action.payload); 
+         Swal.fire({
+           position: "center",
+           icon: "success",
+           title: "Thank you for registering!", 
+           html: "Welcome to <b>QwikLif</b>. Your journey starts here!", 
+           background: "#f5f7fa", 
+           iconColor: "#4CAF50", 
+           showConfirmButton: false, 
+           timer: 4000,
+           toast: true,
+           showClass: {
+             popup: "animate__animated animate__fadeInDown",
+           },
+           hideClass: {
+             popup: "animate__animated animate__fadeOutUp",
+           },
+         });
       })
       .addCase(insuranceApi.rejected, (state, action) => {
         state.status = "failed";
