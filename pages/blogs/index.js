@@ -50,17 +50,23 @@ const BlogCard = ({ imageSrc, title, description, link }) => {
 const Blog = ({ blogs }) => {
   return (
     <div>
+   
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36"
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white 
+  sm:h-[20vh] h-[70vh] sm:px-10 px-36 relative overflow-hidden "
         style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url('/images/location/Hero.svg')",
+          backgroundImage: " url('/images/location/Hero.svg')",
+          backgroundSize: "cover", // Ensures the entire container is covered
+          backgroundPosition: "center", // Centers the image within the container
+          backgroundRepeat: "no-repeat", // Prevents the image from repeating
         }}
       >
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center relative z-10">
           <div className="font-barlow font-bold text-[64px]">Blog</div>
           <div className="font-barlow font-normal text-[24px]">Home - Blog</div>
         </div>
+        <div className="absolute inset-0 bg-black opacity-30"></div>{" "}
+        {/* Optional overlay */}
       </div>
       <div className="px-20 py-10 flex flex-col">
         <div className="flex justify-center items-center flex-col">

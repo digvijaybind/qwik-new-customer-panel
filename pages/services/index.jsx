@@ -7,17 +7,15 @@ const Services = ({ services }) => {
   return (
     <div className="font-sans">
       <div
-        className={`bg-black ${styles.Image}   bg-black h-[400px] w-full  mt-2`}
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36 "
+        style={{
+          backgroundImage: "url('/images/location/Hero.svg')",
+        }}
       >
-        <div className=" font-[700] z-[100px] pl-[40px] sm:pl-[10px] relative  text-white">
-          <p className="text-[50px]  pt-[150px] sm:pt-[100px] font-sans">
-            Services{" "}
-          </p>
-          <div className="flex pt-[30px] text-[20px]">
-            <p className="text-[#C5D5FF] pr-[10px]">
-              {"Air Ambulance Services >"}
-            </p>
-            <p> Services</p>
+        <div className="flex flex-col items-center">
+          <div className="font-barlow font-bold text-[64px]">Our Services</div>
+          <div className="font-barlow font-normal text-[24px]">
+            Home - Services
           </div>
         </div>
       </div>

@@ -73,7 +73,7 @@ const GoogleMap = ({ mapImage, mapLink }) => (
         layout="responsive"
         width={1000}
         height={500}
-        className="rounded-lg shadow-lg object-cover 2xl:h-full"
+        className="rounded-lg shadow-lg object-cover 2xl:h-full 3xl:h-full"
       />
     </a>
   </div>
@@ -114,7 +114,7 @@ const GetTouch = ({ mapIframeUrl }) => {
       </div>
 
       {/* Google Map */}
-      <div className="col-span-7  sm:col-span-1 2xl:h-full">
+      <div className="col-span-7  sm:col-span-1 2xl:h-full 3xl:h-full">
         <GoogleMap mapImage={Map} mapLink="" />
       </div>
     </div>

@@ -14,53 +14,41 @@ const SearchBar = ({}) => {
   );
 };
 const Locationupdate = () => {
+  const [cities, setcities] = useState([]);
+  const [citySuggestions, setCitySuggestions] = useState([]);
 
-const [cities, setcities] = useState([]);
-const [citySuggestions, setCitySuggestions] = useState([]);
+  const handleSearch = async (e) => {
+    e.preventDefault();
 
+    const response = await fetch(
+      `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${city}&meta_compare=LIKE&meta_key=country&meta_value=${country}&meta_compare=LIKE`,
+    );
+    const data = await response.json();
+    setcities(data);
+  };
 
-
-const handleSearch = async (e) => {
-  e.preventDefault();
-
-  const response = await fetch(
-    `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${city}&meta_compare=LIKE&meta_key=country&meta_value=${country}&meta_compare=LIKE`,
-  );
-  const data = await response.json();
-  setcities(data);
-};
-
-const fetchCitySuggestions = async (searchText) => {
-  if (searchText.length < 2) return; 
-  const response = await fetch(
-    `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${searchText}&meta_compare=LIKE`,
-  );
-  const data = await response.json();
-  const cities = [...new Set(data.map((post) => post.city))]; 
-  setCitySuggestions(cities);
-};
-
-
-
-
-
-
+  const fetchCitySuggestions = async (searchText) => {
+    if (searchText.length < 2) return;
+    const response = await fetch(
+      `https://your-wordpress-site.com/wp-json/wp/v2/posts?meta_key=city&meta_value=${searchText}&meta_compare=LIKE`,
+    );
+    const data = await response.json();
+    const cities = [...new Set(data.map((post) => post.city))];
+    setCitySuggestions(cities);
+  };
 
   return (
     <div>
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60vh] sm:px-10 px-4 sm:py-32"
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[70vh] sm:px-10 px-36 "
         style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url('/images/location/Hero.svg')",
+          backgroundImage: "url('/images/location/Hero.svg')",
         }}
       >
-        <div className="flex flex-col items-center text-center">
-          <div className="font-barlow font-bold text-[32px] sm:text-[64px] leading-tight">
-            Our Locations
-          </div>
-          <div className="font-barlow font-normal text-[16px] sm:text-[24px] mt-2">
-            Home - Our Locations
+        <div className="flex flex-col items-center">
+          <div className="font-barlow font-bold text-[64px]">Our Location</div>
+          <div className="font-barlow font-normal text-[24px]">
+            Home - Our location
           </div>
         </div>
       </div>
