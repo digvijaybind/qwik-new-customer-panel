@@ -1,9 +1,8 @@
 // /app/[slug]/page.jsx
 
-import { servicesData } from "../../../data/subservices"; // Import your services data
+import { servicesData } from "../../data/subservices"; // Import your services data
 
 const ServicePage = ({ service }) => {
- 
   console.log("services is line 7", service);
   if (!service) {
     return <div>Service not found</div>; // Handle the case where the service does not exist
@@ -27,7 +26,6 @@ export async function generateStaticParams() {
 
 // Fetch service data based on the slug
 export async function getServiceBySlug(slug) {
- 
   return servicesData.find((service) => service.slug === slug);
 }
 

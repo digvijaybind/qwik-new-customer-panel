@@ -12,8 +12,10 @@ export async function getStaticProps() {
 }
 
 const BlogCard = ({ imageSrc, title, description, link }) => {
+  console.log("link", `/${link}`);
+
   return (
-    <div className="w-[450px] h-auto bg-white drop-shadow-xl rounded-tl-lg overflow-hidden flex flex-col cursor-pointer">
+    <div className="w-[440px] h-auto bg-white drop-shadow-xl rounded-tl-lg overflow-hidden flex flex-col cursor-pointer rounded-md 2xl:gap-x-8 3xl:gap-x-8">
       {/* Image Section */}
       <img
         src={imageSrc}
@@ -46,11 +48,9 @@ const BlogCard = ({ imageSrc, title, description, link }) => {
   );
 };
 
-
 const Blog = ({ blogs }) => {
   return (
     <div>
-   
       <div
         className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white 
   sm:h-[20vh] h-[70vh] sm:px-10 px-36 relative overflow-hidden "
@@ -85,7 +85,7 @@ const Blog = ({ blogs }) => {
               imageSrc={blog.yoast_head_json?.og_image?.[0]?.url}
               title={blog.title.rendered}
               description={blog.excerpt.rendered}
-              link={`/blog/${blog.slug}`}
+              link={`/blogs/${blog.slug}`}
             />
           ))}
         </div>

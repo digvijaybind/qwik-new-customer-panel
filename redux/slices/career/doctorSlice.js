@@ -41,18 +41,14 @@ const DoctorSlice = createSlice({
       })
       .addCase(DoctorApi.fulfilled, (state, action) => {
         state.status = "succeeded";
-      
-        debugger;
+
         state.data = action.payload;
         console.log("Doctor API response:", response.status, response.data);
-        debugger;
       })
       .addCase(DoctorApi.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload || action.error.message;
         console.error("Doctor API error:", state.error);
-
-      
       });
   },
 });

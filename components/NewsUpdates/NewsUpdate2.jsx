@@ -85,7 +85,7 @@ const NewsUpdate2 = () => {
             {News.map((blog) => (
               <div
                 key={blog.id}
-                className="grid grid-cols-3 gap-4 sm:grid-cols-1" // Center align cards
+                className="grid grid-cols-3 gap-8 sm:grid-cols-1" // Center align cards
               >
                 <BlogCard
                   image={blog.image}

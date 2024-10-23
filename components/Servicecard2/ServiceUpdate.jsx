@@ -32,7 +32,7 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
           {description}
         </div>
         {/* Read More Button */}
-        <button className="mt-auto  text-[#1E1E1E]  px-4 py-2 rounded-md self-start font-barlow font-bold text-[16px] sm:text-[20px] mb-2 transition-all duration-300">
+        <button className="mt-auto text-[#1E1E1E] px-4 py-2 rounded-md self-start font-barlow font-bold text-[16px] sm:text-[20px] mb-2 transition-all duration-300">
           Read More
         </button>
       </div>
@@ -40,9 +40,8 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
   );
 };
 
-
 // ServiceUpdate Component
-const ServiceUpdate = () => {
+const ServiceUpdate = ({ showSeeMoreButton = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Slider settings
@@ -106,9 +105,11 @@ const ServiceUpdate = () => {
         </Slider>
       </div>
       {/* See More Button */}
-      <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-[600] text-white flex justify-center items-center text-center rounded-md text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
-        <Link href="/services">See More</Link>
-      </div>
+      {showSeeMoreButton && (
+        <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-[600] text-white flex justify-center items-center text-center rounded-md text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+          <Link href="/services">See More</Link>
+        </div>
+      )}
     </div>
   );
 };

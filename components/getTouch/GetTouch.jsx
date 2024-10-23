@@ -82,7 +82,7 @@ const GoogleMap = ({ mapImage, mapLink }) => (
 // Main Component
 const GetTouch = ({ mapIframeUrl }) => {
   return (
-    <div className="grid grid-cols-12  sm:grid-cols-1 gap-8 bg-[#f5fdff] px-20 sm:px-5 py-20 sm:items-center">
+    <div className="grid grid-cols-12  sm:grid-cols-1 gap-12 bg-[#f5fdff] px-16 sm:px-5 py-20 sm:items-center">
       {/* Get in touch content */}
       <div className="col-span-5 sm:col-span-1 flex flex-col justify-between items-start sm:items-center max-w-[575px]">
         <h1 className="font-barlow font-semibold text-[24px] text-[#1E1E1E]">
@@ -115,7 +115,12 @@ const GetTouch = ({ mapIframeUrl }) => {
 
       {/* Google Map */}
       <div className="col-span-7  sm:col-span-1 2xl:h-full 3xl:h-full">
-        <GoogleMap mapImage={Map} mapLink="" />
+        <iframe
+          className="w-full h-[550px] sm:h-[450px]"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.544473465372!2d55.36567!3d25.253509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4352cbb60fbd%3A0x25a91cd665ba1c5!2sDubai%20Airport%20Freezone!5e0!3m2!1sen!2sae!4v1656603853156!5m2!1sen!2sae"
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
   );

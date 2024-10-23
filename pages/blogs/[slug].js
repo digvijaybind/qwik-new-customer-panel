@@ -2,18 +2,19 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import styles from "./Blogs.module.css";
+import styles from "../blog/Blogs.module.css";
+import NewsUpdate2 from "@/components/NewsUpdates/NewsUpdate2";
 
 const BlogsDetails = () => {
   const router = useRouter();
   const [postDetails, setPostDetails] = useState({});
-
+  console.log("router.query?.slug", router.query?.slug);
   useEffect(() => {
     const fetchPostDetails = async () => {
       try {
         if (router.query?.slug) {
           const { data } = await axios.get(
-            "https://dev.a2zqr.com/wp-json/wp/v2/posts",
+            "https://qwiklif.com/wp-json/wp/v2/posts",
             {
               params: {
                 _embed: "true",
@@ -31,7 +32,7 @@ const BlogsDetails = () => {
 
     fetchPostDetails();
   }, [router.query.slug]);
-
+  console.log("postDetails", postDetails);
   return (
     <div className="mt-[50px] font-sans">
       {/* Header Section */}
@@ -71,12 +72,21 @@ const BlogsDetails = () => {
 
       {/* Blog Content */}
       <div
-        className="px-[5%] mt-[5px] py-[20px] font-sans"
+        className="px-[5%] mt-[5px] py-[20px] text-[44px] font-barlow font-semibold"
         dangerouslySetInnerHTML={{
-          __html:
-            postDetails?.content?.rendered || "<p>No content available</p>",
+          __html: postDetails?.title?.rendered,
         }}
       ></div>
+      <div
+        className="px-[5%] mt-[5px] py-[20px] font-barlow font-normal"
+        dangerouslySetInnerHTML={{
+          __html: postDetails?.content?.rendered,
+        }}
+      ></div>
+
+      <div className="mt-10">
+        <NewsUpdate2 />
+      </div>
     </div>
   );
 };

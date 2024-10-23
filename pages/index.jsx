@@ -145,7 +145,6 @@ const Home = () => {
       <div className="font-sans z-0">
         {/*Navbar */}
         <Navnew />
-       
 
         <div
           className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20 lg:h-[500px] xl:h-[700px]`}
@@ -210,7 +209,7 @@ const Home = () => {
 
         {/*Our services*/}
         <div className="mt-10 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
-          <ServiceUpdate />
+          <ServiceUpdate showSeeMoreButton={true} />
         </div>
 
         {/*How to book air ambulance */}

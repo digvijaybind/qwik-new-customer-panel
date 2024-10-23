@@ -2,7 +2,29 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-const Updatecard = ({ img, head, text, slug }) => {
+const Updatecard = ({
+  img,
+  head,
+  text,
+  slug,
+  bannerImage,
+  description,
+  services,
+  whyChooseUs,
+  contactCTA,
+}) => {
+  console.log(
+    "img, head,text,slug,bannerImage,description,services,whyChooseUs,contactCTA",
+    img,
+    head,
+    text,
+    slug,
+    bannerImage,
+    description,
+    services,
+    whyChooseUs,
+    contactCTA,
+  );
   const router = useRouter();
   const handlenavigate = (slug) => {
     console.log("slug from cards", `/${slug}`);

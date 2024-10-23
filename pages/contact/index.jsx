@@ -156,7 +156,7 @@ const Contact = ({ mapInframeUrl }) => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
   const handleSubmit = async (e) => {
-    debugger;
+
     try {
       const response = await dispatch(EquieryApi(formData));
       if (EquieryApi.fulfilled.match(response)) {

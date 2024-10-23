@@ -38,6 +38,11 @@ const Services = ({ services }) => {
                 head={data.head}
                 text={data.text}
                 slug={data.slug}
+                bannerImage={data.bannerImage}
+                description={data.description}
+                services={data.services}
+                whyChooseUs={data.whyChooseUs}
+                contactCTA={data.contactCTA}
               ></Updatecard>
             </div>
           ))}
