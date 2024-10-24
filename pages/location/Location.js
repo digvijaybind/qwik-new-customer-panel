@@ -1,5 +1,5 @@
 "use client";
-import { locationCountries } from "@/components/Utils/Constants";
+import locationCountriesUpdate from "../../data/locationCountriesUpdate.json";
 import Link from "next/link";
 import React from "react";
 
@@ -51,7 +51,8 @@ const FlagCard = ({ country, flagImage }) => {
             Air Ambulance in {country}
           </p>
           <p className="text-center text-sm">
-            Welcome to Qwiklif Air Ambulance, your trusted partner in medical emergency transportation. As a leading provider of ...
+            Welcome to Qwiklif Air Ambulance, your trusted partner in medical
+            emergency transportation. As a leading provider of ...
           </p>
           <Link
             className="mt-3 px-5 py-2 border border-white rounded-md text-sm sm:mt-1"
@@ -65,14 +66,13 @@ const FlagCard = ({ country, flagImage }) => {
   );
 };
 
-
 const Location = () => {
   return (
     <div className="">
       <LocationHeader />
       <div className="flex sm:flex-col gap-5 my-3 px-36 font-sans sm:px-5">
         <div className="grid grid-cols-3 gap-6 w-full py-20 sm:grid-cols-1">
-          {locationCountries?.map((d) => {
+          {locationCountriesUpdate?.map((d) => {
             return (
               <div
                 className="p-2.5 aspect-[16/12] shadow-md rounded-md font-sans"

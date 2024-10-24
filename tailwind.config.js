@@ -44,6 +44,9 @@ module.exports = {
           pb950: "#093549",
         },
       },
+      fontWeight: {
+        500: "500",
+      },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
         DEFAULT: "0 2px 4px var(--tw-shadow-color)",

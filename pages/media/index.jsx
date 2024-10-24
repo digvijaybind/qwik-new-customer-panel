@@ -58,7 +58,7 @@ const MediaUpdate = () => {
     <div>
       <div
         className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white 
-  sm:h-[20vh] h-[70vh] sm:px-10 px-36 relative overflow-hidden "
+  sm:h-[20vh] h-[60vh] sm:px-10 px-36 relative overflow-hidden sm:py-20"
         style={{
           backgroundImage: " url('/images/location/Hero.svg')",
           backgroundSize: "cover", // Ensures the entire container is covered
@@ -67,8 +67,10 @@ const MediaUpdate = () => {
         }}
       >
         <div className="flex flex-col items-center relative z-10">
-          <div className="font-barlow font-bold text-[64px]">Media</div>
-          <div className="font-barlow font-normal text-[24px]">
+          <div className="font-barlow font-bold text-[64px] sm:text-[54px]">
+            Media
+          </div>
+          <div className="font-barlow font-normal text-[24px] ">
             Home - Media
           </div>
         </div>
@@ -77,12 +79,7 @@ const MediaUpdate = () => {
       </div>
 
       <div className="px-10 py-10 flex flex-col">
-        <div className="flex justify-center">
-          <div className="font-barlow text-[54px] sm:text-[34px] sm:text-center font-bold bg-headline-gradient text-transparent bg-clip-text mb-5">
-            Our Recent Transfer
-          </div>
-        </div>
-        <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-rows-4 gap-x-8 gap-y-8">
+        <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-rows-4 gap-x-8 gap-y-8 px-10 sm:px-4">
           {images.map((data) => {
             return <MediaCollaspe image1={data.img} />;
           })}

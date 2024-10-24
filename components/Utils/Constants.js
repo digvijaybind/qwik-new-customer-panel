@@ -160,6 +160,8 @@ export const locationCountries = [
   { country: "Cambodia", flagImage: "Cambodia.png" },
 ];
 
+// src/components/Utils/Constants.js
+
 
 export const currencySymbols = {
   EUR: "€",

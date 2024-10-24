@@ -1,0 +1,40 @@
+[
+  { "country": "Dubai", "flagImage": "images/location/Dubai.png" },
+  { "country": "Abu Dhabi", "flagImage": "images/location/abudhabi.png" },
+  { "country": "Muscat", "flagImage": "images/location/Muscat.png" },
+  { "country": "Riyadh", "flagImage": "images/location/Riyadh.png" },
+  { "country": "Jeddah", "flagImage": "images/location/Jeddah.png" },
+  { "country": "Madinah", "flagImage": "images/location/Madinah.png" },
+  { "country": "Delhi", "flagImage": "images/location/Delhi.png" },
+  { "country": "Mumbai", "flagImage": "images/location/Mumbai.png" },
+  { "country": "Kolkata", "flagImage": "images/location/Kolkata.png" },
+  { "country": "Chennai", "flagImage": "images/location/Chennai.png" },
+  { "country": "Kenya", "flagImage": "images/location/Kenya.png" },
+  { "country": "Angola", "flagImage": "images/location/Angola.png" },
+  { "country": "Cape Town", "flagImage": "images/location/CapeTown.png" },
+  { "country": "Jakarta", "flagImage": "images/location/Jakarta.png" },
+  { "country": "Auckland", "flagImage": "images/location/Auckland.png" },
+  { "country": "Melbourne", "flagImage": "images/location/Melbourne.png" },
+  { "country": "Sydney", "flagImage": "images/location/Sydney.png" },
+  { "country": "Perth", "flagImage": "images/location/Perth.png" },
+  { "country": "New York", "flagImage": "images/location/NewYork.png" },
+  { "country": "Hyderabad", "flagImage": "images/location/Hyderabad.png" },
+  { "country": "Patna", "flagImage": "images/location/Patna.png" },
+  {
+    "country": "Bhubaneshwar",
+    "flagImage": "images/location/Bhubaneshawar.png"
+  },
+  {
+    "country": "Visakhpatam",
+    "flagImage": "images/location/Visakhapatanam.png"
+  },
+  {
+    "country": "Thiruvananthapuram",
+    "flagImage": "images/location/Thruvanthapuram.png"
+  },
+  { "country": "Ahmedabad", "flagImage": "images/location/Ahmedabad.png" },
+  { "country": "Dehradun", "flagImage": "images/location/Derhradun.png" },
+  { "country": "Chandigarh", "flagImage": "images/location/Chnadigarth.png" },
+  { "country": "Dibrugarh", "flagImage": "images/location/Dibrugarth.png" },
+  { "country": "Assam", "flagImage": "images/location/Assam.png" }
+]

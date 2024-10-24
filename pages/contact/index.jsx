@@ -296,7 +296,7 @@ const Contact = ({ mapInframeUrl }) => {
                     name="From"
                     value={formData.From}
                     onChange={handleChange}
-                    className="w-[350px] 2xl:w-[300px] sm:w-full h-[60px] bg-[#F7F7F7] rounded-tl-md rounded-tr-none rounded-br-none rounded-bl-none border px-4 py-2"
+                    className="w-[350px] 2xl:w-[300px]  sm:w-full h-[60px] bg-[#F7F7F7] rounded-tl-md rounded-tr-none rounded-br-none rounded-bl-none border px-4 py-2 focus:outline-none"
                     placeholder="Enter From..."
                     required
                   />
@@ -362,7 +362,7 @@ const Contact = ({ mapInframeUrl }) => {
                 </div>
 
                 {/* Third row: Phone and Email */}
-                <div className="flex flex-col sm:col-span-2  md:col-span-2">
+                <div className="flex flex-col sm:col-span-2 md:col-span-2  ">
                   <label
                     htmlFor="phone"
                     className="text-gray-700 font-bold mb-2 inline-flex items-center"
@@ -377,18 +377,19 @@ const Contact = ({ mapInframeUrl }) => {
                     onChange={handlePhoneChange}
                     defaultCountry="AE"
                     placeholder="Enter Phone Number"
-                    className="border rounded-md bg-[#F7F7F7] w-full h-[60px] px-4 py-2 focus:outline-none 3xl:w-full 2xl:w-[300px]"
+                    className="border rounded-md bg-[#F7F7F7] w-full h-[60px] px-4 py-2 focus:outline-none 2xl:w-full 3xl:w-[700px]"
                     required
                     countrySelectProps={{
                       className:
-                        "bg-[#f0f4f8] border border-gray-300 h-[60px] rounded-l-md 3xl:w-full focus:outline-none",
+                        "bg-[#f0f4f8] border border-gray-300 h-[60px] rounded-l-md w-full focus:outline-none 2xl:w-full 3xl:w-[100px]",
                     }} // Country selector styles
                     inputProps={{
                       className:
-                        "border border-gray-300 h-[70px] rounded-r-md 3xl:w-full focus:outline-none",
+                        "border border-gray-300 h-[60px] rounded-r-md w-full focus:outline-none 2xl:w-full 3xl:w-[600px]",
                     }} // Phone number input styles
                   />
                 </div>
+
                 <div className="flex flex-col sm:col-span-2  md:col-span-2">
                   <label
                     htmlFor="email"

@@ -103,6 +103,13 @@
 
   @font-face {
     font-family: "Barlow";
+    font-weight: 500; 
+    src:
+      local("Barlow"),
+      url("./fonts/barlow/Barlow-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Barlow";
     font-weight: 600; /* SemiBold weight */
     src:
       local("Barlow"),

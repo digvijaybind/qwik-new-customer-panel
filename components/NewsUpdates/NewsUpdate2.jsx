@@ -39,7 +39,7 @@ const NewsUpdate2 = () => {
   // BlogCard component for displaying individual cards
   const BlogCard = ({ image, title, description }) => {
     return (
-      <div className="bg-white drop-shadow-xl p-4 rounded-md h-[550px] flex flex-col cursor-pointer">
+      <div className="bg-white drop-shadow-xl p-4 rounded-md h-[550px] 2xl:w-[410px] 3xl:w-[410px] flex flex-col cursor-pointer">
         {/* Blog Image */}
         {image ? (
           <img
@@ -85,7 +85,7 @@ const NewsUpdate2 = () => {
             {News.map((blog) => (
               <div
                 key={blog.id}
-                className="grid grid-cols-3 gap-8 sm:grid-cols-1" // Center align cards
+                className="grid grid-cols-3  sm:grid-cols-1 gap-x-8" // Center align cards
               >
                 <BlogCard
                   image={blog.image}

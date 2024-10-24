@@ -50,40 +50,41 @@ const BlogsDetails = () => {
       </div>
 
       {/* Blog Image */}
-      <div className="flex justify-center mt-[30px] rounded-[5px]">
-        {postDetails?._embedded &&
-        postDetails?._embedded["wp:featuredmedia"]?.length > 0 ? (
-          <img
-            src={
-              postDetails._embedded["wp:featuredmedia"][0]?.source_url ||
-              "/images/fallback-image.jpg"
-            }
-            className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
-            alt={postDetails?.title?.rendered || "Blog description"}
-          />
-        ) : (
-          <img
-            src="/images/fallback-image.jpg" // Fallback image
-            className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
-            alt="No image available"
-          />
-        )}
+      <div className="px-10 sm:px-5">
+        <div className="flex justify-center mt-[30px] rounded-[5px]">
+          {postDetails?._embedded &&
+          postDetails?._embedded["wp:featuredmedia"]?.length > 0 ? (
+            <img
+              src={
+                postDetails._embedded["wp:featuredmedia"][0]?.source_url ||
+                "/images/fallback-image.jpg"
+              }
+              className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
+              alt={postDetails?.title?.rendered || "Blog description"}
+            />
+          ) : (
+            <img
+              src="/images/fallback-image.jpg" // Fallback image
+              className="w-[90%] sm:h-[300px] h-[500px] rounded-[5px]"
+              alt="No image available"
+            />
+          )}
+        </div>
+
+        {/* Blog Content */}
+        <div
+          className="px-[5%] mt-[5px] py-[20px] text-[44px] sm:text-[24px] font-barlow font-semibold"
+          dangerouslySetInnerHTML={{
+            __html: postDetails?.title?.rendered,
+          }}
+        ></div>
+        <div
+          className="px-[5%] mt-[5px] py-[20px] font-barlow font-normal"
+          dangerouslySetInnerHTML={{
+            __html: postDetails?.content?.rendered,
+          }}
+        ></div>
       </div>
-
-      {/* Blog Content */}
-      <div
-        className="px-[5%] mt-[5px] py-[20px] text-[44px] font-barlow font-semibold"
-        dangerouslySetInnerHTML={{
-          __html: postDetails?.title?.rendered,
-        }}
-      ></div>
-      <div
-        className="px-[5%] mt-[5px] py-[20px] font-barlow font-normal"
-        dangerouslySetInnerHTML={{
-          __html: postDetails?.content?.rendered,
-        }}
-      ></div>
-
       <div className="mt-10">
         <NewsUpdate2 />
       </div>

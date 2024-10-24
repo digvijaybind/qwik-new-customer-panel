@@ -119,28 +119,9 @@ const WorkwithUs = () => {
           console.log("Submitting payload for Flying Doctor", currentPayload);
           response = await dispatch(DoctorApi(currentPayload));
           Swal.fire({
+            title: "Thank you for Submit!",
+            text: "Our Team will get back to you shortly",
             icon: "success",
-            title: "<strong>Success!</strong>", // Use strong tags for a bold title
-            html: "<p>Your request has been processed successfully.</p>",
-            toast: true,
-            position: "center",
-            showConfirmButton: false,
-            timer: 4000, // Keeps it visible for 4 seconds
-            timerProgressBar: true,
-            background: "#f0f9f5", // Softer green tint to match the success theme
-            iconColor: "#28a745", // Bright green for success
-            customClass: {
-              popup: "shadow-lg rounded-lg p-6", // Increased padding for a bigger popup
-              title: "text-2xl font-bold", // Large title font size
-              htmlContainer: "text-lg", // Large font for the content
-            },
-            showClass: {
-              popup: "animate__animated animate__fadeInRight",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutRight",
-            },
-            width: "400px", // Increase width to make the toast more noticeable
           });
 
           break;
@@ -152,21 +133,9 @@ const WorkwithUs = () => {
           );
           response = await dispatch(hospitalApi(currentPayload));
           Swal.fire({
-            position: "center",
+            title: "Thank you for Submit!",
+            text: "Our Team will get back to you shortly",
             icon: "success",
-            title: "Thank you for registering!",
-            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
-            background: "#f5f7fa",
-            iconColor: "#4CAF50",
-            showConfirmButton: false,
-            timer: 6000,
-            toast: true,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
           });
           break;
 
@@ -177,21 +146,9 @@ const WorkwithUs = () => {
           );
           response = await dispatch(ParamedicsApi(currentPayload));
           Swal.fire({
-            position: "center",
+            title: "Thank you for Submit!",
+            text: "Our Team will get back to you shortly",
             icon: "success",
-            title: "Thank you for registering!",
-            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
-            background: "#f5f7fa",
-            iconColor: "#4CAF50",
-            showConfirmButton: false,
-            timer: 6000,
-            toast: true,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
           });
           break;
 
@@ -202,21 +159,9 @@ const WorkwithUs = () => {
           );
           response = await dispatch(Aircraftoperator(currentPayload));
           Swal.fire({
-            position: "center",
+            title: "Thank you for Submit!",
+            text: "Our Team will get back to you shortly",
             icon: "success",
-            title: "Thank you for registering!",
-            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
-            background: "#f5f7fa",
-            iconColor: "#4CAF50",
-            showConfirmButton: false,
-            timer: 6000,
-            toast: true,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
           });
           break;
 
@@ -227,21 +172,9 @@ const WorkwithUs = () => {
           );
           response = await dispatch(insuranceApi(currentPayload));
           Swal.fire({
-            position: "center",
+            title: "Thank you for Submit!",
+            text: "Our Team will get back to you shortly",
             icon: "success",
-            title: "Thank you for registering!",
-            html: "Welcome to <b>QwikLif</b>. Your journey starts here!",
-            background: "#f5f7fa",
-            iconColor: "#4CAF50",
-            showConfirmButton: false,
-            timer: 6000,
-            toast: true,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
           });
           break;
 
@@ -267,23 +200,23 @@ const WorkwithUs = () => {
   return (
     <div className="font-sans">
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36 "
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60dvh] sm:px-10 px-36  sm:py-16"
         style={{
           backgroundImage: "url('/images/location/Hero.svg')",
         }}
       >
         <div className="flex flex-col items-center">
-          <div className="font-barlow font-bold text-[64px]">
+          <div className="font-barlow font-bold text-[64px] sm:text-[44px]">
             Partner with us
           </div>
-          <div className="font-barlow font-normal text-[24px]">
+          <div className="font-barlow font-normal text-[24px] sm:text-[18px]">
             Home - Partner with us
           </div>
         </div>
       </div>
       <div className="bg-[#efefef]">
         <div className="text-center w-[80%] sm:w-[80%] m-auto py-[40px]">
-          <h2 className="text-[20px] text-[#111] font-barlow font-semibold">
+          <h2 className="text-[20px] sm:text-[28px] text-[#111] font-barlow font-semibold">
             Partner with us
           </h2>
           <hr className="bg-[#11B6E3] h-[3px] w-[50px] mx-auto sm:mx-auto"></hr>
@@ -297,7 +230,7 @@ const WorkwithUs = () => {
           </p>
         </div>
         <div id="root">
-          <div className="grid grid-cols-3 gap-10 px-[86px] pb-[30px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-10 sm:gap-6 px-[86px] pb-[30px] sm:pb-[10px] sm:px-[25px] sm:py-[20px] sm:grid-cols-1 md:grid-cols-1">
             {service.map((data, i) => (
               <div className={` sm:w-[100%] mt-[20px] sm:mt-[15px]`} key={i}>
                 <UpdatecareerCard

@@ -43,7 +43,7 @@ export default function DynamicPage({ service }) {
             alt="Banner"
             className="w-full mb-6 rounded-md"
           />
-          <h2 className="font-barlow text-[54px] font-semibold ">
+          <h2 className="font-barlow text-[54px] font-semibold mt-5 mb-5">
             {service?.head}
           </h2>
           <div className="flex flex-col">

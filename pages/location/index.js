@@ -1,14 +1,13 @@
-import Link from "next/link";
-import locationCountriesUpdate from "../../data/locationCountriesUpdate.json";
 import React, { useEffect, useState } from "react";
-
+import Link from "next/link";
+import locationCountriesUpdate from "../../data/Locationpage.json";
 const SearchBar = ({}) => {
   return (
     <div className="flex justify-center mt-10">
       <input
         type="text"
         placeholder="Enter text here"
-        className="w-full  sm:w-[300px] h-[80px] rounded-l-md border border-gray-300 bg-[#F7F7F7] rounded-md p-4 text-lg focus:outline-none focus:ring-2 transition duration-300 px-5 py-5"
+        className="w-full  sm:w-[300px] h-[80px] rounded-l-md border border-gray-300 bg-[#F7F7F7] rounded-md p-4 text-lg focus:outline-none focus:ring-2 transition duration-300 px-5 py-"
       />
     </div>
   );
@@ -40,7 +39,7 @@ const Locationupdate = () => {
   return (
     <div>
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[70vh] sm:px-10 px-36 "
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60vh] sm:px-10 px-36 "
         style={{
           backgroundImage: "url('/images/location/Hero.svg')",
         }}
@@ -60,29 +59,29 @@ const Locationupdate = () => {
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 mb-5 items-baseline">
-          <div className="col-span-10 sm:col-span-12">
+          <div className="col-span-9 sm:col-span-12">
             <SearchBar />
           </div>
 
-          <div className="col-span-2 sm:col-span-12 flex items-center justify-center">
-            <div className="h-[80px] w-[370px] sm:w-full font-barlow font-semibold text-2xl text-white bg-button-gradient rounded-lg flex justify-center items-center hover:shadow-lg transition duration-300 ease-in-out">
+          <div className="col-span-3 sm:col-span-12 flex items-center justify-center">
+            <div className="h-[80px] w-[370px] sm:w-full font-barlow font-semibold text-2xl text-white bg-button-gradient rounded-lg flex justify-center items-center hover:shadow-lg transition duration-300 ease-in-out cursor-pointer">
               Find out
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-4 sm:grid-cols-1 2xl:gap-x-4 2xl:gap-y-4 sm:items-center gap-x-8 gap-y-8 mb-5 mt-5">
+        <div className="grid grid-cols-4 grid-rows-4 sm:grid-cols-1 2xl:gap-x-4 2xl:gap-y-4 sm:items-center gap-x-8 gap-y-8 mb-5 mt-5 2xl:items-center 3xl:items-center">
           {locationCountriesUpdate?.map((d) => {
             return (
               <div
-                className=" font-sans transition-transform duration-300 transform hover:scale-105 sm:items-center"
+                className="font-sans transition-transform duration-300 transform hover:scale-105 sm:items-center"
                 key={d?.country}
               >
                 <div className="w-[300px] h-[200px]  2xl:w-[250px] 2xl:h-[250px] relative flag-wrapper">
                   <div
                     className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg"
                     style={{
-                      backgroundImage: `url('/${d?.flagImage}')`,
+                      backgroundImage: `url('${d?.flagImage}')`,
                     }}
                   >
                     <div className="flex flex-col justify-center items-center uppercase text-center">
@@ -95,13 +94,13 @@ const Locationupdate = () => {
                     </div>
                   </div>
                   <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3 sm:h-full">
-                    <p className="font-semibold uppercase text-black text-center text-nowrap  2xl:text-[12px]">
+                    <p className="font-semibold uppercase text-black text-center text-nowrap  2xl:text-[8px]">
                       Air Ambulance in {d?.country}
                     </p>
                     <p className="text-center text-sm">
                       Welcome to Qwiklif Air Ambulance, your trusted partner in
-                      medical emergency transportation. As a leading provider of
-                      ..
+                      medical emergency transportation. As a leading provider
+                      of..
                     </p>
                     <Link
                       className="mt-2 px-5 py-2 border border-white rounded-md text-sm sm:mt-1"
