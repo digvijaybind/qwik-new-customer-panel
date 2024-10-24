@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const ServiceCard = ({ img, headline = "", description = "" }) => {
   return (
-    <div className="mx-[10px] sm:mx-[15px] lg:mx-[20px] flex flex-col items-start justify-between border border-gray-200 px-3 sm:px-5 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[480px] sm:h-auto">
+    <div className="mx-[10px] sm:mx-[15px] lg:mx-[20px] flex flex-col items-start justify-between border border-gray-200 px-3 sm:px-5 rounded-lg font-sans cursor-pointer shadow-sm py-5 h-[524px] w 2xl:w-[482px] 3xl:w-[482px] sm:h-auto sm:w-auto md:w-[400px] lg:w-[450px]">
       {/* Image Section */}
       <div className="w-full">
         <Image
@@ -19,10 +19,11 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
           alt={headline}
           height={250}
           width={462}
-          className="rounded-t-lg object-cover w-full"
+          className="rounded-t-lg object-cover w-full h-full"
           layout="responsive"
         />
       </div>
+
       {/* Headline and Description */}
       <div className="sm:px-5">
         <div className="font-barlow font-bold text-[20px] sm:text-[24px] mb-2 text-gray-900">
@@ -31,6 +32,7 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
         <div className="font-barlow font-normal text-[14px] sm:text-[16px] text-gray-600 mb-4 leading-relaxed">
           {description}
         </div>
+
         {/* Read More Button */}
         <button className="mt-auto text-[#1E1E1E] px-4 py-2 rounded-md self-start font-barlow font-bold text-[16px] sm:text-[20px] mb-2 transition-all duration-300">
           Read More
@@ -40,8 +42,48 @@ const ServiceCard = ({ img, headline = "", description = "" }) => {
   );
 };
 
+const truncateText = (text, wordLimit) => {
+  const words = text.split(" ");
+  if (words.length > wordLimit) {
+    return words.slice(0, wordLimit).join(" ") + "...";
+  }
+  return text;
+};
+
+const ServiceCardUpdated = ({
+  img,
+  headline = "",
+  description = "",
+  buttonTitle = "",
+}) => {
+  return (
+    <div className="flex flex-col items-start max-w-[430px] 2xl:max-w-[450px] 3xl:max-w-[450px] shadow-md rounded-lg bg-[#fff] px-4 py-5 cursor-pointer">
+      <div className="w-full h-[250px] overflow-hidden rounded-t-lg">
+        <Image
+          src={img}
+          alt={headline}
+          height={250}
+          width={560}
+          className="object-cover w-full h-full"
+          layout="responsive"
+        />
+      </div>
+      <div className="font-barlow font-semibold text-[28px] mt-5 mb-3">
+        {headline}
+      </div>
+      <div className="font-barlow font-normal text-[20px] mb-5">
+        {truncateText(description, 13)}
+      </div>
+      <div className="button font-barlow font-semibold text-[20px] text-[#1E1E1E]">
+        {buttonTitle}
+      </div>
+    </div>
+  );
+};
+
+
 // ServiceUpdate Component
-const ServiceUpdate = ({ showSeeMoreButton = true }) => {
+const ServiceUpdate = ({ showSeeMoreButton = true, buttonTitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Slider settings
@@ -95,10 +137,16 @@ const ServiceUpdate = ({ showSeeMoreButton = true }) => {
               key={index}
               className="flex justify-center" // Center the card
             >
-              <ServiceCard
+              {/* <ServiceCard
                 img={data.image}
                 headline={data.title}
                 description={data.description}
+              /> */}
+              <ServiceCardUpdated
+                img={data.image}
+                headline={data.title}
+                description={data.description}
+                buttonTitle={buttonTitle}
               />
             </div>
           ))}
@@ -106,7 +154,7 @@ const ServiceUpdate = ({ showSeeMoreButton = true }) => {
       </div>
       {/* See More Button */}
       {showSeeMoreButton && (
-        <div className="w-[240px] h-[70px] bg-button-gradient mt-8 font-barlow font-[600] text-white flex justify-center items-center text-center rounded-md text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
+        <div className="w-[240px] h-[70px] bg-button-gradient mt-10 font-barlow font-[600] text-white flex justify-center items-center text-center rounded-md text-[28px] cursor-pointer hover:shadow-lg transition-shadow duration-300">
           <Link href="/services">See More</Link>
         </div>
       )}

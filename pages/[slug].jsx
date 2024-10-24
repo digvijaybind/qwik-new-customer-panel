@@ -48,25 +48,47 @@ export default function DynamicPage({ service }) {
           </h2>
           <div className="flex flex-col">
             <div className="text-[28px] text-normal font-barlow mb-5">
-              {service?.description}
+              Lorem ipsum dolor sit amet consectetur. Bibendum turpis fringilla
+              ut nisi blandit cursus. Libero augue condimentum ac scelerisque
+              cursus quisque. Ridiculus et tellus posuere tincidunt aliquet nibh
+              augue. Diam eget in bibendum tempor egestas in non nulla enim. In
+              pulvinar morbi luctus duis. Nisl luctus feugiat fringilla euismod
+              placerat vel fermentum turpis pharetra. Viverra massa diam ut
+              auctor convallis auctor vitae duis est. Risus phasellus nunc massa
+              consequat. Varius sit enim egestas at tincidunt.
             </div>
             <div className="text-[28px] text-normal font-barlow mb-5">
-              {service?.services}
+              Lorem ipsum dolor sit amet consectetur. Bibendum turpis fringilla
+              ut nisi blandit cursus. Libero augue condimentum ac scelerisque
+              cursus quisque. Ridiculus et tellus posuere tincidunt aliquet nibh
+              augue. Diam eget in bibendum tempor egestas in non nulla enim. In
+              pulvinar morbi luctus duis. Nisl luctus feugiat fringilla euismod
+              placerat vel fermentum turpis pharetra. Viverra massa diam ut
+              auctor convallis auctor vitae duis est. Risus phasellus nunc massa
+              consequat. Varius sit enim egestas at tincidunt.
             </div>
             <div className="text-[28px] text-normal font-barlow mb-5">
-              {service?.whyChooseUs}
+              Lorem ipsum dolor sit amet consectetur. Bibendum turpis fringilla
+              ut nisi blandit cursus. Libero augue condimentum ac scelerisque
+              cursus quisque. Ridiculus et tellus posuere tincidunt aliquet nibh
+              augue. Diam eget in bibendum tempor egestas in non nulla enim. In
+              pulvinar morbi luctus duis. Nisl luctus feugiat fringilla euismod
+              placerat vel fermentum turpis pharetra.
             </div>
-            <button className="w-full h-[70px] bg-button-gradient text-white rounded-[4px_0px_0px_0px] flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10 font-barlow font-normal text-[24px]">
+            <button className="w-full h-[70px] bg-button-gradient text-white flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10 font-barlow  text-[24px] rounded-md font-600">
               <Link href="/contact">Get Quote Now</Link>
             </button>
-            <button className="w-full h-[70px] bg-[#F7F7F7] text-[#1E1E1E] rounded-[4px_0px_0px_0px] flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10 font-barlow font-normal text-[24px] shadow-sm">
+            <button className="w-full h-[70px] bg-[#F7F7F7] text-[#a7a7a7] rounded-[4px_0px_0px_0px] flex justify-center items-center cursor-pointer mt-10 sm:mt-6 md:mt-8 lg:mt-10 font-barlow  text-[24px] shadow-md font-600">
               <Link href="/contact">Request A Call Back</Link>
             </button>
           </div>
         </div>
       </div>
-      <div>
-        <ServiceUpdate showSeeMoreButton={false} />
+      <div className="mt-10">
+        <ServiceUpdate
+          showSeeMoreButton={false}
+          buttonTitle="Get Quote Now >"
+        />
       </div>
       <div className="mt-20 sm:mt-10">
         <GetTouch />

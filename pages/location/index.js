@@ -39,22 +39,24 @@ const Locationupdate = () => {
   return (
     <div>
       <div
-        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60vh] sm:px-10 px-36 "
+        className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white sm:h-[20vh] h-[60vh] md:h-[40px] sm:px-10 px-36 sm:py-20"
         style={{
           backgroundImage: "url('/images/location/Hero.svg')",
         }}
       >
         <div className="flex flex-col items-center">
-          <div className="font-barlow font-bold text-[64px]">Our Location</div>
+          <div className="font-barlow font-bold text-[64px] sm:text-[44px]">
+            Our Location
+          </div>
           <div className="font-barlow font-normal text-[24px]">
             Home - Our location
           </div>
         </div>
       </div>
 
-      <div className="px-20 sm:px-5 sm:py2-2 py-10 flex flex-col sm:items-center">
+      <div className="px-20 sm:px-5 sm:py-2 md:px-10  py-10 flex flex-col sm:items-center">
         <div className="flex justify-center">
-          <div className="font-barlow text-[54px] font-bold 2xl:text-nowrap  2xl:text-[34px] 3xl:text-nowrap sm:text-[34px] sm:text-pretty bg-headline-gradient text-transparent bg-clip-text mb-2 sm:text-center">
+          <div className="font-barlow text-[54px] font-bold 2xl:text-nowrap  2xl:text-[34px] 3xl:text-nowrap sm:text-[34px] md:text-[28px] md:px-10 sm:text-pretty  bg-headline-gradient md:text-center text-transparent  bg-clip-text mb-2 sm:text-center">
             Find Out If Our Services Are Accessible in Your Location.
           </div>
         </div>
@@ -70,16 +72,16 @@ const Locationupdate = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 grid-rows-4 sm:grid-cols-1 2xl:gap-x-4 2xl:gap-y-4 sm:items-center gap-x-8 gap-y-8 mb-5 mt-5 2xl:items-center 3xl:items-center">
+        <div className="grid grid-cols-4 grid-rows-4 sm:grid-cols-1 md:grid-cols-2 2xl:gap-x-4 2xl:gap-y-4 gap-x-8 gap-y-8 md:gap-y-10 mb-5 mt-5 md:justify-center md:items-center">
           {locationCountriesUpdate?.map((d) => {
             return (
               <div
                 className="font-sans transition-transform duration-300 transform hover:scale-105 sm:items-center"
                 key={d?.country}
               >
-                <div className="w-[300px] h-[200px]  2xl:w-[250px] 2xl:h-[250px] relative flag-wrapper">
+                <div className="w-[300px] h-[200px] 2xl:w-[250px] 2xl:h-[250px] relative flag-wrapper">
                   <div
-                    className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg"
+                    className="w-full h-full bg-cover bg-top text-white flex items-center justify-center flag-card transition-all duration-700 front rounded-lg opacity-90"
                     style={{
                       backgroundImage: `url('${d?.flagImage}')`,
                     }}
@@ -94,7 +96,7 @@ const Locationupdate = () => {
                     </div>
                   </div>
                   <div className="w-full h-full bg-cover bg-top text-white flex flex-col items-center justify-center flag-card transition-all duration-700 back bg-primary p-3 gap-3 sm:h-full">
-                    <p className="font-semibold uppercase text-black text-center text-nowrap  2xl:text-[8px]">
+                    <p className="font-semibold uppercase text-black text-center text-nowrap 2xl:text-[8px]">
                       Air Ambulance in {d?.country}
                     </p>
                     <p className="text-center text-sm">

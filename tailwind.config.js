@@ -46,6 +46,7 @@ module.exports = {
       },
       fontWeight: {
         500: "500",
+        600: "600",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",

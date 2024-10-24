@@ -14,7 +14,7 @@ const IconWithTitle = ({ icon, text, title, color }) => {
         <Image
           src={icon}
           alt={text}
-          className="h-[90px] w-[150px] sm:h-[60px] sm:w-[250px] 2xl:h-[100px] 2xl:w-[200px]"
+          className="h-[80px] w-[200px] sm:h-[60px] sm:w-[250px] 2xl:h-[100px] 2xl:w-[200px]"
         />
       </div>
 

@@ -147,7 +147,7 @@ const Home = () => {
         <Navnew />
 
         <div
-          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20 lg:h-[500px] xl:h-[700px]`}
+          className={`${styles.LandingImage} h-[600px] w-full bg-cover bg-center px-20 flex justify-start items-center sm:justify-center sm:px-20 lg:h-[500px] xl:h-[700px] opacity-80`}
         >
           <div className="flex flex-col justify-start max-w-[630px] max-h-[480px] sm:max-h-[550px] lg:max-w-[550px] xl:max-w-[600px] space-y-4 sm:justify-center">
             {/* Headline */}
@@ -163,7 +163,7 @@ const Home = () => {
             </p>
 
             {/* Services Section */}
-            <div className="grid grid-cols-3 gap-x-4 mt-10 mb-10 sm:grid-cols-2 md:gap-x-2 lg:gap-x-3">
+            <div className="grid grid-cols-3 gap-x-2 mt-10 mb-10 sm:grid-cols-2 md:gap-x-2 lg:gap-x-3">
               <div className="flex items-center space-x-2">
                 {/* Colored Dot */}
                 <div className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 rounded-full bg-[#00FF00]"></div>
@@ -209,7 +209,7 @@ const Home = () => {
 
         {/*Our services*/}
         <div className="mt-10 relative 2xl:bottom-[100px] 3xl:bottom-[130px]">
-          <ServiceUpdate showSeeMoreButton={true} />
+          <ServiceUpdate showSeeMoreButton={true} buttonTitle="Read More >" />
         </div>
 
         {/*How to book air ambulance */}

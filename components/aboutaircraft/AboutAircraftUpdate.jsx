@@ -9,10 +9,10 @@ import Link from "next/link";
 // Reusable IconWithTitle component
 const IconWithTitle = ({ icon, text, title, textColor }) => (
   <div
-    className={`${styles.iconContainer} flex items-center justify-around gap-2`} // Applied a consistent border-radius to the whole container
+    className={`${styles.iconContainer} flex items-center justify-around gap-2 py-2`} // Applied a consistent border-radius to the whole container
   >
     {/* Icon Container */}
-    <div className="flex items-center justify-center h-24 w-24 bg-[#f1fbfe] rounded-xl px-4 py-4">
+    <div className="flex items-center justify-center h-20 w-20 bg-[#e5f4fa] rounded-xl px-4 py-4">
       {/* Use 'rounded-xl' for a larger and consistent border-radius */}
       <Image src={icon} alt={text} width={80} height={60} />
     </div>
