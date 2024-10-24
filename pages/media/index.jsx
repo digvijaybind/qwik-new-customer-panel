@@ -26,22 +26,29 @@ import qwiklifimage3 from "../../public/images/qwiklifimage3.jpg";
 import Image from "next/image";
 import PageStepper from "@/components/pagestepper/PageStepper";
 
-const MediaCollaspe = ({ image1, image2 }) => {
+const images = [
+  { img: Airtransfer },
+  { img: Ambulance },
+  { img: beechcraft },
+  ,
+  { img: qwiklif1 },
+  { img: qwiklif2 },
+  { img: qwiklif3 },
+  { img: qwiklif4 },
+  { img: qwiklif6 },
+  { img: qwiklif7 },
+  { img: qwiklif8 },
+  { img: qwiklif10 },
+];
+const MediaCollaspe = ({ image1 }) => {
   return (
     <div className="flex flex-row cursor-pointer">
       <Image
         src={image1}
-        width={371}
-        height={418}
+        width={482} // Updated width
+        height={482} // Updated height
         alt="QwikLif Image 1"
-        className=""
-      />
-      <Image
-        src={image2}
-        width={371}
-        height={418}
-        alt="QwikLif Image 2"
-        className="ml-2"
+        className="rounded-md"
       />
     </div>
   );
@@ -53,8 +60,7 @@ const MediaUpdate = () => {
         className="flex flex-col items-center justify-center font-sans bg-no-repeat bg-cover bg-center text-white 
   sm:h-[20vh] h-[70vh] sm:px-10 px-36 relative overflow-hidden "
         style={{
-          backgroundImage:
-            " url('/images/location/Hero.svg')",
+          backgroundImage: " url('/images/location/Hero.svg')",
           backgroundSize: "cover", // Ensures the entire container is covered
           backgroundPosition: "center", // Centers the image within the container
           backgroundRepeat: "no-repeat", // Prevents the image from repeating
@@ -72,22 +78,14 @@ const MediaUpdate = () => {
 
       <div className="px-10 py-10 flex flex-col">
         <div className="flex justify-center">
-          <div className="font-barlow text-[54px] font-bold bg-headline-gradient text-transparent bg-clip-text mb-2">
+          <div className="font-barlow text-[54px] sm:text-[34px] sm:text-center font-bold bg-headline-gradient text-transparent bg-clip-text mb-5">
             Our Recent Transfer
           </div>
         </div>
-        <div className="grid grid-cols-2 grid-rows-4 gap-x-8 gap-y-8">
-          <MediaCollaspe image1={qwiklif1} image2={qwiklif2} />
-          <MediaCollaspe image1={Airtransfer} image2={Ambulance} />
-          <MediaCollaspe image1={qwiklif3} image2={qwiklif4} />
-          <MediaCollaspe image1={qwiklif5} image2={qwiklif6} />
-          <MediaCollaspe image1={qwiklif7} image2={qwiklif8} />
-          <MediaCollaspe image1={qwiklif9} image2={qwiklif10} />
-          <MediaCollaspe image1={doctor} image2={helicaptor} />
-          <MediaCollaspe image1={learjet} image2={operation} />
-          <MediaCollaspe image1={airpatience} image2={strectre} />
-          <MediaCollaspe image1={qwiklif1} image2={qwiklif2} />
-          <MediaCollaspe image1={qwiklif1} image2={qwiklif2} />
+        <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-rows-4 gap-x-8 gap-y-8">
+          {images.map((data) => {
+            return <MediaCollaspe image1={data.img} />;
+          })}
         </div>
       </div>
       <div className="mb-5">

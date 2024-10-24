@@ -156,7 +156,6 @@ const Contact = ({ mapInframeUrl }) => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
   const handleSubmit = async (e) => {
-
     try {
       const response = await dispatch(EquieryApi(formData));
       if (EquieryApi.fulfilled.match(response)) {
@@ -378,15 +377,15 @@ const Contact = ({ mapInframeUrl }) => {
                     onChange={handlePhoneChange}
                     defaultCountry="AE"
                     placeholder="Enter Phone Number"
-                    className="border rounded-md bg-[#F7F7F7] w-full h-[60px] px-4 py-2 focus:outline-none 2xl:w-[300px]"
+                    className="border rounded-md bg-[#F7F7F7] w-full h-[60px] px-4 py-2 focus:outline-none 3xl:w-full 2xl:w-[300px]"
                     required
                     countrySelectProps={{
                       className:
-                        "bg-[#f0f4f8] border border-gray-300 h-[60px] rounded-l-md focus:outline-none",
+                        "bg-[#f0f4f8] border border-gray-300 h-[60px] rounded-l-md 3xl:w-full focus:outline-none",
                     }} // Country selector styles
                     inputProps={{
                       className:
-                        "border border-gray-300 h-[70px] rounded-r-md focus:outline-none",
+                        "border border-gray-300 h-[70px] rounded-r-md 3xl:w-full focus:outline-none",
                     }} // Phone number input styles
                   />
                 </div>
